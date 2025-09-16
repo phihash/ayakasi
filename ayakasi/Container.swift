@@ -1,0 +1,54 @@
+import SwiftUI
+
+
+struct Container: View {
+    @State private var selection : Int = 0
+    
+    var body: some View {
+        ZStack{
+            
+            TabView(selection: $selection) {
+                HomeView()
+                    .tabItem {
+                        Image("home")
+                            .renderingMode(.template)
+                    }
+                    .tag(0)
+                
+                SearchView()
+                    .tabItem {
+                        Image("search")
+                            .renderingMode(.template)
+                    }
+                    .tag(1)
+                
+                StoryList()
+                    .tabItem{
+                        Image("book")
+                            .renderingMode(.template)
+                        
+                    }
+                    .tag(2)
+                
+                Weather()
+                    .tabItem {
+                        Image("weather")
+                            .renderingMode(.template)
+                    }
+                    .tag(3)
+                
+                Walk()
+                    .tabItem {
+                        Image("walk")
+                            .renderingMode(.template)
+                    }
+                    .tag(4)
+          
+            }.tint(.orange)
+            
+        }
+
+    }
+    
+}
+
