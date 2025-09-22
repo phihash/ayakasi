@@ -6,6 +6,7 @@ struct StoryList: View {
     @State private var isWarasiShow = false
     @State private var isKiyohimeShow = false
     @State private var isOitekeShow = false
+    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         NavigationStack{
             ZStack{
@@ -188,7 +189,7 @@ struct StoryList: View {
                     VStack{
                         ZStack{
                             Rectangle()
-                                .fill(.orange.opacity(0.5))
+                                .fill(colorVM.currentColor)
                                 .frame(width: screenWidth * 0.9,height: 140)
                                 .cornerRadius(24)
                             

@@ -6,6 +6,7 @@ let categories = [
 
 // 1. カテゴリバー コード上では下だが画面上部に配置
 struct CategoryBar : View{
+    @EnvironmentObject var ColorVM : ColorViewModel
     @State private var selectedYokai : Ayakasi? = nil
     var body: some View{
         HStack{
@@ -39,7 +40,7 @@ struct CategoryBar : View{
                 .padding(.trailing,24)
             }
         }
-        .background(.orange)
+        .background(ColorVM.currentColor)
         
     }
 }

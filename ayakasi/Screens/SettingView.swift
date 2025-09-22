@@ -9,6 +9,16 @@ struct SettingView: View {
         NavigationStack{
             List{
                 Section{
+                   
+                    NavigationLink(destination: ColorView() ){
+                        HStack(spacing: 18){
+                            Image(systemName: "paintpalette")
+                            Text("カラー変更")
+                        }
+                        .foregroundStyle(.black)
+                        .padding(.vertical,6)
+                    }
+                    
 
                     HStack(spacing: 12){
                         ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
@@ -88,14 +98,14 @@ struct SettingView: View {
                 }
                 
             }
-            .navigationTitle("アプリについて")
+            .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
         }
         .sheet(isPresented: $isShowMailView) {
                     MailView(
                         address: ["610g0531@gmail.com"],
                         subject: "問い合わせ",
-                        body: "\n\n----\n不具合の検証に利用させていただきます。 \nApp: \(Bundle.main.appName)\n                    Version:  (\(Bundle.main.buildNumber))   \n                     iOS: \(UIDevice.current.systemVersion)   \n"
+                        body: "\n\n----\n不具合の検証に利用させていただきます。 \nApp: \(Bundle.main.appName)\n                    Version:  (\(Bundle.main.appVersion))   \n                     iOS: \(UIDevice.current.systemVersion)   \n"
                     )
                     .edgesIgnoringSafeArea(.all)
                 }

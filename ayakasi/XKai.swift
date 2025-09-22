@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Xkai: View {
     let ayakasis: [Ayakasi]
+    let title : String
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     @State private var selectedYokai : Ayakasi?
     @Environment(\.dismiss) private var dismiss
@@ -9,22 +10,6 @@ struct Xkai: View {
     var body: some View {
         NavigationStack{
             ScrollView(showsIndicators: false){
-                HStack{
-                    Circle()
-                        .fill(Color.black.opacity(0.6))
-                        .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
-                        .overlay(
-                            Image(systemName: "xmark")
-                                .foregroundStyle(.white)
-                                .padding()
-                        )
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-                .padding(.horizontal,20)
-                .padding(.bottom,12)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 LazyVGrid(columns: columns){
                     ForEach(ayakasis){ayakasi in
                         PickupCard(ayakasi: ayakasi)
@@ -36,9 +21,17 @@ struct Xkai: View {
                         }
                     }
                 }
+                .padding(.vertical,12)
             }
             .background(Color("Ivory"))
-            .navigationTitle("現代の怪")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("閉じる"){
+                        dismiss()
+                    }
+                }
+            }
+            .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
 
         }

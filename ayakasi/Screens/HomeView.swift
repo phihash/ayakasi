@@ -47,6 +47,7 @@ struct HomeView: View {
     @State private var page = 0
     @State private var selectedYokai : Ayakasi? = nil
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    @EnvironmentObject var colorVM : ColorViewModel
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
@@ -68,7 +69,7 @@ struct HomeView: View {
                         Link(destination: URL(string: "https://www.toei-eigamura.com/yokai/")!){
                             ZStack{
                                 Rectangle()
-                                    .fill(.orange.opacity(0.5))
+                                    .fill(colorVM.currentColor)
                                     .frame(width: screenWidth * 0.9)
                                     .cornerRadius(12)
                                 

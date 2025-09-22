@@ -9,6 +9,8 @@ struct SearchView: View {
     @State private var showMitinokai : Bool = false
     @State private var showMizunokai : Bool = false
     @State private var showGendainokai : Bool = false
+    @State private var showOtonokai : Bool = false
+    @State private var showIenokai : Bool = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -23,7 +25,7 @@ struct SearchView: View {
                     .padding(.vertical,24)
                     
                     LazyVGrid(columns: columns){
-                       
+                      
                         VStack{
                             Text("🌊")
                                 .font(.system(size: 100, weight: .bold))
@@ -34,12 +36,12 @@ struct SearchView: View {
                                     showMizunokai = true
                                 }
                                 .fullScreenCover(isPresented: $showMizunokai){
-                                    Mizunokai(ayakasis:ayakasis.filter({$0.categories.contains("水の怪")}))
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("水の怪")}), title:"水の怪")
                                 }
                             Text("水の怪")
                                 .fontWeight(.bold)
                         }
-                       
+                        
                         VStack{
                             Text("⛰️")
                                 .font(.system(size: 100, weight: .bold))
@@ -50,12 +52,13 @@ struct SearchView: View {
                                     showYamanokai = true
                                 }
                                 .fullScreenCover(isPresented: $showYamanokai){
-                                    Yamanokai(ayakasis:ayakasis.filter({$0.categories.contains("山の怪")}))
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("山の怪")}), title:"山の怪")
                                 }
                             Text("山の怪")
                                 .fontWeight(.bold)
                         }
-
+                     
+                        
                         
                         VStack{
                             Text("🛣️")
@@ -66,8 +69,8 @@ struct SearchView: View {
                                 .onTapGesture{
                                     showMitinokai = true
                                 }
-                                .fullScreenCover(isPresented: $showMitinokai){
-                                    Mitinokai(ayakasis:ayakasis.filter({$0.categories.contains("道の怪")}))
+                                .fullScreenCover(isPresented:  $showMitinokai){
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("道の怪")}), title:"道の怪")
                                 }
                             Text("道の怪")
                                 .fontWeight(.bold)
@@ -84,9 +87,41 @@ struct SearchView: View {
                                     showGendainokai = true
                                 }
                                 .fullScreenCover(isPresented: $showGendainokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("現代の怪")}))
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("現代の怪")}), title:"現代の怪")
                                 }
                             Text("現代の怪")
+                                .fontWeight(.bold)
+                        }
+                        
+                        VStack{
+                            Text("🎶")
+                                .font(.system(size: 100, weight: .bold))
+                                .frame(maxWidth: .infinity)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(.gray,lineWidth: 3))
+                                .onTapGesture{
+                                    showOtonokai = true
+                                }
+                                .fullScreenCover(isPresented: $showOtonokai){
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("音の怪")}),title: "音の怪")
+                                }
+                            Text("音の怪")
+                                .fontWeight(.bold)
+                        }
+                        
+                        VStack{
+                            Text("🏠")
+                                .font(.system(size: 100, weight: .bold))
+                                .frame(maxWidth: .infinity)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(.gray,lineWidth: 3))
+                                .onTapGesture{
+                                    showIenokai = true
+                                }
+                                .fullScreenCover(isPresented: $showIenokai){
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("家の怪")}),title: "家の怪")
+                                }
+                            Text("家の怪")
                                 .fontWeight(.bold)
                         }
                      

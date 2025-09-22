@@ -3,7 +3,7 @@ import SwiftUI
 
 struct Container: View {
     @State private var selection : Int = 0
-    
+    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         ZStack{
             
@@ -44,7 +44,8 @@ struct Container: View {
                     }
                     .tag(4)
           
-            }.tint(.orange)
+            }
+            .tint(colorVM.currentColor)
             
         }
 

@@ -16,9 +16,9 @@ struct Ayakasi : Identifiable {
     let tags : [String]
     let categories : [String]
     var aliases: [String]? = nil
-    var features: String? = nil
+    var features: [String]? = nil
     var distribution: String? = nil
-    var episodes: [String]? = nil
+    var episodes: String? = nil
     var cultures: String? = nil
     var references: [ReferenceLink]? = nil
 

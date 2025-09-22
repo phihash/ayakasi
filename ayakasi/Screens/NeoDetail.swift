@@ -9,6 +9,7 @@ struct NeoDetail: View {
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
     @State private var alertMessage : String = ""
+    @EnvironmentObject var colorVM : ColorViewModel
     
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
@@ -28,18 +29,18 @@ struct NeoDetail: View {
                 
             }
         case .denied:
-                  alertMessage = "写真アクセスが拒否されています。設定アプリで許可してください"
-                  showAlert = true
+            alertMessage = "写真アクセスが拒否されています。設定アプリで許可してください"
+            showAlert = true
         case .restricted:
-                  alertMessage = "写真アクセスが制限されています"
-                  showAlert = true
+            alertMessage = "写真アクセスが制限されています"
+            showAlert = true
         @unknown default:
-                  alertMessage = "写真アクセス状態が不明です"
-                  showAlert = true
-
+            alertMessage = "写真アクセス状態が不明です"
+            showAlert = true
+            
         }
     }
-
+    
     private func saveImage(imageName : String){
         guard let uiImage = UIImage(named:imageName) else  { return }
         
@@ -108,13 +109,13 @@ struct NeoDetail: View {
                         Text("基本情報")
                             .fontWeight(.bold)
                             .padding(.vertical,16)
-                            .foregroundStyle(selectedTab == 0 ? .orange : .black.opacity(0.3))
+                            .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
                             .frame(width: screenWidth * 0.45)
                             .overlay(alignment: .bottom) {
                                 Rectangle()
                                     .frame(height: 2)
                                     .frame(width: screenWidth * 0.45)
-                                    .foregroundStyle(selectedTab == 0 ? .orange : .black.opacity(0.3))
+                                    .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
                             }
                             .onTapGesture {
                                 selectedTab = 0
@@ -123,13 +124,13 @@ struct NeoDetail: View {
                         Text("その他")
                             .fontWeight(.bold)
                             .padding(.vertical,16)
-                            .foregroundStyle(selectedTab == 1 ? .orange : .black.opacity(0.3))
+                            .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
                             .frame(width: screenWidth * 0.45)
                             .overlay(alignment: .bottom) {
                                 Rectangle()
                                     .frame(height: 2)
                                     .frame(width: screenWidth * 0.45)
-                                    .foregroundStyle(selectedTab == 1 ? .orange : .black.opacity(0.4))
+                                    .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
                             }
                             .onTapGesture {
                                 selectedTab = 1
@@ -143,39 +144,39 @@ struct NeoDetail: View {
                         if selectedTab == 0{
                             ScrollView(showsIndicators: false){
                                 // エイリアスセクション
-                                VStack{
-                                    HStack{
-                                        Image("branch")
-                                            .renderingMode(.template)
-                                        Text("名称")
-                                            .font(.title2)
-                                            .fontWeight(.bold)
-                                        Spacer()
-                                    }
-                                    .padding(.vertical,12)
-                                    
-                                    if let aliases = yokai.aliases{
-                                        FlowLayout(alignment: .leading,spacing:12){
-                                            ForEach(aliases, id: \.self){ element in
-                                                Text("\(element)")
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(.white)
-                                                    .padding(.vertical,6)
-                                                    .padding(.horizontal,12)
-                                                    .background(.orange.opacity(0.8))
-                                                    .cornerRadius(12)
-                                                
-                                            }
-                                        }
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    
-                                }
-                                .padding(.horizontal,24)
-                                .padding(.bottom,12)
+                                //                                VStack{
+                                //                                    HStack{
+                                //                                        Image("branch")
+                                //                                            .renderingMode(.template)
+                                //                                        Text("名称")
+                                //                                            .font(.title2)
+                                //                                            .fontWeight(.bold)
+                                //                                        Spacer()
+                                //                                    }
+                                //                                    .padding(.vertical,12)
+                                
+                                //                                    if let features = yokai.features{
+                                //                                        FlowLayout(alignment: .leading,spacing:12){
+                                //                                            ForEach(features, id: \.self){ element in
+                                //                                                Text("\(element)")
+                                //                                                    .fontWeight(.bold)
+                                //                                                    .foregroundStyle(.white)
+                                //                                                    .padding(.vertical,6)
+                                //                                                    .padding(.horizontal,12)
+                                //                                                    .background(colorVM.currentColor)
+                                //                                                    .cornerRadius(12)
+                                //
+                                //                                            }
+                                //                                        }
+                                //                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                //                                    }
+                                ////
+                                //                                }
+                                //                                .padding(.horizontal,24)
+                                //                                .padding(.bottom,12)
                                 
                                 
-                                Divider()
+                                //                                Divider()
                                 
                                 VStack{
                                     HStack{
@@ -210,15 +211,25 @@ struct NeoDetail: View {
                                             Spacer()
                                         }
                                         .padding(.vertical,12)
-                                        
-                                        Text(features)
-                                            .fontWeight(.bold)
-                                            .padding(.vertical,6)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        FlowLayout(alignment: .leading){
+                                            ForEach(features, id: \.self){ element in
+                                                Text("\(element)")
+                                                    .fontWeight(.bold)
+                                                    .foregroundStyle(.white)
+                                                    .padding(.vertical,6)
+                                                    .padding(.horizontal,12)
+                                                    .background(colorVM.currentColor)
+                                                    .cornerRadius(12)
+                                            }
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                         
                                     }
                                     .padding(.horizontal,24)
+                                    .padding(.bottom,12)
                                 }
+                      
+                                
                                 
                                 Divider()
                                 
@@ -271,10 +282,34 @@ struct NeoDetail: View {
                                     .padding(.horizontal,24)
                                 }
                                 
+                                Divider()
+                                
+                                if let episodes = yokai.episodes {
+                                    VStack{
+                                        HStack{
+                                            Image("episode")
+                                                .renderingMode(.template)
+                                            Text("エピソード")
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                            Spacer()
+                                        }
+                                        .padding(.top,16)
+                                        .padding(.bottom,12)
+                                        
+                                        Text(episodes)
+                                            .fontWeight(.bold)
+                                            .padding(.vertical,6)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                    .padding(.horizontal,24)
+                                }
+                                
                             }
                             
                         }
-    
+                        
                     }
                     
                     
@@ -284,29 +319,29 @@ struct NeoDetail: View {
             }
         }
         .alert("", isPresented: $showAlert) {
-                    Button("OK", role: .cancel) {}
-                } message: {
-                    Text(alertMessage)
-                }
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(alertMessage)
+        }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
         .safeAreaInset(edge: .bottom){
             VStack{
                 
                 HStack{
-   
+                    
                     HStack{
                         Text("写真を保存")
                     }
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(width: screenWidth * 0.6, height: 44)
-                    .background(Capsule().fill(.orange))
+                    .background(Capsule().fill(colorVM.currentColor))
                     .padding(.trailing,32)
                     .onTapGesture {
                         requestAndSaveImage(imageName: yokai.imageName)
                     }
-
+                    
                     
                     VStack(spacing:4){
                         Image(systemName: "arrowshape.turn.up.backward")
@@ -315,7 +350,7 @@ struct NeoDetail: View {
                     }.onTapGesture {
                         dismiss()
                     }
-
+                    
                     
                 }
                 .padding(.top,16)
