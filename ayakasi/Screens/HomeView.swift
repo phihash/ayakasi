@@ -192,13 +192,42 @@ struct HomeView: View {
                             }
                         }.tag(4)
                         
+                        Link(destination: URL(string: "https://www.kanjimuseum.kyoto/kikakutenji/detail/kanji-yokai-chimi-moryo.html")!){
+                            ZStack{
+                                Rectangle()
+                                    .fill(.yellow.opacity(0.6))
+                                    .frame(width: screenWidth * 0.9)
+                                    .cornerRadius(12)
+                                
+                                HStack{
+                                    Spacer()
+                                    Image("noppe")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: screenWidth * 0.24) // サイズ調整
+                                   
+
+                                    Spacer()
+                                    
+                                    Text("妖怪漢字")
+                                        .font(.title2)
+                                        .foregroundStyle(.white)
+                                        .fontWeight(.bold)
+                        
+                                    
+                                    Spacer()
+                                }
+                                
+                            }
+                        }.tag(5)
+                        
                         
                     }
                     .tabViewStyle(.page(indexDisplayMode: .automatic)) // ドット表示
                     .frame(height: 130)
                     .onReceive(timer) { _ in
                         withAnimation(.easeInOut) {
-                            page = (page + 1) % 5  // 最後→最初にループ 4枚なので
+                            page = (page + 1) % 6  // 最後→最初にループ 4枚なので
                         }
                     }
                 }

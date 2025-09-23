@@ -11,6 +11,7 @@ struct SearchView: View {
     @State private var showGendainokai : Bool = false
     @State private var showOtonokai : Bool = false
     @State private var showIenokai : Bool = false
+    @State private var showDoubutunokai : Bool = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -75,6 +76,23 @@ struct SearchView: View {
                             Text("道の怪")
                                 .fontWeight(.bold)
                         }
+                        
+                        VStack{
+                            Text("🧸")
+                                .font(.system(size: 100, weight: .bold))
+                                .frame(maxWidth: .infinity)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(.gray,lineWidth: 3))
+                                .onTapGesture{
+                                    showDoubutunokai = true
+                                }
+                                .fullScreenCover(isPresented:  $showDoubutunokai){
+                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("動物の怪")}), title:"動物の怪")
+                                }
+                            Text("動物の怪")
+                                .fontWeight(.bold)
+                        }
+                     
                      
                         
                         VStack{
