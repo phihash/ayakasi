@@ -198,7 +198,7 @@ struct NeoDetail: View {
                                 }
                                 .padding(.horizontal,24)
                                 
-                                Divider()
+            
                                 
                                 if let features = yokai.features {
                                     VStack{
@@ -231,7 +231,7 @@ struct NeoDetail: View {
                       
                                 
                                 
-                                Divider()
+           
                                 
                                 if let distribution = yokai.distribution {
                                     VStack{
@@ -282,7 +282,7 @@ struct NeoDetail: View {
                                     .padding(.horizontal,24)
                                 }
                                 
-                                Divider()
+               
                                 
                                 if let episodes = yokai.episodes {
                                     VStack{
