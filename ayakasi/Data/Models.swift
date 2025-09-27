@@ -10,16 +10,15 @@ struct Ayakasi : Identifiable {
     let id : UUID = UUID()
     let name : String
     let imageName : String
-    let info: String       // 図鑑的な情報
-    let description: String       // 図鑑的な情報
-    let traditional: String // 伝承・物語
+    let info: String
+    let description: String
+    let traditional: String
     let tags : [String]
     let categories : [String]
-    var aliases: [String]? = nil
+    var btw: String? = nil          // ← 追加：「ちなみに」用のメモ（別名・豆知識など）
     var features: [String]? = nil
     var distribution: String? = nil
     var episodes: String? = nil
     var cultures: String? = nil
     var references: [ReferenceLink]? = nil
-
 }
