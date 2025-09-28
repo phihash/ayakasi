@@ -66,54 +66,20 @@ struct HomeView: View {
                 
                 VStack(spacing: 16){
                     TabView(selection: $page) {
-                        Link(destination: URL(string: "https://www.toei-eigamura.com/yokai/")!){
-                            ZStack{
-                                Rectangle()
-                                    .fill(colorVM.currentColor)
-                                    .frame(width: screenWidth * 0.9)
-                                    .cornerRadius(12)
-                                
-                                HStack{
-                                    Text("怪々Yokai祭2025")
-                                        .font(.title2)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.bold)
-                                    Image("kappaicon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: screenWidth * 0.24) // サイズ調整
-                                        .padding(.leading,20)
-                                }
-                                
-                            }
-                        }.tag(0)
                         
-                        Link(destination: URL(string: "https://www.yokaibonodori.tokyo/")!){
-                            ZStack{
-                                Rectangle()
-                                    .fill(.green.opacity(0.6))
-                                    .frame(width: screenWidth * 0.9)
-                                    .cornerRadius(12)
-                                
-                                HStack{
-                                    Spacer()
-                                    Image("kozou")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: screenWidth * 0.24) // サイズ調整
-                                    Spacer()
-                                    Text("妖怪盆踊り2025")
-                                        .font(.title2)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.bold)
-                                    
-                                    Spacer()
-                                }
-                                
-                            }
-                        }.tag(1)
+                        ZStack{
+                            EventComponent(link: "https://www.toei-eigamura.com/yokai/", linkTitle: "怪々Yokai祭2025", iconName: "kappaicon")
+                            
+                        }
+                        .tag(0)
                         
-                      
+                        
+                        ZStack{
+                            EventComponent(link: "https://www.yokaibonodori.tokyo/", linkTitle: "妖怪盆踊り2025", iconName: "kozou")
+                        }
+                        .tag(1)
+                        
+                        
                         
                         Link(destination: URL(string: "https://sakai-yokai.com/")!){
                             ZStack{
@@ -205,15 +171,15 @@ struct HomeView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: screenWidth * 0.24) // サイズ調整
-                                   
-
+                                    
+                                    
                                     Spacer()
                                     
                                     Text("妖怪漢字")
                                         .font(.title2)
                                         .foregroundStyle(.white)
                                         .fontWeight(.bold)
-                        
+                                    
                                     
                                     Spacer()
                                 }
@@ -231,7 +197,70 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(.bottom,24)
+                .padding(.bottom,16)
+                
+                
+                
+                
+                
+                HStack{
+                    Text("アップデート")
+                    Spacer()
+                }
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.horizontal,20)
+                .padding(.vertical,16)
+                
+                ScrollView(.horizontal,showsIndicators: false){
+                    let koteis = [
+                        Ayakasi(
+                            name: "件",
+                            imageName: "kudan",
+                            description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。",
+                            tags: ["すべて"],
+                            categories: ["山の怪"],
+                            btw: "作家小松左京の、くだんのははという短編小説で題材にされている。",
+                            episodes: "具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
+                        ),
+                        Ayakasi(
+                            name: "小豆洗い",
+                            imageName: "azukiarai",
+                            description: "小豆洗い（あずきあらい）は川で小豆を洗う妖怪で、小豆とぎ（あずきとぎ）、小豆あらいど（あずきあらいど）など、様々な呼び名で全国的に分布している。\n小豆洗いは、川のほとりでシャキシャキと小豆をとぐ音が聞こえ、音をする方にいってもその姿はないといったものや、「小豆洗おか、人取って喰おか」など歌いながら小豆を洗うタイプもいる。",
+                            tags: ["すべて"],
+                            categories: ["音の怪","水の怪"],
+                            btw: "小豆は収獲後乾燥して保存した際のごみや虫を除くために洗います。",
+                            episodes: "「ショキショキ」「ザクザク」と豆を研ぐ音が続き、覗くと波紋だけが残っていたという怪談がある。",
+                        ),
+                        Ayakasi(
+                            name: "河童",
+                            imageName: "kappa",
+                            description:"カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。",
+                            tags: ["人型","脅かす","怖い","すべて"],
+                            categories: ["水の怪"],
+                            btw: nil,
+                            episodes: "カッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
+                            
+                        ),
+                    ]
+                    HStack(spacing: 16){
+                        ForEach(koteis){ ayakasi in
+                            PickupCard(ayakasi: ayakasi)
+                                .onTapGesture{
+                                    selectedYokai = ayakasi
+                                }
+                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                    NeoDetail(yokai: yokai)
+                                }
+                        }
+                        
+                    }
+                    .padding(.horizontal,20)
+                    .padding(.bottom,16)
+                }
+                
+                
+                
                 
                 // 3.ピックアップ
                 HStack{
@@ -251,19 +280,19 @@ struct HomeView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
-                .padding(.bottom,12)
+                .padding(.vertical,16)
                 
                 ScrollView(.horizontal,showsIndicators: false){
                     
                     HStack(spacing: 16){
-                        ForEach(ayakasis.shuffled().prefix(4)){ ayakasi in
+                        ForEach(ayakasis.shuffled().prefix(5)){ ayakasi in
                             PickupCard(ayakasi: ayakasi)
-                            .onTapGesture{
-                                selectedYokai = ayakasi
-                            }
-                            .fullScreenCover(item: $selectedYokai){ yokai in
-                                NeoDetail(yokai: yokai)
-                            }
+                                .onTapGesture{
+                                    selectedYokai = ayakasi
+                                }
+                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                    NeoDetail(yokai: yokai)
+                                }
                             
                         }
                         
@@ -271,6 +300,8 @@ struct HomeView: View {
                     .padding(.horizontal,20)
                     
                 }
+                
+                
                 
                 VStack(spacing: 20){
                     VStack(alignment: .leading,spacing: 20){

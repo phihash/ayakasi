@@ -1,8 +1,18 @@
-//
-//  LoginView.swift
-//  ayakasi
-//
-//  Created by Kento Nakai on 2025/09/27.
-//
+import SwiftUI
 
-import Foundation
+struct LoginView : View {
+    var body: some View {
+        ZStack(alignment: .bottom){
+            Text("ssss")
+            
+            Image("yukiicon")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        }
+    }
+}
+
+
+#Preview {
+    LoginView()
+}

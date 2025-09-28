@@ -143,41 +143,6 @@ struct NeoDetail: View {
                         //基本情報たぶ
                         if selectedTab == 0{
                             ScrollView(showsIndicators: false){
-                                // エイリアスセクション
-                                //                                VStack{
-                                //                                    HStack{
-                                //                                        Image("branch")
-                                //                                            .renderingMode(.template)
-                                //                                        Text("名称")
-                                //                                            .font(.title2)
-                                //                                            .fontWeight(.bold)
-                                //                                        Spacer()
-                                //                                    }
-                                //                                    .padding(.vertical,12)
-                                
-                                //                                    if let features = yokai.features{
-                                //                                        FlowLayout(alignment: .leading,spacing:12){
-                                //                                            ForEach(features, id: \.self){ element in
-                                //                                                Text("\(element)")
-                                //                                                    .fontWeight(.bold)
-                                //                                                    .foregroundStyle(.white)
-                                //                                                    .padding(.vertical,6)
-                                //                                                    .padding(.horizontal,12)
-                                //                                                    .background(colorVM.currentColor)
-                                //                                                    .cornerRadius(12)
-                                //
-                                //                                            }
-                                //                                        }
-                                //                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                //                                    }
-                                ////
-                                //                                }
-                                //                                .padding(.horizontal,24)
-                                //                                .padding(.bottom,12)
-                                
-                                
-                                //                                Divider()
-                                
                                 VStack{
                                     HStack{
                                         Image("description")
@@ -198,91 +163,10 @@ struct NeoDetail: View {
                                 }
                                 .padding(.horizontal,24)
                                 
-            
-                                
-                                if let features = yokai.features {
-                                    VStack{
-                                        HStack{
-                                            Image("location")
-                                                .renderingMode(.template)
-                                            Text("特徴")
-                                                .font(.title2)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.vertical,12)
-                                        FlowLayout(alignment: .leading){
-                                            ForEach(features, id: \.self){ element in
-                                                Text("\(element)")
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(.white)
-                                                    .padding(.vertical,6)
-                                                    .padding(.horizontal,12)
-                                                    .background(colorVM.currentColor)
-                                                    .cornerRadius(12)
-                                            }
-                                        }
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    .padding(.horizontal,24)
-                                    .padding(.bottom,12)
-                                }
-                      
-                                
-                                
-           
-                                
-                                if let distribution = yokai.distribution {
-                                    VStack{
-                                        HStack{
-                                            Image("point")
-                                                .renderingMode(.template)
-                                            Text("分布")
-                                                .font(.title2)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.vertical,12)
-                                        
-                                        
-                                        Text(distribution)
-                                            .fontWeight(.bold)
-                                            .padding(.vertical,6)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    .padding(.horizontal,24)
-                                    .padding(.bottom,32)
-                                }
-                                
-                                
                             }
                         } else{
                             
                             ScrollView(showsIndicators: false){
-                                if let cultures = yokai.cultures {
-                                    VStack{
-                                        HStack{
-                                            Image("culture")
-                                                .renderingMode(.template)
-                                            Text("文化")
-                                                .font(.title2)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.vertical,12)
-                                        
-                                        Text(cultures)
-                                            .fontWeight(.bold)
-                                            .padding(.vertical,6)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    .padding(.horizontal,24)
-                                }
-                                
-               
                                 
                                 if let episodes = yokai.episodes {
                                     VStack{
@@ -299,20 +183,24 @@ struct NeoDetail: View {
                                         
                                         Text(episodes)
                                             .fontWeight(.bold)
-                                            .padding(.vertical,6)
+                                            .padding(.vertical,4)
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                         
                                     }
                                     .padding(.horizontal,24)
                                 }
                                 
+                                if let btw = yokai.btw {
+                                    VStack{
+                                        ByTheWay(btw: btw)
+                                    }
+                                }
                             }
+                            .padding(.bottom,16)
                             
                         }
                         
                     }
-                    
-                    
                     
                 }
                 
