@@ -1,6 +1,7 @@
 import SwiftUI
+import FeedKit
 
-struct MenuSection : View{
+struct MenuSection: View{
     let text : String
     let imageName: String
     let screenWidth = UIScreen.main.bounds.width
@@ -22,8 +23,10 @@ struct MenuSection : View{
     }
 }
 
+
 struct PickupCard : View{
     let ayakasi: Ayakasi
+    @State private var items: [NewsItem] = [];
     var body: some View{
         ZStack{
             Image(ayakasi.imageName)
@@ -193,15 +196,12 @@ struct HomeView: View {
                     .frame(height: 130)
                     .onReceive(timer) { _ in
                         withAnimation(.easeInOut) {
-                            page = (page + 1) % 6  // 最後→最初にループ 4枚なので
+                            page = (page + 1) % 6  // 最後→最初にループ 6枚なので
                         }
                     }
                 }
                 .padding(.bottom,16)
-                
-                
-                
-                
+
                 
                 HStack{
                     Text("アップデート")
@@ -215,33 +215,33 @@ struct HomeView: View {
                 ScrollView(.horizontal,showsIndicators: false){
                     let koteis = [
                         Ayakasi(
-                            name: "件",
-                            imageName: "kudan",
-                            description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。",
-                            tags: ["すべて"],
-                            categories: ["山の怪"],
-                            btw: "作家小松左京の、くだんのははという短編小説で題材にされている。",
-                            episodes: "具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
-                        ),
-                        Ayakasi(
-                            name: "小豆洗い",
-                            imageName: "azukiarai",
-                            description: "小豆洗い（あずきあらい）は川で小豆を洗う妖怪で、小豆とぎ（あずきとぎ）、小豆あらいど（あずきあらいど）など、様々な呼び名で全国的に分布している。\n小豆洗いは、川のほとりでシャキシャキと小豆をとぐ音が聞こえ、音をする方にいってもその姿はないといったものや、「小豆洗おか、人取って喰おか」など歌いながら小豆を洗うタイプもいる。",
-                            tags: ["すべて"],
-                            categories: ["音の怪","水の怪"],
-                            btw: "小豆は収獲後乾燥して保存した際のごみや虫を除くために洗います。",
-                            episodes: "「ショキショキ」「ザクザク」と豆を研ぐ音が続き、覗くと波紋だけが残っていたという怪談がある。",
-                        ),
-                        Ayakasi(
-                            name: "河童",
-                            imageName: "kappa",
-                            description:"カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。",
-                            tags: ["人型","脅かす","怖い","すべて"],
+                            name: "牛鬼",
+                            imageName: "usioni",
+                            description: "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。",
+                            tags: ["怖い","すべて"],
                             categories: ["水の怪"],
                             btw: nil,
-                            episodes: "カッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
-                            
+                            episodes: "男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
                         ),
+                        Ayakasi(
+                            name: "うわん",
+                            imageName: "uwan",
+                            description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。",
+                            tags: ["人型","すべて"],
+                            categories: ["音の怪"],
+                            btw: nil,
+                            episodes: "江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
+                        ),
+                        Ayakasi(
+                            name: "かまいたち",
+                            imageName: "kamaitati",
+                            description: "かまいたちは、外見はイタチに似ると考えられる一方、実際には人間の目には見えないともされる。また、痛みを感じないうちに深い傷を負わせるが、そのわりには出血はしない現象を指す。",
+                            tags: ["動物","すべて"],
+                            categories: ["動物の怪"],
+                            btw: nil,
+                            episodes: "岐阜県の飛騨地方などでは、かまいたちは「カマイタチ」という三人の神様と捉えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
+                        )
+                       
                     ]
                     HStack(spacing: 16){
                         ForEach(koteis){ ayakasi in
@@ -260,7 +260,35 @@ struct HomeView: View {
                 }
                 
                 
-                
+//                HStack{
+//                    Text("ニュース")
+//                    Spacer()
+//                }
+//                .font(.headline)
+//                .fontWeight(.bold)
+//                .padding(.horizontal,20)
+//                .padding(.vertical,16)
+//                
+//                ScrollView(.horizontal,showsIndicators: false){
+//                    let (data , _) = try await URLSession.shared.data(from: "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913")
+//                    
+//                    HStack(spacing: 16){
+//                        ForEach(koteis){ ayakasi in
+//                            PickupCard(ayakasi: ayakasi)
+//                                .onTapGesture{
+//                                    selectedYokai = ayakasi
+//                                }
+//                                .fullScreenCover(item: $selectedYokai){ yokai in
+//                                    NeoDetail(yokai: yokai)
+//                                }
+//                        }
+//                        
+//                    }
+//                    .padding(.horizontal,20)
+//                    .padding(.bottom,16)
+//                }
+//                
+//                
                 
                 // 3.ピックアップ
                 HStack{

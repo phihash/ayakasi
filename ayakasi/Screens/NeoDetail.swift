@@ -223,21 +223,33 @@ struct NeoDetail: View {
                     }
                     .font(.headline)
                     .foregroundStyle(.white)
-                    .frame(width: screenWidth * 0.6, height: 44)
+                    .frame(width: screenWidth * 0.6, height: 48)
                     .background(Capsule().fill(colorVM.currentColor))
-                    .padding(.trailing,32)
+                    .padding(.trailing,20)
                     .onTapGesture {
                         requestAndSaveImage(imageName: yokai.imageName)
                     }
                     
-                    
-                    VStack(spacing:4){
-                        Image(systemName: "arrowshape.turn.up.backward")
-                        Text("戻る")
-                            .font(.subheadline)
-                    }.onTapGesture {
-                        dismiss()
+                    HStack(spacing: 28){
+                        Link(destination: URL(string: "https://www.google.com/search?q=\(yokai.name)")!){
+                            VStack(spacing:4){
+                                Image(systemName: "magnifyingglass")
+                                Text("検索")
+                                    .font(.subheadline)
+                            }
+                        }
+                        
+                        
+                        VStack(spacing:4){
+                            Image(systemName: "arrowshape.turn.up.backward")
+                            Text("戻る")
+                                .font(.subheadline)
+                        }.onTapGesture {
+                            dismiss()
+                        }
                     }
+                    
+                  
                     
                     
                 }
