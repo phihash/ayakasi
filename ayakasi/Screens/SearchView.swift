@@ -26,7 +26,6 @@ struct SearchView: View {
                     .padding(.vertical,24)
                     
                     LazyVGrid(columns: columns){
-                      
                         VStack{
                             Text("🌊")
                                 .font(.system(size: 100, weight: .bold))
@@ -58,7 +57,7 @@ struct SearchView: View {
                             Text("山の怪")
                                 .fontWeight(.bold)
                         }
-                     
+                        
                         
                         
                         VStack{
@@ -92,8 +91,8 @@ struct SearchView: View {
                             Text("動物の怪")
                                 .fontWeight(.bold)
                         }
-                     
-                     
+                        
+                        
                         
                         VStack{
                             Text("🏫")
@@ -142,71 +141,6 @@ struct SearchView: View {
                             Text("家の怪")
                                 .fontWeight(.bold)
                         }
-                     
-
-                        //                        VStack{
-                        //                            Image("house")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("家の怪")
-                        //                                .foregroundStyle(.black)
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        
-                        //                        VStack{
-                        //                            Image("fire")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("火の怪")
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        //
-                        //                        VStack{
-                        //                            Image("door")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("訪れる怪")
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        //
-                        
-                        //
-                        //                        VStack{
-                        //                            Image("fox")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("動物の怪")
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        //
-                        //                        VStack{
-                        //                            Image("sound")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("音の怪")
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        //
-                        //                        VStack{
-                        //                            Image("snow")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .cornerRadius(12)
-                        //
-                        //                            Text("雪の怪")
-                        //                                .fontWeight(.bold)
-                        //                        }
-                        //
                         
                         
                         
@@ -227,17 +161,16 @@ struct SearchView: View {
                         ForEach(ayakasis){ayakasi in
                             
                             PickupCard(ayakasi: ayakasi)
-                            .onTapGesture{
-                                selectedYokai = ayakasi
-                            }
-                            .fullScreenCover(item: $selectedYokai){ yokai in
-                                NeoDetail(yokai: yokai)
-                            }
-                            
+                                .onTapGesture{
+                                    selectedYokai = ayakasi
+                                }
+                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                    NeoDetail(yokai: yokai)
+                                }
                             
                         }
                     }
-                             
+                    
                 }
                 .background(Color("Ivory"))
                 

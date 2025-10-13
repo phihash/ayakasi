@@ -101,6 +101,13 @@ struct Walk: View {
                 Text("Appleヘルスケアと連携した情報を利用しています")
                     .font(.subheadline)
             }
+            .toolbar{
+                ToolbarItem(placement:.navigationBarTrailing){
+                    NavigationLink(destination: SettingView() ){
+                        Image("setting")
+                    }
+                }
+            }
             .navigationTitle("今日の活動")
             .navigationBarTitleDisplayMode(.inline)
         }

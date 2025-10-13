@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90029522E94146300F90FC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029512E94146300F90FC5 /* FeedKit */; };
+		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -14,6 +16,8 @@
 		A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E12E87795A00F5CDBF /* FirebaseAuth */; };
 		A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E42E87B73000F5CDBF /* GoogleSignIn */; };
 		A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */; };
+		A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF7212E8A453500F5CDBF /* FeedKit */; };
+		A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF79D2E90ECE900F5CDBF /* XMLKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DBF6DD2E876D9600F5CDBF /* FirebaseCore in Frameworks */,
+				A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */,
+				A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */,
 				A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */,
 				A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */,
 				A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */,
@@ -100,8 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90029522E94146300F90FC5 /* FeedKit in Frameworks */,
 				A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */,
 				A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */,
+				A90029542E94146300F90FC5 /* XMLKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +171,8 @@
 				A9DBF6E12E87795A00F5CDBF /* FirebaseAuth */,
 				A9DBF6E42E87B73000F5CDBF /* GoogleSignIn */,
 				A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */,
+				A9DBF7212E8A453500F5CDBF /* FeedKit */,
+				A9DBF79D2E90ECE900F5CDBF /* XMLKit */,
 			);
 			productName = ayakasi;
 			productReference = A97C29FB2E4B6D3000889AB0 /* ayakasi.app */;
@@ -185,6 +195,8 @@
 			);
 			name = AyakasiWidgetExtension;
 			packageProductDependencies = (
+				A90029512E94146300F90FC5 /* FeedKit */,
+				A90029532E94146300F90FC5 /* XMLKit */,
 			);
 			productName = AyakasiWidgetExtension;
 			productReference = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */;
@@ -220,6 +232,7 @@
 			packageReferences = (
 				A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A9DBF6E32E87B73000F5CDBF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A97C29FC2E4B6D3000889AB0 /* Products */;
@@ -423,7 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -469,7 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -502,7 +515,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -532,7 +545,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -593,9 +606,27 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A90029512E94146300F90FC5 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		A90029532E94146300F90FC5 /* XMLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = XMLKit;
+		};
 		A9DBF6DC2E876D9600F5CDBF /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -615,6 +646,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBF6E32E87B73000F5CDBF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		A9DBF7212E8A453500F5CDBF /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		A9DBF79D2E90ECE900F5CDBF /* XMLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = XMLKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

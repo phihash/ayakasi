@@ -240,6 +240,13 @@ struct StoryList: View {
             }
             .padding(.vertical,30)
         }
+            .toolbar{
+                ToolbarItem(placement:.navigationBarTrailing){
+                    NavigationLink(destination: SettingView() ){
+                        Image("setting")
+                    }
+                }
+            }
         .navigationTitle("おはなし")
         .navigationBarTitleDisplayMode(.inline)
     }

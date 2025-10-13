@@ -43,6 +43,86 @@ struct PickupCard : View{
                         .padding(.bottom,20)
                 }
         }
+        
+    }
+}
+
+struct NewsSection : View{
+    @State private var items: [NewsItem] = []
+    @State private var isLoading = false
+    @State private var errorMessage: String?
+    
+    private let feedURLString = "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913"
+    
+    private let pubFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ja_JP")
+        f.dateFormat = "yyyy/MM/dd"
+        return f
+    }()
+
+    
+    private func fetchFeed() async {
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+        
+        do {
+            let atom = try await AtomFeed(urlString: feedURLString)
+            let entries = atom.entries ?? []
+            self.items = entries.compactMap { e in
+                let title = (e.title ?? "")
+                                
+                // rel="alternate" を優先、なければ先頭リンク
+                let href =
+                (e.links?.first { $0.attributes?.rel == "alternate" }?.attributes?.href)
+                ?? e.links?.first?.attributes?.href
+                
+                let url = href.flatMap(URL.init(string:))
+                return NewsItem(title: title.isEmpty ? "(無題)" : title, link: url)
+            }
+        } catch {
+            self.errorMessage = "読み込みに失敗しました: \(error.localizedDescription)"
+        }
+    }
+    
+    var body : some View{
+        ZStack{
+            if isLoading {
+                ProgressView("読み込み中…")
+            } else if let msg =  errorMessage {
+                Text(msg)
+            }else{
+                VStack(alignment: .leading) {
+                    ForEach(Array(items.enumerated()), id: \.element.id) { (index, item) in
+                        let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+                        if let url = item.link {
+                            Link(destination: url) {
+                                Text("\(index + 1). \(title)")
+                                    .padding(.vertical,24)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.black)
+                                    .padding(.horizontal,10)
+                                    .background(.gray.opacity(0.1))
+                                    .cornerRadius(12)
+                                    .padding(.horizontal,10)
+                                    .lineLimit(2).truncationMode(.tail)
+                            }
+                        } else {
+                            Text("\(index + 1). \(title)")
+                        }
+                    }
+                }
+            }
+        }
+        .task{
+            await fetchFeed()
+        }
+        .refreshable{
+            await  fetchFeed()
+        }
     }
 }
 
@@ -77,13 +157,6 @@ struct HomeView: View {
                         .tag(0)
                         
                         
-                        ZStack{
-                            EventComponent(link: "https://www.yokaibonodori.tokyo/", linkTitle: "妖怪盆踊り2025", iconName: "kozou")
-                        }
-                        .tag(1)
-                        
-                        
-                        
                         Link(destination: URL(string: "https://sakai-yokai.com/")!){
                             ZStack{
                                 Rectangle()
@@ -107,7 +180,7 @@ struct HomeView: View {
                                 }
                                 
                             }
-                        }.tag(2)
+                        }.tag(1)
                         
                         Link(destination: URL(string: "https://www.yokaiexpo.com/")!){
                             ZStack{
@@ -132,7 +205,7 @@ struct HomeView: View {
                                 }
                                 
                             }
-                        }.tag(3)
+                        }.tag(2)
                         
                         Link(destination: URL(string: "https://www.jidaimura.com/edomura-yokai-wonderland")!){
                             ZStack{
@@ -159,49 +232,19 @@ struct HomeView: View {
                                 }
                                 
                             }
-                        }.tag(4)
-                        
-                        Link(destination: URL(string: "https://www.kanjimuseum.kyoto/kikakutenji/detail/kanji-yokai-chimi-moryo.html")!){
-                            ZStack{
-                                Rectangle()
-                                    .fill(.yellow.opacity(0.6))
-                                    .frame(width: screenWidth * 0.9)
-                                    .cornerRadius(12)
-                                
-                                HStack{
-                                    Spacer()
-                                    Image("noppe")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: screenWidth * 0.24) // サイズ調整
-                                    
-                                    
-                                    Spacer()
-                                    
-                                    Text("妖怪漢字")
-                                        .font(.title2)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.bold)
-                                    
-                                    
-                                    Spacer()
-                                }
-                                
-                            }
-                        }.tag(5)
-                        
+                        }.tag(3)
                         
                     }
                     .tabViewStyle(.page(indexDisplayMode: .automatic)) // ドット表示
                     .frame(height: 130)
                     .onReceive(timer) { _ in
                         withAnimation(.easeInOut) {
-                            page = (page + 1) % 6  // 最後→最初にループ 6枚なので
+                            page = (page + 1) % 4  // 最後→最初にループ 4枚なので
                         }
                     }
                 }
                 .padding(.bottom,16)
-
+                
                 
                 HStack{
                     Text("アップデート")
@@ -241,7 +284,7 @@ struct HomeView: View {
                             btw: nil,
                             episodes: "岐阜県の飛騨地方などでは、かまいたちは「カマイタチ」という三人の神様と捉えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
                         )
-                       
+                        
                     ]
                     HStack(spacing: 16){
                         ForEach(koteis){ ayakasi in
@@ -259,36 +302,19 @@ struct HomeView: View {
                     .padding(.bottom,16)
                 }
                 
+                HStack{
+                    Text("ニュース")
+                    Spacer()
+                    
+                }
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.horizontal,20)
+                .padding(.vertical,16)
                 
-//                HStack{
-//                    Text("ニュース")
-//                    Spacer()
-//                }
-//                .font(.headline)
-//                .fontWeight(.bold)
-//                .padding(.horizontal,20)
-//                .padding(.vertical,16)
-//                
-//                ScrollView(.horizontal,showsIndicators: false){
-//                    let (data , _) = try await URLSession.shared.data(from: "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913")
-//                    
-//                    HStack(spacing: 16){
-//                        ForEach(koteis){ ayakasi in
-//                            PickupCard(ayakasi: ayakasi)
-//                                .onTapGesture{
-//                                    selectedYokai = ayakasi
-//                                }
-//                                .fullScreenCover(item: $selectedYokai){ yokai in
-//                                    NeoDetail(yokai: yokai)
-//                                }
-//                        }
-//                        
-//                    }
-//                    .padding(.horizontal,20)
-//                    .padding(.bottom,16)
-//                }
-//                
-//                
+                
+                
+                NewsSection()
                 
                 // 3.ピックアップ
                 HStack{
@@ -326,41 +352,13 @@ struct HomeView: View {
                         
                     }
                     .padding(.horizontal,20)
+                    .padding(.bottom,24)
                     
                 }
-                
-                
-                
-                VStack(spacing: 20){
-                    VStack(alignment: .leading,spacing: 20){
-                        HStack{
-                            VStack(alignment: .leading, spacing: 12){
-                                Text("妖怪とは？")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                
-                                Text("日本各地の伝承に登場する、不思議な存在の総称。人々の恐怖や自然への畏れから生まれ、時に教訓や娯楽として語られてきた。")
-                                    .font(.subheadline)
-                            }
-                            Image("yokai")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: screenWidth * 0.25)
-                            
-                        }
-                    }
-                    .frame(width: screenWidth * 0.86,height : 160)
-                    .padding(12)
-                    .background(Color(.white))
-                    .cornerRadius(12)
-                    
-                    
-                }
-                .padding(.horizontal,16)
-                .padding(.vertical,24)
                 
                 
             }
+            
             .background(Color("Ivory"))
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing){

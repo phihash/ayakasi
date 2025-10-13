@@ -10,11 +10,12 @@ struct ayakasiApp: App {
 //    }
     var body: some Scene {
         WindowGroup {
+ 
             Container()
                 .environmentObject(WeatherVM)
                 .environmentObject(ColorVM)
-//                .environmentObject(sessionStore)
                 .environment(\.locale, Locale(identifier: "ja_JP"))
+//                            .environmentObject(sessionStore)
         }
     }
 }
