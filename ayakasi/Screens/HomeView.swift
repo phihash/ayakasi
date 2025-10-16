@@ -1,6 +1,14 @@
 import SwiftUI
 import FeedKit
 
+let publishedFormatter : DateFormatter = {
+    let f = DateFormatter()
+    f.locale = Locale(identifier: "ja_JP")
+    f.dateStyle = .long
+    f.timeStyle = .short
+    return f
+}()
+
 struct MenuSection: View{
     let text : String
     let imageName: String
@@ -26,7 +34,6 @@ struct MenuSection: View{
 
 struct PickupCard : View{
     let ayakasi: Ayakasi
-    @State private var items: [NewsItem] = [];
     var body: some View{
         ZStack{
             Image(ayakasi.imageName)
@@ -54,14 +61,6 @@ struct NewsSection : View{
     
     private let feedURLString = "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913"
     
-    private let pubFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "ja_JP")
-        f.dateFormat = "yyyy/MM/dd"
-        return f
-    }()
-
-    
     private func fetchFeed() async {
         isLoading = true
         errorMessage = nil
@@ -72,14 +71,16 @@ struct NewsSection : View{
             let entries = atom.entries ?? []
             self.items = entries.compactMap { e in
                 let title = (e.title ?? "")
-                                
+                
                 // rel="alternate" を優先、なければ先頭リンク
                 let href =
                 (e.links?.first { $0.attributes?.rel == "alternate" }?.attributes?.href)
                 ?? e.links?.first?.attributes?.href
                 
                 let url = href.flatMap(URL.init(string:))
-                return NewsItem(title: title.isEmpty ? "(無題)" : title, link: url)
+                
+                let published = e.published ?? Date()
+                return NewsItem(title: title.isEmpty ? "(無題)" : title, link: url, published: published)
             }
         } catch {
             self.errorMessage = "読み込みに失敗しました: \(error.localizedDescription)"
@@ -94,21 +95,29 @@ struct NewsSection : View{
                 Text(msg)
             }else{
                 VStack(alignment: .leading) {
-                    ForEach(Array(items.enumerated()), id: \.element.id) { (index, item) in
+                    ForEach(Array(items.indices), id: \.self) { index in
+                        let item = items[index]
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             Link(destination: url) {
-                                Text("\(index + 1). \(title)")
-                                    .padding(.vertical,24)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .multilineTextAlignment(.leading)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.black)
-                                    .padding(.horizontal,10)
-                                    .background(.gray.opacity(0.1))
-                                    .cornerRadius(12)
-                                    .padding(.horizontal,10)
-                                    .lineLimit(2).truncationMode(.tail)
+                                VStack{
+                                    Text("\(index + 1). \(title)")
+                                        .multilineTextAlignment(.leading)
+                                        .padding(.vertical,16)
+                                        .lineLimit(2)
+                                    Text(publishedFormatter.string(from: item.published))
+                                        .multilineTextAlignment(.leading)
+                                        .padding(.vertical,12)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .truncationMode(.tail)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.black)
+                                .padding(.horizontal,10)
+                                .background(.gray.opacity(0.1))
+                                .cornerRadius(12)
+                                .padding(.horizontal,10)
+                                
                             }
                         } else {
                             Text("\(index + 1). \(title)")

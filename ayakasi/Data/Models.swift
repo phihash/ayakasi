@@ -18,4 +18,4 @@ struct Ayakasi : Identifiable {
     var references: [ReferenceLink]? = nil
 }
 
-struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL? }
+struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }
