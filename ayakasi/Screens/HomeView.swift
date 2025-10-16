@@ -100,23 +100,22 @@ struct NewsSection : View{
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             Link(destination: url) {
-                                VStack{
+                                VStack(alignment: .leading, spacing: 8){
                                     Text("\(index + 1). \(title)")
                                         .multilineTextAlignment(.leading)
-                                        .padding(.vertical,16)
                                         .lineLimit(2)
                                     Text(publishedFormatter.string(from: item.published))
-                                        .multilineTextAlignment(.leading)
-                                        .padding(.vertical,12)
+                                        .font(.caption)
+                                        .foregroundStyle(.black.opacity(0.7))
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .truncationMode(.tail)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.black)
-                                .padding(.horizontal,10)
+                                .padding(16)
                                 .background(.gray.opacity(0.1))
                                 .cornerRadius(12)
-                                .padding(.horizontal,10)
+                                .padding(.horizontal,12)
                                 
                             }
                         } else {
