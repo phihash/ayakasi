@@ -272,7 +272,7 @@ struct HomeView: View {
                             tags: ["人型","夜道","脅かす","すべて"],
                             categories: ["道の怪"],
                             btw: "現時点で、のっぺらぼうという言葉が記録された最初の文献は、松尾芭蕉の詠んだ句である",
-                            episodes: "二段オチで連続遭遇する話",
+                            episodes: "おいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
                         ),
                         Ayakasi(
                             name: "牛鬼",
@@ -303,6 +303,16 @@ struct HomeView: View {
                 
                 HStack{
                     Text("ニュース")
+                    Text("てっす")
+                        .font(.subheadline)
+                        .foregroundStyle(colorVM.currentColor)
+                        .fontWeight(.bold)
+                        .padding(.vertical,6)
+                        .padding(.horizontal,18)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24)
+                                .stroke(colorVM.currentColor, lineWidth: 2)
+                        )
                     Spacer()
                     
                 }

@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct Container: View {
     @State private var selection : Int = 0
     @EnvironmentObject var colorVM : ColorViewModel
@@ -46,10 +45,7 @@ struct Container: View {
           
             }
             .tint(colorVM.currentColor)
-            
         }
-
     }
-    
 }
 

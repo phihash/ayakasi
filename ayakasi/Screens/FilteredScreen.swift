@@ -23,7 +23,6 @@ struct FilteredScreen: View {
             .background(Color("Ivory"))
             .navigationTitle(tag)
             .navigationBarTitleDisplayMode(.inline)
-
         }
     }
 }

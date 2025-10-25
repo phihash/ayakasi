@@ -47,7 +47,7 @@ struct StoryList: View {
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.leading,32)
                     .padding(.vertical,16)
-                    .contentShape(Rectangle())  
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         isYukiShow.toggle()
                     }
@@ -146,7 +146,6 @@ struct StoryList: View {
                     }
                     
                     
-                    
                     Divider()
                     
                     
@@ -236,10 +235,10 @@ struct StoryList: View {
                     .fullScreenCover(isPresented: $isYamanbaShow ){
                         Yamanba()
                     }
-                
+                    
+                }
+                .padding(.vertical,30)
             }
-            .padding(.vertical,30)
-        }
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing){
                     NavigationLink(destination: SettingView() ){
@@ -247,23 +246,12 @@ struct StoryList: View {
                     }
                 }
             }
-        .navigationTitle("おはなし")
-        .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("おはなし")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
+        
+        
     }
     
-    
-    
 }
-
-}
-
-//
-//
-//HStack{
-//    Image(systemName: "star")
-//    Text("安珍清姫伝説")
-//}
-//.font(.headline)
-//.foregroundStyle(.white)
-//.frame(width: screenWidth * 0.8, height: 48)
-//.background(Capsule().fill(.orange))

@@ -17,11 +17,13 @@ struct ColorView: View {
                                 .fill(Color(color))
                                 .frame(width: 80, height: 80)
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(.black.opacity(0.6), lineWidth: 3))
+                                .overlay(
+                                    Circle().stroke(Color(UIColor.separator), lineWidth: 3)
+                                )
                             
                             Text(color)
                                 .font(.subheadline)
-                                .foregroundStyle(.black.opacity(0.7))
+                                .foregroundStyle(.secondary)
                                 .fontWeight(.bold)
                         }
                         .onTapGesture {

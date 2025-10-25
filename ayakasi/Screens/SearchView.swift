@@ -180,7 +180,6 @@ struct SearchView: View {
                 CategoryBar()
             }
         }
-        
     }
 }
 
