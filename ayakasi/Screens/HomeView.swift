@@ -58,8 +58,14 @@ struct NewsSection : View{
     @State private var items: [NewsItem] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
-    
-    private let feedURLString = "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913"
+    @EnvironmentObject var colorVM : ColorViewModel
+    var selectedNew : String
+    let newsSources = [
+        "妖怪":"https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913",
+        "イベント":"https://www.google.co.jp/alerts/feeds/14350951871509070518/14131475351883460019",
+        "河童":"https://www.google.co.jp/alerts/feeds/14350951871509070518/13120840386550034680",
+        "雪女":"https://www.google.co.jp/alerts/feeds/14350951871509070518/3735127170972070277",
+    ]
     
     private func fetchFeed() async {
         isLoading = true
@@ -67,7 +73,8 @@ struct NewsSection : View{
         defer { isLoading = false }
         
         do {
-            let atom = try await AtomFeed(urlString: feedURLString)
+            let urlString = newsSources[selectedNew] ?? (newsSources["妖怪"] ?? "")
+            let atom = try await AtomFeed(urlString: urlString)
             let entries = atom.entries ?? []
             self.items = entries.compactMap { e in
                 let title = (e.title ?? "")
@@ -95,6 +102,7 @@ struct NewsSection : View{
                 Text(msg)
             }else{
                 VStack(alignment: .leading) {
+                    
                     ForEach(Array(items.indices), id: \.self) { index in
                         let item = items[index]
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
@@ -125,7 +133,7 @@ struct NewsSection : View{
                 }
             }
         }
-        .task{
+        .task(id: selectedNew) {
             await fetchFeed()
         }
         .refreshable{
@@ -139,6 +147,8 @@ struct HomeView: View {
     @State private var selectedYokai : Ayakasi? = nil
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
+    @State var selectedNews = "妖怪"
+    let newsYokai = ["妖怪","イベント","雪女","河童"]
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
@@ -264,7 +274,7 @@ struct HomeView: View {
                 .padding(.vertical,16)
                 
                 ScrollView(.horizontal,showsIndicators: false){
-                    let koteis = [
+                    let koteis : [Ayakasi] = [
                         Ayakasi(
                             name: "のっぺらぼう",
                             imageName: "kaonasi",
@@ -303,27 +313,42 @@ struct HomeView: View {
                 
                 HStack{
                     Text("ニュース")
-                    Text("てっす")
-                        .font(.subheadline)
-                        .foregroundStyle(colorVM.currentColor)
-                        .fontWeight(.bold)
-                        .padding(.vertical,6)
-                        .padding(.horizontal,18)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24)
-                                .stroke(colorVM.currentColor, lineWidth: 2)
-                        )
                     Spacer()
-                    
+                }
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.horizontal,20)
+                .padding(.top,16)
+                
+                HStack{
+                    ForEach(newsYokai,id:\.self){ element in
+                        Button{
+                            selectedNews = element
+                        } label :{
+                            Text(element)
+                                .font(.subheadline)
+						.foregroundStyle(selectedNews == element ? .white : colorVM.currentColor)
+                                .fontWeight(.bold)
+                                .padding(.vertical,6)
+						.padding(.horizontal,18)
+						.background(selectedNews == element ? colorVM.currentColor : .clear)
+						.cornerRadius(24)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .stroke(colorVM.currentColor, lineWidth: 2)
+						)
+						.onTapGesture { selectedNews = element }
+                        }
+                    }
+                    Spacer()
                 }
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
                 .padding(.vertical,16)
                 
+                NewsSection(selectedNew: selectedNews)
                 
-                
-                NewsSection()
                 
                 // 3.ピックアップ
                 HStack{
@@ -362,10 +387,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal,20)
                     .padding(.bottom,24)
-                    
                 }
-                
-                
             }
             
             .background(Color("Ivory"))
