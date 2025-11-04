@@ -3,7 +3,7 @@ import SwiftUI
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
     let columns = Array(repeating: GridItem(.flexible(),spacing: 30), count: 3)
-    let columns2 = Array(repeating: GridItem(.flexible(),spacing: 12), count: 2)
+    let columns2 = [GridItem(.adaptive(minimum: 160, maximum: 260), spacing: 12)]
     @State private var selectedYokai : Ayakasi? = nil
     @State private var showYamanokai : Bool = false
     @State private var showMitinokai : Bool = false
@@ -158,8 +158,7 @@ struct SearchView: View {
                     .padding(.vertical,24)
                     
                     LazyVGrid(columns: columns2){
-                        ForEach(ayakasis){ayakasi in
-                            
+                        ForEach(ayakasis,id: \.id){ayakasi in
                             PickupCard(ayakasi: ayakasi)
                                 .onTapGesture{
                                     selectedYokai = ayakasi

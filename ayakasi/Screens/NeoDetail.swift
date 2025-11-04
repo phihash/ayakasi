@@ -65,16 +65,45 @@ struct NeoDetail: View {
                 
                 VStack{
                     ZStack{
-                        Image(yokai.imageName)
-                            .resizable()
-                            .scaledToFill()
+                        Group{
+                            if let url = URL(string: yokai.imageName) , url.scheme?.hasPrefix("http") == true{
+                                AsyncImage(url:url){ phase in
+                                    switch phase {
+                                    case .empty:
+                                        ZStack {
+                                            Image("loading")
+                                                .resizable()
+                                                .scaledToFill()
+                                        }
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                    case .failure:
+                                        // 失敗時
+                                        ZStack {
+                                            Color.gray.opacity(0.15)
+                                            Image(systemName: "photo")
+                                                .imageScale(.large)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                    }
+                                    
+                                }
+                            }else{
+                                Image(yokai.imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                            }
+                            
+                        }
                         
-                            .onTapGesture {
-                                showFullScreenImage = true
-                            }
-                            .fullScreenCover(isPresented: $showFullScreenImage){
-                                FullScreenImage(imageName: yokai.imageName)
-                            }
+                        .onTapGesture {
+                            showFullScreenImage = true
+                        }
+                        .fullScreenCover(isPresented: $showFullScreenImage){
+                            FullScreenImage(imageName: yokai.imageName)
+                        }
                         
                         
                         HStack{
@@ -249,7 +278,7 @@ struct NeoDetail: View {
                         }
                     }
                     
-                  
+                    
                     
                     
                 }
