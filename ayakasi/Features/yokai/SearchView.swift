@@ -36,7 +36,7 @@ struct SearchView: View {
                                     showMizunokai = true
                                 }
                                 .fullScreenCover(isPresented: $showMizunokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("水の怪")}), title:"水の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("水の怪")}), title:"水の怪")
                                 }
                             Text("水の怪")
                                 .fontWeight(.bold)
@@ -52,7 +52,7 @@ struct SearchView: View {
                                     showYamanokai = true
                                 }
                                 .fullScreenCover(isPresented: $showYamanokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("山の怪")}), title:"山の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("山の怪")}), title:"山の怪")
                                 }
                             Text("山の怪")
                                 .fontWeight(.bold)
@@ -70,7 +70,7 @@ struct SearchView: View {
                                     showMitinokai = true
                                 }
                                 .fullScreenCover(isPresented:  $showMitinokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("道の怪")}), title:"道の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("道の怪")}), title:"道の怪")
                                 }
                             Text("道の怪")
                                 .fontWeight(.bold)
@@ -86,7 +86,7 @@ struct SearchView: View {
                                     showDoubutunokai = true
                                 }
                                 .fullScreenCover(isPresented:  $showDoubutunokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("動物の怪")}), title:"動物の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("動物の怪")}), title:"動物の怪")
                                 }
                             Text("動物の怪")
                                 .fontWeight(.bold)
@@ -104,7 +104,7 @@ struct SearchView: View {
                                     showGendainokai = true
                                 }
                                 .fullScreenCover(isPresented: $showGendainokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("現代の怪")}), title:"現代の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("現代の怪")}), title:"現代の怪")
                                 }
                             Text("現代の怪")
                                 .fontWeight(.bold)
@@ -120,7 +120,7 @@ struct SearchView: View {
                                     showOtonokai = true
                                 }
                                 .fullScreenCover(isPresented: $showOtonokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("音の怪")}),title: "音の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("音の怪")}),title: "音の怪")
                                 }
                             Text("音の怪")
                                 .fontWeight(.bold)
@@ -136,7 +136,7 @@ struct SearchView: View {
                                     showIenokai = true
                                 }
                                 .fullScreenCover(isPresented: $showIenokai){
-                                    Xkai(ayakasis:ayakasis.filter({$0.categories.contains("家の怪")}),title: "家の怪")
+                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("家の怪")}),title: "家の怪")
                                 }
                             Text("家の怪")
                                 .fontWeight(.bold)

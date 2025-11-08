@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Xkai: View {
+struct YokaiCategoryView: View {
     let ayakasis: [Ayakasi]
     let title : String
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
