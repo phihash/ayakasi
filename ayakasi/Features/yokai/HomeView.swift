@@ -1,5 +1,6 @@
 import SwiftUI
 import FeedKit
+import Kingfisher
 
 let publishedFormatter : DateFormatter = {
     let f = DateFormatter()
@@ -38,39 +39,25 @@ struct PickupCard : View{
         ZStack{
             Group{
                 if let url = URL(string: ayakasi.imageName) , url.scheme?.hasPrefix("http") == true{
-                    AsyncImage(url:url){ phase in
-                        switch phase {
-                        case .empty:
-                            ZStack {
-                                Image("loading")
-                                    .resizable()
-                                    .scaledToFill()
-                            }
-                        case .success(let image):
-                            image
+                    KFImage(url)
+                        .placeholder {
+                            Image("loading")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 180)
-                                .cornerRadius(12)
-                                .overlay(alignment: .bottomLeading){
-                                    Text(ayakasi.name)
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                        .foregroundStyle(.white)
-                                        .padding(.leading,20)
-                                        .padding(.bottom,20)
-                                }
-                        case .failure:
-                            // 失敗時
-                            ZStack {
-                                Color.gray.opacity(0.15)
-                                Image(systemName: "photo")
-                                    .imageScale(.large)
-                                    .foregroundStyle(.secondary)
-                            }
                         }
-                        
-                    }
+                        .cacheOriginalImage()
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180)
+                        .cornerRadius(12)
+                        .overlay(alignment: .bottomLeading){
+                            Text(ayakasi.name)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.white)
+                                .padding(.leading,20)
+                                .padding(.bottom,20)
+                        }
                 }else{
                     Image(ayakasi.imageName)
                         .resizable()

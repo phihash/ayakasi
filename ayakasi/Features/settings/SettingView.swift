@@ -1,14 +1,59 @@
 import SwiftUI
 import StoreKit
+import Kingfisher
 
 struct SettingView: View {
     @Environment(\.requestReview) var requestReview
+//    @EnvironmentObject var authVM : AuthViewModel
     @State var isShowMailView = false
     var body: some View {
         NavigationStack{
             List{
                 Section{
-                    
+//                    if !authVM.isAuthenticated {
+//                        NavigationLink(destination: RegisterView() ){
+//                            HStack{
+//                                HStack(spacing: 18){
+//                                    Image(systemName: "tag")
+//                                    Text("新規登録")
+//                                }
+//                                Spacer()
+//                            }
+//                            .foregroundStyle(.primary)
+//                            .padding(.vertical,6)
+//                        }
+//                      
+//                        NavigationLink(destination: LoginView()){
+//                            HStack{
+//                                HStack(spacing: 18){
+//                                    Image(systemName: "tag")
+//                                    Text("ログイン")
+//                                }
+//                                Spacer()
+//                            }
+//                            .foregroundStyle(.primary)
+//                            .padding(.vertical,6)
+//                        }
+//                    }
+//                    
+//                    if authVM.isAuthenticated {
+//                        Button{
+//                            authVM.signOut()
+//                        } label :{
+//                            HStack{
+//                                HStack(spacing: 18){
+//                                    Image(systemName: "tag")
+//                                    Text("ログアウト")
+//                                }
+//                                Spacer()
+//                                Text(Bundle.main.appVersion)
+//                            }
+//                            .foregroundStyle(.primary)
+//                            .padding(.vertical,6)
+//                        }
+//        
+//                    }
+//                    
                     HStack{
                         HStack(spacing: 18){
                             Image(systemName: "tag")

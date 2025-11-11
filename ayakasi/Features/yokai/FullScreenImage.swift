@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct FullScreenImage: View {
     @Environment(\.dismiss) private var dismiss
@@ -10,29 +11,15 @@ struct FullScreenImage: View {
             
             Group{
                 if let url = URL(string: imageName) , url.scheme?.hasPrefix("http") == true{
-                    AsyncImage(url:url){ phase in
-                        switch phase {
-                        case .empty:
-                            ZStack {
-                                Image("loading")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        case .success(let image):
-                            image
+                    KFImage(url)
+                        .placeholder {
+                            Image("loading")
                                 .resizable()
                                 .scaledToFit()
-                        case .failure:
-                            // 失敗時
-                            ZStack {
-                                Color.gray.opacity(0.15)
-                                Image(systemName: "photo")
-                                    .imageScale(.large)
-                                    .foregroundStyle(.secondary)
-                            }
                         }
-                        
-                    }
+                        .cacheOriginalImage()
+                        .resizable()
+                        .scaledToFit()
                 }else{
                     Image(imageName)
                         .resizable()

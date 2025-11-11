@@ -1,5 +1,6 @@
 import SwiftUI
 import Photos
+import Kingfisher
 
 struct NeoDetail: View {
     let yokai : Ayakasi
@@ -67,29 +68,15 @@ struct NeoDetail: View {
                     ZStack{
                         Group{
                             if let url = URL(string: yokai.imageName) , url.scheme?.hasPrefix("http") == true{
-                                AsyncImage(url:url){ phase in
-                                    switch phase {
-                                    case .empty:
-                                        ZStack {
-                                            Image("loading")
-                                                .resizable()
-                                                .scaledToFill()
-                                        }
-                                    case .success(let image):
-                                        image
+                                KFImage(url)
+                                    .placeholder {
+                                        Image("loading")
                                             .resizable()
                                             .scaledToFill()
-                                    case .failure:
-                                        // 失敗時
-                                        ZStack {
-                                            Color.gray.opacity(0.15)
-                                            Image(systemName: "photo")
-                                                .imageScale(.large)
-                                                .foregroundStyle(.secondary)
-                                        }
                                     }
-                                    
-                                }
+                                    .cacheOriginalImage()
+                                    .resizable()
+                                    .scaledToFill()
                             }else{
                                 Image(yokai.imageName)
                                     .resizable()
