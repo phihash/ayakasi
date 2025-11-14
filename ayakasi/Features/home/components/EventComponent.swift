@@ -1,19 +1,18 @@
 import SwiftUI
 
 struct EventComponent: View {
-    
-    @EnvironmentObject var colorVM : ColorViewModel
     @State private var ogImage: Image?
     let screenWidth = UIScreen.main.bounds.width
     let link : String
     let linkTitle : String
     let iconName : String
+    let colorName: Color
     
     var body: some View {
         Link(destination: URL(string: link)!){
             ZStack{
                 Rectangle()
-                    .fill(colorVM.currentColor)
+                    .fill(colorName)
                     .frame(width: screenWidth * 0.9)
                     .cornerRadius(12)
                 

@@ -10,27 +10,6 @@ let publishedFormatter : DateFormatter = {
     return f
 }()
 
-struct MenuSection: View{
-    let text : String
-    let imageName: String
-    let screenWidth = UIScreen.main.bounds.width
-    var body: some View{
-        HStack{
-            Image(imageName)
-                .resizable()
-                .frame(width: screenWidth * 0.12, height: screenWidth * 0.12)
-            Text(text)
-                .font(.headline)
-                .foregroundStyle(.black)
-                .fontWeight(.bold)
-                .padding(.trailing,18)
-        }
-        .padding(.vertical,12)
-        .frame(width: screenWidth * 0.45)
-        .background(Color.white)
-        .cornerRadius(12)
-    }
-}
 
 
 struct PickupCard : View{
@@ -75,19 +54,6 @@ struct PickupCard : View{
                 }
                 
             }
-            //            Image(ayakasi.imageName)
-            //                .resizable()
-            //                .scaledToFit()
-            //                .frame(width: 180)
-            //                .cornerRadius(12)
-            //                .overlay(alignment: .bottomLeading){
-            //                    Text(ayakasi.name)
-            //                        .font(.title2)
-            //                        .fontWeight(.bold)
-            //                        .foregroundStyle(.white)
-            //                        .padding(.leading,20)
-            //                        .padding(.bottom,20)
-            //                }
         }
         
     }
@@ -207,62 +173,15 @@ struct HomeView: View {
                 VStack(spacing: 16){
                     TabView(selection: $page) {
                         
-                        ZStack{
-                            EventComponent(link: "https://www.toei-eigamura.com/yokai/", linkTitle: "怪々Yokai祭2025", iconName: "kappaicon")
-                            
-                        }
-                        .tag(0)
                         
+                        EventComponent(link: "https://www.toei-eigamura.com/yokai/", linkTitle: "怪々Yokai祭2025", iconName: "kappaicon",colorName: .red)
+                            .tag(0)
                         
-                        Link(destination: URL(string: "https://sakai-yokai.com/")!){
-                            ZStack{
-                                Rectangle()
-                                    .fill(.blue.opacity(0.6))
-                                    .frame(width: screenWidth * 0.9)
-                                    .cornerRadius(12)
-                                
-                                HStack{
-                                    Spacer()
-                                    Image("warasiicon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: screenWidth * 0.24) // サイズ調整
-                                    
-                                    Spacer()
-                                    Text("沙界妖怪芸術祭")
-                                        .font(.title2)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                }
-                                
-                            }
-                        }.tag(1)
+                        EventComponent(link: "https://sakai-yokai.com/", linkTitle: "沙界妖怪芸術祭", iconName: "warasiicon",colorName: .blue)
+                            .tag(1)
                         
-                        Link(destination: URL(string: "https://www.yokaiexpo.com/")!){
-                            ZStack{
-                                Rectangle()
-                                    .fill(.purple.opacity(0.6))
-                                    .frame(width: screenWidth * 0.9)
-                                    .cornerRadius(12)
-                                
-                                HStack{
-                                    Spacer()
-                                    Image("rokurokubiicon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: screenWidth * 0.24) // サイズ調整
-                                    
-                                    Spacer()
-                                    Text("YOKAI EXPO")
-                                        .font(.title2)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                }
-                                
-                            }
-                        }.tag(2)
+                        EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
+                            .tag(2)
                         
                         
                     }
