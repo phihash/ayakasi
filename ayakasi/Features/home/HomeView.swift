@@ -11,7 +11,6 @@ let publishedFormatter : DateFormatter = {
 }()
 
 
-
 struct PickupCard : View{
     let ayakasi: Ayakasi
     var body: some View{
@@ -81,10 +80,14 @@ struct NewsSection : View{
             let urlString = newsSources[selectedNew] ?? (newsSources["妖怪"] ?? "")
             let atom = try await AtomFeed(urlString: urlString)
             let entries = atom.entries ?? []
+            
+            var seenTitles = Set<Substring>()
+            
             self.items = entries.compactMap { e in
                 let title = (e.title ?? "")
-                
-                // rel="alternate" を優先、なければ先頭リンク
+                let titlePrefix = title.prefix(8)
+                if seenTitles.contains(titlePrefix) { return nil }
+                seenTitles.insert(titlePrefix)
                 let href =
                 (e.links?.first { $0.attributes?.rel == "alternate" }?.attributes?.href)
                 ?? e.links?.first?.attributes?.href
@@ -113,23 +116,26 @@ struct NewsSection : View{
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             Link(destination: url) {
-                                VStack(alignment: .leading, spacing: 8){
-                                    Text("\(index + 1). \(title)")
+                                VStack(alignment: .leading, spacing: 12){
+                                    Text(publishedFormatter.string(from: item.published))
+                                        .foregroundStyle(.black.opacity(0.7))
+                                        .font(.subheadline)
+                                    Text("\(title)")
                                         .multilineTextAlignment(.leading)
                                         .lineLimit(2)
-                                    Text(publishedFormatter.string(from: item.published))
-                                        .font(.caption)
-                                        .foregroundStyle(.black.opacity(0.7))
+                                        .padding(.bottom,8)
+                                    Rectangle()
+                                        .fill(colorVM.currentColor)
+                                        .frame(height: 1)
+
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .truncationMode(.tail)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.black)
-                                .padding(16)
-                                .background(.gray.opacity(0.1))
-                                .cornerRadius(12)
-                                .padding(.horizontal,12)
-                                
+                                .padding(.vertical,8)
+                                .padding(.horizontal,20)
+             
                             }
                         } else {
                             Text("\(index + 1). \(title)")
@@ -169,10 +175,8 @@ struct HomeView: View {
                 .padding(.horizontal,24)
                 .padding(.vertical,16)
                 
-                
                 VStack(spacing: 16){
                     TabView(selection: $page) {
-                        
                         
                         EventComponent(link: "https://www.toei-eigamura.com/yokai/", linkTitle: "怪々Yokai祭2025", iconName: "kappaicon",colorName: .red)
                             .tag(0)
@@ -182,8 +186,6 @@ struct HomeView: View {
                         
                         EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
                             .tag(2)
-                        
-                        
                     }
                     .tabViewStyle(.page(indexDisplayMode: .automatic)) // ドット表示
                     .frame(height: 130)
@@ -231,9 +233,8 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
                 .padding(.vertical,16)
-                
+            
                 NewsSection(selectedNew: selectedNews)
-                
                 
                 // 3.ピックアップ
                 HStack{
