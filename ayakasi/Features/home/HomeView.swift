@@ -106,6 +106,8 @@ struct NewsSection : View{
         ZStack{
             if isLoading {
                 ProgressView("読み込み中…")
+                    .frame(height: 320) 
+                
             } else if let msg =  errorMessage {
                 Text(msg)
             }else{
@@ -235,6 +237,26 @@ struct HomeView: View {
                 .padding(.vertical,16)
             
                 NewsSection(selectedNew: selectedNews)
+                    .highPriorityGesture(
+                        DragGesture(minimumDistance: 30)
+                            .onEnded { value in
+                                let currentNewsIndex = newsYokai.firstIndex(of: selectedNews) ?? 0
+                                
+                                if value.translation.width > 50 {
+                                    //右スワイプ
+                                    let newIndex = max(0,currentNewsIndex - 1)
+                                    withAnimation{
+                                        selectedNews = newsYokai[newIndex]
+                                    }
+                                } else if value.translation.width < -50 {
+                                    //左スワイプ
+                                    let newIndex = min(newsYokai.count - 1, currentNewsIndex + 1)
+                                    withAnimation{
+                                        selectedNews = newsYokai[newIndex]
+                                    }
+                                }
+                            }
+                    )
                 
                 // 3.ピックアップ
                 HStack{
