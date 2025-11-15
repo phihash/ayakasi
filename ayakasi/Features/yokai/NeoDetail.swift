@@ -43,27 +43,41 @@ struct NeoDetail: View {
     }
     
     private func saveImage(imageName : String){
-        guard let uiImage = UIImage(named:imageName) else  { return }
-        
-        PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAsset(from: uiImage)
-        }){success, error in
-            DispatchQueue.main.async{
-                if success {
-                    alertMessage = "保存しました"
-                    showAlert = true
-                } else {
-                    alertMessage = "保存失敗しました"
-                    showAlert = true
+        // URLの場合とローカル画像の場合で処理を分ける
+        if let url = URL(string: imageName), url.scheme?.hasPrefix("http") == true {
+            // URLから画像を保存
+            KingfisherManager.shared.retrieveImage(with: url) { result in
+                switch result {
+                case .success(let value):
+                    UIImageWriteToSavedPhotosAlbum(value.image, nil, nil, nil)
+                    DispatchQueue.main.async {
+                        self.alertMessage = "保存しました"
+                        self.showAlert = true
+                    }
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self.alertMessage = "画像の取得に失敗しました"
+                        self.showAlert = true
+                    }
                 }
             }
+        } else {
+            // ローカル画像の場合
+            guard let uiImage = UIImage(named: imageName) else {
+                alertMessage = "画像が見つかりません"
+                showAlert = true
+                return
+            }
+            
+            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+            alertMessage = "保存しました"
+            showAlert = true
         }
     }
     
     var body: some View {
         ZStack{
             ScrollView{
-                
                 VStack{
                     ZStack{
                         Group{
@@ -84,7 +98,6 @@ struct NeoDetail: View {
                             }
                             
                         }
-                        
                         .onTapGesture {
                             showFullScreenImage = true
                         }
@@ -158,65 +171,75 @@ struct NeoDetail: View {
                     VStack{
                         //基本情報たぶ
                         if selectedTab == 0{
-                            ScrollView(showsIndicators: false){
+                            VStack{
+                                HStack{
+                                    Image("description")
+                                        .renderingMode(.template)
+                                    Text("説明")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                    Spacer()
+                                }
+                                .padding(.vertical,12)
+                                
+                                Text(yokai.description)
+                                    .fontWeight(.bold)
+                                    .padding(.vertical,6)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                            }
+                            .padding(.horizontal,24)
+                            
+                          
+                        } else{
+                            
+                            if let episodes = yokai.episodes {
                                 VStack{
                                     HStack{
-                                        Image("description")
+                                        Image("episode")
                                             .renderingMode(.template)
-                                        Text("説明")
+                                        Text("エピソード")
                                             .font(.title2)
                                             .fontWeight(.bold)
                                         Spacer()
                                     }
-                                    .padding(.vertical,12)
+                                    .padding(.top,16)
+                                    .padding(.bottom,12)
                                     
-                                    Text(yokai.description)
+                                    Text(episodes)
                                         .fontWeight(.bold)
-                                        .padding(.vertical,6)
+                                        .padding(.vertical,4)
                                         .frame(maxWidth: .infinity, alignment: .leading)
-                                    
-                                    
+                                  
                                 }
                                 .padding(.horizontal,24)
-                                
+                                .padding(.bottom,16)
                             }
-                        } else{
                             
-                            ScrollView(showsIndicators: false){
-                                
-                                if let episodes = yokai.episodes {
-                                    VStack{
-                                        HStack{
-                                            Image("episode")
-                                                .renderingMode(.template)
-                                            Text("エピソード")
-                                                .font(.title2)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.top,16)
-                                        .padding(.bottom,12)
-                                        
-                                        Text(episodes)
-                                            .fontWeight(.bold)
-                                            .padding(.vertical,4)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    .padding(.horizontal,24)
-                                }
-                                
-                                if let btw = yokai.btw {
-                                    VStack{
-                                        ByTheWay(btw: btw)
-                                    }
+                            if let btw = yokai.btw {
+                                VStack{
+                                    ByTheWay(btw: btw)
+                        
                                 }
                             }
-                            .padding(.bottom,16)
-                            
                         }
                         
                     }
+                    .simultaneousGesture(
+                        DragGesture()
+                            .onEnded { value in
+                                // 横方向の移動が縦方向より大きい場合のみ反応
+                                if abs(value.translation.width) > abs(value.translation.height) && abs(value.translation.width) > 50 {
+                                    if value.translation.width > 0 {
+                                        // 右スワイプ = 前のタブへ
+                                        selectedTab = 0
+                                    } else {
+                                        // 左スワイプ = 次のタブへ
+                                        selectedTab = 1
+                                    }
+                                }
+                            }
+                    )
                     
                 }
                 
