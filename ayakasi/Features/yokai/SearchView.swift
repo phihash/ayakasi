@@ -3,7 +3,6 @@ import SwiftUI
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
     let columns = Array(repeating: GridItem(.flexible(),spacing: 30), count: 3)
-    let columns2 = [GridItem(.adaptive(minimum: 160, maximum: 260), spacing: 12)]
     @State private var selectedYokai : Ayakasi? = nil
     @State private var showYamanokai : Bool = false
     @State private var showMitinokai : Bool = false
@@ -12,150 +11,19 @@ struct SearchView: View {
     @State private var showOtonokai : Bool = false
     @State private var showIenokai : Bool = false
     @State private var showDoubutunokai : Bool = false
+    @EnvironmentObject var colorVM : ColorViewModel
+   
     var body: some View {
+        let yokaiScreenWidth = UIScreen.main.bounds.width
+        let itemSpacing: CGFloat = 10
+        let availableWidth = yokaiScreenWidth - (20)
+        let itemWidth = (availableWidth - (itemSpacing * 2)) / 2
+        let columns2 = Array(repeating: GridItem(.fixed(itemWidth),spacing: itemSpacing) , count: 2)
+        
         NavigationStack{
             VStack{
                 ScrollView{
-                    HStack{
-                        Text("カテゴリ")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(.horizontal,24)
-                    .padding(.vertical,24)
-                    
-                    LazyVGrid(columns: columns){
-                        VStack{
-                            Text("🌊")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showMizunokai = true
-                                }
-                                .fullScreenCover(isPresented: $showMizunokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("水の怪")}), title:"水の怪")
-                                }
-                            Text("水の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        VStack{
-                            Text("⛰️")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showYamanokai = true
-                                }
-                                .fullScreenCover(isPresented: $showYamanokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("山の怪")}), title:"山の怪")
-                                }
-                            Text("山の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        
-                        
-                        VStack{
-                            Text("🛣️")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showMitinokai = true
-                                }
-                                .fullScreenCover(isPresented:  $showMitinokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("道の怪")}), title:"道の怪")
-                                }
-                            Text("道の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        VStack{
-                            Text("🧸")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showDoubutunokai = true
-                                }
-                                .fullScreenCover(isPresented:  $showDoubutunokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("動物の怪")}), title:"動物の怪")
-                                }
-                            Text("動物の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        
-                        
-                        VStack{
-                            Text("🏫")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showGendainokai = true
-                                }
-                                .fullScreenCover(isPresented: $showGendainokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("現代の怪")}), title:"現代の怪")
-                                }
-                            Text("現代の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        VStack{
-                            Text("🎶")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showOtonokai = true
-                                }
-                                .fullScreenCover(isPresented: $showOtonokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("音の怪")}),title: "音の怪")
-                                }
-                            Text("音の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        VStack{
-                            Text("🏠")
-                                .font(.system(size: 100, weight: .bold))
-                                .frame(maxWidth: .infinity)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(.gray,lineWidth: 3))
-                                .onTapGesture{
-                                    showIenokai = true
-                                }
-                                .fullScreenCover(isPresented: $showIenokai){
-                                    YokaiCategoryView(ayakasis:ayakasis.filter({$0.categories.contains("家の怪")}),title: "家の怪")
-                                }
-                            Text("家の怪")
-                                .fontWeight(.bold)
-                        }
-                        
-                        
-                        
-                    }
-                    .padding(.horizontal,28)
-                    
-                    // 3.インデックス
-                    HStack{
-                        Text("妖怪インデックス")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(.horizontal,24)
-                    .padding(.vertical,24)
+                    CategoryBar()
                     
                     LazyVGrid(columns: columns2){
                         ForEach(ayakasis,id: \.id){ayakasi in
@@ -169,15 +37,21 @@ struct SearchView: View {
                             
                         }
                     }
+                    .padding(.horizontal,20)
                     
                 }
                 .background(Color("Ivory"))
                 
-                
             }
-            .safeAreaInset(edge: .top){
-                CategoryBar()
+            .toolbar{
+                ToolbarItem(placement:.navigationBarTrailing){
+                    NavigationLink(destination: SettingView() ){
+                        Image("setting")
+                    }
+                }
             }
+            .navigationTitle("図鑑")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

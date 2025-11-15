@@ -97,7 +97,6 @@ struct SettingView: View {
                 } header : {
                     Text("アプリ")
                         .font(.title3)
-                        .foregroundStyle(.secondary)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
                 }
@@ -122,7 +121,6 @@ struct SettingView: View {
                 } header: {
                     Text("ポリシーと規約")
                         .font(.title3)
-                        .foregroundStyle(.secondary)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
                 }
@@ -146,7 +144,6 @@ struct SettingView: View {
                 } header : {
                     Text("問い合わせ")
                         .font(.title3)
-                        .foregroundStyle(.secondary)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
                 }

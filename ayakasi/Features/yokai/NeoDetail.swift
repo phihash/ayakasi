@@ -134,117 +134,120 @@ struct NeoDetail: View {
                     }
                     
                     // 2タブ
-                    HStack{
-                        Text("基本情報")
-                            .fontWeight(.bold)
-                            .padding(.vertical,16)
-                            .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                            .frame(width: screenWidth * 0.45)
-                            .overlay(alignment: .bottom) {
-                                Rectangle()
-                                    .frame(height: 2)
-                                    .frame(width: screenWidth * 0.45)
-                                    .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                            }
-                            .onTapGesture {
-                                selectedTab = 0
-                            }
-                        
-                        Text("その他")
-                            .fontWeight(.bold)
-                            .padding(.vertical,16)
-                            .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
-                            .frame(width: screenWidth * 0.45)
-                            .overlay(alignment: .bottom) {
-                                Rectangle()
-                                    .frame(height: 2)
-                                    .frame(width: screenWidth * 0.45)
-                                    .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
-                            }
-                            .onTapGesture {
-                                selectedTab = 1
-                            }
-                    }
-                    .padding(.vertical,8)
-                    .padding(.horizontal,8)
-                    
-                    VStack{
-                        //基本情報たぶ
-                        if selectedTab == 0{
-                            VStack{
-                                HStack{
-                                    Image("description")
-                                        .renderingMode(.template)
-                                    Text("説明")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                    Spacer()
+                    Group{
+                        HStack{
+                            Text("基本情報")
+                                .fontWeight(.bold)
+                                .padding(.vertical,16)
+                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+                                .frame(width: screenWidth * 0.45)
+                                .overlay(alignment: .bottom) {
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .frame(width: screenWidth * 0.45)
+                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
                                 }
-                                .padding(.vertical,12)
-                                
-                                Text(yokai.description)
-                                    .fontWeight(.bold)
-                                    .padding(.vertical,6)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                            }
-                            .padding(.horizontal,24)
+                                .onTapGesture {
+                                    selectedTab = 0
+                                }
                             
-                          
-                        } else{
-                            
-                            if let episodes = yokai.episodes {
+                            Text("その他")
+                                .fontWeight(.bold)
+                                .padding(.vertical,16)
+                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
+                                .frame(width: screenWidth * 0.45)
+                                .overlay(alignment: .bottom) {
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .frame(width: screenWidth * 0.45)
+                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
+                                }
+                                .onTapGesture {
+                                    selectedTab = 1
+                                }
+                        }
+                        .padding(.vertical,8)
+                        .padding(.horizontal,8)
+                        
+                        VStack{
+                            //基本情報たぶ
+                            if selectedTab == 0{
                                 VStack{
                                     HStack{
-                                        Image("episode")
+                                        Image("description")
                                             .renderingMode(.template)
-                                        Text("エピソード")
+                                        Text("説明")
                                             .font(.title2)
                                             .fontWeight(.bold)
                                         Spacer()
                                     }
-                                    .padding(.top,16)
-                                    .padding(.bottom,12)
+                                    .padding(.vertical,12)
                                     
-                                    Text(episodes)
+                                    Text(yokai.description)
                                         .fontWeight(.bold)
-                                        .padding(.vertical,4)
+                                        .padding(.vertical,6)
                                         .frame(maxWidth: .infinity, alignment: .leading)
-                                  
+                                    
                                 }
                                 .padding(.horizontal,24)
-                                .padding(.bottom,16)
-                            }
-                            
-                            if let btw = yokai.btw {
-                                VStack{
-                                    ByTheWay(btw: btw)
-                        
+                                
+                                
+                            } else{
+                                
+                                if let episodes = yokai.episodes {
+                                    VStack{
+                                        HStack{
+                                            Image("episode")
+                                                .renderingMode(.template)
+                                            Text("エピソード")
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                            Spacer()
+                                        }
+                                        .padding(.top,16)
+                                        .padding(.bottom,12)
+                                        
+                                        Text(episodes)
+                                            .fontWeight(.bold)
+                                            .padding(.vertical,4)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                    .padding(.horizontal,24)
+                                    .padding(.bottom,16)
                                 }
-                            }
-                        }
-                        
-                    }
-                    .simultaneousGesture(
-                        DragGesture()
-                            .onEnded { value in
-                                // 横方向の移動が縦方向より大きい場合のみ反応
-                                if abs(value.translation.width) > abs(value.translation.height) && abs(value.translation.width) > 50 {
-                                    if value.translation.width > 0 {
-                                        // 右スワイプ = 前のタブへ
-                                        selectedTab = 0
-                                    } else {
-                                        // 左スワイプ = 次のタブへ
-                                        selectedTab = 1
+                                
+                                if let btw = yokai.btw {
+                                    VStack{
+                                        ByTheWay(btw: btw)
+                                        
                                     }
                                 }
                             }
-                    )
+                            
+                        }
+                    }
+  
                     
                 }
                 
             }
         }
+        .simultaneousGesture(
+            DragGesture()
+                .onEnded { value in
+                    // 横方向の移動が縦方向より大きい場合のみ反応
+                    if abs(value.translation.width) > abs(value.translation.height) && abs(value.translation.width) > 50 {
+                        if value.translation.width > 0 {
+                            // 右スワイプ = 前のタブへ
+                            selectedTab = 0
+                        } else {
+                            // 左スワイプ = 次のタブへ
+                            selectedTab = 1
+                        }
+                    }
+                }
+        )
         .alert("", isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
         } message: {

@@ -10,10 +10,6 @@ struct CategoryBar : View{
     @State private var selectedYokai : Ayakasi? = nil
     var body: some View{
         HStack{
-            Image(systemName: "tag")
-                .foregroundStyle(.white.opacity(0.8))
-                .font(.headline)
-                .padding(.leading,20)
             ScrollView(.horizontal,showsIndicators: false){
                 HStack{
                     ForEach(categories.shuffled(), id: \.self){ category in
@@ -23,13 +19,13 @@ struct CategoryBar : View{
                         } label :{
                             Text(category)
                                 .font(.subheadline)
-                                .foregroundStyle(.white.opacity(0.8))
+                                .foregroundStyle(ColorVM.currentColor.opacity(0.8))
                                 .fontWeight(.bold)
                                 .padding(.vertical,6)
                                 .padding(.horizontal,18)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 24)
-                                        .stroke(.white.opacity(0.8), lineWidth: 2)
+                                        .stroke(ColorVM.currentColor.opacity(0.8), lineWidth: 2)
                                 )
                         }
                         
@@ -40,7 +36,5 @@ struct CategoryBar : View{
                 .padding(.trailing,24)
             }
         }
-        .background(ColorVM.currentColor)
-        
     }
 }

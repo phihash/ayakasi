@@ -106,7 +106,7 @@ struct NewsSection : View{
         ZStack{
             if isLoading {
                 ProgressView("読み込み中…")
-                    .frame(height: 320) 
+                    .frame(height: 320)
                 
             } else if let msg =  errorMessage {
                 Text(msg)
@@ -129,7 +129,7 @@ struct NewsSection : View{
                                     Rectangle()
                                         .fill(colorVM.currentColor)
                                         .frame(height: 1)
-
+                                    
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .truncationMode(.tail)
@@ -137,7 +137,7 @@ struct NewsSection : View{
                                 .foregroundStyle(.black)
                                 .padding(.vertical,8)
                                 .padding(.horizontal,20)
-             
+                                
                             }
                         } else {
                             Text("\(index + 1). \(title)")
@@ -235,7 +235,7 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
                 .padding(.vertical,16)
-            
+                
                 NewsSection(selectedNew: selectedNews)
                     .highPriorityGesture(
                         DragGesture(minimumDistance: 30)
