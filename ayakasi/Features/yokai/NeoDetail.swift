@@ -127,6 +127,7 @@ struct NeoDetail: View {
                         
                         Text(yokai.name)
                             .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.bottom,28)
