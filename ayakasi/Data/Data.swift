@@ -7,6 +7,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","水の怪","すべて"],
         btw: "小豆は収獲後乾燥して保存した際のごみや虫を除くために洗います。",
         episodes: "「ショキショキ」「ザクザク」と豆を研ぐ音が続き、覗くと波紋だけが残っていたという怪談がある。",
+        sotry: false
     ),
 //    Ayakasi(
 //        name: "一つ目小僧",
@@ -21,12 +22,13 @@ let ayakasis: [Ayakasi] = [
     
     Ayakasi(
         name: "アマビエ",
-        imageName: "https://i.imgur.com/jrMZguM.jpeg",
+        imageName: "https://i.imgur.com/SdipUuu.png",
         description: "長い髪と鳥のようなくちばし、全身の鱗、三本の尾びれを持つとされる。恐れるよりも、人々を守る象徴として語られてきた。",
         tags: ["人型","女性型","すべて"],
         categories: ["水の怪","すべて"],
         btw: nil,
         episodes: "疫病退散の護符として絵姿が流布",
+        sotry: false
     ),
     
     Ayakasi(
@@ -37,6 +39,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         btw: nil,
         episodes: "カッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
+        sotry: false
         
     ),
     Ayakasi(
@@ -47,6 +50,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         btw: nil,
         episodes: "江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
+        sotry: false
     ),
     
     Ayakasi(
@@ -57,6 +61,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["現代の怪","すべて"],
         btw: nil,
         episodes: "夜の線路や学校で“テケテケ”という音が響く",
+        sotry: false
     ),
     Ayakasi(
         name: "人面犬",
@@ -66,6 +71,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["現代の怪","すべて"],
         btw: nil,
         episodes:"夜道で突然人間の顔をした犬に出会う",
+        sotry: false
     ),
     Ayakasi(
         name: "清姫",
@@ -75,6 +81,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         btw: nil,
         episodes: "安珍を追って蛇体に変ずる",
+        sotry: true
     ),
     Ayakasi(
         name: "雪女",
@@ -84,6 +91,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         btw: nil,
         episodes: "吹雪の夜の遭遇譚",
+        sotry: true
     ),
     Ayakasi(
         name: "トイレの花子さん",
@@ -93,6 +101,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["現代の怪","すべて"],
         btw: nil,
         episodes: "女子トイレの3番目の個室をノックすると返事がある",
+        sotry: false
     ),
     Ayakasi(
         name: "鵺",
@@ -102,6 +111,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         btw: "兵庫県西脇市の長明寺には、鵺退治像があります。",
         episodes: "都を騒がす鵺を退治するように命じられた源頼政が、夜に矢で射ったところ怪しいものが落ちた。\n火を灯してそれを見ると、頭は猿、体は狸、尾は蛇、手足は虎の姿をした妖怪がなくなっていたという話があり、その射った矢を洗ったのが鵺池とされる。\nそして、その死がいを丸木舟にのせて川に流したところ、最終的に芦屋に漂着した。\n祟りを恐れた村人たちは立派な墓をつくり、これが今日までに残る鵺塚である。",
+        sotry: false
     ),
     Ayakasi(
         name: "のっぺらぼう",
@@ -111,6 +121,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         btw: "現時点で、のっぺらぼうという言葉が記録された最初の文献は、松尾芭蕉の詠んだ句である",
         episodes: "おいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
+        sotry: true
     ),
     Ayakasi(
         name: "濡れ女",
@@ -120,6 +131,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         btw: nil,
         episodes: "夜道で橋を渡っていると、濡れ女が現れ道をふさぐ",
+        sotry: false
     ),
     
     Ayakasi(
@@ -130,6 +142,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         btw: nil,
         episodes: "酒呑童子退治",
+        sotry: false
     ),
     
     Ayakasi(
@@ -140,6 +153,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "砂をかけられ家の場所が分からなくなる話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -150,16 +164,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         btw: nil,
         episodes: "掃除を怠る家に住みつくという戒め譚",
+        sotry: false
     ),
     
     Ayakasi(
         name: "がしゃどくろ",
-        imageName: "https://i.imgur.com/Yf5CPdf.jpeg",
+        imageName: "https://i.imgur.com/zAGYJpV.png",
         description: "家屋をも見下ろすほどの巨体の骸骨で、闇夜に現れて旅人を襲うとされる。顎を鳴らす音や不気味な気配とともに近づき、油断した者の首を噛みちぎるという。",
         tags: ["人型","夜道","怖い","すべて"],
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "夜中に“ガシャガシャ”と音を立てて徘徊する話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -170,6 +186,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "夜道で顔に巻きつき驚かせる話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -180,6 +197,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "旅人が同じ場所をぐるぐる回らされる話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -190,6 +208,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         btw: nil,
         episodes: "夜に他人の家へ上がり込み主人のように振る舞う",
+        sotry: false
     ),
     
     Ayakasi(
@@ -200,6 +219,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "旅籠で寝ている間に首が伸び、別室を覗く話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -210,6 +230,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         btw: nil,
         episodes: "行者を試す／子をさらうといった試練譚",
+        sotry: false
     ),
     
     Ayakasi(
@@ -220,6 +241,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         btw: nil,
         episodes: "油を要求するが底抜けの桶で退ける話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -230,6 +252,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         btw: nil,
         episodes: "男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
+        sotry: false
     ),
     
     Ayakasi(
@@ -240,6 +263,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         btw: "作家小松左京の、くだんのははという短編小説で題材にされている。",
         episodes: "具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
+        sotry: false
     ),
     
     Ayakasi(
@@ -250,16 +274,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["現代の怪","すべて"],
         btw: nil,
         episodes: "『私、きれい？』と問いかけられる",
+        sotry: false
     ),
     
     Ayakasi(
         name: "わにゅうどう",
-        imageName: "https://i.imgur.com/NqD7TtB.jpeg",
+        imageName: "https://i.imgur.com/yIRXXnP.png",
         description: "燃える大車輪に苦悶の表情の頭部が付いた姿で夜道を転がる。見る者の魂を奪うとも子を攫うともいう。",
         tags: ["夜道","脅かす","怖い","すべて"],
         categories: ["道の怪","すべて"],
         btw: nil,
         episodes: "深夜に子を攫う戒め話／正視してはならぬ話",
+        sotry: false
     ),
     
     Ayakasi(
@@ -270,26 +296,29 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         btw: nil,
         episodes: "里見義実に斬首され呪いをかける",
+        sotry: false
     ),
     
     Ayakasi(
         name: "やまんば",
-        imageName: "https://i.imgur.com/Sk4Emjj.jpeg",
+        imageName: "https://i.imgur.com/52jeUB8.png",
         description: "乱れ髪に異様な力を持つ山姥。旅人を惑わし喰らう話の一方、子を授ける・助けるなど多面的な像を持つ。",
         tags: ["人型","女性型","老人型","怖い","すべて"],
         categories: ["山の怪","すべて"],
         btw: nil,
         episodes: "山小屋に招き入れ翌朝に正体が露見する話",
+        sotry: true
     ),
     
     Ayakasi(
         name: "座敷童",
-        imageName: "https://i.imgur.com/hwI76Z9.jpeg",
+        imageName: "https://i.imgur.com/4M0QBCe.png",
         description: "童子姿で家の中を走り回る気配を残す。姿が見えなくなると家運が傾くという俗信が広い。",
         tags: ["人型","すべて"],
         categories: ["家の怪","すべて"],
         btw: nil,
         episodes: "姿を見た家が繁栄する／見えなくなると衰運の兆し",
+        sotry: true
     ),
     
     Ayakasi(
@@ -300,6 +329,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         btw: nil,
         episodes: "夜更けに猫又が座敷で三味線を奏でた、という怪談が広く伝わる。",
+        sotry: false
     ),
     
     Ayakasi(
@@ -310,6 +340,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         btw: nil,
         episodes: "夜道で美女に出会い家へ通ったが、翌朝見ると古い祠だった——という狐の嫁入話が多い。",
+        sotry: false
     ),
     
     Ayakasi(
@@ -320,5 +351,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         btw: nil,
         episodes: "岐阜県の飛騨地方などでは、かまいたちは三人の神様と考えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
+        sotry: false
     )
 ]

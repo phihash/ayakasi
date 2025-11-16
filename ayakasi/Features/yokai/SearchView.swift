@@ -41,10 +41,10 @@ struct SearchView: View {
                     DragGesture().onEnded { value in
                         let currentIndex = categories.firstIndex(of: selectedCategory) ?? 0
                         
-                        if value.translation.width > 20 {
+                        if value.translation.width > 10 {
                             let newIndex = max(0, currentIndex - 1)
                             selectedCategory = categories[newIndex]
-                        }else if value.translation.width < -20 {
+                        }else if value.translation.width < -10 {
                             let newIndex = min(categories.count - 1, currentIndex + 1)
                             selectedCategory = categories[newIndex]
                         }

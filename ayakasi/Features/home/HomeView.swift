@@ -30,9 +30,10 @@ struct PickupCard : View{
                         .cornerRadius(12)
                         .overlay(alignment: .bottomLeading){
                             Text(ayakasi.name)
-                                .font(.title2)
+                                .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
+                                .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
                                 .padding(.leading,20)
                                 .padding(.bottom,20)
                         }

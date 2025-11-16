@@ -21,27 +21,20 @@ struct Container: View {
                     }
                     .tag(1)
                 
-                StoryList()
-                    .tabItem{
-                        Image("book")
-                            .renderingMode(.template)
-                        
-                    }
-                    .tag(2)
-                
+          
                 Weather()
                     .tabItem {
                         Image("weather")
                             .renderingMode(.template)
                     }
-                    .tag(3)
+                    .tag(2)
                 
                 Walk()
                     .tabItem {
                         Image("walk")
                             .renderingMode(.template)
                     }
-                    .tag(4)
+                    .tag(3)
           
             }
             .tint(colorVM.currentColor)

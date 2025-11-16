@@ -10,6 +10,7 @@ struct NeoDetail: View {
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
     @State private var alertMessage : String = ""
+    @State private var showStoryView = false
     @EnvironmentObject var colorVM : ColorViewModel
     
     private func requestAndSaveImage(imageName: String){
@@ -223,11 +224,24 @@ struct NeoDetail: View {
                                         
                                     }
                                 }
+                                
+                                if yokai.sotry {
+                                    Button {
+                                        showStoryView = true
+                                    } label: {
+                                        Text("物語を読む")
+                                            .fontWeight(.bold)
+                                            .foregroundStyle(.white)
+                                            .padding()
+                                            .background(RoundedRectangle(cornerRadius: 8).fill(colorVM.currentColor))
+                                    }
+                                    .padding(.horizontal, 24)
+                                }
                             }
                             
                         }
                     }
-  
+                    
                     
                 }
                 
@@ -255,6 +269,9 @@ struct NeoDetail: View {
         }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
+        .fullScreenCover(isPresented: $showStoryView) {
+            StoryView(yokaiName: yokai.name)
+        }
         .safeAreaInset(edge: .bottom){
             VStack{
                 
