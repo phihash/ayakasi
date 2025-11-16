@@ -2,31 +2,27 @@ import SwiftUI
 
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
-    let columns = Array(repeating: GridItem(.flexible(),spacing: 30), count: 3)
+    let itemSpacing: CGFloat = 20
+    let categories = [
+        "すべて", "道の怪", "水の怪","音の怪","現代の怪","家の怪","動物の怪","山の怪"
+    ]
     @State private var selectedYokai : Ayakasi? = nil
-    @State private var showYamanokai : Bool = false
-    @State private var showMitinokai : Bool = false
-    @State private var showMizunokai : Bool = false
-    @State private var showGendainokai : Bool = false
-    @State private var showOtonokai : Bool = false
-    @State private var showIenokai : Bool = false
-    @State private var showDoubutunokai : Bool = false
     @EnvironmentObject var colorVM : ColorViewModel
-   
+    @State private var selectedCategory: String = "すべて"
+    
     var body: some View {
-        let yokaiScreenWidth = UIScreen.main.bounds.width
-        let itemSpacing: CGFloat = 10
-        let availableWidth = yokaiScreenWidth - (20)
-        let itemWidth = (availableWidth - (itemSpacing * 2)) / 2
-        let columns2 = Array(repeating: GridItem(.fixed(itemWidth),spacing: itemSpacing) , count: 2)
+        let availableWidth = screenWidth - 40 //padding引く
+        let itemWidth = (availableWidth - itemSpacing) / 2
+        let columns = Array(repeating: GridItem(.fixed(itemWidth),spacing: itemSpacing) , count: 2)
         
         NavigationStack{
             VStack{
                 ScrollView{
-                    CategoryBar()
+                    CategoryBar(categories: categories,selectedCategory: $selectedCategory)
+                        .padding(.leading,8)
                     
-                    LazyVGrid(columns: columns2){
-                        ForEach(ayakasis,id: \.id){ayakasi in
+                    LazyVGrid(columns: columns){
+                        ForEach(ayakasis.filter{ $0.categories.contains(selectedCategory) },id: \.id){ayakasi in
                             PickupCard(ayakasi: ayakasi)
                                 .onTapGesture{
                                     selectedYokai = ayakasi
@@ -41,6 +37,19 @@ struct SearchView: View {
                     
                 }
                 .background(Color("Ivory"))
+                .gesture(
+                    DragGesture().onEnded { value in
+                        let currentIndex = categories.firstIndex(of: selectedCategory) ?? 0
+                        
+                        if value.translation.width > 20 {
+                            let newIndex = max(0, currentIndex - 1)
+                            selectedCategory = categories[newIndex]
+                        }else if value.translation.width < -20 {
+                            let newIndex = min(categories.count - 1, currentIndex + 1)
+                            selectedCategory = categories[newIndex]
+                        }
+                    }
+                )
                 
             }
             .toolbar{
