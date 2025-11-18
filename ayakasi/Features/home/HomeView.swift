@@ -37,6 +37,25 @@ struct PickupCard : View{
                                 .padding(.leading,20)
                                 .padding(.bottom,20)
                         }
+                        .overlay(alignment:.topTrailing){
+                            if ayakasi.sotry{
+                                Circle().fill(Color.black.opacity(0.6))
+                                    .frame(width: 40, height: 40)
+                                    .overlay(
+                                        Image("book")
+                                            .renderingMode(.template)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundStyle(.white)
+                                            .shadow(color: .black, radius: 2, x: 1, y: 1)
+                                    )
+                                    .padding(.trailing,8)
+                                    .padding(.top,8)
+                                
+                            }
+                            
+                        }
                 }else{
                     Image(ayakasi.imageName)
                         .resizable()
