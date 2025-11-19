@@ -138,7 +138,7 @@ struct NeoDetail: View {
                     // 2タブ
                     Group{
                         HStack{
-                            Text("基本情報")
+                            Text("説明")
                                 .fontWeight(.bold)
                                 .padding(.vertical,16)
                                 .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))

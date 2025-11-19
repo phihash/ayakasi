@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ByTheWay: View {
     let btw : String
+    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         VStack{
             HStack{
@@ -18,7 +19,7 @@ struct ByTheWay: View {
         .frame(maxWidth: .infinity)
         .padding(20)
         .foregroundStyle(.white)
-        .background(.black.opacity(0.5))
+        .background(colorVM.currentColor.opacity(0.5))
         .cornerRadius(12)
         .padding(.horizontal,16)
         .padding(.vertical,8)

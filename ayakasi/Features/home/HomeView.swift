@@ -285,7 +285,7 @@ struct HomeView: View {
                     Spacer()
                     
                     NavigationLink{
-                        let filtered = ayakasis.filter({$0.tags.contains("すべて")})
+                        let filtered = ayakasis.filter({$0.categories.contains("すべて")})
                         FilteredScreen(ayakasis:filtered,tag:"すべて")
                     } label: {
                         Text("全てを見る")
