@@ -74,6 +74,18 @@ struct SettingView: View {
                         .padding(.vertical,6)
                     }
                     
+                    Button{
+                        KingfisherManager.shared.cache.clearMemoryCache()
+                        KingfisherManager.shared.cache.clearDiskCache()
+                    } label : {
+                        HStack(spacing: 18){
+                            Image(systemName: "trash")
+                            Text("キャッシュを削除する")
+                        }
+                        .padding(.vertical,6)
+                    }
+                    .foregroundStyle(.primary)
+                    
                     HStack(spacing: 12){
                         ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
                             HStack(spacing: 18){
