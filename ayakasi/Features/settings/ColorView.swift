@@ -9,7 +9,6 @@ struct ColorView: View {
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     var body: some View {
         NavigationStack{
-
                     LazyVGrid(columns: columns){
                         ForEach(colors, id : \.self){ color in
                         VStack{
