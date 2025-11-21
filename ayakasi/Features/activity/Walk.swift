@@ -71,13 +71,14 @@ struct Walk: View {
             VStack{
                 
                 VStack(spacing: 12){
-                    VStack(spacing: 8){
-                        Text("歩いた歩数")
-                        Text("\(steps)歩")
-                            .font(Font.custom("NotoSansJP-VariableFont_wght.ttf", size: 28))
-                            .fontWeight(.bold)
-                    }
+                   
                     HStack(spacing:12){
+                        VStack(spacing: 8){
+                            Text("歩いた歩数")
+                            Text("\(steps)歩")
+                                .font(Font.custom("NotoSansJP-VariableFont_wght.ttf", size: 28))
+                                .fontWeight(.bold)
+                        }
                         VStack(spacing: 8){
                             Text("アクティブ消費")
                             Text("\(activeKcal, specifier: "%.0f") kcal")
