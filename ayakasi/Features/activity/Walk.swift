@@ -69,7 +69,6 @@ struct Walk: View {
     var body: some View {
         NavigationStack{
             VStack{
-                
                 VStack(spacing: 12){
                    
                     HStack(spacing:12){

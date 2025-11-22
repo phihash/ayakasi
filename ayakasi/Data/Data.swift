@@ -8,6 +8,16 @@ let ayakasis: [Ayakasi] = [
         episodes: "旅人が同じ場所をぐるぐる回らされる話",
         sotry: false
     ),
+    Ayakasi(
+        name: "傘小僧",
+        imageName: "https://i.imgur.com/CGqsVUE.png", // ここは適切な画像URLに置き換えてください
+        description: "一本足で飛び跳ねる、古い唐傘の妖怪。目玉と長い舌を持ち、雨の夜に出現すると言われる。人々を驚かせることを好むが、悪さはしないとされる。",
+        categories: ["道の怪","すべて"],
+        btw: nil,
+        episodes: "室町時代の絵巻物にも登場する",
+        sotry: false
+    )
+    ,
     
     Ayakasi(
         name: "牛鬼",
