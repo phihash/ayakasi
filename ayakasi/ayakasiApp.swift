@@ -5,10 +5,10 @@ import Firebase
 struct ayakasiApp: App {
     @StateObject private var WeatherVM = WeatherViewModel()
     @StateObject private var ColorVM = ColorViewModel()
-//    @StateObject private var AuthVM = AuthViewModel()
-//    init(){
-//        FirebaseApp.configure()
-//    }
+    @StateObject private var AuthVM = AuthViewModel()
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             
@@ -16,7 +16,7 @@ struct ayakasiApp: App {
                 .environmentObject(WeatherVM)
                 .environmentObject(ColorVM)
                 .environment(\.locale, Locale(identifier: "ja_JP"))
-//                .environmentObject(AuthVM)
+                .environmentObject(AuthVM)
           
         }
     }

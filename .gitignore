@@ -25,3 +25,4 @@ DerivedData
 .DS_Store
 
 .idea/
+GoogleService-Info.plist

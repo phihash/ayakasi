@@ -11,17 +11,17 @@ struct SettingView: View {
             List{
                 Section{
 //                    if !authVM.isAuthenticated {
-//                        NavigationLink(destination: RegisterView() ){
-//                            HStack{
-//                                HStack(spacing: 18){
-//                                    Image(systemName: "tag")
-//                                    Text("新規登録")
-//                                }
-//                                Spacer()
-//                            }
-//                            .foregroundStyle(.primary)
-//                            .padding(.vertical,6)
-//                        }
+                        NavigationLink(destination: RegisterView() ){
+                            HStack{
+                                HStack(spacing: 18){
+                                    Image(systemName: "tag")
+                                    Text("新規登録")
+                                }
+                                Spacer()
+                            }
+                            .foregroundStyle(.primary)
+                            .padding(.vertical,6)
+                        }
 //                      
 //                        NavigationLink(destination: LoginView()){
 //                            HStack{
