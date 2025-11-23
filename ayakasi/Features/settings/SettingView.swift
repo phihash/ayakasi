@@ -8,6 +8,8 @@ struct SettingView: View {
     @State var isShowMailView = false
     @State var isShowRegisterView = false
     @State var isShowLoginView = false
+    @State private var showLogoutAlert = false
+    @State private var showDeleteAccountAlert = false
     var body: some View {
         NavigationStack{
             List{
@@ -48,7 +50,7 @@ struct SettingView: View {
                     
                     if authVM.authStatus == .authenticated {
                         Button{
-                            authVM.signOut()
+                            showLogoutAlert = true
                         } label: {
                             HStack{
                                 HStack(spacing: 18){
@@ -63,15 +65,14 @@ struct SettingView: View {
                         .foregroundStyle(.primary)
                         
                         Button{
-                            Task {
-                                await authVM.deleteAccount()
-                            }
+                            showDeleteAccountAlert = true
                         } label: {
                             HStack{
                                 HStack(spacing: 18){
                                     Image(systemName: "trash")
                                     Text("アカウント削除")
                                 }
+                                .foregroundStyle(.red)
                                 Spacer()
                             }
                             
@@ -203,6 +204,24 @@ struct SettingView: View {
                 body: "\n\n----\n不具合の検証に利用させていただきます。 \nApp: \(Bundle.main.appName)\n                    Version:  (\(Bundle.main.appVersion))   \n                     iOS: \(UIDevice.current.systemVersion)   \n"
             )
             .edgesIgnoringSafeArea(.all)
+        }
+        .alert("ログアウトしますか？", isPresented: $showLogoutAlert) {
+            Button("キャンセル", role: .cancel) {}
+            Button("ログアウト", role: .destructive) {
+                authVM.signOut()
+            }
+        } message: {
+            Text("ログアウトすると、再度ログインが必要になります。")
+        }
+        .alert("アカウントを削除しますか？", isPresented: $showDeleteAccountAlert) {
+            Button("キャンセル", role: .cancel) {}
+            Button("削除", role: .destructive) {
+                Task {
+                    await authVM.deleteAccount()
+                }
+            }
+        } message: {
+            Text("この操作は取り消すことができません。すべてのデータが削除されます。")
         }
     }
 }

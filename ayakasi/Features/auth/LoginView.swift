@@ -1,30 +1,65 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var confirmPassword = ""
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var authVM : AuthViewModel
+    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
-        VStack{
-            Text("ログイン")
-                .font(.system(size: 20, weight: .bold))
-            TextField("メールアドレス",text:$email)
-                .font(.system(size: 20, weight: .bold))
-                .textFieldStyle(.plain)
-                .padding(10)
-            SecureField("パスワード",text:$password)
-                .font(.system(size: 20, weight: .bold))
-                .textFieldStyle(.plain)
-                .padding(10)
+        NavigationStack{
+            VStack{
+                Text("ログイン")
+                    .font(.system(size: 20, weight: .bold))
+                VStack{
+                    TextField("メールアドレス",text:$authVM.email)
+                        .font(.system(size: 18))
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .contentShape(Rectangle())  // タップ領域を拡大
+                        .padding(.horizontal)
+                    
+                    SecureField("パスワード",text:$authVM.password)
+                        .font(.system(size: 18))
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .contentShape(Rectangle())  // タップ領域を拡大
+                        .padding(.horizontal)
+                }
             
-            Button("ログイン"){
-                Task{
-                    await authVM.signIn()
+                
+                Text(authVM.message)
+                    .foregroundStyle(.red)
+                    .font(.subheadline)
+                
+                Button {
+                    Task {
+                        await authVM.signIn()
+                        if authVM.authStatus == .authenticated {
+                            dismiss()
+                        }
+                    }
+                } label : {
+                    HStack{
+                        Text("ログイン")
+                    }
+                    .font(.title2)
+                    .foregroundStyle(.white)
+                    .frame(width: 160, height: 48)
+                    .background(Capsule().fill(colorVM.currentColor))
+                }
+                
+            }
+            
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing ){
+                    Button("閉じる"){
+                        dismiss()
+                    }
                 }
             }
         }
-        .padding()
+     
         
     }
 }

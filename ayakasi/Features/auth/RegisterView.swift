@@ -12,33 +12,45 @@ struct RegisterView: View {
                         Text("新規登録")
                             .font(.system(size: 20, weight: .bold))
                         TextField("メールアドレス",text:$authVM.email)
-                            .font(.system(size: 20, weight: .bold))
-                            .textFieldStyle(.plain)
-                            .padding(10)
+                            .font(.system(size: 18))
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal)
+                        
                         SecureField("パスワード",text:$authVM.password)
-                            .font(.system(size: 20, weight: .bold))
-                            .textFieldStyle(.plain)
-                            .padding(10)
+                            .font(.system(size: 18))
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal)
+                        
                         SecureField("パスワード(確認)",text: $authVM.confirmPassword)
-                            .font(.system(size: 20, weight: .bold))
-                            .textFieldStyle(.plain)
-                            .padding(10)
+                            .font(.system(size: 18))
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal)
                         
                         Text(authVM.message)
                             .foregroundStyle(.red)
                             .font(.title3)
                         
-                        HStack{
-                            Text("登録")
-                        }
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .frame(width: 160, height: 48)
-                        .background(Capsule().fill(colorVM.currentColor))
-                        .onTapGesture {
+                        Button {
                             Task {
                                 await authVM.signUp()
                             }
+                        } label : {
+                            HStack{
+                                Text("登録")
+                            }
+                            .font(.title2)
+                            .foregroundStyle(.white)
+                            .frame(width: 160, height: 48)
+                            .background(Capsule().fill(colorVM.currentColor))
                         }
                         
                     }
@@ -74,9 +86,7 @@ struct RegisterView: View {
                         }
                     }
                 }
-   
-         
-               
+                
             }
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing ){
