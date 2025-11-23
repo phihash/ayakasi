@@ -130,9 +130,11 @@ struct NeoDetail: View {
                             .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
                             .font(.title)
                             .fontWeight(.bold)
-                            .padding(.bottom,28)
-                            .padding(.leading,32)
+                            .padding(.bottom, 20)  // ハートボタンと同じ高さに
+                            .padding(.leading, 32)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                        
+                    
                     }
                     
                     // 2タブ
@@ -285,29 +287,46 @@ struct NeoDetail: View {
                     .foregroundStyle(.white)
                     .frame(width: screenWidth * 0.6, height: 48)
                     .background(Capsule().fill(colorVM.currentColor))
-                    .padding(.trailing,20)
+                    .padding(.trailing,12)
                     .onTapGesture {
                         requestAndSaveImage(imageName: yokai.imageName)
                     }
                     
-                    HStack(spacing: 28){
-                        Link(destination: URL(string: "https://www.google.com/search?q=\(yokai.name)")!){
-                            VStack(spacing:4){
-                                Image(systemName: "magnifyingglass")
-                                Text("検索")
+                    HStack(spacing: 18){
+                        
+                        Circle()
+                            .fill(Color.red.opacity(0.6))
+                            .frame(width: screenWidth * 0.12, height: screenWidth * 0.12)
+                            .overlay(
+                                Image(systemName: "heart")
+                                    .foregroundStyle(.white)
+                                    .padding()
+                            )
+                            .onTapGesture {
+//                                dismiss()
+                            }
+                        
+                        
+//                        Link(destination: URL(string: "https://www.google.com/search?q=\(yokai.name)")!){
+//                            VStack(spacing:4){
+//                                Image(systemName: "magnifyingglass")
+//                                Text("検索")
+//                                    .font(.subheadline)
+//                            }
+//                        }
+                        
+                        Button {
+                            dismiss()
+                        } label : {
+                            VStack(spacing:6){
+                                Image(systemName: "arrowshape.turn.up.backward")
+                                Text("戻る")
                                     .font(.subheadline)
                             }
                         }
-                        
-                        
-                        VStack(spacing:4){
-                            Image(systemName: "arrowshape.turn.up.backward")
-                            Text("戻る")
-                                .font(.subheadline)
-                        }.onTapGesture {
-                            dismiss()
-                        }
+                      
                     }
+                    .padding(.trailing,8)
                     
                     
                     
