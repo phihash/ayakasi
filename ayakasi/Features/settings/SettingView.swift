@@ -4,56 +4,82 @@ import Kingfisher
 
 struct SettingView: View {
     @Environment(\.requestReview) var requestReview
-//    @EnvironmentObject var authVM : AuthViewModel
+    @EnvironmentObject var authVM : AuthViewModel
     @State var isShowMailView = false
+    @State var isShowRegisterView = false
+    @State var isShowLoginView = false
     var body: some View {
         NavigationStack{
             List{
                 Section{
-//                    if !authVM.isAuthenticated {
-                        NavigationLink(destination: RegisterView() ){
+                    if authVM.authStatus != .authenticated {
+                        Button{
+                            isShowRegisterView = true
+                        } label: {
                             HStack{
                                 HStack(spacing: 18){
-                                    Image(systemName: "tag")
+                                    Image(systemName: "person.crop.circle")
                                     Text("新規登録")
                                 }
                                 Spacer()
                             }
-                            .foregroundStyle(.primary)
+                            
                             .padding(.vertical,6)
                         }
-//                      
-//                        NavigationLink(destination: LoginView()){
-//                            HStack{
-//                                HStack(spacing: 18){
-//                                    Image(systemName: "tag")
-//                                    Text("ログイン")
-//                                }
-//                                Spacer()
-//                            }
-//                            .foregroundStyle(.primary)
-//                            .padding(.vertical,6)
-//                        }
-//                    }
-//                    
-//                    if authVM.isAuthenticated {
-//                        Button{
-//                            authVM.signOut()
-//                        } label :{
-//                            HStack{
-//                                HStack(spacing: 18){
-//                                    Image(systemName: "tag")
-//                                    Text("ログアウト")
-//                                }
-//                                Spacer()
-//                                Text(Bundle.main.appVersion)
-//                            }
-//                            .foregroundStyle(.primary)
-//                            .padding(.vertical,6)
-//                        }
-//        
-//                    }
-//                    
+                        .foregroundStyle(.primary)
+                        
+                        Button{
+                            isShowLoginView = true
+                        } label: {
+                            HStack{
+                                HStack(spacing: 18){
+                                    Image(systemName: "person.circle")
+                                    Text("ログイン")
+                                }
+                                Spacer()
+                            }
+                            
+                            .padding(.vertical,6)
+                        }
+                        .foregroundStyle(.primary)
+                        
+                     
+                    }
+                    
+                    if authVM.authStatus == .authenticated {
+                        Button{
+                            authVM.signOut()
+                        } label: {
+                            HStack{
+                                HStack(spacing: 18){
+                                    Image(systemName: "person.crop.circle.badge.moon")
+                                    Text("ログアウト")
+                                }
+                                Spacer()
+                            }
+                            
+                            .padding(.vertical,6)
+                        }
+                        .foregroundStyle(.primary)
+                        
+                        Button{
+                            Task {
+                                await authVM.deleteAccount()
+                            }
+                        } label: {
+                            HStack{
+                                HStack(spacing: 18){
+                                    Image(systemName: "trash")
+                                    Text("アカウント削除")
+                                }
+                                Spacer()
+                            }
+                            
+                            .padding(.vertical,6)
+                        }
+                        .foregroundStyle(.primary)
+                    }
+               
                     HStack{
                         HStack(spacing: 18){
                             Image(systemName: "tag")
@@ -147,7 +173,7 @@ struct SettingView: View {
                         }
                     } label : {
                         HStack(spacing: 18){
-                            Image(systemName: "mail")
+                            Image(systemName: "envelope")
                             Text("問い合わせ")
                         }
                         .padding(.vertical,6)
@@ -163,6 +189,12 @@ struct SettingView: View {
             }
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .fullScreenCover(isPresented:$isShowRegisterView){
+            RegisterView()
+        }
+        .fullScreenCover(isPresented:$isShowLoginView){
+            LoginView()
         }
         .sheet(isPresented: $isShowMailView) {
             MailView(
