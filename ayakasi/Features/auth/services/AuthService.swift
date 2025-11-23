@@ -13,11 +13,6 @@ class AuthService{
         return Auth.auth().currentUser
     }
     
-    //✅ ログイン状態の確認
-    var isLogin : Bool {
-        return currentUser != nil
-    }
-    
     //✅ メール認証状態の確認
     var isEmailVerified: Bool {
         return currentUser?.isEmailVerified ?? false

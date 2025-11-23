@@ -42,11 +42,11 @@ struct LoginView: View {
                 } label : {
                     HStack{
                         Text("ログイン")
+                            .frame(width: 160, height: 48)
+                            .background(colorVM.currentColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .font(.title2)
-                    .foregroundStyle(.white)
-                    .frame(width: 160, height: 48)
-                    .background(Capsule().fill(colorVM.currentColor))
                 }
                 
             }

@@ -46,11 +46,11 @@ struct RegisterView: View {
                         } label : {
                             HStack{
                                 Text("登録")
+                                    .frame(width: 160, height: 48)
+                                    .background(colorVM.currentColor)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
                             }
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .frame(width: 160, height: 48)
-                            .background(Capsule().fill(colorVM.currentColor))
                         }
                         
                     }
@@ -60,6 +60,10 @@ struct RegisterView: View {
                         Text("メールを確認し、認証してください。")
                             .font(.title2)
                             .fontWeight(.bold)
+                        
+                        Text("メールが届いていない時は、迷惑メールリストを確認してください")
+                            .font(.subheadline)
+                            .foregroundStyle(.red)
                         
                         Button(action: {
                             Task {
