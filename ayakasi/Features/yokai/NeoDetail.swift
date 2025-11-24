@@ -136,7 +136,6 @@ struct NeoDetail: View {
                             .padding(.leading, 32)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                         
-                        
                     }
                     
                     // 2タブ
@@ -257,37 +256,37 @@ struct NeoDetail: View {
             // フローティング投票ボタン
             .overlay(alignment: .bottomTrailing) {
                 
-
-                    Button {
-                        if authVM.authStatus == .authenticated {
-                            Task {
-                                do {
-                                    try await voteService.vote(aykasiId: yokai.documentId)
-                                    print("投票完了！")
-                                } catch {
-                                    print("投票エラー: \(error)")
-                                }
+                
+                Button {
+                    if authVM.authStatus == .authenticated {
+                        Task {
+                            do {
+                                try await voteService.vote(aykasiId: yokai.documentId)
+                                print("投票完了！")
+                            } catch {
+                                print("投票エラー: \(error)")
                             }
-                        } else {
-                            print("登録しろ")
                         }
-                    
-                    } label: {
-                        VStack(spacing: 2) {
-                            Image(systemName: "heart.fill")
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                            Text("\(voteService.voteCounts[yokai.documentId] ?? 0)")
-                                .foregroundStyle(.white)
-                                .font(.caption)
-                                .bold()
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(Circle().fill(Color.red.opacity(0.8)))
-                        .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
+                    } else {
+                        print("登録しろ")
                     }
-                    .padding(.trailing, 20)
-                    .padding(.bottom,16)
+                    
+                } label: {
+                    VStack(spacing: 2) {
+                        Image(systemName: "heart.fill")
+                            .foregroundStyle(.white)
+                            .font(.title2)
+                        Text("\(voteService.voteCounts[yokai.documentId] ?? 0)")
+                            .foregroundStyle(.white)
+                            .font(.caption)
+                            .bold()
+                    }
+                    .frame(width: 60, height: 60)
+                    .background(Circle().fill(Color.red.opacity(0.8)))
+                    .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
+                }
+                .padding(.trailing, 20)
+                .padding(.bottom,16)
                 
                 
                 

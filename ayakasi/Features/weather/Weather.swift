@@ -26,9 +26,9 @@ struct Weather: View {
     }
     var body: some View {
         NavigationStack{
-        ScrollView{
+            ScrollView{
                 VStack(spacing: 40){
-
+                    
                     Text(currentWeatherVM.currentAddress)
                         .padding(.top,20)
                     VStack{
@@ -62,9 +62,9 @@ struct Weather: View {
                     
                     ScrollView(.horizontal,showsIndicators: false){
                         HStack{
-                        ForEach(currentWeatherVM.hourlyForecasts.indices, id: \.self) { idx in
-                            let hour = currentWeatherVM.hourlyForecasts[idx]
-                           
+                            ForEach(currentWeatherVM.hourlyForecasts.indices, id: \.self) { idx in
+                                let hour = currentWeatherVM.hourlyForecasts[idx]
+                                
                                 VStack {
                                     Image(systemName: hour.symbolName)
                                         .font(.title)
@@ -81,7 +81,7 @@ struct Weather: View {
                                 }
                                 .padding()
                             }
-                        
+                            
                         }
                     }
                     .padding(.horizontal,12)
