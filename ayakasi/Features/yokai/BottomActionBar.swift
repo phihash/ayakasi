@@ -26,32 +26,11 @@ struct BottomActionBar: View {
                 }
                 
                 HStack(spacing: 18) {
-                    // 投票ボタン（ハート）
-                    Button {
-                        Task {
-                            do {
-                                try await voteVM.vote(aykasiId: yokai.documentId)
-                                print("投票完了！")
-                            } catch {
-                                print("投票エラー: \(error)")
-                            }
+                    Link(destination: URL(string: "https://www.google.com/search?q=\(yokai.name)")!){
+                        VStack(spacing:4){
+                            Image(systemName: "magnifyingglass")
+                            Text("検索")
                         }
-                    } label: {
-                        VStack{
-                            Circle()
-                                .fill(Color.red.opacity(0.6))
-                                .frame(width: screenWidth * 0.12, height: screenWidth * 0.12)
-                                .overlay(
-                                    VStack(spacing: 2){
-                                        Image(systemName: "heart")
-                                            .foregroundStyle(.white)
-                                        Text("\(voteVM.voteCounts[yokai.documentId] ?? 0)")
-                                            .foregroundStyle(.white)
-                                    }
-                                    
-                                )
-                        }
-                        
                     }
                     
                     // 戻るボタン

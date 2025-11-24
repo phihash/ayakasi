@@ -37,7 +37,24 @@ struct PickupCard : View{
                                 .padding(.leading,20)
                                 .padding(.bottom,20)
                         }
+//                        .overlay(alignment:.topLeading){
+//                            Circle().fill(Color.red.opacity(0.7))
+//                                .frame(width: 40, height: 40)
+//                                .overlay(
+//                                    Image(systemName: "heart.fill")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 20, height: 20)
+//                                        .foregroundStyle(.white)
+//                                        .shadow(color: .black, radius: 2, x: 1, y: 1)
+//                                )
+//                                .padding(.leading,8)
+//                                .padding(.top,8)
+//                        }
                         .overlay(alignment:.topTrailing){
+                            
+                         
+                            
                             if ayakasi.sotry{
                                 Circle().fill(Color.black.opacity(0.6))
                                     .frame(width: 40, height: 40)

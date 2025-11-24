@@ -19,25 +19,6 @@ class VoteService: ObservableObject {
             throw VoteError.notAuthenticated
         }
         
-//        votes/
-//        └── oni/
-//        ├── totalVotes: 150
-//        └── users: {
-//            "user123": {
-//                voteCount: 3,
-//                lastVotedAt: 2024-11-24 10:30:00
-//            },
-//            "user456": {
-//                voteCount: 1,
-//                lastVotedAt: 2024-11-24 09:15:00
-//            }
-//        }
-//        
-//        この構造なら：
-//        - 妖怪ごとの総投票数がすぐわかる
-//        - 各ユーザーの最終投票時間で連続投票を制限できる
-//        - ユーザーごとの投票回数も管理できる
-        
         // 2. Firestoreの参照を取得
         let voteRef = db.collection("votes").document(aykasiId)
         // 3. 既存データを取得
@@ -45,7 +26,10 @@ class VoteService: ObservableObject {
         
         // 4. 現在の値を取得（なければ初期値）
         var totalVotes = document.data()?["totalVotes"] as? Int ?? 0
-
+        
+        // キャッシュも最新値に更新（投票前に表示を正確にする）
+        voteCounts[aykasiId] = totalVotes
+        
         // 5. 総投票数を増加
         totalVotes += 1
         
@@ -60,8 +44,12 @@ class VoteService: ObservableObject {
         
         //7
         try await voteRef.setData(["totalVotes": totalVotes,"users":users],merge:true);
-        voteCounts[aykasiId] = totalVotes
-
+        
+        // 投票後に最新の値を取得し直す
+        let updatedDocument = try await voteRef.getDocument()
+        let actualCount = updatedDocument.data()?["totalVotes"] as? Int ?? totalVotes
+        voteCounts[aykasiId] = actualCount
+        
         
     }
     
