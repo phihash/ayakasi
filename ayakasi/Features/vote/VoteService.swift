@@ -7,8 +7,7 @@ class VoteService: ObservableObject {
     static let shared = VoteService()
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
-    
-    @Published var voteCounts: [String: Int] = [:]
+    @Published var voteCountCache: [String: Int] = [:]
     
     init(){
         
@@ -28,7 +27,7 @@ class VoteService: ObservableObject {
         var totalVotes = document.data()?["totalVotes"] as? Int ?? 0
         
         // キャッシュも最新値に更新（投票前に表示を正確にする）
-        voteCounts[aykasiId] = totalVotes
+        voteCountCache[aykasiId] = totalVotes
         
         // 5. 総投票数を増加
         totalVotes += 1
@@ -48,13 +47,13 @@ class VoteService: ObservableObject {
         // 投票後に最新の値を取得し直す
         let updatedDocument = try await voteRef.getDocument()
         let actualCount = updatedDocument.data()?["totalVotes"] as? Int ?? totalVotes
-        voteCounts[aykasiId] = actualCount
+        voteCountCache[aykasiId] = actualCount
         
         
     }
     
     func getVoteCount(ayakasiId: String) async -> Int {
-        if let count = voteCounts[ayakasiId]{
+        if let count = voteCountCache[ayakasiId]{
             return count
         }
         
@@ -62,7 +61,7 @@ class VoteService: ObservableObject {
             let document = try await db.collection("votes").document(ayakasiId).getDocument()
             let count = document.data()?["totalVotes"] as? Int ?? 0
             
-            voteCounts[ayakasiId] = count
+            voteCountCache[ayakasiId] = count
             return count
         }catch{
             print("投票数取得エラー: \(error)")

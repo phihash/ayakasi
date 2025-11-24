@@ -9,6 +9,7 @@ struct NeoDetail: View {
     @State private var selectedTab = 0
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
+    @State private var promptAuth : Bool = false
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @EnvironmentObject var colorVM : ColorViewModel
@@ -268,7 +269,7 @@ struct NeoDetail: View {
                             }
                         }
                     } else {
-                        print("登録しろ")
+                        promptAuth = true
                     }
                     
                 } label: {
@@ -276,7 +277,7 @@ struct NeoDetail: View {
                         Image(systemName: "heart.fill")
                             .foregroundStyle(.white)
                             .font(.title2)
-                        Text("\(voteService.voteCounts[yokai.documentId] ?? 0)")
+                        Text("\(voteService.voteCountCache[yokai.documentId] ?? 0)")
                             .foregroundStyle(.white)
                             .font(.caption)
                             .bold()
@@ -314,6 +315,11 @@ struct NeoDetail: View {
         } message: {
             Text(alertMessage)
         }
+        .alert("", isPresented: $promptAuth) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("設定から登録またはログインすると投票できます")            
+        }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
         .fullScreenCover(isPresented: $showStoryView) {
@@ -326,6 +332,7 @@ struct NeoDetail: View {
                 requestAndSaveImage: requestAndSaveImage
             )
         }
+        
         
     }
 }
