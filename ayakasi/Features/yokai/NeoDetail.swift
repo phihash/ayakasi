@@ -12,6 +12,7 @@ struct NeoDetail: View {
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @EnvironmentObject var colorVM : ColorViewModel
+    @EnvironmentObject var voteService : VoteService
     
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
@@ -134,7 +135,7 @@ struct NeoDetail: View {
                             .padding(.leading, 32)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                         
-                    
+                        
                     }
                     
                     // 2タブ
@@ -276,69 +277,11 @@ struct NeoDetail: View {
             StoryView(yokaiName: yokai.name)
         }
         .safeAreaInset(edge: .bottom){
-            VStack{
-                
-                HStack{
-                    
-                    HStack{
-                        Text("写真を保存")
-                    }
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(width: screenWidth * 0.6, height: 48)
-                    .background(Capsule().fill(colorVM.currentColor))
-                    .padding(.trailing,12)
-                    .onTapGesture {
-                        requestAndSaveImage(imageName: yokai.imageName)
-                    }
-                    
-                    HStack(spacing: 18){
-                        
-                        Circle()
-                            .fill(Color.red.opacity(0.6))
-                            .frame(width: screenWidth * 0.12, height: screenWidth * 0.12)
-                            .overlay(
-                                Image(systemName: "heart")
-                                    .foregroundStyle(.white)
-                                    .padding()
-                            )
-                            .onTapGesture {
-//                                dismiss()
-                            }
-                        
-                        
-//                        Link(destination: URL(string: "https://www.google.com/search?q=\(yokai.name)")!){
-//                            VStack(spacing:4){
-//                                Image(systemName: "magnifyingglass")
-//                                Text("検索")
-//                                    .font(.subheadline)
-//                            }
-//                        }
-                        
-                        Button {
-                            dismiss()
-                        } label : {
-                            VStack(spacing:6){
-                                Image(systemName: "arrowshape.turn.up.backward")
-                                Text("戻る")
-                                    .font(.subheadline)
-                            }
-                        }
-                      
-                    }
-                    .padding(.trailing,8)
-                    
-                    
-                    
-                    
-                }
-                .padding(.top,16)
-                
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 72)
-            .background(.white)
-            
+            BottomActionBar(
+                yokai: yokai, 
+                screenWidth: screenWidth, 
+                requestAndSaveImage: requestAndSaveImage
+            )
         }
         
     }
