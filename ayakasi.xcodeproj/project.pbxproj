@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A90029522E94146300F90FC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029512E94146300F90FC5 /* FeedKit */; };
 		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
+		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -99,6 +100,7 @@
 				A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */,
 				A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */,
 				A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */,
+				A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */,
 				A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */,
 				A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */,
 			);
@@ -176,6 +178,7 @@
 				A9DBF7212E8A453500F5CDBF /* FeedKit */,
 				A9DBF79D2E90ECE900F5CDBF /* XMLKit */,
 				A99B6CAB2EC382D700D5D274 /* Kingfisher */,
+				A91F42052ED41BA300DCFC61 /* FirebaseFirestore */,
 			);
 			productName = ayakasi;
 			productReference = A97C29FB2E4B6D3000889AB0 /* ayakasi.app */;
@@ -641,6 +644,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = XMLKit;
+		};
+		A91F42052ED41BA300DCFC61 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		A99B6CAB2EC382D700D5D274 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

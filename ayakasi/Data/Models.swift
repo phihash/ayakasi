@@ -9,6 +9,7 @@ struct ReferenceLink: Identifiable{
 struct Ayakasi : Identifiable {
     let id : UUID = UUID()
     let name : String
+    let documentId: String  // Firestore用のドキュメントID
     let imageName : String
     let description: String
     let categories : [String]
