@@ -42,6 +42,7 @@ struct BottomActionBar: View {
                             Text("戻る")
                                 .font(.subheadline)
                         }
+                        .foregroundStyle(.black)
                     }
                 }
                 .padding(.trailing, 8)

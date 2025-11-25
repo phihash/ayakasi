@@ -22,6 +22,7 @@ struct RegisterView: View {
                             .padding(.horizontal)
                         
                         SecureField("パスワード",text:$authVM.password)
+                            .textContentType(.password)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color(.systemGray6))
@@ -30,6 +31,7 @@ struct RegisterView: View {
                             .padding(.horizontal)
                         
                         SecureField("パスワード(確認)",text: $authVM.confirmPassword)
+                            .textContentType(.password)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color(.systemGray6))

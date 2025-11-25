@@ -13,85 +13,104 @@ let publishedFormatter : DateFormatter = {
 
 struct PickupCard : View{
     let ayakasi: Ayakasi
+    @EnvironmentObject var voteService: VoteService
+    
+    @ViewBuilder
+    private var nameOverlay: some View {
+        Text(ayakasi.name)
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundStyle(.white)
+            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
+            .padding(.leading,20)
+            .padding(.bottom,20)
+    }
+    
+    @ViewBuilder
+    private var voteOverlay: some View {
+        Capsule().fill(Color.red.opacity(0.9))
+            .frame(width: 64, height: 40)
+            .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 1)
+            .overlay(
+                HStack{
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
+                        .foregroundStyle(.white)
+                    Text("\(voteService.voteCountCache[ayakasi.documentId] ?? 0)")
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                }
+            )
+            .padding(.leading,8)
+            .padding(.top,8)
+    }
+    
+    @ViewBuilder
+    private var storyOverlay: some View {
+        if ayakasi.sotry{
+            Circle().fill(Color.black.opacity(0.6))
+                .frame(width: 40, height: 40)
+                .overlay(
+                    Image("book")
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(.white)
+                        .shadow(color: .black, radius: 2, x: 1, y: 1)
+                )
+                .padding(.trailing,8)
+                .padding(.top,8)
+        }
+    }
+    
+    @ViewBuilder
+    private func networkImage(url: URL) -> some View {
+        KFImage(url)
+            .placeholder {
+                Image("loading")
+                    .resizable()
+                    .scaledToFill()
+            }
+            .cacheOriginalImage()
+            .resizable()
+            .scaledToFill()
+            .frame(width: 180)
+            .cornerRadius(12)
+            .overlay(alignment: .bottomLeading) { nameOverlay }
+            .overlay(alignment: .topLeading) { voteOverlay }
+            .overlay(alignment: .topTrailing) { storyOverlay }
+    }
+    
+    @ViewBuilder
+    private var localImage: some View {
+        Image(ayakasi.imageName)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 180)
+            .cornerRadius(12)
+            .overlay(alignment: .bottomLeading){
+                Text(ayakasi.name)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .padding(.leading,20)
+                    .padding(.bottom,20)
+            }
+    }
+    
     var body: some View{
         ZStack{
             Group{
-                if let url = URL(string: ayakasi.imageName) , url.scheme?.hasPrefix("http") == true{
-                    KFImage(url)
-                        .placeholder {
-                            Image("loading")
-                                .resizable()
-                                .scaledToFill()
-                        }
-                        .cacheOriginalImage()
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 180)
-                        .cornerRadius(12)
-                        .overlay(alignment: .bottomLeading){
-                            Text(ayakasi.name)
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
-                                .padding(.leading,20)
-                                .padding(.bottom,20)
-                        }
-//                        .overlay(alignment:.topLeading){
-//                            Circle().fill(Color.red.opacity(0.7))
-//                                .frame(width: 40, height: 40)
-//                                .overlay(
-//                                    Image(systemName: "heart.fill")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 20, height: 20)
-//                                        .foregroundStyle(.white)
-//                                        .shadow(color: .black, radius: 2, x: 1, y: 1)
-//                                )
-//                                .padding(.leading,8)
-//                                .padding(.top,8)
-//                        }
-                        .overlay(alignment:.topTrailing){
-                            
-                         
-                            
-                            if ayakasi.sotry{
-                                Circle().fill(Color.black.opacity(0.6))
-                                    .frame(width: 40, height: 40)
-                                    .overlay(
-                                        Image("book")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 20, height: 20)
-                                            .foregroundStyle(.white)
-                                            .shadow(color: .black, radius: 2, x: 1, y: 1)
-                                    )
-                                    .padding(.trailing,8)
-                                    .padding(.top,8)
-                                
-                            }
-                            
-                        }
-                }else{
-                    Image(ayakasi.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 180)
-                        .cornerRadius(12)
-                        .overlay(alignment: .bottomLeading){
-                            Text(ayakasi.name)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .padding(.leading,20)
-                                .padding(.bottom,20)
-                        }
+                if let url = URL(string: ayakasi.imageName), url.scheme?.hasPrefix("http") == true {
+                    networkImage(url: url)
+                } else {
+                    localImage
                 }
-                
             }
         }
-        
     }
 }
 
@@ -226,11 +245,11 @@ struct HomeView: View {
                         EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
                             .tag(2)
                     }
-                    .tabViewStyle(.page(indexDisplayMode: .automatic)) // ドット表示
+                    .tabViewStyle(.page(indexDisplayMode: .automatic))
                     .frame(height: 130)
                     .onReceive(timer) { _ in
                         withAnimation(.easeInOut) {
-                            page = (page + 1) % 3  // 最後→最初にループ 4枚なので
+                            page = (page + 1) % 3
                         }
                     }
                 }
@@ -280,13 +299,11 @@ struct HomeView: View {
                                 let currentNewsIndex = newsYokai.firstIndex(of: selectedNews) ?? 0
                                 
                                 if value.translation.width > 50 {
-                                    //右スワイプ
                                     let newIndex = max(0,currentNewsIndex - 1)
                                     withAnimation{
                                         selectedNews = newsYokai[newIndex]
                                     }
                                 } else if value.translation.width < -50 {
-                                    //左スワイプ
                                     let newIndex = min(newsYokai.count - 1, currentNewsIndex + 1)
                                     withAnimation{
                                         selectedNews = newsYokai[newIndex]
@@ -295,7 +312,6 @@ struct HomeView: View {
                             }
                     )
                 
-                // 3.ピックアップ
                 HStack{
                     Text("ピックアップ")
                     

@@ -12,15 +12,16 @@ struct LoginView: View {
                 VStack{
                     TextField("メールアドレス",text:$authVM.email)
                         .textContentType(.emailAddress)
-                        .keyboardType(.emailAddress) 
+                        .keyboardType(.emailAddress)
                         .font(.system(size: 18))
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
-                        .contentShape(Rectangle())  // タップ領域を拡大
+                        .contentShape(Rectangle())
                         .padding(.horizontal)
                     
                     SecureField("パスワード",text:$authVM.password)
+                        .textContentType(.password)
                         .font(.system(size: 18))
                         .padding()
                         .background(Color(.systemGray6))
