@@ -51,10 +51,5 @@ struct BottomActionBar: View {
         .frame(maxWidth: .infinity)
         .frame(height: 72)
         .background(.white)
-        .onAppear {
-            Task {
-                _ = await voteVM.getVoteCount(ayakasiId: yokai.documentId)
-            }
-        }
     }
 }

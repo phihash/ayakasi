@@ -7,32 +7,50 @@ class VoteService: ObservableObject {
     static let shared = VoteService()
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
+    //ローカルキャッシュに全ての妖怪の情報が入る
     @Published var voteCountCache: [String: Int] = [:]
     
     init(){
-        
+        Task {
+            await loadAllVoteCounts()
+        }
+    }
+    
+    private func loadAllVoteCounts() async {
+        do {
+            //DBの参照先
+            //これ自体がエラーをなげうる、呼び出し元に波及させたくないのでdo catch
+            let votesSnapshot = try await db.collection("votes").getDocuments()
+            // ayakasiId : count
+            var newCache: [String: Int] = [:]
+            
+            for document in votesSnapshot.documents {
+                let ayakasiId = document.documentID
+                let totalVotes = document.data()["totalVotes"] as? Int ?? 0
+                newCache[ayakasiId] = totalVotes
+            }
+            
+            self.voteCountCache = newCache
+            
+        } catch {
+            print("全投票数取得エラー: \(error)")
+        }
     }
     
     func vote(aykasiId :String) async throws{
+        //        認証されたユーザーであるか?ユーザーIDがあるかなければエラー
         guard let userId = authService.currentUser?.uid else {
             throw VoteError.notAuthenticated
         }
-        
-        // 2. Firestoreの参照を取得
-        let voteRef = db.collection("votes").document(aykasiId)
-        // 3. 既存データを取得
-        let document = try await voteRef.getDocument()
-        
-        // 4. 現在の値を取得（なければ初期値）
-        var totalVotes = document.data()?["totalVotes"] as? Int ?? 0
-        
-        // キャッシュも最新値に更新（投票前に表示を正確にする）
-        voteCountCache[aykasiId] = totalVotes
+        // キャッシュから現在の投票数を取得
+        var totalVotes = voteCountCache[aykasiId] ?? 0
         
         // 5. 総投票数を増加
         totalVotes += 1
         
-        //6そのユーザーの投票した数をGET!
+        // ユーザー情報を取得するため、該当ドキュメントを取得
+        let voteRef = db.collection("votes").document(aykasiId)
+        let document = try await voteRef.getDocument()
         var users = document.data()?["users"] as? [String: [String:Any] ] ?? [:]
         let userVoteCount = (users[userId]?["voteCount"] as? Int ?? 0) + 1
         
@@ -41,32 +59,13 @@ class VoteService: ObservableObject {
             "lastVotedAt" : Timestamp(date: Date())
         ]
         
-        //7
-        try await voteRef.setData(["totalVotes": totalVotes,"users":users],merge:true);
+        // Firestoreに保存
+        try await voteRef.setData(["totalVotes": totalVotes,"users":users],merge:true)
         
-        // 投票後に最新の値を取得し直す
-        let updatedDocument = try await voteRef.getDocument()
-        let actualCount = updatedDocument.data()?["totalVotes"] as? Int ?? totalVotes
-        voteCountCache[aykasiId] = actualCount
+        // キャッシュを更新
+        voteCountCache[aykasiId] = totalVotes
         
         
-    }
-    
-    func getVoteCount(ayakasiId: String) async -> Int {
-        if let count = voteCountCache[ayakasiId]{
-            return count
-        }
-        
-        do {
-            let document = try await db.collection("votes").document(ayakasiId).getDocument()
-            let count = document.data()?["totalVotes"] as? Int ?? 0
-            
-            voteCountCache[ayakasiId] = count
-            return count
-        }catch{
-            print("投票数取得エラー: \(error)")
-            return 0
-        }
     }
 }
 
