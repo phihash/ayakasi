@@ -1,6 +1,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import SwiftUI
 
 @MainActor
 class VoteService: ObservableObject {
@@ -10,9 +11,45 @@ class VoteService: ObservableObject {
     //ローカルキャッシュに全ての妖怪の情報が入る
     @Published var voteCountCache: [String: Int] = [:]
     
+    // レートリミット用のプロパティ
+    @AppStorage("voteTokens") private var availableTokens: Int = 15 // 利用可能なトークン数（最大15個）
+    @AppStorage("lastRefillTime") private var lastRefillTime: Double = -1 // 最後にトークンを補充した時刻（-1は未初期化を意味）
+    
+    
     init(){
+        // 初回起動時のみlastRefillTimeを現在時刻に設定
+        // -1は「まだ初期化されていない」ことを意味する特別な値
+        if lastRefillTime == -1 {
+            lastRefillTime = Date().timeIntervalSince1970 // 現在時刻（秒）を保存
+        }
+        
         Task {
             await loadAllVoteCounts()
+        }
+    }
+    
+    private func refillToken(){
+        let currentTime = Date().timeIntervalSince1970
+        let timeSinceLastRefill = currentTime - lastRefillTime
+        
+        //90秒ごとに1トークン
+        let tokensToAdd = Int(timeSinceLastRefill / 90.0)
+        
+        if tokensToAdd > 0 {
+            //最大15トークンまで
+            availableTokens = min(15,tokensToAdd + availableTokens)
+            lastRefillTime = currentTime
+        }
+    }
+    
+    private func canVote() -> Bool{
+        refillToken()
+        return availableTokens > 0
+    }
+    
+    private func consumeToken() {
+        if availableTokens > 0 {
+            availableTokens -= 1
         }
     }
     
@@ -38,37 +75,58 @@ class VoteService: ObservableObject {
     }
     
     func vote(aykasiId :String) async throws{
-        //        認証されたユーザーであるか?ユーザーIDがあるかなければエラー
+        //認証されたユーザーであるか?ユーザーIDがあるかなければエラー
         guard let userId = authService.currentUser?.uid else {
             throw VoteError.notAuthenticated
         }
-        // キャッシュから現在の投票数を取得
-        var totalVotes = voteCountCache[aykasiId] ?? 0
         
-        // 5. 総投票数を増加
-        totalVotes += 1
+        // レートリミットcheck
+        guard canVote() else {
+            throw VoteError.rateLimitExceeded
+        }
         
-        // ユーザー情報を取得するため、該当ドキュメントを取得
+        
         let voteRef = db.collection("votes").document(aykasiId)
-        let document = try await voteRef.getDocument()
-        var users = document.data()?["users"] as? [String: [String:Any] ] ?? [:]
-        let userVoteCount = (users[userId]?["voteCount"] as? Int ?? 0) + 1
         
-        users[userId] = [
-            "voteCount" : userVoteCount,
-            "lastVotedAt" : Timestamp(date: Date())
-        ]
+        let result = try await db.runTransaction { (transaction, errorPointer) -> Any? in
+            do {
+                let document = try transaction.getDocument(voteRef)
+                let currentVotes = document.data()?["totalVotes"] as? Int ?? 0
+                let updatedVotes = currentVotes + 1
+                
+                transaction.setData(["totalVotes": updatedVotes], forDocument: voteRef, merge: true)
+                return updatedVotes
+            } catch {
+                errorPointer?.pointee = error as NSError
+                return nil
+            }
+        }
         
-        // Firestoreに保存
-        try await voteRef.setData(["totalVotes": totalVotes,"users":users],merge:true)
+        let newVotes = result as? Int ?? 0
         
-        // キャッシュを更新
-        voteCountCache[aykasiId] = totalVotes
+        // 投票成功時のみトークンを消費
+        consumeToken()
         
-        
+        voteCountCache[aykasiId] = newVotes
+
     }
+    
+    func getVoteCount(ayakasiId: String) -> Int {
+        return voteCountCache[ayakasiId] ?? 0
+    }
+    
 }
 
-enum VoteError: Error {
+enum VoteError: Error, LocalizedError {
     case notAuthenticated
+    case rateLimitExceeded
+    
+    var errorDescription: String? {
+        switch self {
+        case .notAuthenticated:
+            return "ログインが必要です"
+        case .rateLimitExceeded:
+            return "投票回数の上限に達しました、しばらく待って再度投票してください"
+        }
+    }
 }

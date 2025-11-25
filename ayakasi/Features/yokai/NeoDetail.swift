@@ -9,7 +9,6 @@ struct NeoDetail: View {
     @State private var selectedTab = 0
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
-    @State private var promptAuth : Bool = false
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @EnvironmentObject var colorVM : ColorViewModel
@@ -259,17 +258,18 @@ struct NeoDetail: View {
                 
                 
                 Button {
-                    if authVM.authStatus == .authenticated {
-                        Task {
-                            do {
-                                try await voteService.vote(aykasiId: yokai.documentId)
-                                print("投票完了！")
-                            } catch {
-                                print("投票エラー: \(error)")
-                            }
+                    Task {
+                        do {
+                            try await voteService.vote(aykasiId: yokai.documentId)
+                        } catch let error as VoteError {
+                            // VoteErrorの場合、日本語メッセージを表示
+                            alertMessage = error.localizedDescription
+                            showAlert = true
+                        } catch {
+                            // その他のエラー
+                            alertMessage = "投票中にエラーが発生しました"
+                            showAlert = true
                         }
-                    } else {
-                        promptAuth = true
                     }
                     
                 } label: {
@@ -314,11 +314,6 @@ struct NeoDetail: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
-        }
-        .alert("", isPresented: $promptAuth) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text("設定から登録またはログインすると投票できます")            
         }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
