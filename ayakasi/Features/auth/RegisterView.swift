@@ -12,6 +12,8 @@ struct RegisterView: View {
                         Text("新規登録")
                             .font(.system(size: 20, weight: .bold))
                         TextField("メールアドレス",text:$authVM.email)
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress) 
                             .font(.system(size: 18))
                             .padding()
                             .background(Color(.systemGray6))
@@ -91,6 +93,10 @@ struct RegisterView: View {
                     }
                 }
                 
+            }
+            .onDisappear{
+                authVM.email = ""
+                authVM.password = ""
             }
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing ){
