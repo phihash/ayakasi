@@ -14,6 +14,18 @@ struct SettingView: View {
         NavigationStack{
             List{
                 Section{
+                    HStack{
+                        HStack(spacing: 18){
+                            Image(systemName: "tag")
+                            Text("現在のバージョン")
+                        }
+                        Spacer()
+                        Text(Bundle.main.appVersion)
+                    }
+                    .foregroundStyle(.primary)
+                    .padding(.vertical,6)
+                    
+                    
                     if authVM.authStatus != .authenticated {
                         Button{
                             isShowRegisterView = true
@@ -81,17 +93,7 @@ struct SettingView: View {
                         .foregroundStyle(.primary)
                     }
                
-                    HStack{
-                        HStack(spacing: 18){
-                            Image(systemName: "tag")
-                            Text("現在のバージョン")
-                        }
-                        Spacer()
-                        Text(Bundle.main.appVersion)
-                    }
-                    .foregroundStyle(.primary)
-                    .padding(.vertical,6)
-                    
+                  
                     NavigationLink(destination: ColorView() ){
                         HStack(spacing: 18){
                             Image(systemName: "paintpalette")

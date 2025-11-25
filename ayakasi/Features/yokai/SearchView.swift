@@ -52,13 +52,6 @@ struct SearchView: View {
                 )
                 
             }
-            .toolbar{
-                ToolbarItem(placement:.navigationBarTrailing){
-                    NavigationLink(destination: SettingView() ){
-                        Image("setting")
-                    }
-                }
-            }
             .navigationTitle("図鑑")
             .navigationBarTitleDisplayMode(.inline)
         }

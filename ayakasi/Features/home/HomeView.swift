@@ -352,13 +352,7 @@ struct HomeView: View {
             }
             
             .background(Color("Ivory"))
-            .toolbar{
-                ToolbarItem(placement:.navigationBarTrailing){
-                    NavigationLink(destination: SettingView() ){
-                        Image("setting")
-                    }
-                }
-            }
+           
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
         }
