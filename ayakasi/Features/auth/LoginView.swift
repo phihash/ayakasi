@@ -12,6 +12,7 @@ struct LoginView: View {
                 VStack{
                     TextField("メールアドレス",text:$authVM.email)
                         .textContentType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                         .keyboardType(.emailAddress)
                         .font(.system(size: 18))
                         .padding()
@@ -29,7 +30,7 @@ struct LoginView: View {
                         .contentShape(Rectangle())  // タップ領域を拡大
                         .padding(.horizontal)
                 }
-            
+                
                 
                 Text(authVM.message)
                     .foregroundStyle(.red)
@@ -52,12 +53,14 @@ struct LoginView: View {
                     }
                 }
                 
+     
+                
             }
             .onDisappear{
                 authVM.email = ""
                 authVM.password = ""
             }
-
+            
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing ){
                     Button("閉じる"){
@@ -66,7 +69,7 @@ struct LoginView: View {
                 }
             }
         }
-     
+        
         
     }
 }

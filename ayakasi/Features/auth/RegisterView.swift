@@ -13,7 +13,7 @@ struct RegisterView: View {
                             .font(.system(size: 20, weight: .bold))
                         TextField("メールアドレス",text:$authVM.email)
                             .textContentType(.emailAddress)
-                            .keyboardType(.emailAddress) 
+                            .keyboardType(.emailAddress)
                             .font(.system(size: 18))
                             .padding()
                             .background(Color(.systemGray6))
@@ -56,6 +56,18 @@ struct RegisterView: View {
                                     .cornerRadius(10)
                             }
                         }
+                        
+                        Text(.init(
+                            "登録すると[利用規約](https://sizu.me/maili/posts/ae75vb8z0sso)" +
+                            "および[プライバシーポリシー](https://sizu.me/maili/posts/b3at3db2i5f1)" +
+                            "に同意したものとみなされます。"
+                        ))
+                        .font(.subheadline)
+                        .foregroundColor(.black)  // 通常の文字色
+                        .tint(.blue)              // リンクの色
+                        .padding(.horizontal,12)
+                        .padding(.vertical,8)
+                        
                         
                     }
                 }

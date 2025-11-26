@@ -3,8 +3,8 @@ let ayakasis: [Ayakasi] = [
         name: "アクロバティックサラサラ",
         documentId: "acrobaticsarasara",
         imageName: "https://i.imgur.com/5S0vJnU.png",
-        description: "現代の怪談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。",
-        categories: ["現代の怪","すべて"],
+        description: "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。",
+        categories: ["都市伝説","すべて"],
         btw: "名前が「悪皿（あくさら）」と略されることもある。",
         episodes: "深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
         sotry: false
@@ -191,7 +191,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "teketeke",
         imageName: "https://i.imgur.com/RN94Yrq.jpeg",
         description: "上半身だけで地面を這いながら、“テケテケ”という音を立てて高速で迫る。見つかると逃げ切れないと言われ、出会った者に危害を加えるとされる。",
-        categories: ["現代の怪","すべて"],
+        categories: ["都市伝説","すべて"],
         btw: nil,
         episodes: "夜の線路や学校で“テケテケ”という音が響く",
         sotry: false
@@ -201,7 +201,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "jinmenken",
         imageName: "https://i.imgur.com/g69tYkw.jpeg",
         description: "犬の体に人間の顔をついた奇妙な姿。“ワンワン”としゃべる、バイクに乗っている、夜道を歩いているなどバリエーションは豊富。見た目は気味が悪いが、実害は少ないとも言われる。",
-        categories: ["現代の怪","すべて"],
+        categories: ["都市伝説","すべて"],
         btw: nil,
         episodes:"夜道で突然人間の顔をした犬に出会う",
         sotry: false
@@ -221,7 +221,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "toirenohanakosan",
         imageName: "https://i.imgur.com/nWT8xfl.jpeg",
         description: "赤いジャンパースカートに白いシャツ、おかっぱ頭の小学生の女の子。ランドセルを背負っていることも多い。女子トイレの3番目の個室から現れるとされ、呼びかけると返事をしたり、いたずら好きな一面も。",
-        categories: ["現代の怪","すべて"],
+        categories: ["都市伝説","すべて"],
         btw: nil,
         episodes: "女子トイレの3番目の個室をノックすると返事がある",
         sotry: false
@@ -365,7 +365,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "kuchisakenna",
         imageName: "https://i.imgur.com/2Y4Vghp.jpeg",
         description: "長い黒髪とコート姿、顔の下半分をマスクや布で隠していることが多い。正体は不明だが、マスクを外すと口が耳まで大きく裂けている。怖がらせる存在として語られるが、対処法や撃退エピソードも有名。",
-        categories: ["現代の怪","すべて"],
+        categories: ["都市伝説","すべて"],
         btw: nil,
         episodes: "『私、きれい？』と問いかけられる",
         sotry: false

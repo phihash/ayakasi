@@ -29,17 +29,17 @@ struct PickupCard : View{
     @ViewBuilder
     private var voteOverlay: some View {
         Capsule().fill(Color.red.opacity(0.9))
-            .frame(width: 64, height: 40)
+            .frame(width: 60, height: 30)
             .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 1)
             .overlay(
                 HStack{
                     Image(systemName: "heart.fill")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 16, height: 16)
+                        .frame(width: 12, height: 12)
                         .foregroundStyle(.white)
                     Text("\(voteService.voteCountCache[ayakasi.documentId] ?? 0)")
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .foregroundStyle(.white)
                 }
             )
