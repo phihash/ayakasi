@@ -140,6 +140,7 @@ struct SettingView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
+                        .padding(.leading, -16)
                 }
                 
                 Section{
@@ -160,10 +161,29 @@ struct SettingView: View {
                     
                     
                 } header: {
-                    Text("ポリシーと規約")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.bottom,12)
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("ポリシーと規約")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            
+                            Text("更新")
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 3)
+                                .background(Color.red)
+                                .cornerRadius(8)
+                        }
+                        
+                        Text("確認してください")
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                            .fontWeight(.bold)
+                    }
+                    .padding(.bottom,12)
+                    .padding(.leading, -16)
                 }
                 
                 Section{
@@ -187,6 +207,7 @@ struct SettingView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
+                        .padding(.leading, -16)
                 }
                 
             }

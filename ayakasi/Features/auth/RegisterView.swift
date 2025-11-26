@@ -73,7 +73,7 @@ struct RegisterView: View {
                 }
                 else if authVM.authStatus == .waitingVerification{
                     VStack(spacing: 20) {
-                        Text("メールを確認し、認証してください。")
+                        Text("認証メールを送信しました")
                             .font(.title2)
                             .fontWeight(.bold)
                         
@@ -89,7 +89,7 @@ struct RegisterView: View {
                                 }
                             }
                         }) {
-                            Text("認証を確認")
+                            Text("メールを確認した")
                                 .frame(width: 160, height: 48)
                                 .background(colorVM.currentColor)
                                 .foregroundColor(.white)
@@ -111,6 +111,7 @@ struct RegisterView: View {
             .onDisappear{
                 authVM.email = ""
                 authVM.password = ""
+                authVM.message = ""
             }
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing ){

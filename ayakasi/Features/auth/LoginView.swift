@@ -59,6 +59,7 @@ struct LoginView: View {
             .onDisappear{
                 authVM.email = ""
                 authVM.password = ""
+                authVM.message = ""
             }
             
             .toolbar{
