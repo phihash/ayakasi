@@ -216,8 +216,16 @@ struct HomeView: View {
     @State private var selectedYokai : Ayakasi? = nil
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
+    @EnvironmentObject var voteService  : VoteService
     @State var selectedNews = "妖怪"
     let newsYokai = ["妖怪","イベント","雪女","河童"]
+    var rankedYokai : [Ayakasi] {
+        ayakasis.sorted{ element1 , element2 in
+            let count1 = voteService.voteCountCache[element1.documentId] ?? 0
+            let count2 = voteService.voteCountCache[element2.documentId] ?? 0
+            return count1 > count2
+        }
+    }
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
@@ -233,7 +241,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal,24)
-                .padding(.vertical,16)
+                .padding(.vertical,12)
                 
                 VStack(spacing: 16){
                     TabView(selection: $page) {
@@ -259,13 +267,46 @@ struct HomeView: View {
                 
                 
                 HStack{
+                    Text("ランキング")
+                    
+                    Spacer()
+                    
+                    
+                }
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.horizontal,20)
+                .padding(.vertical,8)
+                
+                
+                ScrollView(.horizontal,showsIndicators: false){
+                    
+                    HStack(spacing: 16){
+                        ForEach(rankedYokai.prefix(7)){ ayakasi in
+                            PickupCard(ayakasi: ayakasi)
+                                .onTapGesture{
+                                    selectedYokai = ayakasi
+                                }
+                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                    NeoDetail(yokai: yokai)
+                                }
+                            
+                        }
+                        
+                    }
+                    .padding(.horizontal,20)
+                    .padding(.bottom,24)
+                }
+                
+                
+                HStack{
                     Text("ニュース")
                     Spacer()
                 }
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
-                .padding(.top,16)
+                .padding(.top,4)
                 
                 HStack{
                     ForEach(newsYokai,id:\.self){ element in
@@ -313,44 +354,7 @@ struct HomeView: View {
                                 }
                             }
                     )
-                
-                HStack{
-                    Text("ピックアップ")
-                    
-                    Spacer()
-                    
-                    NavigationLink{
-                        let filtered = ayakasis.filter({$0.categories.contains("すべて")})
-                        FilteredScreen(ayakasis:filtered,tag:"すべて")
-                    } label: {
-                        Text("全てを見る")
-                        Image(systemName: "chevron.right")
-                    }
-                    
-                }
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding(.horizontal,20)
-                .padding(.vertical,16)
-                
-                ScrollView(.horizontal,showsIndicators: false){
-                    
-                    HStack(spacing: 16){
-                        ForEach(ayakasis.shuffled().prefix(5)){ ayakasi in
-                            PickupCard(ayakasi: ayakasi)
-                                .onTapGesture{
-                                    selectedYokai = ayakasi
-                                }
-                                .fullScreenCover(item: $selectedYokai){ yokai in
-                                    NeoDetail(yokai: yokai)
-                                }
-                            
-                        }
-                        
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,24)
-                }
+               
             }
             
             .background(Color("Ivory"))

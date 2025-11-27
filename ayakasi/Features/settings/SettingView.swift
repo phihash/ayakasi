@@ -140,7 +140,7 @@ struct SettingView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
-                        .padding(.leading, -16)
+                        .padding(.leading, -10)
                 }
                 
                 Section{
@@ -183,7 +183,7 @@ struct SettingView: View {
                             .fontWeight(.bold)
                     }
                     .padding(.bottom,12)
-                    .padding(.leading, -16)
+                    .padding(.leading, -10)
                 }
                 
                 Section{
@@ -207,7 +207,7 @@ struct SettingView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding(.bottom,12)
-                        .padding(.leading, -16)
+                        .padding(.leading, -10)
                 }
                 
             }
