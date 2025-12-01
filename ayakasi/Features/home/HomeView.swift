@@ -18,7 +18,7 @@ struct PickupCard : View{
     @ViewBuilder
     private var nameOverlay: some View {
         Text(ayakasi.name)
-            .font(.title3)
+            .font(.headline)
             .fontWeight(.bold)
             .foregroundStyle(.white)
             .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
@@ -233,7 +233,6 @@ struct HomeView: View {
         NavigationStack{
             ScrollView{
                 
-                
                 HStack{
                     Text("イベント")
                         .font(.headline)
@@ -243,24 +242,21 @@ struct HomeView: View {
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
                 
-                VStack(spacing: 16){
-                    TabView(selection: $page) {
-                        
-                        EventComponent(link: "https://www.toei-eigamura.com/yokai/", linkTitle: "怪々Yokai祭2025", iconName: "kappaicon",colorName: .red)
-                            .tag(0)
-                        
-                        EventComponent(link: "https://sakai-yokai.com/", linkTitle: "沙界妖怪芸術祭", iconName: "warasiicon",colorName: .blue)
-                            .tag(1)
-                        
-                        EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
-                            .tag(2)
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .automatic))
-                    .frame(height: 130)
-                    .onReceive(timer) { _ in
-                        withAnimation(.easeInOut) {
-                            page = (page + 1) % 3
-                        }
+                TabView(selection: $page) {
+                    EventComponent(link: "https://miyoshi-mononoke.jp/", linkTitle: "妖気なもののけLIFE", iconName: "kappaicon",colorName: .customRed)
+                        .tag(0)
+                    
+                    EventComponent(link: "https://sakai-yokai.com/", linkTitle: "沙界妖怪芸術祭", iconName: "warasiicon",colorName: .blue)
+                        .tag(1)
+                 
+                    EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
+                        .tag(2)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .frame(height: 160)
+                .onReceive(timer) { _ in
+                    withAnimation(.easeInOut) {
+                        page = (page + 1) % 3
                     }
                 }
                 .padding(.bottom,16)

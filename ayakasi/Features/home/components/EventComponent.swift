@@ -10,24 +10,36 @@ struct EventComponent: View {
     
     var body: some View {
         Link(destination: URL(string: link)!){
-            ZStack{
-                Rectangle()
-                    .fill(colorName)
-                    .frame(width: screenWidth * 0.9)
-                    .cornerRadius(12)
-                
-                HStack{
-                    Text(linkTitle)
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .fontWeight(.bold)
-                    
-                    Image(iconName).resizable().scaledToFit()
-                        .frame(width: screenWidth * 0.24)
-                        .padding(.leading,20)
+            ZStack {
+                AsyncImage(url: URL(string: "https://placehold.jp/380x160.png")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(12)
+                        .clipped()
+                } placeholder: {
+                    Rectangle()
+                        .fill(colorName)
                 }
                 
+              
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Text(linkTitle)
+                            .font(.title2)
+                            .foregroundStyle(.white)
+                            .fontWeight(.bold)
+                            .shadow(color: .black.opacity(0.7), radius: 2, x: 1, y: 1)
+                        Spacer()
+                    }
+                    .padding(.leading, 36)
+                    .padding(.bottom, 24)
+                }
             }
+            .frame(width: screenWidth * 0.9, height: 180)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
 }
