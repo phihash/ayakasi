@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 struct EventComponent: View {
     @State private var ogImage: Image?
     let screenWidth = UIScreen.main.bounds.width

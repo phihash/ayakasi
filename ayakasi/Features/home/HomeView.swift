@@ -211,9 +211,14 @@ struct NewsSection : View{
     }
 }
 
+struct EventItem: Codable {
+    let title: String
+}
+
 struct HomeView: View {
     @State private var page = 0
     @State private var selectedYokai : Ayakasi? = nil
+    @State private var eventItems: [EventItem] = []
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
@@ -229,6 +234,21 @@ struct HomeView: View {
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
+    
+    private func loadEvents() async {
+        guard let url = URL(string: "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/event.json") else { return }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let events = try JSONDecoder().decode([EventItem].self, from: data)
+            print(events)
+            await MainActor.run {
+                self.eventItems = events
+            }
+        } catch {
+            print("Failed to load events: \(error)")
+        }
+    }
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -357,6 +377,9 @@ struct HomeView: View {
            
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await loadEvents()
+            }
         }
         
     }
