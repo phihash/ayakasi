@@ -135,12 +135,12 @@ struct Weather: View {
                 }
                 .navigationTitle("現在地の情報")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar{
-                    ToolbarItem(placement:.navigationBarLeading){
-                        Text(currentDateString)
-                            .fontWeight(.bold)
-                    }
-                }
+//                .toolbar{
+//                    ToolbarItem(placement:.navigationBarLeading){
+//                        Text(currentDateString)
+//                            .fontWeight(.bold)
+//                    }
+//                }
                 .toolbar{
                     ToolbarItem{
                         Button("更新"){

@@ -212,7 +212,12 @@ struct NewsSection : View{
 }
 
 struct EventItem: Codable {
-    let title: String
+    let title: String?
+    let link: String?
+    let imageUrl: String?
+    let startDateTime: String?
+    let endDateTime: String?
+    let isActive: Bool?
 }
 
 struct HomeView: View {
@@ -235,18 +240,49 @@ struct HomeView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
     
+    var filteredEvents: [EventItem] {
+        eventItems.filter { event in
+            // isActiveがnilの場合は非表示（デフォルト値としてfalse扱い）
+            guard event.isActive ?? false else { return false }
+            
+            // 期間チェック
+            let now = Date()
+            let formatter = ISO8601DateFormatter()
+            
+            // 開始時刻チェック
+            if let startDateTimeString = event.startDateTime,
+               let startDateTime = formatter.date(from: startDateTimeString),
+               now < startDateTime {
+                return false // まだ開始していない
+            }
+            
+            // 終了時刻チェック
+            if let endDateTimeString = event.endDateTime,
+               let endDateTime = formatter.date(from: endDateTimeString),
+               now > endDateTime {
+                return false // すでに終了している
+            }
+            
+            return true
+        }
+    }
+    
     private func loadEvents() async {
         guard let url = URL(string: "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/event.json") else { return }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let events = try JSONDecoder().decode([EventItem].self, from: data)
-            print(events)
             await MainActor.run {
                 self.eventItems = events
+                print("📥 Loaded \(self.eventItems.count) events")
+                print("🔍 Filtered \(self.filteredEvents.count) events")
+                for event in self.filteredEvents {
+                    print("✅ Active event: \(event.title ?? "Unknown")")
+                }
             }
         } catch {
-            print("Failed to load events: \(error)")
+            print("❌ Failed to load events: \(error)")
         }
     }
     var body: some View {
@@ -262,21 +298,39 @@ struct HomeView: View {
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
                 
-                TabView(selection: $page) {
-                    EventComponent(link: "https://miyoshi-mononoke.jp/", linkTitle: "妖気なもののけLIFE", iconName: "kappaicon",colorName: .customRed)
-                        .tag(0)
-                    
-                    EventComponent(link: "https://sakai-yokai.com/", linkTitle: "沙界妖怪芸術祭", iconName: "warasiicon",colorName: .blue)
-                        .tag(1)
-                 
-                    EventComponent(link: "https://www.yokaiexpo.com/", linkTitle: "YOKAI EXPO", iconName: "rokurokubiicon",colorName: .green)
-                        .tag(2)
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .frame(height: 160)
-                .onReceive(timer) { _ in
-                    withAnimation(.easeInOut) {
-                        page = (page + 1) % 3
+                Group {
+                    if filteredEvents.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "calendar.badge.exclamationmark")
+                                .font(.system(size: 40))
+                                .foregroundColor(.gray)
+                            
+                            Text("開催中のイベントはありません")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(height: 160)
+                    } else {
+                        TabView(selection: $page) {
+                            ForEach(filteredEvents.indices, id: \.self) { index in
+                                EventComponent(
+                                    link: filteredEvents[index].link ?? "",
+                                    linkTitle: filteredEvents[index].title ?? "イベント",
+                                    imageUrl: filteredEvents[index].imageUrl
+                                )
+                                .tag(index)
+                            }
+                        }
+                        .tabViewStyle(.page(indexDisplayMode: .never))
+                        .frame(height: 160)
+                        .onReceive(timer) { _ in
+                            if filteredEvents.count > 0 {
+                                withAnimation(.easeInOut) {
+                                    page = (page + 1) % filteredEvents.count
+                                }
+                            }
+                        }
                     }
                 }
                 .padding(.bottom,16)

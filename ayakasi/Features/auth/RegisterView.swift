@@ -57,14 +57,26 @@ struct RegisterView: View {
                             }
                         }
                         
-                        Text(.init(
-                            "登録すると[利用規約](https://sizu.me/maili/posts/ae75vb8z0sso)" +
-                            "および[プライバシーポリシー](https://sizu.me/maili/posts/b3at3db2i5f1)" +
-                            "に同意したものとみなされます。"
-                        ))
-                        .font(.subheadline)
-                        .foregroundColor(.black)  // 通常の文字色
-                        .tint(.blue)              // リンクの色
+                        VStack(spacing: 8) {
+                            Text("登録すると利用規約およびプライバシーポリシーに同意したものとみなされます。")
+                                .font(.subheadline)
+                                .foregroundColor(.black)
+                                .padding(.horizontal,12)
+                            
+                            HStack(spacing: 20) {
+                                NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/ae75vb8z0sso"))) {
+                                    Text("利用規約")
+                                        .font(.subheadline)
+                                        .foregroundColor(.blue)
+                                }
+                                
+                                NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1"))) {
+                                    Text("プライバシーポリシー")
+                                        .font(.subheadline)
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                        }
                         .padding(.horizontal,12)
                         .padding(.vertical,8)
                         

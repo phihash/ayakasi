@@ -145,19 +145,23 @@ struct SettingView: View {
                 
                 Section{
                     
-                    HStack(spacing: 18){
-                        Image(systemName: "note")
-                        Link("プライバシーポリシー",destination: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1")!)
-                            .foregroundStyle(.primary)
+                    NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1"))) {
+                        HStack(spacing: 18){
+                            Image(systemName: "note")
+                            Text("プライバシーポリシー")
+                        }
+                        .foregroundStyle(.primary)
+                        .padding(.vertical,6)
                     }
-                    .padding(.vertical,6)
                     
-                    HStack(spacing: 18){
-                        Image(systemName: "note")
-                        Link("利用規約",destination: URL(string: "https://sizu.me/maili/posts/ae75vb8z0sso")!)
-                            .foregroundStyle(.primary)
+                    NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/ae75vb8z0sso"))) {
+                        HStack(spacing: 18){
+                            Image(systemName: "note")
+                            Text("利用規約")
+                        }
+                        .foregroundStyle(.primary)
+                        .padding(.vertical,6)
                     }
-                    .padding(.vertical,6)
                     
                     
                 } header: {

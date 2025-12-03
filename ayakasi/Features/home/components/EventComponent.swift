@@ -1,30 +1,29 @@
 import SwiftUI
-
+import Kingfisher
 
 struct EventComponent: View {
     @State private var ogImage: Image?
+    @State private var showSafari = false
     let screenWidth = UIScreen.main.bounds.width
     let link : String
     let linkTitle : String
-    let iconName : String
-    let colorName: Color
+    let imageUrl : String?
     
     var body: some View {
-        Link(destination: URL(string: link)!){
+        Button {
+            showSafari = true
+        } label: {
             ZStack {
-                AsyncImage(url: URL(string: "https://placehold.jp/380x160.png")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .cornerRadius(12)
-                        .clipped()
-                } placeholder: {
-                    Rectangle()
-                        .fill(colorName)
-                }
-                
-              
-                
+                KFImage(imageUrl.flatMap { URL(string: $0) })
+                    .placeholder {
+                        Image("loading_banner")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    .cacheOriginalImage()
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            
                 VStack {
                     Spacer()
                     HStack {
@@ -35,12 +34,17 @@ struct EventComponent: View {
                             .shadow(color: .black.opacity(0.7), radius: 2, x: 1, y: 1)
                         Spacer()
                     }
-                    .padding(.leading, 36)
-                    .padding(.bottom, 24)
+                    .padding(.leading, 24)
+                    .padding(.bottom, 52)
                 }
             }
-            .frame(width: screenWidth * 0.9, height: 180)
+            .frame(width: screenWidth * 0.9, height: 160)
             .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+        .sheet(isPresented: $showSafari) {
+            if let url = URL(string: link) {
+                SafariView(url: url)
+            }
         }
     }
 }
