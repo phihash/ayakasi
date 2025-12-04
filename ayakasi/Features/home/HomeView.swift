@@ -118,6 +118,8 @@ struct NewsSection : View{
     @State private var items: [NewsItem] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
+    @State private var selectedNewsUrl: URL?
+    @State private var showSafari = false
     @EnvironmentObject var colorVM : ColorViewModel
     var selectedNew : String
     let newsSources = [
@@ -173,7 +175,10 @@ struct NewsSection : View{
                         let item = items[index]
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
-                            Link(destination: url) {
+                            Button {
+                                selectedNewsUrl = url
+                                showSafari = true
+                            } label: {
                                 VStack(alignment: .leading, spacing: 12){
                                     Text(publishedFormatter.string(from: item.published))
                                         .foregroundStyle(.black.opacity(0.7))
@@ -193,7 +198,6 @@ struct NewsSection : View{
                                 .foregroundStyle(.black)
                                 .padding(.vertical,8)
                                 .padding(.horizontal,20)
-                                
                             }
                         } else {
                             Text("\(index + 1). \(title)")
@@ -208,6 +212,11 @@ struct NewsSection : View{
         .refreshable{
             await  fetchFeed()
         }
+        .sheet(isPresented: $showSafari) {
+            if let url = selectedNewsUrl {
+                SafariView(url: url)
+            }
+        }
     }
 }
 
@@ -218,6 +227,9 @@ struct EventItem: Codable {
     let startDateTime: String?
     let endDateTime: String?
     let isActive: Bool?
+    let minVersion: String?
+    let maxVersion: String?
+    let bannerType: String?
 }
 
 struct HomeView: View {
@@ -275,11 +287,6 @@ struct HomeView: View {
             let events = try JSONDecoder().decode([EventItem].self, from: data)
             await MainActor.run {
                 self.eventItems = events
-                print("📥 Loaded \(self.eventItems.count) events")
-                print("🔍 Filtered \(self.filteredEvents.count) events")
-                for event in self.filteredEvents {
-                    print("✅ Active event: \(event.title ?? "Unknown")")
-                }
             }
         } catch {
             print("❌ Failed to load events: \(error)")
