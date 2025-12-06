@@ -236,6 +236,8 @@ struct HomeView: View {
     @State private var page = 0
     @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
+    @State private var selectedEventUrl: URL?
+    @State private var showEventSafari = false
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
@@ -324,7 +326,14 @@ struct HomeView: View {
                                 EventComponent(
                                     link: filteredEvents[index].link ?? "",
                                     linkTitle: filteredEvents[index].title ?? "イベント",
-                                    imageUrl: filteredEvents[index].imageUrl
+                                    imageUrl: filteredEvents[index].imageUrl,
+                                    onTap: {
+                                        if let urlString = filteredEvents[index].link,
+                                           let url = URL(string: urlString) {
+                                            selectedEventUrl = url
+                                            showEventSafari = true
+                                        }
+                                    }
                                 )
                                 .tag(index)
                             }
@@ -440,6 +449,11 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .task {
                 await loadEvents()
+            }
+            .sheet(isPresented: $showEventSafari) {
+                if let url = selectedEventUrl {
+                    SafariView(url: url)
+                }
             }
         }
         

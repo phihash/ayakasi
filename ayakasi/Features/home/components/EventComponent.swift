@@ -3,15 +3,15 @@ import Kingfisher
 
 struct EventComponent: View {
     @State private var ogImage: Image?
-    @State private var showSafari = false
     let screenWidth = UIScreen.main.bounds.width
     let link : String
     let linkTitle : String
     let imageUrl : String?
+    let onTap: () -> Void
     
     var body: some View {
         Button {
-            showSafari = true
+            onTap()
         } label: {
             ZStack {
                 KFImage(imageUrl.flatMap { URL(string: $0) })
@@ -40,11 +40,6 @@ struct EventComponent: View {
             }
             .frame(width: screenWidth * 0.9, height: 160)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-        }
-        .sheet(isPresented: $showSafari) {
-            if let url = URL(string: link) {
-                SafariView(url: url)
-            }
         }
     }
 }
