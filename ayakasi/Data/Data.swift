@@ -1,5 +1,65 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "すねこすり",
+        documentId: "sunekosuri",
+        imageName: "https://i.imgur.com/0kMuhjp.png",
+        description: "夜道で歩いている人のすねに体をすり寄せてくる犬のような妖怪。危害は加えないが歩きにくくさせる。",
+        categories: ["すべて"],
+        btw: nil,
+        episodes: "暗闇の中で足元にまとわりつき、人を驚かせる。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "吸血鬼",
+        documentId: "vampire",
+        imageName: "https://i.imgur.com/txwThf0.png",
+        description: "夜に現れ、人の血を吸うとされる怪異。コウモリと関連し、影のように忍び寄る存在として語られる。",
+        categories: ["すべて"],
+        btw: nil,
+        episodes: "日光を嫌い、夜に活動する。血を吸われると吸血鬼になるとも言われる。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "メリーさん",
+        documentId: "merry",
+        imageName: "https://i.imgur.com/kiz17nF.png",
+        description: "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。",
+        categories: ["都市伝説","すべて"],
+        btw: nil,
+        episodes: "電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "八尺様",
+        documentId: "hachishakusama",
+        imageName: "https://i.imgur.com/wjdcFZ9.png",
+        description: "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。",
+        categories: ["都市伝説","すべて"],
+        btw: nil,
+        episodes: "長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "隙間女",
+        documentId: "sukimaonna",
+        imageName: "https://i.imgur.com/ds8JAyn.png",
+        description: "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。",
+        categories: ["都市伝説","すべて"],
+        btw: nil,
+        episodes: "隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "人魂",
+        documentId: "hitodama",
+        imageName: "https://i.imgur.com/oY0NygQ.png",
+        description: "死者の霊が灯火のように漂うとされる怪異。夜道や墓地にふわりと浮かび、青白い炎の姿で現れる。",
+        categories: ["すべて"],
+        btw: nil,
+        episodes: "夜間に漂い、人を驚かせる。怪異の前触れとされることもある。",
+        sotry: false
+    ),
+    Ayakasi(
         name: "アクロバティックサラサラ",
         documentId: "acrobaticsarasara",
         imageName: "https://i.imgur.com/5S0vJnU.png",
@@ -425,6 +485,46 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         btw: nil,
         episodes: "岐阜県の飛騨地方などでは、かまいたちは三人の神様と考えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "こなき爺",
+        documentId: "konakijiji",
+        imageName: "https://i.imgur.com/HCbgWxu.png",
+        description: "赤子の泣き声で人を誘い、抱き上げると途端に重さが増して身動きを取れなくさせる山の怪。",
+        categories: ["山の怪","すべて"],
+        btw: "抱いた者が疲れ果てるまで離れないという伝承がある。",
+        episodes: "山道で赤子の泣き声に導かれ、抱き上げた瞬間ずしりと重くなり膝をついたという。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "船幽霊",
+        documentId: "funayurei",
+        imageName: "https://i.imgur.com/m836eb6.png",
+        description: "霧の夜に現れ、桶や柄杓を求めて船に取りつく海の怪。渡すと水を汲み入れて沈めるとされる。",
+        categories: ["水の怪","すべて"],
+        btw: "底に穴をあけた柄杓を渡すと水が溜まらず逃れられると伝わる。",
+        episodes: "沖合で白い影が群れをなし、柄杓を求める声が船縁から聞こえたという。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "ひきこさん",
+        documentId: "hikikosan",
+        imageName: "https://i.imgur.com/CtKYJvM.png",
+        description: "雨の日に白いぼろ着をまとい、人形のようなものを引きずる女。目はつり上がり口は耳まで裂け、実は引きずっているのは子供そのものとされる。自分の姿を見た子供を捕らえ、肉塊になるまで引きずり回し、決まった場所に放置するという。",
+        categories: ["都市伝説","すべて"],
+        btw: "起源として『妬みによるいじめ』『両親の虐待』などが語られ、引きこもり状態から怪異化した説もある。『森妃姫子（もりひきこ）』という名や、『引き子→ひきこ』『姓名を逆にすると“ひきこもり”』の語呂合わせが流布。引き摺った子を“コレクション”する派生や、2008年にTMCによる映画化『ひきこさん』の言及も見られる。",
+        episodes: "土砂降りの夕方、白装束の女が振り向いたとき、足元で引きずられていたのが人形ではなく小学生だと気づいた瞬間に全力で追われ、後日その“決まった場所”で血痕だけが見つかったという噂。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "吉原千恵子",
+        documentId: "yoshiwarachieko",
+        imageName: "https://i.imgur.com/Gzt7TEP.png",
+        description: "2000年代初頭にチェーンメールで広まったとされる幽霊の名。『歩行者専用』標識の親子は誘拐犯と被害者の写真が元だとする噂の“後日談”として、四歳で誘拐され殺害された少女の霊が『自分は標識の娘だ』とメールで語るという。",
+        categories: ["都市伝説","すべて"],
+        btw: "実際の『歩行者専用』標識は国際規格に基づくデザインとされる。一方、ドイツでは誘拐犯連想の懸念からデザイン変更例があるとされ、この話の背景と結びつけられることがある。",
+        episodes: "受信者に『5人以上に転送せよ。従わなければ会いに行く』と促すメールが拡散。標識の元写真が新聞やTVで誘拐事件として報じられた、という語り口で真実味を持たせる。",
         sotry: false
     )
 ]

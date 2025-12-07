@@ -140,66 +140,61 @@ struct NeoDetail: View {
                     
                     // 2タブ
                     Group{
-                        HStack{
-                            Text("説明")
-                                .fontWeight(.bold)
-                                .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                                .frame(width: screenWidth * 0.45)
-                                .overlay(alignment: .bottom) {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                                }
-                                .onTapGesture {
-                                    selectedTab = 0
-                                }
-                            
-                            Text("その他")
-                                .fontWeight(.bold)
-                                .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
-                                .frame(width: screenWidth * 0.45)
-                                .overlay(alignment: .bottom) {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
-                                }
-                                .onTapGesture {
-                                    selectedTab = 1
-                                }
-                        }
-                        .padding(.vertical,8)
-                        .padding(.horizontal,8)
+//                        HStack{
+//                            Text("説明")
+//                                .fontWeight(.bold)
+//                                .padding(.vertical,16)
+//                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+//                                .frame(width: screenWidth * 0.45)
+//                                .overlay(alignment: .bottom) {
+//                                    Rectangle()
+//                                        .frame(height: 2)
+//                                        .frame(width: screenWidth * 0.45)
+//                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+//                                }
+//                                .onTapGesture {
+//                                    selectedTab = 0
+//                                }
+//                            
+//                            Text("その他")
+//                                .fontWeight(.bold)
+//                                .padding(.vertical,16)
+//                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
+//                                .frame(width: screenWidth * 0.45)
+//                                .overlay(alignment: .bottom) {
+//                                    Rectangle()
+//                                        .frame(height: 2)
+//                                        .frame(width: screenWidth * 0.45)
+//                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
+//                                }
+//                                .onTapGesture {
+//                                    selectedTab = 1
+//                                }
+//                        }
+//                        .padding(.vertical,8)
+//                        .padding(.horizontal,8)
                         
-                        VStack{
+//                        VStack{
                             
-                            
-                            //基本情報たぶ
-                            if selectedTab == 0{
-                                VStack{
-                                    HStack{
-                                        Image("description")
-                                            .renderingMode(.template)
-                                        Text("説明")
-                                            .font(.title2)
-                                            .fontWeight(.bold)
-                                        Spacer()
-                                    }
-                                    .padding(.vertical,12)
-                                    
-                                    Text(yokai.description)
+                            VStack{
+                                HStack{
+                                    Image("description")
+                                        .renderingMode(.template)
+                                    Text("説明")
+                                        .font(.title2)
                                         .fontWeight(.bold)
-                                        .padding(.vertical,6)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    
+                                    Spacer()
                                 }
                                 .padding(.horizontal,24)
+                                .padding(.top,20)
+                                .padding(.bottom,12)
                                 
                                 
-                            } else{
+                                Text(yokai.description)
+                                    .fontWeight(.bold)
+                                    .padding(.vertical,6)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal,24)
                                 
                                 if let episodes = yokai.episodes {
                                     VStack{
@@ -243,10 +238,11 @@ struct NeoDetail: View {
                                     }
                                     .padding(.horizontal, 24)
                                 }
+                                
                             }
                             
-                            
-                        }
+
+//                        }
                     }
                     
                     
@@ -267,6 +263,8 @@ struct NeoDetail: View {
                             showAlert = true
                         } catch {
                             // その他のエラー
+                            print("投票エラー詳細: \(error)")  // デバッグ用
+                            
                             alertMessage = "投票中にエラーが発生しました"
                             showAlert = true
                         }

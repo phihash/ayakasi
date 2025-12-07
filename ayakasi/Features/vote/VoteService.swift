@@ -11,8 +11,18 @@ class VoteService: ObservableObject {
     //ローカルキャッシュに全ての妖怪の情報が入る
     @Published var voteCountCache: [String: Int] = [:]
     
+    private let maxTokens = 7
+    
+    private func getCurrentMaxTokens() -> Int {
+        if authService.currentUser != nil {
+            return 15  // ログイン済み: 多め
+        } else {
+            return 7   // 未ログイン: 少なめ
+        }
+    }
+    
     // レートリミット用のプロパティ
-    @AppStorage("voteTokens") private var availableTokens: Int = 15 // 利用可能なトークン数（最大15個）
+    @AppStorage("voteTokens") private var availableTokens: Int = 7 // 利用可能なトークン数（最大7個）
     @AppStorage("lastRefillTime") private var lastRefillTime: Double = -1 // 最後にトークンを補充した時刻（-1は未初期化を意味）
     
     
@@ -32,12 +42,12 @@ class VoteService: ObservableObject {
         let currentTime = Date().timeIntervalSince1970
         let timeSinceLastRefill = currentTime - lastRefillTime
         
-        //90秒ごとに1トークン
-        let tokensToAdd = Int(timeSinceLastRefill / 90.0)
+        //300秒ごとに1トークン
+        let tokensToAdd = Int(timeSinceLastRefill / 300.0)
         
         if tokensToAdd > 0 {
-            //最大15トークンまで
-            availableTokens = min(15,tokensToAdd + availableTokens)
+            let currentMaxTokens = getCurrentMaxTokens()
+            availableTokens = min(currentMaxTokens, tokensToAdd + availableTokens)
             lastRefillTime = currentTime
         }
     }
@@ -76,15 +86,14 @@ class VoteService: ObservableObject {
     
     func vote(aykasiId :String) async throws{
         //認証されたユーザーであるか?ユーザーIDがあるかなければエラー
-        guard let userId = authService.currentUser?.uid else {
-            throw VoteError.notAuthenticated
-        }
-        
+//        guard let userId = authService.currentUser?.uid else {
+//            throw VoteError.notAuthenticated
+//        }
+//        
         // レートリミットcheck
         guard canVote() else {
             throw VoteError.rateLimitExceeded
         }
-        
         
         let voteRef = db.collection("votes").document(aykasiId)
         
