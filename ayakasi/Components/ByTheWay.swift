@@ -22,6 +22,6 @@ struct ByTheWay: View {
         .background(colorVM.currentColor.opacity(0.5))
         .cornerRadius(12)
         .padding(.horizontal,16)
-        .padding(.vertical,8)
+        .padding(.bottom,8)
     }
 }
