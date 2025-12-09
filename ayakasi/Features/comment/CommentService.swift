@@ -14,7 +14,7 @@ struct Comment: Identifiable, Codable {
     let moderationStatus: String
     let appVersion: String?
     
-    init(id: String = UUID().uuidString, userId: String, userName: String, content: String, createdAt: Date = Date(), isDeleted: Bool = false, deletedByAdmin: Bool = false, reportCount: Int = 0, moderationStatus: String = "approved", appVersion: String? = nil) {
+    init(id: String, userId: String, userName: String, content: String, createdAt: Date = Date(), isDeleted: Bool = false, deletedByAdmin: Bool = false, reportCount: Int = 0, moderationStatus: String = "approved", appVersion: String? = nil) {
         self.id = id
         self.userId = userId
         self.userName = userName
@@ -32,5 +32,7 @@ struct Comment: Identifiable, Codable {
 class CommentService : ObservableObject {
     static let shared = CommentService()
     private let db = Firestore.firestore()
-    private let authService = AuthService.shared 
+    private let authService = AuthService.shared
+    
+    @Published var commentNow : String = ""
 }
