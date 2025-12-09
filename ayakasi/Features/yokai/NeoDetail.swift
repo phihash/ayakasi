@@ -243,28 +243,28 @@ struct NeoDetail: View {
                         //                        }
                         
                         //関連妖怪
-                        HStack{
-                            Image("description")
-                                .renderingMode(.template)
-                            Text("関連のある妖怪")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                            Spacer()
-                        }
-                        .padding(.horizontal,24)
-                        .padding(.top,24)
-                        .padding(.bottom,12)
-                        
-                        ScrollView(.horizontal,showsIndicators: false){
-                            
-                            HStack(spacing: 16){
-                                ForEach(ayakasis.prefix(7)){ ayakasi in
-                                    PickupCard(ayakasi: ayakasi)
-                                }
-                            }
-                            .padding(.horizontal,20)
-                            .padding(.vertical,24)
-                        }
+//                        HStack{
+//                            Image("description")
+//                                .renderingMode(.template)
+//                            Text("関連のある妖怪")
+//                                .font(.title2)
+//                                .fontWeight(.bold)
+//                            Spacer()
+//                        }
+//                        .padding(.horizontal,24)
+//                        .padding(.top,24)
+//                        .padding(.bottom,12)
+//                        
+//                        ScrollView(.horizontal,showsIndicators: false){
+//                            
+//                            HStack(spacing: 16){
+//                                ForEach(ayakasis.prefix(7)){ ayakasi in
+//                                    PickupCard(ayakasi: ayakasi)
+//                                }
+//                            }
+//                            .padding(.horizontal,20)
+//                            .padding(.vertical,24)
+//                        }
                         
                     }
                     
