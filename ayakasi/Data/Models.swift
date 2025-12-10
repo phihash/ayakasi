@@ -13,6 +13,7 @@ struct Ayakasi : Identifiable {
     let imageName : String
     let description: String
     let categories : [String]
+    let relatedCategory: String?    // 関連カテゴリ（"すべて"以外の具体的なカテゴリ）
     var btw: String? = nil          // ← 追加：「ちなみに」用のメモ（別名・豆知識など）
     var episodes: String? = nil
     var references: [ReferenceLink]? = nil

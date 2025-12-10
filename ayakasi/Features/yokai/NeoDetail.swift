@@ -243,28 +243,38 @@ struct NeoDetail: View {
                         //                        }
                         
                         //関連妖怪
-//                        HStack{
-//                            Image("description")
-//                                .renderingMode(.template)
-//                            Text("関連のある妖怪")
-//                                .font(.title2)
-//                                .fontWeight(.bold)
-//                            Spacer()
-//                        }
-//                        .padding(.horizontal,24)
-//                        .padding(.top,24)
-//                        .padding(.bottom,12)
-//                        
-//                        ScrollView(.horizontal,showsIndicators: false){
-//                            
-//                            HStack(spacing: 16){
-//                                ForEach(ayakasis.prefix(7)){ ayakasi in
-//                                    PickupCard(ayakasi: ayakasi)
-//                                }
-//                            }
-//                            .padding(.horizontal,20)
-//                            .padding(.vertical,24)
-//                        }
+                        let relatedYokais = ayakasis.filter { ayakasi in
+                            if let yokaiRelatedCategory = yokai.relatedCategory,
+                               let ayakasiRelatedCategory = ayakasi.relatedCategory {
+                                return yokaiRelatedCategory == ayakasiRelatedCategory && ayakasi.documentId != yokai.documentId
+                            }
+                            return false
+                        }
+                        
+                        if !relatedYokais.isEmpty {
+                            HStack{
+                                Image("description")
+                                    .renderingMode(.template)
+                                Text("関連のある妖怪")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+                            .padding(.horizontal,24)
+                            .padding(.top,24)
+                            .padding(.bottom,12)
+                            
+                            ScrollView(.horizontal,showsIndicators: false){
+                                
+                                HStack(spacing: 16){
+                                    ForEach(relatedYokais.prefix(7)){ ayakasi in
+                                        PickupCard(ayakasi: ayakasi)
+                                    }
+                                }
+                                .padding(.horizontal,20)
+                                .padding(.vertical,24)
+                            }
+                        }
                         
                     }
                     
