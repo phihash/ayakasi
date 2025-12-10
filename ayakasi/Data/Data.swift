@@ -188,6 +188,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/oWCk6lj.jpeg",
         description: "長命の猫が尾を二つに分け、着物をまとって踊ったり三味線を弾いたりする。人に化けて家に入り込むこともある。",
         categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
         btw: nil,
         episodes: "夜更けに猫又が座敷で三味線を奏でた、という怪談が広く伝わる。",
         sotry: false
