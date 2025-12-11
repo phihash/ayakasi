@@ -253,7 +253,7 @@ struct NeoDetail: View {
                         
                         if !relatedYokais.isEmpty {
                             HStack{
-                                Image("description")
+                                Image("info")
                                     .renderingMode(.template)
                                 Text("関連のある妖怪")
                                     .font(.title2)
@@ -261,14 +261,17 @@ struct NeoDetail: View {
                                 Spacer()
                             }
                             .padding(.horizontal,24)
-                            .padding(.top,24)
-                            .padding(.bottom,12)
+                            .padding(.top,16)
+                            .padding(.bottom,4)
                             
                             ScrollView(.horizontal,showsIndicators: false){
                                 
                                 HStack(spacing: 16){
                                     ForEach(relatedYokais.prefix(7)){ ayakasi in
-                                        PickupCard(ayakasi: ayakasi)
+                                        NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
+                                            PickupCard(ayakasi: ayakasi)
+                                        }
+ 
                                     }
                                 }
                                 .padding(.horizontal,20)
@@ -348,6 +351,7 @@ struct NeoDetail: View {
         }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
+        .navigationBarBackButtonHidden(true)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }

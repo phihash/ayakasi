@@ -28,7 +28,9 @@ struct SearchView: View {
                                     selectedYokai = ayakasi
                                 }
                                 .fullScreenCover(item: $selectedYokai){ yokai in
-                                    NeoDetail(yokai: yokai)
+                                    NavigationStack {
+                                        NeoDetail(yokai: yokai)
+                                    }
                                 }
                             
                         }
