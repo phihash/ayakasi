@@ -14,7 +14,6 @@
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
-		A9B08DCA2EE72BC300592CB5 /* AyakasiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D822EE72BC300592CB5 /* AyakasiCard.swift */; };
 		A9B08DCB2EE72BC300592CB5 /* ByTheWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D832EE72BC300592CB5 /* ByTheWay.swift */; };
 		A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D842EE72BC300592CB5 /* CategoryBar.swift */; };
 		A9B08DCD2EE72BC300592CB5 /* StorySectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */; };
@@ -46,8 +45,6 @@
 		A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAC2EE72BC300592CB5 /* SearchView.swift */; };
 		A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */; };
 		A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC22EE72BC300592CB5 /* Container.swift */; };
-		A9B08DEA2EE72BC300592CB5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC72EE72BC300592CB5 /* SafariView.swift */; };
-		A9B08DEB2EE72BC300592CB5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC82EE72BC300592CB5 /* WebView.swift */; };
 		A9B08DEC2EE72BC300592CB5 /* book.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DAF2EE72BC300592CB5 /* book.svg */; };
 		A9B08DED2EE72BC300592CB5 /* branch.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB02EE72BC300592CB5 /* branch.svg */; };
 		A9B08DEE2EE72BC300592CB5 /* culture.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB12EE72BC300592CB5 /* culture.svg */; };
@@ -67,6 +64,10 @@
 		A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DC32EE72BC300592CB5 /* GoogleService-Info.plist */; };
 		A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */; };
 		A9B08DFF2EE72BC300592CB5 /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */; };
+		A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E252EEEF52B00592CB5 /* SafariView.swift */; };
+		A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E262EEEF52B00592CB5 /* WebView.swift */; };
+		A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2A2EEEF55900592CB5 /* CommentService.swift */; };
+		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
 		A9DBF6DD2E876D9600F5CDBF /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6DC2E876D9600F5CDBF /* FirebaseCore */; };
 		A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E12E87795A00F5CDBF /* FirebaseAuth */; };
 		A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E42E87B73000F5CDBF /* GoogleSignIn */; };
@@ -105,7 +106,6 @@
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
-		A9B08D822EE72BC300592CB5 /* AyakasiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyakasiCard.swift; sourceTree = "<group>"; };
 		A9B08D832EE72BC300592CB5 /* ByTheWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByTheWay.swift; sourceTree = "<group>"; };
 		A9B08D842EE72BC300592CB5 /* CategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBar.swift; sourceTree = "<group>"; };
 		A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySectionNumber.swift; sourceTree = "<group>"; };
@@ -158,8 +158,10 @@
 		A9B08DC42EE72BC300592CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
-		A9B08DC72EE72BC300592CB5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		A9B08DC82EE72BC300592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		A9B08E252EEEF52B00592CB5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		A9B08E262EEEF52B00592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -179,11 +181,6 @@
 				A97C2AD82E561B5100889AB0 /* Exceptions for "AyakasiWidget" folder in "AyakasiWidgetExtension" target */,
 			);
 			path = AyakasiWidget;
-			sourceTree = "<group>";
-		};
-		A9B08E002EE7851000592CB5 /* comment */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = comment;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -245,17 +242,6 @@
 				A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A9B08D862EE72BC300592CB5 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08D822EE72BC300592CB5 /* AyakasiCard.swift */,
-				A9B08D832EE72BC300592CB5 /* ByTheWay.swift */,
-				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
-				A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		A9B08D892EE72BC300592CB5 /* Data */ = {
@@ -347,6 +333,7 @@
 			children = (
 				A9B08DA12EE72BC300592CB5 /* Contents */,
 				A9B08DA22EE72BC300592CB5 /* StoryView.swift */,
+				A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */,
 			);
 			path = story;
 			sourceTree = "<group>";
@@ -375,6 +362,8 @@
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
 				A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */,
 				A9B08DAC2EE72BC300592CB5 /* SearchView.swift */,
+				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
+				A9B08D832EE72BC300592CB5 /* ByTheWay.swift */,
 			);
 			path = yokai;
 			sourceTree = "<group>";
@@ -382,14 +371,14 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A9B08E002EE7851000592CB5 /* comment */,
+				A9B08DA52EE72BC300592CB5 /* vote */,
+				A9B08E2C2EEEF55900592CB5 /* comment */,
+				A9B08DA82EE72BC300592CB5 /* weather */,
 				A9B08D8B2EE72BC300592CB5 /* activity */,
 				A9B08D922EE72BC300592CB5 /* auth */,
 				A9B08D962EE72BC300592CB5 /* home */,
 				A9B08D9B2EE72BC300592CB5 /* settings */,
 				A9B08DA32EE72BC300592CB5 /* story */,
-				A9B08DA52EE72BC300592CB5 /* vote */,
-				A9B08DA82EE72BC300592CB5 /* weather */,
 				A9B08DAD2EE72BC300592CB5 /* yokai */,
 			);
 			path = Features;
@@ -420,22 +409,38 @@
 		A9B08DC92EE72BC300592CB5 /* ayakasi */ = {
 			isa = PBXGroup;
 			children = (
-				A9B08D862EE72BC300592CB5 /* Components */,
+				A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */,
+				A9B08DC22EE72BC300592CB5 /* Container.swift */,
+				A9B08E272EEEF52B00592CB5 /* Util */,
 				A9B08D892EE72BC300592CB5 /* Data */,
 				A9B08DAE2EE72BC300592CB5 /* Features */,
 				A9B08DBE2EE72BC300592CB5 /* SVG */,
 				A9B08DBF2EE72BC300592CB5 /* Assets.xcassets */,
 				A9B08DC02EE72BC300592CB5 /* ayakasi.entitlements */,
-				A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */,
-				A9B08DC22EE72BC300592CB5 /* Container.swift */,
 				A9B08DC32EE72BC300592CB5 /* GoogleService-Info.plist */,
 				A9B08DC42EE72BC300592CB5 /* Info.plist */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
-				A9B08DC72EE72BC300592CB5 /* SafariView.swift */,
-				A9B08DC82EE72BC300592CB5 /* WebView.swift */,
 			);
 			path = ayakasi;
+			sourceTree = "<group>";
+		};
+		A9B08E272EEEF52B00592CB5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
+				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A9B08E2C2EEEF55900592CB5 /* comment */ = {
+			isa = PBXGroup;
+			children = (
+				A9B08E2A2EEEF55900592CB5 /* CommentService.swift */,
+				A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */,
+			);
+			path = comment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,9 +459,6 @@
 			);
 			dependencies = (
 				A97C2AD62E561B5100889AB0 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A9B08E002EE7851000592CB5 /* comment */,
 			);
 			name = ayakasi;
 			packageProductDependencies = (
@@ -581,7 +583,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B08DCA2EE72BC300592CB5 /* AyakasiCard.swift in Sources */,
 				A9B08DCB2EE72BC300592CB5 /* ByTheWay.swift in Sources */,
 				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
 				A9B08DCD2EE72BC300592CB5 /* StorySectionNumber.swift in Sources */,
@@ -589,6 +590,8 @@
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A9B08DD02EE72BC300592CB5 /* Walk.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
+				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
+				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
 				A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */,
 				A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */,
@@ -600,6 +603,8 @@
 				A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */,
 				A9B08DDB2EE72BC300592CB5 /* Kiyohime.swift in Sources */,
 				A9B08DDC2EE72BC300592CB5 /* Oiteke.swift in Sources */,
+				A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */,
+				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
 				A9B08DDD2EE72BC300592CB5 /* Yamanba.swift in Sources */,
 				A9B08DDE2EE72BC300592CB5 /* Yuki.swift in Sources */,
 				A9B08DDF2EE72BC300592CB5 /* Zasikiwarasi.swift in Sources */,
@@ -613,8 +618,6 @@
 				A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */,
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
-				A9B08DEA2EE72BC300592CB5 /* SafariView.swift in Sources */,
-				A9B08DEB2EE72BC300592CB5 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
