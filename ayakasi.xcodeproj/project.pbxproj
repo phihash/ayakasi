@@ -16,7 +16,6 @@
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
 		A9B08DCB2EE72BC300592CB5 /* ByTheWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D832EE72BC300592CB5 /* ByTheWay.swift */; };
 		A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D842EE72BC300592CB5 /* CategoryBar.swift */; };
-		A9B08DCD2EE72BC300592CB5 /* StorySectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */; };
 		A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D872EE72BC300592CB5 /* Data.swift */; };
 		A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		A9B08DD02EE72BC300592CB5 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8A2EE72BC300592CB5 /* Walk.swift */; };
@@ -30,12 +29,6 @@
 		A9B08DD82EE72BC300592CB5 /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D982EE72BC300592CB5 /* ColorViewModel.swift */; };
 		A9B08DD92EE72BC300592CB5 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D992EE72BC300592CB5 /* MailView.swift */; };
 		A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9A2EE72BC300592CB5 /* SettingView.swift */; };
-		A9B08DDB2EE72BC300592CB5 /* Kiyohime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9C2EE72BC300592CB5 /* Kiyohime.swift */; };
-		A9B08DDC2EE72BC300592CB5 /* Oiteke.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9D2EE72BC300592CB5 /* Oiteke.swift */; };
-		A9B08DDD2EE72BC300592CB5 /* Yamanba.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9E2EE72BC300592CB5 /* Yamanba.swift */; };
-		A9B08DDE2EE72BC300592CB5 /* Yuki.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9F2EE72BC300592CB5 /* Yuki.swift */; };
-		A9B08DDF2EE72BC300592CB5 /* Zasikiwarasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA02EE72BC300592CB5 /* Zasikiwarasi.swift */; };
-		A9B08DE02EE72BC300592CB5 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA22EE72BC300592CB5 /* StoryView.swift */; };
 		A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA42EE72BC300592CB5 /* VoteService.swift */; };
 		A9B08DE22EE72BC300592CB5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA62EE72BC300592CB5 /* Weather.swift */; };
 		A9B08DE32EE72BC300592CB5 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA72EE72BC300592CB5 /* WeatherViewModel.swift */; };
@@ -108,7 +101,6 @@
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A9B08D832EE72BC300592CB5 /* ByTheWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByTheWay.swift; sourceTree = "<group>"; };
 		A9B08D842EE72BC300592CB5 /* CategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBar.swift; sourceTree = "<group>"; };
-		A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySectionNumber.swift; sourceTree = "<group>"; };
 		A9B08D872EE72BC300592CB5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		A9B08D882EE72BC300592CB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A9B08D8A2EE72BC300592CB5 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
@@ -122,12 +114,6 @@
 		A9B08D982EE72BC300592CB5 /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 		A9B08D992EE72BC300592CB5 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		A9B08D9A2EE72BC300592CB5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		A9B08D9C2EE72BC300592CB5 /* Kiyohime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kiyohime.swift; sourceTree = "<group>"; };
-		A9B08D9D2EE72BC300592CB5 /* Oiteke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oiteke.swift; sourceTree = "<group>"; };
-		A9B08D9E2EE72BC300592CB5 /* Yamanba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yamanba.swift; sourceTree = "<group>"; };
-		A9B08D9F2EE72BC300592CB5 /* Yuki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yuki.swift; sourceTree = "<group>"; };
-		A9B08DA02EE72BC300592CB5 /* Zasikiwarasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zasikiwarasi.swift; sourceTree = "<group>"; };
-		A9B08DA22EE72BC300592CB5 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		A9B08DA42EE72BC300592CB5 /* VoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteService.swift; sourceTree = "<group>"; };
 		A9B08DA62EE72BC300592CB5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A9B08DA72EE72BC300592CB5 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +172,16 @@
 		A9B08E2F2EEEF84200592CB5 /* news */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = news;
+			sourceTree = "<group>";
+		};
+		A9B08E302EEF096500592CB5 /* events */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = events;
+			sourceTree = "<group>";
+		};
+		A9B08E312EEF097600592CB5 /* stories */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = stories;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -321,28 +317,6 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
-		A9B08DA12EE72BC300592CB5 /* Contents */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08D9C2EE72BC300592CB5 /* Kiyohime.swift */,
-				A9B08D9D2EE72BC300592CB5 /* Oiteke.swift */,
-				A9B08D9E2EE72BC300592CB5 /* Yamanba.swift */,
-				A9B08D9F2EE72BC300592CB5 /* Yuki.swift */,
-				A9B08DA02EE72BC300592CB5 /* Zasikiwarasi.swift */,
-			);
-			path = Contents;
-			sourceTree = "<group>";
-		};
-		A9B08DA32EE72BC300592CB5 /* story */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08DA12EE72BC300592CB5 /* Contents */,
-				A9B08DA22EE72BC300592CB5 /* StoryView.swift */,
-				A9B08D852EE72BC300592CB5 /* StorySectionNumber.swift */,
-			);
-			path = story;
-			sourceTree = "<group>";
-		};
 		A9B08DA52EE72BC300592CB5 /* vote */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +350,8 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A9B08E312EEF097600592CB5 /* stories */,
+				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08DA52EE72BC300592CB5 /* vote */,
 				A9B08E2C2EEEF55900592CB5 /* comment */,
@@ -384,7 +360,6 @@
 				A9B08D922EE72BC300592CB5 /* auth */,
 				A9B08D962EE72BC300592CB5 /* home */,
 				A9B08D9B2EE72BC300592CB5 /* settings */,
-				A9B08DA32EE72BC300592CB5 /* story */,
 				A9B08DAD2EE72BC300592CB5 /* yokai */,
 			);
 			path = Features;
@@ -468,6 +443,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				A9B08E2F2EEEF84200592CB5 /* news */,
+				A9B08E302EEF096500592CB5 /* events */,
+				A9B08E312EEF097600592CB5 /* stories */,
 			);
 			name = ayakasi;
 			packageProductDependencies = (
@@ -594,7 +571,6 @@
 			files = (
 				A9B08DCB2EE72BC300592CB5 /* ByTheWay.swift in Sources */,
 				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
-				A9B08DCD2EE72BC300592CB5 /* StorySectionNumber.swift in Sources */,
 				A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */,
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A9B08DD02EE72BC300592CB5 /* Walk.swift in Sources */,
@@ -610,14 +586,8 @@
 				A9B08DD82EE72BC300592CB5 /* ColorViewModel.swift in Sources */,
 				A9B08DD92EE72BC300592CB5 /* MailView.swift in Sources */,
 				A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */,
-				A9B08DDB2EE72BC300592CB5 /* Kiyohime.swift in Sources */,
-				A9B08DDC2EE72BC300592CB5 /* Oiteke.swift in Sources */,
 				A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
-				A9B08DDD2EE72BC300592CB5 /* Yamanba.swift in Sources */,
-				A9B08DDE2EE72BC300592CB5 /* Yuki.swift in Sources */,
-				A9B08DDF2EE72BC300592CB5 /* Zasikiwarasi.swift in Sources */,
-				A9B08DE02EE72BC300592CB5 /* StoryView.swift in Sources */,
 				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
 				A9B08DE22EE72BC300592CB5 /* Weather.swift in Sources */,
 				A9B08DE32EE72BC300592CB5 /* WeatherViewModel.swift in Sources */,
