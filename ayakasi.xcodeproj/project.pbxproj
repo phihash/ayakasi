@@ -183,6 +183,11 @@
 			path = AyakasiWidget;
 			sourceTree = "<group>";
 		};
+		A9B08E2F2EEEF84200592CB5 /* news */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = news;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +376,7 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08DA52EE72BC300592CB5 /* vote */,
 				A9B08E2C2EEEF55900592CB5 /* comment */,
 				A9B08DA82EE72BC300592CB5 /* weather */,
@@ -459,6 +465,9 @@
 			);
 			dependencies = (
 				A97C2AD62E561B5100889AB0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9B08E2F2EEEF84200592CB5 /* news */,
 			);
 			name = ayakasi;
 			packageProductDependencies = (

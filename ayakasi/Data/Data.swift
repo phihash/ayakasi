@@ -1,5 +1,27 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "さとり",
+        documentId: "satori",
+        imageName: "https://i.imgur.com/0TvCDKX.png",
+        description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        btw: nil,
+        episodes: "山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
+        sotry: false
+    ),
+    Ayakasi(
+        name: "くねくね",
+        documentId: "kunekune",
+        imageName: "https://i.imgur.com/BlDlQs5.png",
+        description: "山間部や田畑の遠景に現れる、真っ白な人型のような異形。正体を凝視した者は発狂するとされ、詳細を認識してはならない存在として語られる。",
+        categories: ["都市伝説","すべて"],
+        relatedCategory: "都市伝説",
+        btw: nil,
+        episodes: "白い人影を望遠鏡で覗いた人物が正気を失った、という体験談がインターネット上で拡散された。",
+        sotry: false
+    ),
+    Ayakasi(
         name: "すねこすり",
         documentId: "sunekosuri",
         imageName: "https://i.imgur.com/0kMuhjp.png",
