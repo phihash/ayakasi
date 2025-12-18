@@ -2,24 +2,57 @@ import SwiftUI
 
 struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
+    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(spacing: 20) {
-                TextField("コメントしてください", text: $commentStore.commentNow)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 20)
+        VStack(spacing: 20) {
+                Text("コメントを投稿")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
                 
-                HStack {
-                    Text("投稿する")
+                // カスタムテキストフィールド
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        TextField("コメントを入力してください...", text: $commentStore.commentNow, axis: .vertical)
+                            .focused($isTextFieldFocused)
+                            .lineLimit(3...6)
+                            .font(.body)
+                    }
+                    .padding(16)
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(isTextFieldFocused ? Color.orange : Color.clear, lineWidth: 2)
+                    )
                 }
-                .font(.headline)
-                .foregroundStyle(.white)
-                .frame(width: geometry.size.width * 0.55, height: 48)
-                .background(Capsule().fill(.orange))
-                .padding(.trailing, 10)
-            }
-            .padding(.top, 20)
+                .padding(.horizontal, 20)
+                
+                // 投稿ボタン
+                Button(action: {
+                    // 投稿処理
+                    isTextFieldFocused = false
+                }) {
+                    HStack {
+                        Image(systemName: "paperplane.fill")
+                        Text("投稿する")
+                    }
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, minHeight: 50)
+                    .background(Color.orange)
+                    .cornerRadius(25)
+                }
+                .padding(.horizontal, 20)
+                .disabled(commentStore.commentNow.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .opacity(commentStore.commentNow.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
+                
+                Spacer()
+        }
+        .onTapGesture {
+            isTextFieldFocused = false
         }
     }
 }

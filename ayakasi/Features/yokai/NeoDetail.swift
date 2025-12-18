@@ -355,7 +355,7 @@ struct NeoDetail: View {
         }
         .sheet(isPresented: $commentVM.isCommentUI) {
             CommentUI()
-                .presentationDetents([.fraction(0.4)])
+                .presentationDetents([.fraction(0.35)])
                 .presentationBackground(.regularMaterial)
         }
         .safeAreaInset(edge: .bottom){
@@ -365,7 +365,6 @@ struct NeoDetail: View {
                 requestAndSaveImage: requestAndSaveImage
             )
         }
-        
         
     }
 }
