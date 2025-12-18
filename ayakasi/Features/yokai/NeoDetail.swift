@@ -355,6 +355,8 @@ struct NeoDetail: View {
         }
         .sheet(isPresented: $commentVM.isCommentUI) {
             CommentUI()
+                .presentationDetents([.fraction(0.4)])
+                .presentationBackground(.regularMaterial)
         }
         .safeAreaInset(edge: .bottom){
             BottomActionBar(

@@ -18,19 +18,19 @@ struct BottomActionBar: View {
                 }
                 .font(.headline)
                 .foregroundStyle(.white)
-                .frame(width: screenWidth * 0.6, height: 48)
+                .frame(width: screenWidth * 0.55, height: 48)
                 .background(Capsule().fill(colorVM.currentColor))
-                .padding(.trailing, 12)
+                .padding(.trailing, 10)
                 .onTapGesture {
                     requestAndSaveImage(yokai.imageName)
                 }
                 
-                HStack(spacing: 18) {
+                HStack(spacing: 16) {
                     Button{
                         CommentVM.isCommentUI.toggle()
                     } label: {
                         VStack(spacing:4){
-                            Image(systemName: "magnifyingglass")
+                            Image(systemName: "bubble.left.and.bubble.right")
                             Text("コメント")
                         }
                     }
