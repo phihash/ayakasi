@@ -2,13 +2,6 @@ import SwiftUI
 import FeedKit
 import Kingfisher
 
-let publishedFormatter : DateFormatter = {
-    let f = DateFormatter()
-    f.locale = Locale(identifier: "ja_JP")
-    f.dateStyle = .long
-    f.timeStyle = .short
-    return f
-}()
 
 
 struct PickupCard : View{
@@ -114,111 +107,6 @@ struct PickupCard : View{
     }
 }
 
-struct NewsSection : View{
-    @State private var items: [NewsItem] = []
-    @State private var isLoading = false
-    @State private var errorMessage: String?
-    @State private var selectedNewsUrl: URL?
-    @State private var showSafari = false
-    @EnvironmentObject var colorVM : ColorViewModel
-    var selectedNew : String
-    let newsSources = [
-        "妖怪":"https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913",
-        "イベント":"https://www.google.co.jp/alerts/feeds/14350951871509070518/14131475351883460019",
-        "河童":"https://www.google.co.jp/alerts/feeds/14350951871509070518/13120840386550034680",
-        "雪女":"https://www.google.co.jp/alerts/feeds/14350951871509070518/3735127170972070277",
-    ]
-    
-    private func fetchFeed() async {
-        isLoading = true
-        errorMessage = nil
-        defer { isLoading = false }
-        
-        do {
-            let urlString = newsSources[selectedNew] ?? (newsSources["妖怪"] ?? "")
-            let atom = try await AtomFeed(urlString: urlString)
-            let entries = atom.entries ?? []
-            
-            var seenTitles = Set<Substring>()
-            
-            self.items = entries.compactMap { e in
-                let title = (e.title ?? "")
-                let titlePrefix = title.prefix(8)
-                if seenTitles.contains(titlePrefix) { return nil }
-                seenTitles.insert(titlePrefix)
-                let href =
-                (e.links?.first { $0.attributes?.rel == "alternate" }?.attributes?.href)
-                ?? e.links?.first?.attributes?.href
-                
-                let url = href.flatMap(URL.init(string:))
-                
-                let published = e.published ?? Date()
-                return NewsItem(title: title.isEmpty ? "(無題)" : title, link: url, published: published)
-            }
-        } catch {
-            self.errorMessage = "読み込みに失敗しました: \(error.localizedDescription)"
-        }
-    }
-    
-    var body : some View{
-        ZStack{
-            if isLoading {
-                ProgressView("読み込み中…")
-                    .frame(height: 320)
-                
-            } else if let msg =  errorMessage {
-                Text(msg)
-            }else{
-                VStack(alignment: .leading) {
-                    
-                    ForEach(Array(items.indices), id: \.self) { index in
-                        let item = items[index]
-                        let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
-                        if let url = item.link {
-                            Button {
-                                selectedNewsUrl = url
-                                showSafari = true
-                            } label: {
-                                VStack(alignment: .leading, spacing: 12){
-                                    Text(publishedFormatter.string(from: item.published))
-                                        .foregroundStyle(.black.opacity(0.7))
-                                        .font(.subheadline)
-                                    Text("\(title)")
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(2)
-                                        .padding(.bottom,8)
-                                    Rectangle()
-                                        .fill(colorVM.currentColor)
-                                        .frame(height: 1)
-                                    
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .truncationMode(.tail)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.black)
-                                .padding(.vertical,8)
-                                .padding(.horizontal,20)
-                            }
-                        } else {
-                            Text("\(index + 1). \(title)")
-                        }
-                    }
-                }
-            }
-        }
-        .task(id: selectedNew) {
-            await fetchFeed()
-        }
-        .refreshable{
-            await  fetchFeed()
-        }
-        .sheet(isPresented: $showSafari) {
-            if let url = selectedNewsUrl {
-                SafariView(url: url)
-            }
-        }
-    }
-}
 
 struct EventItem: Codable {
     let title: String?
@@ -423,7 +311,7 @@ struct HomeView: View {
                 .padding(.horizontal,20)
                 .padding(.vertical,16)
                 
-                NewsSection(selectedNew: selectedNews)
+                NewsView(selectedNew: selectedNews)
                     .highPriorityGesture(
                         DragGesture(minimumDistance: 30)
                             .onEnded { value in
