@@ -35,4 +35,5 @@ class CommentService : ObservableObject {
     private let authService = AuthService.shared
     
     @Published var commentNow : String = ""
+    @Published var isCommentUI : Bool = false
 }

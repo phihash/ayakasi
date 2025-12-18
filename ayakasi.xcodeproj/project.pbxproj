@@ -354,13 +354,13 @@
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08DA52EE72BC300592CB5 /* vote */,
+				A9B08DAD2EE72BC300592CB5 /* yokai */,
 				A9B08E2C2EEEF55900592CB5 /* comment */,
 				A9B08DA82EE72BC300592CB5 /* weather */,
 				A9B08D8B2EE72BC300592CB5 /* activity */,
 				A9B08D922EE72BC300592CB5 /* auth */,
 				A9B08D962EE72BC300592CB5 /* home */,
 				A9B08D9B2EE72BC300592CB5 /* settings */,
-				A9B08DAD2EE72BC300592CB5 /* yokai */,
 			);
 			path = Features;
 			sourceTree = "<group>";

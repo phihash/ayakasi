@@ -14,6 +14,7 @@ struct NeoDetail: View {
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
+    @EnvironmentObject var commentVM : CommentService
     
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
@@ -323,43 +324,6 @@ struct NeoDetail: View {
                 .padding(.trailing, 20)
                 .padding(.bottom,16)
                 
-                Button {
-                    Task {
-                        do {
-                            try await voteService.vote(aykasiId: yokai.documentId)
-                        } catch let error as VoteError {
-                            // VoteErrorの場合、日本語メッセージを表示
-                            alertMessage = error.localizedDescription
-                            showAlert = true
-                        } catch {
-                            // その他のエラー
-                            print("投票エラー詳細: \(error)")  // デバッグ用
-                            
-                            alertMessage = "投票中にエラーが発生しました"
-                            showAlert = true
-                        }
-                    }
-                    
-                } label: {
-                    VStack(spacing: 2) {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.white)
-                            .font(.title2)
-                        Text("\(voteService.voteCountCache[yokai.documentId] ?? 0)")
-                            .foregroundStyle(.white)
-                            .font(.caption)
-                            .bold()
-                    }
-                    .frame(width: 60, height: 60)
-                    .background(Circle().fill(Color.red.opacity(0.8)))
-                    .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
-                }
-                .padding(.trailing, 20)
-                .padding(.bottom,16)
-                
-                
-                
-                
             }
             
         }
@@ -388,6 +352,9 @@ struct NeoDetail: View {
         .navigationBarBackButtonHidden(true)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
+        }
+        .sheet(isPresented: $commentVM.isCommentUI) {
+            CommentUI()
         }
         .safeAreaInset(edge: .bottom){
             BottomActionBar(
