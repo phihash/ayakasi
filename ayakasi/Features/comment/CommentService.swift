@@ -37,7 +37,43 @@ class CommentService : ObservableObject {
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
     
-    func postComment(){
-        guard commentNow.isEmpty else { return }
+    func postComment(yokai: Ayakasi) async {
+        guard !commentNow.isEmpty else { return }
+        guard let user = authService.currentUser else { return }
+        
+        let commentData = [
+            "yokaiId": yokai.documentId,
+            "userId": user.uid,
+            "content": commentNow,
+            "createdAt": FieldValue.serverTimestamp()
+        ] as [String : Any]
+        
+        // recentComments用のデータ
+        let recentCommentData = [
+            "yokaiId": yokai.documentId,
+            "yokaiName": yokai.name,
+            "userId": user.uid,
+            "userName": user.displayName ?? "匿名ユーザー",
+            "content": commentNow,
+            "createdAt": FieldValue.serverTimestamp()
+        ] as [String : Any]
+        
+        do {
+            // 1. 妖怪別コメントに保存
+            try await db.collection("comments")
+                .document(yokai.documentId)
+                .collection("userComments")
+                .addDocument(data: commentData)
+            
+            // 2. 最新コメント一覧に保存
+            try await db.collection("recentComments")
+                .addDocument(data: recentCommentData)
+            
+            commentNow = ""
+            isCommentUI = false
+            print("✅ コメント投稿成功（二重管理）")
+        } catch {
+            print("❌ 投稿失敗: \(error)")
+        }
     }
 }

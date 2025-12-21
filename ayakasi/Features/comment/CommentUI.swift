@@ -3,7 +3,7 @@ import SwiftUI
 struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
     @FocusState private var isTextFieldFocused: Bool
-    
+    let yokai : Ayakasi
     var body: some View {
         VStack(spacing: 20) {
                 Text("コメントを投稿")
@@ -32,6 +32,9 @@ struct CommentUI: View {
                 // 投稿ボタン
                 Button(action: {
                     // 投稿処理
+                    Task {
+                        await commentStore.postComment(yokai: yokai)
+                    }
                     isTextFieldFocused = false
                 }) {
                     HStack {

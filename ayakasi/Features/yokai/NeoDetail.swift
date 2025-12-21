@@ -354,7 +354,7 @@ struct NeoDetail: View {
             StoryView(yokaiName: yokai.name)
         }
         .sheet(isPresented: $commentVM.isCommentUI) {
-            CommentUI()
+            CommentUI(yokai:yokai)
                 .presentationDetents([.fraction(0.35)])
                 .presentationBackground(.regularMaterial)
         }
