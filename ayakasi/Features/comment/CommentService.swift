@@ -36,4 +36,8 @@ class CommentService : ObservableObject {
     
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
+    
+    func postComment(){
+        guard commentNow.isEmpty else { return }
+    }
 }
