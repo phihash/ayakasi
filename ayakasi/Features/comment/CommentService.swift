@@ -36,6 +36,8 @@ class CommentService : ObservableObject {
     
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
+    @Published var recentComments: [RecentComment] = []
+    @Published var isLoadingRecentComments = false
     
     func postComment(yokai: Ayakasi) async {
         guard !commentNow.isEmpty else { return }
