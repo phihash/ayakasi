@@ -129,6 +129,7 @@ struct HomeView: View {
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
+    @EnvironmentObject var commentService  : CommentService
     @State var selectedNews = "妖怪"
     let newsYokai = ["妖怪","イベント","雪女","河童"]
     var rankedYokai : [Ayakasi] {
@@ -185,6 +186,23 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
+                
+                HStack{
+                    Text("最近のコメント")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                .padding(.horizontal,24)
+                .padding(.vertical,12)
+                
+                ForEach(commentService.recentComments.indices, id: \.self) { index in
+                    let comment = commentService.recentComments[index]
+                    VStack{
+                        Text(comment["content"] as? String ?? "コンテントなし")
+                    }
+                }
+                
                 
                 HStack{
                     Text("イベント")
@@ -244,8 +262,6 @@ struct HomeView: View {
                     Text("ランキング")
                     
                     Spacer()
-                    
-                    
                 }
                 .font(.headline)
                 .fontWeight(.bold)
@@ -344,6 +360,12 @@ struct HomeView: View {
                 if let url = selectedEventUrl {
                     SafariView(url: url)
                 }
+            }
+            .onAppear{
+                Task{
+                    await commentService.getRecentComments()
+                }
+                
             }
         }
         

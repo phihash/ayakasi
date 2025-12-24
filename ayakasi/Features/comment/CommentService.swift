@@ -36,8 +36,26 @@ class CommentService : ObservableObject {
     
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
-    @Published var recentComments: [RecentComment] = []
+    @Published var recentComments: [[String: Any]] = []
     @Published var isLoadingRecentComments = false
+    
+    func getRecentComments() async{
+        isLoadingRecentComments = true
+        do {
+            let snapshot = try await db.collection("recentComments")
+                .order(by: "createdAt", descending: true)
+                .limit(to: 10)
+                .getDocuments()
+            
+            recentComments = snapshot.documents.map{
+                $0.data()
+            }
+            
+            isLoadingRecentComments = false
+        }catch{
+            isLoadingRecentComments = false
+        }
+    }
     
     func postComment(yokai: Ayakasi) async {
         guard !commentNow.isEmpty else { return }
