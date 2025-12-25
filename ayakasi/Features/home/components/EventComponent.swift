@@ -1,6 +1,18 @@
 import SwiftUI
 import Kingfisher
 
+struct EventItem: Codable {
+    let title: String?
+    let link: String?
+    let imageUrl: String?
+    let startDateTime: String?
+    let endDateTime: String?
+    let isActive: Bool?
+    let minVersion: String?
+    let maxVersion: String?
+    let bannerType: String?
+}
+
 struct EventComponent: View {
     @State private var ogImage: Image?
     let screenWidth = UIScreen.main.bounds.width
