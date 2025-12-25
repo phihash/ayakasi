@@ -13,7 +13,6 @@ struct ayakasiApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            
             Container()
                 .environmentObject(WeatherVM)
                 .environmentObject(ColorVM)
@@ -21,7 +20,6 @@ struct ayakasiApp: App {
                 .environmentObject(AuthVM)
                 .environmentObject(VoteVM)
                 .environmentObject(CommentVM)
-          
         }
     }
 }

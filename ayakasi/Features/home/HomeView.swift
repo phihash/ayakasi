@@ -2,7 +2,6 @@ import SwiftUI
 import FeedKit
 import Kingfisher
 
-
 struct HomeView: View {
     @State private var page = 0
     @State private var selectedYokai : Ayakasi? = nil
@@ -79,12 +78,28 @@ struct HomeView: View {
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
                 
-                ForEach(commentService.recentComments.indices, id: \.self) { index in
-                    let comment = commentService.recentComments[index]
-                    VStack{
-                        Text(comment["content"] as? String ?? "コンテントなし")
+                if commentService.recentComments.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "bubble.left.and.bubble.right")
+                            .font(.system(size: 40))
+                            .foregroundColor(.gray)
+                        
+                        Text("最新のコメントを取得中です")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundColor(.gray)
+                    }
+                    .frame(height: 120)
+                } else{
+                    ForEach(commentService.recentComments.indices, id: \.self) { index in
+                        let comment = commentService.recentComments[index]
+                        VStack{
+                            Text(comment["content"] as? String ?? "コンテントなし")
+                        }
                     }
                 }
+                
+                
                 
                 
                 HStack{

@@ -50,7 +50,7 @@ class CommentService : ObservableObject {
             recentComments = snapshot.documents.map{
                 $0.data()
             }
-            print(recentComments)
+  
             isLoadingRecentComments = false
         }catch{
             isLoadingRecentComments = false
