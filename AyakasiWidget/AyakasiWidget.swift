@@ -17,24 +17,24 @@ struct Provider: TimelineProvider {
         let now = Date()
         let steps = UserDefaults(suiteName: "group.net.phihash.ayakasi")?.integer(forKey: "steps") ?? 0
         let entry = SimpleEntry(date: now, steps: steps)
-
+        
         let cal = Calendar.current
         let minute = cal.component(.minute, from: now)
         let toAdd = 30 - (minute % 30)                  // 次の30分境界まで
         var next = cal.date(byAdding: .minute, value: toAdd, to: now)!
         next = cal.date(bySetting: .second, value: 0, of: next)! // 秒を0に
-
+        
         // 深夜リセット（集中回避で+2〜5分にズラす）
         let nextMidnight = cal.nextDate(
             after: now,
             matching: DateComponents(hour: 0, minute: 2, second: 0),
             matchingPolicy: .nextTime
         )
-
+        
         let refreshAt = min(next, nextMidnight ?? next)
         completion(Timeline(entries: [entry], policy: .after(refreshAt)))
     }
-
+    
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -47,24 +47,6 @@ struct AyakasiWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-//        if family == .systemSmall {
-//            VStack(spacing: 8){
-//                Text("今日の歩数")
-//                    .foregroundStyle(.black.opacity(0.7))
-//                    .font(.subheadline)
-//                    .fontWeight(.bold)
-//                
-//                Text("\(entry.steps)歩")
-//                    .font(.title)
-//                    .fontWeight(.bold)
-//                
-//                Image("kozou")
-//                    .resizable()
-//                    .scaledToFit()
-//                Text("最新の情報はアプリを起動してください")
-//                    .font(.caption)
-//            }
-//        }
         
         if family == .systemMedium {
             VStack(spacing: 8){
@@ -92,8 +74,6 @@ struct AyakasiWidgetEntryView : View {
                         .resizable()
                         .scaledToFit()
                 }
-                Text("最新の情報はアプリを起動してください")
-                    .font(.caption)
                 
             }
         }

@@ -93,13 +93,37 @@ struct HomeView: View {
                 } else{
                     ForEach(commentService.recentComments.indices, id: \.self) { index in
                         let comment = commentService.recentComments[index]
-                        VStack{
-                            Text(comment["content"] as? String ?? "コンテントなし")
+                        let yokaiId = comment["yokaiId"] as? String ?? ""
+                        
+                        if let ayakasi = ayakasis.first(where: { $0.documentId == yokaiId }) {
+                            HStack(spacing: 12) {
+                                Image(ayakasi.imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(8)
+                                
+                                VStack(alignment: .leading, spacing: 2) {
+                                    HStack {
+                                        Text(comment["userName"] as? String ?? "匿名")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                    }
+                                    Text(comment["content"] as? String ?? "")
+                                        .font(.body)
+                                        .lineLimit(2)
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 8)
+                            .onTapGesture {
+                                selectedYokai = ayakasi
+                            }
                         }
                     }
                 }
-                
-                
                 
                 
                 HStack{
@@ -179,7 +203,6 @@ struct HomeView: View {
                                         NeoDetail(yokai: yokai)
                                     }
                                 }
-                            
                         }
                         
                     }
@@ -245,7 +268,6 @@ struct HomeView: View {
                     )
                 
             }
-            
             .background(Color("Ivory"))
             
             .navigationTitle("ホーム")
