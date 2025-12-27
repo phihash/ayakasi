@@ -170,21 +170,7 @@ struct SettingView: View {
                             Text("ポリシーと規約")
                                 .font(.title3)
                                 .fontWeight(.bold)
-                            
-                            Text("更新")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 3)
-                                .background(Color.red)
-                                .cornerRadius(8)
                         }
-                        
-                        Text("確認してください")
-                            .font(.caption)
-                            .foregroundStyle(.red)
-                            .fontWeight(.bold)
                     }
                     .padding(.bottom,12)
                     .padding(.leading, -10)

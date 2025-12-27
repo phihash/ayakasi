@@ -39,20 +39,6 @@
 		A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAC2EE72BC300592CB5 /* SearchView.swift */; };
 		A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */; };
 		A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DC22EE72BC300592CB5 /* Container.swift */; };
-		A9B08DEC2EE72BC300592CB5 /* book.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DAF2EE72BC300592CB5 /* book.svg */; };
-		A9B08DED2EE72BC300592CB5 /* branch.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB02EE72BC300592CB5 /* branch.svg */; };
-		A9B08DEE2EE72BC300592CB5 /* culture.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB12EE72BC300592CB5 /* culture.svg */; };
-		A9B08DEF2EE72BC300592CB5 /* description.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB22EE72BC300592CB5 /* description.svg */; };
-		A9B08DF02EE72BC300592CB5 /* episode.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB32EE72BC300592CB5 /* episode.svg */; };
-		A9B08DF12EE72BC300592CB5 /* home.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB42EE72BC300592CB5 /* home.svg */; };
-		A9B08DF22EE72BC300592CB5 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB52EE72BC300592CB5 /* info.svg */; };
-		A9B08DF32EE72BC300592CB5 /* location.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB62EE72BC300592CB5 /* location.svg */; };
-		A9B08DF42EE72BC300592CB5 /* outward.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB72EE72BC300592CB5 /* outward.svg */; };
-		A9B08DF52EE72BC300592CB5 /* point.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB82EE72BC300592CB5 /* point.svg */; };
-		A9B08DF62EE72BC300592CB5 /* search.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DB92EE72BC300592CB5 /* search.svg */; };
-		A9B08DF72EE72BC300592CB5 /* setting.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DBA2EE72BC300592CB5 /* setting.svg */; };
-		A9B08DF82EE72BC300592CB5 /* share.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DBB2EE72BC300592CB5 /* share.svg */; };
-		A9B08DFA2EE72BC300592CB5 /* weather.svg in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DBD2EE72BC300592CB5 /* weather.svg */; };
 		A9B08DFB2EE72BC300592CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DBF2EE72BC300592CB5 /* Assets.xcassets */; };
 		A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DC32EE72BC300592CB5 /* GoogleService-Info.plist */; };
 		A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */; };
@@ -122,20 +108,6 @@
 		A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImage.swift; sourceTree = "<group>"; };
 		A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoDetail.swift; sourceTree = "<group>"; };
 		A9B08DAC2EE72BC300592CB5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		A9B08DAF2EE72BC300592CB5 /* book.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = book.svg; sourceTree = "<group>"; };
-		A9B08DB02EE72BC300592CB5 /* branch.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = branch.svg; sourceTree = "<group>"; };
-		A9B08DB12EE72BC300592CB5 /* culture.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = culture.svg; sourceTree = "<group>"; };
-		A9B08DB22EE72BC300592CB5 /* description.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = description.svg; sourceTree = "<group>"; };
-		A9B08DB32EE72BC300592CB5 /* episode.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = episode.svg; sourceTree = "<group>"; };
-		A9B08DB42EE72BC300592CB5 /* home.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = home.svg; sourceTree = "<group>"; };
-		A9B08DB52EE72BC300592CB5 /* info.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
-		A9B08DB62EE72BC300592CB5 /* location.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = location.svg; sourceTree = "<group>"; };
-		A9B08DB72EE72BC300592CB5 /* outward.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = outward.svg; sourceTree = "<group>"; };
-		A9B08DB82EE72BC300592CB5 /* point.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = point.svg; sourceTree = "<group>"; };
-		A9B08DB92EE72BC300592CB5 /* search.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = search.svg; sourceTree = "<group>"; };
-		A9B08DBA2EE72BC300592CB5 /* setting.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = setting.svg; sourceTree = "<group>"; };
-		A9B08DBB2EE72BC300592CB5 /* share.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = share.svg; sourceTree = "<group>"; };
-		A9B08DBD2EE72BC300592CB5 /* weather.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = weather.svg; sourceTree = "<group>"; };
 		A9B08DBF2EE72BC300592CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9B08DC02EE72BC300592CB5 /* ayakasi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ayakasi.entitlements; sourceTree = "<group>"; };
 		A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ayakasiApp.swift; sourceTree = "<group>"; };
@@ -357,27 +329,6 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		A9B08DBE2EE72BC300592CB5 /* SVG */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08DAF2EE72BC300592CB5 /* book.svg */,
-				A9B08DB02EE72BC300592CB5 /* branch.svg */,
-				A9B08DB12EE72BC300592CB5 /* culture.svg */,
-				A9B08DB22EE72BC300592CB5 /* description.svg */,
-				A9B08DB32EE72BC300592CB5 /* episode.svg */,
-				A9B08DB42EE72BC300592CB5 /* home.svg */,
-				A9B08DB52EE72BC300592CB5 /* info.svg */,
-				A9B08DB62EE72BC300592CB5 /* location.svg */,
-				A9B08DB72EE72BC300592CB5 /* outward.svg */,
-				A9B08DB82EE72BC300592CB5 /* point.svg */,
-				A9B08DB92EE72BC300592CB5 /* search.svg */,
-				A9B08DBA2EE72BC300592CB5 /* setting.svg */,
-				A9B08DBB2EE72BC300592CB5 /* share.svg */,
-				A9B08DBD2EE72BC300592CB5 /* weather.svg */,
-			);
-			path = SVG;
-			sourceTree = "<group>";
-		};
 		A9B08DC92EE72BC300592CB5 /* ayakasi */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,7 +338,6 @@
 				A9B08E272EEEF52B00592CB5 /* Util */,
 				A9B08D892EE72BC300592CB5 /* Data */,
 				A9B08DAE2EE72BC300592CB5 /* Features */,
-				A9B08DBE2EE72BC300592CB5 /* SVG */,
 				A9B08DBF2EE72BC300592CB5 /* Assets.xcassets */,
 				A9B08DC02EE72BC300592CB5 /* ayakasi.entitlements */,
 				A9B08DC32EE72BC300592CB5 /* GoogleService-Info.plist */,
@@ -525,20 +475,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B08DEC2EE72BC300592CB5 /* book.svg in Resources */,
-				A9B08DED2EE72BC300592CB5 /* branch.svg in Resources */,
-				A9B08DEE2EE72BC300592CB5 /* culture.svg in Resources */,
-				A9B08DEF2EE72BC300592CB5 /* description.svg in Resources */,
-				A9B08DF02EE72BC300592CB5 /* episode.svg in Resources */,
-				A9B08DF12EE72BC300592CB5 /* home.svg in Resources */,
-				A9B08DF22EE72BC300592CB5 /* info.svg in Resources */,
-				A9B08DF32EE72BC300592CB5 /* location.svg in Resources */,
-				A9B08DF42EE72BC300592CB5 /* outward.svg in Resources */,
-				A9B08DF52EE72BC300592CB5 /* point.svg in Resources */,
-				A9B08DF62EE72BC300592CB5 /* search.svg in Resources */,
-				A9B08DF72EE72BC300592CB5 /* setting.svg in Resources */,
-				A9B08DF82EE72BC300592CB5 /* share.svg in Resources */,
-				A9B08DFA2EE72BC300592CB5 /* weather.svg in Resources */,
 				A9B08DFB2EE72BC300592CB5 /* Assets.xcassets in Resources */,
 				A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */,
 				A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */,
