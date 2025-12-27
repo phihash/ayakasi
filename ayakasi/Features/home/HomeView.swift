@@ -231,6 +231,9 @@ struct HomeView: View {
             .sheet(isPresented: $showEventSafari) {
                 if let url = selectedEventUrl {
                     SafariView(url: url)
+                        .onDisappear {
+                            selectedEventUrl = nil
+                        }
                 }
             }
             

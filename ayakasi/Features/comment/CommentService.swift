@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -38,6 +39,13 @@ class CommentService : ObservableObject {
     @Published var isCommentUI : Bool = false
     @Published var recentComments: [[String: Any]] = []
     @Published var isLoadingRecentComments = false
+    @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
+    
+    private func isWithinFiveMinutes() -> Bool {
+        let now = Date().timeIntervalSince1970
+        let fiveMinutesInSeconds = TimeInterval(5 * 60)
+        return (now - lastFetchTimestamp) < fiveMinutesInSeconds
+    }
     
     func getRecentComments() async{
         isLoadingRecentComments = true
