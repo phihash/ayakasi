@@ -1,6 +1,15 @@
 import SwiftUI
 import FeedKit
 import Kingfisher
+import FirebaseFirestore
+
+extension DateFormatter {
+    static let shortDateTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M/d HH:mm"
+        return formatter
+    }()
+}
 
 struct HomeView: View {
     @State private var page = 0
@@ -11,7 +20,7 @@ struct HomeView: View {
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
-    @EnvironmentObject var commentService  : CommentService
+
     @State var selectedNews = "妖怪"
     let newsYokai = ["妖怪","イベント","雪女","河童"]
     var rankedYokai : [Ayakasi] {
@@ -69,61 +78,6 @@ struct HomeView: View {
         NavigationStack{
             ScrollView{
                 
-                HStack{
-                    Text("最近のコメント")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                .padding(.horizontal,24)
-                .padding(.vertical,12)
-                
-                if commentService.recentComments.isEmpty {
-                    VStack(spacing: 16) {
-                        Image(systemName: "bubble.left.and.bubble.right")
-                            .font(.system(size: 40))
-                            .foregroundColor(.gray)
-                        
-                        Text("最新のコメントを取得中です")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(.gray)
-                    }
-                    .frame(height: 120)
-                } else{
-                    ForEach(commentService.recentComments.indices, id: \.self) { index in
-                        let comment = commentService.recentComments[index]
-                        let yokaiId = comment["yokaiId"] as? String ?? ""
-                        
-                        if let ayakasi = ayakasis.first(where: { $0.documentId == yokaiId }) {
-                            HStack(spacing: 12) {
-                                Image(ayakasi.imageName)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .cornerRadius(8)
-                                
-                                VStack(alignment: .leading, spacing: 2) {
-                                    HStack {
-                                        Text(comment["userName"] as? String ?? "匿名")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                    }
-                                    Text(comment["content"] as? String ?? "")
-                                        .font(.body)
-                                        .lineLimit(2)
-                                }
-                                
-                                Spacer()
-                            }
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 8)
-                            .onTapGesture {
-                                selectedYokai = ayakasi
-                            }
-                        }
-                    }
-                }
                 
                 
                 HStack{
@@ -266,7 +220,6 @@ struct HomeView: View {
                                 }
                             }
                     )
-                
             }
             .background(Color("Ivory"))
             
@@ -280,13 +233,7 @@ struct HomeView: View {
                     SafariView(url: url)
                 }
             }
-            .onAppear{
-                Task{
-                    await commentService.getRecentComments()
-                }
-                
-            }
+            
         }
-        
     }
 }

@@ -22,19 +22,26 @@ struct Container: View {
                     .tag(1)
                 
           
+                CommunityView()
+                    .tabItem {
+                        Image("comment")
+                            .renderingMode(.template)
+                    }
+                    .tag(2)
+                
                 Weather()
                     .tabItem {
                         Image("weather")
                             .renderingMode(.template)
                     }
-                    .tag(2)
+                    .tag(3)
                 
                 SettingView()
                     .tabItem {
                         Image("setting")
                             .renderingMode(.template)
                     }
-                    .tag(3)
+                    .tag(4)
           
             }
             .tint(colorVM.currentColor)
