@@ -7,24 +7,11 @@ import FirebaseFirestore
 //    let id: String !
 //    let userId: String !
 //    let userName: String
-//    let content: String !
-//    let createdAt: Date !
 //    let isDeleted: Bool
 //    let deletedByAdmin: Bool
-//    let reportCount: Int
-//    let moderationStatus: String
 //    let appVersion: String?
-//    
-//    init(id: String, userId: String, userName: String, content: String, createdAt: Date = Date(), isDeleted: Bool = false, deletedByAdmin: Bool = false, reportCount: Int = 0, moderationStatus: String = "approved", appVersion: String? = nil) {
-//        self.id = id
-//        self.userId = userId
-//        self.userName = userName
-//        self.content = content
-//        self.createdAt = createdAt
-//        self.isDeleted = isDeleted
+//
 //        self.deletedByAdmin = deletedByAdmin
-//        self.reportCount = reportCount
-//        self.moderationStatus = moderationStatus
 //        self.appVersion = appVersion
 //    }
 //}
@@ -64,6 +51,16 @@ class CommentService : ObservableObject {
     }
     
     func reportRecentComment(documentId: String) async {
+        // デバッグ用
+        print("🐛 documentId: \(documentId)")
+        
+        // 空文字列チェック
+        guard !documentId.isEmpty else {
+            alertMessage = "無効なコメントIDです"
+            showAlert = true
+            return
+        }
+        
         // 既に報告済みかチェック
         if hasReported(commentId: documentId) {
             alertMessage = "既に報告済みです"
@@ -84,6 +81,7 @@ class CommentService : ObservableObject {
             showAlert = true
             
         } catch {
+            print("🐛 エラー詳細: \(error)")
             alertMessage = "報告に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }

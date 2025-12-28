@@ -29,19 +29,13 @@ struct Container: View {
                     }
                     .tag(2)
                 
-                Weather()
-                    .tabItem {
-                        Image("weather")
-                            .renderingMode(.template)
-                    }
-                    .tag(3)
-                
+              
                 SettingView()
                     .tabItem {
                         Image("setting")
                             .renderingMode(.template)
                     }
-                    .tag(4)
+                    .tag(3)
                 
             }
             .tint(colorVM.currentColor)

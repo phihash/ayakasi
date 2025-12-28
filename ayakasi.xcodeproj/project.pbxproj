@@ -32,8 +32,6 @@
 		A9B08DD92EE72BC300592CB5 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D992EE72BC300592CB5 /* MailView.swift */; };
 		A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9A2EE72BC300592CB5 /* SettingView.swift */; };
 		A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA42EE72BC300592CB5 /* VoteService.swift */; };
-		A9B08DE22EE72BC300592CB5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA62EE72BC300592CB5 /* Weather.swift */; };
-		A9B08DE32EE72BC300592CB5 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA72EE72BC300592CB5 /* WeatherViewModel.swift */; };
 		A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */; };
 		A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */; };
 		A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */; };
@@ -104,8 +102,6 @@
 		A9B08D992EE72BC300592CB5 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		A9B08D9A2EE72BC300592CB5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A9B08DA42EE72BC300592CB5 /* VoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteService.swift; sourceTree = "<group>"; };
-		A9B08DA62EE72BC300592CB5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		A9B08DA72EE72BC300592CB5 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionBar.swift; sourceTree = "<group>"; };
 		A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImage.swift; sourceTree = "<group>"; };
 		A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoDetail.swift; sourceTree = "<group>"; };
@@ -292,15 +288,6 @@
 			path = vote;
 			sourceTree = "<group>";
 		};
-		A9B08DA82EE72BC300592CB5 /* weather */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08DA62EE72BC300592CB5 /* Weather.swift */,
-				A9B08DA72EE72BC300592CB5 /* WeatherViewModel.swift */,
-			);
-			path = weather;
-			sourceTree = "<group>";
-		};
 		A9B08DAD2EE72BC300592CB5 /* yokai */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +310,6 @@
 				A9B08DA52EE72BC300592CB5 /* vote */,
 				A9B08DAD2EE72BC300592CB5 /* yokai */,
 				A9B08E2C2EEEF55900592CB5 /* comment */,
-				A9B08DA82EE72BC300592CB5 /* weather */,
 				A9B08D922EE72BC300592CB5 /* auth */,
 				A9B08D962EE72BC300592CB5 /* home */,
 				A9B08D9B2EE72BC300592CB5 /* settings */,
@@ -520,8 +506,6 @@
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
 				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
-				A9B08DE22EE72BC300592CB5 /* Weather.swift in Sources */,
-				A9B08DE32EE72BC300592CB5 /* WeatherViewModel.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
 				A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */,
 				A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */,
@@ -682,7 +666,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数、消費カロリー、基礎代謝データの読み取りに使用します。";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "このアプリはヘルスケアへのデータ書き込みは行いません。";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地の天気を取得するために位置情報を使います";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -729,7 +712,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数、消費カロリー、基礎代謝データの読み取りに使用します。";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "このアプリはヘルスケアへのデータ書き込みは行いません。";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地の天気を取得するために位置情報を使います";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

@@ -7,6 +7,7 @@ struct CommunityView: View {
     @State private var selectedYokai : Ayakasi? = nil
     @State private var isReportUI : Bool = false
     @State private var selectedCommentId : String = ""
+    @State private var reportCommentId : String = ""
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -62,8 +63,15 @@ struct CommunityView: View {
                                         Image(systemName: "ellipsis")
                                             .font(.title3)
                                             .onTapGesture {
-                                                selectedCommentId = comment["documentId"] as? String ?? ""
+                                                let docId = comment["documentId"] as? String ?? ""
+                                                print("🐛 comment keys: \(comment.keys)")
+                                                print("🐛 documentId from comment: \(docId)")
+                                                selectedCommentId = docId
+                                                reportCommentId = docId
+                                                print("🐛 selectedCommentId after assignment: \(selectedCommentId)")
+                                                print("🐛 reportCommentId after assignment: \(reportCommentId)")
                                                 isReportUI = true
+                                                print("🐛 isReportUI set to: \(isReportUI)")
                                             }
                                     }
                                     Text(comment["content"] as? String ?? "")
@@ -110,7 +118,7 @@ struct CommunityView: View {
                 NeoDetail(yokai: yokai)
             }
             .sheet(isPresented: $isReportUI) {
-                ReportUI(commentId: selectedCommentId)
+                ReportUI(commentId: reportCommentId)
                     .presentationDetents([.fraction(0.25)])
                     .presentationBackground(.regularMaterial)
             }
