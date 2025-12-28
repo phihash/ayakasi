@@ -5,6 +5,7 @@ import FirebaseFirestore
 struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @State private var selectedYokai : Ayakasi? = nil
+    @State private var isReportUI : Bool = false
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -59,6 +60,9 @@ struct CommunityView: View {
                                         Spacer()
                                         Image(systemName: "ellipsis")
                                             .font(.caption)
+                                            .onTapGesture {
+                                                isReportUI = true
+                                            }
                                     }
                                     Text(comment["content"] as? String ?? "")
                                         .font(.title3)
@@ -103,6 +107,12 @@ struct CommunityView: View {
             .fullScreenCover(item: $selectedYokai){ yokai in
                 NeoDetail(yokai: yokai)
             }
+            .sheet(isPresented: $isReportUI) {
+                ReportUI()
+                    .presentationDetents([.fraction(0.35)])
+                    .presentationBackground(.regularMaterial)
+            }
+            
         }
     }
 }

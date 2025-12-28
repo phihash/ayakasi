@@ -81,9 +81,11 @@ class CommentService : ObservableObject {
             "yokaiId": yokai.documentId,
             "yokaiName": yokai.name,
             "userId": user.uid,
-            "userName": user.displayName ?? "匿名ユーザー",
             "content": commentNow,
-            "createdAt": FieldValue.serverTimestamp()
+            "createdAt": FieldValue.serverTimestamp(),
+            "status": "pending",
+            "reportCount": 0,
+            "reportedBy": []
         ] as [String : Any]
         
         do {

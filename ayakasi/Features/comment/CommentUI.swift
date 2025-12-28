@@ -30,8 +30,7 @@ struct CommentUI: View {
                 .padding(.horizontal, 20)
                 
                 // 投稿ボタン
-                Button(action: {
-                    // 投稿処理
+                Button(action: { // 投稿処理
                     Task {
                         await commentStore.postComment(yokai: yokai)
                     }

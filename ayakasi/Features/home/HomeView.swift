@@ -20,7 +20,7 @@ struct HomeView: View {
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
-
+    
     @State var selectedNews = "妖怪"
     let newsYokai = ["妖怪","イベント","雪女","河童"]
     var rankedYokai : [Ayakasi] {
@@ -77,8 +77,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-                
-                
+                 
                 
                 HStack{
                     Text("イベント")
