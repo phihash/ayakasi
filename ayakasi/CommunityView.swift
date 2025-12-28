@@ -111,8 +111,13 @@ struct CommunityView: View {
             }
             .sheet(isPresented: $isReportUI) {
                 ReportUI(commentId: selectedCommentId)
-                    .presentationDetents([.fraction(0.35)])
+                    .presentationDetents([.fraction(0.25)])
                     .presentationBackground(.regularMaterial)
+            }
+            .alert("通知", isPresented: $commentService.showAlert) {
+                Button("OK") { }
+            } message: {
+                Text(commentService.alertMessage)
             }
             
         }

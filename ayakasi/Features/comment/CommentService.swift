@@ -39,7 +39,13 @@ class CommentService : ObservableObject {
     @Published var isCommentUI : Bool = false
     @Published var recentComments: [[String: Any]] = []
     @Published var isLoadingRecentComments = false
+    @Published var showAlert = false
+    @Published var alertMessage = ""
     @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
+    private var reportedCommentIds: [String] {
+        get { UserDefaults.standard.stringArray(forKey: "reportedCommentIds") ?? [] }
+        set { UserDefaults.standard.set(newValue, forKey: "reportedCommentIds") }
+    }
     
     private func isWithinFiveMinutes() -> Bool {
         let now = Date().timeIntervalSince1970
@@ -47,9 +53,42 @@ class CommentService : ObservableObject {
         return (now - lastFetchTimestamp) < fiveMinutesInSeconds
     }
     
-    func reportRecentComment(documentId: String) async {
-        
+    private func hasReported(commentId: String) -> Bool {
+        return reportedCommentIds.contains(commentId)
     }
+    
+    private func markAsReported(commentId: String) {
+        var ids = reportedCommentIds
+        ids.append(commentId)
+        reportedCommentIds = ids
+    }
+    
+    func reportRecentComment(documentId: String) async {
+        // 既に報告済みかチェック
+        if hasReported(commentId: documentId) {
+            alertMessage = "既に報告済みです"
+            showAlert = true
+            return
+        }
+        
+        do {
+            let commentRef = db.collection("recentComments").document(documentId)
+            
+            try await commentRef.updateData([
+                "reportCount": FieldValue.increment(Int64(1))
+            ])
+          
+            markAsReported(commentId: documentId)
+            
+            alertMessage = "報告が完了しました"
+            showAlert = true
+            
+        } catch {
+            alertMessage = "報告に失敗しました: \(error.localizedDescription)"
+            showAlert = true
+        }
+    }
+    
     
     func getRecentComments() async{
         isLoadingRecentComments = true
@@ -90,8 +129,7 @@ class CommentService : ObservableObject {
             "content": commentNow,
             "createdAt": FieldValue.serverTimestamp(),
             "status": "pending",
-            "reportCount": 0,
-            "reportedBy": []
+            "reportCount": 0
         ] as [String : Any]
         
         do {
