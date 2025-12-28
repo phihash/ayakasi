@@ -21,7 +21,7 @@ struct Container: View {
                     }
                     .tag(1)
                 
-          
+                
                 CommunityView()
                     .tabItem {
                         Image("comment")
@@ -42,7 +42,7 @@ struct Container: View {
                             .renderingMode(.template)
                     }
                     .tag(4)
-          
+                
             }
             .tint(colorVM.currentColor)
         }

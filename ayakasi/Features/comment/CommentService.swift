@@ -4,11 +4,11 @@ import FirebaseAuth
 import FirebaseFirestore
 
 //struct Comment: Identifiable, Codable {
-//    let id: String
-//    let userId: String
+//    let id: String !
+//    let userId: String !
 //    let userName: String
-//    let content: String
-//    let createdAt: Date
+//    let content: String !
+//    let createdAt: Date !
 //    let isDeleted: Bool
 //    let deletedByAdmin: Bool
 //    let reportCount: Int

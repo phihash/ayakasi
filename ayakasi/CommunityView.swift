@@ -55,17 +55,31 @@ struct CommunityView: View {
                                 .cornerRadius(8)
                                 
                                 VStack(alignment: .leading, spacing: 2) {
+                                    HStack{
+                                        Spacer()
+                                        Image(systemName: "ellipsis")
+                                            .font(.caption)
+                                    }
                                     Text(comment["content"] as? String ?? "")
                                         .font(.title3)
                                         .lineLimit(2)
                                     
-                                    if let timestamp = comment["createdAt"] as? Timestamp {
-                                        Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
+                                    HStack{
+                                        if let timestamp = comment["createdAt"] as? Timestamp {
+                                            Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
+                                                .font(.caption)
+                                                .foregroundColor(.gray)
+                                                .fontWeight(.semibold)
+                                            
+                                        }
+                                        
+                                        Text(ayakasi.name)
                                             .font(.caption)
-                                            .foregroundColor(.gray)
                                             .fontWeight(.semibold)
-                                            .padding(.top,4)
+                                            .foregroundColor(.gray)
+                                        
                                     }
+                                    .padding(.top,4)
                                 }
                                 
                                 Spacer()
@@ -85,12 +99,9 @@ struct CommunityView: View {
                 Task{
                     await commentService.getRecentComments()
                 }
-                
             }
             .fullScreenCover(item: $selectedYokai){ yokai in
-                
                 NeoDetail(yokai: yokai)
-                
             }
         }
     }
