@@ -6,6 +6,7 @@ struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @State private var selectedYokai : Ayakasi? = nil
     @State private var isReportUI : Bool = false
+    @State private var selectedCommentId : String = ""
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -59,8 +60,9 @@ struct CommunityView: View {
                                     HStack{
                                         Spacer()
                                         Image(systemName: "ellipsis")
-                                            .font(.caption)
+                                            .font(.title3)
                                             .onTapGesture {
+                                                selectedCommentId = comment["documentId"] as? String ?? ""
                                                 isReportUI = true
                                             }
                                     }
@@ -108,7 +110,7 @@ struct CommunityView: View {
                 NeoDetail(yokai: yokai)
             }
             .sheet(isPresented: $isReportUI) {
-                ReportUI()
+                ReportUI(commentId: selectedCommentId)
                     .presentationDetents([.fraction(0.35)])
                     .presentationBackground(.regularMaterial)
             }

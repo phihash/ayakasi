@@ -47,6 +47,10 @@ class CommentService : ObservableObject {
         return (now - lastFetchTimestamp) < fiveMinutesInSeconds
     }
     
+    func reportRecentComment(documentId: String) async {
+        
+    }
+    
     func getRecentComments() async{
         isLoadingRecentComments = true
         do {
@@ -55,8 +59,10 @@ class CommentService : ObservableObject {
                 .limit(to: 10)
                 .getDocuments()
             
-            recentComments = snapshot.documents.map{
-                $0.data()
+            recentComments = snapshot.documents.map{ document in
+                var data = document.data()
+                data["documentId"] = document.documentID
+                return data
             }
   
             isLoadingRecentComments = false
