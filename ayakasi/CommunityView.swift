@@ -2,12 +2,13 @@ import SwiftUI
 import Kingfisher
 import FirebaseFirestore
 
+struct ReportTarget: Identifiable { let id: String }
+
 struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @State private var selectedYokai : Ayakasi? = nil
-    @State private var isReportUI : Bool = false
     @State private var selectedCommentId : String = ""
-    @State private var reportCommentId : String = ""
+    @State private var reportTarget: ReportTarget? = nil
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -63,15 +64,14 @@ struct CommunityView: View {
                                         Image(systemName: "ellipsis")
                                             .font(.title3)
                                             .onTapGesture {
-                                                let docId = comment["documentId"] as? String ?? ""
-                                                print("🐛 comment keys: \(comment.keys)")
-                                                print("🐛 documentId from comment: \(docId)")
+                                                guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
+                                                    print("❗️ documentId is missing; not opening report sheet")
+                                                    return
+                                                }
+                                                
                                                 selectedCommentId = docId
-                                                reportCommentId = docId
-                                                print("🐛 selectedCommentId after assignment: \(selectedCommentId)")
-                                                print("🐛 reportCommentId after assignment: \(reportCommentId)")
-                                                isReportUI = true
-                                                print("🐛 isReportUI set to: \(isReportUI)")
+                                                reportTarget = ReportTarget(id: docId)
+                                                
                                             }
                                     }
                                     Text(comment["content"] as? String ?? "")
@@ -117,8 +117,8 @@ struct CommunityView: View {
             .fullScreenCover(item: $selectedYokai){ yokai in
                 NeoDetail(yokai: yokai)
             }
-            .sheet(isPresented: $isReportUI) {
-                ReportUI(commentId: reportCommentId)
+            .sheet(item: $reportTarget) { target in
+                ReportUI(commentId: target.id)
                     .presentationDetents([.fraction(0.25)])
                     .presentationBackground(.regularMaterial)
             }
@@ -131,4 +131,3 @@ struct CommunityView: View {
         }
     }
 }
-

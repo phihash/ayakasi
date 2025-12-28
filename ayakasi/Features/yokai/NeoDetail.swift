@@ -347,6 +347,11 @@ struct NeoDetail: View {
         } message: {
             Text(alertMessage)
         }
+        .alert("通知", isPresented: $commentVM.showAlert) {
+            Button("OK") {}
+        } message: {
+            Text(commentVM.alertMessage)
+        }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
         .navigationBarBackButtonHidden(true)

@@ -10,7 +10,6 @@ import FirebaseFirestore
 //    let isDeleted: Bool
 //    let deletedByAdmin: Bool
 //    let appVersion: String?
-//
 //        self.deletedByAdmin = deletedByAdmin
 //        self.appVersion = appVersion
 //    }
@@ -51,17 +50,12 @@ class CommentService : ObservableObject {
     }
     
     func reportRecentComment(documentId: String) async {
-        // デバッグ用
-        print("🐛 documentId: \(documentId)")
-        
-        // 空文字列チェック
         guard !documentId.isEmpty else {
             alertMessage = "無効なコメントIDです"
             showAlert = true
             return
         }
         
-        // 既に報告済みかチェック
         if hasReported(commentId: documentId) {
             alertMessage = "既に報告済みです"
             showAlert = true
@@ -74,14 +68,13 @@ class CommentService : ObservableObject {
             try await commentRef.updateData([
                 "reportCount": FieldValue.increment(Int64(1))
             ])
-          
+            
             markAsReported(commentId: documentId)
             
             alertMessage = "報告が完了しました"
             showAlert = true
             
         } catch {
-            print("🐛 エラー詳細: \(error)")
             alertMessage = "報告に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }
@@ -101,7 +94,7 @@ class CommentService : ObservableObject {
                 data["documentId"] = document.documentID
                 return data
             }
-  
+            
             isLoadingRecentComments = false
         }catch{
             isLoadingRecentComments = false
@@ -144,8 +137,12 @@ class CommentService : ObservableObject {
             commentNow = ""
             isCommentUI = false
             print("✅ コメント投稿成功（二重管理）")
+            alertMessage = "コメントを投稿しました"
+            showAlert = true
         } catch {
             print("❌ 投稿失敗: \(error)")
+            alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
+            showAlert = true
         }
     }
 }
