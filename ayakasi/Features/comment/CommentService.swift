@@ -28,15 +28,59 @@ class CommentService : ObservableObject {
     @Published var showAlert = false
     @Published var alertMessage = ""
     @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
+    
+    // トークンバケット用のプロパティ
+    @AppStorage("commentTokens") private var availableTokens: Int = 3
+    @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
     private var reportedCommentIds: [String] {
         get { UserDefaults.standard.stringArray(forKey: "reportedCommentIds") ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: "reportedCommentIds") }
+    }
+    
+    init() {
+        // 初回起動時のみlastRefillTimeを現在時刻に設定
+        if lastRefillTime == -1 {
+            lastRefillTime = Date().timeIntervalSince1970
+        }
     }
     
     private func isWithinFiveMinutes() -> Bool {
         let now = Date().timeIntervalSince1970
         let fiveMinutesInSeconds = TimeInterval(5 * 60)
         return (now - lastFetchTimestamp) < fiveMinutesInSeconds
+    }
+    
+    private func getCurrentMaxTokens() -> Int {
+        if authService.currentUser != nil {
+            return 5  // ログイン済み: 最大5個
+        } else {
+            return 3   // 未ログイン: 最大3個
+        }
+    }
+    
+    private func refillToken() {
+        let currentTime = Date().timeIntervalSince1970
+        let timeSinceLastRefill = currentTime - lastRefillTime
+        
+        // 480秒（8分）ごとに1トークン
+        let tokensToAdd = Int(timeSinceLastRefill / 480.0)
+        
+        if tokensToAdd > 0 {
+            let currentMaxTokens = getCurrentMaxTokens()
+            availableTokens = min(currentMaxTokens, tokensToAdd + availableTokens)
+            lastRefillTime = currentTime
+        }
+    }
+    
+    private func canComment() -> Bool {
+        refillToken()
+        return availableTokens > 0
+    }
+    
+    private func consumeToken() {
+        if availableTokens > 0 {
+            availableTokens -= 1
+        }
     }
     
     private func hasReported(commentId: String) -> Bool {
@@ -105,6 +149,13 @@ class CommentService : ObservableObject {
         guard !commentNow.isEmpty else { return }
         guard let user = authService.currentUser else { return }
         
+        // トークンバケットチェック
+        guard canComment() else {
+            alertMessage = "コメント回数の上限に達しました。しばらく待って再度お試しください。"
+            showAlert = true
+            return
+        }
+        
         let commentData = [
             "yokaiId": yokai.documentId,
             "userId": user.uid,
@@ -134,13 +185,14 @@ class CommentService : ObservableObject {
             try await db.collection("recentComments")
                 .addDocument(data: recentCommentData)
             
+            // 成功時のみトークンを消費
+            consumeToken()
+            
             commentNow = ""
             isCommentUI = false
-            print("✅ コメント投稿成功（二重管理）")
             alertMessage = "コメントを投稿しました"
             showAlert = true
         } catch {
-            print("❌ 投稿失敗: \(error)")
             alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }

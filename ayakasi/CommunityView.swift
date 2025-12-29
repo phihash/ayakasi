@@ -75,7 +75,7 @@ struct CommunityView: View {
                                             }
                                     }
                                     Text(comment["content"] as? String ?? "")
-                                        .font(.title3)
+                                        .font(.headline)
                                         .lineLimit(2)
                                     
                                     HStack{

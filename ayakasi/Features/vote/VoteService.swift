@@ -10,8 +10,9 @@ class VoteService: ObservableObject {
     private let authService = AuthService.shared
     //ローカルキャッシュに全ての妖怪の情報が入る
     @Published var voteCountCache: [String: Int] = [:]
-    
     private let maxTokens = 7
+    @AppStorage("voteTokens") private var availableTokens: Int = 7 // 利用可能なトークン数（最大7個）
+    @AppStorage("lastRefillTime") private var lastRefillTime: Double = -1 // 最後にトークンを補充した時刻（-1は未初期化を意味）
     
     private func getCurrentMaxTokens() -> Int {
         if authService.currentUser != nil {
@@ -21,14 +22,8 @@ class VoteService: ObservableObject {
         }
     }
     
-    // レートリミット用のプロパティ
-    @AppStorage("voteTokens") private var availableTokens: Int = 7 // 利用可能なトークン数（最大7個）
-    @AppStorage("lastRefillTime") private var lastRefillTime: Double = -1 // 最後にトークンを補充した時刻（-1は未初期化を意味）
-    
-    
     init(){
         // 初回起動時のみlastRefillTimeを現在時刻に設定
-        // -1は「まだ初期化されていない」ことを意味する特別な値
         if lastRefillTime == -1 {
             lastRefillTime = Date().timeIntervalSince1970 // 現在時刻（秒）を保存
         }
