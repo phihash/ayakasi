@@ -31,7 +31,6 @@ struct NeoDetail: View {
                         showAlert = true
                     }
                 }
-                
             }
         case .denied:
             alertMessage = "写真アクセスが拒否されています。設定アプリで許可してください"
@@ -141,107 +140,110 @@ struct NeoDetail: View {
                     
                     // 2タブ
                     Group{
-                        //                        HStack{
-                        //                            Text("説明")
-                        //                                .fontWeight(.bold)
-                        //                                .padding(.vertical,16)
-                        //                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                        //                                .frame(width: screenWidth * 0.45)
-                        //                                .overlay(alignment: .bottom) {
-                        //                                    Rectangle()
-                        //                                        .frame(height: 2)
-                        //                                        .frame(width: screenWidth * 0.45)
-                        //                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
-                        //                                }
-                        //                                .onTapGesture {
-                        //                                    selectedTab = 0
-                        //                                }
-                        //
-                        //                            Text("その他")
-                        //                                .fontWeight(.bold)
-                        //                                .padding(.vertical,16)
-                        //                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
-                        //                                .frame(width: screenWidth * 0.45)
-                        //                                .overlay(alignment: .bottom) {
-                        //                                    Rectangle()
-                        //                                        .frame(height: 2)
-                        //                                        .frame(width: screenWidth * 0.45)
-                        //                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
-                        //                                }
-                        //                                .onTapGesture {
-                        //                                    selectedTab = 1
-                        //                                }
-                        //                        }
-                        //                        .padding(.vertical,8)
-                        //                        .padding(.horizontal,8)
-                        
-                        //                        VStack{
-                        
-                        VStack{
-                            HStack{
-                                Image("description")
-                                    .renderingMode(.template)
-                                Text("説明")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                Spacer()
-                            }
-                            .padding(.horizontal,24)
-                            .padding(.top,20)
-                            .padding(.bottom,12)
-                            
-                            
-                            Text(yokai.description)
+                        HStack{
+                            Text("説明")
                                 .fontWeight(.bold)
-                                .padding(.vertical,6)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal,24)
+                                .padding(.vertical,16)
+                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+                                .frame(width: screenWidth * 0.45)
+                                .overlay(alignment: .bottom) {
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .frame(width: screenWidth * 0.45)
+                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+                                }
+                                .onTapGesture {
+                                    selectedTab = 0
+                                }
                             
-                            if let episodes = yokai.episodes {
-                                VStack{
-                                    HStack{
-                                        Image("episode")
-                                            .renderingMode(.template)
-                                        Text("エピソード")
-                                            .font(.title2)
+                            Text("コメント")
+                                .fontWeight(.bold)
+                                .padding(.vertical,16)
+                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
+                                .frame(width: screenWidth * 0.45)
+                                .overlay(alignment: .bottom) {
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .frame(width: screenWidth * 0.45)
+                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
+                                }
+                                .onTapGesture {
+                                    selectedTab = 1
+                                }
+                        }
+                        .padding(.vertical,8)
+                        .padding(.horizontal,8)
+                        
+                        if selectedTab == 0{
+                            VStack{
+                                HStack{
+                                    Image("description")
+                                        .renderingMode(.template)
+                                    Text("説明")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                    Spacer()
+                                }
+                                .padding(.horizontal,24)
+                                .padding(.top,20)
+                                .padding(.bottom,12)
+                                
+                                Text(yokai.description)
+                                    .fontWeight(.bold)
+                                    .padding(.vertical,6)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal,24)
+                                
+                                
+                                if let episodes = yokai.episodes {
+                                    VStack{
+                                        HStack{
+                                            Image("episode")
+                                                .renderingMode(.template)
+                                            Text("エピソード")
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                            Spacer()
+                                        }
+                                        .padding(.top,16)
+                                        
+                                        Text(episodes)
                                             .fontWeight(.bold)
-                                        Spacer()
+                                            .padding(.vertical,4)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
                                     }
-                                    .padding(.top,16)
-                                    
-                                    Text(episodes)
-                                        .fontWeight(.bold)
-                                        .padding(.vertical,4)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    
+                                    .padding(.horizontal,24)
+                                    .padding(.bottom,16)
                                 }
-                                .padding(.horizontal,24)
-                                .padding(.bottom,16)
-                            }
-                            
-                            if let btw = yokai.btw {
-                                VStack{
-                                    ByTheWay(btw: btw)
+                                
+                                if let btw = yokai.btw {
+                                    VStack{
+                                        ByTheWay(btw: btw)
+                                    }
                                 }
-                            }
-                            
-                            if yokai.sotry {
-                                Button {
-                                    showStoryView = true
-                                } label: {
-                                    Text("物語を読む")
-                                        .fontWeight(.bold)
-                                        .foregroundStyle(.white)
-                                        .padding()
-                                        .background(RoundedRectangle(cornerRadius: 8).fill(colorVM.currentColor))
+                                
+                                if yokai.sotry {
+                                    Button {
+                                        showStoryView = true
+                                    } label: {
+                                        Text("物語を読む")
+                                            .fontWeight(.bold)
+                                            .foregroundStyle(.white)
+                                            .padding()
+                                            .background(RoundedRectangle(cornerRadius: 8).fill(colorVM.currentColor))
+                                    }
+                                    .padding(.horizontal, 24)
                                 }
-                                .padding(.horizontal, 24)
+                                
                             }
-                            
+                        } else{
+                            Text("ここにコメントが入る")
                         }
                         
                         
-                        //                        }
+                        
+                        
                         
                         //関連妖怪
                         let relatedYokais = ayakasis.filter { ayakasi in
@@ -272,7 +274,7 @@ struct NeoDetail: View {
                                         NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
                                             PickupCard(ayakasi: ayakasi)
                                         }
- 
+                                        
                                     }
                                 }
                                 .padding(.horizontal,20)
@@ -281,7 +283,6 @@ struct NeoDetail: View {
                         }
                         
                     }
-                    
                     
                 }
                 
@@ -370,6 +371,5 @@ struct NeoDetail: View {
                 requestAndSaveImage: requestAndSaveImage
             )
         }
-        
     }
 }

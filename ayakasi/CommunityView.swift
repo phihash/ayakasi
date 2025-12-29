@@ -55,7 +55,7 @@ struct CommunityView: View {
                                         }
                                     }
                                 }
-                                .frame(width: 80, height: 80)
+                                .frame(width: 100, height: 100)
                                 .cornerRadius(8)
                                 
                                 VStack(alignment: .leading, spacing: 2) {
@@ -74,9 +74,10 @@ struct CommunityView: View {
                                                 
                                             }
                                     }
+                                    .padding(.bottom,12)
                                     Text(comment["content"] as? String ?? "")
-                                        .font(.headline)
-                                        .lineLimit(2)
+                                        .font(.subheadline)
+                                        .lineLimit(3)
                                     
                                     HStack{
                                         if let timestamp = comment["createdAt"] as? Timestamp {
@@ -119,7 +120,7 @@ struct CommunityView: View {
             }
             .sheet(item: $reportTarget) { target in
                 ReportUI(commentId: target.id)
-                    .presentationDetents([.fraction(0.25)])
+                    .presentationDetents([.fraction(0.15)])
                     .presentationBackground(.regularMaterial)
             }
             .alert("通知", isPresented: $commentService.showAlert) {
