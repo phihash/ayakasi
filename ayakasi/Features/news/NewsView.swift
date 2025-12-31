@@ -34,8 +34,10 @@ struct NewsView : View{
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             Button {
+                                print("🔗 News URL: \(url)")
                                 selectedNewsUrl = url
                                 showSafari = true
+                                print("🎯 showSafari set to true")
                             } label: {
                                 VStack(alignment: .leading, spacing: 12){
                                     Text(publishedFormatter.string(from: item.published))
@@ -72,7 +74,7 @@ struct NewsView : View{
         }
         .sheet(isPresented: $showSafari) {
             if let url = selectedNewsUrl {
-                SafariView(url: url)
+                WebView(url: url)
             }
         }
     }

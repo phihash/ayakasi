@@ -3,6 +3,10 @@ import FeedKit
 import Kingfisher
 import FirebaseFirestore
 
+extension URL: Identifiable {
+    public var id: String { absoluteString }
+}
+
 extension DateFormatter {
     static let shortDateTime: DateFormatter = {
         let formatter = DateFormatter()
@@ -16,7 +20,6 @@ struct HomeView: View {
     @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
-    @State private var showEventSafari = false
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
@@ -111,8 +114,10 @@ struct HomeView: View {
                                     onTap: {
                                         if let urlString = filteredEvents[index].link,
                                            let url = URL(string: urlString) {
+                                            print("🔗 Event URL: \(urlString)")
                                             selectedEventUrl = url
-                                            showEventSafari = true
+                                        } else {
+                                            print("❌ Invalid URL: \(filteredEvents[index].link ?? "nil")")
                                         }
                                     }
                                 )
@@ -227,13 +232,11 @@ struct HomeView: View {
             .task {
                 await loadEvents()
             }
-            .sheet(isPresented: $showEventSafari) {
-                if let url = selectedEventUrl {
-                    SafariView(url: url)
-                        .onDisappear {
-                            selectedEventUrl = nil
-                        }
-                }
+            .sheet(item: $selectedEventUrl) { url in
+                WebView(url: url)
+                    .onAppear {
+                        print("🎬 Sheet showing with URL: \(url)")
+                    }
             }
             
         }

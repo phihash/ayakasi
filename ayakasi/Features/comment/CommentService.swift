@@ -156,14 +156,7 @@ class CommentService : ObservableObject {
             return
         }
         
-        let commentData = [
-            "yokaiId": yokai.documentId,
-            "userId": user.uid,
-            "content": commentNow,
-            "createdAt": FieldValue.serverTimestamp()
-        ] as [String : Any]
-        
-        // recentComments用のデータ
+        // recentComments（正コレクション）用のデータ
         let recentCommentData = [
             "yokaiId": yokai.documentId,
             "yokaiName": yokai.name,
@@ -175,13 +168,7 @@ class CommentService : ObservableObject {
         ] as [String : Any]
         
         do {
-            // 1. 妖怪別コメントに保存
-            try await db.collection("comments")
-                .document(yokai.documentId)
-                .collection("userComments")
-                .addDocument(data: commentData)
-            
-            // 2. 最新コメント一覧に保存
+            // 最新コメント一覧（= 正コレクション）に保存
             try await db.collection("recentComments")
                 .addDocument(data: recentCommentData)
             
