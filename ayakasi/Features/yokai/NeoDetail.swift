@@ -1,6 +1,7 @@
 import SwiftUI
 import Photos
 import Kingfisher
+import FirebaseFirestore
 
 struct CommentListView: View {
     let comments: [[String: Any]]
@@ -26,21 +27,31 @@ struct CommentListView: View {
                 VStack{
                     HStack{
                         Text("\(index+1)")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
                         Spacer()
                     }
                     HStack{
                         Text(comment["content"] as? String ?? "コメントを取得できませんでした")
+                            .font(.body)
+                            .fontWeight(.medium)
                         Spacer()
                     }
                     HStack{
                         if let timestamp = comment["createdAt"] as? Timestamp {
                             Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         } else {
                             Text("時刻を取得できませんでした")
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         }
                         Spacer()
                     }
                 }
+                .padding(.horizontal,24)
             }
         }
     }
