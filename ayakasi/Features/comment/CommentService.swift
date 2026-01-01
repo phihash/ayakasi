@@ -3,18 +3,6 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
-//struct Comment: Identifiable, Codable {
-//    let id: String !
-//    let userId: String !
-//    let userName: String
-//    let isDeleted: Bool
-//    let deletedByAdmin: Bool
-//    let appVersion: String?
-//        self.deletedByAdmin = deletedByAdmin
-//        self.appVersion = appVersion
-//    }
-//}
-
 @MainActor
 class CommentService : ObservableObject {
     static let shared = CommentService()
@@ -124,7 +112,6 @@ class CommentService : ObservableObject {
         }
     }
     
-    
     func getRecentComments() async{
         isLoadingRecentComments = true
         do {
@@ -183,5 +170,9 @@ class CommentService : ObservableObject {
             alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }
+    }
+    
+    func fetchYokaiComments(yokaiId: String) async {
+        
     }
 }
