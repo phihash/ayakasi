@@ -26,19 +26,10 @@ struct CommentListView: View {
                 let comment = comments[index]
                 VStack{
                     HStack{
-                        Text("\(index+1)")
+                        Text("\(index+1).")
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack{
-                        Text(comment["content"] as? String ?? "コメントを取得できませんでした")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Spacer()
-                    }
-                    HStack{
                         if let timestamp = comment["createdAt"] as? Timestamp {
                             Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
                                 .font(.caption)
@@ -50,8 +41,16 @@ struct CommentListView: View {
                         }
                         Spacer()
                     }
+                    .padding(.bottom,8)
+                    HStack{
+                        Text(comment["content"] as? String ?? "コメントを取得できませんでした")
+                            .font(.body)
+                            .fontWeight(.medium)
+                        Spacer()
+                    }
                 }
                 .padding(.horizontal,24)
+                .padding(.bottom,16)
             }
         }
     }
