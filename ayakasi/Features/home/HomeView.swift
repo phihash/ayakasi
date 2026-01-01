@@ -151,7 +151,7 @@ struct HomeView: View {
                 ScrollView(.horizontal,showsIndicators: false){
                     
                     HStack(spacing: 16){
-                        ForEach(rankedYokai.prefix(7)){ ayakasi in
+                        ForEach(rankedYokai.prefix(9)){ ayakasi in
                             PickupCard(ayakasi: ayakasi)
                                 .onTapGesture{
                                     selectedYokai = ayakasi

@@ -41,7 +41,7 @@ struct CommentListView: View {
                         }
                         Spacer()
                     }
-                    .padding(.bottom,8)
+                    .padding(.bottom,4)
                     HStack{
                         Text(comment["content"] as? String ?? "コメントを取得できませんでした")
                             .font(.body)
@@ -50,8 +50,15 @@ struct CommentListView: View {
                     }
                 }
                 .padding(.horizontal,24)
-                .padding(.bottom,16)
+                .padding(.bottom,2)
+                
+                if index < comments.count - 1 {
+                    Divider()
+                        .padding(.horizontal,24)
+                        .padding(.bottom,12)
+                }
             }
+            .padding(.top,12)
         }
     }
 }
@@ -350,9 +357,6 @@ struct NeoDetail: View {
                             alertMessage = error.localizedDescription
                             showAlert = true
                         } catch {
-                            // その他のエラー
-                            print("投票エラー詳細: \(error)")  // デバッグ用
-                            
                             alertMessage = "投票中にエラーが発生しました"
                             showAlert = true
                         }

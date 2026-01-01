@@ -119,7 +119,7 @@ class CommentService : ObservableObject {
         do {
             let snapshot = try await db.collection("recentComments")
                 .order(by: "createdAt", descending: true)
-                .limit(to: 10)
+                .limit(to: 15)
                 .getDocuments()
             
             recentComments = snapshot.documents.map{ document in
@@ -135,15 +135,27 @@ class CommentService : ObservableObject {
     }
     
     func postComment(yokai: Ayakasi) async {
-        guard !commentNow.isEmpty else { return }
-        guard let user = authService.currentUser else { return }
+        print("🚀 postComment開始")
+        guard !commentNow.isEmpty else { 
+            print("❌ コメントが空")
+            return 
+        }
+        guard let user = authService.currentUser else { 
+            print("❌ ユーザー未認証")
+            return 
+        }
+        
+        print("✅ ユーザー認証OK: \(user.uid)")
         
         // トークンバケットチェック
         guard canComment() else {
+            print("❌ トークン不足")
             alertMessage = "コメント回数の上限に達しました。しばらく待って再度お試しください。"
             showAlert = true
             return
         }
+        
+        print("✅ トークンOK")
         
         // recentComments（正コレクション）用のデータ
         let recentCommentData = [
@@ -157,18 +169,27 @@ class CommentService : ObservableObject {
         ] as [String : Any]
         
         do {
+            print("📤 Firestoreに送信中...")
             // 最新コメント一覧（= 正コレクション）に保存
             try await db.collection("recentComments")
                 .addDocument(data: recentCommentData)
             
+            print("✅ Firestore送信成功")
+            
             // 成功時のみトークンを消費
             consumeToken()
+            print("✅ トークン消費完了")
             
-            commentNow = ""
-            isCommentUI = false
-            alertMessage = "コメントを投稿しました"
-            showAlert = true
+            await MainActor.run {
+                print("🎬 UI更新開始")
+                commentNow = ""
+                isCommentUI = false
+                // アラートを表示しない（シートが閉じるだけで十分）
+                print("🎬 UI更新完了")
+            }
+            print("✅ postComment完了")
         } catch {
+            print("❌ postCommentエラー: \(error)")
             alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }
