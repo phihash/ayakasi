@@ -6,10 +6,42 @@ struct CommentListView: View {
     let comments: [[String: Any]]
     
     var body: some View {
-        ForEach(comments.indices, id: \.self) { index in
-            let comment = comments[index]
-            Text(comment["content"] as? String ?? "")
-                .padding()
+        if comments.isEmpty {
+            VStack(spacing: 16) {
+                Image(systemName: "bubble.left")
+                    .font(.system(size: 40))
+                    .foregroundColor(.gray)
+                
+                Text("まだコメントがありません")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundColor(.gray)
+              
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 40)
+        } else {
+            ForEach(comments.indices, id: \.self) { index in
+                let comment = comments[index]
+                VStack{
+                    HStack{
+                        Text("\(index+1)")
+                        Spacer()
+                    }
+                    HStack{
+                        Text(comment["content"] as? String ?? "コメントを取得できませんでした")
+                        Spacer()
+                    }
+                    HStack{
+                        if let timestamp = comment["createdAt"] as? Timestamp {
+                            Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
+                        } else {
+                            Text("時刻を取得できませんでした")
+                        }
+                        Spacer()
+                    }
+                }
+            }
         }
     }
 }

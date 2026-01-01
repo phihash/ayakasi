@@ -98,7 +98,7 @@ struct HomeView: View {
                                 .font(.system(size: 40))
                                 .foregroundColor(.gray)
                             
-                            Text("開催中のイベントはありません")
+                            Text("イベントを取得中です")
                                 .font(.title3)
                                 .fontWeight(.medium)
                                 .foregroundColor(.gray)
