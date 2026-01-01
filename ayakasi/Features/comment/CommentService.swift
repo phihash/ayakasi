@@ -16,6 +16,7 @@ class CommentService : ObservableObject {
     @Published var showAlert = false
     @Published var alertMessage = ""
     @Published var isLoadingYokaiComments = false
+    @Published var yokaiComments: [[String: Any]] = []
     @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
     
     // トークンバケット用のプロパティ
@@ -174,12 +175,21 @@ class CommentService : ObservableObject {
     }
     
     func fetchYokaiComments(yokaiId: String) async {
+        print("🔍 fetchYokaiComments開始: \(yokaiId)")
         isLoadingYokaiComments = true
         do {
-            let snapshot = await try db.collection("recentComments")
+            let snapshot = try await db.collection("recentComments")
                 .whereField("yokaiId", isEqualTo: yokaiId)
+                .getDocuments()
+            yokaiComments = snapshot.documents.map { document in
+                var data = document.data()
+                data["documentId"] = document.documentID
+                return data
+            }
+            print("✅ コメント取得成功: \(yokaiComments.count)件")
             isLoadingYokaiComments = false
-        } catch{
+        } catch {
+            print("❌ コメント取得エラー: \(error)")
             isLoadingYokaiComments = false
         }
     }

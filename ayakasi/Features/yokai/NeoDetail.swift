@@ -2,6 +2,18 @@ import SwiftUI
 import Photos
 import Kingfisher
 
+struct CommentListView: View {
+    let comments: [[String: Any]]
+    
+    var body: some View {
+        ForEach(comments.indices, id: \.self) { index in
+            let comment = comments[index]
+            Text(comment["content"] as? String ?? "")
+                .padding()
+        }
+    }
+}
+
 struct NeoDetail: View {
     let yokai : Ayakasi
     let screenWidth = UIScreen.main.bounds.width
@@ -238,12 +250,8 @@ struct NeoDetail: View {
                                 
                             }
                         } else{
-                            Text("ここにコメントが入る")
+                            CommentListView(comments: commentVM.yokaiComments)
                         }
-                        
-                        
-                        
-                        
                         
                         //関連妖怪
                         let relatedYokais = ayakasis.filter { ayakasi in
@@ -358,6 +366,9 @@ struct NeoDetail: View {
         .navigationBarBackButtonHidden(true)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
+        }
+        .task {
+            await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
         }
         .sheet(isPresented: $commentVM.isCommentUI) {
             CommentUI(yokai:yokai)
