@@ -34,10 +34,12 @@ class CommentService : ObservableObject {
         }
     }
     
-    private func isWithinFiveMinutes() -> Bool {
+    private func isWithinFifteenMinutes() -> Bool {
         let now = Date().timeIntervalSince1970
-        let fiveMinutesInSeconds = TimeInterval(5 * 60)
-        return (now - lastFetchTimestamp) < fiveMinutesInSeconds
+        let fifteenMinutesInSeconds = TimeInterval(15 * 60)
+        let timeSinceLastFetch = now - lastFetchTimestamp
+        print("⏱️ 最後の取得から\(Int(timeSinceLastFetch/60))分経過")
+        return timeSinceLastFetch < fifteenMinutesInSeconds
     }
     
     private func getCurrentMaxTokens() -> Int {
@@ -115,6 +117,15 @@ class CommentService : ObservableObject {
     }
     
     func getRecentComments() async{
+        print("🔄 getRecentComments呼び出し")
+        
+        // 15分以内の場合はスキップ
+        if isWithinFifteenMinutes() {
+            print("⏭️ 15分以内なので取得をスキップ")
+            return
+        }
+        
+        print("📥 最新コメント取得開始")
         isLoadingRecentComments = true
         do {
             let snapshot = try await db.collection("recentComments")
@@ -127,6 +138,10 @@ class CommentService : ObservableObject {
                 data["documentId"] = document.documentID
                 return data
             }
+            
+            // 取得成功時にタイムスタンプを更新
+            lastFetchTimestamp = Date().timeIntervalSince1970
+            print("✅ 最新コメント取得完了: \(recentComments.count)件")
             
             isLoadingRecentComments = false
         }catch{
