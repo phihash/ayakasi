@@ -16,11 +16,16 @@ class AuthViewModel : ObservableObject{
     @Published var password = ""
     @Published var confirmPassword = ""
     @Published var message = ""
+    @Published var isShowLoginView: Bool = false
     
     private let authService = AuthService.shared
     
     init(){
         setupAuthStateListener()
+    }
+    
+    func showLogin() {
+        isShowLoginView = true
     }
     
     private func setupAuthStateListener(){

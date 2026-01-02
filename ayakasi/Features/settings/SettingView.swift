@@ -57,7 +57,7 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
                         
-                     
+
                     }
                     
                     if authVM.authStatus == .authenticated {

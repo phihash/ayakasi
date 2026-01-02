@@ -2,10 +2,12 @@ import SwiftUI
 
 struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
+    @EnvironmentObject var authVM: AuthViewModel
     @FocusState private var isTextFieldFocused: Bool
     let yokai : Ayakasi
     var body: some View {
         VStack(spacing: 20) {
+            if authVM.user != nil {
                 Text("コメントを投稿")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -56,9 +58,39 @@ struct CommentUI: View {
                 .opacity(commentStore.commentNow.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
                 
                 Spacer()
+            } else {
+                
+                Text("ログインが必要です")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
+                
+                Text("コメントを投稿するにはログインしてください")
+                    .font(.body)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+                
+                Button{
+                    commentStore.isCommentUI = false
+                    authVM.showLogin()
+                } label :{
+                    Text("ログイン")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.orange)
+                        .cornerRadius(25)
+                        .padding(.horizontal, 20)
+                }
+               
+            }
         }
         .onTapGesture {
-            isTextFieldFocused = false
+            if authVM.user != nil {
+                isTextFieldFocused = false
+            }
         }
     }
 }

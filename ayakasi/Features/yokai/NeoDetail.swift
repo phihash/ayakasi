@@ -413,6 +413,9 @@ struct NeoDetail: View {
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }
+        .fullScreenCover(isPresented: $authVM.isShowLoginView) {
+            LoginView()
+        }
         .task {
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
         }

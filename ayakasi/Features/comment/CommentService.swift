@@ -135,7 +135,6 @@ class CommentService : ObservableObject {
     }
     
     func postComment(yokai: Ayakasi) async {
-        print("🚀 postComment開始")
         guard !commentNow.isEmpty else { 
             print("❌ コメントが空")
             return 
@@ -149,13 +148,10 @@ class CommentService : ObservableObject {
         
         // トークンバケットチェック
         guard canComment() else {
-            print("❌ トークン不足")
             alertMessage = "コメント回数の上限に達しました。しばらく待って再度お試しください。"
             showAlert = true
             return
         }
-        
-        print("✅ トークンOK")
         
         // recentComments（正コレクション）用のデータ
         let recentCommentData = [
@@ -169,27 +165,18 @@ class CommentService : ObservableObject {
         ] as [String : Any]
         
         do {
-            print("📤 Firestoreに送信中...")
             // 最新コメント一覧（= 正コレクション）に保存
             try await db.collection("recentComments")
                 .addDocument(data: recentCommentData)
             
-            print("✅ Firestore送信成功")
-            
             // 成功時のみトークンを消費
             consumeToken()
-            print("✅ トークン消費完了")
-            
+
             await MainActor.run {
-                print("🎬 UI更新開始")
                 commentNow = ""
                 isCommentUI = false
-                // アラートを表示しない（シートが閉じるだけで十分）
-                print("🎬 UI更新完了")
             }
-            print("✅ postComment完了")
         } catch {
-            print("❌ postCommentエラー: \(error)")
             alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
             showAlert = true
         }
@@ -201,6 +188,7 @@ class CommentService : ObservableObject {
         do {
             let snapshot = try await db.collection("recentComments")
                 .whereField("yokaiId", isEqualTo: yokaiId)
+                .order(by: "createdAt", descending: false)
                 .getDocuments()
             yokaiComments = snapshot.documents.map { document in
                 var data = document.data()
