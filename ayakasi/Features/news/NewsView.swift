@@ -14,7 +14,6 @@ let publishedFormatter : DateFormatter = {
 struct NewsView : View{
     @StateObject private var newsService = NewsService()
     @State private var selectedNewsUrl: URL?
-    @State private var showSafari = false
     @EnvironmentObject var colorVM : ColorViewModel
     var selectedNew : String
     
@@ -36,8 +35,6 @@ struct NewsView : View{
                             Button {
                                 print("🔗 News URL: \(url)")
                                 selectedNewsUrl = url
-                                showSafari = true
-                                print("🎯 showSafari set to true")
                             } label: {
                                 VStack(alignment: .leading, spacing: 12){
                                     Text(publishedFormatter.string(from: item.published))
@@ -72,10 +69,8 @@ struct NewsView : View{
         .refreshable{
             await newsService.fetchFeed(for: selectedNew)
         }
-        .sheet(isPresented: $showSafari) {
-            if let url = selectedNewsUrl {
-                WebView(url: url)
-            }
+        .sheet(item: $selectedNewsUrl) { url in
+            SafariView(url: url)
         }
     }
 }

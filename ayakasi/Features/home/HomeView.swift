@@ -233,7 +233,7 @@ struct HomeView: View {
                 await loadEvents()
             }
             .sheet(item: $selectedEventUrl) { url in
-                WebView(url: url)
+                SafariView(url: url)
                     .onAppear {
                         print("🎬 Sheet showing with URL: \(url)")
                     }

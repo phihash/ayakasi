@@ -5,6 +5,9 @@ import FirebaseFirestore
 
 struct CommentListView: View {
     let comments: [[String: Any]]
+    @EnvironmentObject var commentService: CommentService
+    @State private var selectedCommentId: String = ""
+    @State private var reportTarget: ReportTarget?
     
     var body: some View {
         if comments.isEmpty {
@@ -40,6 +43,22 @@ struct CommentListView: View {
                                 .foregroundColor(.gray)
                         }
                         Spacer()
+                        
+                        HStack{
+                            Spacer()
+                            Image(systemName: "ellipsis")
+                                .font(.title3)
+                                .onTapGesture {
+                                    guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
+                                        print("❗️ documentId is missing; not opening report sheet")
+                                        return
+                                    }
+                                    
+                                    selectedCommentId = docId
+                                    reportTarget = ReportTarget(id: docId)
+                                    
+                                }
+                        }
                     }
                     .padding(.bottom,4)
                     HStack{
@@ -59,6 +78,13 @@ struct CommentListView: View {
                 }
             }
             .padding(.top,12)
+            .sheet(item: $reportTarget) { target in
+                VStack {
+                    ReportUI(commentId: target.id)
+                }
+                .presentationDetents([.fraction(0.15)])
+                .presentationBackground(.regularMaterial)
+            }
         }
     }
 }

@@ -117,15 +117,14 @@ class CommentService : ObservableObject {
     }
     
     func getRecentComments() async{
-        print("🔄 getRecentComments呼び出し")
         
-        // 15分以内の場合はスキップ
-        if isWithinFifteenMinutes() {
-            print("⏭️ 15分以内なので取得をスキップ")
-            return
-        }
+        //
+//        if isWithinFifteenMinutes() {
+//            print("⏭️ 15分以内なので取得をスキップ")
+//            return
+//        }
         
-        print("📥 最新コメント取得開始")
+
         isLoadingRecentComments = true
         do {
             let snapshot = try await db.collection("recentComments")
@@ -139,9 +138,7 @@ class CommentService : ObservableObject {
                 return data
             }
             
-            // 取得成功時にタイムスタンプを更新
-            lastFetchTimestamp = Date().timeIntervalSince1970
-            print("✅ 最新コメント取得完了: \(recentComments.count)件")
+//            lastFetchTimestamp = Date().timeIntervalSince1970
             
             isLoadingRecentComments = false
         }catch{

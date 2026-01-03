@@ -11,16 +11,16 @@ struct ReportUI: View {
         } label: {
             HStack(spacing: 8) {
                 Image(systemName: "exclamationmark.triangle")
-                    .font(.subheadline)
                 Text("報告")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
             }
-            .foregroundColor(.red)
+            .font(.headline)
+            .fontWeight(.semibold)
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
+            .background(.red)
+            .cornerRadius(25)
+            .foregroundColor(.white)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
-            .background(Color.red.opacity(0.1))
-            .cornerRadius(16)
         }
     }
 }
