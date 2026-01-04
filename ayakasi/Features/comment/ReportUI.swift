@@ -11,7 +11,7 @@ struct ReportUI: View {
         } label: {
             HStack(spacing: 8) {
                 Image(systemName: "exclamationmark.triangle")
-                Text("報告")
+                Text("コメントを報告する")
             }
             .font(.headline)
             .fontWeight(.semibold)

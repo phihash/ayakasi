@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A90029522E94146300F90FC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029512E94146300F90FC5 /* FeedKit */; };
 		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
+		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -332,6 +334,7 @@
 				A9B08DC42EE72BC300592CB5 /* Info.plist */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
+				A905C42C2F0AD17F00587825 /* JapanView.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
 				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
+				A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */,
 				A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */,
 				A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */,
 				A9B08DD52EE72BC300592CB5 /* EventComponent.swift in Sources */,

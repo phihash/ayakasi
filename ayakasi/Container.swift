@@ -16,7 +16,7 @@ struct Container: View {
                 
                 SearchView()
                     .tabItem {
-                        Image("search")
+                        Image("book2")
                             .renderingMode(.template)
                     }
                     .tag(1)
@@ -29,6 +29,12 @@ struct Container: View {
                     }
                     .tag(2)
                 
+                JapanView()
+                    .tabItem {
+                        Image("locationcity")
+                            .renderingMode(.template)
+                    }
+                    .tag(3)
               
                 SettingView()
                     .tabItem {
