@@ -5,7 +5,6 @@ import Kingfisher
 struct SettingView: View {
     @Environment(\.requestReview) var requestReview
     @EnvironmentObject var authVM : AuthViewModel
-    @State var isShowMailView = false
     @State var isShowRegisterView = false
     @State var isShowLoginView = false
     @State private var showLogoutAlert = false
@@ -144,6 +143,23 @@ struct SettingView: View {
                 }
                 
                 Section{
+                    NavigationLink(destination: WebView(url: URL(string: "https://forms.gle/3e4DGw8CPY3VrJTJ9"))) {
+                        HStack(spacing: 18){
+                            Image(systemName: "envelope")
+                            Text("匿名で問い合わせ")
+                        }
+                        .foregroundStyle(.primary)
+                        .padding(.vertical,6)
+                    }
+                } header : {
+                    Text("問い合わせ")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.bottom,12)
+                        .padding(.leading, -10)
+                }
+                
+                Section{
                     
                     NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1"))) {
                         HStack(spacing: 18){
@@ -176,29 +192,7 @@ struct SettingView: View {
                     .padding(.leading, -10)
                 }
                 
-                Section{
-                    
-                    Button{
-                        if MailView.canSendMail() {
-                            isShowMailView = true
-                        } else {
-                            // MailViewを表示できない
-                        }
-                    } label : {
-                        HStack(spacing: 18){
-                            Image(systemName: "envelope")
-                            Text("問い合わせ")
-                        }
-                        .padding(.vertical,6)
-                    }
-                    .foregroundStyle(.primary)
-                } header : {
-                    Text("問い合わせ")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.bottom,12)
-                        .padding(.leading, -10)
-                }
+                
                 
             }
             .navigationTitle("設定")
@@ -209,14 +203,6 @@ struct SettingView: View {
         }
         .fullScreenCover(isPresented:$isShowLoginView){
             LoginView()
-        }
-        .sheet(isPresented: $isShowMailView) {
-            MailView(
-                address: ["610g0531@gmail.com"],
-                subject: "問い合わせ",
-                body: "\n\n----\n不具合の検証に利用させていただきます。 \nApp: \(Bundle.main.appName)\n                    Version:  (\(Bundle.main.appVersion))   \n                     iOS: \(UIDevice.current.systemVersion)   \n"
-            )
-            .edgesIgnoringSafeArea(.all)
         }
         .alert("ログアウトしますか？", isPresented: $showLogoutAlert) {
             Button("キャンセル", role: .cancel) {}

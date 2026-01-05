@@ -238,7 +238,6 @@ struct HomeView: View {
                         print("🎬 Sheet showing with URL: \(url)")
                     }
             }
-            
         }
     }
 }

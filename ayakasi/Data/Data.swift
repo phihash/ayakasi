@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "しおふき",
+        documentId: "siohuki",
+        imageName: "https://i.imgur.com/L5i1unD.png",
+        description: "江戸時代の妖怪絵巻『化け物尽くし絵巻』などに描かれる海の怪異。海面から細長い胴を伸ばし、象の鼻のような口先から潮を高く噴き上げるとされる。姿を見た者は、遠くからでも異様な水柱に気づくが、近づくほど正体がつかめず不気味だという。",
+        categories: ["水の怪","すべて"],
+        relatedCategory: "水の怪",
+        btw: nil,
+        episodes: "海辺で漁をしていた人々が、沖合に不自然に高い潮の噴き上がりを見つけた。最初は鯨の潮吹きだと思って船を出したが、近づくほど霧のような飛沫だけが増え、波間から細長い影が一瞬だけ立ち上がったという。影は象の鼻のような口先でさらに潮を噴き、あたりを白く霞ませたのち、何事もなかったかのように海へ沈んで消えた。以来、その海域では『潮の柱が立ったら近づくな』と語られるようになった。\n",
+        sotry: false
+    ),
+    Ayakasi(
         name: "さとり",
         documentId: "satori",
         imageName: "https://i.imgur.com/0TvCDKX.png",
