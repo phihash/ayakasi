@@ -143,7 +143,7 @@ struct SettingView: View {
                 }
                 
                 Section{
-                    NavigationLink(destination: WebView(url: URL(string: "https://forms.gle/3e4DGw8CPY3VrJTJ9"))) {
+                    NavigationLink(destination: WebView(url: URL(string: AppConstants.contactFormURL))) {
                         HStack(spacing: 18){
                             Image(systemName: "envelope")
                             Text("匿名で問い合わせ")

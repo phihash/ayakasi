@@ -10,6 +10,7 @@
 		A90029522E94146300F90FC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029512E94146300F90FC5 /* FeedKit */; };
 		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
+		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
+		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -344,6 +346,7 @@
 			children = (
 				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
 				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
+				A905C42E2F0C09FE00587825 /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */,
 				A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
+				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
 				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
