@@ -3,110 +3,100 @@ let ayakasis: [Ayakasi] = [
         name: "しおふき",
         documentId: "siohuki",
         imageName: "https://i.imgur.com/L5i1unD.png",
-        description: "江戸時代の妖怪絵巻『化け物尽くし絵巻』などに描かれる海の怪異。海面から細長い胴を伸ばし、象の鼻のような口先から潮を高く噴き上げるとされる。姿を見た者は、遠くからでも異様な水柱に気づくが、近づくほど正体がつかめず不気味だという。",
+        description: "江戸時代の妖怪絵巻『化け物尽くし絵巻』などに描かれる海の怪異。海面から細長い胴を伸ばし、象の鼻のような口先から潮を高く噴き上げるとされる。姿を見た者は、遠くからでも異様な水柱に気づくが、近づくほど正体がつかめず不気味だという。\n\n海辺で漁をしていた人々が、沖合に不自然に高い潮の噴き上がりを見つけた。最初は鯨の潮吹きだと思って船を出したが、近づくほど霧のような飛沫だけが増え、波間から細長い影が一瞬だけ立ち上がったという。影は象の鼻のような口先でさらに潮を噴き、あたりを白く霞ませたのち、何事もなかったかのように海へ沈んで消えた。以来、その海域では『潮の柱が立ったら近づくな』と語られるようになった。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "海辺で漁をしていた人々が、沖合に不自然に高い潮の噴き上がりを見つけた。最初は鯨の潮吹きだと思って船を出したが、近づくほど霧のような飛沫だけが増え、波間から細長い影が一瞬だけ立ち上がったという。影は象の鼻のような口先でさらに潮を噴き、あたりを白く霞ませたのち、何事もなかったかのように海へ沈んで消えた。以来、その海域では『潮の柱が立ったら近づくな』と語られるようになった。\n",
         sotry: false
     ),
     Ayakasi(
         name: "さとり",
         documentId: "satori",
         imageName: "https://i.imgur.com/0TvCDKX.png",
-        description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。",
+        description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
-        episodes: "山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
         sotry: false
     ),
     Ayakasi(
         name: "くねくね",
         documentId: "kunekune",
         imageName: "https://i.imgur.com/BlDlQs5.png",
-        description: "山間部や田畑の遠景に現れる、真っ白な人型のような異形。正体を凝視した者は発狂するとされ、詳細を認識してはならない存在として語られる。",
+        description: "山間部や田畑の遠景に現れる、真っ白な人型のような異形。正体を凝視した者は発狂するとされ、詳細を認識してはならない存在として語られる。\n\n白い人影を望遠鏡で覗いた人物が正気を失った、という体験談がインターネット上で拡散された。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "白い人影を望遠鏡で覗いた人物が正気を失った、という体験談がインターネット上で拡散された。",
         sotry: false
     ),
     Ayakasi(
         name: "すねこすり",
         documentId: "sunekosuri",
         imageName: "https://i.imgur.com/0kMuhjp.png",
-        description: "雨の夜、足元をふいに横切る小さな影。すねに柔らかく身を擦り寄せ、歩幅を乱して人をたじろがせる。悪意は薄く、驚かせては霧のように消えると伝わる。",
+        description: "雨の夜、足元をふいに横切る小さな影。すねに柔らかく身を擦り寄せ、歩幅を乱して人をたじろがせる。悪意は薄く、驚かせては霧のように消えると伝わる。\n\n暗闇の中で足元にまとわりつき、人を驚かせる。",
         categories: ["すべて"],
         relatedCategory: nil,
         btw: nil,
-        episodes: "暗闇の中で足元にまとわりつき、人を驚かせる。",
         sotry: false
     ),
     Ayakasi(
         name: "吸血鬼",
         documentId: "vampire",
         imageName: "https://i.imgur.com/txwThf0.png",
-        description: "夜に現れ、人の血を吸うとされる怪異。コウモリと関連し、影のように忍び寄る存在として語られる。",
+        description: "夜に現れ、人の血を吸うとされる怪異。コウモリと関連し、影のように忍び寄る存在として語られる。\n\n日光を嫌い、夜に活動する。血を吸われると吸血鬼になるとも言われる。",
         categories: ["すべて"],
         relatedCategory: nil,
         btw: nil,
-        episodes: "日光を嫌い、夜に活動する。血を吸われると吸血鬼になるとも言われる。",
         sotry: false
     ),
     Ayakasi(
         name: "メリーさん",
         documentId: "merry",
         imageName: "https://i.imgur.com/kiz17nF.png",
-        description: "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。",
+        description: "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。\n\n電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
         sotry: false
     ),
     Ayakasi(
         name: "八尺様",
         documentId: "hachishakusama",
         imageName: "https://i.imgur.com/wjdcFZ9.png",
-        description: "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。",
+        description: "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。\n\n長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
         sotry: false
     ),
     Ayakasi(
         name: "隙間女",
         documentId: "sukimaonna",
         imageName: "https://i.imgur.com/ds8JAyn.png",
-        description: "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。",
+        description: "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。\n\n隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
         sotry: false
     ),
     Ayakasi(
         name: "人魂",
         documentId: "hitodama",
         imageName: "https://i.imgur.com/oY0NygQ.png",
-        description: "死者の霊が灯火のように漂うとされる怪異。夜道や墓地にふわりと浮かび、青白い炎の姿で現れる。",
+        description: "死者の霊が灯火のように漂うとされる怪異。夜道や墓地にふわりと浮かび、青白い炎の姿で現れる。\n\n夜間に漂い、人を驚かせる。怪異の前触れとされることもある。",
         categories: ["すべて"],
         relatedCategory: nil,
         btw: nil,
-        episodes: "夜間に漂い、人を驚かせる。怪異の前触れとされることもある。",
         sotry: false
     ),
     Ayakasi(
         name: "アクロバティックサラサラ",
         documentId: "acrobaticsarasara",
         imageName: "https://i.imgur.com/5S0vJnU.png",
-        description: "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。",
+        description: "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。\n\n深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: "名前が「悪皿（あくさら）」と略されることもある。",
-        episodes: "深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
         sotry: false
     ),
     
@@ -118,7 +108,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: nil,
         btw: "古い絵巻物などに似た姿が描かれており、災いをもたらす存在として語られる。",
-        episodes: "夜更けの里に現れ、家々の屋根を踏み抜きながら這い回ったため、人々が神社に逃げ込んだという話。",
         sotry: false
     ),
     Ayakasi(
@@ -129,7 +118,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "旅人が同じ場所をぐるぐる回らされる話",
         sotry: false
     ),
     Ayakasi(
@@ -140,20 +128,16 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "室町時代の絵巻物にも登場する",
         sotry: false
-    )
-    ,
-    
+    )    ,
     Ayakasi(
         name: "牛鬼",
         documentId: "usioni",
         imageName: "https://i.imgur.com/8plQ1rp.jpeg",
-        description: "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。",
+        description: "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
         sotry: false
     ),
     
@@ -161,11 +145,10 @@ let ayakasis: [Ayakasi] = [
         name: "件",
         documentId: "kudan",
         imageName: "https://i.imgur.com/ZWININ4.jpeg",
-        description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。",
+        description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。\n具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: "作家小松左京の、くだんのははという短編小説で題材にされている。",
-        episodes: "具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
         sotry: false
     ),
     
@@ -177,7 +160,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
-        episodes: "夜に他人の家へ上がり込み主人のように振る舞う",
         sotry: false
     ),
     
@@ -189,7 +171,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "旅籠で寝ている間に首が伸び、別室を覗く話",
         sotry: false
     ),
     
@@ -201,7 +182,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","水の怪","すべて"],
         relatedCategory: "音の怪",
         btw: "小豆は収獲後乾燥して保存した際のごみや虫を除くために洗います。",
-        episodes: "「ショキショキ」「ザクザク」と豆を研ぐ音が続き、覗くと波紋だけが残っていたという怪談がある。",
+     
         sotry: false
     ),
     Ayakasi(
@@ -211,7 +192,6 @@ let ayakasis: [Ayakasi] = [
         description: "物の怪のいる家で、月影に照らされた女の姿の影が家の障子に映るものとされる",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        episodes: "家の障子や窓に女の影が映り、庭先に姿を見せても家中には入らないと言われている。",
         sotry: false
     ),
   
@@ -223,7 +203,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-        episodes: "夜更けに猫又が座敷で三味線を奏でた、という怪談が広く伝わる。",
         sotry: false
     ),
     
@@ -235,7 +214,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-        episodes: "夜道で美女に出会い家へ通ったが、翌朝見ると古い祠だった——という狐の嫁入話が多い。",
+       
         sotry: false
     ),
     Ayakasi(
@@ -245,27 +224,24 @@ let ayakasis: [Ayakasi] = [
         description: "少食を装うが、もう一つの口で主に食べ物を摂取する。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        episodes: "人前では食事をせず、誰も居ない時に後ろの口でたくさん食べる「食わず女房」の話が有名である。",
         sotry: false
     ),
     Ayakasi(
         name: "百目鬼",
         documentId: "doumeki",
         imageName: "https://i.imgur.com/lIYjeST.png",
-        description: "百目鬼(どうめき)とは腕や体に無数の目を持つ怪物",
+        description: "百目鬼(どうめき)とは腕や体に無数の目を持つ怪物、宇都宮では藤原秀郷によって退治されたという伝承がある。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        episodes: "宇都宮では藤原秀郷によって退治されたという伝承がある。",
         sotry: false
     ),
     Ayakasi(
         name: "おおむかで",
         documentId: "oomukade",
         imageName: "https://i.imgur.com/pCB7BHG.png",
-        description: "巨大なむかでの妖怪",
+        description: "巨大なむかでの妖怪で、藤原秀郷が瀬田の唐橋で横たわっている大蛇に頼まれて、おおむかでを退治した",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        episodes: "藤原秀郷が瀬田の唐橋で横たわっている大蛇に頼まれて、おおむかでを退治した",
         sotry: false
     ),
     Ayakasi(
@@ -276,7 +252,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "疫病退散の護符として絵姿が流布",
         sotry: false
     ),
     
@@ -285,11 +260,10 @@ let ayakasis: [Ayakasi] = [
         name: "うわん",
         documentId: "uwan",
         imageName: "https://i.imgur.com/VYr7nhI.jpeg",
-        description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。",
+        description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。\n江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         btw: nil,
-        episodes: "江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
         sotry: false
     ),
     Ayakasi(
@@ -300,7 +274,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
-        episodes: "吹雪の夜の遭遇譚",
         sotry: true
     ),
     Ayakasi(
@@ -311,7 +284,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "夜の線路や学校で“テケテケ”という音が響く",
         sotry: false
     ),
     Ayakasi(
@@ -322,7 +294,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes:"夜道で突然人間の顔をした犬に出会う",
         sotry: false
     ),
   
@@ -330,10 +301,10 @@ let ayakasis: [Ayakasi] = [
         name: "一つ目小僧",
         documentId: "hitotsumekozou",
         imageName: "https://i.imgur.com/0nI87bj.png",
-        description: "目が一つしかない小僧の妖怪",
+        description: "目が一つしかない小僧の妖怪\n12月8日の晩になると人の目には見えない一つ目小僧が、戸締りされていない家をさがして入ってくるといわれてた。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        episodes: "12月8日の晩になると人の目には見えない一つ目小僧が、戸締りされていない家をさがして入ってくるといわれてた。",
+      
         sotry: false
     ),
     Ayakasi(
@@ -344,18 +315,16 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "女子トイレの3番目の個室をノックすると返事がある",
         sotry: false
     ),
     Ayakasi(
         name: "のっぺらぼう",
         documentId: "nopperabou",
         imageName: "https://i.imgur.com/Sn07s1b.png",
-        description: "ふつうの人型であるが、顔には目,鼻,耳,口がない妖怪",
+        description: "ふつうの人型であるが、顔には目,鼻,耳,口がない妖怪\nおいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: "現時点で、のっぺらぼうという言葉が記録された最初の文献は、松尾芭蕉の詠んだ句である",
-        episodes: "おいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
         sotry: true
     ),
     Ayakasi(
@@ -366,18 +335,16 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-        episodes: "安珍を追って蛇体に変ずる",
         sotry: true
     ),
     Ayakasi(
         name: "鵺",
         documentId: "nue",
         imageName: "https://i.imgur.com/7oEtFHB.jpeg",
-        description: "鵺(ぬえ)とは頭が猿で胴が狸、手足は虎で尾は蛇の姿で、鵺の鳴き声は、夜中に不穏な声で鳴くトラツグミに似ているとされる。",
+        description: "鵺(ぬえ)とは頭が猿で胴が狸、手足は虎で尾は蛇の姿で、鵺の鳴き声は、夜中に不穏な声で鳴くトラツグミに似ているとされる。都を騒がす鵺を退治するように命じられた源頼政が、夜に矢で射ったところ怪しいものが落ちた。\n火を灯してそれを見ると、頭は猿、体は狸、尾は蛇、手足は虎の姿をした妖怪がなくなっていたという話があり、その射った矢を洗ったのが鵺池とされる。\nそして、その死がいを丸木舟にのせて川に流したところ、最終的に芦屋に漂着した。\n祟りを恐れた村人たちは立派な墓をつくり、これが今日までに残る鵺塚である。",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         btw: "兵庫県西脇市の長明寺には、鵺退治像があります。",
-        episodes: "都を騒がす鵺を退治するように命じられた源頼政が、夜に矢で射ったところ怪しいものが落ちた。\n火を灯してそれを見ると、頭は猿、体は狸、尾は蛇、手足は虎の姿をした妖怪がなくなっていたという話があり、その射った矢を洗ったのが鵺池とされる。\nそして、その死がいを丸木舟にのせて川に流したところ、最終的に芦屋に漂着した。\n祟りを恐れた村人たちは立派な墓をつくり、これが今日までに残る鵺塚である。",
         sotry: false
     ),
    
@@ -389,7 +356,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "夜道で橋を渡っていると、濡れ女が現れ道をふさぐ",
         sotry: false
     ),
     
@@ -402,7 +368,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "砂をかけられ家の場所が分からなくなる話",
         sotry: false
     ),
     Ayakasi(
@@ -413,7 +378,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
-        episodes: "酒呑童子退治",
         sotry: false
     ),
     
@@ -426,7 +390,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
-        episodes: "掃除を怠る家に住みつくという戒め譚",
         sotry: false
     ),
     
@@ -434,13 +397,11 @@ let ayakasis: [Ayakasi] = [
         name: "河童",
         documentId: "kappa",
         imageName: "https://i.imgur.com/IwK5a8g.jpeg",
-        description:"カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。",
+        description:"カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。\nカッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "カッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
         sotry: false
-        
     ),
     Ayakasi(
         name: "がしゃどくろ",
@@ -450,7 +411,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "夜中に“ガシャガシャ”と音を立てて徘徊する話",
+       
         sotry: false
     ),
     
@@ -462,11 +423,8 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "夜道で顔に巻きつき驚かせる話",
         sotry: false
     ),
-    
-   
     Ayakasi(
         name: "てんぐ",
         documentId: "tengu",
@@ -475,7 +433,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
-        episodes: "行者を試す／子をさらうといった試練譚",
         sotry: false
     ),
     
@@ -487,12 +444,8 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        episodes: "油を要求するが底抜けの桶で退ける話",
         sotry: false
     ),
-    
-  
-    
     Ayakasi(
         name: "口裂け女",
         documentId: "kuchisakenna",
@@ -501,7 +454,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: "『私、きれい？』と問いかけられる",
         sotry: false
     ),
     
@@ -513,7 +465,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        episodes: "深夜に子を攫う戒め話／正視してはならぬ話",
         sotry: false
     ),
     
@@ -525,7 +476,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
-        episodes: "里見義実に斬首され呪いをかける",
         sotry: false
     ),
     
@@ -537,7 +487,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
-        episodes: "山小屋に招き入れ翌朝に正体が露見する話",
         sotry: true
     ),
     
@@ -549,21 +498,16 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
-        episodes: "姿を見た家が繁栄する／見えなくなると衰運の兆し",
         sotry: true
     ),
-    
-  
-    
     Ayakasi(
         name: "かまいたち",
         documentId: "kamaitachi",
         imageName: "https://i.imgur.com/DA4BdY7.jpeg",
-        description: "かまいたちは、外見はイタチに似ると考えられる一方、実際には人間の目には見えないともされる。また、痛みを感じないうちに深い傷を負わせるが、そのわりには出血はしない現象を指す。",
+        description: "かまいたちは、外見はイタチに似ると考えられる一方、実際には人間の目には見えないともされる。また、痛みを感じないうちに深い傷を負わせるが、そのわりには出血はしない現象を指す。\n岐阜県の飛騨地方などでは、かまいたちは三人の神様と考えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-        episodes: "岐阜県の飛騨地方などでは、かまいたちは三人の神様と考えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
         sotry: false
     ),
     Ayakasi(
@@ -574,7 +518,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: "抱いた者が疲れ果てるまで離れないという伝承がある。",
-        episodes: "山道で赤子の泣き声に導かれ、抱き上げた瞬間ずしりと重くなり膝をついたという。",
         sotry: false
     ),
     Ayakasi(
@@ -585,7 +528,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: "底に穴をあけた柄杓を渡すと水が溜まらず逃れられると伝わる。",
-        episodes: "沖合で白い影が群れをなし、柄杓を求める声が船縁から聞こえたという。",
         sotry: false
     ),
     Ayakasi(
@@ -596,7 +538,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: nil,
         sotry: false
     ),
     Ayakasi(
@@ -607,7 +548,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
-        episodes: nil,
         sotry: false
     )
 ]

@@ -20,7 +20,7 @@ struct CommentListView: View {
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundColor(.gray)
-              
+                
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 40)
@@ -165,63 +165,72 @@ struct NeoDetail: View {
         }
     }
     
+    private var imageView: some View {
+        Group{
+            if let url = URL(string: yokai.imageName), url.scheme?.hasPrefix("http") == true{
+                KFImage(url)
+                    .placeholder {
+                        Image("loading")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .cacheOriginalImage()
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                Image(yokai.imageName)
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
+        .onTapGesture {
+            showFullScreenImage = true
+        }
+        .fullScreenCover(isPresented: $showFullScreenImage) {
+            FullScreenImage(imageName: yokai.imageName)
+        }
+    }
+    
+    private var backButtonView: some View {
+        HStack {
+            Circle()
+                .fill(Color.black.opacity(0.6))
+                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                .overlay(
+                    Image(systemName: "chevron.backward")
+                        .foregroundStyle(.white)
+                        .padding()
+                )
+                .onTapGesture {
+                    dismiss()
+                }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+    
+    private var titleView: some View {
+        Text(yokai.name)
+            .foregroundColor(.white)
+            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
+            .font(.title)
+            .fontWeight(.bold)
+            .padding(.bottom, 20)
+            .padding(.leading, 32)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+    }
+    
     var body: some View {
         ZStack{
             ScrollView{
                 VStack{
                     ZStack{
-                        Group{
-                            if let url = URL(string: yokai.imageName) , url.scheme?.hasPrefix("http") == true{
-                                KFImage(url)
-                                    .placeholder {
-                                        Image("loading")
-                                            .resizable()
-                                            .scaledToFill()
-                                    }
-                                    .cacheOriginalImage()
-                                    .resizable()
-                                    .scaledToFill()
-                            }else{
-                                Image(yokai.imageName)
-                                    .resizable()
-                                    .scaledToFill()
-                            }
-                            
-                        }
-                        .onTapGesture {
-                            showFullScreenImage = true
-                        }
-                        .fullScreenCover(isPresented: $showFullScreenImage){
-                            FullScreenImage(imageName: yokai.imageName)
-                        }
+                        imageView
                         
+                        backButtonView
                         
-                        HStack{
-                            Circle()
-                                .fill(Color.black.opacity(0.6))
-                                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
-                                .overlay(
-                                    Image(systemName: "chevron.backward")
-                                        .foregroundStyle(.white)
-                                        .padding()
-                                )
-                                .onTapGesture {
-                                    dismiss()
-                                }
-                        }
-                        .padding(.horizontal,20)
-                        .padding(.top,48)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        
-                        
-                        Text(yokai.name)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.bottom, 20)  // ハートボタンと同じ高さに
-                            .padding(.leading, 32)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                        titleView
                         
                     }
                     
@@ -282,27 +291,7 @@ struct NeoDetail: View {
                                     .padding(.horizontal,24)
                                 
                                 
-                                if let episodes = yokai.episodes {
-                                    VStack{
-                                        HStack{
-                                            Image("episode")
-                                                .renderingMode(.template)
-                                            Text("エピソード")
-                                                .font(.title2)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.top,16)
-                                        
-                                        Text(episodes)
-                                            .fontWeight(.bold)
-                                            .padding(.vertical,4)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    .padding(.horizontal,24)
-                                    .padding(.bottom,16)
-                                }
+                                
                                 
                                 if let btw = yokai.btw {
                                     VStack{
@@ -342,16 +331,14 @@ struct NeoDetail: View {
                                 Image("info")
                                     .renderingMode(.template)
                                 Text("関連のある妖怪")
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.bold)
                                 Spacer()
                             }
                             .padding(.horizontal,24)
-                            .padding(.top,16)
-                            .padding(.bottom,4)
+                            .padding(.top,28)
                             
                             ScrollView(.horizontal,showsIndicators: false){
-                                
                                 HStack(spacing: 16){
                                     ForEach(relatedYokais.prefix(7)){ ayakasi in
                                         NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
@@ -361,7 +348,8 @@ struct NeoDetail: View {
                                     }
                                 }
                                 .padding(.horizontal,20)
-                                .padding(.vertical,24)
+                                .padding(.bottom,24)
+                                .padding(.top,12)
                             }
                         }
                         
