@@ -64,13 +64,13 @@ struct RegisterView: View {
                                 .padding(.horizontal,12)
                             
                             HStack(spacing: 20) {
-                                NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/ae75vb8z0sso"))) {
+                                NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
                                     Text("利用規約")
                                         .font(.subheadline)
                                         .foregroundColor(.blue)
                                 }
                                 
-                                NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1"))) {
+                                NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
                                     Text("プライバシーポリシー")
                                         .font(.subheadline)
                                         .foregroundColor(.blue)

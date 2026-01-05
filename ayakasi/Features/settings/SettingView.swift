@@ -56,7 +56,7 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
                         
-
+                        
                     }
                     
                     if authVM.authStatus == .authenticated {
@@ -91,8 +91,8 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
                     }
-               
-                  
+                    
+                    
                     NavigationLink(destination: ColorView() ){
                         HStack(spacing: 18){
                             Image(systemName: "paintpalette")
@@ -161,7 +161,7 @@ struct SettingView: View {
                 
                 Section{
                     
-                    NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/b3at3db2i5f1"))) {
+                    NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
                         HStack(spacing: 18){
                             Image(systemName: "note")
                             Text("プライバシーポリシー")
@@ -170,7 +170,7 @@ struct SettingView: View {
                         .padding(.vertical,6)
                     }
                     
-                    NavigationLink(destination: WebView(url: URL(string: "https://sizu.me/maili/posts/ae75vb8z0sso"))) {
+                    NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
                         HStack(spacing: 18){
                             Image(systemName: "note")
                             Text("利用規約")

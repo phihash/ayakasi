@@ -80,7 +80,6 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-                 
                 
                 HStack{
                     Text("イベント")
