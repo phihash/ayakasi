@@ -93,8 +93,12 @@ class CommentService : ObservableObject {
         }
         
         if hasReported(commentId: documentId) {
-            alertMessage = "既に報告済みです"
-            showAlert = true
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "既に報告済みです"
+                    showAlert = true
+                }
+            }
             return
         }
         
@@ -107,12 +111,20 @@ class CommentService : ObservableObject {
             
             markAsReported(commentId: documentId)
             
-            alertMessage = "報告が完了しました"
-            showAlert = true
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "報告が完了しました"
+                    showAlert = true
+                }
+            }
             
         } catch {
-            alertMessage = "報告に失敗しました: \(error.localizedDescription)"
-            showAlert = true
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "報告に失敗しました: \(error.localizedDescription)"
+                    showAlert = true
+                }
+            }
         }
     }
     
