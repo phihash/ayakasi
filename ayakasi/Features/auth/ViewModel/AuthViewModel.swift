@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 enum AuthStatus {
     case none              // 何もしてない
@@ -19,6 +20,7 @@ class AuthViewModel : ObservableObject{
     @Published var isShowLoginView: Bool = false
     
     private let authService = AuthService.shared
+    private let db = Firestore.firestore()
     
     init(){
         setupAuthStateListener()

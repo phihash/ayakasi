@@ -20,6 +20,7 @@ struct HomeView: View {
     @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
+    @State private var noticeItem: NoticeItem?
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
@@ -37,49 +38,102 @@ struct HomeView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
     
+    // 期間チェック共通関数
+    private func isWithinDateRange(startDateTime: String?, endDateTime: String?) -> Bool {
+        let now = Date()
+        let formatter = ISO8601DateFormatter()
+        
+        // 開始時刻チェック
+        if let startDateTimeString = startDateTime,
+           let startDateTime = formatter.date(from: startDateTimeString),
+           now < startDateTime {
+            return false // まだ開始していない
+        }
+        
+        // 終了時刻チェック
+        if let endDateTimeString = endDateTime,
+           let endDateTime = formatter.date(from: endDateTimeString),
+           now > endDateTime {
+            return false // すでに終了している
+        }
+        
+        return true
+    }
+    
     var filteredEvents: [EventItem] {
         eventItems.filter { event in
-            // isActiveがnilの場合は非表示（デフォルト値としてfalse扱い）
             guard event.isActive ?? false else { return false }
-            
-            // 期間チェック
-            let now = Date()
-            let formatter = ISO8601DateFormatter()
-            
-            // 開始時刻チェック
-            if let startDateTimeString = event.startDateTime,
-               let startDateTime = formatter.date(from: startDateTimeString),
-               now < startDateTime {
-                return false // まだ開始していない
-            }
-            
-            // 終了時刻チェック
-            if let endDateTimeString = event.endDateTime,
-               let endDateTime = formatter.date(from: endDateTimeString),
-               now > endDateTime {
-                return false // すでに終了している
-            }
-            
-            return true
+            return isWithinDateRange(startDateTime: event.startDateTime, endDateTime: event.endDateTime)
+        }
+    }
+    
+    var activeNotice: NoticeItem? {
+        guard let notice = noticeItem else { return nil }
+        guard notice.isActive else { return nil }
+        return isWithinDateRange(startDateTime: notice.startDateTime, endDateTime: notice.endDateTime) ? notice : nil
+    }
+    
+    private func loadNoticeItem() async -> NoticeItem? {
+        guard let url = URL(string: AppConstants.noticeDataURL) else { return nil }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let notice = try JSONDecoder().decode(NoticeItem.self, from: data)
+            return notice
+        } catch{
+            return nil
         }
     }
     
     private func loadEvents() async {
-        guard let url = URL(string: "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/event.json") else { return }
+        async let eventsResult = loadEventsData()
+        async let noticeResult = loadNoticeItem()
+        
+        let (events, notice) = await (eventsResult, noticeResult)
+        
+        await MainActor.run {
+            self.eventItems = events
+            self.noticeItem = notice
+        }
+    }
+    
+    private func loadEventsData() async -> [EventItem] {
+        guard let url = URL(string: AppConstants.eventsDataURL) else { return [] }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let events = try JSONDecoder().decode([EventItem].self, from: data)
-            await MainActor.run {
-                self.eventItems = events
-            }
+            return events
         } catch {
             print("❌ Failed to load events: \(error)")
+            return []
         }
     }
     var body: some View {
         NavigationStack{
             ScrollView{
+                if let notice = activeNotice {
+                    VStack {
+                        HStack {
+                            Image(systemName: "megaphone")
+                                .foregroundColor(.orange)
+                            Text(notice.message)
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color.orange.opacity(0.1))
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+                        )
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 8)
+                }
+                
                 HStack{
                     Text("イベント")
                         .font(.headline)

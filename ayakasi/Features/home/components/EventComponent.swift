@@ -13,6 +13,13 @@ struct EventItem: Codable {
     let bannerType: String?
 }
 
+struct NoticeItem: Codable {
+    let message: String
+    let isActive: Bool
+    let startDateTime: String?
+    let endDateTime: String?
+}
+
 struct EventComponent: View {
     @State private var ogImage: Image?
     let screenWidth = UIScreen.main.bounds.width
