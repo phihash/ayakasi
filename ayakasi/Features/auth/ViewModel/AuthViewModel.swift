@@ -66,6 +66,11 @@ class AuthViewModel : ObservableObject{
             clearFields()
             message = "認証メールを送信しました"
             print("登録成功！認証メールを送信しました。")
+            
+            // 新規登録時にusersコレクションを作成
+            Task {
+                await ensureUserExists()
+            }
         } catch{
             print("登録エラー: \(error)")
             if let authError = error as NSError? {
@@ -103,6 +108,11 @@ class AuthViewModel : ObservableObject{
                 message = ""
                 clearFields()
                 print("ログイン成功！")
+                
+                // ログイン時にusersコレクションを確保
+                Task {
+                    await ensureUserExists()
+                }
             } else {
                 self.authStatus = .waitingVerification
                 message = "メールアドレスの認証が完了していません"
@@ -172,6 +182,29 @@ class AuthViewModel : ObservableObject{
             print("認証メールを再送信しました")
         } catch {
             print("メール再送信エラー: \(error)")
+        }
+    }
+    
+    func ensureUserExists() async -> Bool {
+        guard let user = authService.currentUser else { return false }
+        
+        let userRef = db.collection("users").document(user.uid)
+        
+        do {
+            let userDoc = try await userRef.getDocument()
+            
+            if userDoc.exists {
+                return true
+            }
+            
+            try await userRef.setData([
+                "createdAt": FieldValue.serverTimestamp(),
+                "blockedUsers": []
+            ])
+            return true
+            
+        } catch {
+            return false
         }
     }
 }
