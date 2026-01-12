@@ -18,7 +18,6 @@ class CommentService : ObservableObject {
     @Published var isLoadingYokaiComments = false
     @Published var yokaiComments: [[String: Any]] = []
     @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
-    
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
@@ -85,6 +84,44 @@ class CommentService : ObservableObject {
         reportedCommentIds = ids
     }
     
+    
+    func blockUser(userId: String) async {
+        guard await authService.ensureUserExists() else {
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ユーザー情報の取得に失敗しました"
+                    showAlert = true
+                }
+            }
+            return
+        }
+        
+        guard let user = authService.currentUser else { return }
+        
+        do {
+            let userRef = db.collection("users").document(user.uid)
+            
+            try await userRef.updateData([
+                "blockedUsers": FieldValue.arrayUnion([userId])
+            ])
+            
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ユーザーをブロックしました"
+                    showAlert = true
+                }
+            }
+            
+        } catch {
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ブロックに失敗しました"
+                    showAlert = true
+                }
+            }
+        }
+    }
+    
     func reportRecentComment(documentId: String) async {
         guard !documentId.isEmpty else {
             alertMessage = "無効なコメントIDです"
@@ -128,14 +165,34 @@ class CommentService : ObservableObject {
         }
     }
     
+    //ログインユーザー専用、その投稿をしたユーザー全体の投稿をブロックする。
+    private func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
+        guard let user = authService.currentUser else { return comments }
+        var filteredComments: [[String: Any]] = []
+
+        for comment in comments {
+            if let userId = comment["userId"] as? String {
+                let isBlocked = await isUserBlocked(userId: userId, user: user)
+                if !isBlocked {
+                    filteredComments.append(comment)
+                }
+            }
+        }
+        return filteredComments
+    }
+
+    private func isUserBlocked(userId: String, user: User) async -> Bool {
+        do {
+            let userDoc = try await db.collection("users").document(user.uid).getDocument()
+            let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
+            return blockedUsers.contains(userId)
+        } catch {
+            print("⚠️ ブロックチェック失敗: \(error)")
+            return true  // エラー時はブロックされたとする
+        }
+    }
+
     func getRecentComments() async{
-        
-        //
-//        if isWithinFifteenMinutes() {
-//            print("⏭️ 15分以内なので取得をスキップ")
-//            return
-//        }
-        
 
         isLoadingRecentComments = true
         do {
@@ -144,11 +201,13 @@ class CommentService : ObservableObject {
                 .limit(to: 15)
                 .getDocuments()
             
-            recentComments = snapshot.documents.map{ document in
+            let comments = snapshot.documents.map{ document in
                 var data = document.data()
                 data["documentId"] = document.documentID
                 return data
             }
+            
+            recentComments = await filterBlockedComments(comments)
             
 //            lastFetchTimestamp = Date().timeIntervalSince1970
             
@@ -214,11 +273,13 @@ class CommentService : ObservableObject {
                 .whereField("yokaiId", isEqualTo: yokaiId)
                 .order(by: "createdAt", descending: false)
                 .getDocuments()
-            yokaiComments = snapshot.documents.map { document in
+            let comments = snapshot.documents.map { document in
                 var data = document.data()
                 data["documentId"] = document.documentID
                 return data
             }
+            
+            yokaiComments = await filterBlockedComments(comments)
             print("✅ コメント取得成功: \(yokaiComments.count)件")
             isLoadingYokaiComments = false
         } catch {
