@@ -1,12 +1,13 @@
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 import SwiftUI
 
 @MainActor
 class AuthService: ObservableObject {
-
     static let shared = AuthService()
-    
+    private let db = Firestore.firestore()
+
     private init() {}
         
     var currentUser : User? {
@@ -77,8 +78,39 @@ class AuthService: ObservableObject {
         try await user.delete()
     }
     
+    // ここから
+    private func userDocumentExists(_ user: User) async throws -> Bool {
+        let userDoc = try await db.collection("users").document(user.uid).getDocument()
+        return userDoc.exists
+    }
+
+    private func createUserDocument(_ user: User) async throws {
+        try await db.collection("users").document(user.uid).setData([
+            "createdAt": FieldValue.serverTimestamp(),
+            "blockedUsers": [],
+            "favoriteYokais": [],
+            "bookmarkedComments": [] 
+        ])
+    }
+
+    // TODO エラー処理を考える
+    func ensureUserExists() async -> Bool {
+        guard let user = currentUser else { return false }
+
+        do {
+            if try await userDocumentExists(user) {
+                return true
+            }
+            try await createUserDocument(user)
+            return true
+        } catch {
+            print("⚠️ ensureUserExists失敗: \(error)")
+            return false
+        }
+    }
+    //ここまで
+    
     enum AuthError: Error {
         case noUser
     }
-    
 }

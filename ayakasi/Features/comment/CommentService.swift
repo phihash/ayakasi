@@ -11,13 +11,8 @@ class CommentService : ObservableObject {
     
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
-    @Published var recentComments: [[String: Any]] = []
-    @Published var isLoadingRecentComments = false
     @Published var showAlert = false
     @Published var alertMessage = ""
-    @Published var isLoadingYokaiComments = false
-    @Published var yokaiComments: [[String: Any]] = []
-    @AppStorage("lastCommentFetch") private var lastFetchTimestamp: Double = 0
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
@@ -32,15 +27,7 @@ class CommentService : ObservableObject {
             lastRefillTime = Date().timeIntervalSince1970
         }
     }
-    
-    private func isWithinFifteenMinutes() -> Bool {
-        let now = Date().timeIntervalSince1970
-        let fifteenMinutesInSeconds = TimeInterval(15 * 60)
-        let timeSinceLastFetch = now - lastFetchTimestamp
-        print("⏱️ 最後の取得から\(Int(timeSinceLastFetch/60))分経過")
-        return timeSinceLastFetch < fifteenMinutesInSeconds
-    }
-    
+
     private func getCurrentMaxTokens() -> Int {
         if authService.currentUser != nil {
             return 5  // ログイン済み: 最大5個
@@ -82,44 +69,6 @@ class CommentService : ObservableObject {
         var ids = reportedCommentIds
         ids.append(commentId)
         reportedCommentIds = ids
-    }
-    
-    
-    func blockUser(userId: String) async {
-        guard await authService.ensureUserExists() else {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ユーザー情報の取得に失敗しました"
-                    showAlert = true
-                }
-            }
-            return
-        }
-        
-        guard let user = authService.currentUser else { return }
-        
-        do {
-            let userRef = db.collection("users").document(user.uid)
-            
-            try await userRef.updateData([
-                "blockedUsers": FieldValue.arrayUnion([userId])
-            ])
-            
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ユーザーをブロックしました"
-                    showAlert = true
-                }
-            }
-            
-        } catch {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ブロックに失敗しました"
-                    showAlert = true
-                }
-            }
-        }
     }
     
     func reportRecentComment(documentId: String) async {
@@ -165,9 +114,50 @@ class CommentService : ObservableObject {
         }
     }
     
-    //ログインユーザー専用、その投稿をしたユーザー全体の投稿をブロックする。
+    func blockUser(userId: String) async {
+        guard await authService.ensureUserExists() else {
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ユーザー情報の取得に失敗しました"
+                    showAlert = true
+                }
+            }
+            return
+        }
+        
+        guard let user = authService.currentUser else { return }
+        
+        do {
+            let userRef = db.collection("users").document(user.uid)
+            
+            try await userRef.updateData([
+                "blockedUsers": FieldValue.arrayUnion([userId])
+            ])
+            
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ユーザーをブロックしました"
+                    showAlert = true
+                }
+            }
+            
+        } catch {
+            await MainActor.run {
+                if !showAlert {
+                    alertMessage = "ブロックに失敗しました"
+                    showAlert = true
+                }
+            }
+        }
+    }
+    
+    //ここから
+    //ログインユーザー専用、その投稿をしたユーザーの投稿全てをブロックする。
     private func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
         guard let user = authService.currentUser else { return comments }
+        //既存ユーザーがいるので、ユーザーコレクションがない可能性
+        guard await authService.ensureUserExists() else { return comments }
+
         var filteredComments: [[String: Any]] = []
 
         for comment in comments {
@@ -181,6 +171,7 @@ class CommentService : ObservableObject {
         return filteredComments
     }
 
+    //TODO　エラー処理を考える
     private func isUserBlocked(userId: String, user: User) async -> Bool {
         do {
             let userDoc = try await db.collection("users").document(user.uid).getDocument()
@@ -192,30 +183,31 @@ class CommentService : ObservableObject {
         }
     }
 
-    func getRecentComments() async{
+    // MARK: - 最新コメント取得
+    @Published var recentComments: [[String: Any]] = []
+    @Published var isLoadingRecentComments = false
 
+    func getRecentComments() async{
         isLoadingRecentComments = true
         do {
             let snapshot = try await db.collection("recentComments")
                 .order(by: "createdAt", descending: true)
                 .limit(to: 15)
                 .getDocuments()
-            
+            //QuerySnapshotのdocuments
             let comments = snapshot.documents.map{ document in
                 var data = document.data()
                 data["documentId"] = document.documentID
                 return data
             }
-            
             recentComments = await filterBlockedComments(comments)
-            
-//            lastFetchTimestamp = Date().timeIntervalSince1970
-            
             isLoadingRecentComments = false
         }catch{
             isLoadingRecentComments = false
         }
     }
+    
+    //ここまで
     
     func postComment(yokai: Ayakasi) async {
         guard !commentNow.isEmpty else { 
