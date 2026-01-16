@@ -4,6 +4,8 @@ struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
     @EnvironmentObject var authVM: AuthViewModel
     @FocusState private var isTextFieldFocused: Bool
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     let yokai : Ayakasi
     var body: some View {
         VStack(spacing: 20) {
@@ -35,10 +37,15 @@ struct CommentUI: View {
                 Button(action: { // 投稿処理
                     print("🔘 投稿ボタン押下")
                     Task {
-                        await commentStore.postComment(yokai: yokai)
-                        print("🔄 fetchYokaiComments呼び出し")
-                        await commentStore.fetchYokaiComments(yokaiId: yokai.documentId)
-                        print("🏁 投稿処理完了")
+                        do {
+                            try await commentStore.postComment(yokai: yokai)
+                            print("🔄 fetchYokaiComments呼び出し")
+                            await commentStore.fetchYokaiComments(yokaiId: yokai.documentId)
+                            print("🏁 投稿処理完了")
+                        } catch {
+                            alertMessage = error.localizedDescription
+                            showAlert = true
+                        }
                     }
                     isTextFieldFocused = false
                 }) {
@@ -91,6 +98,11 @@ struct CommentUI: View {
             if authVM.user != nil {
                 isTextFieldFocused = false
             }
+        }
+        .alert("エラー", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(alertMessage)
         }
     }
 }

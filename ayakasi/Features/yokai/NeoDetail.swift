@@ -25,8 +25,7 @@ struct CommentListView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 40)
         } else {
-            ForEach(comments.indices, id: \.self) { index in
-                let comment = comments[index]
+            ForEach(Array(comments.enumerated()), id: \.offset) { index, comment in
                 VStack{
                     HStack{
                         Text("\(index+1).")
@@ -79,11 +78,12 @@ struct CommentListView: View {
             }
             .padding(.top,12)
             .sheet(item: $reportTarget) { target in
-                VStack {
-                    ReportUI(commentId: target.id)
+                if let comment = comments.first(where: { ($0["documentId"] as? String) == target.id }),
+                   let userId = comment["userId"] as? String {
+                    ReportUI(commentId: target.id, userId: userId)
+                        .presentationDetents([.fraction(0.25)])
+                        .presentationBackground(.regularMaterial)
                 }
-                .presentationDetents([.fraction(0.15)])
-                .presentationBackground(.regularMaterial)
             }
         }
     }
@@ -415,11 +415,6 @@ struct NeoDetail: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
-        }
-        .alert("通知", isPresented: $commentVM.showAlert) {
-            Button("OK") {}
-        } message: {
-            Text(commentVM.alertMessage)
         }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)

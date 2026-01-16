@@ -28,13 +28,13 @@ struct Container: View {
                             .renderingMode(.template)
                     }
                     .tag(2)
-                
-                JapanView()
-                    .tabItem {
-                        Image("locationcity")
-                            .renderingMode(.template)
-                    }
-                    .tag(3)
+//                
+//                JapanView()
+//                    .tabItem {
+//                        Image("locationcity")
+//                            .renderingMode(.template)
+//                    }
+//                    .tag(3)
               
                 SettingView()
                     .tabItem {

@@ -119,16 +119,13 @@ struct CommunityView: View {
                 NeoDetail(yokai: yokai)
             }
             .sheet(item: $reportTarget) { target in
-                ReportUI(commentId: target.id)
-                    .presentationDetents([.fraction(0.15)])
-                    .presentationBackground(.regularMaterial)
+                if let comment = commentService.recentComments.first(where: { ($0["documentId"] as? String) == target.id }),
+                   let userId = comment["userId"] as? String {
+                    ReportUI(commentId: target.id, userId: userId)
+                        .presentationDetents([.fraction(0.25)])
+                        .presentationBackground(.regularMaterial)
+                }
             }
-            .alert("通知", isPresented: $commentService.showAlert) {
-                Button("OK") { }
-            } message: {
-                Text(commentService.alertMessage)
-            }
-            
         }
     }
 }

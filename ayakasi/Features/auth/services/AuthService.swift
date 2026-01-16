@@ -89,7 +89,7 @@ class AuthService: ObservableObject {
             "createdAt": FieldValue.serverTimestamp(),
             "blockedUsers": [],
             "favoriteYokais": [],
-            "bookmarkedComments": [] 
+            "bookmarkedComments": []
         ])
     }
 

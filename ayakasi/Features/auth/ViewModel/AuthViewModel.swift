@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
-import FirebaseFirestore
 
 enum AuthStatus {
     case none              // 何もしてない
@@ -18,10 +17,9 @@ class AuthViewModel : ObservableObject{
     @Published var confirmPassword = ""
     @Published var message = ""
     @Published var isShowLoginView: Bool = false
-    
+
     private let authService = AuthService.shared
-    private let db = Firestore.firestore()
-    
+
     init(){
         setupAuthStateListener()
     }
@@ -69,7 +67,7 @@ class AuthViewModel : ObservableObject{
             
             // 新規登録時にusersコレクションを作成
             Task {
-                await ensureUserExists()
+                await authService.ensureUserExists()
             }
         } catch{
             print("登録エラー: \(error)")
@@ -111,7 +109,7 @@ class AuthViewModel : ObservableObject{
                 
                 // ログイン時にusersコレクションを確保
                 Task {
-                    await ensureUserExists()
+                    await authService.ensureUserExists()
                 }
             } else {
                 self.authStatus = .waitingVerification
@@ -182,29 +180,6 @@ class AuthViewModel : ObservableObject{
             print("認証メールを再送信しました")
         } catch {
             print("メール再送信エラー: \(error)")
-        }
-    }
-    
-    func ensureUserExists() async -> Bool {
-        guard let user = authService.currentUser else { return false }
-        
-        let userRef = db.collection("users").document(user.uid)
-        
-        do {
-            let userDoc = try await userRef.getDocument()
-            
-            if userDoc.exists {
-                return true
-            }
-            
-            try await userRef.setData([
-                "createdAt": FieldValue.serverTimestamp(),
-                "blockedUsers": []
-            ])
-            return true
-            
-        } catch {
-            return false
         }
     }
 }

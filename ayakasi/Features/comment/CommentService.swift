@@ -3,6 +3,11 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
+struct CommentError: LocalizedError {
+    let message: String
+    var errorDescription: String? { message }
+}
+
 @MainActor
 class CommentService : ObservableObject {
     static let shared = CommentService()
@@ -11,8 +16,6 @@ class CommentService : ObservableObject {
     
     @Published var commentNow : String = ""
     @Published var isCommentUI : Bool = false
-    @Published var showAlert = false
-    @Published var alertMessage = ""
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
@@ -71,84 +74,38 @@ class CommentService : ObservableObject {
         reportedCommentIds = ids
     }
     
-    func reportRecentComment(documentId: String) async {
+    func reportRecentComment(documentId: String) async throws {
         guard !documentId.isEmpty else {
-            alertMessage = "無効なコメントIDです"
-            showAlert = true
-            return
+            throw CommentError(message: "無効なコメントIDです")
         }
-        
-        if hasReported(commentId: documentId) {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "既に報告済みです"
-                    showAlert = true
-                }
-            }
-            return
+
+        guard !hasReported(commentId: documentId) else {
+            throw CommentError(message: "既に報告済みです")
         }
-        
-        do {
-            let commentRef = db.collection("recentComments").document(documentId)
-            
-            try await commentRef.updateData([
-                "reportCount": FieldValue.increment(Int64(1))
-            ])
-            
-            markAsReported(commentId: documentId)
-            
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "報告が完了しました"
-                    showAlert = true
-                }
-            }
-            
-        } catch {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "報告に失敗しました: \(error.localizedDescription)"
-                    showAlert = true
-                }
-            }
-        }
+
+        let commentRef = db.collection("recentComments").document(documentId)
+
+        try await commentRef.updateData([
+            "reportCount": FieldValue.increment(Int64(1))
+        ])
+
+        markAsReported(commentId: documentId)
     }
     
-    func blockUser(userId: String) async {
+    func blockUser(userId: String) async throws {
         guard await authService.ensureUserExists() else {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ユーザー情報の取得に失敗しました"
-                    showAlert = true
-                }
-            }
-            return
+            throw CommentError(message: "ユーザー情報の取得に失敗しました")
         }
-        
-        guard let user = authService.currentUser else { return }
-        
-        do {
-            let userRef = db.collection("users").document(user.uid)
-            
-            try await userRef.updateData([
-                "blockedUsers": FieldValue.arrayUnion([userId])
-            ])
-            
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ユーザーをブロックしました"
-                    showAlert = true
-                }
-            }
-            
-        } catch {
-            await MainActor.run {
-                if !showAlert {
-                    alertMessage = "ブロックに失敗しました"
-                    showAlert = true
-                }
-            }
+
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
         }
+
+        let userRef = db.collection("users").document(user.uid)
+
+        try await userRef.updateData([
+            "blockedUsers": FieldValue.arrayUnion([userId])
+        ])
     }
     
     //ここから
@@ -187,6 +144,7 @@ class CommentService : ObservableObject {
     @Published var recentComments: [[String: Any]] = []
     @Published var isLoadingRecentComments = false
 
+    // TODO エラーを考える
     func getRecentComments() async{
         isLoadingRecentComments = true
         do {
@@ -209,25 +167,18 @@ class CommentService : ObservableObject {
     
     //ここまで
     
-    func postComment(yokai: Ayakasi) async {
-        guard !commentNow.isEmpty else { 
-            print("❌ コメントが空")
-            return 
+    func postComment(yokai: Ayakasi) async throws {
+        guard !commentNow.isEmpty else {
+            throw CommentError(message: "コメントが空です")
         }
-        guard let user = authService.currentUser else { 
-            print("❌ ユーザー未認証")
-            return 
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
         }
-        
-        print("✅ ユーザー認証OK: \(user.uid)")
-        
         // トークンバケットチェック
         guard canComment() else {
-            alertMessage = "コメント回数の上限に達しました。しばらく待って再度お試しください。"
-            showAlert = true
-            return
+            throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
         }
-        
+
         // recentComments（正コレクション）用のデータ
         let recentCommentData = [
             "yokaiId": yokai.documentId,
@@ -238,25 +189,21 @@ class CommentService : ObservableObject {
             "status": "pending",
             "reportCount": 0
         ] as [String : Any]
-        
-        do {
-            // 最新コメント一覧（= 正コレクション）に保存
-            try await db.collection("recentComments")
-                .addDocument(data: recentCommentData)
-            
-            // 成功時のみトークンを消費
-            consumeToken()
 
-            await MainActor.run {
-                commentNow = ""
-                isCommentUI = false
-            }
-        } catch {
-            alertMessage = "投稿に失敗しました: \(error.localizedDescription)"
-            showAlert = true
-        }
+        // 最新コメント一覧（= 正コレクション）に保存
+        try await db.collection("recentComments")
+            .addDocument(data: recentCommentData)
+
+        // 成功時のみトークンを消費
+        consumeToken()
+
+        commentNow = ""
+        isCommentUI = false
     }
-    
+
+    @Published var yokaiComments: [[String: Any]] = []
+    @Published var isLoadingYokaiComments = false
+
     func fetchYokaiComments(yokaiId: String) async {
         print("🔍 fetchYokaiComments開始: \(yokaiId)")
         isLoadingYokaiComments = true
