@@ -14,8 +14,6 @@ class CommentService : ObservableObject {
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
     
-    @Published var commentNow : String = ""
-    @Published var isCommentUI : Bool = false
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
@@ -167,8 +165,8 @@ class CommentService : ObservableObject {
     
     //ここまで
     
-    func postComment(yokai: Ayakasi) async throws {
-        guard !commentNow.isEmpty else {
+    func postComment(content: String, yokai: Ayakasi) async throws {
+        guard !content.isEmpty else {
             throw CommentError(message: "コメントが空です")
         }
         guard let user = authService.currentUser else {
@@ -184,7 +182,7 @@ class CommentService : ObservableObject {
             "yokaiId": yokai.documentId,
             "yokaiName": yokai.name,
             "userId": user.uid,
-            "content": commentNow,
+            "content": content,
             "createdAt": FieldValue.serverTimestamp(),
             "status": "pending",
             "reportCount": 0
@@ -196,9 +194,6 @@ class CommentService : ObservableObject {
 
         // 成功時のみトークンを消費
         consumeToken()
-
-        commentNow = ""
-        isCommentUI = false
     }
 
     @Published var yokaiComments: [[String: Any]] = []

@@ -6,7 +6,7 @@ struct BottomActionBar: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var colorVM: ColorViewModel
     @EnvironmentObject var voteVM: VoteService
-    @EnvironmentObject var CommentVM: CommentService
+    @Binding var isCommentUI: Bool
     let requestAndSaveImage: (String) -> Void
     
     var body: some View {
@@ -27,7 +27,7 @@ struct BottomActionBar: View {
                 
                 HStack(spacing: 16) {
                     Button{
-                        CommentVM.isCommentUI.toggle()
+                        isCommentUI.toggle()
                     } label: {
                         VStack(spacing:4){
                             Image(systemName: "bubble.left.and.bubble.right")

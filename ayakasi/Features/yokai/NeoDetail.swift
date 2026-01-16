@@ -98,6 +98,7 @@ struct NeoDetail: View {
     @State private var showAlert : Bool = false
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
+    @State private var isCommentUI = false
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
@@ -428,8 +429,8 @@ struct NeoDetail: View {
         .task {
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
         }
-        .sheet(isPresented: $commentVM.isCommentUI) {
-            CommentUI(yokai:yokai)
+        .sheet(isPresented: $isCommentUI) {
+            CommentUI(isPresented: $isCommentUI, yokai: yokai)
                 .presentationDetents([.fraction(0.35)])
                 .presentationBackground(.regularMaterial)
         }
@@ -437,6 +438,7 @@ struct NeoDetail: View {
             BottomActionBar(
                 yokai: yokai,
                 screenWidth: screenWidth,
+                isCommentUI: $isCommentUI,
                 requestAndSaveImage: requestAndSaveImage
             )
         }

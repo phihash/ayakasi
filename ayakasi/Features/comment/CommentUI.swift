@@ -6,6 +6,10 @@ struct CommentUI: View {
     @FocusState private var isTextFieldFocused: Bool
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var commentText = ""
+    @State private var showLoginView = false
+    @State private var showRegisterView = false
+    @Binding var isPresented: Bool
     let yokai : Ayakasi
     var body: some View {
         VStack(spacing: 20) {
@@ -18,7 +22,7 @@ struct CommentUI: View {
                 // カスタムテキストフィールド
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        TextField("コメントを入力してください...", text: $commentStore.commentNow, axis: .vertical)
+                        TextField("コメントを入力してください...", text: $commentText, axis: .vertical)
                             .focused($isTextFieldFocused)
                             .lineLimit(3...6)
                             .font(.body)
@@ -38,10 +42,12 @@ struct CommentUI: View {
                     print("🔘 投稿ボタン押下")
                     Task {
                         do {
-                            try await commentStore.postComment(yokai: yokai)
+                            try await commentStore.postComment(content: commentText, yokai: yokai)
                             print("🔄 fetchYokaiComments呼び出し")
                             await commentStore.fetchYokaiComments(yokaiId: yokai.documentId)
                             print("🏁 投稿処理完了")
+                            commentText = ""
+                            isPresented = false
                         } catch {
                             alertMessage = error.localizedDescription
                             showAlert = true
@@ -61,37 +67,55 @@ struct CommentUI: View {
                     .cornerRadius(25)
                 }
                 .padding(.horizontal, 20)
-                .disabled(commentStore.commentNow.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                .opacity(commentStore.commentNow.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
+                .disabled(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .opacity(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
                 
                 Spacer()
             } else {
-                
+                Spacer()
+
                 Text("ログインが必要です")
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding(.top, 20)
-                
-                Text("コメントを投稿するにはログインしてください")
+
+                Text("コメントを投稿するにはログインまたは新規登録してください")
                     .font(.body)
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 20)
-                
-                Button{
-                    commentStore.isCommentUI = false
-                    authVM.showLogin()
-                } label :{
-                    Text("ログイン")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Color.orange)
-                        .cornerRadius(25)
-                        .padding(.horizontal, 20)
+
+                HStack(spacing: 12) {
+                    Button {
+                        isPresented = false
+                        showLoginView = true
+                    } label: {
+                        Text("ログイン")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .background(Color.orange)
+                            .cornerRadius(25)
+                    }
+
+                    Button {
+                        isPresented = false
+                        showRegisterView = true
+                    } label: {
+                        Text("新規登録")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .background(Color.green)
+                            .cornerRadius(25)
+                    }
                 }
-               
+                .padding(.horizontal, 20)
+
+                Spacer()
+
             }
         }
         .onTapGesture {
@@ -103,6 +127,12 @@ struct CommentUI: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
+        }
+        .sheet(isPresented: $showLoginView) {
+            LoginView()
+        }
+        .sheet(isPresented: $showRegisterView) {
+            RegisterView()
         }
     }
 }
