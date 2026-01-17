@@ -1,6 +1,36 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
-        name: "ノブスマ（野衾）",
+        name: "獏",
+        documentId: "baku",
+        imageName: "https://i.imgur.com/A7VRMHF.png",
+        description: "獏",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "馬癇",
+        documentId: "umakan",
+        imageName: "https://i.imgur.com/MnbUKMp.png",
+        description: "馬癇(うまかん)",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "牛癇",
+        documentId: "gyuukan",
+        imageName: "https://i.imgur.com/52KBEw8.png",
+        description: "牛癇(ぎゅうかん)",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "野衾",
         documentId: "nobusuma",
         imageName: "https://i.imgur.com/6f5AJml.png",
         description: "ノブスマ（野衾・衾・フスマ）は、日本各地に伝わる現象型の妖怪で、夜道を歩く人の前に突然「壁」のように立ちふさがる怪異として語られる。夕方から夜にかけて出現し、上下左右すべてにおいて果てがなく、進もうとしても進めず、逃げようとしても距離感が狂うという特徴を持つ。\n\n1930年代以降の採集記録では、高知県・東京都・新潟県・佐渡島など各地に類似事例が見られ、名称や細部は異なるものの、『前面を塞ぐ』『巨大化する』『見上げるとさらに高くなる』『五感が覆われる』といった共通点が確認されている。東京など都市部ではムササビやコウモリの仕業と解釈される例もあり、正体が曖昧なまま語られることが多い。\n\nノブスマは人を直接害する妖怪ではなく、恐怖や不安を増幅させる存在とされる。包み込まれたような圧迫感や、進行を妨げられる感覚によって、立ち尽くしたり気分を悪くしたりする例が語られている。一方で、腰を下ろして落ち着き、煙草を吸う・一服する・じっと待つといった行為を取ることで、数服のうちに消え去ると伝えられている。\n\n佐渡島では『フスマ』と呼ばれ、風呂敷ほどの大きさで顔を覆う型が知られ、土佐（高知県）では前後左右上下に果てのない巨大な姿として語られるなど、地域によって規模や印象が異なる。これらの特徴から、ノブスマは特定の姿を持つ妖怪というよりも、夜道・疲労・恐怖・環境条件が重なった際に生じる空間認知の異常が妖怪として語り継がれた存在であると考えられている。",
