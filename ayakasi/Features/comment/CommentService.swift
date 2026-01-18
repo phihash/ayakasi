@@ -17,9 +17,13 @@ class CommentService : ObservableObject {
     static let shared = CommentService()
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
-    // トークンバケット用のプロパティ
+
+    // 定数
     private let maxTokens = 5
-    @AppStorage("commentTokens") private var availableTokens: Int = 3
+    private let maxRecentComments = 15
+
+    // トークンバケット用のプロパティ
+    @AppStorage("commentTokens") private var availableTokens: Int = 5
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
     
     init() {// 初回起動時のみlastRefillTimeを現在時刻に設定
@@ -38,7 +42,7 @@ class CommentService : ObservableObject {
         do {
             let snapshot = try await db.collection("recentComments")
                 .order(by: "createdAt", descending: true)
-                .limit(to: 15)
+                .limit(to: maxRecentComments)
                 .getDocuments()
             //QuerySnapshotのdocuments
             let comments = snapshot.documents.map{ document in
@@ -193,36 +197,36 @@ class CommentService : ObservableObject {
         guard !documentId.isEmpty else {
             throw CommentError(message: "無効なコメントIDです")
         }
-
+        
         guard let user = authService.currentUser else {
             throw CommentError(message: "ログインが必要です")
         }
-
+        
         // コメントを取得して、自分のコメントかチェック
         let commentDoc = try await db.collection("recentComments").document(documentId).getDocument()
         guard let commentUserId = commentDoc.get("userId") as? String else {
             throw CommentError(message: "コメント情報の取得に失敗しました")
         }
-
+        
         guard commentUserId != user.uid else {
             throw CommentError(message: "自分のコメントは報告できません")
         }
-
+        
         // usersコレクションで既に報告済みかチェック
         let userDoc = try await db.collection("users").document(user.uid).getDocument()
         let reportedComments = userDoc.get("reportedComments") as? [String] ?? []
-
+        
         guard !reportedComments.contains(documentId) else {
             throw CommentError(message: "既に報告済みです")
         }
-
+        
         // recentCommentsを更新
         let commentRef = db.collection("recentComments").document(documentId)
         try await commentRef.updateData([
             "reportCount": FieldValue.increment(Int64(1)),
             "reportedBy": FieldValue.arrayUnion([user.uid])
         ])
-
+        
         // usersを更新
         let userRef = db.collection("users").document(user.uid)
         try await userRef.updateData([
