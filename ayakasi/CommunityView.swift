@@ -21,19 +21,30 @@ struct CommunityView: View {
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
                 
-                if commentService.recentComments.isEmpty {
+                if commentService.isLoadingRecentComments {
                     VStack(spacing: 16) {
-                        Image(systemName: "bubble.left.and.bubble.right")
-                            .font(.system(size: 40))
-                            .foregroundColor(.gray)
-                        
+                        ProgressView()
+                            .scaleEffect(1.5)
+
                         Text("最新のコメントを取得中です")
                             .font(.title3)
                             .fontWeight(.medium)
                             .foregroundColor(.gray)
                     }
                     .frame(height: 120)
-                } else{
+                } else if commentService.recentComments.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "bubble.left.and.bubble.right")
+                            .font(.system(size: 40))
+                            .foregroundColor(.gray)
+
+                        Text("コメントはありません")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundColor(.gray)
+                    }
+                    .frame(height: 120)
+                } else {
                     ForEach(commentService.recentComments.indices, id: \.self) { index in
                         let comment = commentService.recentComments[index]
                         let yokaiId = comment["yokaiId"] as? String ?? ""

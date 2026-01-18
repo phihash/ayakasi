@@ -7,21 +7,75 @@ struct CommentError: LocalizedError {
     let message: String
     var errorDescription: String? { message }
 }
+// 1.コメント一覧取得
+// 2.コメント投稿機能
+// 3.コメント通報機能
 
 @MainActor
 class CommentService : ObservableObject {
     static let shared = CommentService()
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
-    
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
     
-    init() {
-        // 初回起動時のみlastRefillTimeを現在時刻に設定
+    init() {// 初回起動時のみlastRefillTimeを現在時刻に設定
         if lastRefillTime == -1 {
             lastRefillTime = Date().timeIntervalSince1970
+        }
+    }
+    
+    //　TODOエラーを考える
+    // 1.コメント一覧取得とブロックフィルタリング
+    @Published var recentComments: [[String: Any]] = []
+    @Published var isLoadingRecentComments = false
+    
+    func getRecentComments() async{
+        isLoadingRecentComments = true
+        do {
+            let snapshot = try await db.collection("recentComments")
+                .order(by: "createdAt", descending: true)
+                .limit(to: 15)
+                .getDocuments()
+            //QuerySnapshotのdocuments
+            let comments = snapshot.documents.map{ document in
+                var data = document.data()
+                data["documentId"] = document.documentID
+                return data
+            }
+            recentComments = await filterBlockedComments(comments)
+            isLoadingRecentComments = false
+        }catch{
+            isLoadingRecentComments = false
+        }
+    }
+    
+    //ログインユーザー専用、その投稿をしたユーザーの投稿全てをブロックする。
+    private func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
+        guard let user = authService.currentUser else { return comments }
+
+        var filteredComments: [[String: Any]] = []
+
+        for comment in comments {
+            if let userId = comment["userId"] as? String {
+                let isBlocked = await isUserBlocked(userId: userId, user: user)
+                if !isBlocked {
+                    filteredComments.append(comment)
+                }
+            }
+        }
+        return filteredComments
+    }
+    
+    //TODO　エラー処理を考える
+    private func isUserBlocked(userId: String, user: User) async -> Bool {
+        do {
+            let userDoc = try await db.collection("users").document(user.uid).getDocument()
+            let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
+            return blockedUsers.contains(userId)
+        } catch {
+            return true  // エラー時はブロックされているとする
         }
     }
 
@@ -110,61 +164,11 @@ class CommentService : ObservableObject {
     }
     
     //ここから
-    //ログインユーザー専用、その投稿をしたユーザーの投稿全てをブロックする。
-    private func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
-        guard let user = authService.currentUser else { return comments }
-        //既存ユーザーがいるので、ユーザーコレクションがない可能性
-        guard await authService.ensureUserExists() else { return comments }
 
-        var filteredComments: [[String: Any]] = []
 
-        for comment in comments {
-            if let userId = comment["userId"] as? String {
-                let isBlocked = await isUserBlocked(userId: userId, user: user)
-                if !isBlocked {
-                    filteredComments.append(comment)
-                }
-            }
-        }
-        return filteredComments
-    }
 
-    //TODO　エラー処理を考える
-    private func isUserBlocked(userId: String, user: User) async -> Bool {
-        do {
-            let userDoc = try await db.collection("users").document(user.uid).getDocument()
-            let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
-            return blockedUsers.contains(userId)
-        } catch {
-            print("⚠️ ブロックチェック失敗: \(error)")
-            return true  // エラー時はブロックされたとする
-        }
-    }
 
-    // MARK: - 最新コメント取得
-    @Published var recentComments: [[String: Any]] = []
-    @Published var isLoadingRecentComments = false
 
-    // TODO エラーを考える
-    func getRecentComments() async{
-        isLoadingRecentComments = true
-        do {
-            let snapshot = try await db.collection("recentComments")
-                .order(by: "createdAt", descending: true)
-                .limit(to: 15)
-                .getDocuments()
-            //QuerySnapshotのdocuments
-            let comments = snapshot.documents.map{ document in
-                var data = document.data()
-                data["documentId"] = document.documentID
-                return data
-            }
-            recentComments = await filterBlockedComments(comments)
-            isLoadingRecentComments = false
-        }catch{
-            isLoadingRecentComments = false
-        }
-    }
     
     //ここまで
     

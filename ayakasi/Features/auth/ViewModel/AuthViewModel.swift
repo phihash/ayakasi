@@ -23,6 +23,11 @@ class AuthViewModel : ObservableObject{
 
     init(){
         setupAuthStateListener()
+
+        // 既存ユーザーがいればusersドキュメントを確保
+        Task {
+            await authService.ensureUserExists()
+        }
     }
     
     func showLogin() {
