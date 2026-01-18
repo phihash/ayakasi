@@ -7,8 +7,6 @@ struct CommentUI: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var commentText = ""
-    @State private var showLoginView = false
-    @State private var showRegisterView = false
     @Binding var isPresented: Bool
     let yokai : Ayakasi
     var body: some View {
@@ -88,7 +86,7 @@ struct CommentUI: View {
                 HStack(spacing: 12) {
                     Button {
                         isPresented = false
-                        showLoginView = true
+                        authVM.showLogin()
                     } label: {
                         Text("ログイン")
                             .font(.headline)
@@ -101,7 +99,7 @@ struct CommentUI: View {
 
                     Button {
                         isPresented = false
-                        showRegisterView = true
+                        authVM.showRegister()
                     } label: {
                         Text("新規登録")
                             .font(.headline)
@@ -127,12 +125,6 @@ struct CommentUI: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
-        }
-        .sheet(isPresented: $showLoginView) {
-            LoginView()
-        }
-        .sheet(isPresented: $showRegisterView) {
-            RegisterView()
         }
     }
 }

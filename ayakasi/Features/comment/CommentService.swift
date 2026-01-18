@@ -17,10 +17,6 @@ class CommentService : ObservableObject {
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
-    private var reportedCommentIds: [String] {
-        get { UserDefaults.standard.stringArray(forKey: "reportedCommentIds") ?? [] }
-        set { UserDefaults.standard.set(newValue, forKey: "reportedCommentIds") }
-    }
     
     init() {
         // 初回起動時のみlastRefillTimeを現在時刻に設定
@@ -61,33 +57,40 @@ class CommentService : ObservableObject {
             availableTokens -= 1
         }
     }
-    
-    private func hasReported(commentId: String) -> Bool {
-        return reportedCommentIds.contains(commentId)
-    }
-    
-    private func markAsReported(commentId: String) {
-        var ids = reportedCommentIds
-        ids.append(commentId)
-        reportedCommentIds = ids
-    }
-    
+
     func reportRecentComment(documentId: String) async throws {
         guard !documentId.isEmpty else {
             throw CommentError(message: "無効なコメントIDです")
         }
 
-        guard !hasReported(commentId: documentId) else {
+        guard await authService.ensureUserExists() else {
+            throw CommentError(message: "ユーザー情報の取得に失敗しました")
+        }
+
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
+        }
+
+        // usersコレクションで既に報告済みかチェック
+        let userDoc = try await db.collection("users").document(user.uid).getDocument()
+        let reportedComments = userDoc.get("reportedComments") as? [String] ?? []
+
+        guard !reportedComments.contains(documentId) else {
             throw CommentError(message: "既に報告済みです")
         }
 
+        // recentCommentsを更新
         let commentRef = db.collection("recentComments").document(documentId)
-
         try await commentRef.updateData([
-            "reportCount": FieldValue.increment(Int64(1))
+            "reportCount": FieldValue.increment(Int64(1)),
+            "reportedBy": FieldValue.arrayUnion([user.uid])
         ])
 
-        markAsReported(commentId: documentId)
+        // usersを更新
+        let userRef = db.collection("users").document(user.uid)
+        try await userRef.updateData([
+            "reportedComments": FieldValue.arrayUnion([documentId])
+        ])
     }
     
     func blockUser(userId: String) async throws {
@@ -185,7 +188,8 @@ class CommentService : ObservableObject {
             "content": content,
             "createdAt": FieldValue.serverTimestamp(),
             "status": "pending",
-            "reportCount": 0
+            "reportCount": 0,
+            "reportedBy": []
         ] as [String : Any]
 
         // 最新コメント一覧（= 正コレクション）に保存

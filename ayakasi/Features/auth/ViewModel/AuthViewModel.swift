@@ -17,6 +17,7 @@ class AuthViewModel : ObservableObject{
     @Published var confirmPassword = ""
     @Published var message = ""
     @Published var isShowLoginView: Bool = false
+    @Published var isShowRegisterView: Bool = false
 
     private let authService = AuthService.shared
 
@@ -26,6 +27,10 @@ class AuthViewModel : ObservableObject{
     
     func showLogin() {
         isShowLoginView = true
+    }
+
+    func showRegister() {
+        isShowRegisterView = true
     }
     
     private func setupAuthStateListener(){
