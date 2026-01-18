@@ -21,10 +21,14 @@ class CommentService : ObservableObject {
     // 定数
     private let maxTokens = 5
     private let maxRecentComments = 15
+    private let cacheValidDuration: TimeInterval = 300 // 5分
 
     // トークンバケット用のプロパティ
     @AppStorage("commentTokens") private var availableTokens: Int = 5
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
+
+    // キャッシュ管理
+    @AppStorage("lastRecentCommentsFetch") private var lastRecentCommentsFetch: Double = 0
     
     init() {// 初回起動時のみlastRefillTimeを現在時刻に設定
         if lastRefillTime == -1 {
@@ -51,10 +55,22 @@ class CommentService : ObservableObject {
                 return data
             }
             recentComments = await filterBlockedComments(comments)
+            lastRecentCommentsFetch = Date().timeIntervalSince1970
             isLoadingRecentComments = false
         }catch{
             isLoadingRecentComments = false
         }
+    }
+
+    func getRecentCommentsIfNeeded() async {
+        let currentTime = Date().timeIntervalSince1970
+
+        // キャッシュが有効なら再取得しない
+        if currentTime - lastRecentCommentsFetch < cacheValidDuration {
+            return
+        }
+
+        await getRecentComments()
     }
     
     //ログインユーザー専用、その投稿をしたユーザーの投稿全てをブロックする。

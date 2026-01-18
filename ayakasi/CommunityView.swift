@@ -142,8 +142,11 @@ struct CommunityView: View {
             }
             .onAppear{
                 Task{
-                    await commentService.getRecentComments()
+                    await commentService.getRecentCommentsIfNeeded()
                 }
+            }
+            .refreshable {
+                await commentService.getRecentComments()
             }
             .fullScreenCover(item: $selectedYokai){ yokai in
                 NeoDetail(yokai: yokai)
