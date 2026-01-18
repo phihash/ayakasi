@@ -25,15 +25,14 @@ struct CommunityView: View {
                 // 未ログインユーザー向けの注意書き
                 if authVM.user == nil {
                     HStack(spacing: 8) {
-                        Image(systemName: "info.circle")
-                            .foregroundColor(.orange)
-                        Text("コメントの投稿・報告・ブロックはログインが必要です")
+                        Text("コメントの投稿・通報・ブロックはログインが必要です")
                             .font(.caption)
-                            .foregroundColor(.gray)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(Color.orange.opacity(0.1))
+                    .background(Color.orange.opacity(0.4))
                     .cornerRadius(8)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 8)

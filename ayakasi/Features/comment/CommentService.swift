@@ -8,8 +8,9 @@ struct CommentError: LocalizedError {
     var errorDescription: String? { message }
 }
 // 1.コメント一覧取得とブロックフィルタリング
-// 2.コメント投稿機能
-// 3.コメント通報機能
+//2.コメントをしたユーザーをブロックする
+// 3.コメント投稿機能
+// 4.コメント通報機能
 
 @MainActor
 class CommentService : ObservableObject {
@@ -55,9 +56,9 @@ class CommentService : ObservableObject {
     //ログインユーザー専用、その投稿をしたユーザーの投稿全てをブロックする。
     private func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
         guard let user = authService.currentUser else { return comments }
-
+        
         var filteredComments: [[String: Any]] = []
-
+        
         for comment in comments {
             if let userId = comment["userId"] as? String {
                 let isBlocked = await isUserBlocked(userId: userId, user: user)
@@ -80,38 +81,10 @@ class CommentService : ObservableObject {
         }
     }
     
-    func blockUser(userId: String) async throws {
-        guard !userId.isEmpty else {
-            throw CommentError(message: "無効なユーザーIDです")
-        }
-
-        guard let user = authService.currentUser else {
-            throw CommentError(message: "ログインが必要です")
-        }
-
-        // 自分自身をブロックできないようにする
-        guard userId != user.uid else {
-            throw CommentError(message: "自分自身をブロックすることはできません")
-        }
-
-        // 既にブロック済みかチェック
-        let userDoc = try await db.collection("users").document(user.uid).getDocument()
-        let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
-
-        guard !blockedUsers.contains(userId) else {
-            throw CommentError(message: "既にブロック済みです")
-        }
-
-        try await db.collection("users").document(user.uid).updateData([
-            "blockedUsers": FieldValue.arrayUnion([userId])
-        ])
-    }
-    
     @Published var yokaiComments: [[String: Any]] = []
     @Published var isLoadingYokaiComments = false
     
     func fetchYokaiComments(yokaiId: String) async {
-        print("🔍 fetchYokaiComments開始: \(yokaiId)")
         isLoadingYokaiComments = true
         do {
             let snapshot = try await db.collection("recentComments")
@@ -125,23 +98,48 @@ class CommentService : ObservableObject {
             }
             
             yokaiComments = await filterBlockedComments(comments)
-            print("✅ コメント取得成功: \(yokaiComments.count)件")
             isLoadingYokaiComments = false
         } catch {
-            print("❌ コメント取得エラー: \(error)")
             isLoadingYokaiComments = false
         }
     }
     
-    //2 コメント投稿機能
-
+    //2、コメントをしたユーザーをブロックする
+    func blockUser(userId: String) async throws {
+        guard !userId.isEmpty else {
+            throw CommentError(message: "無効なユーザーIDです")
+        }
+        //念の為
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
+        }
+        // 自分自身をブロックできないようにする
+        guard userId != user.uid else {
+            throw CommentError(message: "自分自身をブロックすることはできません")
+        }
+        
+        // 既にブロック済みかチェック
+        let userDoc = try await db.collection("users").document(user.uid).getDocument()
+        let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
+        
+        guard !blockedUsers.contains(userId) else {
+            throw CommentError(message: "既にブロック済みです")
+        }
+        
+        try await db.collection("users").document(user.uid).updateData([
+            "blockedUsers": FieldValue.arrayUnion([userId])
+        ])
+    }
+    
+    //3 コメント投稿機能
+    
     private func refillToken() {
         let currentTime = Date().timeIntervalSince1970
         let timeSinceLastRefill = currentTime - lastRefillTime
-
+        
         // 480秒（8分）ごとに1トークン
         let tokensToAdd = Int(timeSinceLastRefill / 480.0)
-
+        
         if tokensToAdd > 0 {
             availableTokens = min(maxTokens, tokensToAdd + availableTokens)
             lastRefillTime = currentTime
@@ -190,8 +188,7 @@ class CommentService : ObservableObject {
         consumeToken()
     }
     
-    //3 コメント報告機能
-
+    //4 コメント通報機能
     func reportRecentComment(documentId: String) async throws {
         guard !documentId.isEmpty else {
             throw CommentError(message: "無効なコメントIDです")
@@ -199,6 +196,16 @@ class CommentService : ObservableObject {
 
         guard let user = authService.currentUser else {
             throw CommentError(message: "ログインが必要です")
+        }
+
+        // コメントを取得して、自分のコメントかチェック
+        let commentDoc = try await db.collection("recentComments").document(documentId).getDocument()
+        guard let commentUserId = commentDoc.get("userId") as? String else {
+            throw CommentError(message: "コメント情報の取得に失敗しました")
+        }
+
+        guard commentUserId != user.uid else {
+            throw CommentError(message: "自分のコメントは報告できません")
         }
 
         // usersコレクションで既に報告済みかチェック
@@ -223,7 +230,4 @@ class CommentService : ObservableObject {
         ])
     }
     
-
-    
-
 }
