@@ -6,6 +6,7 @@ import FirebaseFirestore
 struct CommentListView: View {
     let comments: [[String: Any]]
     @EnvironmentObject var commentService: CommentService
+    @EnvironmentObject var authVM: AuthViewModel
     @State private var selectedCommentId: String = ""
     @State private var reportTarget: ReportTarget?
     
@@ -42,21 +43,23 @@ struct CommentListView: View {
                                 .foregroundColor(.gray)
                         }
                         Spacer()
-                        
+
                         HStack{
                             Spacer()
-                            Image(systemName: "ellipsis")
-                                .font(.title3)
-                                .onTapGesture {
-                                    guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
-                                        print("❗️ documentId is missing; not opening report sheet")
-                                        return
+                            if authVM.user != nil {
+                                Image(systemName: "ellipsis")
+                                    .font(.title3)
+                                    .onTapGesture {
+                                        guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
+                                            print("❗️ documentId is missing; not opening report sheet")
+                                            return
+                                        }
+
+                                        selectedCommentId = docId
+                                        reportTarget = ReportTarget(id: docId)
+
                                     }
-                                    
-                                    selectedCommentId = docId
-                                    reportTarget = ReportTarget(id: docId)
-                                    
-                                }
+                            }
                         }
                     }
                     .padding(.bottom,4)

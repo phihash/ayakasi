@@ -7,7 +7,7 @@ struct CommentError: LocalizedError {
     let message: String
     var errorDescription: String? { message }
 }
-// 1.コメント一覧取得
+// 1.コメント一覧取得とブロックフィルタリング
 // 2.コメント投稿機能
 // 3.コメント通報機能
 
@@ -17,6 +17,7 @@ class CommentService : ObservableObject {
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
     // トークンバケット用のプロパティ
+    private let maxTokens = 5
     @AppStorage("commentTokens") private var availableTokens: Int = 3
     @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
     
@@ -78,25 +79,71 @@ class CommentService : ObservableObject {
             return true  // エラー時はブロックされているとする
         }
     }
+    
+    func blockUser(userId: String) async throws {
+        guard !userId.isEmpty else {
+            throw CommentError(message: "無効なユーザーIDです")
+        }
 
-    private func getCurrentMaxTokens() -> Int {
-        if authService.currentUser != nil {
-            return 5  // ログイン済み: 最大5個
-        } else {
-            return 3   // 未ログイン: 最大3個
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
+        }
+
+        // 自分自身をブロックできないようにする
+        guard userId != user.uid else {
+            throw CommentError(message: "自分自身をブロックすることはできません")
+        }
+
+        // 既にブロック済みかチェック
+        let userDoc = try await db.collection("users").document(user.uid).getDocument()
+        let blockedUsers = userDoc.get("blockedUsers") as? [String] ?? []
+
+        guard !blockedUsers.contains(userId) else {
+            throw CommentError(message: "既にブロック済みです")
+        }
+
+        try await db.collection("users").document(user.uid).updateData([
+            "blockedUsers": FieldValue.arrayUnion([userId])
+        ])
+    }
+    
+    @Published var yokaiComments: [[String: Any]] = []
+    @Published var isLoadingYokaiComments = false
+    
+    func fetchYokaiComments(yokaiId: String) async {
+        print("🔍 fetchYokaiComments開始: \(yokaiId)")
+        isLoadingYokaiComments = true
+        do {
+            let snapshot = try await db.collection("recentComments")
+                .whereField("yokaiId", isEqualTo: yokaiId)
+                .order(by: "createdAt", descending: false)
+                .getDocuments()
+            let comments = snapshot.documents.map { document in
+                var data = document.data()
+                data["documentId"] = document.documentID
+                return data
+            }
+            
+            yokaiComments = await filterBlockedComments(comments)
+            print("✅ コメント取得成功: \(yokaiComments.count)件")
+            isLoadingYokaiComments = false
+        } catch {
+            print("❌ コメント取得エラー: \(error)")
+            isLoadingYokaiComments = false
         }
     }
     
+    //2 コメント投稿機能
+
     private func refillToken() {
         let currentTime = Date().timeIntervalSince1970
         let timeSinceLastRefill = currentTime - lastRefillTime
-        
+
         // 480秒（8分）ごとに1トークン
         let tokensToAdd = Int(timeSinceLastRefill / 480.0)
-        
+
         if tokensToAdd > 0 {
-            let currentMaxTokens = getCurrentMaxTokens()
-            availableTokens = min(currentMaxTokens, tokensToAdd + availableTokens)
+            availableTokens = min(maxTokens, tokensToAdd + availableTokens)
             lastRefillTime = currentTime
         }
     }
@@ -111,14 +158,43 @@ class CommentService : ObservableObject {
             availableTokens -= 1
         }
     }
+    
+    func postComment(content: String, yokai: Ayakasi) async throws {
+        guard !content.isEmpty else {
+            throw CommentError(message: "コメントが空です")
+        }
+        guard let user = authService.currentUser else {
+            throw CommentError(message: "ログインが必要です")
+        }
+        // トークンバケットチェック
+        guard canComment() else {
+            throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
+        }
+        
+        // recentComments（正コレクション）用のデータ
+        let recentCommentData = [
+            "yokaiId": yokai.documentId,
+            "yokaiName": yokai.name,
+            "userId": user.uid,
+            "content": content,
+            "createdAt": FieldValue.serverTimestamp(),
+            "status": "pending",
+            "reportCount": 0,
+            "reportedBy": []
+        ] as [String : Any]
+        
+        // 最新コメント一覧（= 正コレクション）に保存
+        try await db.collection("recentComments")
+            .addDocument(data: recentCommentData)
+        // 成功時のみトークンを消費
+        consumeToken()
+    }
+    
+    //3 コメント報告機能
 
     func reportRecentComment(documentId: String) async throws {
         guard !documentId.isEmpty else {
             throw CommentError(message: "無効なコメントIDです")
-        }
-
-        guard await authService.ensureUserExists() else {
-            throw CommentError(message: "ユーザー情報の取得に失敗しました")
         }
 
         guard let user = authService.currentUser else {
@@ -147,86 +223,7 @@ class CommentService : ObservableObject {
         ])
     }
     
-    func blockUser(userId: String) async throws {
-        guard await authService.ensureUserExists() else {
-            throw CommentError(message: "ユーザー情報の取得に失敗しました")
-        }
-
-        guard let user = authService.currentUser else {
-            throw CommentError(message: "ログインが必要です")
-        }
-
-        let userRef = db.collection("users").document(user.uid)
-
-        try await userRef.updateData([
-            "blockedUsers": FieldValue.arrayUnion([userId])
-        ])
-    }
-    
-    //ここから
-
-
-
-
 
     
-    //ここまで
-    
-    func postComment(content: String, yokai: Ayakasi) async throws {
-        guard !content.isEmpty else {
-            throw CommentError(message: "コメントが空です")
-        }
-        guard let user = authService.currentUser else {
-            throw CommentError(message: "ログインが必要です")
-        }
-        // トークンバケットチェック
-        guard canComment() else {
-            throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
-        }
 
-        // recentComments（正コレクション）用のデータ
-        let recentCommentData = [
-            "yokaiId": yokai.documentId,
-            "yokaiName": yokai.name,
-            "userId": user.uid,
-            "content": content,
-            "createdAt": FieldValue.serverTimestamp(),
-            "status": "pending",
-            "reportCount": 0,
-            "reportedBy": []
-        ] as [String : Any]
-
-        // 最新コメント一覧（= 正コレクション）に保存
-        try await db.collection("recentComments")
-            .addDocument(data: recentCommentData)
-
-        // 成功時のみトークンを消費
-        consumeToken()
-    }
-
-    @Published var yokaiComments: [[String: Any]] = []
-    @Published var isLoadingYokaiComments = false
-
-    func fetchYokaiComments(yokaiId: String) async {
-        print("🔍 fetchYokaiComments開始: \(yokaiId)")
-        isLoadingYokaiComments = true
-        do {
-            let snapshot = try await db.collection("recentComments")
-                .whereField("yokaiId", isEqualTo: yokaiId)
-                .order(by: "createdAt", descending: false)
-                .getDocuments()
-            let comments = snapshot.documents.map { document in
-                var data = document.data()
-                data["documentId"] = document.documentID
-                return data
-            }
-            
-            yokaiComments = await filterBlockedComments(comments)
-            print("✅ コメント取得成功: \(yokaiComments.count)件")
-            isLoadingYokaiComments = false
-        } catch {
-            print("❌ コメント取得エラー: \(error)")
-            isLoadingYokaiComments = false
-        }
-    }
 }

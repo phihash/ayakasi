@@ -6,6 +6,7 @@ struct ReportTarget: Identifiable { let id: String }
 
 struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
+    @EnvironmentObject var authVM: AuthViewModel
     @State private var selectedYokai : Ayakasi? = nil
     @State private var selectedCommentId : String = ""
     @State private var reportTarget: ReportTarget? = nil
@@ -20,7 +21,24 @@ struct CommunityView: View {
                 }
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
-                
+
+                // 未ログインユーザー向けの注意書き
+                if authVM.user == nil {
+                    HStack(spacing: 8) {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(.orange)
+                        Text("コメントの投稿・報告・ブロックはログインが必要です")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(8)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 8)
+                }
+
                 if commentService.isLoadingRecentComments {
                     VStack(spacing: 16) {
                         ProgressView()
@@ -72,18 +90,20 @@ struct CommunityView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     HStack{
                                         Spacer()
-                                        Image(systemName: "ellipsis")
-                                            .font(.title3)
-                                            .onTapGesture {
-                                                guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
-                                                    print("❗️ documentId is missing; not opening report sheet")
-                                                    return
+                                        if authVM.user != nil {
+                                            Image(systemName: "ellipsis")
+                                                .font(.title3)
+                                                .onTapGesture {
+                                                    guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
+                                                        print("❗️ documentId is missing; not opening report sheet")
+                                                        return
+                                                    }
+
+                                                    selectedCommentId = docId
+                                                    reportTarget = ReportTarget(id: docId)
+
                                                 }
-                                                
-                                                selectedCommentId = docId
-                                                reportTarget = ReportTarget(id: docId)
-                                                
-                                            }
+                                        }
                                     }
                                     .padding(.bottom,12)
                                     Text(comment["content"] as? String ?? "")
