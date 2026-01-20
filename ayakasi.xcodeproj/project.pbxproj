@@ -133,6 +133,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A90D42BC2F1FC773007A05D1 /* favorites */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = favorites;
+			sourceTree = "<group>";
+		};
 		A97C2ACD2E561B5000889AB0 /* AyakasiWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -305,6 +310,7 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
@@ -376,6 +382,7 @@
 				A97C2AD62E561B5100889AB0 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E312EEF097600592CB5 /* stories */,

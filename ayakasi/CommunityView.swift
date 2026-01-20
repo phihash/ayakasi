@@ -7,6 +7,7 @@ struct ReportTarget: Identifiable { let id: String }
 struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var favoriteService: FavoriteService
     @State private var selectedYokai : Ayakasi? = nil
     @State private var selectedCommentId : String = ""
     @State private var reportTarget: ReportTarget? = nil
@@ -21,7 +22,7 @@ struct CommunityView: View {
                 }
                 .padding(.horizontal,24)
                 .padding(.vertical,12)
-
+                
                 // 未ログインユーザー向けの注意書き
                 if authVM.user == nil {
                     HStack(spacing: 8) {
@@ -37,12 +38,12 @@ struct CommunityView: View {
                     .padding(.horizontal, 24)
                     .padding(.bottom, 8)
                 }
-
+                
                 if commentService.isLoadingRecentComments {
                     VStack(spacing: 16) {
                         ProgressView()
                             .scaleEffect(1.5)
-
+                        
                         Text("最新のコメントを取得中です")
                             .font(.title3)
                             .fontWeight(.medium)
@@ -54,7 +55,7 @@ struct CommunityView: View {
                         Image(systemName: "bubble.left.and.bubble.right")
                             .font(.system(size: 40))
                             .foregroundColor(.gray)
-
+                        
                         Text("コメントはありません")
                             .font(.title3)
                             .fontWeight(.medium)
@@ -90,6 +91,8 @@ struct CommunityView: View {
                                     HStack{
                                         Spacer()
                                         if authVM.user != nil {
+                                            
+                                            
                                             Image(systemName: "ellipsis")
                                                 .font(.title3)
                                                 .onTapGesture {
@@ -97,11 +100,23 @@ struct CommunityView: View {
                                                         print("❗️ documentId is missing; not opening report sheet")
                                                         return
                                                     }
-
+                                                    
                                                     selectedCommentId = docId
                                                     reportTarget = ReportTarget(id: docId)
-
+                                                    
                                                 }
+                                            
+                                            // ブックマークアイコン
+                                            if let docId = comment["documentId"] as? String {
+                                                Image(systemName: favoriteService.bookmarkedCommentIds.contains(docId) ? "bookmark.fill" : "bookmark")
+                                                    .font(.title3)
+                                                    .foregroundColor(favoriteService.bookmarkedCommentIds.contains(docId) ? .orange : .primary)
+                                                    .onTapGesture {
+                                                        Task {
+                                                            try? await favoriteService.bookmarkComments(docId)
+                                                        }
+                                                    }
+                                            }
                                         }
                                     }
                                     .padding(.bottom,12)
@@ -143,10 +158,12 @@ struct CommunityView: View {
             .onAppear{
                 Task{
                     await commentService.getRecentCommentsIfNeeded()
+                    await favoriteService.fetchBookmarkCommentsIfNeeded()
                 }
             }
             .refreshable {
                 await commentService.getRecentComments()
+                try? await favoriteService.fetchBookmarkComments()
             }
             .fullScreenCover(item: $selectedYokai){ yokai in
                 NeoDetail(yokai: yokai)

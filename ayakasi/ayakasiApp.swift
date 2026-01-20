@@ -7,6 +7,7 @@ struct ayakasiApp: App {
     @StateObject private var AuthVM = AuthViewModel()
     @StateObject private var VoteVM = VoteService()
     @StateObject private var CommentVM = CommentService()
+    @StateObject private var FavoriteVM = FavoriteService.shared
     init(){
         FirebaseApp.configure()
     }
@@ -18,6 +19,7 @@ struct ayakasiApp: App {
                 .environmentObject(AuthVM)
                 .environmentObject(VoteVM)
                 .environmentObject(CommentVM)
+                .environmentObject(FavoriteVM)
         }
     }
 }
