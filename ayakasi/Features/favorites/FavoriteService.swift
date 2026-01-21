@@ -19,6 +19,7 @@ class FavoriteService : ObservableObject{
         
     }
     
+
     
     func fetchBookmarkCommentIds() async throws {
         guard let userId = authService.currentUser?.uid else {return}
@@ -33,6 +34,7 @@ class FavoriteService : ObservableObject{
     }
     
     func fetchBookmarkCommentIdsIfNeeded() async {
+      
         let currentTime = Date().timeIntervalSince1970
 
         // キャッシュが有効なら再取得しない
@@ -41,6 +43,18 @@ class FavoriteService : ObservableObject{
         }
 
         try? await fetchBookmarkCommentIds()
+    }
+    
+    func fetchBookmarkComments() async throws {
+        try await fetchBookmarkCommentIds()
+        let commentIds = Array(bookmarkedCommentIds)
+        
+        guard !commentIds.isEmpty else {
+            bookmarkedComments = []
+            return
+        }        
+        
+        
     }
     
     func bookmarkComments(_ commentId: String)async throws{
