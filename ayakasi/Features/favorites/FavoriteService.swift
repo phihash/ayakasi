@@ -8,6 +8,7 @@ class FavoriteService : ObservableObject{
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
     @Published var bookmarkedCommentIds: Set<String> = []
+    @Published var bookmarkedComments: [[String: Any]] = []
     @Published var isBookmarkCommentsLoading: Bool = false
     
     // キャッシュ管理
@@ -19,7 +20,7 @@ class FavoriteService : ObservableObject{
     }
     
     
-    func fetchBookmarkComments() async throws {
+    func fetchBookmarkCommentIds() async throws {
         guard let userId = authService.currentUser?.uid else {return}
         
         isBookmarkCommentsLoading = true
@@ -31,15 +32,15 @@ class FavoriteService : ObservableObject{
         lastBookmarkFetch = Date().timeIntervalSince1970
     }
     
-    func fetchBookmarkCommentsIfNeeded() async {
+    func fetchBookmarkCommentIdsIfNeeded() async {
         let currentTime = Date().timeIntervalSince1970
-        
+
         // キャッシュが有効なら再取得しない
         if currentTime - lastBookmarkFetch < cacheValidDuration {
             return
         }
-        
-        try? await fetchBookmarkComments()
+
+        try? await fetchBookmarkCommentIds()
     }
     
     func bookmarkComments(_ commentId: String)async throws{

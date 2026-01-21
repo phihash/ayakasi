@@ -60,20 +60,14 @@ struct SettingView: View {
                     }
                     
                     if authVM.authStatus == .authenticated {
-                        Button{
-
-                        } label: {
-                            HStack{
-                                HStack(spacing: 18){
-                                    Image(systemName: "bookmark.fill")
-                                    Text("ブックマーク一覧")
-                                }
-                                Spacer()
+                        NavigationLink(destination: BookmarkView()) {
+                            HStack(spacing: 18){
+                                Image(systemName: "bookmark.fill")
+                                Text("ブックマーク一覧")
                             }
-
+                            .foregroundStyle(.primary)
                             .padding(.vertical,6)
                         }
-                        .foregroundStyle(.primary)
                         
                         Button{
                             showLogoutAlert = true
