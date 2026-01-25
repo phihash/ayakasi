@@ -52,8 +52,7 @@ class FavoriteService : ObservableObject{
         guard !commentIds.isEmpty else {
             bookmarkedComments = []
             return
-        }        
-        
+        }
         
     }
     
