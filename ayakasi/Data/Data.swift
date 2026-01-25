@@ -1,5 +1,15 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "灰坊主",
+        documentId: "akubouzu",
+        imageName: "https://i.imgur.com/UMP1Qnv.png",
+        description: "灰坊主（あくぼうず）は、囲炉裏や竈の灰の中から現れるとされる妖怪で、秋田県や岩手県などに伝わる。姿は灰まみれの坊主のように描かれ、ぬっと這い出て人を驚かせたり、夜に家の中をうろつくともいわれる。名前の通り「灰」に関わる怪異であり、火の気が消えた後の囲炉裏に残る灰の不気味さが、その伝承の背景にあると考えられている。",
+        categories: ["家の怪","すべて"],
+        relatedCategory: "家の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
         name: "獏",
         documentId: "baku",
         imageName: "https://i.imgur.com/A7VRMHF.png",
