@@ -68,34 +68,7 @@ struct ReportUI: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                 }
-                
-                Button {
-                    Task {
-                        do {
-                            try await commentService.blockUser(userId: userId)
-                            alertTitle = "完了"
-                            alertMessage = "ユーザーをブロックしました"
-                            showAlert = true
-                        } catch {
-                            alertTitle = "エラー"
-                            alertMessage = error.localizedDescription
-                            showAlert = true
-                        }
-                    }
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "person.fill.xmark")
-                        Text("ユーザーをブロックする")
-                    }
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
-                    .background(.orange)
-                    .cornerRadius(25)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                }
+ 
             }
         }
         .alert(alertTitle, isPresented: $showAlert) {

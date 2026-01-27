@@ -102,6 +102,7 @@ struct NeoDetail: View {
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @State private var isCommentUI = false
+    @State private var voteSuccess = false
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
@@ -276,25 +277,12 @@ struct NeoDetail: View {
                         
                         if selectedTab == 0{
                             VStack{
-                                HStack{
-                                    Image("description")
-                                        .renderingMode(.template)
-                                    Text("説明")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                }
-                                .padding(.horizontal,24)
-                                .padding(.top,20)
-                                .padding(.bottom,12)
                                 
                                 Text(yokai.description)
                                     .fontWeight(.bold)
-                                    .padding(.vertical,6)
+                                    .padding(.vertical,12)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal,24)
-                                
-                                
                                 
                                 
                                 if let btw = yokai.btw {
@@ -369,7 +357,9 @@ struct NeoDetail: View {
                 Button {
                     Task {
                         do {
+
                             try await voteService.vote(aykasiId: yokai.documentId)
+                            voteSuccess.toggle()
                         } catch let error as VoteError {
                             // VoteErrorの場合、日本語メッセージを表示
                             alertMessage = error.localizedDescription
@@ -379,7 +369,7 @@ struct NeoDetail: View {
                             showAlert = true
                         }
                     }
-                    
+
                 } label: {
                     VStack(spacing: 2) {
                         Image(systemName: "heart.fill")
@@ -394,6 +384,7 @@ struct NeoDetail: View {
                     .background(Circle().fill(Color.red.opacity(0.8)))
                     .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
                 }
+                .sensoryFeedback(.success, trigger: voteSuccess)
                 .padding(.trailing, 20)
                 .padding(.bottom,16)
                 

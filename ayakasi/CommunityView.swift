@@ -107,16 +107,16 @@ struct CommunityView: View {
                                                 }
                                             
                                             // ブックマークアイコン
-                                            if let docId = comment["documentId"] as? String {
-                                                Image(systemName: favoriteService.bookmarkedCommentIds.contains(docId) ? "bookmark.fill" : "bookmark")
-                                                    .font(.title3)
-                                                    .foregroundColor(favoriteService.bookmarkedCommentIds.contains(docId) ? .orange : .primary)
-                                                    .onTapGesture {
-                                                        Task {
-                                                            try? await favoriteService.bookmarkComments(docId)
-                                                        }
-                                                    }
-                                            }
+//                                            if let docId = comment["documentId"] as? String {
+//                                                Image(systemName: favoriteService.bookmarkedCommentIds.contains(docId) ? "bookmark.fill" : "bookmark")
+//                                                    .font(.title3)
+//                                                    .foregroundColor(favoriteService.bookmarkedCommentIds.contains(docId) ? .orange : .primary)
+//                                                    .onTapGesture {
+//                                                        Task {
+//                                                            try? await favoriteService.bookmarkComments(docId)
+//                                                        }
+//                                                    }
+//                                            }
                                         }
                                     }
                                     .padding(.bottom,12)
