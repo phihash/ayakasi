@@ -190,37 +190,7 @@ struct HomeView: View {
                 .padding(.bottom,16)
                 
                 
-                HStack{
-                    Text("ランキング")
-                    
-                    Spacer()
-                }
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding(.horizontal,20)
-                .padding(.vertical,8)
-                
-                ScrollView(.horizontal,showsIndicators: false){
-                    
-                    HStack(spacing: 16){
-                        ForEach(rankedYokai.prefix(9)){ ayakasi in
-                            PickupCard(ayakasi: ayakasi)
-                                .onTapGesture{
-                                    selectedYokai = ayakasi
-                                }
-                                .fullScreenCover(item: $selectedYokai){ yokai in
-                                    NavigationStack {
-                                        NeoDetail(yokai: yokai)
-                                    }
-                                }
-                        }
-                        
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,24)
-                }
-                
-                
+            
                 HStack{
                     Text("ニュース")
                     Spacer()
@@ -279,7 +249,7 @@ struct HomeView: View {
             }
             .background(Color("Ivory"))
             
-            .navigationTitle("ホーム")
+            .navigationTitle("イベント・ニュース")
             .navigationBarTitleDisplayMode(.inline)
             .task {
                 await loadEvents()

@@ -1,5 +1,56 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "ごたいめん",
+        documentId: "gotaimen",
+        imageName: "https://i.imgur.com/wQ6lOM0.png",
+        description: "ごたいめんは、夜道や辻などで突然人の前に現れるとされる妖怪で、その名の通り「真正面から出会う」ことを特徴としている。振り返った先や道の曲がり角に、いつの間にか立っている姿が語られ、逃げようとしても進路を塞ぐように再び正面に現れるという。害を加えるわけではないが、道を進む者に強い動揺と不安を与え、夜道での不意の遭遇そのものを象徴する妖怪だと考えられている。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "いが坊",
+        documentId: "igabou",
+        imageName: "https://i.imgur.com/NqgfquS.png",
+        description: "いが坊は、夜の道ばたや林の近くに現れるとされる小さな妖怪で、いがいがした姿をした坊主のように語られている。道の端にじっと座っていたり、転がっているように見えることもあり、人が近づくと急に姿を消すことが多い。害をなすことはほとんどなく、旅人や通行人を驚かせる程度の存在で、夜道で感じる気配や違和感が形になった妖怪だと考えられている。",
+        categories: ["すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "べか太郎",
+        documentId: "bekatarou",
+        imageName: "https://i.imgur.com/GYL8nlN.png",
+        description: "べか太郎は、夜道や人通りの少ない道に現れるとされる妖怪で、遠くから見ると人影のように見えるが、近づくと正体が分からなくなる存在だと語られている。追いかけても逃げることはなく、かといって捕まえることもできず、気づけばいつの間にか姿を消している。特別な害を及ぼすわけではないが、夜道で感じる不安や錯覚を形にした妖怪だと考えられている。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "わいら",
+        documentId: "waira",
+        imageName: "https://i.imgur.com/rw9HxXp.png",
+        description: "わいらは、家の縁の下や暗がりに潜むとされる妖怪で、人目につかない場所からじっと人を見つめている存在だと語られている。はっきりとした姿や性質は伝わっておらず、影のように現れては気配だけを残し、特別な害をなすことも少ない。その正体の曖昧さゆえに、「そこに何かいるのではないか」という不安や違和感そのものが、わいらの正体だとも考えられている。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "ぬらりひょん",
+        documentId: "nurarihyon",
+        imageName: "https://i.imgur.com/iaZS4AL.png",
+        description: "ぬらりひょんは、夕暮れ時に人の家へ何食わぬ顔で上がり込み、まるで主のように振る舞うとされる妖怪である。老人のような姿をしているが、正体や目的ははっきりせず、追い出そうとしても気づけばいつの間にか消えているという。特別な害をなすわけではないが、その得体の知れなさと図々しさから、家に忍び込む怪異の代表的存在として語られてきた。",
+        categories: ["家の怪","すべて"],
+        relatedCategory: "家の怪",
+        btw: nil,
+        sotry: false
+    ),
+
+    Ayakasi(
         name: "灰坊主",
         documentId: "akubouzu",
         imageName: "https://i.imgur.com/UMP1Qnv.png",

@@ -8,11 +8,52 @@ struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var favoriteService: FavoriteService
+    @EnvironmentObject var voteService  : VoteService
     @State private var selectedYokai : Ayakasi? = nil
     @State private var selectedCommentId : String = ""
     @State private var reportTarget: ReportTarget? = nil
+    var rankedYokai : [Ayakasi] {
+        ayakasis.sorted{ element1 , element2 in
+            let count1 = voteService.voteCountCache[element1.documentId] ?? 0
+            let count2 = voteService.voteCountCache[element2.documentId] ?? 0
+            return count1 > count2
+        }
+    }
     var body: some View {
         NavigationStack{
+            HStack{
+                Text("ランキング")
+                
+                Spacer()
+            }
+            .font(.headline)
+            .fontWeight(.bold)
+            .padding(.horizontal,20)
+            .padding(.vertical,8)
+            
+            ScrollView(.horizontal,showsIndicators: false){
+                
+                HStack(spacing: 16){
+                    ForEach(rankedYokai.prefix(9)){ ayakasi in
+                        PickupCard(ayakasi: ayakasi)
+                            .frame(height: 140)
+                            .onTapGesture{
+                                selectedYokai = ayakasi
+                            }
+                            .fullScreenCover(item: $selectedYokai){ yokai in
+                                NavigationStack {
+                                    NeoDetail(yokai: yokai)
+                                }
+                            }
+                    }
+                    
+                }
+                .padding(.horizontal,20)
+                .padding(.bottom,24)
+            }
+            
+            
+            
             ScrollView{
                 HStack{
                     Text("最近のコメント")

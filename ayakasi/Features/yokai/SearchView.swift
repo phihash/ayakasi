@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
-    let itemSpacing: CGFloat = 20
+    let itemSpacing: CGFloat = 30
     let categories = [
         "すべて", "道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪"
     ]
@@ -11,9 +11,7 @@ struct SearchView: View {
     @State private var selectedCategory: String = "すべて"
     
     var body: some View {
-        let availableWidth = screenWidth - 40 //padding引く
-        let itemWidth = (availableWidth - itemSpacing) / 2
-        let columns = Array(repeating: GridItem(.fixed(itemWidth),spacing: itemSpacing) , count: 2)
+        let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: 3)
         
         NavigationStack{
             VStack{
@@ -21,7 +19,7 @@ struct SearchView: View {
                     CategoryBar(categories: categories,selectedCategory: $selectedCategory)
                         .padding(.leading,8)
                     
-                    LazyVGrid(columns: columns){
+                    LazyVGrid(columns: columns, spacing: itemSpacing){
                         ForEach(ayakasis.filter{ $0.categories.contains(selectedCategory) },id: \.id){ayakasi in
                             PickupCard(ayakasi: ayakasi)
                                 .onTapGesture{

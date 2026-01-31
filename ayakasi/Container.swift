@@ -7,16 +7,18 @@ struct Container: View {
         ZStack{
             
             TabView(selection: $selection) {
-                HomeView()
-                    .tabItem {
-                        Image("home")
-                            .renderingMode(.template)
-                    }
-                    .tag(0)
+
                 
                 SearchView()
                     .tabItem {
                         Image("book2")
+                            .renderingMode(.template)
+                    }
+                    .tag(0)
+                
+                HomeView()
+                    .tabItem {
+                        Image("home")
                             .renderingMode(.template)
                     }
                     .tag(1)
