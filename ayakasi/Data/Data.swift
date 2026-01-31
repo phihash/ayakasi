@@ -1,5 +1,65 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "じゅうめん",
+        documentId: "jumen",
+        imageName: "https://i.imgur.com/ibPZzTI.png",
+        description: "じゅうめん",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "うやうやし",
+        documentId: "uyauyasi",
+        imageName: "https://i.imgur.com/CLaOoRo.png",
+        description: "うやうやし",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "にくらし",
+        documentId: "nikurasi",
+        imageName: "https://i.imgur.com/KY1Qxgg.png",
+        description: "にくらし",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "馬肝入道",
+        documentId: "bakkannyudou",
+        imageName: "https://i.imgur.com/4Nlpvq7.png",
+        description: "馬肝入道",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "なんじやか",
+        documentId: "nanjiyaka",
+        imageName: "https://i.imgur.com/z3MAS9i.png",
+        description: "",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "まっぴら",
+        documentId: "mappira",
+        imageName: "https://i.imgur.com/Bq5cPyz.png",
+        description: "",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
         name: "ごたいめん",
         documentId: "gotaimen",
         imageName: "https://i.imgur.com/wQ6lOM0.png",

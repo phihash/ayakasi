@@ -67,7 +67,7 @@ struct PickupCard: View {
             .cacheOriginalImage()
             .resizable()
             .scaledToFill()
-            .frame(width: 140)
+            .frame(width: 120)
             .cornerRadius(12)
             .overlay(alignment: .bottomLeading) { nameOverlay }
             .overlay(alignment: .topLeading) { voteOverlay }
@@ -79,7 +79,7 @@ struct PickupCard: View {
         Image(ayakasi.imageName)
             .resizable()
             .scaledToFill()
-            .frame(width: 140)
+            .frame(width: 120)
             .cornerRadius(12)
             .overlay(alignment: .bottomLeading) {
                 Text(ayakasi.name)

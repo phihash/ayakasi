@@ -19,6 +19,11 @@ struct SearchView: View {
                     CategoryBar(categories: categories,selectedCategory: $selectedCategory)
                         .padding(.leading,8)
                     
+                    HStack{
+                        Text("妖怪全部で\(ayakasis.count)種類!")
+                    }
+                    .background(Color.yellow)
+                    
                     LazyVGrid(columns: columns, spacing: itemSpacing){
                         ForEach(ayakasis.filter{ $0.categories.contains(selectedCategory) },id: \.id){ayakasi in
                             PickupCard(ayakasi: ayakasi)
