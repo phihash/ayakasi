@@ -16,7 +16,8 @@ struct Ayakasi : Identifiable {
     let relatedCategory: String?    // 関連カテゴリ（"すべて"以外の具体的なカテゴリ）
     var btw: String? = nil          // ← 追加：「ちなみに」用のメモ（別名・豆知識など）
     var references: [ReferenceLink]? = nil
-    let sotry: Bool 
+    var searchKeywords: [String]? = nil  // 検索用キーワード（読み仮名・別名など）
+    let sotry: Bool
 }
 
 struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }

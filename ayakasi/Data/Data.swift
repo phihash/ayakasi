@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "玄武",
+        documentId: "genbu",
+        imageName: "https://i.imgur.com/GiVFGKQ.png",
+        description: "玄武",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["げんぶ", "中国"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "波蛇",
         documentId: "namihebi",
         imageName: "https://i.imgur.com/Xi9meFI.png",
@@ -7,6 +18,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["波蛇", "なみへび"],
         sotry: false
     ),
     Ayakasi(
@@ -17,6 +29,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["蟹鬼", "かにおに"],
         sotry: false
     ),
     Ayakasi(
@@ -24,9 +37,10 @@ let ayakasis: [Ayakasi] = [
         documentId: "kyonsi",
         imageName: "https://i.imgur.com/RhjvBmt.png",
         description: "キョンシー",
-        categories: ["道の怪","すべて"],
-        relatedCategory: "道の怪",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
         btw: nil,
+        searchKeywords: ["キョンシー", "中国"],
         sotry: false
     ),
     Ayakasi(
@@ -37,6 +51,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["じゅうめん"],
         sotry: false
     ),
     Ayakasi(
@@ -47,6 +62,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["うやうやし"],
         sotry: false
     ),
     Ayakasi(
@@ -158,6 +174,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["ばく", "悪夢"],
         sotry: false
     ),
     Ayakasi(
@@ -178,6 +195,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["牛", "ぎゅうかん"],
         sotry: false
     ),
     Ayakasi(
@@ -188,6 +206,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["ふすま", "のぶすま","野衾"],
         sotry: false
     ),
 
@@ -199,6 +218,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         btw: nil,
+        searchKeywords: ["中国", "けいてん","刑天"],
         sotry: false
     ),
     Ayakasi(
@@ -209,6 +229,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         btw: nil,
+        searchKeywords: ["中国", "西遊記","猪八戒","ちょはっかい"],
         sotry: false
     ),
     Ayakasi(
@@ -216,9 +237,10 @@ let ayakasis: [Ayakasi] = [
         documentId: "sagojou",
         imageName: "https://i.imgur.com/Eb4JLmi.png",
         description: "『西遊記』に登場する妖怪。もとは天界に仕える存在であったが、天帝の宴の席で誤って玻璃の杯を壊した罪により下界へ落とされ、流砂河に追放されたとされる。以後、七日に一度、天から降ってくる剣によって脇腹を刺されるという罰を受け続け、水辺に棲む水怪と成り果てた。\n\n流砂河では、通りかかった旅人や僧を襲い、その骸骨を首にかけていたと伝えられる。首に下げた骸骨は七つあり、これは自身に科せられた七日の刑を象徴するとも言われる。髪はまばらで、痩せた体つきの異様な姿をしており、人の言葉を解しながらも長く孤独な日々を送っていたという。\n\n後に三蔵法師一行と出会い、観音菩薩の導きによって改心し、旅の供として加わることになる。それまでは恐れられる水の怪であったが、根は真面目で従順な性質であり、過去の罪を背負いながらも黙々と役目を果たす存在として語られる。",
-        categories: ["水の怪","すべて"],
-        relatedCategory: "水の怪",
+        categories: ["水の怪","外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
         btw: nil,
+        searchKeywords: ["西遊記", "中国","沙悟浄","さごじょう"],
         sotry: false
     ),
     Ayakasi(
@@ -360,6 +382,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
+        searchKeywords: ["うしおに", "濡れ女"],
         sotry: false
     ),
     
@@ -371,6 +394,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: "作家小松左京の、くだんのははという短編小説で題材にされている。",
+        searchKeywords: ["くだん", "人面牛", "予言"],
         sotry: false
     ),
     
@@ -393,6 +417,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["ろくろくび", "轆轤首"],
         sotry: false
     ),
     
@@ -404,7 +429,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","水の怪","すべて"],
         relatedCategory: "音の怪",
         btw: "小豆は収獲後乾燥して保存した際のごみや虫を除くために洗います。",
-     
+        searchKeywords: ["あずきあらい", "小豆とぎ", "あずきとぎ"],
         sotry: false
     ),
     Ayakasi(
@@ -425,6 +450,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["ねこまた", "化け猫"],
         sotry: false
     ),
     
@@ -436,7 +462,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-       
+        searchKeywords: ["きつね", "九尾", "狐火"],
         sotry: false
     ),
     Ayakasi(
@@ -496,6 +522,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
+        searchKeywords: ["ゆきおんな", "雪んば"],
         sotry: true
     ),
     Ayakasi(
@@ -567,6 +594,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         btw: "兵庫県西脇市の長明寺には、鵺退治像があります。",
+        searchKeywords: ["ぬえ", "トラツグミ", "源頼政"],
         sotry: false
     ),
    
@@ -600,6 +628,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
+        searchKeywords: ["おに", "赤鬼", "青鬼"],
         sotry: false
     ),
     
@@ -623,6 +652,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
+        searchKeywords: ["かっぱ", "ガワタロ", "メドチ"],
         sotry: false
     ),
     Ayakasi(
@@ -655,6 +685,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
+        searchKeywords: ["天狗", "烏天狗", "カラステング"],
         sotry: false
     ),
     
@@ -730,6 +761,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["かまいたち"],
         sotry: false
     ),
     Ayakasi(
@@ -740,6 +772,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: "抱いた者が疲れ果てるまで離れないという伝承がある。",
+        searchKeywords: ["ゲゲゲの鬼太郎", "こなきじじい","子泣き","こなき爺"],
         sotry: false
     ),
     Ayakasi(
@@ -750,6 +783,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: "底に穴をあけた柄杓を渡すと水が溜まらず逃れられると伝わる。",
+        searchKeywords: ["船", "ひしゃく","船幽霊","海","ふなゆうれい"],
         sotry: false
     ),
     Ayakasi(
@@ -760,6 +794,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
+        searchKeywords: ["都市伝説", "ひきこさん"],
         sotry: false
     ),
     Ayakasi(
@@ -770,6 +805,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
+        searchKeywords: ["吉原千恵子", "チェーンメール","都市伝説"],
         sotry: false
     )
 ]

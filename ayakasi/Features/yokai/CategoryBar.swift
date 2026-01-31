@@ -29,8 +29,9 @@ struct CategoryBar : View{
                         
                     }
                 }
-                .padding(.vertical,18)
-                .padding(.leading,12)
+                .padding(.bottom,18)
+                .padding(.top,6)
+                .padding(.leading,20)
                 .padding(.trailing,24)
             }
         }
