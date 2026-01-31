@@ -1,5 +1,35 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "波蛇",
+        documentId: "namihebi",
+        imageName: "https://i.imgur.com/Xi9meFI.png",
+        description: "波蛇",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "蟹鬼",
+        documentId: "kanioni",
+        imageName: "https://i.imgur.com/4OJ8ZhN.png",
+        description: "かにおに",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
+        name: "キョンシー",
+        documentId: "kyonsi",
+        imageName: "https://i.imgur.com/RhjvBmt.png",
+        description: "キョンシー",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        sotry: false
+    ),
+    Ayakasi(
         name: "じゅうめん",
         documentId: "jumen",
         imageName: "https://i.imgur.com/ibPZzTI.png",

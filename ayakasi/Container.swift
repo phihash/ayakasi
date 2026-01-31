@@ -18,7 +18,7 @@ struct Container: View {
                 
                 HomeView()
                     .tabItem {
-                        Image("home")
+                        Image("news")
                             .renderingMode(.template)
                     }
                     .tag(1)

@@ -58,20 +58,23 @@ struct PickupCard: View {
     
     @ViewBuilder
     private func networkImage(url: URL) -> some View {
-        KFImage(url)
-            .placeholder {
-                Image("loading")
-                    .resizable()
-                    .scaledToFill()
-            }
-            .cacheOriginalImage()
-            .resizable()
-            .scaledToFill()
-            .frame(width: 120)
-            .cornerRadius(12)
-            .overlay(alignment: .bottomLeading) { nameOverlay }
-            .overlay(alignment: .topLeading) { voteOverlay }
-            .overlay(alignment: .topTrailing) { storyOverlay }
+        VStack{
+            KFImage(url)
+                .placeholder {
+                    Image("loading")
+                        .resizable()
+                        .scaledToFill()
+                }
+                .cacheOriginalImage()
+                .resizable()
+                .scaledToFill()
+                .frame(width: 120)
+                .cornerRadius(12)
+                .overlay(alignment: .bottomLeading) { nameOverlay }
+                .overlay(alignment: .topLeading) { voteOverlay }
+                .overlay(alignment: .topTrailing) { storyOverlay }
+        }
+
     }
     
     @ViewBuilder

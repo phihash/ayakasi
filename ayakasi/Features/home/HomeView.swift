@@ -135,7 +135,7 @@ struct HomeView: View {
                 }
                 
                 HStack{
-                    Text("イベント")
+                    Text("全国で開催中の妖怪イベント!")
                         .font(.headline)
                         .fontWeight(.bold)
                     Spacer()
@@ -192,7 +192,7 @@ struct HomeView: View {
                 
             
                 HStack{
-                    Text("ニュース")
+                    Text("妖怪関連ニュース")
                     Spacer()
                 }
                 .font(.headline)
