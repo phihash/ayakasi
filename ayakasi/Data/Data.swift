@@ -229,6 +229,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["馬", "うまかん"],
         sotry: false
     ),
     Ayakasi(
@@ -416,6 +417,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
+        searchKeywords: ["かさこぞう", "傘"],
         sotry: false
     )    ,
     Ayakasi(
@@ -426,7 +428,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         btw: nil,
-        searchKeywords: ["うしおに", "濡れ女"],
+        searchKeywords: ["うしおに", "濡れ女","牛"],
         sotry: false
     ),
     
@@ -450,6 +452,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
+        searchKeywords: ["ぬらりひょん"],
         sotry: false
     ),
     
@@ -577,6 +580,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
+        searchKeywords: ["都市伝説", "テケテケ"],
         sotry: false
     ),
     Ayakasi(
@@ -597,7 +601,7 @@ let ayakasis: [Ayakasi] = [
         description: "目が一つしかない小僧の妖怪\n12月8日の晩になると人の目には見えない一つ目小僧が、戸締りされていない家をさがして入ってくるといわれてた。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-      
+        searchKeywords: ["神奈川", "一つ目小僧"],
         sotry: false
     ),
     Ayakasi(
@@ -608,6 +612,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
+        searchKeywords: ["学校の怪談", "都市伝説","トイレ"],
         sotry: false
     ),
     Ayakasi(
@@ -618,6 +623,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: "現時点で、のっぺらぼうという言葉が記録された最初の文献は、松尾芭蕉の詠んだ句である",
+        searchKeywords: ["おいてけ", "顔"],
         sotry: true
     ),
     Ayakasi(
@@ -628,6 +634,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
+        searchKeywords: ["蛇", "和歌山"],
         sotry: true
     ),
     Ayakasi(
@@ -784,6 +791,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         btw: nil,
+        searchKeywords: ["やま", "ばばあ"],
         sotry: true
     ),
     

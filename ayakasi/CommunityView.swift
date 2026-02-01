@@ -36,7 +36,7 @@ struct CommunityView: View {
                 HStack(spacing: 16){
                     ForEach(rankedYokai.prefix(9)){ ayakasi in
                         PickupCard(ayakasi: ayakasi)
-                            .frame(height: 120)
+                            .frame(height: 200)
                             .onTapGesture{
                                 selectedYokai = ayakasi
                             }
