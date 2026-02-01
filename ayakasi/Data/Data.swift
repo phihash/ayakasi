@@ -1,5 +1,49 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "くねゆすり",
+        documentId: "kunayusuri",
+        imageName: "https://i.imgur.com/r0uunaR.png",
+        description: "くねゆすり",
+        categories: ["音の怪","すべて"],
+        relatedCategory: "音の怪",
+        btw: nil,
+        searchKeywords: ["くねゆすり", "秋田","仙北市"],
+        sotry: false
+    ),
+    Ayakasi(
+        name: "白虎",
+        documentId: "byakko",
+        imageName: "https://i.imgur.com/ydebR4R.png",
+        description: "白虎",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["びゃっこ", "中国"],
+        sotry: false
+    ),
+    Ayakasi(
+        name: "青龍",
+        documentId: "seiryu",
+        imageName: "https://i.imgur.com/Ch5JFEO.png",
+        description: "青龍",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["せいりゅう", "中国"],
+        sotry: false
+    ),
+    Ayakasi(
+        name: "朱雀",
+        documentId: "suzaku",
+        imageName: "https://i.imgur.com/oRDLTjr.png",
+        description: "朱雀",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["すざく", "中国"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "玄武",
         documentId: "genbu",
         imageName: "https://i.imgur.com/GiVFGKQ.png",
@@ -594,7 +638,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         btw: "兵庫県西脇市の長明寺には、鵺退治像があります。",
-        searchKeywords: ["ぬえ", "トラツグミ", "源頼政"],
+        searchKeywords: ["ぬえ", "トラツグミ", "源頼政","西脇","兵庫"],
         sotry: false
     ),
    
