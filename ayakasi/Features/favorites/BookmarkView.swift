@@ -7,7 +7,7 @@ struct BookmarkView: View {
     private var db = Firestore.firestore()
     var body: some View {
         ScrollView{
-            
+
         }
     }
 }

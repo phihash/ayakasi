@@ -102,6 +102,15 @@ struct SettingView: View {
                     }
                     
                     
+                    NavigationLink(destination: FavoriteYokaiView()) {
+                        HStack(spacing: 18){
+                            Image(systemName: "star.fill")
+                            Text("お気に入り一覧")
+                        }
+                        .foregroundStyle(.primary)
+                        .padding(.vertical,6)
+                    }
+
                     NavigationLink(destination: ColorView() ){
                         HStack(spacing: 18){
                             Image(systemName: "paintpalette")

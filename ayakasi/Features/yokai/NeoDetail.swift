@@ -107,6 +107,7 @@ struct NeoDetail: View {
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
+    @EnvironmentObject var favoriteService : FavoriteService
     
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
@@ -214,6 +215,25 @@ struct NeoDetail: View {
         .padding(.top, 48)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
+
+    private var favoriteButtonView: some View {
+        HStack {
+            Circle()
+                .fill(Color.black.opacity(0.6))
+                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                .overlay(
+                    Image(systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "star.fill" : "star")
+                        .foregroundStyle(.yellow)
+                        .padding()
+                )
+                .onTapGesture {
+                    favoriteService.toggleFavoriteYokai(yokai.documentId)
+                }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+    }
     
     private var titleView: some View {
         Text(yokai.name)
@@ -232,11 +252,13 @@ struct NeoDetail: View {
                 VStack{
                     ZStack{
                         imageView
-                        
+
                         backButtonView
-                        
+
+                        favoriteButtonView
+
                         titleView
-                        
+
                     }
                     
                     // 2タブ

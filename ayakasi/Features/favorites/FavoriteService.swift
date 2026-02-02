@@ -10,15 +10,22 @@ class FavoriteService : ObservableObject{
     @Published var bookmarkedCommentIds: Set<String> = []
     @Published var bookmarkedComments: [[String: Any]] = []
     @Published var isBookmarkCommentsLoading: Bool = false
-    
+
+    // 妖怪のお気に入り（ローカル保存）
+    @Published var favoriteYokaiIds: [String] = [] {
+        didSet {
+            UserDefaults.standard.set(favoriteYokaiIds, forKey: "favoriteYokaiIds")
+        }
+    }
+
     // キャッシュ管理
     private let cacheValidDuration: TimeInterval = 300 // 5分
     @AppStorage("lastBookmarkFetch") private var lastBookmarkFetch: Double = 0
-    
+
     private init(){
-        
+        // 保存されたお気に入りを読み込む
+        self.favoriteYokaiIds = UserDefaults.standard.stringArray(forKey: "favoriteYokaiIds") ?? []
     }
-    
 
     
     func fetchBookmarkCommentIds() async throws {
@@ -58,9 +65,9 @@ class FavoriteService : ObservableObject{
     
     func bookmarkComments(_ commentId: String)async throws{
         guard let userId = authService.currentUser?.uid else {return}
-        
+
         let isBookmarked = bookmarkedCommentIds.contains(commentId)
-        
+
         if isBookmarked{
             try await db.collection("users").document(userId).updateData(
                 ["bookmarkedComments": FieldValue.arrayRemove([commentId])]
@@ -73,5 +80,17 @@ class FavoriteService : ObservableObject{
             bookmarkedCommentIds.insert(commentId)
         }
     }
-    
+
+    func isFavoriteYokai(_ documentId: String) -> Bool {
+        return favoriteYokaiIds.contains(documentId)
+    }
+
+    func toggleFavoriteYokai(_ documentId: String) {
+        if let index = favoriteYokaiIds.firstIndex(of: documentId) {
+            favoriteYokaiIds.remove(at: index)
+        } else {
+            favoriteYokaiIds.append(documentId)
+        }
+    }
+
 }
