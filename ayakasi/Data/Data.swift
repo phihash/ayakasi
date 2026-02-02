@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "しろうかり",
+        documentId: "siroukari",
+        imageName: "https://i.imgur.com/KTuQ8yj.png",
+        description: "しろうかり",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        searchKeywords: ["しろうかり"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "くねゆすり",
         documentId: "kunayusuri",
         imageName: "https://i.imgur.com/r0uunaR.png",
@@ -208,6 +219,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         btw: nil,
+        searchKeywords: ["秋田","岩手","あくぼうず"],
         sotry: false
     ),
     Ayakasi(
@@ -316,6 +328,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         btw: nil,
+        searchKeywords: ["くねくね","都市伝説"],
         sotry: false
     ),
     Ayakasi(
@@ -336,6 +349,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: nil,
         btw: nil,
+        searchKeywords: ["吸血鬼"],
         sotry: false
     ),
     Ayakasi(
@@ -385,7 +399,8 @@ let ayakasis: [Ayakasi] = [
         description: "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。\n\n深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        btw: "名前が「悪皿（あくさら）」と略されることもある。",
+        btw: nil,
+        searchKeywords: ["都市伝説"],
         sotry: false
     ),
     
@@ -537,6 +552,7 @@ let ayakasis: [Ayakasi] = [
         description: "巨大なむかでの妖怪で、藤原秀郷が瀬田の唐橋で横たわっている大蛇に頼まれて、おおむかでを退治した",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
+        searchKeywords: ["藤原秀郷","滋賀","瀬田の唐橋"],
         sotry: false
     ),
     Ayakasi(
