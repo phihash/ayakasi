@@ -34,7 +34,7 @@ struct SearchView: View {
                     
                     LazyVGrid(columns: columns, spacing: itemSpacing){
                         ForEach(filteredYokai, id: \.id){ayakasi in
-                            PickupCard(ayakasi: ayakasi)
+                            PickupCard(ayakasi: ayakasi, showVotes: false)
                                 .onTapGesture{
                                     selectedYokai = ayakasi
                                 }
@@ -69,4 +69,3 @@ struct SearchView: View {
         }
     }
 }
-

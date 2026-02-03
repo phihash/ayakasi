@@ -234,6 +234,25 @@ struct NeoDetail: View {
         .padding(.top, 48)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
     }
+
+    private var readButtonView: some View {
+        HStack {
+            Circle()
+                .fill(Color.black.opacity(0.6))
+                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                .overlay(
+                    Image(systemName: favoriteService.isReadYokai(yokai.documentId) ? "checkmark.circle.fill" : "checkmark.circle")
+                        .foregroundStyle(.green)
+                        .padding()
+                )
+                .onTapGesture {
+                    favoriteService.toggleReadYokai(yokai.documentId)
+                }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 48 + screenWidth * 0.1 + 12) // お気に入りボタンの下に配置
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+    }
     
     private var titleView: some View {
         Text(yokai.name)
@@ -256,6 +275,8 @@ struct NeoDetail: View {
                         backButtonView
 
                         favoriteButtonView
+
+                        readButtonView
 
                         titleView
 
@@ -447,6 +468,10 @@ struct NeoDetail: View {
         }
         .task {
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
+            // 詳細画面を開いたら自動で既読にする
+            if !favoriteService.isReadYokai(yokai.documentId) {
+                favoriteService.toggleReadYokai(yokai.documentId)
+            }
         }
         .sheet(isPresented: $isCommentUI) {
             CommentUI(isPresented: $isCommentUI, yokai: yokai)

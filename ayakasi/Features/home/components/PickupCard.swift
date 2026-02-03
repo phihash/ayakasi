@@ -3,6 +3,7 @@ import Kingfisher
 
 struct PickupCard: View {
     let ayakasi: Ayakasi
+    var showVotes: Bool = true
     @EnvironmentObject var voteService: VoteService
 
     @ViewBuilder
@@ -40,7 +41,7 @@ struct PickupCard: View {
                         .shadow(color: .black, radius: 2, x: 1, y: 1)
                 )
                 .padding(.trailing, 8)
-                .padding(.top, 8)
+                .padding(.bottom, 8)
         }
     }
     
@@ -58,16 +59,20 @@ struct PickupCard: View {
                 .scaledToFill()
                 .frame(width: 120)
                 .cornerRadius(12)
+                .overlay(alignment: .bottomTrailing) {
+                    storyOverlay
+                }
             HStack{
                 Text(ayakasi.name)
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundStyle(.black)
-                
+                    .lineLimit(1)
             }
             HStack{
-                voteOverlay
-                storyOverlay
+                if showVotes {
+                    voteOverlay
+                }
             }
         }
 
@@ -87,6 +92,9 @@ struct PickupCard: View {
                     .foregroundStyle(.white)
                     .padding(.leading, 20)
                     .padding(.bottom, 20)
+            }
+            .overlay(alignment: .bottomTrailing) {
+                storyOverlay
             }
     }
     
