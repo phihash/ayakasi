@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "応声虫",
+        documentId: "ousei",
+        imageName: "https://i.imgur.com/tlw9Ehh.png",
+        description: "応声虫",
+        categories: ["すべて"],
+        relatedCategory: nil,
+        btw: nil,
+        searchKeywords: ["応声虫"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "しろうかり",
         documentId: "siroukari",
         imageName: "https://i.imgur.com/KTuQ8yj.png",
@@ -276,6 +287,17 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "外国の妖怪",
         btw: nil,
         searchKeywords: ["中国", "けいてん","刑天"],
+        sotry: false
+    ),
+    Ayakasi(
+        name: "孫悟空",
+        documentId: "songokuu",
+        imageName: "https://i.imgur.com/9fW3FIj.png",
+        description: "孫悟空",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["中国", "西遊記","そんごくう"],
         sotry: false
     ),
     Ayakasi(
