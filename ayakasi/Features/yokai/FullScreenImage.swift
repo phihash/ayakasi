@@ -11,6 +11,7 @@ struct FullScreenImage: View {
             
             Group{
                 if let url = URL(string: imageName) , url.scheme?.hasPrefix("http") == true{
+                    Spacer()
                     KFImage(url)
                         .placeholder {
                             Image("loading")
@@ -20,6 +21,7 @@ struct FullScreenImage: View {
                         .cacheOriginalImage()
                         .resizable()
                         .scaledToFit()
+                    Spacer()
                 }else{
                     Image(imageName)
                         .resizable()

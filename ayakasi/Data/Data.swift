@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "ほうこう",
+        documentId: "houkou",
+        imageName: "https://i.imgur.com/KcZayuW.png",
+        description: "彭侯(ほうこう)",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        btw: nil,
+        searchKeywords: ["彭侯","中国","外国の妖怪"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "応声虫",
         documentId: "ousei",
         imageName: "https://i.imgur.com/tlw9Ehh.png",

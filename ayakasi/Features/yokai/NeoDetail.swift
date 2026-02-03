@@ -377,13 +377,13 @@ struct NeoDetail: View {
                                 HStack(spacing: 16){
                                     ForEach(relatedYokais.prefix(7)){ ayakasi in
                                         NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
-                                            PickupCard(ayakasi: ayakasi)
+                                            PickupCard(ayakasi: ayakasi,showVotes: false)
                                         }
                                         
                                     }
                                 }
                                 .padding(.horizontal,20)
-                                .padding(.bottom,24)
+                                .padding(.bottom,72)
                                 .padding(.top,12)
                             }
                         }
