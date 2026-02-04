@@ -28,7 +28,19 @@ struct SearchView: View {
         let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: 3)
         
         NavigationStack{
-            VStack{
+            VStack(spacing: 0){
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                    TextField("検索", text: $searchText)
+                }
+                .padding(10)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(Color("Ivory"))
+
                 ScrollView{
                     CategoryBar(categories: categories,selectedCategory: $selectedCategory)
                     
@@ -63,9 +75,7 @@ struct SearchView: View {
                 )
                 
             }
-            .navigationTitle("図鑑")
-            .searchable(text: $searchText, prompt: "妖怪を検索")  
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }
     }
 }
