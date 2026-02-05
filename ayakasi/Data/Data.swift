@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "しろうかり",
+        documentId: "siroukari",
+        imageName: "https://i.imgur.com/KTuQ8yj.png",
+        description: "百鬼夜行絵巻をはじめとした、絵巻物に描かれている妖怪\n白くて細長い妖怪で詳細は不明",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        btw: nil,
+        searchKeywords: ["ばけ物つくし帖","百物語化絵絵巻","百鬼夜行絵巻","尾田郷澄","江戸時代"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "三尸",
         documentId: "sansi",
         imageName: "https://i.imgur.com/Lc1ltMW.png",
@@ -197,17 +208,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["応声虫"],
         sotry: false
     ),
-    Ayakasi(
-        name: "しろうかり",
-        documentId: "siroukari",
-        imageName: "https://i.imgur.com/KTuQ8yj.png",
-        description: "しろうかり",
-        categories: ["道の怪","すべて"],
-        relatedCategory: "道の怪",
-        btw: nil,
-        searchKeywords: ["しろうかり"],
-        sotry: false
-    ),
+
     Ayakasi(
         name: "くねゆすり",
         documentId: "kunayusuri",

@@ -4,7 +4,7 @@ struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
     let itemSpacing: CGFloat = 30
     let categories = [
-        "すべて", "道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪"
+        "すべて", "道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"
     ]
     @State private var selectedYokai : Ayakasi? = nil
     @EnvironmentObject var colorVM : ColorViewModel
