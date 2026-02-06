@@ -1,0 +1,67 @@
+import SwiftUI
+
+struct AllYokaiListView: View {
+    let screenWidth = UIScreen.main.bounds.width
+    let itemSpacing: CGFloat = 30
+    let categories = [
+        "すべて", "道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"
+    ]
+    @State private var selectedYokai : Ayakasi? = nil
+    @State private var selectedCategory: String = "すべて"
+    @Environment(\.dismiss) var dismiss
+
+    var filteredYokai: [Ayakasi] {
+        return ayakasis.filter { $0.categories.contains(selectedCategory) }
+    }
+
+    var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: 3)
+
+        NavigationStack{
+            VStack(spacing: 0){
+                // ヘッダー
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.gray)
+                    }
+                    Spacer()
+                    Text("全ての妖怪")
+                        .font(.headline)
+                    Spacer()
+                    // バランス用の透明なスペーサー
+                    Image(systemName: "xmark")
+                        .foregroundColor(.clear)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(Color("Ivory"))
+
+                ScrollView{
+
+                    LazyVGrid(columns: columns, spacing: itemSpacing){
+                        ForEach(filteredYokai, id: \.id){ayakasi in
+                            PickupCard(ayakasi: ayakasi, showVotes: false)
+                                .onTapGesture{
+                                    selectedYokai = ayakasi
+                                }
+                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                    NavigationStack {
+                                        NeoDetail(yokai: yokai)
+                                    }
+                                }
+                        }
+                    }
+                    .padding(.horizontal,20)
+
+                }
+                .background(Color("Ivory"))
+         
+
+            }
+            .navigationBarHidden(true)
+        }
+    }
+}
