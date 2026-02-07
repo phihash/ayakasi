@@ -21,18 +21,19 @@ struct AllYokaiListView: View {
             VStack(spacing: 0){
                 // ヘッダー
                 HStack {
+                    Text("閉じる")
+                        .opacity(0)
+                    
+                    Spacer()
+                    Text("全ての妖怪")
+                        .font(.headline)
+                    Spacer()
+
                     Button(action: {
                         dismiss()
                     }) {
                         Text("閉じる")
                     }
-                    Spacer()
-                    Text("全ての妖怪")
-                        .font(.headline)
-                    Spacer()
-                    // バランス用の透明なスペーサー
-                    Text("閉じる")
-                        .opacity(0)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)

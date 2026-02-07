@@ -17,7 +17,6 @@
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A98DD58F2EFD742100BC354E /* PickupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD58E2EFD742100BC354E /* PickupCard.swift */; };
 		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
@@ -91,7 +90,6 @@
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
-		A98DD58E2EFD742100BC354E /* PickupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupCard.swift; sourceTree = "<group>"; };
 		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
 		A9B08D832EE72BC300592CB5 /* ByTheWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByTheWay.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 		A9B08D942EE72BC300592CB5 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				A98DD58E2EFD742100BC354E /* PickupCard.swift */,
 				A9B08D932EE72BC300592CB5 /* EventComponent.swift */,
 			);
 			path = components;
@@ -306,6 +303,7 @@
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
 				A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */,
 				A9B08DAC2EE72BC300592CB5 /* SearchView.swift */,
+				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
 				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
 				A9B08D832EE72BC300592CB5 /* ByTheWay.swift */,
 			);
@@ -345,7 +343,6 @@
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A905C42C2F0AD17F00587825 /* JapanView.swift */,
-				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -527,7 +524,6 @@
 				A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */,
 				A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */,
 				A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */,
-				A98DD58F2EFD742100BC354E /* PickupCard.swift in Sources */,
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
