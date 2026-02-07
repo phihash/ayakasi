@@ -10,6 +10,7 @@ struct SearchView: View {
     @EnvironmentObject var colorVM : ColorViewModel
     @State private var selectedCategory: String = "すべて"
     @State private var searchText = ""
+    @State private var showAllYokaiList = false
 
     var filteredYokai: [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(selectedCategory) }
@@ -29,24 +30,35 @@ struct SearchView: View {
         
         NavigationStack{
             VStack(spacing: 0){
-                HStack {
-                    Image(systemName: "magnifyingglass")
+                
+                HStack(spacing: 16) {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        TextField("キーワード検索", text: $searchText)
+                    }
+                    .padding(10)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                    
+                    Image("book2")
+                        .renderingMode(.template)
                         .foregroundColor(.gray)
-                    TextField("検索", text: $searchText)
+                        .onTapGesture {
+                            showAllYokaiList = true
+                        }
                 }
-                .padding(10)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
                 .background(Color("Ivory"))
 
                 ScrollView{
                     CategoryBar(categories: categories,selectedCategory: $selectedCategory)
+
                     
                     LazyVGrid(columns: columns, spacing: itemSpacing){
                         ForEach(filteredYokai, id: \.id){ayakasi in
-                            PickupCard(ayakasi: ayakasi, showVotes: false)
+                            NeoCardItem(item: ayakasi)
                                 .onTapGesture{
                                     selectedYokai = ayakasi
                                 }
@@ -76,6 +88,9 @@ struct SearchView: View {
                 
             }
             .navigationBarHidden(true)
+            .fullScreenCover(isPresented: $showAllYokaiList) {
+                AllYokaiListView()
+            }
         }
     }
 }

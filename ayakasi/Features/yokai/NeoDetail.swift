@@ -193,7 +193,7 @@ struct NeoDetail: View {
             showFullScreenImage = true
         }
         .fullScreenCover(isPresented: $showFullScreenImage) {
-            FullScreenImage(imageName: yokai.imageName)
+            FullScreenImage(imageName: yokai.imageName, requestAndSaveImage: requestAndSaveImage)
         }
     }
     
@@ -377,7 +377,7 @@ struct NeoDetail: View {
                                 HStack(spacing: 16){
                                     ForEach(relatedYokais.prefix(7)){ ayakasi in
                                         NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
-                                            PickupCard(ayakasi: ayakasi,showVotes: false)
+                                            NeoCardItem(item: ayakasi)
                                         }
                                         
                                     }
@@ -482,8 +482,7 @@ struct NeoDetail: View {
             BottomActionBar(
                 yokai: yokai,
                 screenWidth: screenWidth,
-                isCommentUI: $isCommentUI,
-                requestAndSaveImage: requestAndSaveImage
+                isCommentUI: $isCommentUI
             )
         }
     }

@@ -31,7 +31,7 @@ struct FavoriteYokaiView: View {
 
                 LazyVGrid(columns: columns, spacing: itemSpacing) {
                     ForEach(favoriteYokais, id: \.id) { ayakasi in
-                        PickupCard(ayakasi: ayakasi)
+                        NeoCardItem(item: ayakasi)
                             .onTapGesture {
                                 selectedYokai = ayakasi
                             }

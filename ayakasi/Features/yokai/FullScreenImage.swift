@@ -3,8 +3,11 @@ import Kingfisher
 
 struct FullScreenImage: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var colorVM: ColorViewModel
     let screenWidth = UIScreen.main.bounds.width
     let imageName : String
+    let requestAndSaveImage: (String) -> Void
+
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -47,6 +50,19 @@ struct FullScreenImage: View {
                         .padding(.trailing,18)
                 }
                 Spacer()
+
+                // 写真を保存ボタン
+                HStack {
+                    Text("写真を保存")
+                }
+                .font(.headline)
+                .foregroundStyle(.white)
+                .frame(width: screenWidth * 0.55, height: 48)
+                .background(Capsule().fill(colorVM.currentColor))
+                .onTapGesture {
+                    requestAndSaveImage(imageName)
+                }
+                .padding(.bottom, 40)
             }
         }
     }

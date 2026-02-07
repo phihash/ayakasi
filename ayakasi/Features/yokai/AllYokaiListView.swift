@@ -24,26 +24,25 @@ struct AllYokaiListView: View {
                     Button(action: {
                         dismiss()
                     }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.gray)
+                        Text("閉じる")
                     }
                     Spacer()
                     Text("全ての妖怪")
                         .font(.headline)
                     Spacer()
                     // バランス用の透明なスペーサー
-                    Image(systemName: "xmark")
-                        .foregroundColor(.clear)
+                    Text("閉じる")
+                        .opacity(0)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
+                .padding(.bottom, 24)
                 .background(Color("Ivory"))
 
                 ScrollView{
-
                     LazyVGrid(columns: columns, spacing: itemSpacing){
                         ForEach(filteredYokai, id: \.id){ayakasi in
-                            PickupCard(ayakasi: ayakasi, showVotes: false)
+                            NeoCardItem(item: ayakasi)
                                 .onTapGesture{
                                     selectedYokai = ayakasi
                                 }
@@ -55,11 +54,8 @@ struct AllYokaiListView: View {
                         }
                     }
                     .padding(.horizontal,20)
-
                 }
                 .background(Color("Ivory"))
-         
-
             }
             .navigationBarHidden(true)
         }

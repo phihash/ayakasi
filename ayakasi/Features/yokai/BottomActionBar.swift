@@ -7,24 +7,10 @@ struct BottomActionBar: View {
     @EnvironmentObject var colorVM: ColorViewModel
     @EnvironmentObject var voteVM: VoteService
     @Binding var isCommentUI: Bool
-    let requestAndSaveImage: (String) -> Void
-    
+
     var body: some View {
         VStack {
             HStack {
-                // 写真を保存ボタン
-                HStack {
-                    Text("写真を保存")
-                }
-                .font(.headline)
-                .foregroundStyle(.white)
-                .frame(width: screenWidth * 0.55, height: 48)
-                .background(Capsule().fill(colorVM.currentColor))
-                .padding(.trailing, 10)
-                .onTapGesture {
-                    requestAndSaveImage(yokai.imageName)
-                }
-                
                 HStack(spacing: 16) {
                     Button{
                         isCommentUI.toggle()

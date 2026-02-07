@@ -2,18 +2,9 @@ import SwiftUI
 import Kingfisher
 
 struct NeoCardItem: View {
+    let item: Ayakasi
     @EnvironmentObject var voteService : VoteService
-    let item = Ayakasi(
-        name: "しろうかり",
-        documentId: "siroukari",
-        imageName: "https://i.imgur.com/KTuQ8yj.png",
-        description: "百鬼夜行絵巻をはじめとした、絵巻物に描かれている妖怪\n白くて細長い妖怪で詳細は不明",
-        categories: ["詳細不明","すべて"],
-        relatedCategory: "詳細不明",
-        btw: nil,
-        searchKeywords: ["ばけ物つくし帖","百物語化絵絵巻","百鬼夜行絵巻","尾田郷澄","江戸時代"],
-        sotry: false
-    )
+    @EnvironmentObject var favoriteService : FavoriteService
     var body: some View {
         VStack(alignment: .leading){
             KFImage(URL(string: item.imageName))
@@ -28,10 +19,27 @@ struct NeoCardItem: View {
                 .frame(width: 120,height: 120)
                 .cornerRadius(12)
             Text(item.name)
+                .lineLimit(1)
                 .fontWeight(.bold)
+                .padding(.bottom,2)
             HStack(spacing: 4){
-                Image(systemName: "heart")
-                Text("\(voteService.voteCountCache[item.documentId] ?? 0)")
+                HStack(spacing: 1){
+                    Image(systemName: "heart")
+                    Text("\(voteService.voteCountCache[item.documentId] ?? 0)")
+                }
+
+                Image(systemName: favoriteService.isFavoriteYokai(item.documentId) ? "star.fill" : "star")
+                    .font(.system(size: 10))
+
+                if item.sotry {
+                    Image("book")
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 13, height: 13)
+                        .foregroundStyle(.black)
+                }
+
                 Spacer()
             }
             .font(.caption)
