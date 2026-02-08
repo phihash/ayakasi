@@ -31,19 +31,19 @@ struct Container: View {
                     }
                     .tag(2)
 //                
-//                JapanView()
-//                    .tabItem {
-//                        Image("locationcity")
-//                            .renderingMode(.template)
-//                    }
-//                    .tag(3)
+                GameView()
+                    .tabItem {
+                        Image("locationcity")
+                            .renderingMode(.template)
+                    }
+                    .tag(3)
               
                 SettingView()
                     .tabItem {
                         Image("setting")
                             .renderingMode(.template)
                     }
-                    .tag(3)
+                    .tag(4)
                 
             }
             .tint(colorVM.currentColor)

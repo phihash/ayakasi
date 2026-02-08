@@ -51,8 +51,6 @@ struct CommunityView: View {
                 .padding(.bottom,24)
             }
             
-            
-            
             ScrollView{
                 HStack{
                     Text("最近のコメント")

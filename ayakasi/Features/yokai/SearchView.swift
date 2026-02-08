@@ -8,8 +8,20 @@ struct SearchView: View {
     @EnvironmentObject var colorVM : ColorViewModel
     @State private var searchText = ""
     @State private var showAllYokaiList = false
-    
-    
+
+    func filteredYokais(for category: String) -> [Ayakasi] {
+        let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
+
+        if searchText.isEmpty {
+            return categoryFiltered.shuffled()
+        } else {
+            return categoryFiltered.filter { ayakasi in
+                ayakasi.name.contains(searchText) ||
+                (ayakasi.searchKeywords?.contains(where: { $0.contains(searchText) }) ?? false)
+            }
+        }
+    }
+
     var body: some View {
         
         NavigationStack{
@@ -51,7 +63,7 @@ struct SearchView: View {
                         ScrollView(.horizontal,showsIndicators: false){
                             
                             HStack(spacing: 4){
-                                ForEach(ayakasis.filter { $0.categories.contains(category) }.shuffled(), id: \.id) { ayakasi in
+                                ForEach(filteredYokais(for: category), id: \.id) { ayakasi in
                                     NeoCardItem(item: ayakasi)
                                         .onTapGesture{
                                             selectedYokai = ayakasi

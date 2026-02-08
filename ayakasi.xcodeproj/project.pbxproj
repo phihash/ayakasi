@@ -14,6 +14,7 @@
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
+		A93714662F37A2780056D6A3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93714652F37A2780056D6A3 /* GameView.swift */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -85,6 +86,7 @@
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
 		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
+		A93714652F37A2780056D6A3 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -343,6 +345,7 @@
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A905C42C2F0AD17F00587825 /* JapanView.swift */,
+				A93714652F37A2780056D6A3 /* GameView.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
 				A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */,
 				A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */,
+				A93714662F37A2780056D6A3 /* GameView.swift in Sources */,
 				A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */,
 				A9B08DD52EE72BC300592CB5 /* EventComponent.swift in Sources */,
 				A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */,

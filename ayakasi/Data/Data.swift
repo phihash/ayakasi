@@ -58,11 +58,11 @@ let ayakasis: [Ayakasi] = [
         name: "みこしにゅうどう",
         documentId: "mikosinyuudou",
         imageName: "https://i.imgur.com/yHejtQM.png",
-        description: "みこしにゅうどう",
+        description: "夜道を歩いていると僧の姿で突然現れ、はじめは小さな背丈だが見上げれば見上げるほど大きくなるという妖怪。全国各地に伝承があり、入道が大きくなるのを見上げると、喉を噛み切られるという言い伝えがある。「みこしにゅうどう見抜いた」と言えば消え去るという。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        searchKeywords: ["みこし"],
+        searchKeywords: ["宿直草","煙霞奇談","みあげにゅうどう","江戸時代","ノビアガリ","シダイダカ"],
         sotry: false
     ),
     Ayakasi(
