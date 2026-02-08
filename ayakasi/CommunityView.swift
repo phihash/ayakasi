@@ -68,13 +68,17 @@ struct CommunityView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
+                            .opacity(0.4)
+                        Spacer()
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
-                    .background(Color.orange.opacity(0.4))
-                    .cornerRadius(8)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 8)
+                    .padding(.horizontal,24)
+
+//                    .padding(.horizontal, 16)
+//                    .padding(.vertical, 12)
+//                    .background(Color.orange.opacity(0.4))
+//                    .cornerRadius(8)
+//                    .padding(.horizontal, 24)
+//                    .padding(.bottom, 8)
                 }
                 
                 if commentService.isLoadingRecentComments {

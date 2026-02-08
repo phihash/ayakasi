@@ -16,7 +16,7 @@ struct NeoCardItem: View {
                 .cacheOriginalImage()
                 .resizable()
                 .scaledToFill()
-                .frame(width: 110,height: 110)
+                .frame(width: 120,height: 120)
                 .cornerRadius(12)
             Text(item.name)
                 .font(.subheadline)

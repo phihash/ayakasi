@@ -43,7 +43,7 @@ struct CommentListView: View {
                                 .foregroundColor(.gray)
                         }
                         Spacer()
-
+                        
                         HStack{
                             Spacer()
                             if authVM.user != nil {
@@ -54,10 +54,10 @@ struct CommentListView: View {
                                             print("❗️ documentId is missing; not opening report sheet")
                                             return
                                         }
-
+                                        
                                         selectedCommentId = docId
                                         reportTarget = ReportTarget(id: docId)
-
+                                        
                                     }
                             }
                         }
@@ -215,44 +215,6 @@ struct NeoDetail: View {
         .padding(.top, 48)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
-
-    private var favoriteButtonView: some View {
-        HStack {
-            Circle()
-                .fill(Color.black.opacity(0.6))
-                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
-                .overlay(
-                    Image(systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "star.fill" : "star")
-                        .foregroundStyle(.yellow)
-                        .padding()
-                )
-                .onTapGesture {
-                    favoriteService.toggleFavoriteYokai(yokai.documentId)
-                }
-        }
-        .padding(.horizontal, 20)
-        .padding(.top, 48)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-    }
-
-    private var readButtonView: some View {
-        HStack {
-            Circle()
-                .fill(Color.black.opacity(0.6))
-                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
-                .overlay(
-                    Image(systemName: favoriteService.isReadYokai(yokai.documentId) ? "checkmark.circle.fill" : "checkmark.circle")
-                        .foregroundStyle(.green)
-                        .padding()
-                )
-                .onTapGesture {
-                    favoriteService.toggleReadYokai(yokai.documentId)
-                }
-        }
-        .padding(.horizontal, 20)
-        .padding(.top, 48 + screenWidth * 0.1 + 12) // お気に入りボタンの下に配置
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-    }
     
     private var titleView: some View {
         Text(yokai.name)
@@ -273,10 +235,6 @@ struct NeoDetail: View {
                         imageView
 
                         backButtonView
-
-                        favoriteButtonView
-
-                        readButtonView
 
                         titleView
 
@@ -393,46 +351,7 @@ struct NeoDetail: View {
                 }
                 
             }
-            // フローティング投票ボタン
-            .overlay(alignment: .bottomTrailing) {
-                
-                
-                Button {
-                    Task {
-                        do {
 
-                            try await voteService.vote(aykasiId: yokai.documentId)
-                            voteSuccess.toggle()
-                        } catch let error as VoteError {
-                            // VoteErrorの場合、日本語メッセージを表示
-                            alertMessage = error.localizedDescription
-                            showAlert = true
-                        } catch {
-                            alertMessage = "投票中にエラーが発生しました"
-                            showAlert = true
-                        }
-                    }
-
-                } label: {
-                    VStack(spacing: 2) {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.white)
-                            .font(.title2)
-                        Text("\(voteService.voteCountCache[yokai.documentId] ?? 0)")
-                            .foregroundStyle(.white)
-                            .font(.caption)
-                            .bold()
-                    }
-                    .frame(width: 60, height: 60)
-                    .background(Circle().fill(Color.red.opacity(0.8)))
-                    .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
-                }
-                .sensoryFeedback(.success, trigger: voteSuccess)
-                .padding(.trailing, 20)
-                .padding(.bottom,16)
-                
-            }
-            
         }
         .simultaneousGesture(
             DragGesture()
@@ -482,7 +401,10 @@ struct NeoDetail: View {
             BottomActionBar(
                 yokai: yokai,
                 screenWidth: screenWidth,
-                isCommentUI: $isCommentUI
+                isCommentUI: $isCommentUI,
+                voteSuccess: $voteSuccess,
+                showAlert: $showAlert,
+                alertMessage: $alertMessage
             )
         }
     }

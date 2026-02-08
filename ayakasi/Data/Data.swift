@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "ぶるぶる",
+        documentId: "buruburu",
+        imageName: "https://i.imgur.com/MqIxaMR.png",
+        description: "今昔画図続百鬼に描かれている妖怪。恐怖で人間がぞくっと震えるのは、ぶるぶるが取り憑くためだといわれる。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        btw: nil,
+        searchKeywords: ["鳥山石燕","今昔画図続百鬼"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "しろうかり",
         documentId: "siroukari",
         imageName: "https://i.imgur.com/KTuQ8yj.png",
@@ -211,7 +222,7 @@ let ayakasis: [Ayakasi] = [
 
     Ayakasi(
         name: "くねゆすり",
-        documentId: "kunayusuri",
+        documentId: "kuneyusuri",
         imageName: "https://i.imgur.com/r0uunaR.png",
         description: "くねゆすり",
         categories: ["音の怪","すべて"],

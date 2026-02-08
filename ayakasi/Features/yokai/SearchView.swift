@@ -81,7 +81,7 @@ struct SearchView: View {
 
                                 ScrollView(.horizontal,showsIndicators: false){
 
-                                    HStack(spacing: 4){
+                                    HStack(spacing: 12){
                                         ForEach(yokais, id: \.id) { ayakasi in
                                             NeoCardItem(item: ayakasi)
                                                 .onTapGesture{
@@ -96,7 +96,7 @@ struct SearchView: View {
 
                                     }
                                     .padding(.horizontal,20)
-                                    .padding(.bottom,6)
+                                    .padding(.bottom,8)
                                 }
                             }
                         }
