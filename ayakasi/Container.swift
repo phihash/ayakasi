@@ -8,7 +8,6 @@ struct Container: View {
             
             TabView(selection: $selection) {
 
-                
                 SearchView()
                     .tabItem {
                         Image("search")
@@ -31,19 +30,19 @@ struct Container: View {
                     }
                     .tag(2)
 //                
-                GameView()
-                    .tabItem {
-                        Image("locationcity")
-                            .renderingMode(.template)
-                    }
-                    .tag(3)
+//                GameView()
+//                    .tabItem {
+//                        Image("locationcity")
+//                            .renderingMode(.template)
+//                    }
+//                    .tag(3)
               
                 SettingView()
                     .tabItem {
                         Image("setting")
                             .renderingMode(.template)
                     }
-                    .tag(4)
+                    .tag(3)
                 
             }
             .tint(colorVM.currentColor)

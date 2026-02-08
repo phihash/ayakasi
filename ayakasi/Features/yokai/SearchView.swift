@@ -49,38 +49,59 @@ struct SearchView: View {
                 .background(Color("Ivory"))
                 
                 ScrollView{
-                    ForEach(categories,id:\.self) { category in
-                        HStack{
-                            Text(category)
-                            Spacer()
+                    let allResults = categories.flatMap { filteredYokais(for: $0) }
+
+                    if !searchText.isEmpty && allResults.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+
+                            Text("「\(searchText)」はヒットしませんでした")
+                                .font(.headline)
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
                         }
-                        .font(.system(size: 18))
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.horizontal,20)
-                        .padding(.vertical,12)
-                        
-                        ScrollView(.horizontal,showsIndicators: false){
-                            
-                            HStack(spacing: 4){
-                                ForEach(filteredYokais(for: category), id: \.id) { ayakasi in
-                                    NeoCardItem(item: ayakasi)
-                                        .onTapGesture{
-                                            selectedYokai = ayakasi
-                                        }
-                                        .fullScreenCover(item: $selectedYokai){ yokai in
-                                            NavigationStack {
-                                                NeoDetail(yokai: yokai)
-                                            }
-                                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 100)
+                    } else {
+                        ForEach(categories,id:\.self) { category in
+                            let yokais = filteredYokais(for: category)
+
+                            if !yokais.isEmpty {
+                                HStack{
+                                    Text(category)
+                                    Spacer()
                                 }
-                                
+                                .font(.system(size: 18))
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .padding(.horizontal,20)
+                                .padding(.vertical,12)
+
+                                ScrollView(.horizontal,showsIndicators: false){
+
+                                    HStack(spacing: 4){
+                                        ForEach(yokais, id: \.id) { ayakasi in
+                                            NeoCardItem(item: ayakasi)
+                                                .onTapGesture{
+                                                    selectedYokai = ayakasi
+                                                }
+                                                .fullScreenCover(item: $selectedYokai){ yokai in
+                                                    NavigationStack {
+                                                        NeoDetail(yokai: yokai)
+                                                    }
+                                                }
+                                        }
+
+                                    }
+                                    .padding(.horizontal,20)
+                                    .padding(.bottom,6)
+                                }
                             }
-                            .padding(.horizontal,20)
-                            .padding(.bottom,6)
                         }
                     }
-                    
+
                 }
                 .background(Color("Ivory"))
                 

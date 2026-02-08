@@ -29,7 +29,6 @@
 		A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */; };
 		A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D902EE72BC300592CB5 /* LoginView.swift */; };
 		A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D912EE72BC300592CB5 /* RegisterView.swift */; };
-		A9B08DD52EE72BC300592CB5 /* EventComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D932EE72BC300592CB5 /* EventComponent.swift */; };
 		A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D952EE72BC300592CB5 /* HomeView.swift */; };
 		A9B08DD72EE72BC300592CB5 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D972EE72BC300592CB5 /* ColorView.swift */; };
 		A9B08DD82EE72BC300592CB5 /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D982EE72BC300592CB5 /* ColorViewModel.swift */; };
@@ -102,7 +101,6 @@
 		A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A9B08D902EE72BC300592CB5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A9B08D912EE72BC300592CB5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		A9B08D932EE72BC300592CB5 /* EventComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventComponent.swift; sourceTree = "<group>"; };
 		A9B08D952EE72BC300592CB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A9B08D972EE72BC300592CB5 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		A9B08D982EE72BC300592CB5 /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
@@ -262,18 +260,9 @@
 			path = auth;
 			sourceTree = "<group>";
 		};
-		A9B08D942EE72BC300592CB5 /* components */ = {
-			isa = PBXGroup;
-			children = (
-				A9B08D932EE72BC300592CB5 /* EventComponent.swift */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
 		A9B08D962EE72BC300592CB5 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				A9B08D942EE72BC300592CB5 /* components */,
 				A9B08D952EE72BC300592CB5 /* HomeView.swift */,
 			);
 			path = home;
@@ -514,7 +503,6 @@
 				A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */,
 				A93714662F37A2780056D6A3 /* GameView.swift in Sources */,
 				A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */,
-				A9B08DD52EE72BC300592CB5 /* EventComponent.swift in Sources */,
 				A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */,
 				A9B08DD72EE72BC300592CB5 /* ColorView.swift in Sources */,
 				A9B08DD82EE72BC300592CB5 /* ColorViewModel.swift in Sources */,
