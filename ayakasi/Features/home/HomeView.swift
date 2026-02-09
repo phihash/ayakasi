@@ -98,7 +98,7 @@ struct HomeView: View {
     }
     
     private func loadEventsData() async -> [EventItem] {
-        guard let url = URL(string: AppConstants.eventsDataURL) else { return [] }
+        guard let url = URL(string: AppConstants.events2DataURL) else { return [] }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -141,7 +141,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal,24)
-                .padding(.vertical,12)
+                .padding(.vertical,6)
                 
                 Group {
                     if filteredEvents.isEmpty {
@@ -163,6 +163,7 @@ struct HomeView: View {
                                     link: filteredEvents[index].link ?? "",
                                     linkTitle: filteredEvents[index].title ?? "イベント",
                                     imageUrl: filteredEvents[index].imageUrl,
+                                    location: filteredEvents[index].location,
                                     onTap: {
                                         if let urlString = filteredEvents[index].link,
                                            let url = URL(string: urlString) {
@@ -177,7 +178,7 @@ struct HomeView: View {
                             }
                         }
                         .tabViewStyle(.page(indexDisplayMode: .never))
-                        .frame(height: 160)
+                        .frame(height: 240)
                         .onReceive(timer) { _ in
                             if filteredEvents.count > 0 {
                                 withAnimation(.easeInOut) {
@@ -187,8 +188,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(.bottom,16)
-                
                 
             
                 HStack{

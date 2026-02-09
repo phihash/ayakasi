@@ -45,6 +45,7 @@ struct NeoCardItem: View {
             }
             .font(.caption)
         }
+        .foregroundColor(.black)
         .frame(width: 120)
     }
 }

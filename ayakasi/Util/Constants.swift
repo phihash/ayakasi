@@ -5,6 +5,7 @@ struct AppConstants {
     static let termsOfServiceURL = "https://sizu.me/maili/posts/ae75vb8z0sso"
     static let privacyPolicyURL = "https://sizu.me/maili/posts/b3at3db2i5f1"
     static let eventsDataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/event.json"
+    static let events2DataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/event2.json"
     static let noticeDataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/notice.json"
 }
 

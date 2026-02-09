@@ -7,6 +7,7 @@ struct EventItem: Codable {
     let imageUrl: String?
     let startDateTime: String?
     let endDateTime: String?
+    let location: String?
     let isActive: Bool?
     let minVersion: String?
     let maxVersion: String?
@@ -26,38 +27,44 @@ struct EventComponent: View {
     let link : String
     let linkTitle : String
     let imageUrl : String?
+    let location : String?
     let onTap: () -> Void
     
     var body: some View {
         Button {
             onTap()
         } label: {
-            ZStack {
+            VStack(spacing: 0) {
                 KFImage(imageUrl.flatMap { URL(string: $0) })
                     .placeholder {
                         Image("loading_banner")
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .scaledToFill()
                     }
                     .cacheOriginalImage()
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-            
-                VStack {
+                    .scaledToFill()
+                    .frame(width: screenWidth * 0.9, height: 180)
+                    .clipped()
+
+                HStack {
+                    Text(linkTitle)
+                        .font(.headline)
+                        .foregroundStyle(.black)
+                        .fontWeight(.bold)
                     Spacer()
-                    HStack {
-                        Text(linkTitle)
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .fontWeight(.bold)
-                            .shadow(color: .black.opacity(0.7), radius: 2, x: 1, y: 1)
-                        Spacer()
-                    }
-                    .padding(.leading, 24)
-                    .padding(.bottom, 52)
+                    Text(location ?? "")
+                        .font(.headline)
+                        .foregroundStyle(.black)
+                        .fontWeight(.bold)
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .frame(maxWidth: .infinity)
+                .background(.white)
             }
-            .frame(width: screenWidth * 0.9, height: 160)
+            .frame(width: screenWidth * 0.9)
+            .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
