@@ -34,7 +34,7 @@ struct EventComponent: View {
         Button {
             onTap()
         } label: {
-            VStack(spacing: 0) {
+            VStack(spacing: 12) {
                 KFImage(imageUrl.flatMap { URL(string: $0) })
                     .placeholder {
                         Image("loading_banner")
@@ -44,33 +44,30 @@ struct EventComponent: View {
                     .cacheOriginalImage()
                     .resizable()
                     .scaledToFill()
-                    .frame(width: screenWidth * 0.9, height: 180)
-                    .clipped()
+                    .frame(width: screenWidth * 0.9 - 24, height: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
 
                 HStack {
-                    VStack{
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(linkTitle)
                             .font(.headline)
                             .foregroundStyle(.black)
                             .fontWeight(.bold)
                         Text(location ?? "")
-                            .font(.headline)
-                            .foregroundStyle(.black)
-                            .fontWeight(.bold)
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
                     }
-                  
+
                     Spacer()
-                    
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
-                .frame(maxWidth: .infinity)
-                .background(.white)
+                .padding(.horizontal, 12)
             }
+            .padding(.vertical, 12)
             .frame(width: screenWidth * 0.9)
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+            .padding(.bottom, 20)
         }
     }
 }

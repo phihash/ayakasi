@@ -166,10 +166,7 @@ struct HomeView: View {
                                     onTap: {
                                         if let urlString = filteredEvents[index].link,
                                            let url = URL(string: urlString) {
-                                            print("🔗 Event URL: \(urlString)")
                                             selectedEventUrl = url
-                                        } else {
-                                            print("❌ Invalid URL: \(filteredEvents[index].link ?? "nil")")
                                         }
                                     }
                                 )
