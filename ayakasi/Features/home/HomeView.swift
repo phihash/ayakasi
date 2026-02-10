@@ -21,7 +21,6 @@ struct HomeView: View {
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
-    private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
     
@@ -177,15 +176,9 @@ struct HomeView: View {
                                 .tag(index)
                             }
                         }
-                        .tabViewStyle(.page(indexDisplayMode: .never))
-                        .frame(height: 240)
-                        .onReceive(timer) { _ in
-                            if filteredEvents.count > 0 {
-                                withAnimation(.easeInOut) {
-                                    page = (page + 1) % filteredEvents.count
-                                }
-                            }
-                        }
+                        .tabViewStyle(.page(indexDisplayMode: .always))
+                        .frame(height: 280)
+                        .padding(.vertical, 12)
                     }
                 }
                 

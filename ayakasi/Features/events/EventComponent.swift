@@ -48,15 +48,19 @@ struct EventComponent: View {
                     .clipped()
 
                 HStack {
-                    Text(linkTitle)
-                        .font(.headline)
-                        .foregroundStyle(.black)
-                        .fontWeight(.bold)
+                    VStack{
+                        Text(linkTitle)
+                            .font(.headline)
+                            .foregroundStyle(.black)
+                            .fontWeight(.bold)
+                        Text(location ?? "")
+                            .font(.headline)
+                            .foregroundStyle(.black)
+                            .fontWeight(.bold)
+                    }
+                  
                     Spacer()
-                    Text(location ?? "")
-                        .font(.headline)
-                        .foregroundStyle(.black)
-                        .fontWeight(.bold)
+                    
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
@@ -66,6 +70,7 @@ struct EventComponent: View {
             .frame(width: screenWidth * 0.9)
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
+            .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
         }
     }
 }
