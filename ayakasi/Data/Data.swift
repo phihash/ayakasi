@@ -1,5 +1,27 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "タツクチナワ",
+        documentId: "tatukutinawa",
+        imageName: "https://i.imgur.com/E16AQO6.png",
+        description: "タツクチナワ",
+        categories: ["水の怪","すべて"],
+        relatedCategory: "水の怪",
+        btw: nil,
+        searchKeywords: ["北九州","きたきゅうしゅう"],
+        sotry: false
+    ),
+    Ayakasi(
+        name: "たんたんころりん",
+        documentId: "tantankorori",
+        imageName: "https://i.imgur.com/ZqCkjAK.png",
+        description: "たんたんころりん",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        searchKeywords: ["たんたんころりん","柿","仙台","宮城","かき","みやぎ"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "天井下り",
         documentId: "tenjokudari",
         imageName: "https://i.imgur.com/LfN8gJq.png",

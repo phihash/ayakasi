@@ -18,8 +18,8 @@ struct ByTheWay: View {
         }
         .frame(maxWidth: .infinity)
         .padding(20)
-        .foregroundStyle(.white)
-        .background(colorVM.currentColor.opacity(0.5))
+        .foregroundStyle(.black)
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(12)
         .padding(.horizontal,16)
         .padding(.bottom,8)

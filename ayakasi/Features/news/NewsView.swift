@@ -9,8 +9,6 @@ let publishedFormatter : DateFormatter = {
     return f
 }()
 
-
-
 struct NewsView : View{
     @StateObject private var newsService = NewsService()
     @State private var selectedNewsUrl: URL?
@@ -33,19 +31,21 @@ struct NewsView : View{
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             Button {
-                                print("🔗 News URL: \(url)")
                                 selectedNewsUrl = url
                             } label: {
                                 VStack(alignment: .leading, spacing: 12){
-                                    Text(publishedFormatter.string(from: item.published))
-                                        .foregroundStyle(.black.opacity(0.7))
-                                        .font(.subheadline)
+                                
                                     Text("\(title)")
                                         .multilineTextAlignment(.leading)
                                         .lineLimit(2)
-                                        .padding(.bottom,8)
+                                        .padding(.top,6)
+
+                                    Text(publishedFormatter.string(from: item.published))
+                                        .foregroundStyle(.black.opacity(0.7))
+                                        .font(.caption)
+                                        .padding(.bottom,6)
                                     Rectangle()
-                                        .fill(colorVM.currentColor)
+                                        .fill(.gray)
                                         .frame(height: 1)
                                     
                                 }
@@ -53,7 +53,6 @@ struct NewsView : View{
                                 .truncationMode(.tail)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.black)
-                                .padding(.vertical,8)
                                 .padding(.horizontal,20)
                             }
                         } else {

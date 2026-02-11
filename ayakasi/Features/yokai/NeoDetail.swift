@@ -246,28 +246,28 @@ struct NeoDetail: View {
                             Text("説明")
                                 .fontWeight(.bold)
                                 .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+                                .foregroundStyle(selectedTab == 0 ? .black : .black.opacity(0.3))
                                 .frame(width: screenWidth * 0.45)
                                 .overlay(alignment: .bottom) {
                                     Rectangle()
                                         .frame(height: 2)
                                         .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 0 ? colorVM.currentColor : .black.opacity(0.3))
+                                        .foregroundStyle(selectedTab == 0 ? .black : .black.opacity(0.3))
                                 }
                                 .onTapGesture {
                                     selectedTab = 0
                                 }
-                            
+
                             Text("コメント")
                                 .fontWeight(.bold)
                                 .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.3))
+                                .foregroundStyle(selectedTab == 1 ? .black : .black.opacity(0.3))
                                 .frame(width: screenWidth * 0.45)
                                 .overlay(alignment: .bottom) {
                                     Rectangle()
                                         .frame(height: 2)
                                         .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 1 ? colorVM.currentColor : .black.opacity(0.4))
+                                        .foregroundStyle(selectedTab == 1 ? .black : .black.opacity(0.3))
                                 }
                                 .onTapGesture {
                                     selectedTab = 1
@@ -300,7 +300,7 @@ struct NeoDetail: View {
                                             .fontWeight(.bold)
                                             .foregroundStyle(.white)
                                             .padding()
-                                            .background(RoundedRectangle(cornerRadius: 8).fill(colorVM.currentColor))
+                                            .background(RoundedRectangle(cornerRadius: 8).fill(.black))
                                     }
                                     .padding(.horizontal, 24)
                                 }

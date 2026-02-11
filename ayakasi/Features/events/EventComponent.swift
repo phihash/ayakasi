@@ -28,13 +28,66 @@ struct EventComponent: View {
     let linkTitle : String
     let imageUrl : String?
     let location : String?
+    let startDateTime : String?
+    let endDateTime : String?
     let onTap: () -> Void
+
+    private var formattedDateRange: String {
+        guard let start = startDateTime, let end = endDateTime else { return "" }
+
+        let formatter = ISO8601DateFormatter()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/d"
+
+        if let startDate = formatter.date(from: start),
+           let endDate = formatter.date(from: end) {
+            return "\(dateFormatter.string(from: startDate)) - \(dateFormatter.string(from: endDate))"
+        }
+        return ""
+    }
+
+    private var eventStatus: String? {
+        let now = Date()
+        let formatter = ISO8601DateFormatter()
+
+        // 開始前チェック
+        if let start = startDateTime,
+           let startDate = formatter.date(from: start),
+           now < startDate {
+            return "開催予定"
+        }
+
+        // 終了チェック
+        if let end = endDateTime,
+           let endDate = formatter.date(from: end),
+           now > endDate {
+            return nil // 終了（表示しない）
+        }
+
+        return "開催中"
+    }
     
     var body: some View {
         Button {
             onTap()
         } label: {
-            VStack(spacing: 12) {
+            VStack(spacing: 8) {
+                if let status = eventStatus {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .font(.caption2)
+                            .foregroundStyle(status == "開催中" ? .green : .orange)
+
+                        Text(status)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .foregroundStyle(status == "開催中" ? .green : .orange)
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 4)
+                }
                 KFImage(imageUrl.flatMap { URL(string: $0) })
                     .placeholder {
                         Image("loading_banner")
@@ -44,30 +97,46 @@ struct EventComponent: View {
                     .cacheOriginalImage()
                     .resizable()
                     .scaledToFill()
-                    .frame(width: screenWidth * 0.9 - 24, height: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-
+                    .frame(height: 120)
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+                
                 HStack {
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text(linkTitle)
                             .font(.headline)
                             .foregroundStyle(.black)
                             .fontWeight(.bold)
-                        Text(location ?? "")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
+
+                        HStack(spacing: 8) {
+                            Text(location ?? "")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.black)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(.gray.opacity(0.2))
+                                .clipShape(RoundedRectangle(cornerRadius: 6))
+
+                            if !formattedDateRange.isEmpty {
+                                Text(formattedDateRange)
+                                    .font(.caption)
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.gray)
+                            }
+                        }
                     }
 
                     Spacer()
                 }
                 .padding(.horizontal, 12)
             }
-            .padding(.vertical, 12)
+            .padding(.top, 8)
+            .padding(.bottom, 12)
             .frame(width: screenWidth * 0.9)
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
-            .padding(.bottom, 20)
+            .shadow(color: .black.opacity(0.05), radius: 8, x: 1, y: 0.5)
         }
     }
 }

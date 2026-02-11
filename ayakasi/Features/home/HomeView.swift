@@ -62,7 +62,18 @@ struct HomeView: View {
     var filteredEvents: [EventItem] {
         eventItems.filter { event in
             guard event.isActive ?? false else { return false }
-            return isWithinDateRange(startDateTime: event.startDateTime, endDateTime: event.endDateTime)
+
+            // 終了チェックのみ（終了していなければ表示）
+            let now = Date()
+            let formatter = ISO8601DateFormatter()
+
+            if let endDateTimeString = event.endDateTime,
+               let endDateTime = formatter.date(from: endDateTimeString),
+               now > endDateTime {
+                return false // すでに終了している
+            }
+
+            return true // 開催予定または開催中
         }
     }
     
@@ -140,7 +151,6 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal,24)
-                .padding(.vertical,6)
                 
                 Group {
                     if filteredEvents.isEmpty {
@@ -156,30 +166,42 @@ struct HomeView: View {
                         }
                         .frame(height: 160)
                     } else {
-                        TabView(selection: $page) {
-                            ForEach(filteredEvents.indices, id: \.self) { index in
-                                EventComponent(
-                                    link: filteredEvents[index].link ?? "",
-                                    linkTitle: filteredEvents[index].title ?? "イベント",
-                                    imageUrl: filteredEvents[index].imageUrl,
-                                    location: filteredEvents[index].location,
-                                    onTap: {
-                                        if let urlString = filteredEvents[index].link,
-                                           let url = URL(string: urlString) {
-                                            selectedEventUrl = url
+                        VStack(spacing: 8) {
+                            TabView(selection: $page) {
+                                ForEach(filteredEvents.indices, id: \.self) { index in
+                                    EventComponent(
+                                        link: filteredEvents[index].link ?? "",
+                                        linkTitle: filteredEvents[index].title ?? "イベント",
+                                        imageUrl: filteredEvents[index].imageUrl,
+                                        location: filteredEvents[index].location,
+                                        startDateTime: filteredEvents[index].startDateTime,
+                                        endDateTime: filteredEvents[index].endDateTime,
+                                        onTap: {
+                                            if let urlString = filteredEvents[index].link,
+                                               let url = URL(string: urlString) {
+                                                selectedEventUrl = url
+                                            }
                                         }
-                                    }
-                                )
-                                .tag(index)
+                                    )
+                                    .tag(index)
+                                }
                             }
+                            .tabViewStyle(.page(indexDisplayMode: .never))
+                            .frame(height: 250)
+                            
+                            // カスタムインジケーター
+                            HStack(spacing: 8) {
+                                ForEach(filteredEvents.indices, id: \.self) { index in
+                                    Circle()
+                                        .fill(index == page ? Color.gray : Color.gray.opacity(0.3))
+                                        .frame(width: 8, height: 8)
+                                }
+                            }
+                            .padding(.vertical, 2)
                         }
-                        .tabViewStyle(.page(indexDisplayMode: .always))
-                        .frame(height: 280)
-                        .padding(.vertical, 12)
                     }
                 }
                 
-            
                 HStack{
                     Text("妖怪関連ニュース")
                     Spacer()
@@ -187,7 +209,7 @@ struct HomeView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
-                .padding(.top,4)
+                .padding(.top,8)
                 
                 HStack{
                     ForEach(newsYokai,id:\.self){ element in
@@ -245,9 +267,6 @@ struct HomeView: View {
             }
             .sheet(item: $selectedEventUrl) { url in
                 SafariView(url: url)
-                    .onAppear {
-                        print("🎬 Sheet showing with URL: \(url)")
-                    }
             }
         }
     }
