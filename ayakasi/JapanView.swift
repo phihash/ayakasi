@@ -1,33 +1,58 @@
 import SwiftUI
+import MapKit
+
+struct YokaiLocation: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
 
 struct JapanView: View {
-    @State private var page = 0
-    let tests: [String] = ["小豆島", "遠野", "三好","三次", "京都", "調布","福崎","境港"]
-    
-    // カラーバリエーション
-    let colors: [Color] = [.blue, .green, .red, .orange, .purple, .pink, .yellow, .gray]
-    
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 35.6812, longitude: 136.8232),
+        span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+    )
+
+    let locations: [YokaiLocation] = [
+        YokaiLocation(name: "小豆島", coordinate: CLLocationCoordinate2D(latitude: 34.4856, longitude: 134.2049)),
+        YokaiLocation(name: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336)),
+        YokaiLocation(name: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068)),
+        YokaiLocation(name: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540)),
+        YokaiLocation(name: "京都", coordinate: CLLocationCoordinate2D(latitude: 35.0116, longitude: 135.7681)),
+        YokaiLocation(name: "調布", coordinate: CLLocationCoordinate2D(latitude: 35.6517, longitude: 139.5407)),
+        YokaiLocation(name: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576)),
+        YokaiLocation(name: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316))
+    ]
+
     var body: some View {
-        TabView(selection: $page) {
-            ForEach(tests.indices, id: \.self) { index in
-                ZStack {
-                    Rectangle()
-                        .fill(colors[index % colors.count])
-                        .aspectRatio(1.0, contentMode: .fit)
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-                    
-                    Text(tests[index])
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.3), radius: 1)
+        VStack(spacing: 0) {
+            Map(initialPosition: .region(region)) {
+                ForEach(locations) { location in
+                    Annotation(location.name, coordinate: location.coordinate) {
+                        VStack {
+                            Image(systemName: "mappin.circle.fill")
+                                .foregroundColor(.red)
+                                .font(.title)
+                            Text(location.name)
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .padding(4)
+                                .background(Color.white.opacity(0.8))
+                                .cornerRadius(4)
+                        }
+                    }
                 }
-                .padding(.horizontal, 20)
             }
+            .frame(maxHeight: .infinity)
+
+            VStack {
+                Text("Coming Soon...")
+                    .font(.title2)
+                    .foregroundColor(.gray)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemGray6))
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .frame(height: 300)
     }
 }
 
