@@ -3,7 +3,6 @@ import Kingfisher
 
 struct FavoriteYokaiView: View {
     @EnvironmentObject var favoriteService: FavoriteService
-    @EnvironmentObject var colorVM: ColorViewModel
     @State private var selectedYokai: Ayakasi? = nil
     let screenWidth = UIScreen.main.bounds.width
     let itemSpacing: CGFloat = 30

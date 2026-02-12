@@ -3,7 +3,6 @@ import Kingfisher
 
 struct FullScreenImage: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var colorVM: ColorViewModel
     let screenWidth = UIScreen.main.bounds.width
     let imageName : String
     let requestAndSaveImage: (String) -> Void
@@ -58,7 +57,7 @@ struct FullScreenImage: View {
                 .font(.headline)
                 .foregroundStyle(.white)
                 .frame(width: screenWidth * 0.55, height: 48)
-                .background(Capsule().fill(colorVM.currentColor))
+                .background(Capsule().fill(.blue))
                 .onTapGesture {
                     requestAndSaveImage(imageName)
                 }

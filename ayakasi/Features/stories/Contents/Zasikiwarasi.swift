@@ -2,7 +2,6 @@ import SwiftUI
 
 struct Zasikiwarasi: View {
     let screenWidth = UIScreen.main.bounds.width
-    @EnvironmentObject var colorVM : ColorViewModel
     @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("東北の古い家",

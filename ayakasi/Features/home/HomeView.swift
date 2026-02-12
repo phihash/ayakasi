@@ -21,7 +21,6 @@ struct HomeView: View {
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
-    @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService  : VoteService
     
     @State var selectedNews = "妖怪"
@@ -218,15 +217,15 @@ struct HomeView: View {
                         } label :{
                             Text(element)
                                 .font(.subheadline)
-                                .foregroundStyle(selectedNews == element ? .white : colorVM.currentColor)
+                                .foregroundStyle(selectedNews == element ? .white : .blue)
                                 .fontWeight(.bold)
                                 .padding(.vertical,6)
                                 .padding(.horizontal,18)
-                                .background(selectedNews == element ? colorVM.currentColor : .clear)
+                                .background(selectedNews == element ? .blue : .clear)
                                 .cornerRadius(24)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 24)
-                                        .stroke(colorVM.currentColor, lineWidth: 2)
+                                        .stroke(.blue, lineWidth: 2)
                                 )
                                 .onTapGesture { selectedNews = element }
                         }

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ByTheWay: View {
     let btw : String
-    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         VStack{
             HStack{

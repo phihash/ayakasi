@@ -103,7 +103,6 @@ struct NeoDetail: View {
     @State private var showStoryView = false
     @State private var isCommentUI = false
     @State private var voteSuccess = false
-    @EnvironmentObject var colorVM : ColorViewModel
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService

@@ -4,7 +4,6 @@ struct BottomActionBar: View {
     let yokai: Ayakasi
     let screenWidth: CGFloat
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var colorVM: ColorViewModel
     @EnvironmentObject var voteVM: VoteService
     @EnvironmentObject var favoriteService: FavoriteService
     @Binding var isCommentUI: Bool

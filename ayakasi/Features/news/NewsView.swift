@@ -12,7 +12,6 @@ let publishedFormatter : DateFormatter = {
 struct NewsView : View{
     @StateObject private var newsService = NewsService()
     @State private var selectedNewsUrl: URL?
-    @EnvironmentObject var colorVM : ColorViewModel
     var selectedNew : String
     
     var body : some View{

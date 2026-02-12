@@ -2,7 +2,6 @@ import SwiftUI
 
 struct Kiyohime: View {
     let screenWidth = UIScreen.main.bounds.width
-    @EnvironmentObject var colorVM : ColorViewModel
     @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("若き僧の旅",

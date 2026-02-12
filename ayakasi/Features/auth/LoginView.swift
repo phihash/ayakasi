@@ -3,7 +3,6 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var authVM : AuthViewModel
-    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         NavigationStack{
             VStack{
@@ -47,7 +46,7 @@ struct LoginView: View {
                     HStack{
                         Text("ログイン")
                             .frame(width: 160, height: 48)
-                            .background(colorVM.currentColor)
+                            .background(.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }

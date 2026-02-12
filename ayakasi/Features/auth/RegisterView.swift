@@ -3,7 +3,6 @@ import SwiftUI
 struct RegisterView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var authVM : AuthViewModel
-    @EnvironmentObject var colorVM : ColorViewModel
     var body: some View {
         NavigationStack{
             VStack{
@@ -51,7 +50,7 @@ struct RegisterView: View {
                             HStack{
                                 Text("登録")
                                     .frame(width: 160, height: 48)
-                                    .background(colorVM.currentColor)
+                                    .background(.blue)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
@@ -103,7 +102,7 @@ struct RegisterView: View {
                         }) {
                             Text("メールを確認した")
                                 .frame(width: 160, height: 48)
-                                .background(colorVM.currentColor)
+                                .background(.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
@@ -114,7 +113,7 @@ struct RegisterView: View {
                             }
                         }) {
                             Text("認証メールを再送信")
-                                .foregroundColor(colorVM.currentColor)
+                                .foregroundColor(.blue)
                         }
                     }
                 }
