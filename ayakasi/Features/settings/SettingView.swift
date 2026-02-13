@@ -82,26 +82,23 @@ struct SettingView: View {
                 }
             }
             .padding(.horizontal,8)
-            
-            List{
-                
-                
-                HStack{
-                    HStack(spacing: 18){
-                        Image(systemName: "tag")
-                        Text("現在のバージョン")
-                    }
-                    Spacer()
-                    Text(Bundle.main.appVersion)
-                }
-                .foregroundStyle(.primary)
-                .padding(.vertical,6)
-                
-                
-                
-                
-                
-                
+
+            VStack(spacing: 8) {
+                Image("settingIcon")
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(16)
+
+                Text("妖怪図鑑")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                Text("Version \(Bundle.main.appVersion)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.vertical, 20)
+
                 NavigationLink(destination: FavoriteYokaiView()) {
                     HStack(spacing: 18){
                         Image(systemName: "star.fill")
@@ -156,8 +153,6 @@ struct SettingView: View {
                 }
                 
                 
-                
-                
                 NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
                     HStack(spacing: 18){
                         Image(systemName: "note")
@@ -181,7 +176,7 @@ struct SettingView: View {
                 
                 
                 
-            }
+            
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
         }
