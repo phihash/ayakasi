@@ -12,19 +12,27 @@ struct SettingView: View {
     var body: some View {
         NavigationStack{
             VStack{
+                NavigationLink(destination: WebView(url: URL(string: AppConstants.contactFormURL))) {
+                    HStack(spacing: 18){
+                        Text("匿名で問い合わせ")
+                    }
+                    .foregroundStyle(.primary)
+                    .padding(.vertical,6)
+                }
+                
+                
                 if authVM.authStatus != .authenticated {
                     Button{
                         isShowRegisterView = true
                     } label: {
                         HStack{
-                            HStack(spacing: 18){
-                                Image(systemName: "person.crop.circle")
-                                Text("新規登録")
-                                    .font(.subheadline)
-                            }
+                            
+                            Text("新規登録")
+                                .font(.subheadline)
+                            
                             Spacer()
                         }
-                        .padding(.vertical,2)
+                        .padding(.vertical,3)
                     }
                     .foregroundStyle(.primary)
                     
@@ -32,15 +40,14 @@ struct SettingView: View {
                         isShowLoginView = true
                     } label: {
                         HStack{
-                            HStack(spacing: 18){
-                                Image(systemName: "person.circle")
-                                Text("ログイン")
-                                    .font(.subheadline)
-                            }
+                            
+                            Text("ログイン")
+                                .font(.subheadline)
+                            
                             Spacer()
                         }
                         
-                        .padding(.vertical,2)
+                        .padding(.vertical,3)
                     }
                     .foregroundStyle(.primary)
                     if authVM.authStatus == .authenticated {
@@ -81,101 +88,89 @@ struct SettingView: View {
                     
                 }
             }
-            .padding(.horizontal,8)
-
+            .padding(.horizontal,24)
+            
+            NavigationLink(destination: FavoriteYokaiView()) {
+                HStack(spacing: 18){
+                    Image(systemName: "star.fill")
+                    Text("お気に入り一覧")
+                }
+                .foregroundStyle(.primary)
+                .padding(.vertical,6)
+            }
+            
+            
+            Button{
+                KingfisherManager.shared.cache.clearMemoryCache()
+                KingfisherManager.shared.cache.clearDiskCache()
+            } label : {
+                HStack(spacing: 18){
+                    Image(systemName: "trash")
+                    Text("キャッシュを削除する")
+                }
+                .padding(.vertical,6)
+            }
+            .foregroundStyle(.primary)
+            
+            HStack(spacing: 12){
+                ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
+                    HStack(spacing: 18){
+                        Image(systemName: "star.fill")
+                        Text("アプリを共有する")
+                    }
+                }
+                .foregroundStyle(.primary)
+            }
+            
+            Button{
+                requestReview()
+            } label : {
+                HStack(spacing: 18){
+                    Image(systemName: "star")
+                    Text("アプリを評価する")
+                }
+                .padding(.vertical,6)
+            }
+            .foregroundStyle(.primary)
+            
+            
+            
+            
+            NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
+                HStack(spacing: 18){
+                    Image(systemName: "note")
+                    Text("プライバシーポリシー")
+                }
+                .foregroundStyle(.primary)
+                .padding(.vertical,6)
+            }
+            
+            NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
+                HStack(spacing: 18){
+                    Image(systemName: "note")
+                    Text("利用規約")
+                }
+                .foregroundStyle(.primary)
+                .padding(.vertical,6)
+            }
+            
+            
             VStack(spacing: 8) {
                 Image("settingIcon")
                     .resizable()
                     .frame(width: 80, height: 80)
                     .cornerRadius(16)
-
+                
                 Text("妖怪図鑑")
                     .font(.title3)
                     .fontWeight(.semibold)
-
+                
                 Text("Version \(Bundle.main.appVersion)")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             .padding(.vertical, 20)
-
-                NavigationLink(destination: FavoriteYokaiView()) {
-                    HStack(spacing: 18){
-                        Image(systemName: "star.fill")
-                        Text("お気に入り一覧")
-                    }
-                    .foregroundStyle(.primary)
-                    .padding(.vertical,6)
-                }
-                
-                
-                Button{
-                    KingfisherManager.shared.cache.clearMemoryCache()
-                    KingfisherManager.shared.cache.clearDiskCache()
-                } label : {
-                    HStack(spacing: 18){
-                        Image(systemName: "trash")
-                        Text("キャッシュを削除する")
-                    }
-                    .padding(.vertical,6)
-                }
-                .foregroundStyle(.primary)
-                
-                HStack(spacing: 12){
-                    ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
-                        HStack(spacing: 18){
-                            Image(systemName: "star.fill")
-                            Text("アプリを共有する")
-                        }
-                    }
-                    .foregroundStyle(.primary)
-                }
-                
-                Button{
-                    requestReview()
-                } label : {
-                    HStack(spacing: 18){
-                        Image(systemName: "star")
-                        Text("アプリを評価する")
-                    }
-                    .padding(.vertical,6)
-                }
-                .foregroundStyle(.primary)
-                
-                
-                NavigationLink(destination: WebView(url: URL(string: AppConstants.contactFormURL))) {
-                    HStack(spacing: 18){
-                        Image(systemName: "envelope")
-                        Text("匿名で問い合わせ")
-                    }
-                    .foregroundStyle(.primary)
-                    .padding(.vertical,6)
-                }
-                
-                
-                NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
-                    HStack(spacing: 18){
-                        Image(systemName: "note")
-                        Text("プライバシーポリシー")
-                    }
-                    .foregroundStyle(.primary)
-                    .padding(.vertical,6)
-                }
-                
-                NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
-                    HStack(spacing: 18){
-                        Image(systemName: "note")
-                        Text("利用規約")
-                    }
-                    .foregroundStyle(.primary)
-                    .padding(.vertical,6)
-                }
-                
-                
-                
-                
-                
-                
+            
             
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
