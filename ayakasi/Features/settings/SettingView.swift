@@ -29,13 +29,22 @@ struct SettingView: View {
                             .foregroundColor(.secondary)
                     }
                     .padding(.top, 20)
+                    
 
                     VStack(spacing: 0) {
+                        SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
+
+                        
+                        SettingRowLink(title: "プライバシーポリシー", destination: WebView(url: URL(string: AppConstants.privacyPolicyURL)))
+          
+                        
+                        SettingRowLink(title: "利用規約", destination: WebView(url: URL(string: AppConstants.termsOfServiceURL)))
+                        Divider().padding(.leading,4)
+                        
                         if authVM.authStatus != .authenticated {
                             SettingRowButton(title: "新規登録") {
                                 isShowRegisterView = true
                             }
-                            Divider().padding(.leading, 16)
 
                             SettingRowButton(title: "ログイン") {
                                 isShowLoginView = true
@@ -47,7 +56,6 @@ struct SettingView: View {
                             SettingRowButton(title: "ログアウト") {
                                 showLogoutAlert = true
                             }
-                            Divider().padding(.leading, 16)
 
                             SettingRowButton(title: "アカウント削除", color: .red) {
                                 showDeleteAccountAlert = true
@@ -55,14 +63,11 @@ struct SettingView: View {
                             Divider().padding(.leading, 16)
                         }
 
-                        SettingRowLink(title: "お気に入り一覧", destination: FavoriteYokaiView())
-                        Divider().padding(.leading, 16)
+                 
+                        Divider().padding(.leading, 4)
 
-                        SettingRowButton(title: "キャッシュを削除する") {
-                            KingfisherManager.shared.cache.clearMemoryCache()
-                            KingfisherManager.shared.cache.clearDiskCache()
-                        }
-                        Divider().padding(.leading, 16)
+                    
+
 
                         Button(action: {}) {
                             ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
@@ -70,28 +75,24 @@ struct SettingView: View {
                                     Text("アプリを共有する")
                                         .font(.subheadline)
                                     Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
                                 }
                                 .padding(.vertical, 12)
                             }
                         }
                         .foregroundStyle(.primary)
-                        Divider().padding(.leading, 16)
 
                         SettingRowButton(title: "アプリを評価する") {
                             requestReview()
                         }
-                        Divider().padding(.leading, 16)
+                        
+                        SettingRowLink(title: "お気に入り一覧", destination: FavoriteYokaiView())
+                        
+                        SettingRowButton(title: "キャッシュを削除する") {
+                            KingfisherManager.shared.cache.clearMemoryCache()
+                            KingfisherManager.shared.cache.clearDiskCache()
+                        }
 
-                        SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
-                        Divider().padding(.leading, 16)
-
-                        SettingRowLink(title: "プライバシーポリシー", destination: WebView(url: URL(string: AppConstants.privacyPolicyURL)))
-                        Divider().padding(.leading, 16)
-
-                        SettingRowLink(title: "利用規約", destination: WebView(url: URL(string: AppConstants.termsOfServiceURL)))
+     
                     }
                     .padding(.horizontal, 20)
                 }
