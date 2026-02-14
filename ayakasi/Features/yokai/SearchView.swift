@@ -7,10 +7,10 @@ struct SearchView: View {
     @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
     @State private var showAllYokaiList = false
-
+    
     func filteredYokais(for category: String) -> [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
-
+        
         if searchText.isEmpty {
             return categoryFiltered.shuffled()
         } else {
@@ -20,12 +20,10 @@ struct SearchView: View {
             }
         }
     }
-
+    
     var body: some View {
-        
         NavigationStack{
             VStack(spacing: 0){
-                
                 HStack(spacing: 16) {
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -49,13 +47,13 @@ struct SearchView: View {
                 
                 ScrollView{
                     let allResults = categories.flatMap { filteredYokais(for: $0) }
-
+                    
                     if !searchText.isEmpty && allResults.isEmpty {
                         VStack(spacing: 16) {
                             Image(systemName: "magnifyingglass")
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
-
+                            
                             Text("「\(searchText)」はヒットしませんでした")
                                 .font(.headline)
                                 .foregroundColor(.gray)
@@ -66,7 +64,7 @@ struct SearchView: View {
                     } else {
                         ForEach(categories,id:\.self) { category in
                             let yokais = filteredYokais(for: category)
-
+                            
                             if !yokais.isEmpty {
                                 HStack{
                                     Text(category)
@@ -77,9 +75,9 @@ struct SearchView: View {
                                 .fontWeight(.bold)
                                 .padding(.horizontal,20)
                                 .padding(.vertical,12)
-
+                                
                                 ScrollView(.horizontal,showsIndicators: false){
-
+                                    
                                     HStack(spacing: 12){
                                         ForEach(yokais, id: \.id) { ayakasi in
                                             NeoCardItem(item: ayakasi)
@@ -92,19 +90,16 @@ struct SearchView: View {
                                                     }
                                                 }
                                         }
-
+                                        
                                     }
                                     .padding(.horizontal,20)
                                     .padding(.bottom,8)
                                 }
                             }
                         }
-                    }
-
+                    }                    
                 }
                 .background(Color("Ivory"))
-                
-                
             }
             .navigationBarHidden(true)
             .fullScreenCover(isPresented: $showAllYokaiList) {

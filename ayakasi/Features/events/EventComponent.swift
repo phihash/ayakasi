@@ -35,32 +35,45 @@ struct EventComponent: View {
     private var formattedDateRange: String {
         guard let start = startDateTime, let end = endDateTime else { return "" }
 
-        let formatter = ISO8601DateFormatter()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/d"
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        inputFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
 
-        if let startDate = formatter.date(from: start),
-           let endDate = formatter.date(from: end) {
-            return "\(dateFormatter.string(from: startDate)) - \(dateFormatter.string(from: endDate))"
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "M/d"
+        displayFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+
+        if let startDate = inputFormatter.date(from: start),
+           let endDate = inputFormatter.date(from: end) {
+            return "\(displayFormatter.string(from: startDate)) - \(displayFormatter.string(from: endDate))"
         }
         return ""
     }
 
     private var eventStatus: String? {
         let now = Date()
-        let formatter = ISO8601DateFormatter()
+
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        inputFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
 
         // 開始前チェック
         if let start = startDateTime,
-           let startDate = formatter.date(from: start),
+           let startDate = inputFormatter.date(from: start),
            now < startDate {
-            return "開催予定"
+            return "開催前"
         }
 
-        // 終了チェック
+        // 終了チェック（終了日の翌日00:00:00以降を終了とする）
         if let end = endDateTime,
-           let endDate = formatter.date(from: end),
-           now > endDate {
+           let endDate = inputFormatter.date(from: end),
+           let nextDay = calendar.date(byAdding: .day, value: 1, to: endDate),
+           now >= nextDay {
             return nil // 終了（表示しない）
         }
 

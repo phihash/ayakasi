@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "おとろし",
+        documentId: "otorosi",
+        imageName: "https://i.imgur.com/2ZNjNoR.jpeg",
+        description:"おとろし",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        btw: nil,
+        searchKeywords: ["おとろし"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "タツクチナワ",
         documentId: "tatukutinawa",
         imageName: "https://i.imgur.com/E16AQO6.png",
@@ -14,7 +25,7 @@ let ayakasis: [Ayakasi] = [
         name: "たんたんころりん",
         documentId: "tantankorori",
         imageName: "https://i.imgur.com/ZqCkjAK.png",
-        description: "たんたんころりん",
+        description:"仙台に伝わる妖怪。古い柿の木が実を収穫せずに放置すると出るといわれる",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
