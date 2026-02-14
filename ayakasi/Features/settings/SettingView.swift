@@ -39,7 +39,9 @@ struct SettingView: View {
           
                         
                         SettingRowLink(title: "利用規約", destination: WebView(url: URL(string: AppConstants.termsOfServiceURL)))
-                        Divider().padding(.leading,4)
+                        Divider()
+                            .padding(.leading, 4)
+                            .padding(.vertical, 12)
                         
                         if authVM.authStatus != .authenticated {
                             SettingRowButton(title: "新規登録") {
@@ -49,7 +51,7 @@ struct SettingView: View {
                             SettingRowButton(title: "ログイン") {
                                 isShowLoginView = true
                             }
-                            Divider().padding(.leading, 16)
+                           
                         }
 
                         if authVM.authStatus == .authenticated {
@@ -60,13 +62,13 @@ struct SettingView: View {
                             SettingRowButton(title: "アカウント削除", color: .red) {
                                 showDeleteAccountAlert = true
                             }
-                            Divider().padding(.leading, 16)
+                           
                         }
 
-                 
-                        Divider().padding(.leading, 4)
 
-                    
+                        Divider()
+                            .padding(.leading, 4)
+                            .padding(.vertical, 12)
 
 
                         Button(action: {}) {
