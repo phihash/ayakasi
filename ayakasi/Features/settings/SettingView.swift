@@ -9,6 +9,7 @@ struct SettingView: View {
     @State var isShowLoginView = false
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
+    @State private var showClearCacheAlert = false
 
     var body: some View {
         NavigationStack {
@@ -90,8 +91,7 @@ struct SettingView: View {
                         SettingRowLink(title: "お気に入り一覧", destination: FavoriteYokaiView())
                         
                         SettingRowButton(title: "キャッシュを削除する") {
-                            KingfisherManager.shared.cache.clearMemoryCache()
-                            KingfisherManager.shared.cache.clearDiskCache()
+                            showClearCacheAlert = true
                         }
 
      
@@ -126,6 +126,15 @@ struct SettingView: View {
             }
         } message: {
             Text("この操作は取り消すことができません。すべてのデータが削除されます。")
+        }
+        .alert("キャッシュを削除しますか？", isPresented: $showClearCacheAlert) {
+            Button("キャンセル", role: .cancel) {}
+            Button("削除", role: .destructive) {
+                KingfisherManager.shared.cache.clearMemoryCache()
+                KingfisherManager.shared.cache.clearDiskCache()
+            }
+        } message: {
+            Text("画像キャッシュが削除されます。")
         }
     }
 }
