@@ -17,6 +17,8 @@
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
 		A937148D2F3CADA20056D6A3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */; };
 		A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */; };
+		A97816732F4199E0005CAEAE /* RankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816722F4199DF005CAEAE /* RankingSectionView.swift */; };
+		A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -86,6 +88,8 @@
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
 		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
+		A97816722F4199DF005CAEAE /* RankingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSectionView.swift; sourceTree = "<group>"; };
+		A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -303,6 +307,8 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */,
+				A97816722F4199DF005CAEAE /* RankingSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
 				A9B08E302EEF096500592CB5 /* events */,
@@ -523,6 +529,8 @@
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
+				A97816732F4199E0005CAEAE /* RankingSectionView.swift in Sources */,
+				A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */,
 				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
 				A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */,

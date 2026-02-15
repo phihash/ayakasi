@@ -926,7 +926,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         btw: nil,
-        searchKeywords: ["蛇", "和歌山"],
+        searchKeywords: ["蛇", "和歌山","安珍","あんちんきよひめ"],
         sotry: true
     ),
     Ayakasi(

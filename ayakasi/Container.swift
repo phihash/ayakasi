@@ -29,19 +29,19 @@ struct Container: View {
                     }
                     .tag(2)
 
-                JapanView()
-                    .tabItem {
-                        Image("locationcity")
-                            .renderingMode(.template)
-                    }
-                    .tag(3)
+//                JapanView()
+//                    .tabItem {
+//                        Image("locationcity")
+//                            .renderingMode(.template)
+//                    }
+//                    .tag(3)
 
                 SettingView()
                     .tabItem {
                         Image("setting")
                             .renderingMode(.template)
                     }
-                    .tag(4)
+                    .tag(3)
 
             }
             .tint(.blue)
