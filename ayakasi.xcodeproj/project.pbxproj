@@ -19,6 +19,7 @@
 		A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */; };
 		A97816732F4199E0005CAEAE /* RankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816722F4199DF005CAEAE /* RankingSectionView.swift */; };
 		A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */; };
+		A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816762F41DBBC005CAEAE /* LocationModels.swift */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -90,6 +91,7 @@
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
 		A97816722F4199DF005CAEAE /* RankingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSectionView.swift; sourceTree = "<group>"; };
 		A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
+		A97816762F41DBBC005CAEAE /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -231,6 +233,7 @@
 		A9B08D892EE72BC300592CB5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A97816762F41DBBC005CAEAE /* LocationModels.swift */,
 				A9B08D872EE72BC300592CB5 /* Data.swift */,
 				A9B08D882EE72BC300592CB5 /* Models.swift */,
 			);
@@ -526,6 +529,7 @@
 				A9B08DCB2EE72BC300592CB5 /* ByTheWay.swift in Sources */,
 				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
 				A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */,
+				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
