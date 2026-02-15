@@ -7,11 +7,15 @@ struct AllYokaiListView: View {
         "すべて", "道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"
     ]
     @State private var selectedYokai : Ayakasi? = nil
-    @State private var selectedCategory: String = "すべて"
+    let selectedCategory: String
     @Environment(\.dismiss) var dismiss
 
     var filteredYokai: [Ayakasi] {
-        return ayakasis.filter { $0.categories.contains(selectedCategory) }
+        if selectedCategory == "すべて" {
+            return ayakasis
+        } else {
+            return ayakasis.filter { $0.categories.contains(selectedCategory) }
+        }
     }
 
     var body: some View {
@@ -25,7 +29,7 @@ struct AllYokaiListView: View {
                         .opacity(0)
                     
                     Spacer()
-                    Text("全ての妖怪")
+                    Text(selectedCategory == "すべて" ? "全ての妖怪" : selectedCategory)
                         .font(.headline)
                     Spacer()
 
@@ -36,8 +40,7 @@ struct AllYokaiListView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .padding(.vertical, 12)
-                .padding(.bottom, 24)
+                .padding(.top, 8)
                 .background(Color("Ivory"))
 
                 ScrollView{
@@ -56,6 +59,7 @@ struct AllYokaiListView: View {
                     }
                     .padding(.horizontal,20)
                 }
+                .padding(.top,24)
                 .background(Color("Ivory"))
             }
             .navigationBarHidden(true)

@@ -1,12 +1,16 @@
 import SwiftUI
 
+extension String: Identifiable {
+    public var id: String { self }
+}
+
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
     let itemSpacing: CGFloat = 30
     let categories = ["道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"]
     @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
-    @State private var showAllYokaiList = false
+    @State private var selectedCategoryForList: String? = nil
     
     func filteredYokais(for category: String) -> [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
@@ -33,12 +37,13 @@ struct SearchView: View {
                     .padding(10)
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
+                    .padding(.bottom,12)
                     
                     Image("book2")
                         .renderingMode(.template)
                         .foregroundColor(.gray)
                         .onTapGesture {
-                            showAllYokaiList = true
+                            selectedCategoryForList = "すべて"
                         }
                 }
                 .padding(.horizontal, 16)
@@ -66,15 +71,24 @@ struct SearchView: View {
                             let yokais = filteredYokais(for: category)
                             
                             if !yokais.isEmpty {
-                                HStack{
-                                    Text(category)
-                                    Spacer()
+                                Button {
+                                    selectedCategoryForList = category
+                                } label: {
+                                    HStack{
+                                        Text(category)
+
+                                        Image(systemName: "chevron.right")
+                                            .foregroundColor(.gray)
+                                            .font(.subheadline)
+                                        Spacer()
+                                    }
+                                    .font(.system(size: 18))
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+                                    .padding(.horizontal,20)
+                                    .padding(.vertical,12)
                                 }
-                                .font(.system(size: 18))
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.horizontal,20)
-                                .padding(.vertical,12)
                                 
                                 ScrollView(.horizontal,showsIndicators: false){
                                     
@@ -97,13 +111,13 @@ struct SearchView: View {
                                 }
                             }
                         }
-                    }                    
+                    }
                 }
                 .background(Color("Ivory"))
             }
             .navigationBarHidden(true)
-            .fullScreenCover(isPresented: $showAllYokaiList) {
-                AllYokaiListView()
+            .fullScreenCover(item: $selectedCategoryForList) { category in
+                AllYokaiListView(selectedCategory: category)
             }
         }
     }
