@@ -1,80 +1,72 @@
 import SwiftUI
 import MapKit
 
-struct YokaiLocation: Identifiable {
-    let id = UUID()
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-}
-
 @Observable
 @MainActor
 class JapanViewModel  {
-    var selectedLocation: YokaiLocation?
-    let locations: [YokaiLocation] = [
-        YokaiLocation(name: "小豆島", coordinate: CLLocationCoordinate2D(latitude: 34.4856, longitude: 134.2049)),
-        YokaiLocation(name: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336)),
-        YokaiLocation(name: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068)),
-        YokaiLocation(name: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540)),
-        YokaiLocation(name: "京都", coordinate: CLLocationCoordinate2D(latitude: 35.0116, longitude: 135.7681)),
-        YokaiLocation(name: "調布", coordinate: CLLocationCoordinate2D(latitude: 35.6517, longitude: 139.5407)),
-        YokaiLocation(name: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576)),
-        YokaiLocation(name: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316))
+    var selectedLocation: TownRevitalization.ID?
+    let locations: [TownRevitalization] = [
+        TownRevitalization(townName: "小豆島", coordinate: CLLocationCoordinate2D(latitude: 34.4856, longitude: 134.2049), description: "", prefecture: "香川県", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068), description: "", prefecture: "徳島県", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540), description: "", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "京都", coordinate: CLLocationCoordinate2D(latitude: 35.0116, longitude: 135.7681), description: "", prefecture: "京都府", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "調布", coordinate: CLLocationCoordinate2D(latitude: 35.6517, longitude: 139.5407), description: "", prefecture: "東京都", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576), description: "", prefecture: "兵庫県", websiteURL: nil, imageURL: nil, highlights: nil),
+        TownRevitalization(townName: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316), description: "", prefecture: "鳥取県", websiteURL: nil, imageURL: nil, highlights: nil)
     ]
 }
 
 struct JapanView: View {
+    @State private var viewModel = JapanViewModel()
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 35.6812, longitude: 136.8232),
         span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
     )
-    
-    let locations: [YokaiLocation] = [
-        YokaiLocation(name: "小豆島", coordinate: CLLocationCoordinate2D(latitude: 34.4856, longitude: 134.2049)),
-        YokaiLocation(name: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336)),
-        YokaiLocation(name: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068)),
-        YokaiLocation(name: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540)),
-        YokaiLocation(name: "京都", coordinate: CLLocationCoordinate2D(latitude: 35.0116, longitude: 135.7681)),
-        YokaiLocation(name: "調布", coordinate: CLLocationCoordinate2D(latitude: 35.6517, longitude: 139.5407)),
-        YokaiLocation(name: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576)),
-        YokaiLocation(name: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316))
-    ]
-    
+
     var body: some View {
-        VStack(spacing: 0) {
-            Map(initialPosition: .region(region)) {
-                ForEach(locations) { location in
-                    Annotation(location.name, coordinate: location.coordinate) {
-                        VStack {
-                            Image(systemName: "mappin.circle.fill")
-                                .foregroundColor(.red)
-                                .font(.title)
-                            Text(location.name)
-                                .font(.caption)
-                                .fontWeight(.bold)
-                                .padding(4)
-                                .background(Color.white.opacity(0.8))
-                                .cornerRadius(4)
-                        }
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                Map(initialPosition: .region(region), selection: $viewModel.selectedLocation) {
+                    ForEach(viewModel.locations) { location in
+                        Marker(location.townName, coordinate: location.coordinate)
+                            .tint(.red)
+                            .tag(location.id)
                     }
                 }
-            }
-            .frame(maxHeight: .infinity)
-            
-            VStack{
-                ScrollView(.horizontal, showsIndicators: false){
-                    
+                .frame(height: geometry.size.height * 0.7)
+                .onChange(of: viewModel.selectedLocation) { oldValue, newValue in
+                    // 選択されたロケーションの処理
+                    if let selectedId = newValue,
+                       let location = viewModel.locations.first(where: { $0.id == selectedId }) {
+                        print("Selected: \(location.townName)")
+                    }
                 }
+
+                VStack {
+                    if let selectedId = viewModel.selectedLocation,
+                       let location = viewModel.locations.first(where: { $0.id == selectedId }) {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(location.townName)
+                                .font(.title2)
+                                .fontWeight(.bold)
+
+                            Text(location.prefecture)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    } else {
+                        Text("地図上のマーカーをタップしてください")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .frame(height: geometry.size.height * 0.3)
+                .frame(maxWidth: .infinity)
+                .background(Color(.systemGray6))
             }
-            .frame(maxHeight: .infinity)
-            
-            VStack {
-                Text("Coming Soon...")
-                    .font(.title2)
-                    .foregroundColor(.gray)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.systemGray6))
         }
     }
 }

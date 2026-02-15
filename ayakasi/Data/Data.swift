@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "べとべとさん",
+        documentId: "betobetosan",
+        imageName: "https://i.imgur.com/0FWOWRm.png",
+        description:"べとべとさん",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        btw: nil,
+        searchKeywords: ["べとべとさん"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "おとろし",
         documentId: "otorosi",
         imageName: "https://i.imgur.com/2ZNjNoR.jpeg",
