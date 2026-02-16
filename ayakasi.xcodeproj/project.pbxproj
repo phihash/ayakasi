@@ -332,6 +332,7 @@
 				A98DD5902EFFAC5E00BC354E /* CommunityView.swift */,
 				A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */,
 				A9B08DC22EE72BC300592CB5 /* Container.swift */,
+				A905C42C2F0AD17F00587825 /* JapanView.swift */,
 				A9B08E272EEEF52B00592CB5 /* Util */,
 				A9B08D892EE72BC300592CB5 /* Data */,
 				A9B08DAE2EE72BC300592CB5 /* Features */,
@@ -341,7 +342,6 @@
 				A9B08DC42EE72BC300592CB5 /* Info.plist */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
-				A905C42C2F0AD17F00587825 /* JapanView.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";

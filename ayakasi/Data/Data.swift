@@ -4,8 +4,8 @@ let ayakasis: [Ayakasi] = [
         documentId: "betobetosan",
         imageName: "https://i.imgur.com/0FWOWRm.png",
         description:"べとべとさん",
-        categories: ["道の怪","すべて"],
-        relatedCategory: "道の怪",
+        categories: ["音の怪","すべて"],
+        relatedCategory: "音の怪",
         btw: nil,
         searchKeywords: ["べとべとさん"],
         sotry: false
