@@ -9,7 +9,7 @@ import MapKit
 
 // 町おこしデータ
 let townRevitalizations: [TownRevitalization] = [
-    TownRevitalization(townName: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
+    TownRevitalization(townName: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "柳田國男の『遠野物語』の舞台として知られる岩手県内陸の地域。カッパや座敷わらしといった妖怪の伝承、昔話や神話が多く残されている。", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
     TownRevitalization(townName: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068), description: "", prefecture: "徳島県", websiteURL: nil, imageURL: nil, highlights: nil),
     TownRevitalization(townName: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540), description: "", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
     TownRevitalization(townName: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576), description: "", prefecture: "兵庫県", websiteURL: nil, imageURL: nil, highlights: nil),
@@ -53,6 +53,13 @@ struct JapanView: View {
                             Text(location.prefecture)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
+
+                            if !location.description.isEmpty {
+                                Text(location.description)
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
