@@ -12,7 +12,8 @@ let townRevitalizations: [TownRevitalization] = [
     TownRevitalization(townName: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "柳田國男の『遠野物語』の舞台として知られる岩手県内陸の地域。カッパや座敷わらしといった妖怪の伝承、昔話や神話が多く残されている。", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
     TownRevitalization(townName: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068), description: "三好市には、多くの妖怪伝説が残る。山の危険から子どもを守るため、大人たちが妖怪話を語り継いだとされる。", prefecture: "徳島県", websiteURL: nil, imageURL: nil, highlights: nil),
     TownRevitalization(townName: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540), description: "広島県北部に位置し、日本で唯一の「妖怪」をテーマにした公立博物館がある。妖怪物語『稲生物怪録（いのうもののけろく）』の舞台として知られる。", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
-    TownRevitalization(townName: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576), description: "日本民俗学の父・柳田國男の生誕地として知られる「妖怪の町」。『遠野物語』『妖怪談義』などを著した柳田國男の故郷であり、日本の民俗学の礎が築かれた地。", prefecture: "兵庫県", websiteURL: nil, imageURL: nil, highlights: nil),
+    TownRevitalization(townName: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576), description: "日本民俗学の父・柳田國男の生誕地として知られる「妖怪の町」。『遠野物語』『妖怪談義』などを著した柳田國男の故郷。", prefecture: "兵庫県", websiteURL: nil, imageURL: nil, highlights: nil),
+    TownRevitalization(townName: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316), description: "漫画家・水木しげるの出身地として知られる「妖怪の町」。水木しげるロードには多数の妖怪ブロンズ像が並び、妖怪をテーマにした町おこしで有名。", prefecture: "鳥取県", websiteURL: nil, imageURL: nil, highlights: nil),
 ]
 
 @Observable
