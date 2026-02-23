@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "あかなめ",
+        documentId: "akaname",
+        imageName: "https://i.imgur.com/fmrL7Lm.jpeg",
+        description: "あかなめは、風呂場で桶の垢を舐める妖怪。これといって大きな害はない。風呂場を清潔にすれば、垢も発生しないため、あかなめには教訓が含まれているという説もある。",
+        categories: ["家の怪","すべて"],
+        relatedCategory: "家の怪",
+        btw: nil,
+        searchKeywords: ["教訓","ふろ","垢","あかなめ","桶","おけ"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "べとべとさん",
         documentId: "betobetosan",
         imageName: "https://i.imgur.com/0FWOWRm.png",
@@ -932,7 +943,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "清姫",
         documentId: "kiyohime",
-        imageName: "https://i.imgur.com/ZcAiGcy.jpeg",
+        imageName: "https://i.imgur.com/wgCslk4.png",
         description: "紀伊国の娘・清姫は安珍に恋い焦がれ、やがて蛇となって追い詰め、道成寺の鐘に隠れた安珍を炎で焼き滅ぼしたと語られる。人の情念が怪へと変ずる典型。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -987,16 +998,7 @@ let ayakasis: [Ayakasi] = [
     ),
     
     
-    Ayakasi(
-        name: "あかなめ",
-        documentId: "akaname",
-        imageName: "https://i.imgur.com/fmrL7Lm.jpeg",
-        description: "やせぎすの体つきに乱れた髪、鋭い爪、異様に長い舌が特徴。夜更けに人が寝静まった頃、湿気のこもる場所に現れて汚れをなめ取るという。",
-        categories: ["家の怪","すべて"],
-        relatedCategory: "家の怪",
-        btw: nil,
-        sotry: false
-    ),
+  
     
     Ayakasi(
         name: "河童",
