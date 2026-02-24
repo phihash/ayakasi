@@ -375,6 +375,7 @@ struct NeoDetail: View {
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
         .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .tabBar)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }
