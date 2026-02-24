@@ -107,7 +107,7 @@ struct NeoDetail: View {
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
     @EnvironmentObject var favoriteService : FavoriteService
-    
+
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
         switch status {
@@ -375,7 +375,6 @@ struct NeoDetail: View {
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(.ivory)
         .navigationBarBackButtonHidden(true)
-        .toolbar(.hidden, for: .tabBar)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }

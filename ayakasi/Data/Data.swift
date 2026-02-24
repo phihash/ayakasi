@@ -1,5 +1,16 @@
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "アマビエ",
+        documentId: "amabie",
+        imageName: "https://i.imgur.com/SdipUuu.png",
+        description: "1846年、肥後の海に現れた半人半魚の妖怪。長い髪と鳥のくちばしを持ち、豊作や疫病などの予言を伝えて、海にもどったという言い伝えがある。",
+        categories: ["水の怪","すべて"],
+        relatedCategory: "水の怪",
+        btw: nil,
+        searchKeywords: ["あまびえ","熊本","あまびえ","くだん","予言","コロナ","肥後"],
+        sotry: false
+    ),
+    Ayakasi(
         name: "あかなめ",
         documentId: "akaname",
         imageName: "https://i.imgur.com/fmrL7Lm.jpeg",
@@ -853,16 +864,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["藤原秀郷","滋賀","瀬田の唐橋"],
         sotry: false
     ),
-    Ayakasi(
-        name: "アマビエ",
-        documentId: "amabie",
-        imageName: "https://i.imgur.com/SdipUuu.png",
-        description: "長い髪と鳥のようなくちばし、全身の鱗、三本の尾びれを持つとされる。恐れるよりも、人々を守る象徴として語られてきた。",
-        categories: ["水の怪","すべて"],
-        relatedCategory: "水の怪",
-        btw: nil,
-        sotry: false
-    ),
+  
     
     
     Ayakasi(

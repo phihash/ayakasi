@@ -28,6 +28,14 @@ let yokaiSpots: [YokaiSpot] = [
         prefecture: "和歌山県",
         imageURL: nil
     ),
+    YokaiSpot(
+        spotName: "大島子諏訪神社",
+        coordinate: CLLocationCoordinate2D(latitude: 32.477377901069154, longitude: 130.26318643678658),
+        description: "天草・島原の戦い初戦地として知られる歴史ある神社。令和2年、コロナ禍における疫病終息を願い、アマビエの石神が鎮座された。",
+        yokaiIds: ["amabie"],
+        prefecture: "熊本県",
+        imageURL: nil
+    ),
 ]
 
 enum SelectedLocationType {
@@ -49,6 +57,7 @@ class JapanViewModel  {
 
 struct JapanView: View {
     @State private var viewModel = JapanViewModel()
+    @State private var selectedYokai: Ayakasi?
 
     // yokaiIdsから妖怪オブジェクトを取得
     private func getYokaiFromIds(_ ids: [String]) -> [Ayakasi] {
@@ -58,8 +67,7 @@ struct JapanView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            GeometryReader { geometry in
+        GeometryReader { geometry in
             VStack(spacing: 0) {
                 Map(position: $viewModel.cameraPosition) {
                     // 町おこしスポット（赤いマーカー）
@@ -170,7 +178,9 @@ struct JapanView: View {
 
                                                 HStack(spacing: 8) {
                                                     ForEach(relatedYokais) { yokai in
-                                                        NavigationLink(destination: NeoDetail(yokai: yokai)) {
+                                                        Button {
+                                                            selectedYokai = yokai
+                                                        } label: {
                                                             Text(yokai.name)
                                                                 .font(.subheadline)
                                                                 .fontWeight(.medium)
@@ -202,7 +212,9 @@ struct JapanView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color(.systemGray6))
             }
-            }
+        }
+        .fullScreenCover(item: $selectedYokai) { yokai in
+            NeoDetail(yokai: yokai)
         }
     }
 }
