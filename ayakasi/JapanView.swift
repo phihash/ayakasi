@@ -18,26 +18,6 @@ let townRevitalizations: [TownRevitalization] = [
     TownRevitalization(townName: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316), description: "漫画家・水木しげるの出身地として知られる「妖怪の町」。水木しげるロードには多数の妖怪ブロンズ像が並び、妖怪をテーマにした町おこしで有名。", prefecture: "鳥取県", websiteURL: nil, imageURL: nil, highlights: nil),
 ]
 
-// 妖怪スポットデータ
-let yokaiSpots: [YokaiSpot] = [
-    YokaiSpot(
-        spotName: "道成寺",
-        coordinate: CLLocationCoordinate2D(latitude: 33.914798277659315, longitude: 135.17422150000002),
-        description: "安珍清姫の伝説で知られる天台宗の古刹。清姫が蛇となって安珍を追い詰め、鐘の中で焼き殺したという物語の舞台。",
-        yokaiIds: ["kiyohime"],
-        prefecture: "和歌山県",
-        imageURL: nil
-    ),
-    YokaiSpot(
-        spotName: "大島子諏訪神社",
-        coordinate: CLLocationCoordinate2D(latitude: 32.477377901069154, longitude: 130.26318643678658),
-        description: "天草・島原の戦い初戦地として知られる歴史ある神社。令和2年、コロナ禍における疫病終息を願い、アマビエの石神が鎮座された。",
-        yokaiIds: ["amabie"],
-        prefecture: "熊本県",
-        imageURL: nil
-    ),
-]
-
 enum SelectedLocationType {
     case town(TownRevitalization.ID)
     case yokaiSpot(YokaiSpot.ID)
@@ -58,6 +38,13 @@ class JapanViewModel  {
 struct JapanView: View {
     @State private var viewModel = JapanViewModel()
     @State private var selectedYokai: Ayakasi?
+
+    // ayakasisから全てのスポットを抽出
+    private var allYokaiSpots: [YokaiSpot] {
+        ayakasis.compactMap { yokai in
+            yokai.relatedSpots
+        }.flatMap { $0 }
+    }
 
     // yokaiIdsから妖怪オブジェクトを取得
     private func getYokaiFromIds(_ ids: [String]) -> [Ayakasi] {
@@ -90,7 +77,7 @@ struct JapanView: View {
                     }
 
                     // 妖怪スポット（青いAnnotation）
-                    ForEach(yokaiSpots) { spot in
+                    ForEach(allYokaiSpots) { spot in
                         Annotation(spot.spotName, coordinate: spot.coordinate) {
                             Button {
                                 viewModel.selectedLocation = .yokaiSpot(spot.id)
@@ -140,7 +127,7 @@ struct JapanView: View {
                                 .padding()
                             }
                         case .yokaiSpot(let spotId):
-                            if let spot = yokaiSpots.first(where: { $0.id == spotId }) {
+                            if let spot = allYokaiSpots.first(where: { $0.id == spotId }) {
                                 VStack(alignment: .leading, spacing: 12) {
                                     HStack {
                                         ZStack {

@@ -874,11 +874,19 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["藤原秀郷","滋賀","瀬田の唐橋"],
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "瀬田の唐橋",
+                coordinate: CLLocationCoordinate2D(latitude: 34.97314401171696, longitude: 135.90665321349147),
+                description: "藤原秀郷が大蛇の頼みを受けて、巨大なむかでを退治したとされる伝説の橋。日本三名橋の一つ。",
+                yokaiIds: ["oomukade"],
+                prefecture: "滋賀県",
+                imageURL: nil
+            )
+        ]
     ),
-  
-    
-    
+
     Ayakasi(
         name: "うわん",
         documentId: "uwan",
@@ -898,7 +906,17 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "家の怪",
         btw: nil,
         searchKeywords: ["ゆきおんな", "雪んば"],
-        sotry: true
+        sotry: true,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "雪おんな縁の地",
+                coordinate: CLLocationCoordinate2D(latitude: 35.784586762798774, longitude: 139.26487723727587),
+                description: "小泉八雲の小説『雪女』の舞台が、青梅にあった調布村であると類推されることから、2002年(平成14)に調布橋のたもとに碑が建てられた",
+                yokaiIds: ["yukionna"],
+                prefecture: "東京都",
+                imageURL: nil
+            )
+        ]
     ),
     Ayakasi(
         name: "テケテケ",
@@ -930,7 +948,17 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["神奈川", "一つ目小僧"],
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "一つ目小僧地蔵",
+                coordinate: CLLocationCoordinate2D(latitude: 35.482592556121666, longitude: 139.42085641534467),
+                description: "昭和7年、単眼の頭蓋骨が発見され、供養のためにお地蔵様が祀られている。",
+                yokaiIds: ["hitotsumekozou"],
+                prefecture: "神奈川県",
+                imageURL: nil
+            )
+        ]
     ),
     Ayakasi(
         name: "トイレの花子さん",
@@ -984,7 +1012,17 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "音の怪",
         btw: "兵庫県西脇市の長明寺には、鵺退治像があります。",
         searchKeywords: ["ぬえ", "トラツグミ", "源頼政","西脇","兵庫"],
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "長明寺",
+                coordinate: CLLocationCoordinate2D(latitude: 34.96435197050908, longitude: 134.9776680865085),
+                description: "兵庫県西脇市にある長明寺。源頼政による鵺退治像があり、平家物語の伝説を今に伝える。",
+                yokaiIds: ["nue"],
+                prefecture: "兵庫県",
+                imageURL: nil
+            )
+        ]
     ),
    
     Ayakasi(
@@ -1033,7 +1071,17 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "水の怪",
         btw: nil,
         searchKeywords: ["かっぱ", "ガワタロ", "メドチ"],
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "錦糸堀公園",
+                coordinate: CLLocationCoordinate2D(latitude: 35.694625020814044, longitude: 139.81623236132535),
+                description: "おいてけ堀の由来となった場所であり河童の像があります",
+                yokaiIds: ["kappa"],
+                prefecture: "東京都",
+                imageURL: nil
+            )
+        ]
     ),
     Ayakasi(
         name: "がしゃどくろ",

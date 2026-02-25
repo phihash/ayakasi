@@ -233,9 +233,7 @@ struct NeoDetail: View {
                 VStack{
                     ZStack{
                         imageView
-                        
                         backButtonView
-                        
                         titleView
                         
                     }
@@ -285,13 +283,7 @@ struct NeoDetail: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal,24)
                                 
-                                
-//                                if let btw = yokai.btw {
-//                                    VStack{
-//                                        ByTheWay(btw: btw)
-//                                    }
-//                                }
-//                                
+  
                                 // ゆかりの地セクション
                                 if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
                                     VStack(alignment: .leading, spacing: 12) {
