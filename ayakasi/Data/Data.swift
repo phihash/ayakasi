@@ -1,3 +1,5 @@
+import MapKit
+
 let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "アマビエ",
@@ -8,7 +10,11 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "水の怪",
         btw: nil,
         searchKeywords: ["あまびえ","熊本","あまびえ","くだん","予言","コロナ","肥後"],
-        sotry: false
+        sotry: false,
+        spotLocation: CLLocationCoordinate2D(latitude: 32.477377901069154, longitude: 130.26318643678658),
+        spotName: "大島子諏訪神社",
+        spotDescription: "天草・島原の戦い初戦地として知られる歴史ある神社。令和2年、コロナ禍における疫病終息を願い、アマビエの石神が鎮座された。",
+        prefecture: "熊本県"
     ),
     Ayakasi(
         name: "あかなめ",
@@ -951,7 +957,11 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "動物の怪",
         btw: nil,
         searchKeywords: ["蛇", "和歌山","安珍","あんちんきよひめ"],
-        sotry: true
+        sotry: true,
+        spotLocation: CLLocationCoordinate2D(latitude: 33.914798277659315, longitude: 135.17422150000002),
+        spotName: "道成寺",
+        spotDescription: "安珍清姫の伝説で知られる天台宗の古刹。清姫が蛇となって安珍を追い詰め、鐘の中で焼き殺したという物語の舞台。",
+        prefecture: "和歌山県"
     ),
     Ayakasi(
         name: "鵺",
