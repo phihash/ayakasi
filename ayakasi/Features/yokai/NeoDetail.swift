@@ -2,6 +2,7 @@ import SwiftUI
 import Photos
 import Kingfisher
 import FirebaseFirestore
+import MapKit
 
 struct CommentListView: View {
     let comments: [[String: Any]]
@@ -107,7 +108,7 @@ struct NeoDetail: View {
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
     @EnvironmentObject var favoriteService : FavoriteService
-
+    
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
         switch status {
@@ -232,17 +233,17 @@ struct NeoDetail: View {
                 VStack{
                     ZStack{
                         imageView
-
+                        
                         backButtonView
-
+                        
                         titleView
-
+                        
                     }
                     
                     // 2タブ
                     Group{
                         HStack{
-                            Text("説明")
+                            Text("情報")
                                 .fontWeight(.bold)
                                 .padding(.vertical,16)
                                 .foregroundStyle(selectedTab == 0 ? .black : .black.opacity(0.3))
@@ -256,7 +257,7 @@ struct NeoDetail: View {
                                 .onTapGesture {
                                     selectedTab = 0
                                 }
-
+                            
                             Text("コメント")
                                 .fontWeight(.bold)
                                 .padding(.vertical,16)
@@ -285,10 +286,101 @@ struct NeoDetail: View {
                                     .padding(.horizontal,24)
                                 
                                 
-                                if let btw = yokai.btw {
-                                    VStack{
-                                        ByTheWay(btw: btw)
+//                                if let btw = yokai.btw {
+//                                    VStack{
+//                                        ByTheWay(btw: btw)
+//                                    }
+//                                }
+//                                
+                                // ゆかりの地セクション
+                                if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
+                                    VStack(alignment: .leading, spacing: 12) {
+                                        HStack {
+                                            Text("ゆかりの地")
+                                                .font(.headline)
+                                                .fontWeight(.bold)
+                                        }
+                                        .padding(.horizontal, 24)
+                                        .padding(.vertical, 16)
+                                        
+                                        // 複数スポット対応 - 横スクロール
+                                        ScrollView(.horizontal, showsIndicators: false) {
+                                            HStack(spacing: 16) {
+                                                ForEach(relatedSpots) { spot in
+                                                    VStack(spacing: 12) {
+                                                        // 小さな地図プレビュー
+                                                        Map(initialPosition: .region(
+                                                            MKCoordinateRegion(
+                                                                center: spot.coordinate,
+                                                                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                                                            )
+                                                        )) {
+                                                            Annotation(spot.spotName, coordinate: spot.coordinate) {
+                                                                ZStack {
+                                                                    Circle()
+                                                                        .fill(Color.blue)
+                                                                        .frame(width: 30, height: 30)
+                                                                    Image(systemName: "sparkles")
+                                                                        .foregroundColor(.white)
+                                                                        .font(.system(size: 14))
+                                                                }
+                                                            }
+                                                        }
+                                                        .frame(height: 150)
+                                                        .cornerRadius(12)
+                                                        .allowsHitTesting(false)
+                                                        
+                                                        VStack(alignment: .leading, spacing: 8) {
+                                                          
+                                                            Text(spot.prefecture)
+                                                                .font(.headline)
+                                                                .foregroundColor(.gray)
+                                                            
+                                                            if let description = spot.description {
+                                                                Text(description)
+                                                                    .font(.caption)
+                                                                    .foregroundColor(.gray)
+                                                                    .padding(.top, 4)
+                                                            }
+                                                        }
+                                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                                        
+                                                        Button {
+                                                            // Apple Mapsで開く
+                                                            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: spot.coordinate))
+                                                            mapItem.name = spot.spotName
+                                                            mapItem.openInMaps(launchOptions: nil)
+                                                        } label: {
+                                                            HStack {
+                                                                Image(systemName: "map.fill")
+                                                                Text("地図で\(spot.spotName)を開く")
+                                                                    .fontWeight(.medium)
+                                                            }
+                                                            .frame(maxWidth: .infinity)
+                                                            .padding(.vertical, 12)
+                                                            .background(Color.blue)
+                                                            .foregroundColor(.white)
+                                                            .cornerRadius(8)
+                                                        }
+                                                    }
+                                                    .frame(width: screenWidth * 0.75)
+                                                    .padding()
+                                                    .background(
+                                                        RoundedRectangle(cornerRadius: 12)
+                                                            .fill(Color.white)
+                                                    )
+                                                }
+                                            }
+                                            .padding(.horizontal, 24)
+                                        }
+                                        .padding(.bottom, 12)
                                     }
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(Color(.systemGray6))
+                                    )
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 12)
                                 }
                                 
                                 if yokai.sotry {
@@ -350,23 +442,8 @@ struct NeoDetail: View {
                 }
                 
             }
-
+            
         }
-        .simultaneousGesture(
-            DragGesture()
-                .onEnded { value in
-                    // 横方向の移動が縦方向より大きい場合のみ反応
-                    if abs(value.translation.width) > abs(value.translation.height) && abs(value.translation.width) > 50 {
-                        if value.translation.width > 0 {
-                            // 右スワイプ = 前のタブへ
-                            selectedTab = 0
-                        } else {
-                            // 左スワイプ = 次のタブへ
-                            selectedTab = 1
-                        }
-                    }
-                }
-        )
         .alert("", isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
         } message: {

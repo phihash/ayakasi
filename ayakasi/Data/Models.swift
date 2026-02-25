@@ -19,11 +19,9 @@ struct Ayakasi : Identifiable {
     var references: [ReferenceLink]? = nil
     var searchKeywords: [String]? = nil  // 検索用キーワード（読み仮名・別名など）
     let sotry: Bool
-    // スポット情報（ゆかりの地）
-    var spotLocation: CLLocationCoordinate2D? = nil  // スポットの座標
-    var spotName: String? = nil                      // スポット名（例：「大島子諏訪神社」）
-    var spotDescription: String? = nil               // スポットの詳細説明
-    var prefecture: String? = nil                    // 都道府県
+
+    // スポット情報（ゆかりの地） - 複数対応
+    var relatedSpots: [YokaiSpot]? = nil
 }
 
 struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }
