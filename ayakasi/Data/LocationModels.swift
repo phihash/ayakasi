@@ -7,9 +7,9 @@ struct Highlight: Identifiable {
     let accessInfo: String?
 }
 
-struct TownRevitalization: Identifiable {
+struct YokaiDestination: Identifiable {
     let id = UUID()
-    let townName: String
+    let name: String  // 町名・施設名
     let coordinate: CLLocationCoordinate2D
     let description: String
     let prefecture: String

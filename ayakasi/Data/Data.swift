@@ -1245,3 +1245,4 @@ let ayakasis: [Ayakasi] = [
         sotry: false
     )
 ]
+
