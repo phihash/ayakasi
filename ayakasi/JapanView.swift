@@ -53,6 +53,18 @@ struct JapanView: View {
         }
     }
 
+    // スポットタイプに応じたアイコンとカラーを返す
+    private func spotIconAndColor(for spotType: SpotType) -> (icon: String, color: Color) {
+        switch spotType {
+        case .yokaiRelated:
+            return ("sparkles", .blue)
+        case .museum:
+            return ("building.columns", .purple)
+        case .culturalSite:
+            return ("building", .orange)
+        }
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -76,17 +88,18 @@ struct JapanView: View {
                         }
                     }
 
-                    // 妖怪スポット（青いAnnotation）
+                    // 妖怪スポット（タイプ別のAnnotation）
                     ForEach(allYokaiSpots) { spot in
+                        let iconAndColor = spotIconAndColor(for: spot.spotType)
                         Annotation(spot.spotName, coordinate: spot.coordinate) {
                             Button {
                                 viewModel.selectedLocation = .yokaiSpot(spot.id)
                             } label: {
                                 ZStack {
                                     Circle()
-                                        .fill(Color.blue)
+                                        .fill(iconAndColor.color)
                                         .frame(width: 30, height: 30)
-                                    Image(systemName: "sparkles")
+                                    Image(systemName: iconAndColor.icon)
                                         .foregroundColor(.white)
                                         .font(.system(size: 14))
                                 }
@@ -128,13 +141,14 @@ struct JapanView: View {
                             }
                         case .yokaiSpot(let spotId):
                             if let spot = allYokaiSpots.first(where: { $0.id == spotId }) {
+                                let iconAndColor = spotIconAndColor(for: spot.spotType)
                                 VStack(alignment: .leading, spacing: 12) {
                                     HStack {
                                         ZStack {
                                             Circle()
-                                                .fill(.blue)
+                                                .fill(iconAndColor.color)
                                                 .frame(width: 20, height: 20)
-                                            Image(systemName: "sparkles")
+                                            Image(systemName: iconAndColor.icon)
                                                 .foregroundColor(.white)
                                                 .font(.system(size: 10))
                                         }

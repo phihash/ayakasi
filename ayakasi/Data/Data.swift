@@ -18,7 +18,8 @@ let ayakasis: [Ayakasi] = [
                 description: "天草・島原の戦い初戦地として知られる歴史ある神社。令和2年、コロナ禍における疫病終息を願い、アマビエの石神が鎮座された。",
                 yokaiIds: ["amabie"],
                 prefecture: "熊本県",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -882,7 +883,8 @@ let ayakasis: [Ayakasi] = [
                 description: "藤原秀郷が大蛇の頼みを受けて、巨大なむかでを退治したとされる伝説の橋。日本三名橋の一つ。",
                 yokaiIds: ["oomukade"],
                 prefecture: "滋賀県",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -914,7 +916,8 @@ let ayakasis: [Ayakasi] = [
                 description: "小泉八雲の小説『雪女』の舞台が、青梅にあった調布村であると類推されることから、2002年(平成14)に調布橋のたもとに碑が建てられた",
                 yokaiIds: ["yukionna"],
                 prefecture: "東京都",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -956,7 +959,8 @@ let ayakasis: [Ayakasi] = [
                 description: "昭和7年、単眼の頭蓋骨が発見され、供養のためにお地蔵様が祀られている。",
                 yokaiIds: ["hitotsumekozou"],
                 prefecture: "神奈川県",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -999,7 +1003,8 @@ let ayakasis: [Ayakasi] = [
                 description: "安珍清姫の伝説で知られる天台宗の古刹。清姫が蛇となって安珍を追い詰め、鐘の中で焼き殺したという物語の舞台。",
                 yokaiIds: ["kiyohime"],
                 prefecture: "和歌山県",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -1020,7 +1025,8 @@ let ayakasis: [Ayakasi] = [
                 description: "兵庫県西脇市にある長明寺。源頼政による鵺退治像があり、平家物語の伝説を今に伝える。",
                 yokaiIds: ["nue"],
                 prefecture: "兵庫県",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -1079,7 +1085,8 @@ let ayakasis: [Ayakasi] = [
                 description: "おいてけ堀の由来となった場所であり河童の像があります",
                 yokaiIds: ["kappa"],
                 prefecture: "東京都",
-                imageURL: nil
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
