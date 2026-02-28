@@ -57,6 +57,7 @@
 		A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */; };
 		A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF7212E8A453500F5CDBF /* FeedKit */; };
 		A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF79D2E90ECE900F5CDBF /* XMLKit */; };
+		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		A9B08E262EEEF52B00592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
+		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -329,6 +331,7 @@
 		A9B08DC92EE72BC300592CB5 /* ayakasi */ = {
 			isa = PBXGroup;
 			children = (
+				A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */,
 				A98DD5902EFFAC5E00BC354E /* CommunityView.swift */,
 				A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */,
 				A9B08DC22EE72BC300592CB5 /* Container.swift */,
@@ -543,6 +546,7 @@
 				A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */,
 				A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */,
 				A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */,
+				A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
 				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
@@ -725,7 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.7.2;
+				MARKETING_VERSION = 3.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -771,7 +775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.7.2;
+				MARKETING_VERSION = 3.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

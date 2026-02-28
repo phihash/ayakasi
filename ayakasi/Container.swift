@@ -1,10 +1,14 @@
 import SwiftUI
+import StoreKit
 
 struct Container: View {
     @State private var selection : Int = 0
+    @State private var showSatisfactionAlert = false
+    @State private var showContactForm = false
+    @Environment(\.requestReview) var requestReview
+
     var body: some View {
         ZStack{
-            
             TabView(selection: $selection) {
                 
                 SearchView()
@@ -45,6 +49,29 @@ struct Container: View {
                 
             }
             .tint(.blue)
+            .onAppear {
+                // 3回目の起動時に満足度アラートを表示
+                if AppLaunchCounter.shared.handleAppLaunch() {
+                    showSatisfactionAlert = true
+                }
+            }
+            .alert("アプリは気に入っていますか？", isPresented: $showSatisfactionAlert) {
+                Button("はい") {
+                    // 満足しているユーザー → App Storeレビューへ
+                    requestReview()
+                    AppLaunchCounter.shared.markReviewRequested()
+                }
+                Button("いいえ") {
+                    // 不満があるユーザー → 問い合わせページへ
+                    showContactForm = true
+                    AppLaunchCounter.shared.markReviewRequested()
+                }
+            } message: {
+                Text("あなたのフィードバックをお聞かせください")
+            }
+            .sheet(isPresented: $showContactForm) {
+                SafariView(url: URL(string: AppConstants.contactFormURL)!)
+            }
         }
     }
 }
