@@ -847,7 +847,18 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "動物の怪",
         btw: nil,
         searchKeywords: ["きつね", "九尾", "狐火"],
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "殺生石",
+                coordinate: CLLocationCoordinate2D(latitude: 37.10157952451793, longitude: 139.99920461905108),
+                description: "九尾の狐伝説で言い伝えられる屈指のパワースポットで、殺生石は2022年3月に2つに割れ、話題を呼んでいるスポット。",
+                yokaiIds: ["kitsune"],
+                prefecture: "栃木県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "二口女",
@@ -1110,7 +1121,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         btw: nil,
-        sotry: false
+        sotry: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "轟の滝",
+                coordinate: CLLocationCoordinate2D(latitude: 31.3464863174227, longitude: 131.00797480714246),
+                description: "この滝や近くの権現山は一旦木綿伝承の地とされている。",
+                yokaiIds: ["ittanmomen"],
+                prefecture: "鹿児島県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "てんぐ",

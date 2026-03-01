@@ -32,7 +32,7 @@ class JapanViewModel  {
     var cameraPosition: MapCameraPosition = .region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 35.6812, longitude: 136.8232),
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            span: MKCoordinateSpan(latitudeDelta: 12, longitudeDelta: 12)
         )
     )
 }
