@@ -21,6 +21,7 @@ struct HomeView: View {
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
+    @State private var showGameView = false
     @EnvironmentObject var voteService  : VoteService
     
     @State var selectedNews = "妖怪"
@@ -202,6 +203,26 @@ struct HomeView: View {
                 }
                 
                 HStack{
+                    Text("ゲーム")
+                    Spacer()
+                }
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.horizontal,20)
+                .padding(.top,8)
+                
+                Button("ゲーム"){
+                    showGameView = true
+                }
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, minHeight: 50)
+                .background(Color.orange)
+                .cornerRadius(12)
+                .padding(.horizontal, 20)
+                
+                HStack{
                     Text("妖怪関連ニュース")
                     Spacer()
                 }
@@ -266,6 +287,9 @@ struct HomeView: View {
             }
             .sheet(item: $selectedEventUrl) { url in
                 SafariView(url: url)
+            }
+            .fullScreenCover(isPresented: $showGameView) {
+                GameView()
             }
         }
     }
