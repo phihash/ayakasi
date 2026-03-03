@@ -15,7 +15,6 @@ struct Ayakasi : Identifiable {
     let description: String
     let categories : [String]
     let relatedCategory: String?    // 関連カテゴリ（"すべて"以外の具体的なカテゴリ）
-    var btw: String? = nil          // ← 追加：「ちなみに」用のメモ（別名・豆知識など）
     var references: [ReferenceLink]? = nil
     var searchKeywords: [String]? = nil  // 検索用キーワード（読み仮名・別名など）
     let sotry: Bool
