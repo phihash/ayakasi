@@ -211,16 +211,18 @@ struct HomeView: View {
                 .padding(.horizontal,20)
                 .padding(.top,8)
                 
-                Button("ゲーム"){
+                Button{
                     showGameView = true
-                }
-                .font(.headline)
-                .fontWeight(.semibold)
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity, minHeight: 50)
-                .background(Color.orange)
-                .cornerRadius(12)
-                .padding(.horizontal, 20)
+                } label :{
+                    Text("ゲーム")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.orange)
+                        .cornerRadius(12)
+                        .padding(.horizontal, 20)
+                }             
                 
                 HStack{
                     Text("妖怪関連ニュース")
