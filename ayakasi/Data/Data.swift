@@ -9,7 +9,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["あまびえ","熊本","あまびえ","くだん","予言","コロナ","肥後"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "大島子諏訪神社",
@@ -30,7 +30,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         searchKeywords: ["教訓","ふろ","垢","あかなめ","桶","おけ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "べとべとさん",
@@ -40,7 +40,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         searchKeywords: ["べとべとさん"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "おとろし",
@@ -50,7 +50,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["おとろし"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "タツクチナワ",
@@ -60,7 +60,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["北九州","きたきゅうしゅう"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "たんたんころりん",
@@ -70,7 +70,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["たんたんころりん","柿","仙台","宮城","かき","みやぎ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "天井下り",
@@ -80,7 +80,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         searchKeywords: ["てんじょうくだり"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "のづち",
@@ -90,7 +90,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["のづち"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ぶるぶる",
@@ -100,7 +100,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["鳥山石燕","今昔画図続百鬼"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "しろうかり",
@@ -110,7 +110,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["ばけ物つくし帖","百物語化絵絵巻","百鬼夜行絵巻","尾田郷澄","江戸時代"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "三尸",
@@ -120,7 +120,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["さんし"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "家鳴",
@@ -130,7 +130,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["やなり","家鳴"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "びわぼくぼく",
@@ -140,7 +140,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["びわぼくぼく","琵琶"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ひゃくもく",
@@ -150,7 +150,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["ひゃくもく","百"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "みこしにゅうどう",
@@ -160,7 +160,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["宿直草","煙霞奇談","みあげにゅうどう","江戸時代","ノビアガリ","シダイダカ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "がごぜ",
@@ -170,7 +170,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["元興寺","奈良"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ぬっぺっぽう",
@@ -180,7 +180,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["ぬっぺっぽう"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "泥田坊",
@@ -190,7 +190,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["どろたぼう"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "火車",
@@ -200,7 +200,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["猫","火車","かしゃ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "だいだらぼっち",
@@ -210,7 +210,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["山"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ヤマタノオロチ",
@@ -220,7 +220,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の妖怪","すべて"],
         relatedCategory: "道の妖怪",
         searchKeywords: ["ヤマタノオロチ","蛇"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "一本だたら",
@@ -230,7 +230,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["1本"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "般若",
@@ -240,7 +240,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["はんにゃ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "蟹坊主",
@@ -250,7 +250,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["かに"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "油すまし",
@@ -260,7 +260,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["あぶらすまし"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "土蜘蛛",
@@ -270,7 +270,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["つちぐも"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ほうこう",
@@ -280,7 +280,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["彭侯","中国","外国の妖怪"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "応声虫",
@@ -290,7 +290,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: nil,
         searchKeywords: ["応声虫"],
-        sotry: false
+        story: false
     ),
 
     Ayakasi(
@@ -301,7 +301,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         searchKeywords: ["くねゆすり", "秋田","仙北市"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "白虎",
@@ -311,7 +311,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["びゃっこ", "中国"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "青龍",
@@ -321,7 +321,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["せいりゅう", "中国"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "朱雀",
@@ -331,7 +331,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["すざく", "中国"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "玄武",
@@ -341,7 +341,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["げんぶ", "中国"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "波蛇",
@@ -351,7 +351,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["波蛇", "なみへび"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "蟹鬼",
@@ -361,7 +361,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["蟹鬼", "かにおに"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "キョンシー",
@@ -371,7 +371,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["キョンシー", "中国"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "じゅうめん",
@@ -381,7 +381,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["じゅうめん"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "うやうやし",
@@ -391,7 +391,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["うやうやし"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "にくらし",
@@ -400,7 +400,7 @@ let ayakasis: [Ayakasi] = [
         description: "にくらし",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "馬肝入道",
@@ -409,7 +409,7 @@ let ayakasis: [Ayakasi] = [
         description: "馬肝入道",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "なんじやか",
@@ -418,7 +418,7 @@ let ayakasis: [Ayakasi] = [
         description: "",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "まっぴら",
@@ -427,7 +427,7 @@ let ayakasis: [Ayakasi] = [
         description: "",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ごたいめん",
@@ -436,7 +436,7 @@ let ayakasis: [Ayakasi] = [
         description: "ごたいめんは、夜道や辻などで突然人の前に現れるとされる妖怪で、その名の通り「真正面から出会う」ことを特徴としている。振り返った先や道の曲がり角に、いつの間にか立っている姿が語られ、逃げようとしても進路を塞ぐように再び正面に現れるという。害を加えるわけではないが、道を進む者に強い動揺と不安を与え、夜道での不意の遭遇そのものを象徴する妖怪だと考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "いが坊",
@@ -445,7 +445,7 @@ let ayakasis: [Ayakasi] = [
         description: "いが坊は、夜の道ばたや林の近くに現れるとされる小さな妖怪で、いがいがした姿をした坊主のように語られている。道の端にじっと座っていたり、転がっているように見えることもあり、人が近づくと急に姿を消すことが多い。害をなすことはほとんどなく、旅人や通行人を驚かせる程度の存在で、夜道で感じる気配や違和感が形になった妖怪だと考えられている。",
         categories: ["すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "べか太郎",
@@ -454,7 +454,7 @@ let ayakasis: [Ayakasi] = [
         description: "べか太郎は、夜道や人通りの少ない道に現れるとされる妖怪で、遠くから見ると人影のように見えるが、近づくと正体が分からなくなる存在だと語られている。追いかけても逃げることはなく、かといって捕まえることもできず、気づけばいつの間にか姿を消している。特別な害を及ぼすわけではないが、夜道で感じる不安や錯覚を形にした妖怪だと考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "わいら",
@@ -463,7 +463,7 @@ let ayakasis: [Ayakasi] = [
         description: "わいらは、家の縁の下や暗がりに潜むとされる妖怪で、人目につかない場所からじっと人を見つめている存在だと語られている。はっきりとした姿や性質は伝わっておらず、影のように現れては気配だけを残し、特別な害をなすことも少ない。その正体の曖昧さゆえに、「そこに何かいるのではないか」という不安や違和感そのものが、わいらの正体だとも考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ぬらりひょん",
@@ -472,7 +472,7 @@ let ayakasis: [Ayakasi] = [
         description: "ぬらりひょんは、夕暮れ時に人の家へ何食わぬ顔で上がり込み、まるで主のように振る舞うとされる妖怪である。老人のような姿をしているが、正体や目的ははっきりせず、追い出そうとしても気づけばいつの間にか消えているという。特別な害をなすわけではないが、その得体の知れなさと図々しさから、家に忍び込む怪異の代表的存在として語られてきた。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        sotry: false
+        story: false
     ),
 
     Ayakasi(
@@ -483,7 +483,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         searchKeywords: ["秋田","岩手","あくぼうず"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "獏",
@@ -493,7 +493,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["ばく", "悪夢"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "馬癇",
@@ -503,7 +503,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["馬", "うまかん"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "牛癇",
@@ -513,7 +513,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["牛", "ぎゅうかん"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "野衾",
@@ -523,7 +523,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["ふすま", "のぶすま","野衾"],
-        sotry: false
+        story: false
     ),
 
     Ayakasi(
@@ -534,7 +534,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["中国", "けいてん","刑天"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "孫悟空",
@@ -544,7 +544,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["中国", "西遊記","そんごくう"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "猪八戒",
@@ -554,7 +554,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["中国", "西遊記","猪八戒","ちょはっかい"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "沙悟浄",
@@ -564,7 +564,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
         searchKeywords: ["西遊記", "中国","沙悟浄","さごじょう"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "しおふき",
@@ -573,7 +573,7 @@ let ayakasis: [Ayakasi] = [
         description: "江戸時代の妖怪絵巻『化け物尽くし絵巻』などに描かれる海の怪異。海面から細長い胴を伸ばし、象の鼻のような口先から潮を高く噴き上げるとされる。姿を見た者は、遠くからでも異様な水柱に気づくが、近づくほど正体がつかめず不気味だという。\n\n海辺で漁をしていた人々が、沖合に不自然に高い潮の噴き上がりを見つけた。最初は鯨の潮吹きだと思って船を出したが、近づくほど霧のような飛沫だけが増え、波間から細長い影が一瞬だけ立ち上がったという。影は象の鼻のような口先でさらに潮を噴き、あたりを白く霞ませたのち、何事もなかったかのように海へ沈んで消えた。以来、その海域では『潮の柱が立ったら近づくな』と語られるようになった。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "さとり",
@@ -582,7 +582,7 @@ let ayakasis: [Ayakasi] = [
         description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "くねくね",
@@ -592,7 +592,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["くねくね","都市伝説"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "すねこすり",
@@ -601,7 +601,7 @@ let ayakasis: [Ayakasi] = [
         description: "雨の夜、足元をふいに横切る小さな影。すねに柔らかく身を擦り寄せ、歩幅を乱して人をたじろがせる。悪意は薄く、驚かせては霧のように消えると伝わる。\n\n暗闇の中で足元にまとわりつき、人を驚かせる。",
         categories: ["すべて"],
         relatedCategory: nil,
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "吸血鬼",
@@ -611,7 +611,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["すべて"],
         relatedCategory: nil,
         searchKeywords: ["吸血鬼"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "メリーさん",
@@ -620,7 +620,7 @@ let ayakasis: [Ayakasi] = [
         description: "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。\n\n電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "八尺様",
@@ -629,7 +629,7 @@ let ayakasis: [Ayakasi] = [
         description: "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。\n\n長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "隙間女",
@@ -638,7 +638,7 @@ let ayakasis: [Ayakasi] = [
         description: "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。\n\n隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "人魂",
@@ -647,7 +647,7 @@ let ayakasis: [Ayakasi] = [
         description: "死者の霊が灯火のように漂うとされる怪異。夜道や墓地にふわりと浮かび、青白い炎の姿で現れる。\n\n夜間に漂い、人を驚かせる。怪異の前触れとされることもある。",
         categories: ["すべて"],
         relatedCategory: nil,
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "アクロバティックサラサラ",
@@ -657,7 +657,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["都市伝説"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -667,7 +667,7 @@ let ayakasis: [Ayakasi] = [
         description: "巨大な虫のような姿で描かれる怪物。節くれだった体と多数の脚、翼や触角を持ち、うごめくだけで禍々しい気配を放つという。",
         categories: ["すべて"],
         relatedCategory: nil,
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ぬりかべ",
@@ -676,7 +676,7 @@ let ayakasis: [Ayakasi] = [
         description: "前進を阻む“壁”として感じられ、押しても避けても進めない。低い位置を叩くと消える、角を探すと抜けられるなどの対処譚が伝わる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "傘小僧",
@@ -686,7 +686,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["かさこぞう", "傘"],
-        sotry: false
+        story: false
     )    ,
     Ayakasi(
         name: "牛鬼",
@@ -696,7 +696,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["うしおに", "濡れ女","牛"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -707,7 +707,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["くだん", "人面牛", "予言"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -718,7 +718,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         searchKeywords: ["ぬらりひょん"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -729,7 +729,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["ろくろくび", "轆轤首"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -740,7 +740,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","水の怪","すべて"],
         relatedCategory: "音の怪",
         searchKeywords: ["あずきあらい", "小豆とぎ", "あずきとぎ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "影女",
@@ -749,7 +749,7 @@ let ayakasis: [Ayakasi] = [
         description: "物の怪のいる家で、月影に照らされた女の姿の影が家の障子に映るものとされる",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        sotry: false
+        story: false
     ),
   
     Ayakasi(
@@ -760,7 +760,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["ねこまた", "化け猫"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -771,7 +771,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["きつね", "九尾", "狐火"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "殺生石",
@@ -791,7 +791,7 @@ let ayakasis: [Ayakasi] = [
         description: "少食を装うが、もう一つの口で主に食べ物を摂取する。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "百目鬼",
@@ -800,7 +800,7 @@ let ayakasis: [Ayakasi] = [
         description: "百目鬼(どうめき)とは腕や体に無数の目を持つ怪物、宇都宮では藤原秀郷によって退治されたという伝承がある。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "おおむかで",
@@ -810,7 +810,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["藤原秀郷","滋賀","瀬田の唐橋"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "瀬田の唐橋",
@@ -831,7 +831,7 @@ let ayakasis: [Ayakasi] = [
         description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。\n江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "雪女",
@@ -841,7 +841,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
         searchKeywords: ["ゆきおんな", "雪んば"],
-        sotry: true,
+        story: true,
         relatedSpots: [
             YokaiSpot(
                 spotName: "雪おんな縁の地",
@@ -862,7 +862,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["都市伝説", "テケテケ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "人面犬",
@@ -871,7 +871,7 @@ let ayakasis: [Ayakasi] = [
         description: "犬の体に人間の顔をついた奇妙な姿。“ワンワン”としゃべる、バイクに乗っている、夜道を歩いているなどバリエーションは豊富。見た目は気味が悪いが、実害は少ないとも言われる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        sotry: false
+        story: false
     ),
   
     Ayakasi(
@@ -882,7 +882,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["神奈川", "一つ目小僧"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "一つ目小僧地蔵",
@@ -903,7 +903,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["学校の怪談", "都市伝説","トイレ"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "のっぺらぼう",
@@ -913,7 +913,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["おいてけ", "顔"],
-        sotry: true
+        story: true
     ),
     Ayakasi(
         name: "清姫",
@@ -923,7 +923,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["蛇", "和歌山","安珍","あんちんきよひめ"],
-        sotry: true,
+        story: true,
         relatedSpots: [
             YokaiSpot(
                 spotName: "道成寺",
@@ -944,7 +944,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
         searchKeywords: ["ぬえ", "トラツグミ", "源頼政","西脇","兵庫"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "長明寺",
@@ -965,7 +965,7 @@ let ayakasis: [Ayakasi] = [
         description: "長い黒髪と濡れた和服、青白い肌を持つ。哀しげな表情で現れ、川や沼のほとり、橋の上を歩く姿が多い。恐怖の象徴でありつつ、水難事故への警告とされることもある。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
-        sotry: false
+        story: false
     ),
     
    
@@ -976,7 +976,7 @@ let ayakasis: [Ayakasi] = [
         description: "背の曲がった老婆の姿で現れ、手にした杓や袋から砂を浴びせて人を惑わせるとされる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "鬼",
@@ -986,7 +986,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["おに", "赤鬼", "青鬼"],
-        sotry: false
+        story: false
     ),
     
     
@@ -1000,7 +1000,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["かっぱ", "ガワタロ", "メドチ"],
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "錦糸堀公園",
@@ -1021,7 +1021,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
        
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -1031,7 +1031,7 @@ let ayakasis: [Ayakasi] = [
         description: "白い反物が生き物のようにたなびき、風に乗って飛ぶ。人の顔に巻きついたり、肩にまとわりついたりする挙動が語られる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false,
+        story: false,
         relatedSpots: [
             YokaiSpot(
                 spotName: "轟の滝",
@@ -1052,7 +1052,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["天狗", "烏天狗", "カラステング"],
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -1062,7 +1062,7 @@ let ayakasis: [Ayakasi] = [
         description: "海面から巨大な黒い僧形の影が現れ、船を揺らし、油を要求するなどの話型がある。桶を差し出し機先を制する対処譚も有名。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "口裂け女",
@@ -1071,7 +1071,7 @@ let ayakasis: [Ayakasi] = [
         description: "長い黒髪とコート姿、顔の下半分をマスクや布で隠していることが多い。正体は不明だが、マスクを外すと口が耳まで大きく裂けている。怖がらせる存在として語られるが、対処法や撃退エピソードも有名。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -1081,7 +1081,7 @@ let ayakasis: [Ayakasi] = [
         description: "燃える大車輪に苦悶の表情の頭部が付いた姿で夜道を転がる。見る者の魂を奪うとも子を攫うともいう。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -1091,7 +1091,7 @@ let ayakasis: [Ayakasi] = [
         description: "神余光弘の愛妾から山下定包の妻となった美女。里見義実に捕らえられ斬首される際、呪詛を残し怨霊化して里見家を祟る。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        sotry: false
+        story: false
     ),
     
     Ayakasi(
@@ -1102,7 +1102,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["やま", "ばばあ"],
-        sotry: true
+        story: true
     ),
     
     Ayakasi(
@@ -1112,7 +1112,7 @@ let ayakasis: [Ayakasi] = [
         description: "童子姿で家の中を走り回る気配を残す。姿が見えなくなると家運が傾くという俗信が広い。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
-        sotry: true
+        story: true
     ),
     Ayakasi(
         name: "かまいたち",
@@ -1122,7 +1122,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["かまいたち"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "こなき爺",
@@ -1132,7 +1132,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["ゲゲゲの鬼太郎", "こなきじじい","子泣き","こなき爺"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "船幽霊",
@@ -1142,7 +1142,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["船", "ひしゃく","船幽霊","海","ふなゆうれい"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "ひきこさん",
@@ -1152,7 +1152,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["都市伝説", "ひきこさん"],
-        sotry: false
+        story: false
     ),
     Ayakasi(
         name: "吉原千恵子",
@@ -1162,7 +1162,7 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["吉原千恵子", "チェーンメール","都市伝説"],
-        sotry: false
+        story: false
     )
 ]
 

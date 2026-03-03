@@ -32,7 +32,7 @@ struct NeoCardItem: View {
                 Image(systemName: favoriteService.isFavoriteYokai(item.documentId) ? "star.fill" : "star")
                     .font(.system(size: 10))
 
-                if item.sotry {
+                if item.story {
                     Image("book")
                         .renderingMode(.template)
                         .resizable()

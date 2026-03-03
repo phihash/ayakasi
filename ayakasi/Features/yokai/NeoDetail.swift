@@ -375,7 +375,7 @@ struct NeoDetail: View {
                                     .padding(.vertical, 12)
                                 }
                                 
-                                if yokai.sotry {
+                                if yokai.story {
                                     Button {
                                         showStoryView = true
                                     } label: {

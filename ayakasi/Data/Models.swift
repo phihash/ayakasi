@@ -17,7 +17,7 @@ struct Ayakasi : Identifiable {
     let relatedCategory: String?    // 関連カテゴリ（"すべて"以外の具体的なカテゴリ）
     var references: [ReferenceLink]? = nil
     var searchKeywords: [String]? = nil  // 検索用キーワード（読み仮名・別名など）
-    let sotry: Bool
+    let story: Bool
 
     // スポット情報（ゆかりの地） - 複数対応
     var relatedSpots: [YokaiSpot]? = nil

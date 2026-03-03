@@ -74,7 +74,7 @@ struct RecentCommentsSectionView: View {
 
                                    
 
-                                    if ayakasi.sotry {
+                                    if ayakasi.story {
                                         Image("book2")
                                             .renderingMode(.template)
                                             .resizable()

@@ -81,7 +81,7 @@ struct RecentCommentsSectionView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(.gray)
 
-                                    if ayakasi.sotry {
+                                    if ayakasi.story {
                                         Image("book2")
                                             .renderingMode(.template)
                                             .resizable()
