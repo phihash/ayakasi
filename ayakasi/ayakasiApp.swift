@@ -5,7 +5,10 @@ import Firebase
 struct ayakasiApp: App {
     @StateObject private var AuthVM = AuthViewModel()
     @StateObject private var VoteVM = VoteService()
-    @StateObject private var CommentVM = CommentService()
+    @StateObject private var CommentVM = CommentService(
+        authService: AuthService.shared,
+        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")   
+    )
     @StateObject private var FavoriteVM = FavoriteService.shared
     init(){
         FirebaseApp.configure()

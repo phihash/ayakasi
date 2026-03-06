@@ -14,19 +14,21 @@ struct CommentError: LocalizedError {
 
 @MainActor
 class CommentService : ObservableObject {
-    static let shared = CommentService()
     private let db = Firestore.firestore()
-    private let authService = AuthService.shared
 
     // 定数
     private let maxRecentComments = 15
     private let cacheValidDuration: TimeInterval = 300 // 5分
-    private let commentTokenBucket = TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
+    private let authService: AuthServiceProtocol
+    private let commentTokenBucket: TokenBucketProtocol
 
     // キャッシュ管理
     @AppStorage("lastRecentCommentsFetch") private var lastRecentCommentsFetch: Double = 0
     
-
+    init(authService: AuthServiceProtocol, tokenBucket: TokenBucketProtocol) {
+        self.authService = authService
+        self.commentTokenBucket = tokenBucket
+    }
     
     //　TODOエラーを考える
     // 1.コメント一覧取得とブロックフィルタリング

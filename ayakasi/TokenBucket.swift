@@ -40,7 +40,7 @@ class TokenBucket : TokenBucketProtocol{
     
     func consume() {
         if availableToken > 0 {
-            availableToken -= 1  
+            availableToken -= 1
         }
     }
     

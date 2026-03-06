@@ -4,7 +4,12 @@ import FirebaseFirestore
 import SwiftUI
 
 @MainActor
-class AuthService: ObservableObject {
+protocol AuthServiceProtocol {
+    var currentUser: User? { get }
+}
+
+@MainActor
+class AuthService: ObservableObject , AuthServiceProtocol {
     static let shared = AuthService()
     private let db = Firestore.firestore()
 
