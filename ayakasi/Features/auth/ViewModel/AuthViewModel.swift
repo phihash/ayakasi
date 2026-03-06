@@ -8,6 +8,10 @@ enum AuthStatus {
     case authenticated     // 認証済み（ログイン済み）
 }
 
+protocol AuthServiceProtocol {
+    var currentUser: User? { get }
+}                             
+
 @MainActor
 class AuthViewModel : ObservableObject{
     @Published var user : User?

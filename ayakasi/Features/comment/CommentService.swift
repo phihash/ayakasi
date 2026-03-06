@@ -19,22 +19,14 @@ class CommentService : ObservableObject {
     private let authService = AuthService.shared
 
     // 定数
-    private let maxTokens = 5
     private let maxRecentComments = 15
     private let cacheValidDuration: TimeInterval = 300 // 5分
-
-    // トークンバケット用のプロパティ
-    @AppStorage("commentTokens") private var availableTokens: Int = 5
-    @AppStorage("lastCommentRefillTime") private var lastRefillTime: Double = -1
+    private let commentTokenBucket = TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
 
     // キャッシュ管理
     @AppStorage("lastRecentCommentsFetch") private var lastRecentCommentsFetch: Double = 0
     
-    init() {// 初回起動時のみlastRefillTimeを現在時刻に設定
-        if lastRefillTime == -1 {
-            lastRefillTime = Date().timeIntervalSince1970
-        }
-    }
+
     
     //　TODOエラーを考える
     // 1.コメント一覧取得とブロックフィルタリング
@@ -153,29 +145,6 @@ class CommentService : ObservableObject {
     
     //3 コメント投稿機能
     
-    private func refillToken() {
-        let currentTime = Date().timeIntervalSince1970
-        let timeSinceLastRefill = currentTime - lastRefillTime
-        
-        // 480秒（8分）ごとに1トークン
-        let tokensToAdd = Int(timeSinceLastRefill / 480.0)
-        
-        if tokensToAdd > 0 {
-            availableTokens = min(maxTokens, tokensToAdd + availableTokens)
-            lastRefillTime = currentTime
-        }
-    }
-    
-    private func canComment() -> Bool {
-        refillToken()
-        return availableTokens > 0
-    }
-    
-    private func consumeToken() {
-        if availableTokens > 0 {
-            availableTokens -= 1
-        }
-    }
     
     func postComment(content: String, yokai: Ayakasi) async throws {
         guard !content.isEmpty else {
@@ -185,7 +154,7 @@ class CommentService : ObservableObject {
             throw CommentError(message: "ログインが必要です")
         }
         // トークンバケットチェック
-        guard canComment() else {
+        guard commentTokenBucket.canConsume() else {
             throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
         }
         
@@ -205,7 +174,7 @@ class CommentService : ObservableObject {
         try await db.collection("recentComments")
             .addDocument(data: recentCommentData)
         // 成功時のみトークンを消費
-        consumeToken()
+        commentTokenBucket.consume()
     }
     
     //4 コメント通報機能

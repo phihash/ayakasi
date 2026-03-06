@@ -57,6 +57,7 @@
 		A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF79D2E90ECE900F5CDBF /* XMLKit */; };
 		A9E83FA32F573549007E4435 /* RankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA22F573549007E4435 /* RankingSectionView.swift */; };
 		A9E83FA52F573562007E4435 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA42F573562007E4435 /* GameView.swift */; };
+		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
 		A9E83FA22F573549007E4435 /* RankingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSectionView.swift; sourceTree = "<group>"; };
 		A9E83FA42F573562007E4435 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A9E840A82F59D0B3007E4435 /* TokenBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBucket.swift; sourceTree = "<group>"; };
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 				A9B08DC42EE72BC300592CB5 /* Info.plist */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
+				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
 				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
+				A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
 				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
