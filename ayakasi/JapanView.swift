@@ -69,6 +69,14 @@ struct JapanView: View {
         }
     }
 
+    // Google Mapで開く
+    private func openInGoogleMaps(latitude: Double, longitude: Double, name: String) {
+        let urlString = "https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -139,6 +147,23 @@ struct JapanView: View {
                                             .foregroundColor(.primary)
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
+
+                                    Button {
+                                        openInGoogleMaps(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, name: location.name)
+                                    } label: {
+                                        HStack {
+                                            Image(systemName: "map")
+                                            Text("Google Mapで開く")
+                                        }
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.white)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 12)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                    }
+                                    .padding(.top, 8)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding()
@@ -202,6 +227,23 @@ struct JapanView: View {
                                             }
                                         }
                                     }
+
+                                    Button {
+                                        openInGoogleMaps(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude, name: spot.spotName)
+                                    } label: {
+                                        HStack {
+                                            Image(systemName: "map")
+                                            Text("Google Mapで開く")
+                                        }
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.white)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 12)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                    }
+                                    .padding(.top, 8)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding()

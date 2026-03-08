@@ -2,6 +2,28 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "オッパショ石",
+        documentId: "oppasho_ishi",
+        imageName: "https://i.imgur.com/3tBMuPN.png",
+        description: "徳島の市街地近くの墓地にある、「おっぱしょ」と声を掛けて人をおどかす怪石。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        references: nil,
+        searchKeywords: ["オッパショ石", "おっぱしょ", "徳島", "怪石","力士"],
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "オッパショ石",
+                coordinate: CLLocationCoordinate2D(latitude: 34.05645998373413, longitude: 134.54422761534468),
+                description: "徳島の市街地近くの墓地にある怪石の伝承地",
+                yokaiIds: ["oppasho_ishi"],
+                prefecture: "徳島県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
+    ),
+    Ayakasi(
         name: "アマビエ",
         documentId: "amabie",
         imageName: "https://i.imgur.com/SdipUuu.png",
@@ -696,7 +718,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
         searchKeywords: ["うしおに", "濡れ女","牛"],
-        story: false
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "根香寺",
+                coordinate: CLLocationCoordinate2D(latitude: 34.34323013625954, longitude: 133.96153552883618),
+                description: "香川県の根香寺に伝わる牛鬼伝説。弓名人・山田蔵人高清が退治した牛鬼の角が今も寺に保存されている。牛鬼の絵は魔よけのお守りとして親しまれている。",
+                yokaiIds: ["usioni"],
+                prefecture: "香川県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     
     Ayakasi(

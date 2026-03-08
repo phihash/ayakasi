@@ -5,56 +5,18 @@ import SwiftUI
 
 @MainActor
 class VoteService: ObservableObject {
-    static let shared = VoteService()
+
     private let db = Firestore.firestore()
-    private let authService = AuthService.shared
+    private let authService : AuthServiceProtocol
     //ローカルキャッシュに全ての妖怪の情報が入る
     @Published var voteCountCache: [String: Int] = [:]
-    private let maxTokens = 7
-    @AppStorage("voteTokens") private var availableTokens: Int = 7 // 利用可能なトークン数（最大7個）
-    @AppStorage("lastRefillTime") private var lastRefillTime: Double = -1 // 最後にトークンを補充した時刻（-1は未初期化を意味）
-    
-    private func getCurrentMaxTokens() -> Int {
-        if authService.currentUser != nil {
-            return 15  // ログイン済み: 多め
-        } else {
-            return 7   // 未ログイン: 少なめ
-        }
-    }
-    
-    init(){
-        // 初回起動時のみlastRefillTimeを現在時刻に設定
-        if lastRefillTime == -1 {
-            lastRefillTime = Date().timeIntervalSince1970 // 現在時刻（秒）を保存
-        }
-        
+
+    private let tokenBucket: TokenBucketProtocol
+    init(authService: AuthServiceProtocol, tokenBucket: TokenBucketProtocol) {
+        self.authService = authService
+        self.tokenBucket = tokenBucket
         Task {
             await loadAllVoteCounts()
-        }
-    }
-    
-    private func refillToken(){
-        let currentTime = Date().timeIntervalSince1970
-        let timeSinceLastRefill = currentTime - lastRefillTime
-        
-        //300秒ごとに1トークン
-        let tokensToAdd = Int(timeSinceLastRefill / 300.0)
-        
-        if tokensToAdd > 0 {
-            let currentMaxTokens = getCurrentMaxTokens()
-            availableTokens = min(currentMaxTokens, tokensToAdd + availableTokens)
-            lastRefillTime = currentTime
-        }
-    }
-    
-    private func canVote() -> Bool{
-        refillToken()
-        return availableTokens > 0
-    }
-    
-    private func consumeToken() {
-        if availableTokens > 0 {
-            availableTokens -= 1
         }
     }
     
@@ -86,7 +48,7 @@ class VoteService: ObservableObject {
 //        }
 //        
         // レートリミットcheck
-        guard canVote() else {
+        guard tokenBucket.canConsume()   else {
             throw VoteError.rateLimitExceeded
         }
         
@@ -109,7 +71,7 @@ class VoteService: ObservableObject {
         let newVotes = result as? Int ?? 0
         
         // 投票成功時のみトークンを消費
-        consumeToken()
+        tokenBucket.consume()
         
         voteCountCache[aykasiId] = newVotes
 

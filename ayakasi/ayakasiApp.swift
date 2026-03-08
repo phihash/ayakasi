@@ -4,7 +4,10 @@ import Firebase
 @main
 struct ayakasiApp: App {
     @StateObject private var AuthVM = AuthViewModel()
-    @StateObject private var VoteVM = VoteService()
+    @StateObject private var VoteVM = VoteService(
+        authService: AuthService.shared,
+        tokenBucket: TokenBucket(maxToken: 15, refillInterval: 300, storageKeyPrefix: "vote")
+    )
     @StateObject private var CommentVM = CommentService(
         authService: AuthService.shared,
         tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")   
