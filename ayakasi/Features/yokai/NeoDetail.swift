@@ -338,14 +338,15 @@ struct NeoDetail: View {
                                                         .frame(maxWidth: .infinity, alignment: .leading)
                                                         
                                                         Button {
-                                                            // Apple Mapsで開く
-                                                            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: spot.coordinate))
-                                                            mapItem.name = spot.spotName
-                                                            mapItem.openInMaps(launchOptions: nil)
+                                                            // Google Mapで開く
+                                                            let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
+                                                            if let url = URL(string: urlString) {
+                                                                UIApplication.shared.open(url)
+                                                            }
                                                         } label: {
                                                             HStack {
                                                                 Image(systemName: "map.fill")
-                                                                Text("地図で\(spot.spotName)を開く")
+                                                                Text("Google Mapで\(spot.spotName)を開く")
                                                                     .fontWeight(.medium)
                                                             }
                                                             .frame(maxWidth: .infinity)

@@ -32,6 +32,12 @@ struct NeoCardItem: View {
                 Image(systemName: favoriteService.isFavoriteYokai(item.documentId) ? "star.fill" : "star")
                     .font(.system(size: 10))
 
+                if let relatedSpots = item.relatedSpots, !relatedSpots.isEmpty {
+                    Image(systemName: "mappin.and.ellipse")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.blue)
+                }
+
                 if item.story {
                     Image("book")
                         .renderingMode(.template)
