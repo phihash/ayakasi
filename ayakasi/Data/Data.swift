@@ -228,11 +228,22 @@ let ayakasis: [Ayakasi] = [
         name: "だいだらぼっち",
         documentId: "daidarabotti",
         imageName: "https://i.imgur.com/74qbxsT.png",
-        description: "いだらぼっち",
-        categories: ["道の怪","すべて"],
-        relatedCategory: "道の怪",
-        searchKeywords: ["山"],
-        story: false
+        description: "日本各地に伝わる巨人伝説。山を作り、谷を掘り、巨大な足跡が湖になったとされる。地域によって「デイダラボッチ」「ダイダラボウ」など呼び方が異なる。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["だいだらぼっち", "デイダラボッチ", "巨人", "山"],
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "山梨岡神社",
+                coordinate: CLLocationCoordinate2D(latitude: 35.67921691481622, longitude: 138.69168615581916),
+                description: "平地に浮かぶ石森山に鎮座する神社。だいだらぼっちが作ったという伝承が残り、巨石群や奇岩が立ち並ぶ。躑躅の名所としても知られる。",
+                yokaiIds: ["daidarabotti"],
+                prefecture: "山梨県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "ヤマタノオロチ",
@@ -1019,7 +1030,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
         searchKeywords: ["おに", "赤鬼", "青鬼"],
-        story: false
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "三ツ石神社",
+                coordinate: CLLocationCoordinate2D(latitude: 39.70900790250411, longitude: 141.154569276687),
+                description: "岩手県盛岡市にある神社。鬼が三つの巨石に手形を押して二度と現れないと約束した伝説が残り、「岩手」の地名の由来となった。盛岡三大祭りの一つ「さんさ踊り」の起源でもある。",
+                yokaiIds: ["oni"],
+                prefecture: "岩手県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     
     
