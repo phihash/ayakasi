@@ -283,17 +283,17 @@ struct GameView: View {
                 .font(.headline)
                 .padding(.horizontal, 40)
                 .padding(.vertical, 12)
-                .background(Color.orange)
-                .foregroundStyle(.white)
+                .background(Color.appPrimary)
+                .foregroundStyle(Color.appTextWhite)
                 .cornerRadius(8)
 
                 Spacer()
             }
 
             if vm.gameState == .clear {
-                resultOverlay(title: "CLEAR!", color: .green)
+                resultOverlay(title: "CLEAR!", color: .appSuccess)
             } else if vm.gameState == .gameOver {
-                resultOverlay(title: "GAME OVER", color: .red)
+                resultOverlay(title: "GAME OVER", color: .appError)
             }
         }
     }
@@ -336,12 +336,12 @@ struct GameView: View {
                     .fill(cell.color)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
-                            .strokeBorder(isHighlighted ? Color.white.opacity(0.8) : Color.clear, lineWidth: isHighlighted ? 3 : 0)
+                            .strokeBorder(isHighlighted ? Color.appTextWhite.opacity(0.8) : Color.clear, lineWidth: isHighlighted ? 3 : 0)
                     )
                     .opacity(isHighlighted ? 0.85 : 1.0)
             } else {
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(Color.gray.opacity(0.1))
+                    .fill(Color.appTextSecondary.opacity(0.1))
             }
         }
         .frame(width: size, height: size)
@@ -354,7 +354,7 @@ struct GameView: View {
 
     func resultOverlay(title: String, color: Color) -> some View {
         ZStack {
-            Color.black.opacity(0.6)
+            Color.appTextBlack.opacity(0.6)
                 .ignoresSafeArea()
 
             VStack(spacing: 20) {
@@ -368,8 +368,8 @@ struct GameView: View {
                 .font(.headline)
                 .padding(.horizontal, 40)
                 .padding(.vertical, 12)
-                .background(Color.orange)
-                .foregroundStyle(.white)
+                .background(Color.appPrimary)
+                .foregroundStyle(Color.appTextWhite)
                 .cornerRadius(8)
             }
         }

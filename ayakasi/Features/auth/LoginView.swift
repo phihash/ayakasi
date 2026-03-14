@@ -15,7 +15,7 @@ struct LoginView: View {
                         .keyboardType(.emailAddress)
                         .font(.system(size: 18))
                         .padding()
-                        .background(Color(.systemGray6))
+                        .background(Color.appTextFieldBackground)
                         .cornerRadius(10)
                         .contentShape(Rectangle())
                         .padding(.horizontal)
@@ -24,7 +24,7 @@ struct LoginView: View {
                         .textContentType(.password)
                         .font(.system(size: 18))
                         .padding()
-                        .background(Color(.systemGray6))
+                        .background(Color.appTextFieldBackground)
                         .cornerRadius(10)
                         .contentShape(Rectangle())  // タップ領域を拡大
                         .padding(.horizontal)
@@ -32,7 +32,7 @@ struct LoginView: View {
                 
                 
                 Text(authVM.message)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(Color.appError)
                     .font(.subheadline)
                 
                 Button {
@@ -46,8 +46,8 @@ struct LoginView: View {
                     HStack{
                         Text("ログイン")
                             .frame(width: 160, height: 48)
-                            .background(.blue)
-                            .foregroundColor(.white)
+                            .background(Color.appSecondary)
+                            .foregroundColor(.appTextWhite)
                             .cornerRadius(10)
                     }
                 }

@@ -33,9 +33,9 @@ struct ReportUI: View {
                 .font(.headline)
                 .fontWeight(.semibold)
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
-                .background(.red)
+                .background(Color.appError)
                 .cornerRadius(25)
-                .foregroundColor(.white)
+                .foregroundColor(.appTextWhite)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
             }
@@ -62,9 +62,9 @@ struct ReportUI: View {
                     .font(.headline)
                     .fontWeight(.semibold)
                     .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
-                    .background(.orange)
+                    .background(Color.appPrimary)
                     .cornerRadius(25)
-                    .foregroundColor(.white)
+                    .foregroundColor(.appTextWhite)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                 }

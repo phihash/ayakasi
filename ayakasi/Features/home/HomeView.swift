@@ -126,18 +126,18 @@ struct HomeView: View {
                     VStack {
                         HStack {
                             Image(systemName: "megaphone")
-                                .foregroundColor(.orange)
+                                .foregroundColor(.appPrimary)
                             Text(notice.message)
                                 .font(.body)
                                 .fontWeight(.medium)
                             Spacer()
                         }
                         .padding()
-                        .background(Color.orange.opacity(0.1))
+                        .background(Color.appPrimary.opacity(0.1))
                         .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+                                .stroke(Color.appPrimary.opacity(0.3), lineWidth: 1)
                         )
                     }
                     .padding(.horizontal, 20)
@@ -152,55 +152,11 @@ struct HomeView: View {
                 }
                 .padding(.horizontal,24)
                 
-                Group {
-                    if filteredEvents.isEmpty {
-                        VStack(spacing: 16) {
-                            Image(systemName: "calendar.badge.exclamationmark")
-                                .font(.system(size: 40))
-                                .foregroundColor(.gray)
-                            
-                            Text("イベントを取得中です")
-                                .font(.title3)
-                                .fontWeight(.medium)
-                                .foregroundColor(.gray)
-                        }
-                        .frame(height: 160)
-                    } else {
-                        VStack(spacing: 8) {
-                            TabView(selection: $page) {
-                                ForEach(filteredEvents.indices, id: \.self) { index in
-                                    EventComponent(
-                                        link: filteredEvents[index].link ?? "",
-                                        linkTitle: filteredEvents[index].title ?? "イベント",
-                                        imageUrl: filteredEvents[index].imageUrl,
-                                        location: filteredEvents[index].location,
-                                        startDateTime: filteredEvents[index].startDateTime,
-                                        endDateTime: filteredEvents[index].endDateTime,
-                                        onTap: {
-                                            if let urlString = filteredEvents[index].link,
-                                               let url = URL(string: urlString) {
-                                                selectedEventUrl = url
-                                            }
-                                        }
-                                    )
-                                    .tag(index)
-                                }
-                            }
-                            .tabViewStyle(.page(indexDisplayMode: .never))
-                            .frame(height: 250)
-                            
-                            // カスタムインジケーター
-                            HStack(spacing: 8) {
-                                ForEach(filteredEvents.indices, id: \.self) { index in
-                                    Circle()
-                                        .fill(index == page ? Color.gray : Color.gray.opacity(0.3))
-                                        .frame(width: 8, height: 8)
-                                }
-                            }
-                            .padding(.vertical, 2)
-                        }
-                    }
-                }
+                EventsSection(
+                    filteredEvents: filteredEvents,
+                    page: $page,
+                    selectedEventUrl: $selectedEventUrl
+                )
                 
                 HStack{
                     Text("ゲーム")
@@ -217,9 +173,9 @@ struct HomeView: View {
                     Text("ゲーム")
                         .font(.headline)
                         .fontWeight(.semibold)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color.appTextWhite)
                         .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Color.orange)
+                        .background(Color.appPrimary)
                         .cornerRadius(12)
                         .padding(.horizontal, 20)
                 }             
@@ -240,15 +196,15 @@ struct HomeView: View {
                         } label :{
                             Text(element)
                                 .font(.subheadline)
-                                .foregroundStyle(selectedNews == element ? .white : .blue)
+                                .foregroundStyle(selectedNews == element ? Color.appTextWhite : Color.appSecondary)
                                 .fontWeight(.bold)
                                 .padding(.vertical,6)
                                 .padding(.horizontal,18)
-                                .background(selectedNews == element ? .blue : .clear)
+                                .background(selectedNews == element ? Color.appSecondary : Color.clear)
                                 .cornerRadius(24)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 24)
-                                        .stroke(.blue, lineWidth: 2)
+                                        .stroke(Color.appSecondary, lineWidth: 2)
                                 )
                                 .onTapGesture { selectedNews = element }
                         }
@@ -280,7 +236,7 @@ struct HomeView: View {
                             }
                     )
             }
-            .background(Color("Ivory"))
+            .background(Color.appBackground)
             
             .navigationTitle("イベント・ニュース")
             .navigationBarTitleDisplayMode(.inline)
@@ -294,5 +250,75 @@ struct HomeView: View {
                 GameView()
             }
         }
+    }
+}
+
+// MARK: - Events Section
+struct EventsSection: View {
+    let filteredEvents: [EventItem]
+    @Binding var page: Int
+    @Binding var selectedEventUrl: URL?
+
+    var body: some View {
+        Group {
+            if filteredEvents.isEmpty {
+                emptyState
+            } else {
+                eventsTabView
+            }
+        }
+    }
+
+    private var emptyState: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "calendar.badge.exclamationmark")
+                .font(.system(size: 40))
+                .foregroundColor(.appTextSecondary)
+
+            Text("イベントを取得中です")
+                .font(.title3)
+                .fontWeight(.medium)
+                .foregroundColor(.appTextSecondary)
+        }
+        .frame(height: 160)
+    }
+
+    private var eventsTabView: some View {
+        VStack(spacing: 8) {
+            TabView(selection: $page) {
+                ForEach(filteredEvents.indices, id: \.self) { index in
+                    EventComponent(
+                        link: filteredEvents[index].link ?? "",
+                        linkTitle: filteredEvents[index].title ?? "イベント",
+                        imageUrl: filteredEvents[index].imageUrl,
+                        location: filteredEvents[index].location,
+                        startDateTime: filteredEvents[index].startDateTime,
+                        endDateTime: filteredEvents[index].endDateTime,
+                        onTap: {
+                            if let urlString = filteredEvents[index].link,
+                               let url = URL(string: urlString) {
+                                selectedEventUrl = url
+                            }
+                        }
+                    )
+                    .tag(index)
+                }
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .frame(height: 250)
+
+            pageIndicator
+        }
+    }
+
+    private var pageIndicator: some View {
+        HStack(spacing: 8) {
+            ForEach(filteredEvents.indices, id: \.self) { index in
+                Circle()
+                    .fill(index == page ? Color.appTextSecondary : Color.appTextSecondary.opacity(0.3))
+                    .frame(width: 8, height: 8)
+            }
+        }
+        .padding(.vertical, 2)
     }
 }

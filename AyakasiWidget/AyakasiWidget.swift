@@ -51,7 +51,7 @@ struct AyakasiWidgetEntryView : View {
         if family == .systemMedium {
             VStack(spacing: 8){
                 Text("今日の歩数")
-                    .foregroundStyle(.black.opacity(0.7))
+                    .foregroundStyle(Color.appTextBlack.opacity(0.7))
                     .font(.subheadline)
                     .fontWeight(.bold)
                 
@@ -89,7 +89,7 @@ struct AyakasiWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 AyakasiWidgetEntryView(entry: entry)
-                    .containerBackground(   Color.purple.opacity(0.2), for: .widget)
+                    .containerBackground(   Color.appAccent.opacity(0.2), for: .widget)
             } else {
                 AyakasiWidgetEntryView(entry: entry)
                     .padding()

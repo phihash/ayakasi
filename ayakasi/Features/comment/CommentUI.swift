@@ -26,11 +26,11 @@ struct CommentUI: View {
                             .font(.body)
                     }
                     .padding(16)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color.appTextSecondary.opacity(0.1))
                     .cornerRadius(12)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isTextFieldFocused ? Color.orange : Color.clear, lineWidth: 2)
+                            .stroke(isTextFieldFocused ? Color.appPrimary : Color.clear, lineWidth: 2)
                     )
                 }
                 .padding(.horizontal, 20)
@@ -59,9 +59,9 @@ struct CommentUI: View {
                     }
                     .font(.headline)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.appTextWhite)
                     .frame(maxWidth: .infinity, minHeight: 50)
-                    .background(Color.orange)
+                    .background(Color.appPrimary)
                     .cornerRadius(25)
                 }
                 .padding(.horizontal, 20)
@@ -79,7 +79,7 @@ struct CommentUI: View {
 
                 Text("コメントを投稿するにはログインまたは新規登録してください")
                     .font(.body)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.appTextSecondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 20)
 
@@ -91,9 +91,9 @@ struct CommentUI: View {
                         Text("ログイン")
                             .font(.headline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color.appTextWhite)
                             .frame(maxWidth: .infinity, minHeight: 50)
-                            .background(Color.orange)
+                            .background(Color.appPrimary)
                             .cornerRadius(25)
                     }
 
@@ -104,9 +104,9 @@ struct CommentUI: View {
                         Text("新規登録")
                             .font(.headline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color.appTextWhite)
                             .frame(maxWidth: .infinity, minHeight: 50)
-                            .background(Color.green)
+                            .background(Color.appSuccess)
                             .cornerRadius(25)
                     }
                 }

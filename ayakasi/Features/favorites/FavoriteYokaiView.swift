@@ -20,7 +20,7 @@ struct FavoriteYokaiView: View {
                     Text("お気に入りに追加した妖怪はありません")
                         .font(.body)
                         .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.appTextSecondary)
          
                 }
                 .frame(maxWidth: .infinity)
@@ -40,7 +40,7 @@ struct FavoriteYokaiView: View {
                 .padding(.top, 20)
             }
         }
-        .background(Color("Ivory"))
+        .background(Color.appBackground)
         .navigationTitle("お気に入り")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $selectedYokai) { yokai in

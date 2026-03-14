@@ -60,7 +60,7 @@ struct SettingView: View {
                                 showLogoutAlert = true
                             }
 
-                            SettingRowButton(title: "アカウント削除", color: .red) {
+                            SettingRowButton(title: "アカウント削除", color: .appError) {
                                 showDeleteAccountAlert = true
                             }
                            

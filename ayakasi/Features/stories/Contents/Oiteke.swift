@@ -32,7 +32,7 @@ struct Oiteke: View {
         NavigationStack{
             ScrollView(showsIndicators: false){
                 ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .red, numberString: "\(id+1)" ,title: item.title)
+                    StorySectionNumber(colorName: .storyRed, numberString: "\(id+1)" ,title: item.title)
                     HStack{
                         Text(item.body)
                             .fontWeight(.bold)

@@ -26,7 +26,7 @@ struct Yamanba: View {
         NavigationStack{
             ScrollView(showsIndicators: false){
                 ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .purple, numberString: "\(id+1)" ,title: item.title)
+                    StorySectionNumber(colorName: .storyPurple, numberString: "\(id+1)" ,title: item.title)
                     HStack{
                         Text(item.body)
                             .fontWeight(.bold)

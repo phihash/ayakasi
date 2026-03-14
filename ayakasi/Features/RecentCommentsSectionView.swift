@@ -26,7 +26,7 @@ struct RecentCommentsSectionView: View {
                     Text("コメントの投稿・通報・ブロックはログインが必要です")
                         .font(.caption)
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundColor(.appTextBlack)
                         .opacity(0.4)
                     Spacer()
                 }
@@ -41,7 +41,7 @@ struct RecentCommentsSectionView: View {
                     Text("最新のコメントを取得中です")
                         .font(.title3)
                         .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.appTextSecondary)
                 }
                 .frame(height: 120)
                 .padding(.top,32)
@@ -49,12 +49,12 @@ struct RecentCommentsSectionView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "bubble.left.and.bubble.right")
                         .font(.system(size: 40))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.appTextSecondary)
 
                     Text("コメントはありません")
                         .font(.title3)
                         .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.appTextSecondary)
                 }
                 .frame(height: 120)
                 .padding(.top,32)
@@ -85,14 +85,14 @@ struct RecentCommentsSectionView: View {
                                     if let timestamp = comment["createdAt"] as? Timestamp {
                                         Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
                                             .font(.caption)
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.appTextSecondary)
                                             .fontWeight(.semibold)
                                     }
                                     
                                     Text(ayakasi.name)
                                         .font(.caption)
                                         .fontWeight(.semibold)
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(.appTextSecondary)
                                     
                                     Spacer()
 
@@ -125,7 +125,7 @@ struct RecentCommentsSectionView: View {
                                             .font(.title2)
                                         Text("No picture")
                                             .font(.caption2)
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.appTextSecondary)
                                     }
                                 }
                             }

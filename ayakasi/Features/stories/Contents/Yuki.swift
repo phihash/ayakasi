@@ -22,7 +22,7 @@ struct Yuki: View {
         NavigationStack{
             ScrollView(showsIndicators: false){
                 ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .blue, numberString: "\(id+1)" ,title: item.title)
+                    StorySectionNumber(colorName: .storyBlue, numberString: "\(id+1)" ,title: item.title)
                     HStack{
                         Text(item.body)
                             .fontWeight(.bold)

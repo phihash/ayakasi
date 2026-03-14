@@ -58,6 +58,7 @@
 		A9E83FA32F573549007E4435 /* RankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA22F573549007E4435 /* RankingSectionView.swift */; };
 		A9E83FA52F573562007E4435 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA42F573562007E4435 /* GameView.swift */; };
 		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
+		A9E8410E2F6590DF007E4435 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8410D2F6590DF007E4435 /* Color+Extension.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		A9E83FA22F573549007E4435 /* RankingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSectionView.swift; sourceTree = "<group>"; };
 		A9E83FA42F573562007E4435 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A9E840A82F59D0B3007E4435 /* TokenBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBucket.swift; sourceTree = "<group>"; };
+		A9E8410D2F6590DF007E4435 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,6 +357,7 @@
 		A9B08E272EEEF52B00592CB5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A9E8410D2F6590DF007E4435 /* Color+Extension.swift */,
 				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
 				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
 				A905C42E2F0C09FE00587825 /* Constants.swift */,
@@ -554,6 +557,7 @@
 				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
 				A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
+				A9E8410E2F6590DF007E4435 /* Color+Extension.swift in Sources */,
 				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
 				A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */,
@@ -733,7 +737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.9.2;
+				MARKETING_VERSION = 3.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -779,7 +783,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.9.2;
+				MARKETING_VERSION = 3.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

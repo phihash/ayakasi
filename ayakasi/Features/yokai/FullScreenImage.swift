@@ -9,7 +9,7 @@ struct FullScreenImage: View {
 
     var body: some View {
         ZStack{
-            Color.black.ignoresSafeArea()
+            Color.appTextBlack.ignoresSafeArea()
             
             Group{
                 if let url = URL(string: imageName) , url.scheme?.hasPrefix("http") == true{
@@ -36,11 +36,11 @@ struct FullScreenImage: View {
                 HStack{
                     Spacer()
                     Circle()
-                        .fill(Color.white.opacity(0.6))
+                        .fill(Color.appCardBackground.opacity(0.6))
                         .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
                         .overlay(
                             Image(systemName: "xmark")
-                                .foregroundStyle(.black)
+                                .foregroundStyle(Color.appTextBlack)
                                 .padding()
                         )
                         .onTapGesture {
@@ -55,9 +55,9 @@ struct FullScreenImage: View {
                     Text("写真を保存")
                 }
                 .font(.headline)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color.appTextWhite)
                 .frame(width: screenWidth * 0.55, height: 48)
-                .background(Capsule().fill(.blue))
+                .background(Capsule().fill(Color.appSecondary))
                 .onTapGesture {
                     requestAndSaveImage(imageName)
                 }

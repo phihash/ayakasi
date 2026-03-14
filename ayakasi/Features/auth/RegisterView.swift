@@ -15,7 +15,7 @@ struct RegisterView: View {
                             .keyboardType(.emailAddress)
                             .font(.system(size: 18))
                             .padding()
-                            .background(Color(.systemGray6))
+                            .background(Color.appTextFieldBackground)
                             .cornerRadius(10)
                             .contentShape(Rectangle())
                             .padding(.horizontal)
@@ -24,7 +24,7 @@ struct RegisterView: View {
                             .textContentType(.password)
                             .font(.system(size: 18))
                             .padding()
-                            .background(Color(.systemGray6))
+                            .background(Color.appTextFieldBackground)
                             .cornerRadius(10)
                             .contentShape(Rectangle())
                             .padding(.horizontal)
@@ -33,13 +33,13 @@ struct RegisterView: View {
                             .textContentType(.password)
                             .font(.system(size: 18))
                             .padding()
-                            .background(Color(.systemGray6))
+                            .background(Color.appTextFieldBackground)
                             .cornerRadius(10)
                             .contentShape(Rectangle())
                             .padding(.horizontal)
                         
                         Text(authVM.message)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.appError)
                             .font(.title3)
                         
                         Button {
@@ -50,8 +50,8 @@ struct RegisterView: View {
                             HStack{
                                 Text("登録")
                                     .frame(width: 160, height: 48)
-                                    .background(.blue)
-                                    .foregroundColor(.white)
+                                    .background(Color.appSecondary)
+                                    .foregroundColor(.appTextWhite)
                                     .cornerRadius(10)
                             }
                         }
@@ -59,20 +59,20 @@ struct RegisterView: View {
                         VStack(spacing: 8) {
                             Text("登録すると利用規約およびプライバシーポリシーに同意したものとみなされます。")
                                 .font(.subheadline)
-                                .foregroundColor(.black)
+                                .foregroundColor(.appTextBlack)
                                 .padding(.horizontal,12)
                             
                             HStack(spacing: 20) {
                                 NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
                                     Text("利用規約")
                                         .font(.subheadline)
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.appSecondary)
                                 }
                                 
                                 NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
                                     Text("プライバシーポリシー")
                                         .font(.subheadline)
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.appSecondary)
                                 }
                             }
                         }
@@ -90,7 +90,7 @@ struct RegisterView: View {
                         
                         Text("メールが届いていない時は、迷惑メールリストを確認してください")
                             .font(.subheadline)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.appError)
                         
                         Button(action: {
                             Task {
@@ -102,8 +102,8 @@ struct RegisterView: View {
                         }) {
                             Text("メールを確認した")
                                 .frame(width: 160, height: 48)
-                                .background(.blue)
-                                .foregroundColor(.white)
+                                .background(Color.appSecondary)
+                                .foregroundColor(.appTextWhite)
                                 .cornerRadius(10)
                         }
                         
@@ -113,7 +113,7 @@ struct RegisterView: View {
                             }
                         }) {
                             Text("認証メールを再送信")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.appSecondary)
                         }
                     }
                 }

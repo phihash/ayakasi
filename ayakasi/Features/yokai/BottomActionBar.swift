@@ -31,10 +31,10 @@ struct BottomActionBar: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: "heart.fill")
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.appError)
                         Text("\(voteVM.voteCountCache[yokai.documentId] ?? 0)")
                             .font(.caption)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                     }
                 }
                 .sensoryFeedback(.success, trigger: voteSuccess)
@@ -46,10 +46,10 @@ struct BottomActionBar: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "star.fill" : "star")
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(Color.appHighlight)
                         Text("お気に入り")
                             .font(.caption)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -60,10 +60,10 @@ struct BottomActionBar: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: favoriteService.isReadYokai(yokai.documentId) ? "checkmark.circle.fill" : "checkmark.circle")
-                            .foregroundStyle(.green)
+                            .foregroundStyle(Color.appSuccess)
                         Text("既読")
                             .font(.caption)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -74,10 +74,10 @@ struct BottomActionBar: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: "bubble.left.and.bubble.right")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                         Text("コメント")
                             .font(.caption)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -91,7 +91,7 @@ struct BottomActionBar: View {
                         Text("戻る")
                             .font(.caption)
                     }
-                    .foregroundStyle(.black)
+                    .foregroundStyle(Color.appTextBlack)
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -99,6 +99,6 @@ struct BottomActionBar: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 72)
-        .background(.white)
+        .background(Color.appCardBackground)
     }
 }

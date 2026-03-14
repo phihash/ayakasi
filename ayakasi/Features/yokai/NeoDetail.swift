@@ -16,12 +16,12 @@ struct CommentListView: View {
             VStack(spacing: 16) {
                 Image(systemName: "bubble.left")
                     .font(.system(size: 40))
-                    .foregroundColor(.gray)
+                    .foregroundColor(.appTextSecondary)
                 
                 Text("まだコメントがありません")
                     .font(.subheadline)
                     .fontWeight(.medium)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.appTextSecondary)
                 
             }
             .frame(maxWidth: .infinity)
@@ -33,15 +33,15 @@ struct CommentListView: View {
                         Text("\(index+1).")
                             .font(.caption)
                             .fontWeight(.bold)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.appTextSecondary)
                         if let timestamp = comment["createdAt"] as? Timestamp {
                             Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.appTextSecondary)
                         } else {
                             Text("時刻を取得できませんでした")
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.appTextSecondary)
                         }
                         Spacer()
                         
@@ -200,11 +200,11 @@ struct NeoDetail: View {
     private var backButtonView: some View {
         HStack {
             Circle()
-                .fill(Color.black.opacity(0.6))
+                .fill(Color.appTextBlack.opacity(0.6))
                 .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
                 .overlay(
                     Image(systemName: "chevron.backward")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color.appTextWhite)
                         .padding()
                 )
                 .onTapGesture {
@@ -218,8 +218,8 @@ struct NeoDetail: View {
     
     private var titleView: some View {
         Text(yokai.name)
-            .foregroundColor(.white)
-            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
+            .foregroundColor(.appTextWhite)
+            .shadow(color: .appTextBlack.opacity(0.8), radius: 2, x: 1, y: 1)
             .font(.title)
             .fontWeight(.bold)
             .padding(.bottom, 20)
@@ -239,41 +239,11 @@ struct NeoDetail: View {
                     }
                     
                     // 2タブ
-                    Group{
-                        HStack{
-                            Text("情報")
-                                .fontWeight(.bold)
-                                .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 0 ? .black : .black.opacity(0.3))
-                                .frame(width: screenWidth * 0.45)
-                                .overlay(alignment: .bottom) {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 0 ? .black : .black.opacity(0.3))
-                                }
-                                .onTapGesture {
-                                    selectedTab = 0
-                                }
-                            
-                            Text("コメント")
-                                .fontWeight(.bold)
-                                .padding(.vertical,16)
-                                .foregroundStyle(selectedTab == 1 ? .black : .black.opacity(0.3))
-                                .frame(width: screenWidth * 0.45)
-                                .overlay(alignment: .bottom) {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .frame(width: screenWidth * 0.45)
-                                        .foregroundStyle(selectedTab == 1 ? .black : .black.opacity(0.3))
-                                }
-                                .onTapGesture {
-                                    selectedTab = 1
-                                }
-                        }
-                        .padding(.vertical,8)
-                        .padding(.horizontal,8)
-                        
+                    Group {
+                        TabHeaderView(selectedTab: $selectedTab, screenWidth: screenWidth)
+                            .padding(.vertical,8)
+                            .padding(.horizontal,8)
+
                         if selectedTab == 0{
                             VStack{
                                 
@@ -310,10 +280,10 @@ struct NeoDetail: View {
                                                             Annotation(spot.spotName, coordinate: spot.coordinate) {
                                                                 ZStack {
                                                                     Circle()
-                                                                        .fill(Color.blue)
+                                                                        .fill(Color.appSecondary)
                                                                         .frame(width: 30, height: 30)
                                                                     Image(systemName: "sparkles")
-                                                                        .foregroundColor(.white)
+                                                                        .foregroundColor(.appTextWhite)
                                                                         .font(.system(size: 14))
                                                                 }
                                                             }
@@ -326,12 +296,12 @@ struct NeoDetail: View {
                                                           
                                                             Text(spot.prefecture)
                                                                 .font(.headline)
-                                                                .foregroundColor(.gray)
+                                                                .foregroundColor(.appTextSecondary)
                                                             
                                                             if let description = spot.description {
                                                                 Text(description)
                                                                     .font(.caption)
-                                                                    .foregroundColor(.gray)
+                                                                    .foregroundColor(.appTextSecondary)
                                                                     .padding(.top, 4)
                                                             }
                                                         }
@@ -351,8 +321,8 @@ struct NeoDetail: View {
                                                             }
                                                             .frame(maxWidth: .infinity)
                                                             .padding(.vertical, 12)
-                                                            .background(Color.blue)
-                                                            .foregroundColor(.white)
+                                                            .background(Color.appSecondary)
+                                                            .foregroundColor(.appTextWhite)
                                                             .cornerRadius(8)
                                                         }
                                                     }
@@ -360,7 +330,7 @@ struct NeoDetail: View {
                                                     .padding()
                                                     .background(
                                                         RoundedRectangle(cornerRadius: 12)
-                                                            .fill(Color.white)
+                                                            .fill(Color.appCardBackground)
                                                     )
                                                 }
                                             }
@@ -370,7 +340,7 @@ struct NeoDetail: View {
                                     }
                                     .background(
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(Color(.systemGray6))
+                                            .fill(Color.appTextFieldBackground)
                                     )
                                     .padding(.horizontal, 12)
                                     .padding(.vertical, 12)
@@ -382,9 +352,9 @@ struct NeoDetail: View {
                                     } label: {
                                         Text("物語を読む")
                                             .fontWeight(.bold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(Color.appTextWhite)
                                             .padding()
-                                            .background(RoundedRectangle(cornerRadius: 8).fill(.black))
+                                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.appTextBlack))
                                     }
                                     .padding(.horizontal, 24)
                                 }
@@ -429,11 +399,8 @@ struct NeoDetail: View {
                                 .padding(.top,12)
                             }
                         }
-                        
                     }
-                    
                 }
-                
             }
             
         }
@@ -443,7 +410,7 @@ struct NeoDetail: View {
             Text(alertMessage)
         }
         .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
-        .background(.ivory)
+        .background(Color.appBackground)
         .navigationBarBackButtonHidden(true)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
@@ -476,5 +443,36 @@ struct NeoDetail: View {
                 alertMessage: $alertMessage
             )
         }
+    }
+}
+
+
+// MARK: - Tab Header View
+struct TabHeaderView: View {
+    @Binding var selectedTab: Int
+    let screenWidth: CGFloat
+
+    var body: some View {
+        HStack {
+            tabButton(title: "情報", index: 0)
+            tabButton(title: "コメント", index: 1)
+        }
+    }
+
+    private func tabButton(title: String, index: Int) -> some View {
+        Text(title)
+            .fontWeight(.bold)
+            .padding(.vertical, 16)
+            .foregroundStyle(selectedTab == index ? Color.appTextBlack : Color.appTextBlack.opacity(0.3))
+            .frame(width: screenWidth * 0.45)
+            .overlay(alignment: .bottom) {
+                Rectangle()
+                    .frame(height: 2)
+                    .frame(width: screenWidth * 0.45)
+                    .foregroundStyle(selectedTab == index ? Color.appTextBlack : Color.appTextBlack.opacity(0.3))
+            }
+            .onTapGesture {
+                selectedTab = index
+            }
     }
 }

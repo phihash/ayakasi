@@ -31,24 +31,24 @@ struct SearchView: View {
                 HStack(spacing: 16) {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.appTextSecondary)
                         TextField("キーワード検索", text: $searchText)
                     }
                     .padding(10)
-                    .background(Color(.systemGray6))
+                    .background(Color.appTextFieldBackground)
                     .cornerRadius(10)
                     .padding(.bottom,12)
                     
                     Image("book2")
                         .renderingMode(.template)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.appTextSecondary)
                         .onTapGesture {
                             selectedCategoryForList = "すべて"
                         }
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
-                .background(Color("Ivory"))
+                .background(Color.appBackground)
                 
                 ScrollView{
                     let allResults = categories.flatMap { filteredYokais(for: $0) }
@@ -57,11 +57,11 @@ struct SearchView: View {
                         VStack(spacing: 16) {
                             Image(systemName: "magnifyingglass")
                                 .font(.system(size: 50))
-                                .foregroundColor(.gray)
-                            
+                                .foregroundColor(.appTextSecondary)
+
                             Text("「\(searchText)」はヒットしませんでした")
                                 .font(.headline)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.appTextSecondary)
                                 .multilineTextAlignment(.center)
                         }
                         .frame(maxWidth: .infinity)
@@ -78,7 +78,7 @@ struct SearchView: View {
                                         Text(category)
 
                                         Image(systemName: "chevron.right")
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.appTextSecondary)
                                             .font(.subheadline)
                                         Spacer()
                                     }
@@ -113,7 +113,7 @@ struct SearchView: View {
                         }
                     }
                 }
-                .background(Color("Ivory"))
+                .background(Color.appBackground)
             }
             .navigationBarHidden(true)
             .fullScreenCover(item: $selectedCategoryForList) { category in

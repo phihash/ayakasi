@@ -89,12 +89,12 @@ struct EventComponent: View {
                     HStack {
                         Image(systemName: "circle.fill")
                             .font(.caption2)
-                            .foregroundStyle(status == "開催中" ? .green : .orange)
+                            .foregroundStyle(status == "開催中" ? Color.appSuccess : Color.appPrimary)
 
                         Text(status)
                             .font(.subheadline)
                             .fontWeight(.bold)
-                            .foregroundStyle(status == "開催中" ? .green : .orange)
+                            .foregroundStyle(status == "開催中" ? Color.appSuccess : Color.appPrimary)
 
                         Spacer()
                     }
@@ -118,24 +118,24 @@ struct EventComponent: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(linkTitle)
                             .font(.headline)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.appTextBlack)
                             .fontWeight(.bold)
 
                         HStack(spacing: 8) {
                             Text(location ?? "")
                                 .font(.caption)
                                 .fontWeight(.bold)
-                                .foregroundStyle(.black)
+                                .foregroundStyle(Color.appTextBlack)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(.gray.opacity(0.2))
+                                .background(Color.appTextSecondary.opacity(0.2))
                                 .clipShape(RoundedRectangle(cornerRadius: 6))
 
                             if !formattedDateRange.isEmpty {
                                 Text(formattedDateRange)
                                     .font(.caption)
                                     .fontWeight(.medium)
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                     }
@@ -147,9 +147,9 @@ struct EventComponent: View {
             .padding(.top, 8)
             .padding(.bottom, 12)
             .frame(width: screenWidth * 0.9)
-            .background(.white)
+            .background(Color.appCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.05), radius: 8, x: 1, y: 0.5)
+            .shadow(color: .appTextBlack.opacity(0.05), radius: 8, x: 1, y: 0.5)
         }
     }
 }

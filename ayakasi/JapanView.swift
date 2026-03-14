@@ -61,11 +61,11 @@ struct JapanView: View {
     private func spotIconAndColor(for spotType: SpotType) -> (icon: String, color: Color) {
         switch spotType {
         case .yokaiRelated:
-            return ("sparkles", .blue)
+            return ("sparkles", Color.appSecondary)
         case .museum:
-            return ("building.columns", .purple)
+            return ("building.columns", Color.appAccent)
         case .culturalSite:
-            return ("building", .orange)
+            return ("building", Color.appPrimary)
         }
     }
 
@@ -89,10 +89,10 @@ struct JapanView: View {
                             } label: {
                                 ZStack {
                                     Circle()
-                                        .fill(Color.red)
+                                        .fill(Color.appError)
                                         .frame(width: 30, height: 30)
                                     Image(systemName: "building.2")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.appTextWhite)
                                         .font(.system(size: 14))
                                 }
                                 .shadow(radius: 3)
@@ -112,7 +112,7 @@ struct JapanView: View {
                                         .fill(iconAndColor.color)
                                         .frame(width: 30, height: 30)
                                     Image(systemName: iconAndColor.icon)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.appTextWhite)
                                         .font(.system(size: 14))
                                 }
                                 .shadow(radius: 3)
@@ -130,7 +130,7 @@ struct JapanView: View {
                                 VStack(alignment: .leading, spacing: 12) {
                                     HStack {
                                         Circle()
-                                            .fill(.red)
+                                            .fill(Color.appError)
                                             .frame(width: 12, height: 12)
                                         Text(location.name)
                                             .font(.title2)
@@ -157,10 +157,10 @@ struct JapanView: View {
                                         }
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(.white)
+                                        .foregroundStyle(Color.appTextWhite)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 12)
-                                        .background(Color.blue)
+                                        .background(Color.appSecondary)
                                         .cornerRadius(10)
                                     }
                                     .padding(.top, 8)
@@ -178,7 +178,7 @@ struct JapanView: View {
                                                 .fill(iconAndColor.color)
                                                 .frame(width: 20, height: 20)
                                             Image(systemName: iconAndColor.icon)
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.appTextWhite)
                                                 .font(.system(size: 10))
                                         }
                                         Text(spot.spotName)
@@ -214,12 +214,12 @@ struct JapanView: View {
                                                             Text(yokai.name)
                                                                 .font(.subheadline)
                                                                 .fontWeight(.medium)
-                                                                .foregroundColor(.white)
+                                                                .foregroundColor(.appTextWhite)
                                                                 .padding(.horizontal, 12)
                                                                 .padding(.vertical, 6)
                                                                 .background(
                                                                     RoundedRectangle(cornerRadius: 8)
-                                                                        .fill(Color.blue)
+                                                                        .fill(Color.appSecondary)
                                                                 )
                                                         }
                                                     }
@@ -237,10 +237,10 @@ struct JapanView: View {
                                         }
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(.white)
+                                        .foregroundStyle(Color.appTextWhite)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 12)
-                                        .background(Color.blue)
+                                        .background(Color.appSecondary)
                                         .cornerRadius(10)
                                     }
                                     .padding(.top, 8)
@@ -252,12 +252,12 @@ struct JapanView: View {
                     } else {
                         Text("地図上のマーカーをタップしてください")
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.appTextSecondary)
                     }
                 }
                 .frame(height: geometry.size.height * 0.4)
                 .frame(maxWidth: .infinity)
-                .background(Color(.systemGray6))
+                .background(Color.appTextFieldBackground)
             }
         }
         .fullScreenCover(item: $selectedYokai) { yokai in
