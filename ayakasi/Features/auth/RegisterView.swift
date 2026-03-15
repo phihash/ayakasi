@@ -51,7 +51,7 @@ struct RegisterView: View {
                                 Text("登録")
                                     .frame(width: 160, height: 48)
                                     .background(Color.appSecondary)
-                                    .foregroundColor(.appTextWhite)
+                                    .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
                         }
@@ -59,7 +59,7 @@ struct RegisterView: View {
                         VStack(spacing: 8) {
                             Text("登録すると利用規約およびプライバシーポリシーに同意したものとみなされます。")
                                 .font(.subheadline)
-                                .foregroundColor(.appTextBlack)
+                                .foregroundColor(.appTextPrimary)
                                 .padding(.horizontal,12)
                             
                             HStack(spacing: 20) {
@@ -103,7 +103,7 @@ struct RegisterView: View {
                             Text("メールを確認した")
                                 .frame(width: 160, height: 48)
                                 .background(Color.appSecondary)
-                                .foregroundColor(.appTextWhite)
+                                .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
                         

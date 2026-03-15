@@ -40,7 +40,7 @@ struct NewsView : View{
                                         .padding(.top,6)
 
                                     Text(publishedFormatter.string(from: item.published))
-                                        .foregroundStyle(Color.appTextBlack.opacity(0.7))
+                                        .foregroundStyle(Color.appTextSecondary)
                                         .font(.caption)
                                         .padding(.bottom,6)
                                     Rectangle()
@@ -51,7 +51,7 @@ struct NewsView : View{
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .truncationMode(.tail)
                                 .fontWeight(.bold)
-                                .foregroundStyle(Color.appTextBlack)
+                                .foregroundStyle(Color.appTextPrimary)
                                 .padding(.horizontal,20)
                             }
                         } else {

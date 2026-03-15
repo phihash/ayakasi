@@ -35,7 +35,7 @@ struct NeoCardItem: View {
                 if let relatedSpots = item.relatedSpots, !relatedSpots.isEmpty {
                     Image(systemName: "mappin.and.ellipse")
                         .font(.system(size: 10))
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(Color.appSecondary)
                 }
 
                 if item.story {
@@ -44,14 +44,14 @@ struct NeoCardItem: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 13, height: 13)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color.appTextPrimary)
                 }
 
                 Spacer()
             }
             .font(.caption)
         }
-        .foregroundColor(.black)
+        .foregroundColor(Color.appTextPrimary)
         .frame(width: 120)
     }
 }

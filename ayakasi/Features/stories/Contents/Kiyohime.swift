@@ -32,7 +32,7 @@ struct Kiyohime: View {
         NavigationStack{
             ScrollView(showsIndicators: false){
                 ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .storyOrange, numberString: "\(id+1)" ,title: item.title)
+                    StorySectionNumber(colorName: .appPrimary, numberString: "\(id+1)" ,title: item.title)
                     HStack{
                         Text(item.body)
                             .fontWeight(.bold)

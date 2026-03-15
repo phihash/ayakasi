@@ -10,9 +10,11 @@ struct ayakasiApp: App {
     )
     @StateObject private var CommentVM = CommentService(
         authService: AuthService.shared,
-        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")   
+        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
     )
     @StateObject private var FavoriteVM = FavoriteService.shared
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     init(){
         FirebaseApp.configure()
     }
@@ -24,6 +26,7 @@ struct ayakasiApp: App {
                 .environmentObject(VoteVM)
                 .environmentObject(CommentVM)
                 .environmentObject(FavoriteVM)
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

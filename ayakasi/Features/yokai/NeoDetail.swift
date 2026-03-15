@@ -200,11 +200,11 @@ struct NeoDetail: View {
     private var backButtonView: some View {
         HStack {
             Circle()
-                .fill(Color.appTextBlack.opacity(0.6))
+                .fill(Color.black.opacity(0.6))
                 .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
                 .overlay(
                     Image(systemName: "chevron.backward")
-                        .foregroundStyle(Color.appTextWhite)
+                        .foregroundStyle(Color.white)
                         .padding()
                 )
                 .onTapGesture {
@@ -218,8 +218,8 @@ struct NeoDetail: View {
     
     private var titleView: some View {
         Text(yokai.name)
-            .foregroundColor(.appTextWhite)
-            .shadow(color: .appTextBlack.opacity(0.8), radius: 2, x: 1, y: 1)
+            .foregroundColor(.white)
+            .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
             .font(.title)
             .fontWeight(.bold)
             .padding(.bottom, 20)
@@ -233,9 +233,8 @@ struct NeoDetail: View {
                 VStack{
                     ZStack{
                         imageView
-                        backButtonView
                         titleView
-                        
+
                     }
                     
                     // 2タブ
@@ -283,7 +282,7 @@ struct NeoDetail: View {
                                                                         .fill(Color.appSecondary)
                                                                         .frame(width: 30, height: 30)
                                                                     Image(systemName: "sparkles")
-                                                                        .foregroundColor(.appTextWhite)
+                                                                        .foregroundColor(.white)
                                                                         .font(.system(size: 14))
                                                                 }
                                                             }
@@ -322,7 +321,7 @@ struct NeoDetail: View {
                                                             .frame(maxWidth: .infinity)
                                                             .padding(.vertical, 12)
                                                             .background(Color.appSecondary)
-                                                            .foregroundColor(.appTextWhite)
+                                                            .foregroundColor(.white)
                                                             .cornerRadius(8)
                                                         }
                                                     }
@@ -352,9 +351,9 @@ struct NeoDetail: View {
                                     } label: {
                                         Text("物語を読む")
                                             .fontWeight(.bold)
-                                            .foregroundStyle(Color.appTextWhite)
+                                            .foregroundStyle(Color.white)
                                             .padding()
-                                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.appTextBlack))
+                                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.appPrimary))
                                     }
                                     .padding(.horizontal, 24)
                                 }
@@ -402,7 +401,8 @@ struct NeoDetail: View {
                     }
                 }
             }
-            
+
+            backButtonView
         }
         .alert("", isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
@@ -463,13 +463,13 @@ struct TabHeaderView: View {
         Text(title)
             .fontWeight(.bold)
             .padding(.vertical, 16)
-            .foregroundStyle(selectedTab == index ? Color.appTextBlack : Color.appTextBlack.opacity(0.3))
+            .foregroundStyle(selectedTab == index ? Color.appTextPrimary : Color.appTextPrimary.opacity(0.3))
             .frame(width: screenWidth * 0.45)
             .overlay(alignment: .bottom) {
                 Rectangle()
                     .frame(height: 2)
                     .frame(width: screenWidth * 0.45)
-                    .foregroundStyle(selectedTab == index ? Color.appTextBlack : Color.appTextBlack.opacity(0.3))
+                    .foregroundStyle(selectedTab == index ? Color.appTextPrimary : Color.appTextPrimary.opacity(0.3))
             }
             .onTapGesture {
                 selectedTab = index

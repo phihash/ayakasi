@@ -35,7 +35,7 @@ struct ReportUI: View {
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
                 .background(Color.appError)
                 .cornerRadius(25)
-                .foregroundColor(.appTextWhite)
+                .foregroundColor(.white)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
             }
@@ -64,7 +64,7 @@ struct ReportUI: View {
                     .frame(maxWidth: UIScreen.main.bounds.width * 0.9, minHeight: 50)
                     .background(Color.appPrimary)
                     .cornerRadius(25)
-                    .foregroundColor(.appTextWhite)
+                    .foregroundColor(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                 }

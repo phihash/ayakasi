@@ -118,14 +118,14 @@ struct EventComponent: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(linkTitle)
                             .font(.headline)
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                             .fontWeight(.bold)
 
                         HStack(spacing: 8) {
                             Text(location ?? "")
                                 .font(.caption)
                                 .fontWeight(.bold)
-                                .foregroundStyle(Color.appTextBlack)
+                                .foregroundStyle(Color.appTextPrimary)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(Color.appTextSecondary.opacity(0.2))
@@ -149,7 +149,7 @@ struct EventComponent: View {
             .frame(width: screenWidth * 0.9)
             .background(Color.appCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .appTextBlack.opacity(0.05), radius: 8, x: 1, y: 0.5)
+            .shadow(color: .black.opacity(0.05), radius: 8, x: 1, y: 0.5)
         }
     }
 }

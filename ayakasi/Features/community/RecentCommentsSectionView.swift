@@ -27,7 +27,7 @@ struct RecentCommentsSectionView: View {
                     Text("コメントの投稿・通報・ブロックはログインが必要です")
                         .font(.caption)
                         .fontWeight(.bold)
-                        .foregroundColor(.appTextBlack)
+                        .foregroundColor(.appTextPrimary)
                         .opacity(0.4)
                     Spacer()
                 }

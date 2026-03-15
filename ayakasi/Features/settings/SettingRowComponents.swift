@@ -38,3 +38,20 @@ struct SettingRowLink<Destination: View>: View {
         .foregroundStyle(.primary)
     }
 }
+
+struct SettingRowToggle: View {
+    let title: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.subheadline)
+            Spacer()
+            Toggle("", isOn: $isOn)
+                .labelsHidden()
+        }
+        .padding(.vertical, 12)
+        .foregroundStyle(.primary)
+    }
+}

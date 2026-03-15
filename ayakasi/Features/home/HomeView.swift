@@ -173,7 +173,7 @@ struct HomeView: View {
                     Text("ゲーム")
                         .font(.headline)
                         .fontWeight(.semibold)
-                        .foregroundStyle(Color.appTextWhite)
+                        .foregroundStyle(Color.white)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.appPrimary)
                         .cornerRadius(12)
@@ -196,7 +196,7 @@ struct HomeView: View {
                         } label :{
                             Text(element)
                                 .font(.subheadline)
-                                .foregroundStyle(selectedNews == element ? Color.appTextWhite : Color.appSecondary)
+                                .foregroundStyle(selectedNews == element ? Color.white : Color.appSecondary)
                                 .fontWeight(.bold)
                                 .padding(.vertical,6)
                                 .padding(.horizontal,18)

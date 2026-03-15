@@ -47,7 +47,7 @@ struct LoginView: View {
                         Text("ログイン")
                             .frame(width: 160, height: 48)
                             .background(Color.appSecondary)
-                            .foregroundColor(.appTextWhite)
+                            .foregroundColor(.white)
                             .cornerRadius(10)
                     }
                 }

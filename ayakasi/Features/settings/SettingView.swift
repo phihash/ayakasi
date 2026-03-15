@@ -10,6 +10,7 @@ struct SettingView: View {
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
     @State private var showClearCacheAlert = false
+    @AppStorage("isDarkMode") private var isDarkMode = false
 
     var body: some View {
         NavigationStack {
@@ -71,6 +72,7 @@ struct SettingView: View {
                             .padding(.leading, 4)
                             .padding(.vertical, 12)
 
+                        SettingRowToggle(title: "ダークモード", isOn: $isDarkMode)
 
                         Button(action: {}) {
                             ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {

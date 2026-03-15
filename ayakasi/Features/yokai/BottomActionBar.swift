@@ -34,7 +34,7 @@ struct BottomActionBar: View {
                             .foregroundStyle(Color.appError)
                         Text("\(voteVM.voteCountCache[yokai.documentId] ?? 0)")
                             .font(.caption)
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                     }
                 }
                 .sensoryFeedback(.success, trigger: voteSuccess)
@@ -49,7 +49,7 @@ struct BottomActionBar: View {
                             .foregroundStyle(Color.appHighlight)
                         Text("お気に入り")
                             .font(.caption)
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -63,7 +63,7 @@ struct BottomActionBar: View {
                             .foregroundStyle(Color.appSuccess)
                         Text("既読")
                             .font(.caption)
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -74,10 +74,10 @@ struct BottomActionBar: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: "bubble.left.and.bubble.right")
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                         Text("コメント")
                             .font(.caption)
-                            .foregroundStyle(Color.appTextBlack)
+                            .foregroundStyle(Color.appTextPrimary)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -91,7 +91,7 @@ struct BottomActionBar: View {
                         Text("戻る")
                             .font(.caption)
                     }
-                    .foregroundStyle(Color.appTextBlack)
+                    .foregroundStyle(Color.appTextPrimary)
                 }
                 .frame(maxWidth: .infinity)
             }

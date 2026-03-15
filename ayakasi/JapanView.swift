@@ -92,7 +92,7 @@ struct JapanView: View {
                                         .fill(Color.appError)
                                         .frame(width: 30, height: 30)
                                     Image(systemName: "building.2")
-                                        .foregroundColor(.appTextWhite)
+                                        .foregroundColor(.white)
                                         .font(.system(size: 14))
                                 }
                                 .shadow(radius: 3)
@@ -112,7 +112,7 @@ struct JapanView: View {
                                         .fill(iconAndColor.color)
                                         .frame(width: 30, height: 30)
                                     Image(systemName: iconAndColor.icon)
-                                        .foregroundColor(.appTextWhite)
+                                        .foregroundColor(.white)
                                         .font(.system(size: 14))
                                 }
                                 .shadow(radius: 3)
@@ -157,7 +157,7 @@ struct JapanView: View {
                                         }
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(Color.appTextWhite)
+                                        .foregroundStyle(Color.white)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 12)
                                         .background(Color.appSecondary)
@@ -178,7 +178,7 @@ struct JapanView: View {
                                                 .fill(iconAndColor.color)
                                                 .frame(width: 20, height: 20)
                                             Image(systemName: iconAndColor.icon)
-                                                .foregroundColor(.appTextWhite)
+                                                .foregroundColor(.white)
                                                 .font(.system(size: 10))
                                         }
                                         Text(spot.spotName)
@@ -214,7 +214,7 @@ struct JapanView: View {
                                                             Text(yokai.name)
                                                                 .font(.subheadline)
                                                                 .fontWeight(.medium)
-                                                                .foregroundColor(.appTextWhite)
+                                                                .foregroundColor(.white)
                                                                 .padding(.horizontal, 12)
                                                                 .padding(.vertical, 6)
                                                                 .background(
@@ -237,7 +237,7 @@ struct JapanView: View {
                                         }
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(Color.appTextWhite)
+                                        .foregroundStyle(Color.white)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 12)
                                         .background(Color.appSecondary)
