@@ -724,7 +724,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "牛鬼",
         documentId: "usioni",
-        imageName: "https://i.imgur.com/8plQ1rp.jpeg",
+        imageName: "https://imgur.com/hcnRbtx.jpeg",
+        imageSource: "パブリックドメイン",
         description: "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -779,7 +780,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "小豆洗い",
         documentId: "azukiarai",
-        imageName: "https://i.imgur.com/Wns68r9.jpeg",
+        imageName: "https://imgur.com/xkEzUFq.jpeg",
+        imageSource: "パブリックドメイン",
         description: "小豆洗い（あずきあらい）は川で小豆を洗う妖怪で、小豆とぎ（あずきとぎ）、小豆あらいど（あずきあらいど）など、様々な呼び名で全国的に分布している。\n小豆洗いは、川のほとりでシャキシャキと小豆をとぐ音が聞こえ、音をする方にいってもその姿はないといったものや、「小豆洗おか、人取って喰おか」など歌いながら小豆を洗うタイプもいる。",
         categories: ["音の怪","水の怪","すべて"],
         relatedCategory: "音の怪",
@@ -1071,7 +1073,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "がしゃどくろ",
         documentId: "gashadokuro",
-        imageName: "https://i.imgur.com/zAGYJpV.png",
+        imageName: "https://imgur.com/T7k09o9.jpeg",
+        imageSource: "パブリックドメイン",
         description: "家屋をも見下ろすほどの巨体の骸骨で、闇夜に現れて旅人を襲うとされる。顎を鳴らす音や不気味な気配とともに近づき、油断した者の首を噛みちぎるという。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1102,7 +1105,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "てんぐ",
         documentId: "tengu",
-        imageName: "https://i.imgur.com/UT0Xazm.jpeg",
+        imageName: "https://imgur.com/szimXYf.jpeg",
+        imageSource: "パブリックドメイン",
         description: "長い鼻の大天狗、鳥の嘴を思わせる烏天狗などの相。山風を操り、剣術・幻術に長けるとされる。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",

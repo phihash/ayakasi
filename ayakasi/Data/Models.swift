@@ -12,6 +12,7 @@ struct Ayakasi : Identifiable {
     let name : String
     let documentId: String  // Firestore用のドキュメントID
     let imageName : String
+    var imageSource: String? = nil  // 画像の出典元
     let description: String
     let categories : [String]
     let relatedCategory: String?    // 関連カテゴリ（"すべて"以外の具体的なカテゴリ）
