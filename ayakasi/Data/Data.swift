@@ -26,7 +26,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "アマビエ",
         documentId: "amabie",
-        imageName: "https://i.imgur.com/SdipUuu.png",
+        imageName: "https://i.imgur.com/jK10Hbs.png",
         description: "1846年、肥後の海に現れた半人半魚の妖怪。長い髪と鳥のくちばしを持ち、豊作や疫病などの予言を伝えて、海にもどったという言い伝えがある。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -187,7 +187,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "がごぜ",
         documentId: "gagoze",
-        imageName: "https://i.imgur.com/hYSjIJo.png",
+        imageName: "https://i.imgur.com/7ZlvwAJ.png",
         description: "がごぜ",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -882,7 +882,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "雪女",
         documentId: "yukionna",
-        imageName: "https://i.imgur.com/TCnmIDA.jpeg",
+        imageName: "https://i.imgur.com/5J4RYLD.png",
         description: "白い着物に長い黒髪、透き通るような肌。地に足跡を残さず、静かに漂うように現れるとされる。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -964,7 +964,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "清姫",
         documentId: "kiyohime",
-        imageName: "https://i.imgur.com/wgCslk4.png",
+        imageName: "https://i.imgur.com/uCtfi1y.png",
         description: "紀伊国の娘・清姫は安珍に恋い焦がれ、やがて蛇となって追い詰め、道成寺の鐘に隠れた安珍を炎で焼き滅ぼしたと語られる。人の情念が怪へと変ずる典型。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",

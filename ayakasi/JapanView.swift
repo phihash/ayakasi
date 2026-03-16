@@ -120,7 +120,7 @@ struct JapanView: View {
                         }
                     }
                 }
-                .frame(height: geometry.size.height * 0.6)
+                .frame(height: geometry.size.height * 0.55)
 
                 VStack {
                     if let selectedLocation = viewModel.selectedLocation {
@@ -255,7 +255,7 @@ struct JapanView: View {
                             .foregroundColor(.appTextSecondary)
                     }
                 }
-                .frame(height: geometry.size.height * 0.4)
+                .frame(height: geometry.size.height * 0.45)
                 .frame(maxWidth: .infinity)
                 .background(Color.appTextFieldBackground)
             }
