@@ -222,6 +222,7 @@ struct JapanView: View {
                                                                         .fill(Color.appSecondary)
                                                                 )
                                                         }
+                                                        .buttonStyle(.plain)
                                                     }
                                                 }
                                             }
@@ -261,7 +262,9 @@ struct JapanView: View {
             }
         }
         .fullScreenCover(item: $selectedYokai) { yokai in
-            NeoDetail(yokai: yokai)
+            NavigationStack {
+                NeoDetail(yokai: yokai)
+            }
         }
     }
 }

@@ -18,8 +18,17 @@ struct AllYokaiListView: View {
         }
     }
 
+    // デバイスに応じて列数を変更
+    var columnCount: Int {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return 6  // iPadは6列
+        } else {
+            return 3  // iPhoneは3列
+        }
+    }
+
     var body: some View {
-        let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: 3)
+        let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: columnCount)
 
         NavigationStack{
             VStack(spacing: 0){

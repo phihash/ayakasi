@@ -37,11 +37,11 @@ struct FullScreenImage: View {
                     Spacer()
                     Circle()
                         .fill(Color.appCardBackground.opacity(0.6))
-                        .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                        .frame(width: 50, height: 50)
                         .overlay(
                             Image(systemName: "xmark")
                                 .foregroundStyle(Color.appTextPrimary)
-                                .padding()
+                                .font(.system(size: 20))
                         )
                         .onTapGesture {
                             dismiss()

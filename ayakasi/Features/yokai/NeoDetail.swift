@@ -201,11 +201,11 @@ struct NeoDetail: View {
         HStack {
             Circle()
                 .fill(Color.black.opacity(0.6))
-                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                .frame(width: 40, height: 40)
                 .overlay(
                     Image(systemName: "chevron.backward")
                         .foregroundStyle(Color.white)
-                        .padding()
+                        .font(.system(size: 18))
                 )
                 .onTapGesture {
                     dismiss()

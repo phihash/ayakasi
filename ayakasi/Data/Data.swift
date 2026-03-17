@@ -97,7 +97,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "天井下り",
         documentId: "tenjokudari",
-        imageName: "https://i.imgur.com/LfN8gJq.png",
+        imageName: "https://i.imgur.com/13jR5iS.png",
         description: "天井下り",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -192,7 +192,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["元興寺","奈良"],
-        story: false
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "元興寺",
+                coordinate: CLLocationCoordinate2D(latitude: 34.67810978190381, longitude: 135.8314418711626),
+                description: "飛鳥時代に元興寺に現れた妖怪。『日本霊異記』に記された鬼退治の伝説で知られ、境内には5体の小鬼の像が潜んでいる。",
+                yokaiIds: ["gagoze"],
+                prefecture: "奈良県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "ぬっぺっぽう",
@@ -248,12 +259,23 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ヤマタノオロチ",
         documentId: "yamatanooroti",
-        imageName: "https://i.imgur.com/xI6vy2F.png",
+        imageName: "https://i.imgur.com/QVnoJHi.png",
         description: "ヤマタノオロチ",
         categories: ["道の妖怪","すべて"],
         relatedCategory: "道の妖怪",
         searchKeywords: ["ヤマタノオロチ","蛇"],
-        story: false
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "船通山",
+                coordinate: CLLocationCoordinate2D(latitude: 35.156637675418914, longitude: 133.17866874603408),
+                description: "斐伊川の源流にある山。スサノオノミコトがヤマタノオロチを退治した出雲神話の舞台として知られる。",
+                yokaiIds: ["yamatanooroti"],
+                prefecture: "島根県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "一本だたら",
@@ -263,7 +285,18 @@ let ayakasis: [Ayakasi] = [
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["1本"],
-        story: false
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "果無山脈",
+                coordinate: CLLocationCoordinate2D(latitude: 33.910530545321635, longitude: 135.74460219642324),
+                description: "一本足で目が皿のような妖怪が現れる山脈。普段は無害だが、旧暦12月20日の『果ての二十日』には人を襲うと恐れられた。",
+                yokaiIds: ["ippondatara"],
+                prefecture: "奈良県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "般若",
