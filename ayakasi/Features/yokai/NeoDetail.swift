@@ -234,8 +234,24 @@ struct NeoDetail: View {
                     ZStack{
                         imageView
                         titleView
-
                     }
+                    
+                    if let imageSource = yokai.imageSource {
+                        HStack{
+                            Text(imageSource)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(.appTextSecondary)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(Color.appTextSecondary.opacity(0.1))
+                                .cornerRadius(12)
+                            Spacer()
+                        }
+                        .padding(.horizontal,24)
+                        .padding(.top,16)
+                    }
+
                     
                     // 2タブ
                     Group {

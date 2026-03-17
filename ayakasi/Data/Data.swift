@@ -27,6 +27,7 @@ let ayakasis: [Ayakasi] = [
         name: "アマビエ",
         documentId: "amabie",
         imageName: "https://i.imgur.com/jK10Hbs.png",
+        imageSource: "パブリックドメイン",
         description: "1846年、肥後の海に現れた半人半魚の妖怪。長い髪と鳥のくちばしを持ち、豊作や疫病などの予言を伝えて、海にもどったという言い伝えがある。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -98,6 +99,7 @@ let ayakasis: [Ayakasi] = [
         name: "天井下り",
         documentId: "tenjokudari",
         imageName: "https://i.imgur.com/13jR5iS.png",
+        imageSource: "パブリックドメイン",
         description: "天井下り",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -188,6 +190,7 @@ let ayakasis: [Ayakasi] = [
         name: "がごぜ",
         documentId: "gagoze",
         imageName: "https://i.imgur.com/7ZlvwAJ.png",
+        imageSource: "パブリックドメイン",
         description: "がごぜ",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -260,10 +263,11 @@ let ayakasis: [Ayakasi] = [
         name: "ヤマタノオロチ",
         documentId: "yamatanooroti",
         imageName: "https://i.imgur.com/QVnoJHi.png",
+        imageSource: "パブリックドメイン",
         description: "ヤマタノオロチ",
-        categories: ["道の妖怪","すべて"],
-        relatedCategory: "道の妖怪",
-        searchKeywords: ["ヤマタノオロチ","蛇"],
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        searchKeywords: ["ヤマタノオロチ","やまたのおろち","八岐大蛇","オロチ","蛇","ヘビ","へび","大蛇","8つの頭","八つ頭"],
         story: false,
         relatedSpots: [
             YokaiSpot(
@@ -284,7 +288,7 @@ let ayakasis: [Ayakasi] = [
         description: "一本だたら(いっぽんだたら)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        searchKeywords: ["1本"],
+        searchKeywords: ["1本","いっぽんだたら","一本足","一つ目","1つ目","一眼一足","山の妖怪","鍛冶","イッポンダタラ"],
         story: false,
         relatedSpots: [
             YokaiSpot(
@@ -534,7 +538,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ぬらりひょん",
         documentId: "nurarihyon",
-        imageName: "https://i.imgur.com/iaZS4AL.png",
+        imageName: "https://i.imgur.com/l2lnRiI.png",
+        imageSource: "パブリックドメイン",
         description: "ぬらりひょんは、夕暮れ時に人の家へ何食わぬ顔で上がり込み、まるで主のように振る舞うとされる妖怪である。老人のような姿をしているが、正体や目的ははっきりせず、追い出そうとしても気づけばいつの間にか消えているという。特別な害をなすわけではないが、その得体の知れなさと図々しさから、家に忍び込む怪異の代表的存在として語られてきた。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -802,7 +807,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ろくろ首",
         documentId: "rokurokubi",
-        imageName: "https://i.imgur.com/PmWwxUY.jpeg",
+        imageName: "https://i.imgur.com/Z3P2J1E.png",
+        imageSource: "パブリックドメイン",
         description: "昼は普通の人の姿で暮らし、夜に首だけが伸びて彷徨うとされる。自覚のない型・自覚して人を脅かす型の両方が伝わる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -946,7 +952,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "人面犬",
         documentId: "jinmenken",
-        imageName: "https://i.imgur.com/g69tYkw.jpeg",
+        imageName: "https://i.imgur.com/uNrALt5.png",
+        imageSource: "パブリックドメイン",
         description: "犬の体に人間の顔をついた奇妙な姿。“ワンワン”としゃべる、バイクに乗っている、夜道を歩いているなどバリエーションは豊富。見た目は気味が悪いが、実害は少ないとも言われる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1085,7 +1092,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "河童",
         documentId: "kappa",
-        imageName: "https://i.imgur.com/IwK5a8g.jpeg",
+        imageName: "https://i.imgur.com/Pkgy79t.png",
+        imageSource: "パブリックドメイン",
         description:"カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。\nカッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
