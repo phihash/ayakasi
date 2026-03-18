@@ -123,27 +123,9 @@ struct HomeView: View {
         NavigationStack{
             ScrollView{
                 if let notice = activeNotice {
-                    VStack {
-                        HStack {
-                            Image(systemName: "megaphone")
-                                .foregroundColor(.appPrimary)
-                            Text(notice.message)
-                                .font(.body)
-                                .fontWeight(.medium)
-                            Spacer()
-                        }
-                        .padding()
-                        .background(Color.appPrimary.opacity(0.1))
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.appPrimary.opacity(0.3), lineWidth: 1)
-                        )
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 8)
+                    NoticeSection(notice: notice)
                 }
-                
+
                 HStack{
                     Text("全国で開催中の妖怪イベント!")
                         .font(.headline)
@@ -151,13 +133,13 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal,24)
-                
+
                 EventsSection(
                     filteredEvents: filteredEvents,
                     page: $page,
                     selectedEventUrl: $selectedEventUrl
                 )
-                
+
                 HStack{
                     Text("ゲーム")
                     Spacer()
@@ -166,7 +148,7 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .padding(.horizontal,20)
                 .padding(.top,8)
-                
+
                 Button{
                     showGameView = true
                 } label :{
@@ -178,63 +160,12 @@ struct HomeView: View {
                         .background(Color.appPrimary)
                         .cornerRadius(12)
                         .padding(.horizontal, 20)
-                }             
-                
-                HStack{
-                    Text("妖怪関連ニュース")
-                    Spacer()
                 }
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding(.horizontal,20)
-                .padding(.top,8)
-                
-                HStack{
-                    ForEach(newsYokai,id:\.self){ element in
-                        Button{
-                            selectedNews = element
-                        } label :{
-                            Text(element)
-                                .font(.subheadline)
-                                .foregroundStyle(selectedNews == element ? Color.white : Color.appSecondary)
-                                .fontWeight(.bold)
-                                .padding(.vertical,6)
-                                .padding(.horizontal,18)
-                                .background(selectedNews == element ? Color.appSecondary : Color.clear)
-                                .cornerRadius(24)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .stroke(Color.appSecondary, lineWidth: 2)
-                                )
-                                .onTapGesture { selectedNews = element }
-                        }
-                    }
-                    Spacer()
-                }
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding(.horizontal,20)
-                .padding(.vertical,16)
-                
-                NewsView(selectedNew: selectedNews)
-                    .highPriorityGesture(
-                        DragGesture(minimumDistance: 30)
-                            .onEnded { value in
-                                let currentNewsIndex = newsYokai.firstIndex(of: selectedNews) ?? 0
-                                
-                                if value.translation.width > 50 {
-                                    let newIndex = max(0,currentNewsIndex - 1)
-                                    withAnimation{
-                                        selectedNews = newsYokai[newIndex]
-                                    }
-                                } else if value.translation.width < -50 {
-                                    let newIndex = min(newsYokai.count - 1, currentNewsIndex + 1)
-                                    withAnimation{
-                                        selectedNews = newsYokai[newIndex]
-                                    }
-                                }
-                            }
-                    )
+
+                NewsSection(
+                    selectedNews: $selectedNews,
+                    newsYokai: newsYokai
+                )
             }
             .background(Color.appBackground)
             
@@ -250,75 +181,5 @@ struct HomeView: View {
                 GameView()
             }
         }
-    }
-}
-
-// MARK: - Events Section
-struct EventsSection: View {
-    let filteredEvents: [EventItem]
-    @Binding var page: Int
-    @Binding var selectedEventUrl: URL?
-
-    var body: some View {
-        Group {
-            if filteredEvents.isEmpty {
-                emptyState
-            } else {
-                eventsTabView
-            }
-        }
-    }
-
-    private var emptyState: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "calendar.badge.exclamationmark")
-                .font(.system(size: 40))
-                .foregroundColor(.appTextSecondary)
-
-            Text("イベントを取得中です")
-                .font(.title3)
-                .fontWeight(.medium)
-                .foregroundColor(.appTextSecondary)
-        }
-        .frame(height: 160)
-    }
-
-    private var eventsTabView: some View {
-        VStack(spacing: 8) {
-            TabView(selection: $page) {
-                ForEach(filteredEvents.indices, id: \.self) { index in
-                    EventComponent(
-                        link: filteredEvents[index].link ?? "",
-                        linkTitle: filteredEvents[index].title ?? "イベント",
-                        imageUrl: filteredEvents[index].imageUrl,
-                        location: filteredEvents[index].location,
-                        startDateTime: filteredEvents[index].startDateTime,
-                        endDateTime: filteredEvents[index].endDateTime,
-                        onTap: {
-                            if let urlString = filteredEvents[index].link,
-                               let url = URL(string: urlString) {
-                                selectedEventUrl = url
-                            }
-                        }
-                    )
-                    .tag(index)
-                }
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(height: 250)
-
-            pageIndicator
-        }
-    }
-
-    private var pageIndicator: some View {
-        HStack(spacing: 8) {
-            ForEach(filteredEvents.indices, id: \.self) { index in
-                Circle()
-                    .fill(index == page ? Color.appTextSecondary : Color.appTextSecondary.opacity(0.3))
-                    .frame(width: 8, height: 8)
-            }
-        }
-        .padding(.vertical, 2)
     }
 }

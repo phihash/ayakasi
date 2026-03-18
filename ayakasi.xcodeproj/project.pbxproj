@@ -148,6 +148,11 @@
 			path = favorites;
 			sourceTree = "<group>";
 		};
+		A92B2FC62F6AF36100E84A15 /* Sections */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		A97C2ACD2E561B5000889AB0 /* AyakasiWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -274,6 +279,7 @@
 		A9B08D962EE72BC300592CB5 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				A92B2FC62F6AF36100E84A15 /* Sections */,
 				A9B08D952EE72BC300592CB5 /* HomeView.swift */,
 			);
 			path = home;
@@ -392,6 +398,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				A90D42BC2F1FC773007A05D1 /* favorites */,
+				A92B2FC62F6AF36100E84A15 /* Sections */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E312EEF097600592CB5 /* stories */,
