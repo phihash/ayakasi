@@ -159,7 +159,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "びわぼくぼく",
         documentId: "biwabokuboku",
-        imageName: "https://i.imgur.com/TujQzDR.png",
+        imageName: "https://i.imgur.com/8XORrJO.png",
+        imageSource: "パブリックドメイン",
         description: "琵琶牧々（びわぼくぼく)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -179,7 +180,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "みこしにゅうどう",
         documentId: "mikosinyuudou",
-        imageName: "https://i.imgur.com/yHejtQM.png",
+        imageName: "https://i.imgur.com/GyqfXnb.png",
+        imageSource: "パブリックドメイン",
         description: "夜道を歩いていると僧の姿で突然現れ、はじめは小さな背丈だが見上げれば見上げるほど大きくなるという妖怪。全国各地に伝承があり、入道が大きくなるのを見上げると、喉を噛み切られるという言い伝えがある。「みこしにゅうどう見抜いた」と言えば消え去るという。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -241,7 +243,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "だいだらぼっち",
         documentId: "daidarabotti",
-        imageName: "https://i.imgur.com/74qbxsT.png",
+        imageName: "https://i.imgur.com/XNQ5ovy.png",
+        imageSource: "パブリックドメイン",
         description: "日本各地に伝わる巨人伝説。山を作り、谷を掘り、巨大な足跡が湖になったとされる。地域によって「デイダラボッチ」「ダイダラボウ」など呼び方が異なる。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -329,8 +332,19 @@ let ayakasis: [Ayakasi] = [
         description: "油すまし",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        searchKeywords: ["あぶらすまし"],
-        story: false
+        searchKeywords: ["あぶらすまし", "アブラスマシ", "油盗み", "あぶらぬすみ", "熊本", "くまもと", "河内", "かわち", "墓"],
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "妖怪「油すまし」の墓",
+                coordinate: CLLocationCoordinate2D(latitude: 32.445623276269785, longitude: 130.31227092831656),
+                description: "熊本県栖本町河内地区に残る油すましの墓とされる石像。地元では古くから妖怪伝承が語り継がれており、現在も地域の人々によって大切に管理されている。",
+                yokaiIds: ["aburasumasi"],
+                prefecture: "熊本県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
     ),
     Ayakasi(
         name: "土蜘蛛",
@@ -529,7 +543,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "わいら",
         documentId: "waira",
-        imageName: "https://i.imgur.com/rw9HxXp.png",
+        imageName: "https://i.imgur.com/r9ld7sZ.png",
+        imageSource: "パブリックドメイン",
         description: "わいらは、家の縁の下や暗がりに潜むとされる妖怪で、人目につかない場所からじっと人を見つめている存在だと語られている。はっきりとした姿や性質は伝わっておらず、影のように現れては気配だけを残し、特別な害をなすことも少ない。その正体の曖昧さゆえに、「そこに何かいるのではないか」という不安や違和感そのものが、わいらの正体だとも考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1177,7 +1192,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "わにゅうどう",
         documentId: "wanyuudou",
-        imageName: "https://i.imgur.com/yIRXXnP.png",
+        imageName: "https://i.imgur.com/QLY9RUK.png",
+        imageSource: "パブリックドメイン",
         description: "燃える大車輪に苦悶の表情の頭部が付いた姿で夜道を転がる。見る者の魂を奪うとも子を攫うともいう。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1197,7 +1213,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "やまんば",
         documentId: "yamanba",
-        imageName: "https://i.imgur.com/52jeUB8.png",
+        imageName: "https://i.imgur.com/eqzWV4L.png",
+        imageSource: "パブリックドメイン",
         description: "乱れ髪に異様な力を持つ山姥。旅人を惑わし喰らう話の一方、子を授ける・助けるなど多面的な像を持つ。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -1237,7 +1254,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "船幽霊",
         documentId: "funayurei",
-        imageName: "https://i.imgur.com/m836eb6.png",
+        imageName: "https://i.imgur.com/3J2qyCn.png",
+        imageSource: "パブリックドメイン",
         description: "霧の夜に現れ、桶や柄杓を求めて船に取りつく海の怪。渡すと水を汲み入れて沈めるとされる。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",

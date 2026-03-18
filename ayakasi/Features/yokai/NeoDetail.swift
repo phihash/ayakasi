@@ -47,7 +47,9 @@ struct CommentListView: View {
                         
                         HStack{
                             Spacer()
-                            if authVM.user != nil {
+                            if let currentUserId = authVM.user?.uid,
+                               let commentUserId = comment["userId"] as? String,
+                               currentUserId != commentUserId {
                                 Image(systemName: "ellipsis")
                                     .font(.title3)
                                     .onTapGesture {
@@ -55,10 +57,10 @@ struct CommentListView: View {
                                             print("❗️ documentId is missing; not opening report sheet")
                                             return
                                         }
-                                        
+
                                         selectedCommentId = docId
                                         reportTarget = ReportTarget(id: docId)
-                                        
+
                                     }
                             }
                         }

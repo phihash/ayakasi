@@ -96,7 +96,9 @@ struct RecentCommentsSectionView: View {
                                     
                                     Spacer()
 
-                                    if authVM.user != nil {
+                                    if let currentUserId = authVM.user?.uid,
+                                       let commentUserId = comment["userId"] as? String,
+                                       currentUserId != commentUserId {
                                         Image(systemName: "ellipsis")
                                             .font(.title3)
                                             .onTapGesture {
