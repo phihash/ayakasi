@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct ReportUI: View {
-    @EnvironmentObject var commentService : CommentService
+    @EnvironmentObject var reportService: CommentReportService
+    @EnvironmentObject var blockingService: UserBlockingService
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var favoriteService: FavoriteService
     @State private var showAlert = false
@@ -15,7 +16,7 @@ struct ReportUI: View {
             Button {
                 Task {
                     do {
-                        try await commentService.reportRecentComment(documentId: commentId)
+                        try await reportService.reportComment(documentId: commentId)
                         alertTitle = "完了"
                         alertMessage = "報告が完了しました"
                         showAlert = true
@@ -39,12 +40,12 @@ struct ReportUI: View {
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
             }
-            
+
             if authViewModel.user != nil {
                 Button {
                     Task {
                         do {
-                            try await commentService.blockUser(userId: userId)
+                            try await blockingService.blockUser(userId: userId)
                             alertTitle = "完了"
                             alertMessage = "ユーザーをブロックしました"
                             showAlert = true
@@ -68,7 +69,7 @@ struct ReportUI: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                 }
- 
+
             }
         }
         .alert(alertTitle, isPresented: $showAlert) {

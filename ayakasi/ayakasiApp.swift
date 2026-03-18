@@ -8,9 +8,12 @@ struct ayakasiApp: App {
         authService: AuthService.shared,
         tokenBucket: TokenBucket(maxToken: 15, refillInterval: 300, storageKeyPrefix: "vote")
     )
+    @StateObject private var BlockingVM = UserBlockingService(authService: AuthService.shared)
+    @StateObject private var ReportVM = CommentReportService(authService: AuthService.shared)
     @StateObject private var CommentVM = CommentService(
         authService: AuthService.shared,
-        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
+        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment"),
+        blockingService: UserBlockingService(authService: AuthService.shared)
     )
     @StateObject private var FavoriteVM = FavoriteService.shared
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -25,6 +28,8 @@ struct ayakasiApp: App {
                 .environmentObject(AuthVM)
                 .environmentObject(VoteVM)
                 .environmentObject(CommentVM)
+                .environmentObject(BlockingVM)
+                .environmentObject(ReportVM)
                 .environmentObject(FavoriteVM)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }
