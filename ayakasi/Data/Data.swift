@@ -48,7 +48,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "あかなめ",
         documentId: "akaname",
-        imageName: "https://i.imgur.com/fmrL7Lm.jpeg",
+        imageName: "https://i.imgur.com/1kUq6RO.png",
+        imageSource: "パブリックドメイン",
         description: "あかなめは、風呂場で桶の垢を舐める妖怪。これといって大きな害はない。風呂場を清潔にすれば、垢も発生しないため、あかなめには教訓が含まれているという説もある。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -68,7 +69,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "おとろし",
         documentId: "otorosi",
-        imageName: "https://i.imgur.com/2ZNjNoR.jpeg",
+        imageName: "https://i.imgur.com/fNhSHPs.png",
+        imageSource: "パブリックドメイン",
         description:"おとろし",
         categories: ["詳細不明","すべて"],
         relatedCategory: "詳細不明",
@@ -129,7 +131,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "しろうかり",
         documentId: "siroukari",
-        imageName: "https://i.imgur.com/KTuQ8yj.png",
+        imageName: "https://i.imgur.com/pSFU2pT.png",
+        imageSource: "パブリックドメイン",
         description: "百鬼夜行絵巻をはじめとした、絵巻物に描かれている妖怪\n白くて細長い妖怪で詳細は不明",
         categories: ["詳細不明","すべて"],
         relatedCategory: "詳細不明",
@@ -978,7 +981,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "一つ目小僧",
         documentId: "hitotsumekozou",
-        imageName: "https://i.imgur.com/0nI87bj.png",
+        imageName: "https://i.imgur.com/dYXMVfh.png",
+        imageSource: "パブリックドメイン",
         description: "目が一つしかない小僧の妖怪\n12月8日の晩になると人の目には見えない一つ目小僧が、戸締りされていない家をさがして入ってくるといわれてた。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1009,7 +1013,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "のっぺらぼう",
         documentId: "nopperabou",
-        imageName: "https://i.imgur.com/Sn07s1b.png",
+        imageName: "https://i.imgur.com/Yx7yjYf.png",
+        imageSource: "パブリックドメイン",
         description: "ふつうの人型であるが、顔には目,鼻,耳,口がない妖怪\nおいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1040,7 +1045,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "鵺",
         documentId: "nue",
-        imageName: "https://i.imgur.com/7oEtFHB.jpeg",
+        imageName: "https://i.imgur.com/togTHLQ.png",
+        imageSource: "パブリックドメイン",
         description: "鵺(ぬえ)とは頭が猿で胴が狸、手足は虎で尾は蛇の姿で、鵺の鳴き声は、夜中に不穏な声で鳴くトラツグミに似ているとされる。都を騒がす鵺を退治するように命じられた源頼政が、夜に矢で射ったところ怪しいものが落ちた。\n火を灯してそれを見ると、頭は猿、体は狸、尾は蛇、手足は虎の姿をした妖怪がなくなっていたという話があり、その射った矢を洗ったのが鵺池とされる。\nそして、その死がいを丸木舟にのせて川に流したところ、最終的に芦屋に漂着した。\n祟りを恐れた村人たちは立派な墓をつくり、これが今日までに残る鵺塚である。",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
@@ -1068,8 +1074,6 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "水の怪",
         story: false
     ),
-    
-   
     Ayakasi(
         name: "すなかけばばあ",
         documentId: "sunakakebabaa",
@@ -1100,10 +1104,6 @@ let ayakasis: [Ayakasi] = [
             )
         ]
     ),
-    
-    
-  
-    
     Ayakasi(
         name: "河童",
         documentId: "kappa",
@@ -1137,11 +1137,11 @@ let ayakasis: [Ayakasi] = [
        
         story: false
     ),
-    
     Ayakasi(
         name: "いったんもめん",
         documentId: "ittanmomen",
-        imageName: "https://i.imgur.com/st1YIN4.jpeg",
+        imageName: "https://i.imgur.com/GTQ0w2t.png",
+        imageSource: "パブリックドメイン",
         description: "白い反物が生き物のようにたなびき、風に乗って飛ぶ。人の顔に巻きついたり、肩にまとわりついたりする挙動が語られる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
