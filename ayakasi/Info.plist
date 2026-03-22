@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>写真を撮影するためにカメラへのアクセスが必要です。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>写真を選択して投稿するためにフォトライブラリへのアクセスが必要です。</string>
+</dict>
 </plist>

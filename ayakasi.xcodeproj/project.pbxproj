@@ -14,6 +14,7 @@
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */; };
 		A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */; };
+		A92B2FD82F6D204D00E84A15 /* MijickCamera in Frameworks */ = {isa = PBXBuildFile; productRef = A92B2FD72F6D204D00E84A15 /* MijickCamera */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
@@ -157,6 +158,11 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		A92B2FD02F6D1D2700E84A15 /* camera */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = camera;
+			sourceTree = "<group>";
+		};
 		A97C2ACD2E561B5000889AB0 /* AyakasiWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -189,6 +195,7 @@
 			files = (
 				A9DBF6DD2E876D9600F5CDBF /* FirebaseCore in Frameworks */,
 				A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */,
+				A92B2FD82F6D204D00E84A15 /* MijickCamera in Frameworks */,
 				A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */,
 				A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */,
 				A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */,
@@ -323,6 +330,7 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A92B2FD02F6D1D2700E84A15 /* camera */,
 				A9E83FA22F573549007E4435 /* RankingSectionView.swift */,
 				A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
@@ -405,6 +413,7 @@
 			fileSystemSynchronizedGroups = (
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A92B2FC62F6AF36100E84A15 /* Sections */,
+				A92B2FD02F6D1D2700E84A15 /* camera */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E312EEF097600592CB5 /* stories */,
@@ -421,6 +430,7 @@
 				A91F42052ED41BA300DCFC61 /* FirebaseFirestore */,
 				A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */,
 				A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */,
+				A92B2FD72F6D204D00E84A15 /* MijickCamera */,
 			);
 			productName = ayakasi;
 			productReference = A97C29FB2E4B6D3000889AB0 /* ayakasi.app */;
@@ -481,6 +491,7 @@
 				A9DBF6E32E87B73000F5CDBF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				A9DBF7202E8A453500F5CDBF /* XCRemoteSwiftPackageReference "FeedKit" */,
 				A99B6CAA2EC382D700D5D274 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A92B2FD62F6D204D00E84A15 /* XCRemoteSwiftPackageReference "Camera" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A97C29FC2E4B6D3000889AB0 /* Products */;
@@ -723,7 +734,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ayakasi/ayakasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XVM4X7JGBU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -755,6 +766,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -769,7 +781,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ayakasi/ayakasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XVM4X7JGBU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -801,6 +813,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -904,6 +917,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A92B2FD62F6D204D00E84A15 /* XCRemoteSwiftPackageReference "Camera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/Camera";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.3;
+			};
+		};
 		A99B6CAA2EC382D700D5D274 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -953,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		A92B2FD72F6D204D00E84A15 /* MijickCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92B2FD62F6D204D00E84A15 /* XCRemoteSwiftPackageReference "Camera" */;
+			productName = MijickCamera;
 		};
 		A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

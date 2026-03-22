@@ -448,7 +448,7 @@ struct NeoDetail: View {
         }
         .sheet(isPresented: $isCommentUI) {
             CommentUI(isPresented: $isCommentUI, yokai: yokai)
-                .presentationDetents([.fraction(0.35)])
+                .presentationDetents([ .large])
                 .presentationBackground(.regularMaterial)
         }
         .safeAreaInset(edge: .bottom){

@@ -38,7 +38,7 @@ struct SearchView: View {
                     .background(Color.appTextFieldBackground)
                     .cornerRadius(10)
                     .padding(.bottom,12)
-                    
+
                     Image("book2")
                         .renderingMode(.template)
                         .foregroundColor(.appTextSecondary)

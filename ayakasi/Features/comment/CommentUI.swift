@@ -1,4 +1,6 @@
 import SwiftUI
+import PhotosUI
+import UIKit
 
 struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
@@ -7,6 +9,9 @@ struct CommentUI: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var commentText = ""
+    @State private var showCamera = false
+    @State private var selectedPhoto: PhotosPickerItem?
+    @State private var capturedImage: UIImage?
     @Binding var isPresented: Bool
     let yokai : Ayakasi
     var body: some View {
@@ -34,10 +39,68 @@ struct CommentUI: View {
                     )
                 }
                 .padding(.horizontal, 20)
-                
+
+                HStack(spacing: 12) {
+                    // カメラボタン
+                    Button {
+                        showCamera = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "camera.fill")
+                                .font(.title2)
+                            Text("写真を撮る")
+                        }
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.white)
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .background(Color.appSecondary)
+                        .cornerRadius(30)
+                    }
+
+                    // ライブラリボタン
+                    PhotosPicker(selection: $selectedPhoto, matching: .images) {
+                        HStack {
+                            Image(systemName: "photo.fill")
+                                .font(.title2)
+                            Text("ライブラリ")
+                        }
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.white)
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .background(Color.appSecondary)
+                        .cornerRadius(30)
+                    }
+
+                }
+                .padding(.horizontal, 20)
+
+                //プレビュー
+                if let capturedImage {
+                    ZStack(alignment: .topTrailing) {
+                        Image(uiImage: capturedImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 300)
+                            .cornerRadius(12)
+
+                        // 削除ボタン
+                        Button {
+                            self.capturedImage = nil
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .background(Circle().fill(Color.black.opacity(0.6)))
+                        }
+                        .padding(8)
+                    }
+                    .padding(.horizontal, 20)
+                }
+
                 // 投稿ボタン
                 Button(action: { // 投稿処理
-                    print("🔘 投稿ボタン押下")
                     Task {
                         do {
                             try await commentStore.postComment(content: commentText, yokai: yokai)
@@ -125,6 +188,25 @@ struct CommentUI: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
+        }
+        .fullScreenCover(isPresented: $showCamera) {
+            YokaiCameraView(
+                onPhotoCapture: { image in
+                    capturedImage = image
+                    showCamera = false
+                }
+            )
+        }
+        .onChange(of: selectedPhoto) { (oldValue: PhotosPickerItem?, newValue: PhotosPickerItem?) in
+            Task {
+                if let newValue,
+                   let data = try? await newValue.loadTransferable(type: Data.self),
+                   let image = UIImage(data: data) {
+                    await MainActor.run {
+                        capturedImage = image
+                    }
+                }
+            }
         }
     }
 }

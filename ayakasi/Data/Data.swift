@@ -664,7 +664,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "さとり",
         documentId: "satori",
-        imageName: "https://i.imgur.com/0TvCDKX.png",
+        imageName: "https://i.imgur.com/avKW4lA.png",
+        imageSource: "パブリックドメイン",
         description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -1082,7 +1083,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "鬼",
         documentId: "oni",
-        imageName: "https://i.imgur.com/TZNK6q6.jpeg",
+        imageName: "https://i.imgur.com/XbUp4lJ.png",
+        imageSource: "パブリックドメイン",
         description: "赤や青の肌、虎皮の褌、手には金棒。残虐な怪として語られる一方、悪を懲らす存在や守護の側面が描かれることもある。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
