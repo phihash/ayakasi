@@ -2,6 +2,28 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "枕返し",
+        documentId: "makuragaesi",
+        imageName: "https://i.imgur.com/kd5wwgm.png",
+        imageSource: "パブリックドメイン",
+        description: "夜中に寝ている人の枕をひっくり返したり、頭と足の向きを変えたりする妖怪。小さな坊主や仁王のような姿で描かれることが多い。東北        地方では座敷童子の悪戯ともいわれる。かつては枕に人の魂が宿ると信じられており、枕を返されることは死を意味するとして恐れられていたが、徐々に        その信仰が廃れ、単なる悪戯と見なされるようになった",
+        categories: ["家の怪","すべて"],
+        relatedCategory: "家の怪",
+        searchKeywords: ["まくら", "マクラ", "枕", "まくらがえし", "まくらこぞう", "枕小僧", "ざしきわらし", "座敷童子", "いたずら", "悪戯","寝る", "睡眠", "夜"],
+        story: false,
+        relatedSpots: [
+            YokaiSpot(
+                spotName: "大雄寺",
+                coordinate: CLLocationCoordinate2D(latitude: 36.86583557069369, longitude: 140.1226900441809),
+                description: "江戸時代から伝わる「枕返しの幽霊」という掛け軸がある寺。この掛け軸の前で眠ると、翌朝には枕が返されているという伝承が残る。坐禅や写経の体験もできる。",
+                yokaiIds: ["makuragaesi"],
+                prefecture: "栃木県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            )
+        ]
+    ),
+    Ayakasi(
         name: "オッパショ石",
         documentId: "oppasho_ishi",
         imageName: "https://i.imgur.com/3tBMuPN.png",
@@ -618,7 +640,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "刑天",
         documentId: "keiten",
-        imageName: "https://i.imgur.com/buVhiXF.png",
+        imageName: "https://i.imgur.com/LwXUPb6.png",
+        imageSource: "パブリックドメイン",
         description: "刑天は中国神話に登場する怪異的存在で、黄帝に敗れ首を失っても滅びず、胸を目、臍を口として斧と盾を手に戦い続けたとされる。勝敗を超え、闘争そのものに囚われた執念の象徴として語られる。",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -669,8 +692,8 @@ let ayakasis: [Ayakasi] = [
         documentId: "satori",
         imageName: "https://i.imgur.com/0TvCDKX.png",
         description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
-        categories: ["山の怪","すべて"],
-        relatedCategory: "山の怪",
+        categories: ["山の怪","動物の怪","すべて"],
+        relatedCategory: "動物の怪",
         story: false
     ),
     Ayakasi(
@@ -695,7 +718,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "吸血鬼",
         documentId: "vampire",
-        imageName: "https://i.imgur.com/txwThf0.png",
+        imageName: "https://i.imgur.com/Jk0nTE9.png",
+        imageSource: "パブリックドメイン",
         description: "夜に現れ、人の血を吸うとされる怪異。コウモリと関連し、影のように忍び寄る存在として語られる。\n\n日光を嫌い、夜に活動する。血を吸われると吸血鬼になるとも言われる。",
         categories: ["すべて"],
         relatedCategory: nil,
@@ -770,10 +794,11 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "傘小僧",
         documentId: "kasakozou",
-        imageName: "https://i.imgur.com/CGqsVUE.png", // ここは適切な画像URLに置き換えてください
+        imageName: "https://i.imgur.com/Q5Y4U7J.png",
+        imageSource: "パブリックドメイン",
         description: "一本足で飛び跳ねる、古い唐傘の妖怪。目玉と長い舌を持ち、雨の夜に出現すると言われる。人々を驚かせることを好むが、悪さはしないとされる。",
-        categories: ["道の怪","すべて"],
-        relatedCategory: "道の怪",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
         searchKeywords: ["かさこぞう", "傘"],
         story: false
     )    ,
@@ -858,7 +883,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "猫又",
         documentId: "nekomata",
-        imageName: "https://i.imgur.com/oWCk6lj.jpeg",
+        imageName: "https://i.imgur.com/bjGICgl.png",
+        imageSource: "パブリックドメイン",
         description: "長命の猫が尾を二つに分け、着物をまとって踊ったり三味線を弾いたりする。人に化けて家に入り込むこともある。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -890,7 +916,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "二口女",
         documentId: "futakuchionna",
-        imageName: "https://i.imgur.com/ugHjdpW.png",
+        imageName: "https://i.imgur.com/esKjxgn.png",
+        imageSource: "パブリックドメイン",
         description: "少食を装うが、もう一つの口で主に食べ物を摂取する。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -1086,7 +1113,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "鬼",
         documentId: "oni",
-        imageName: "https://i.imgur.com/TZNK6q6.jpeg",
+        imageName: "https://i.imgur.com/XbUp4lJ.png",
+        imageSource: "パブリックドメイン",
         description: "赤や青の肌、虎皮の褌、手には金棒。残虐な怪として語られる一方、悪を懲らす存在や守護の側面が描かれることもある。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -1173,7 +1201,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "うみぼうず",
         documentId: "umibouzu",
-        imageName: "https://i.imgur.com/9NraCIb.jpeg",
+        imageName: "https://i.imgur.com/06WVJKo.png",
+        imageSource: "パブリックドメイン",
         description: "海面から巨大な黒い僧形の影が現れ、船を揺らし、油を要求するなどの話型がある。桶を差し出し機先を制する対処譚も有名。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -1280,6 +1309,50 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["吉原千恵子", "チェーンメール","都市伝説"],
+        story: false
+    ),
+    Ayakasi(
+        name: "犬神",
+        documentId: "inugami",
+        imageName: "https://i.imgur.com/4ItCkkf.png",
+        imageSource: "パブリックドメイン",
+        description: "西日本に広く伝わる犬霊の憑き物。特に四国を中心に根強く信仰され、人や家に憑いて福や禍をもたらすとされる。地域によってインガメ、イリガミなどとも呼ばれる。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["いぬがみ", "犬神", "インガメ", "イリガミ", "狗神", "憑き物", "つきもの", "四国", "西日本", "大分", "島根", "高知", "熊本", "宮崎"],
+        story: false
+    ),
+    Ayakasi(
+        name: "鬼女",
+        documentId: "kijo",
+        imageName: "https://i.imgur.com/8QkhNl3.png",
+        imageSource: "パブリックドメイン",
+        description: "人間の女性が怨念や宿業によって鬼と化したもの。若い女性を鬼女、老婆姿を鬼婆と呼ぶ。紅葉伝説、鈴鹿御前、安達ヶ原の鬼婆（黒塚）などが有名。転じて、心の酷い女性や怒った女性を指すこともある。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["きじょ", "鬼女", "きばば", "鬼婆", "紅葉", "もみじ", "紅葉伝説", "鈴鹿御前", "すずかごぜん", "安達ヶ原", "あだちがはら", "黒塚", "くろづか", "戸隠", "とがくし", "鬼無里", "きなさ", "長野", "福島", "土佐", "高知"],
+        story: false
+    ),
+    Ayakasi(
+        name: "胴面",
+        documentId: "dounotsura",
+        imageName: "https://i.imgur.com/MlAWmAA.png",
+        imageSource: "パブリックドメイン",
+        description: "首から上がなく、代わりに胴体に顔がある妖怪。尾田郷澄『百鬼夜行絵巻』に描かれているが、詳細は不明。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["どうのつら", "胴面", "どうめん", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "あかはだか", "赤裸", "刑天", "けいてん", "尾田郷澄", "おだごうちょう", "山海経", "せんがいきょう"],
+        story: false
+    ),
+    Ayakasi(
+        name: "飛縁魔",
+        documentId: "hinoennma",
+        imageName: "https://i.imgur.com/YypCD91.png",
+        imageSource: "パブリックドメイン",
+        description: "外見は美しい女性だが、男の心を迷わせて身を滅ぼす妖怪。江戸時代の『絵本百物語』に登場。女犯を戒めるために創作されたとされる。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["ひのえんま", "飛縁魔", "えんしょうじょ", "縁障女", "絵本百物語", "えほんひゃくものがたり", "丙午", "ひのえうま", "八百屋お七", "やおやおしち", "妖婦", "ようふ", "女の怪"],
         story: false
     )
 ]
