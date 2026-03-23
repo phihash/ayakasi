@@ -36,10 +36,10 @@ struct SettingView: View {
                     VStack(spacing: 0) {
                         SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
 
-                        
+                        SettingRowLink(title: "管理人からのメッセージ", destination: MessageUI())
+
                         SettingRowLink(title: "プライバシーポリシー", destination: WebView(url: URL(string: AppConstants.privacyPolicyURL)))
           
-                        
                         SettingRowLink(title: "利用規約", destination: WebView(url: URL(string: AppConstants.termsOfServiceURL)))
                         Divider()
                             .padding(.leading, 4)

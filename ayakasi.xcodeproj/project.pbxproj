@@ -14,6 +14,7 @@
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */; };
 		A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */; };
+		A92B30092F71676600E84A15 /* MessageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B30082F71676600E84A15 /* MessageUI.swift */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
@@ -92,6 +93,7 @@
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReportService.swift; sourceTree = "<group>"; };
 		A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockingService.swift; sourceTree = "<group>"; };
+		A92B30082F71676600E84A15 /* MessageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUI.swift; sourceTree = "<group>"; };
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
 		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
+				A92B30082F71676600E84A15 /* MessageUI.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */,
+				A92B30092F71676600E84A15 /* MessageUI.swift in Sources */,
 				A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */,
 				A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */,
 				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
@@ -748,7 +752,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.10.3;
+				MARKETING_VERSION = 3.10.5;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -794,7 +798,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.10.3;
+				MARKETING_VERSION = 3.10.5;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

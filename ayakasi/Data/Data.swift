@@ -2,6 +2,94 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "犬神",
+        documentId: "inugami",
+        imageName: "https://i.imgur.com/4ItCkkf.png",
+        imageSource: "パブリックドメイン",
+        description: "西日本に広く伝わる犬霊の憑き物。特に四国を中心に根強く信仰され、人や家に憑いて福や禍をもたらすとされる。地域によってインガメ、イリガミなどとも呼ばれる。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["いぬがみ", "犬神", "インガメ", "イリガミ", "狗神", "憑き物", "つきもの", "四国", "西日本", "大分", "島根", "高知", "熊本", "宮崎"],
+        story: false
+    ),
+    Ayakasi(
+        name: "鬼女",
+        documentId: "kijo",
+        imageName: "https://i.imgur.com/8QkhNl3.png",
+        imageSource: "パブリックドメイン",
+        description: "人間の女性が怨念や宿業によって鬼と化したもの。若い女性を鬼女、老婆姿を鬼婆と呼ぶ。紅葉伝説、鈴鹿御前、安達ヶ原の鬼婆（黒塚）などが有名。転じて、心の酷い女性や怒った女性を指すこともある。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["きじょ", "鬼女", "きばば", "鬼婆", "紅葉", "もみじ", "紅葉伝説", "鈴鹿御前", "すずかごぜん", "安達ヶ原", "あだちがはら", "黒塚", "くろづか", "戸隠", "とがくし", "鬼無里", "きなさ", "長野", "福島", "土佐", "高知"],
+        story: false
+    ),
+    Ayakasi(
+        name: "胴面",
+        documentId: "dounotsura",
+        imageName: "https://i.imgur.com/MlAWmAA.png",
+        imageSource: "パブリックドメイン",
+        description: "首から上がなく、代わりに胴体に顔がある妖怪。尾田郷澄『百鬼夜行絵巻』に描かれているが、詳細は不明。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["どうのつら", "胴面", "どうめん", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "あかはだか", "赤裸", "刑天", "けいてん", "尾田郷澄", "おだごうちょう", "山海経", "せんがいきょう"],
+        story: false
+    ),
+    Ayakasi(
+        name: "飛縁魔",
+        documentId: "hinoennma",
+        imageName: "https://i.imgur.com/YypCD91.png",
+        imageSource: "パブリックドメイン",
+        description: "外見は美しい女性だが、男の心を迷わせて身を滅ぼす妖怪。江戸時代の『絵本百物語』に登場。女犯を戒めるために創作されたとされる。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["ひのえんま", "飛縁魔", "えんしょうじょ", "縁障女", "絵本百物語", "えほんひゃくものがたり", "丙午", "ひのえうま", "八百屋お七", "やおやおしち", "妖婦", "ようふ", "女の怪"],
+        story: false
+    ),
+    Ayakasi(
+        name: "送り犬",
+        documentId: "okuriinu",
+        imageName: "https://i.imgur.com/2E5RAga.png",
+        imageSource: "パブリックドメイン",
+        description: "夜中に山道を歩くとついてくる犬。転ぶと食い殺されるが、座った振りをすれば襲わない。無事に山道を抜けたら礼を言うと帰る。地域によっては人を守る存在。",
+        categories: ["動物の怪","山の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["おくりいぬ", "送り犬", "山犬", "やまいぬ", "送り狼", "おくりおおかみ", "狼", "おおかみ", "迎え犬", "むかえいぬ", "長野", "上田", "塩田", "南佐久郡", "小海町", "こうみまち", "高知", "山道", "やまみち", "峠", "とうげ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "陰摩羅鬼",
+        documentId: "onmoraki",
+        imageName: "https://i.imgur.com/J1E9oTL.png",
+        imageSource: "パブリックドメイン",
+        description: "新しい死体から生じた気が化けた怪鳥。充分な供養を受けていない死体が化けたもので、経文読みを怠る僧侶のもとに現れるという。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["おんもらき", "陰摩羅鬼", "怪鳥", "かいちょう", "大蔵経", "だいぞうきょう", "太平百物語", "たいへいひゃくものがたり", "京都", "きょうと", "山城国", "やましろのくに", "死体", "したい", "供養", "くよう", "僧侶", "そうりょ", "寺", "てら"],
+        story: false
+    ),
+    Ayakasi(
+        name: "絹狸",
+        documentId: "kinutanuki",
+        imageName: "https://i.imgur.com/iv40FyL.png",
+        imageSource: "パブリックドメイン",
+        description: "絹織物（八丈絹）と組み合わされた狸。鳥山石燕による創作妖怪で、八丈島の名産「八丈絹」と「狸の金玉八畳敷き」の掛詞から生まれた。砧（きぬた）との語呂合わせでもある。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["きぬたぬき", "絹狸", "たぬき", "狸", "化け狸", "ばけたぬき", "八丈絹", "はちじょうぎぬ", "八丈島", "はちじょうじま", "鳥山石燕", "とりやませきえん", "砧", "きぬた", "黄八丈", "きはちじょう", "水木しげる"],
+        story: false
+    ),
+    Ayakasi(
+        name: "金魚の幽霊",
+        documentId: "kingyonoyuurei",
+        imageName: "https://i.imgur.com/5JPNfA9.png",
+        imageSource: "パブリックドメイン",
+        description: "山東京伝の小説『梅花氷裂』に登場。信濃国で藻之花という女性が金魚鉢に頭を突っ込まれて殺され、その怨念が金魚に憑いた。ランチュウの始まりとされる。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["きんぎょのゆうれい", "金魚の幽霊", "金魚", "きんぎょ", "梅花氷裂", "ばいかひょうれつ", "山東京伝", "さんとうきょうでん", "藻之花", "もかのはな", "らんちゅう", "ランチュウ", "蘭鋳", "信濃", "しなの", "長野", "水木しげる", "怨念", "おんねん"],
+        story: false
+    ),
+    Ayakasi(
         name: "枕返し",
         documentId: "makuragaesi",
         imageName: "https://i.imgur.com/kd5wwgm.png",
@@ -1309,50 +1397,6 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["吉原千恵子", "チェーンメール","都市伝説"],
-        story: false
-    ),
-    Ayakasi(
-        name: "犬神",
-        documentId: "inugami",
-        imageName: "https://i.imgur.com/4ItCkkf.png",
-        imageSource: "パブリックドメイン",
-        description: "西日本に広く伝わる犬霊の憑き物。特に四国を中心に根強く信仰され、人や家に憑いて福や禍をもたらすとされる。地域によってインガメ、イリガミなどとも呼ばれる。",
-        categories: ["動物の怪","すべて"],
-        relatedCategory: "動物の怪",
-        searchKeywords: ["いぬがみ", "犬神", "インガメ", "イリガミ", "狗神", "憑き物", "つきもの", "四国", "西日本", "大分", "島根", "高知", "熊本", "宮崎"],
-        story: false
-    ),
-    Ayakasi(
-        name: "鬼女",
-        documentId: "kijo",
-        imageName: "https://i.imgur.com/8QkhNl3.png",
-        imageSource: "パブリックドメイン",
-        description: "人間の女性が怨念や宿業によって鬼と化したもの。若い女性を鬼女、老婆姿を鬼婆と呼ぶ。紅葉伝説、鈴鹿御前、安達ヶ原の鬼婆（黒塚）などが有名。転じて、心の酷い女性や怒った女性を指すこともある。",
-        categories: ["詳細不明","すべて"],
-        relatedCategory: "詳細不明",
-        searchKeywords: ["きじょ", "鬼女", "きばば", "鬼婆", "紅葉", "もみじ", "紅葉伝説", "鈴鹿御前", "すずかごぜん", "安達ヶ原", "あだちがはら", "黒塚", "くろづか", "戸隠", "とがくし", "鬼無里", "きなさ", "長野", "福島", "土佐", "高知"],
-        story: false
-    ),
-    Ayakasi(
-        name: "胴面",
-        documentId: "dounotsura",
-        imageName: "https://i.imgur.com/MlAWmAA.png",
-        imageSource: "パブリックドメイン",
-        description: "首から上がなく、代わりに胴体に顔がある妖怪。尾田郷澄『百鬼夜行絵巻』に描かれているが、詳細は不明。",
-        categories: ["詳細不明","すべて"],
-        relatedCategory: "詳細不明",
-        searchKeywords: ["どうのつら", "胴面", "どうめん", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "あかはだか", "赤裸", "刑天", "けいてん", "尾田郷澄", "おだごうちょう", "山海経", "せんがいきょう"],
-        story: false
-    ),
-    Ayakasi(
-        name: "飛縁魔",
-        documentId: "hinoennma",
-        imageName: "https://i.imgur.com/YypCD91.png",
-        imageSource: "パブリックドメイン",
-        description: "外見は美しい女性だが、男の心を迷わせて身を滅ぼす妖怪。江戸時代の『絵本百物語』に登場。女犯を戒めるために創作されたとされる。",
-        categories: ["人の怪","すべて"],
-        relatedCategory: "人の怪",
-        searchKeywords: ["ひのえんま", "飛縁魔", "えんしょうじょ", "縁障女", "絵本百物語", "えほんひゃくものがたり", "丙午", "ひのえうま", "八百屋お七", "やおやおしち", "妖婦", "ようふ", "女の怪"],
         story: false
     )
 ]
