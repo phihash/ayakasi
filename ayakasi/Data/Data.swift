@@ -2,6 +2,39 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "鞍野郎",
+        documentId: "kurayarou",
+        imageName: "https://i.imgur.com/vDyLXNz.png",
+        imageSource: "パブリックドメイン",
+        description: "鞍に牙と目が生えた姿の妖怪。源氏の家臣・鎌田政清が使った馬の鞍が化けたとされる付喪神。手には鞭を持つ。",
+        categories: ["道具の怪","すべて"],
+        relatedCategory: "道具の怪",
+        searchKeywords: ["くらやろう", "鞍野郎", "鎌田政清", "かまたまさきよ", "付喪神", "つくもがみ", "馬具", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "コロポックル",
+        documentId: "koropokkuru",
+        imageName: "https://i.imgur.com/NAWFv2N.png",
+        imageSource: "パブリックドメイン",
+        description: "アイヌの伝承に登場する小人の妖精。蕗の葉の下に住むとされる。地域により伝説は異なり、十勝地方ではアイヌに迫害され土地を去ったと伝わる。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["ころぽっくる", "コロポックル", "小人", "こびと", "アイヌ", "蕗の葉", "ふきのは", "十勝", "とかち", "トカップチ", "北海道", "ほっかいどう", "妖精", "ようせい"],
+        story: false
+    ),
+    Ayakasi(
+        name: "頽馬",
+        documentId: "taiba",
+        imageName: "https://i.imgur.com/zP9DnoF.png",
+        imageSource: "パブリックドメイン",
+        description: "路上を歩く馬を突然死に至らしめる怪異。つむじ風と共に現れ、馬の鼻から入り肛門から抜けるとされる。美濃や尾張ではギバ（馬魔）と呼ばれ、小さな女性の姿で馬を襲う。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["たいば", "頽馬", "ギバ", "馬魔", "うまま", "御伽婢子", "おとぎぼうこ", "浅井了意", "あさいりょうい", "尾張", "おわり", "美濃", "みの", "愛知", "岐阜", "常陸", "ひたち", "茨城", "大津"],
+        story: false
+    ),
+    Ayakasi(
         name: "犬神",
         documentId: "inugami",
         imageName: "https://i.imgur.com/4ItCkkf.png",
@@ -253,10 +286,10 @@ let ayakasis: [Ayakasi] = [
         name: "三尸",
         documentId: "sansi",
         imageName: "https://i.imgur.com/Lc1ltMW.png",
-        description: "三尸(さんし)",
+        description: "道教に由来し、人が生まれた時から体内に棲む三匹の虫。上尸は脳に居て首から上の病気と大食を、中尸は腹に居て臓器の病気と宝貨への欲を、下尸は足に居て腰から下の病気と淫欲を引き起こす。庚申の夜に天帝へその人の罪を報告するとされる。姿は文献により異なる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        searchKeywords: ["さんし"],
+        searchKeywords: ["さんし", "三尸", "上尸", "じょうし", "彭踞", "ほうきょ", "中尸", "ちゅうし", "彭躓", "ほうしつ", "下尸", "げし", "彭蹻", "ほうきょう", "庚申", "こうしん", "道教", "どうきょう", "太上除三尸九虫保生経", "太上三尸中経"],
         story: false
     ),
     Ayakasi(
@@ -687,7 +720,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "獏",
         documentId: "baku",
-        imageName: "https://i.imgur.com/A7VRMHF.png",
+        imageName: "https://i.imgur.com/MVu6BOt.png",
+        imageSource: "パブリックドメイン",
         description: "獏は、人の見る悪夢を食らうとされる霊獣で、中国由来の想像上の動物が日本に伝わったものと考えられている。象の鼻、熊の足、牛の尾など複数の動物の特徴を併せ持つ姿で描かれることが多い。夜ごと夢を荒らす邪気を払い、安眠をもたらす存在として、枕元に絵や像を置く風習もあった。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -1397,6 +1431,72 @@ let ayakasis: [Ayakasi] = [
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
         searchKeywords: ["吉原千恵子", "チェーンメール","都市伝説"],
+        story: false
+    ),
+    Ayakasi(
+        name: "岸涯小僧",
+        documentId: "gangikozou",
+        imageName: "https://i.imgur.com/bJFGxYm.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『今昔百鬼拾遺』に描かれた川辺の妖怪。全身が毛に覆われ、やすりのような歯を持ち魚を獲る。雁木小僧とも表記される。古典や民間伝承には確認されず、石燕の創作と考えられる。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["がんぎこぞう", "岸涯小僧", "岸崖小僧", "雁木小僧", "がんきこぞう", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい", "タキワロ", "エンコ", "河童", "かっぱ", "川辺", "水木しげる"],
+        story: false
+    ),
+    Ayakasi(
+        name: "機尋",
+        documentId: "hatahiro",
+        imageName: "https://i.imgur.com/Si95KOk.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『今昔百鬼拾遺』に描かれた布の妖怪。帰らぬ夫への怨みを抱いて機を織る女性の念が布にこもり、蛇の姿となって夫を探すとされる。布が蛇と化す伝承は確認されず、石燕の創作と考えられる。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["はたひろ", "機尋", "機織り", "はたおり", "蛇", "へび", "布", "ぬの", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい", "二十尋", "にじゅっぴろ", "機織淵", "機織池"],
+        story: false
+    ),
+    Ayakasi(
+        name: "一つ目入道",
+        documentId: "hitotsumenyugoudou",
+        imageName: "https://i.imgur.com/atd80KF.png",
+        imageSource: "パブリックドメイン",
+        description: "各地の民話に登場する一つ目の入道。見越し入道のように背が伸び縮みするとされる。京都では狐、『稲生物怪録』では狸が化けた姿とされる。和歌山県日高郡では巨大な一つ目の大男として伝承される。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["ひとつめにゅうどう", "一つ目入道", "一つ目", "ひとつめ", "入道", "にゅうどう", "見越し入道", "みこしにゅうどう", "稲生物怪録", "いのうもののけろく", "和歌山", "わかやま", "日高郡", "ひだかぐん", "狐", "きつね", "狸", "たぬき"],
+        story: false
+    ),
+    Ayakasi(
+        name: "ふらり火",
+        documentId: "furaribi",
+        imageName: "https://i.imgur.com/x476VZe.png",
+        imageSource: "パブリックドメイン",
+        description: "『百怪図巻』『化物づくし』『画図百鬼夜行』などに描かれた炎に包まれた鳥の妖怪。犬のような顔をした鳥の姿で描かれる。詳細な伝承は確認されていない。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["ふらりび", "ふらり火", "百怪図巻", "ひゃっかいずかん", "化物づくし", "ばけものづくし", "画図百鬼夜行", "がずひゃっきやぎょう", "炎", "ほのお", "鳥", "とり"],
+        story: false
+    ),
+    Ayakasi(
+        name: "幣六",
+        documentId: "heiroku",
+        imageName: "https://i.imgur.com/3L4zNFA.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『百器徒然袋』に描かれた妖怪。御幣を右手に持ち上半身裸の姿。室町時代の『百鬼夜行絵巻』に描かれた御幣を持つ赤い鬼から着想を得たと考えられる。詳細は不明。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["へいろく", "幣六", "御幣", "ごへい", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "鬼", "おに"],
+        story: false
+    ),
+    Ayakasi(
+        name: "骨女",
+        documentId: "honeonna",
+        imageName: "https://i.imgur.com/QOjkGn6.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『今昔画図続百鬼』に描かれた骸骨の姿をした女性の妖怪。浅井了意『伽婢子』の『牡丹灯籠』がモチーフとされる。青森県の民話にも同名の妖怪が伝わる。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["ほねおんな", "骨女", "骸骨", "がいこつ", "牡丹灯籠", "ぼたんどうろう", "鳥山石燕", "とりやませきえん", "今昔画図続百鬼", "こんじゃくがずぞくひゃっき", "伽婢子", "おとぎぼうこ", "浅井了意", "あさいりょうい", "青森", "あおもり"],
         story: false
     )
 ]
