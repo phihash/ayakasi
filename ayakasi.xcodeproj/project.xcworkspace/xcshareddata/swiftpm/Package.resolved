@@ -1,5 +1,5 @@
 {
-  "originHash" : "b101f3da8d9b3335101fa93b166fcf006351b3ca85375c572740033b1f48d266",
+  "originHash" : "14f4dd93eac2449425ac0f406af55f4d9f2bd36e6515e64d93fdc72cdd43d34d",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -26,15 +26,6 @@
       "state" : {
         "revision" : "145104f5ea9d58ae21b60add007c33c1cc0c948e",
         "version" : "2.0.0"
-      }
-    },
-    {
-      "identity" : "camera",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Mijick/Camera",
-      "state" : {
-        "revision" : "0f02348fcc8fbbc9224c7fbf444f182dc25d0b40",
-        "version" : "3.0.3"
       }
     },
     {
@@ -179,15 +170,6 @@
       "state" : {
         "revision" : "2547102afd04fe49f1b286090f13ebce07284980",
         "version" : "1.31.1"
-      }
-    },
-    {
-      "identity" : "timer",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Mijick/Timer",
-      "state" : {
-        "revision" : "342371c33c3f084d82a4818447ba77d858064c85",
-        "version" : "2.0.0"
       }
     }
   ],
