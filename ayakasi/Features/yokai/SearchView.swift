@@ -7,7 +7,7 @@ extension String: Identifiable {
 struct SearchView: View {
     let screenWidth = UIScreen.main.bounds.width
     let itemSpacing: CGFloat = 30
-    let categories = ["道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"]
+    let categories = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"]
     @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
     @State private var selectedCategoryForList: String? = nil

@@ -7,7 +7,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/vDyLXNz.png",
         imageSource: "パブリックドメイン",
         description: "鞍に牙と目が生えた姿の妖怪。源氏の家臣・鎌田政清が使った馬の鞍が化けたとされる付喪神。手には鞭を持つ。",
-        categories: ["道具の怪","すべて"],
+        categories: ["道具の怪","鳥山石燕","すべて"],
         relatedCategory: "道具の怪",
         searchKeywords: ["くらやろう", "鞍野郎", "鎌田政清", "かまたまさきよ", "付喪神", "つくもがみ", "馬具", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ"],
         story: false
@@ -106,7 +106,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/iv40FyL.png",
         imageSource: "パブリックドメイン",
         description: "絹織物（八丈絹）と組み合わされた狸。鳥山石燕による創作妖怪で、八丈島の名産「八丈絹」と「狸の金玉八畳敷き」の掛詞から生まれた。砧（きぬた）との語呂合わせでもある。",
-        categories: ["動物の怪","すべて"],
+        categories: ["鳥山石燕","動物の怪","すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["きぬたぬき", "絹狸", "たぬき", "狸", "化け狸", "ばけたぬき", "八丈絹", "はちじょうぎぬ", "八丈島", "はちじょうじま", "鳥山石燕", "とりやませきえん", "砧", "きぬた", "黄八丈", "きはちじょう", "水木しげる"],
         story: false
@@ -266,7 +266,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "buruburu",
         imageName: "https://i.imgur.com/MqIxaMR.png",
         description: "今昔画図続百鬼に描かれている妖怪。恐怖で人間がぞくっと震えるのは、ぶるぶるが取り憑くためだといわれる。",
-        categories: ["詳細不明","すべて"],
+        categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["鳥山石燕","今昔画図続百鬼"],
         story: false
@@ -1439,7 +1439,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/bJFGxYm.png",
         imageSource: "パブリックドメイン",
         description: "鳥山石燕『今昔百鬼拾遺』に描かれた川辺の妖怪。全身が毛に覆われ、やすりのような歯を持ち魚を獲る。雁木小僧とも表記される。古典や民間伝承には確認されず、石燕の創作と考えられる。",
-        categories: ["詳細不明","すべて"],
+        categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["がんぎこぞう", "岸涯小僧", "岸崖小僧", "雁木小僧", "がんきこぞう", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい", "タキワロ", "エンコ", "河童", "かっぱ", "川辺", "水木しげる"],
         story: false
@@ -1450,7 +1450,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/Si95KOk.png",
         imageSource: "パブリックドメイン",
         description: "鳥山石燕『今昔百鬼拾遺』に描かれた布の妖怪。帰らぬ夫への怨みを抱いて機を織る女性の念が布にこもり、蛇の姿となって夫を探すとされる。布が蛇と化す伝承は確認されず、石燕の創作と考えられる。",
-        categories: ["詳細不明","すべて"],
+        categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["はたひろ", "機尋", "機織り", "はたおり", "蛇", "へび", "布", "ぬの", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい", "二十尋", "にじゅっぴろ", "機織淵", "機織池"],
         story: false
@@ -1483,7 +1483,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/3L4zNFA.png",
         imageSource: "パブリックドメイン",
         description: "鳥山石燕『百器徒然袋』に描かれた妖怪。御幣を右手に持ち上半身裸の姿。室町時代の『百鬼夜行絵巻』に描かれた御幣を持つ赤い鬼から着想を得たと考えられる。詳細は不明。",
-        categories: ["詳細不明","すべて"],
+        categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["へいろく", "幣六", "御幣", "ごへい", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "鬼", "おに"],
         story: false
@@ -1494,9 +1494,75 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/QOjkGn6.png",
         imageSource: "パブリックドメイン",
         description: "鳥山石燕『今昔画図続百鬼』に描かれた骸骨の姿をした女性の妖怪。浅井了意『伽婢子』の『牡丹灯籠』がモチーフとされる。青森県の民話にも同名の妖怪が伝わる。",
-        categories: ["人の怪","すべて"],
+        categories: ["鳥山石燕","人の怪","すべて"],
         relatedCategory: "人の怪",
         searchKeywords: ["ほねおんな", "骨女", "骸骨", "がいこつ", "牡丹灯籠", "ぼたんどうろう", "鳥山石燕", "とりやませきえん", "今昔画図続百鬼", "こんじゃくがずぞくひゃっき", "伽婢子", "おとぎぼうこ", "浅井了意", "あさいりょうい", "青森", "あおもり"],
+        story: false
+    ),
+    Ayakasi(
+        name: "山彦",
+        documentId: "yamabiko",
+        imageName: "https://i.imgur.com/ayI9JfW.png",
+        imageSource: "パブリックドメイン",
+        description: "各地に伝わる山の妖怪。山の神やその眷属とされる。山や谷に向かって発した音が反響して返る現象を山彦が応えた声と考えられた。木霊（こだま）とも呼ばれる。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["やまびこ", "山彦", "木霊", "こだま", "木魂", "きだま", "山の神", "やまのかみ", "反響", "はんきょう", "エコー", "山", "やま"],
+        story: false
+    ),
+    Ayakasi(
+        name: "川赤子",
+        documentId: "kawaakago",
+        imageName: "https://i.imgur.com/0Fyfaps.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『今昔画図続百鬼』に描かれた水辺に現れる赤ん坊の姿の妖怪。河童の一種とされる。赤ん坊の泣き声で人を騙すとも。民間伝承は残されておらず、石燕の創作的要素が強いとの指摘もある。",
+        categories: ["鳥山石燕","水の怪","すべて"],
+        relatedCategory: "水の怪",
+        searchKeywords: ["かわあかご", "川赤子", "川赤児", "赤ん坊", "あかんぼう", "河童", "かっぱ", "鳥山石燕", "とりやませきえん", "今昔画図続百鬼", "こんじゃくがずぞくひゃっき", "川", "かわ", "池", "いけ", "沼", "ぬま", "水辺", "みずべ", "秋田", "あきた", "九州", "きゅうしゅう"],
+        story: false
+    ),
+    Ayakasi(
+        name: "夜泣き石",
+        documentId: "yonakiishi",
+        imageName: "https://i.imgur.com/v33DqCQ.png",
+        imageSource: "パブリックドメイン",
+        description: "石にまつわる日本各地の伝説。泣き声がする石、または子どもの夜泣きが収まると伝わる石の総称。静岡県の小夜の中山が有名。殺された者の霊が乗り移るとも、石自体が怪音を出すともされる。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        searchKeywords: ["よなきいし", "夜泣き石", "夜泣石", "小夜の中山", "さよのなかやま", "静岡", "しずおか", "石", "いし", "泣き声", "なきごえ", "霊", "れい"],
+        story: false
+    ),
+    Ayakasi(
+        name: "ぶかっこう",
+        documentId: "bukakkou",
+        imageName: "https://i.imgur.com/CZEq2XJ.png",
+        imageSource: "パブリックドメイン",
+        description: "『百鬼夜行絵巻』などに描かれた妖怪。口から舌を出した人間のような顔と蛇のような首を持つ。絵巻には名前と絵のみで解説文がなく詳細は不明。",
+        categories: ["詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["ぶかっこう", "ぶっ法そう", "ぶっぽうそう", "百鬼夜行絵巻", "ひゃっきやぎょうえまき", "百物語化絵絵巻", "ひゃくものがたりかええまき", "尾田郷澄", "おだごうちょう"],
+        story: false
+    ),
+    Ayakasi(
+        name: "馬骨",
+        documentId: "bakotsu",
+        imageName: "https://i.imgur.com/TW7lTEp.png",
+        imageSource: "パブリックドメイン",
+        description: "妖怪絵巻『土佐お化け草紙』に描かれた馬の妖怪。火事で焼け死んだ馬が化けたものとされる。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["ばこつ", "馬骨", "馬", "うま", "土佐お化け草紙", "とさおばけぞうし", "火事", "かじ", "宿守", "やどもり"],
+        story: false
+    ),
+    Ayakasi(
+        name: "野守虫",
+        documentId: "nomorimushi",
+        imageName: "https://i.imgur.com/4RnF1rE.png",
+        imageSource: "パブリックドメイン",
+        description: "建部綾足『折々草』に記された怪蛇。信州松代で若者が山で遭遇した巨大な蛇のような生物。全長約3メートルで6本の足がある。殺した者に祟りをもたらすとされる。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["のもりむし", "野守虫", "野守", "のもり", "建部綾足", "たけべあやたり", "折々草", "おりおりぐさ", "漫遊記", "まんゆうき", "信州", "しんしゅう", "松代", "まつしろ", "長野", "ながの", "井守", "いもり", "家守", "やもり", "蛇", "へび"],
         story: false
     )
 ]
