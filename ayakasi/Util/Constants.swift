@@ -9,6 +9,11 @@ struct AppConstants {
     static let noticeDataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/notice.json"
 }
 
+struct YokaiCategories {
+    static let searchCategories = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"]
+    static let allCategories = ["すべて"] + searchCategories
+}
+
 extension Bundle {
     var appName: String {
         object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
