@@ -50,7 +50,6 @@ struct Container: View {
             }
             .tint(.appSecondary)
             .onAppear {
-                // 3回目の起動時に満足度アラートを表示
                 if AppLaunchCounter.shared.handleAppLaunch() {
                     showSatisfactionAlert = true
                 }
