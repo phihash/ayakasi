@@ -5,11 +5,22 @@ struct RegisterView: View {
     @EnvironmentObject var authVM : AuthViewModel
     var body: some View {
         NavigationStack{
-            VStack{
+            VStack(spacing: 0) {
+                // 閉じるボタン
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("閉じる")
+                    }
+                }
+                .padding(.trailing, 4)
+                
+                Spacer()
+
                 if authVM.authStatus == .none{
                     Group{
-                        Text("新規登録")
-                            .font(.system(size: 20, weight: .bold))
                         TextField("メールアドレス",text:$authVM.email)
                             .textContentType(.emailAddress)
                             .keyboardType(.emailAddress)
@@ -117,20 +128,15 @@ struct RegisterView: View {
                         }
                     }
                 }
-                
+
             }
             .onDisappear{
                 authVM.email = ""
                 authVM.password = ""
                 authVM.message = ""
             }
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing ){
-                    Button("閉じる"){
-                        dismiss()
-                    }
-                }
-            }
+            .navigationTitle("新規登録")
+            .navigationBarTitleDisplayMode( .inline)
         }
     }
 }
