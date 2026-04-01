@@ -11,13 +11,12 @@ struct CommentUI: View {
     let yokai : Ayakasi
     var body: some View {
         VStack(spacing: 20) {
-            if authVM.user != nil {
-                Text("コメントを投稿")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .padding(.top, 20)
-                
-                // カスタムテキストフィールド
+            Text("コメントを投稿")
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.top, 20)
+
+            // カスタムテキストフィールド
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         TextField("コメントを入力してください...", text: $commentText, axis: .vertical)
@@ -67,59 +66,11 @@ struct CommentUI: View {
                 .padding(.horizontal, 20)
                 .disabled(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 .opacity(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
-                
-                Spacer()
-            } else {
-                Spacer()
 
-                Text("ログインが必要です")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .padding(.top, 20)
-
-                Text("コメントを投稿するにはログインまたは新規登録してください")
-                    .font(.body)
-                    .foregroundColor(.appTextSecondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 20)
-
-                HStack(spacing: 12) {
-                    Button {
-                        isPresented = false
-                        authVM.showLogin()
-                    } label: {
-                        Text("ログイン")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color.white)
-                            .frame(maxWidth: .infinity, minHeight: 50)
-                            .background(Color.appPrimary)
-                            .cornerRadius(25)
-                    }
-
-                    Button {
-                        isPresented = false
-                        authVM.showRegister()
-                    } label: {
-                        Text("新規登録")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color.white)
-                            .frame(maxWidth: .infinity, minHeight: 50)
-                            .background(Color.appSuccess)
-                            .cornerRadius(25)
-                    }
-                }
-                .padding(.horizontal, 20)
-
-                Spacer()
-
-            }
+            Spacer()
         }
         .onTapGesture {
-            if authVM.user != nil {
-                isTextFieldFocused = false
-            }
+            isTextFieldFocused = false
         }
         .alert("エラー", isPresented: $showAlert) {
             Button("OK", role: .cancel) {}

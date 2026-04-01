@@ -5,8 +5,6 @@ import Kingfisher
 struct SettingView: View {
     @Environment(\.requestReview) var requestReview
     @EnvironmentObject var authVM : AuthViewModel
-    @State var isShowRegisterView = false
-    @State var isShowLoginView = false
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
     @State private var showClearCacheAlert = false
@@ -46,14 +44,9 @@ struct SettingView: View {
                             .padding(.vertical, 12)
                         
                         if authVM.authStatus != .authenticated {
-                            SettingRowButton(title: "新規登録") {
-                                isShowRegisterView = true
-                            }
+                            SettingRowLink(title: "新規登録", destination: RegisterView())
 
-                            SettingRowButton(title: "ログイン") {
-                                isShowLoginView = true
-                            }
-                           
+                            SettingRowLink(title: "ログイン", destination: LoginView())
                         }
 
                         if authVM.authStatus == .authenticated {
@@ -104,12 +97,6 @@ struct SettingView: View {
             }
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        .fullScreenCover(isPresented: $isShowRegisterView) {
-            RegisterView()
-        }
-        .fullScreenCover(isPresented: $isShowLoginView) {
-            LoginView()
         }
         .alert("ログアウトしますか？", isPresented: $showLogoutAlert) {
             Button("キャンセル", role: .cancel) {}

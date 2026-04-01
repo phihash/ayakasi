@@ -6,10 +6,12 @@ struct BottomActionBar: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var voteVM: VoteService
     @EnvironmentObject var favoriteService: FavoriteService
+    @EnvironmentObject var authVM: AuthViewModel
     @Binding var isCommentUI: Bool
     @Binding var voteSuccess: Bool
     @Binding var showAlert: Bool
     @Binding var alertMessage: String
+    @State private var showLoginAlert = false
 
     var body: some View {
         VStack {
@@ -70,7 +72,11 @@ struct BottomActionBar: View {
 
                 // コメントボタン
                 Button {
-                    isCommentUI.toggle()
+                    if authVM.user != nil {
+                        isCommentUI.toggle()
+                    } else {
+                        showLoginAlert = true
+                    }
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: "bubble.left.and.bubble.right")
@@ -100,5 +106,13 @@ struct BottomActionBar: View {
         .frame(maxWidth: .infinity)
         .frame(height: 72)
         .background(Color.appCardBackground)
+        .alert("ログインが必要です", isPresented: $showLoginAlert) {
+            Button("キャンセル", role: .cancel) {}
+            Button("設定へ移動") {
+                // タブを設定画面に切り替える処理は、ここでは難しいのでメッセージだけ出す
+            }
+        } message: {
+            Text("コメントを投稿するには、設定画面からログインまたは新規登録してください。")
+        }
     }
 }

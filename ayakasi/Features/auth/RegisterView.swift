@@ -4,54 +4,64 @@ struct RegisterView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var authVM : AuthViewModel
     var body: some View {
-        NavigationStack{
-            VStack(spacing: 0) {
-                // 閉じるボタン
-                HStack {
-                    Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-                .padding(.trailing, 4)
-                
-                Spacer()
-
-                if authVM.authStatus == .none{
+        VStack(spacing: 20) {
+            if authVM.authStatus == .none{
                     Group{
-                        TextField("メールアドレス",text:$authVM.email)
-                            .textContentType(.emailAddress)
-                            .keyboardType(.emailAddress)
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.appTextFieldBackground)
-                            .cornerRadius(10)
-                            .contentShape(Rectangle())
-                            .padding(.horizontal)
-                        
-                        SecureField("パスワード",text:$authVM.password)
-                            .textContentType(.password)
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.appTextFieldBackground)
-                            .cornerRadius(10)
-                            .contentShape(Rectangle())
-                            .padding(.horizontal)
-                        
-                        SecureField("パスワード(確認)",text: $authVM.confirmPassword)
-                            .textContentType(.password)
-                            .font(.system(size: 18))
-                            .padding()
-                            .background(Color.appTextFieldBackground)
-                            .cornerRadius(10)
-                            .contentShape(Rectangle())
-                            .padding(.horizontal)
-                        
+                        VStack{
+                            HStack{
+                                Text("メールアドレス")
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+
+                            TextField("mail@example.com",text:$authVM.email)
+                                .textContentType(.emailAddress)
+                                .keyboardType(.emailAddress)
+                                .font(.system(size: 18))
+                                .padding()
+                                .background(Color.appTextFieldBackground)
+                                .cornerRadius(10)
+                                .contentShape(Rectangle())
+                        }
+                        .padding(.horizontal)
+
+                        VStack{
+                            HStack{
+                                Text("パスワード")
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+
+                            SecureField("6文字以上",text:$authVM.password)
+                                .textContentType(.password)
+                                .font(.system(size: 18))
+                                .padding()
+                                .background(Color.appTextFieldBackground)
+                                .cornerRadius(10)
+                                .contentShape(Rectangle())
+                        }
+                        .padding(.horizontal)
+
+                        VStack{
+                            HStack{
+                                Text("パスワード(確認)")
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+
+                            SecureField("6文字以上",text: $authVM.confirmPassword)
+                                .textContentType(.password)
+                                .font(.system(size: 18))
+                                .padding()
+                                .background(Color.appTextFieldBackground)
+                                .cornerRadius(10)
+                                .contentShape(Rectangle())
+                        }
+                        .padding(.horizontal)
+
                         Text(authVM.message)
                             .foregroundStyle(Color.appError)
-                            .font(.title3)
+                            .font(.subheadline)
                         
                         Button {
                             Task {
@@ -129,14 +139,13 @@ struct RegisterView: View {
                     }
                 }
 
-            }
-            .onDisappear{
-                authVM.email = ""
-                authVM.password = ""
-                authVM.message = ""
-            }
-            .navigationTitle("新規登録")
-            .navigationBarTitleDisplayMode( .inline)
         }
+        .onDisappear{
+            authVM.email = ""
+            authVM.password = ""
+            authVM.message = ""
+        }
+        .navigationTitle("新規登録")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -433,10 +433,10 @@ struct NeoDetail: View {
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }
-        .fullScreenCover(isPresented: $authVM.isShowLoginView) {
+        .navigationDestination(isPresented: $authVM.isShowLoginView) {
             LoginView()
         }
-        .fullScreenCover(isPresented: $authVM.isShowRegisterView) {
+        .navigationDestination(isPresented: $authVM.isShowRegisterView) {
             RegisterView()
         }
         .task {
