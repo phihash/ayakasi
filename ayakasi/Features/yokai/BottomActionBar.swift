@@ -107,10 +107,7 @@ struct BottomActionBar: View {
         .frame(height: 72)
         .background(Color.appCardBackground)
         .alert("ログインが必要です", isPresented: $showLoginAlert) {
-            Button("キャンセル", role: .cancel) {}
-            Button("設定へ移動") {
-                // タブを設定画面に切り替える処理は、ここでは難しいのでメッセージだけ出す
-            }
+            Button("OK", role: .cancel) {}
         } message: {
             Text("コメントを投稿するには、設定画面からログインまたは新規登録してください。")
         }
