@@ -359,11 +359,34 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ぬっぺっぽう",
         documentId: "nuppeppou",
-        imageName: "https://i.imgur.com/5rTFb9l.png",
-        description: "ぬっぺっぽう",
+        imageName: "https://i.imgur.com/4QAE4II.png",
+        imageSource: "パブリックドメイン",
+        description: "江戸時代の妖怪絵巻に描かれる、顔と体の区別がつかない肉塊のような姿の妖怪。のっぺらぼうの一種とされ、人に成りすまして近づき、油断したところで正体を現す。死人の脂を吸うともいわれる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        searchKeywords: ["ぬっぺっぽう"],
+        searchKeywords: ["画図百鬼夜行","百怪図巻","江戸時代","のっぺらぼう","肉塊","ぬっぺふほふ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "毛羽毛現",
+        documentId: "keukegen",
+        imageName: "https://i.imgur.com/dlAHOXq.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕『今昔百鬼拾遺』に描かれた全身が毛に覆われた妖怪。希有希見とも書き、滅多に見ることができない存在とされる。湿気の多い場所に棲み、病気をもたらす疫神の一種ともいわれる。",
+        categories: ["鳥山石燕","詳細不明","すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["今昔百鬼拾遺","鳥山石燕","希有希見","希有希現","疫神","病気","毛むくじゃら","江戸時代","けうけげん","けうげげん"],
+        story: false
+    ),
+    Ayakasi(
+        name: "山本五郎左衛門",
+        documentId: "yamamotogorozaemon",
+        imageName: "https://i.imgur.com/bHmF0Nm.png",
+        imageSource: "パブリックドメイン",
+        description: "江戸時代の妖怪物語『稲生物怪録』に登場する妖怪の頭領。三つ目の烏天狗として描かれ、広島県三次の稲生平太郎を30日間怪異で脅したが、平太郎の勇気に負けを認め、木槌を与えて去った。",
+        categories: ["人の怪","すべて"],
+        relatedCategory: "人の怪",
+        searchKeywords: ["稲生物怪録","いのうもののけろく","稲生平太郎","いのうへいたろう","三次","みよし","広島","ひろしま","烏天狗","からすてんぐ","魔王","まおう","神野悪五郎","しんのあくごろう","木槌","きづち","江戸時代","さんもとごろうざえもん"],
         story: false
     ),
     Ayakasi(
