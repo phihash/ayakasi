@@ -342,7 +342,7 @@ let ayakasis: [Ayakasi] = [
         description: "がごぜ",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
-        searchKeywords: ["元興寺","奈良"],
+        searchKeywords: ["元興寺","奈良","鬼","日本霊異記","飛鳥時代","寺","仏教","伝説"],
         story: false,
         relatedSpots: [
             YokaiSpot(
