@@ -27,6 +27,7 @@
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
+		A99F93042F8A950F0077EB40 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
 		A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D842EE72BC300592CB5 /* CategoryBar.swift */; };
 		A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D872EE72BC300592CB5 /* Data.swift */; };
@@ -105,6 +106,7 @@
 		A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
 		A9B08D842EE72BC300592CB5 /* CategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBar.swift; sourceTree = "<group>"; };
 		A9B08D872EE72BC300592CB5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
 				A92B30082F71676600E84A15 /* MessageUI.swift */,
+				A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				A9E83FA32F573549007E4435 /* RankingSectionView.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
+				A99F93042F8A950F0077EB40 /* YouTubePlayerView.swift in Sources */,
 				A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */,
 				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,

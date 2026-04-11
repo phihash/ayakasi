@@ -22,6 +22,6 @@ struct YouTubePlayerView: UIViewRepresentable {
           </body>
           </html>                                                                                                                                                                                              
           """
-        uiView.loadHTMLString(html, baseURL: nil)
+        uiView.loadHTMLString(html, baseURL: URL(string: "https://www.youtube.com"))
     }
 }

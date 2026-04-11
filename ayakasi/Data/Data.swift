@@ -1096,7 +1096,8 @@ let ayakasis: [Ayakasi] = [
                 imageURL: nil,
                 spotType: .yokaiRelated
             )
-        ]
+        ],
+        videoId: "-S47DG4F9wQ"
     ),
 
     Ayakasi(

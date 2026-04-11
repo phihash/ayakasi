@@ -270,7 +270,22 @@ struct NeoDetail: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal,24)
                                 
-  
+                                if let videoId = yokai.videoId {
+                                    NavigationLink(destination: WebView(url: URL(string: "https://www.youtube.com/watch?v=\(videoId)"))) {
+                                        HStack {
+                                            Image(systemName: "play.circle.fill")
+                                            Text("YouTubeで見る")
+                                                .fontWeight(.medium)
+                                        }
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 12)
+                                        .background(Color.red)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                    }
+                                    .padding(.horizontal, 24)
+                                }
+
                                 // ゆかりの地セクション
                                 if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
                                     VStack(alignment: .leading, spacing: 12) {

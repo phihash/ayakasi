@@ -11,10 +11,11 @@ struct SearchView: View {
     @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
     @State private var selectedCategoryForList: String? = nil
-    
+    @FocusState private var isSearchFocused: Bool
+
     func filteredYokais(for category: String) -> [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
-        
+
         if searchText.isEmpty {
             return categoryFiltered.shuffled()
         } else {
@@ -24,7 +25,7 @@ struct SearchView: View {
             }
         }
     }
-    
+
     var body: some View {
         NavigationStack{
             VStack(spacing: 0){
@@ -33,26 +34,36 @@ struct SearchView: View {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.appTextSecondary)
                         TextField("キーワード検索", text: $searchText)
+                            .focused($isSearchFocused)
                     }
                     .padding(10)
                     .background(Color.appTextFieldBackground)
                     .cornerRadius(10)
                     .padding(.bottom,12)
-                    
-                    Image("book2")
-                        .renderingMode(.template)
-                        .foregroundColor(.appTextSecondary)
-                        .onTapGesture {
-                            selectedCategoryForList = "すべて"
+
+                    if isSearchFocused {
+                        Button("閉じる") {
+                            isSearchFocused = false
                         }
+                        .padding(.bottom, 12)
+                        .transition(.move(edge: .trailing).combined(with: .opacity))
+                    } else {
+                        Image("book2")
+                            .renderingMode(.template)
+                            .foregroundColor(.appTextSecondary)
+                            .onTapGesture {
+                                selectedCategoryForList = "すべて"
+                            }
+                    }
                 }
+                .animation(.easeInOut(duration: 0.2), value: isSearchFocused)
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
                 .background(Color.appBackground)
-                
+
                 ScrollView{
                     let allResults = categories.flatMap { filteredYokais(for: $0) }
-                    
+
                     if !searchText.isEmpty && allResults.isEmpty {
                         VStack(spacing: 16) {
                             Image(systemName: "magnifyingglass")
@@ -69,7 +80,7 @@ struct SearchView: View {
                     } else {
                         ForEach(categories,id:\.self) { category in
                             let yokais = filteredYokais(for: category)
-                            
+
                             if !yokais.isEmpty {
                                 Button {
                                     selectedCategoryForList = category
@@ -89,9 +100,9 @@ struct SearchView: View {
                                     .padding(.horizontal,20)
                                     .padding(.vertical,12)
                                 }
-                                
+
                                 ScrollView(.horizontal,showsIndicators: false){
-                                    
+
                                     HStack(spacing: 12){
                                         ForEach(yokais, id: \.id) { ayakasi in
                                             NeoCardItem(item: ayakasi)
@@ -104,7 +115,7 @@ struct SearchView: View {
                                                     }
                                                 }
                                         }
-                                        
+
                                     }
                                     .padding(.horizontal,20)
                                     .padding(.bottom,8)

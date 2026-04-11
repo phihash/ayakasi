@@ -22,6 +22,8 @@ struct Ayakasi : Identifiable {
 
     // スポット情報（ゆかりの地） - 複数対応
     var relatedSpots: [YokaiSpot]? = nil
+
+    var videoId: String? = nil  // YouTube動画ID
 }
 
 struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }
