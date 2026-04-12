@@ -7,8 +7,8 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/vDyLXNz.png",
         imageSource: "パブリックドメイン",
         description: "鞍に牙と目が生えた姿の妖怪。源氏の家臣・鎌田政清が使った馬の鞍が化けたとされる付喪神。手には鞭を持つ。",
-        categories: ["道具の怪","鳥山石燕","すべて"],
-        relatedCategory: "道具の怪",
+        categories: ["道の怪","鳥山石燕","すべて"],
+        relatedCategory: "道の怪",
         searchKeywords: ["くらやろう", "鞍野郎", "鎌田政清", "かまたまさきよ", "付喪神", "つくもがみ", "馬具", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ"],
         story: false
     ),
@@ -1577,6 +1577,61 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "動物の怪",
         searchKeywords: ["ばこつ", "馬骨", "馬", "うま", "土佐お化け草紙", "とさおばけぞうし", "火事", "かじ", "宿守", "やどもり"],
         story: false
+    ),
+    Ayakasi(
+        name: "烏天狗",
+        documentId: "karasutengu",
+        imageName: "https://i.imgur.com/ef0CacR.png",
+        imageSource: "CC BY 2.0 / Christian Bauer",
+        description: "剣術・神通力に秀でた天狗。鞍馬山の烏天狗は幼少の牛若丸に剣を教えたとも伝わる。中世以降は猛禽類の姿の天狗こそが天狗の主流であり、鼻の高い天狗は近世になってから広まった。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["からすてんぐ", "烏天狗", "天狗", "てんぐ", "鞍馬山", "くらまやま", "牛若丸", "うしわかまる", "源義経", "みなもとのよしつね", "修験者", "しゅげんしゃ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "足長手長",
+        documentId: "ashinagatenaga",
+        imageName: "https://i.imgur.com/lM5tScX.png",
+        imageSource: "パブリックドメイン",
+        description: "足長人と手長人の2種の総称。海で漁をする際は2人1組で行動し、足長人が手長人を背負い、手長人が獲物を捕らえる。中国の古代地理書『山海経』に記された異国人物の伝説が起源とされる。",
+        categories: ["外国の妖怪","すべて"],
+        relatedCategory: "外国の妖怪",
+        searchKeywords: ["あしながてなが", "足長手長", "足長人", "あしながじん", "手長人", "てながじん", "山海経", "さんかいきょう", "三才図会", "和漢三才図会"],
+        story: false
+    ),
+    Ayakasi(
+        name: "人面樹",
+        documentId: "jinmenju",
+        imageName: "https://i.imgur.com/yAZjlYD.png",
+        imageSource: "パブリックドメイン",
+        description: "人の首のような花をつける不思議な木。問いかけると花が笑いかけるが人語は解さず、笑いすぎると花がしぼんで落ちてしまう。中国の書『三才図会』に記された大食国に生えるとされる。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["じんめんじゅ", "人面樹", "今昔百鬼拾遺", "いまむかしひゃっきしゅうい", "和漢三才図会", "わかんさんさいずえ", "三才図会", "さんさいずえ", "大食国", "だいしこく"],
+        story: false
+    ),
+    Ayakasi(
+        name: "あまのじゃく",
+        documentId: "amanojaku",
+        imageName: "https://i.imgur.com/JGcUcv6.png",
+        imageSource: "パブリックドメイン",
+        description: "人の心を読んで反対に悪戯をしかける小鬼。記紀に登場する天探女（アメノサグメ）が起源とされ、人の動きや心を探るシャーマン的な存在が、意地悪な鬼へと変化したとされる。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        searchKeywords: ["あまのじゃく", "天邪鬼", "天探女", "アメノサグメ", "天稚彦", "アメノワカヒコ", "四天王", "毘沙門天"],
+        story: false
+    ),
+    Ayakasi(
+        name: "送り提灯",
+        documentId: "okurichochin",
+        imageName: "https://i.imgur.com/q7c6z8X.png",
+        imageSource: "パブリックドメイン",
+        description: "夜道を歩く者の前に提灯のような明かりが現れ、人を送るように揺れながら進む。近づくと消え、また現れるを繰り返し、いつまでも追いつけない。本所七不思議の一つ。",
+        categories: ["道の怪","すべて"],
+        relatedCategory: "道の怪",
+        searchKeywords: ["おくりちょうちん", "提灯", "ちょうちん", "本所七不思議", "ほんじょしちふしぎ", "墨田区", "すみだく", "提灯小僧", "ちょうちんこぞう"],
+        story: false,
     ),
     Ayakasi(
         name: "野守虫",
