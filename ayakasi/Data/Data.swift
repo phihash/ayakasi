@@ -1731,6 +1731,17 @@ let ayakasis: [Ayakasi] = [
         relatedCategory: "詳細不明",
         searchKeywords: ["こわい", "狐者異", "怖い", "絵本百物語", "えほんひゃくものがたり", "食い意地", "貪欲", "どんよく", "うどん"],
         story: false
+    ),
+    Ayakasi(
+        name: "豆腐小僧",
+        documentId: "toufukozou",
+        imageName: "https://i.imgur.com/GkDSwwS.png",
+        imageSource: "パブリックドメイン",
+        description: "笠をかぶり、盆に豆腐をのせた子供の姿の妖怪。江戸時代の草双紙で生まれた創作上の存在で、民間伝承にはほとんど記録がない。\n雨の夜に人の後をついて歩くことがあるが、特に悪さをするわけではなく、お人好しで気弱な役回りとして描かれることが多い。他の妖怪たちにいじめられているストーリーもあるなど、どこか憎めない妖怪。",
+        categories: ["詳細不明", "すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["とうふこぞう", "豆腐小僧", "豆腐", "とうふ", "一つ目", "笠", "かさ", "紅葉豆腐", "こうようどうふ", "草双紙", "くさぞうし", "見越入道", "みこしにゅうどう", "轆轤首", "ろくろくび"],
+        story: false
     )
 ]
 

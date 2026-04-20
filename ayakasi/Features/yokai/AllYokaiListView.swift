@@ -17,7 +17,7 @@ struct AllYokaiListView: View {
             result = ayakasis.filter { $0.categories.contains(selectedCategory) }
         }
         if isAlphabetical {
-            result.sort { $0.name.compare($1.name, locale: Locale(identifier: "ja_JP")) == .orderedAscending }
+            result.sort { $0.documentId < $1.documentId }
         }
         return result
     }
