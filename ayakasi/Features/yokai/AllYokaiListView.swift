@@ -79,15 +79,16 @@ struct AllYokaiListView: View {
                     Button{
                         isAlphabetical.toggle()
                     } label: {
-                        Text(isAlphabetical ? "五十音順" : "デフォルト順")
-                            .font(.subheadline)
+                        Text(isAlphabetical ? "デフォルト順にする" : "五十音順にする")
+                            .font(.headline)
                             .foregroundColor(.white)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
                             .background(Color.blue)
                             .cornerRadius(20)
                     }
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 12)
+                    .padding(.trailing, 24)
                 }
             }
             .navigationBarHidden(true)

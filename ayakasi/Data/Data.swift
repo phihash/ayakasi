@@ -362,7 +362,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/4QAE4II.png",
         imageSource: "パブリックドメイン",
         description: "江戸時代の妖怪絵巻に描かれる、顔と体の区別がつかない肉塊のような姿の妖怪。のっぺらぼうの一種とされ、人に成りすまして近づき、油断したところで正体を現す。死人の脂を吸うともいわれる。",
-        categories: ["道の怪","すべて"],
+        categories: ["道の怪","鳥山石燕","すべて"],
         relatedCategory: "道の怪",
         searchKeywords: ["画図百鬼夜行","百怪図巻","江戸時代","のっぺらぼう","肉塊","ぬっぺふほふ"],
         story: false
@@ -1094,7 +1094,7 @@ let ayakasis: [Ayakasi] = [
         documentId: "uwan",
         imageName: "https://i.imgur.com/VYr7nhI.jpeg",
         description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。\n江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
-        categories: ["音の怪","すべて"],
+        categories: ["音の怪","鳥山石燕","すべて"],
         relatedCategory: "音の怪",
         story: false
     ),
@@ -1485,7 +1485,7 @@ let ayakasis: [Ayakasi] = [
         imageName: "https://i.imgur.com/x476VZe.png",
         imageSource: "パブリックドメイン",
         description: "『百怪図巻』『化物づくし』『画図百鬼夜行』などに描かれた炎に包まれた鳥の妖怪。犬のような顔をした鳥の姿で描かれる。詳細な伝承は確認されていない。",
-        categories: ["詳細不明","すべて"],
+        categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
         searchKeywords: ["ふらりび", "ふらり火", "百怪図巻", "ひゃっかいずかん", "化物づくし", "ばけものづくし", "画図百鬼夜行", "がずひゃっきやぎょう", "炎", "ほのお", "鳥", "とり"],
         story: false
@@ -1708,6 +1708,28 @@ let ayakasis: [Ayakasi] = [
         categories: ["動物の怪", "すべて"],
         relatedCategory: "動物の怪",
         searchKeywords: ["のでっぽう", "野鉄砲", "絵本百物語", "えほんひゃくものがたり", "タヌキ", "たぬき", "ムササビ", "野衾", "のぶすま", "一反木綿", "いったんもめん", "コウモリ", "かわほり"],
+        story: false
+    ),
+    Ayakasi(
+        name: "三つ目入道",
+        documentId: "mitsumenyugoudou",
+        imageName: "https://i.imgur.com/aNyH6XK.png",
+        imageSource: "パブリックドメイン",
+        description: "3つの目を持つ入道（僧）の姿の妖怪。江戸時代の黄表紙では見越し入道の一種として、首の長い三つ目の怪として描かれた。\n明治6年（1873年）、東京・神田で三つ目の怪僧が出現し次第に巨大化、天井を突き破るほどになったという事件が錦絵新聞に報じられた。度胸の据わった当事者が裾を引っ張り倒すと、正体は古狸だったという。",
+        categories: ["道の怪", "すべて"],
+        relatedCategory: "道の怪",
+        searchKeywords: ["みつめにゅうどう", "三つ目入道", "三つ目", "入道", "にゅうどう", "見越し入道", "みこしにゅうどう", "古狸", "ふるだぬき", "神田", "かんだ", "東京", "明治", "めいじ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "狐者異",
+        documentId: "kowai",
+        imageName: "https://i.imgur.com/IYGybce.png",
+        imageSource: "パブリックドメイン",
+        description: "江戸時代の奇談集『絵本百物語』に登場する妖怪。生前に他人の食べ物まで貪るような者が、死後もその執着を引きずってなると伝えられる。\n涎を垂らしながら血眼で食べ物を探し、店を襲い、ゴミをあさり、死肉すら口にするという。「狐者異（こわい）」という名がそのまま「怖い」の語源とされる。",
+        categories: ["詳細不明", "すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["こわい", "狐者異", "怖い", "絵本百物語", "えほんひゃくものがたり", "食い意地", "貪欲", "どんよく", "うどん"],
         story: false
     )
 ]
