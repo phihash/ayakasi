@@ -5,15 +5,21 @@ struct AllYokaiListView: View {
     let itemSpacing: CGFloat = 30
     let categories = YokaiCategories.allCategories
     @State private var selectedYokai : Ayakasi? = nil
+    @State private var isAlphabetical = false
     let selectedCategory: String
     @Environment(\.dismiss) var dismiss
 
     var filteredYokai: [Ayakasi] {
+        var result: [Ayakasi]
         if selectedCategory == "すべて" {
-            return ayakasis
+            result = ayakasis
         } else {
-            return ayakasis.filter { $0.categories.contains(selectedCategory) }
+            result = ayakasis.filter { $0.categories.contains(selectedCategory) }
         }
+        if isAlphabetical {
+            result.sort { $0.name.compare($1.name, locale: Locale(identifier: "ja_JP")) == .orderedAscending }
+        }
+        return result
     }
 
     // デバイスに応じて列数を変更
@@ -34,7 +40,7 @@ struct AllYokaiListView: View {
                 HStack {
                     Text("閉じる")
                         .opacity(0)
-                    
+
                     Spacer()
                     Text(selectedCategory == "すべて" ? "全ての妖怪" : selectedCategory)
                         .font(.headline)
@@ -64,10 +70,25 @@ struct AllYokaiListView: View {
                                 }
                         }
                     }
-                    .padding(.horizontal,20)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 60)
                 }
-                .padding(.top,24)
+                .padding(.top, 24)
                 .background(Color("Ivory"))
+                .overlay(alignment: .bottomTrailing){
+                    Button{
+                        isAlphabetical.toggle()
+                    } label: {
+                        Text(isAlphabetical ? "五十音順" : "デフォルト順")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.blue)
+                            .cornerRadius(20)
+                    }
+                    .padding(.bottom, 16)
+                }
             }
             .navigationBarHidden(true)
         }
