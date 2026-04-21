@@ -12,6 +12,15 @@ struct SearchView: View {
     @State private var searchText = ""
     @State private var selectedCategoryForList: String? = nil
     @FocusState private var isSearchFocused: Bool
+    @EnvironmentObject var voteService: VoteService
+
+    var rankedYokai: [Ayakasi] {
+        ayakasis.sorted { e1, e2 in
+            let count1 = voteService.voteCountCache[e1.documentId] ?? 0
+            let count2 = voteService.voteCountCache[e2.documentId] ?? 0
+            return count1 > count2
+        }
+    }
 
     func filteredYokais(for category: String) -> [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
@@ -47,13 +56,6 @@ struct SearchView: View {
                         }
                         .padding(.bottom, 12)
                         .transition(.move(edge: .trailing).combined(with: .opacity))
-                    } else {
-                        Image("book2")
-                            .renderingMode(.template)
-                            .foregroundColor(.appTextSecondary)
-                            .onTapGesture {
-                                selectedCategoryForList = "すべて"
-                            }
                     }
                 }
                 .animation(.easeInOut(duration: 0.2), value: isSearchFocused)
@@ -78,6 +80,11 @@ struct SearchView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 100)
                     } else {
+                        if searchText.isEmpty {
+                            RankingSectionView(rankedYokai: rankedYokai, selectedYokai: $selectedYokai) {
+                                selectedCategoryForList = "すべて"
+                            }
+                        }
                         ForEach(categories,id:\.self) { category in
                             let yokais = filteredYokais(for: category)
 
