@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct AllYokaiListView: View {
-    let screenWidth = UIScreen.main.bounds.width
     let itemSpacing: CGFloat = 30
     let categories = YokaiCategories.allCategories
     @State private var selectedYokai : Ayakasi? = nil

@@ -110,7 +110,7 @@ struct EventComponent: View {
                     .cacheOriginalImage()
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 120)
+                    .frame(height: 160)
                     .frame(maxWidth: .infinity)
                     .clipped()
                 
@@ -146,7 +146,7 @@ struct EventComponent: View {
             }
             .padding(.top, 8)
             .padding(.bottom, 12)
-            .frame(width: screenWidth * 0.9)
+            .frame(width: screenWidth * 0.72)
             .background(Color.appCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(color: .black.opacity(0.05), radius: 8, x: 1, y: 0.5)

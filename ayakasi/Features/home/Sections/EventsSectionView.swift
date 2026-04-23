@@ -51,7 +51,7 @@ struct EventsSection: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(height: 250)
+            .frame(height: 290)
 
             pageIndicator
         }

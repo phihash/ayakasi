@@ -5,8 +5,6 @@ extension String: Identifiable {
 }
 
 struct SearchView: View {
-    let screenWidth = UIScreen.main.bounds.width
-    let itemSpacing: CGFloat = 30
     let categories = YokaiCategories.searchCategories
     @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
