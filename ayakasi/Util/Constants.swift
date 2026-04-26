@@ -10,7 +10,7 @@ struct AppConstants {
 }
 
 struct YokaiCategories {
-    static let searchCategories = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明"]
+    static let searchCategories = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明","怨霊"]
     static let allCategories = ["すべて"] + searchCategories
 }
 
