@@ -62,11 +62,6 @@ struct AllYokaiListView: View {
                                 .onTapGesture{
                                     selectedYokai = ayakasi
                                 }
-                                .fullScreenCover(item: $selectedYokai){ yokai in
-                                    NavigationStack {
-                                        NeoDetail(yokai: yokai)
-                                    }
-                                }
                         }
                     }
                     .padding(.horizontal, 20)
@@ -91,6 +86,11 @@ struct AllYokaiListView: View {
                 }
             }
             .navigationBarHidden(true)
+            .fullScreenCover(item: $selectedYokai) { yokai in
+                NavigationStack {
+                    NeoDetail(yokai: yokai)
+                }
+            }
         }
     }
 }

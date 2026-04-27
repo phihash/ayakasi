@@ -1876,6 +1876,17 @@ let ayakasis: [Ayakasi] = [
         story: false
     ),
     Ayakasi(
+        name: "菅原道真",
+        documentId: "sugarawanomichizane",
+        imageName: "https://i.imgur.com/vx0Abpy.png",
+        imageSource: "パブリックドメイン",
+        description: "平安時代の公卿・学者。宇多・醍醐天皇に重用され右大臣にまで上り詰めたが、藤原時平の讒言（昌泰の変）により大宰府へ左遷され、現地で没した。\n死後は怨霊となり清涼殿落雷事件などを引き起こしたとして恐れられ、平将門・崇徳天皇と並ぶ日本三大怨霊の一人に数えられる。のちに天満天神として祀られ、現在は学問の神様として広く信仰されている。",
+        categories: ["怨霊", "すべて"],
+        relatedCategory: "怨霊",
+        searchKeywords: ["すがわらのみちざね", "菅原道真", "天満天神", "てんまてんじん", "天神", "てんじん", "日本三大怨霊", "にほんさんだいおんりょう", "昌泰の変", "しょうたいのへん", "藤原時平", "ふじわらのときひら", "大宰府", "だざいふ", "清涼殿", "せいりょうでん", "落雷", "らくらい", "怨霊", "おんりょう", "学問の神", "がくもんのかみ", "太宰府天満宮", "だざいふてんまんぐう", "北野天満宮", "きたのてんまんぐう", "宇多天皇", "うだてんのう", "醍醐天皇", "だいごてんのう"],
+        story: false
+    ),
+    Ayakasi(
         name: "崇徳天皇",
         documentId: "sutokutennnou",
         imageName: "https://i.imgur.com/miGyilj.png",

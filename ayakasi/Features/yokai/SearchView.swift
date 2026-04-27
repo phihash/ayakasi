@@ -114,11 +114,6 @@ struct SearchView: View {
                                                 .onTapGesture{
                                                     selectedYokai = ayakasi
                                                 }
-                                                .fullScreenCover(item: $selectedYokai){ yokai in
-                                                    NavigationStack {
-                                                        NeoDetail(yokai: yokai)
-                                                    }
-                                                }
                                         }
 
                                     }
@@ -132,6 +127,11 @@ struct SearchView: View {
                 .background(Color.appBackground)
             }
             .navigationBarHidden(true)
+            .fullScreenCover(item: $selectedYokai) { yokai in
+                NavigationStack {
+                    NeoDetail(yokai: yokai)
+                }
+            }
             .fullScreenCover(item: $selectedCategoryForList) { category in
                 AllYokaiListView(selectedCategory: category)
             }
