@@ -238,20 +238,40 @@ struct NeoDetail: View {
                         titleView
                     }
                     
-                    if let imageSource = yokai.imageSource {
-                        HStack{
-                            Text(imageSource)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                                .foregroundColor(.appTextSecondary)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 6)
-                                .background(Color.appTextSecondary.opacity(0.1))
-                                .cornerRadius(12)
+                    if yokai.imageSource != nil || yokai.imageAuthor != nil || yokai.imageTitle != nil {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                if let imageSource = yokai.imageSource {
+                                    Text(imageSource)
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.appTextSecondary)
+                                }
+                                if let imageAuthor = yokai.imageAuthor, let imageTitle = yokai.imageTitle {
+                                    Text("\(imageAuthor)　\(imageTitle)")
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.appTextSecondary)
+                                } else if let imageAuthor = yokai.imageAuthor {
+                                    Text(imageAuthor)
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.appTextSecondary)
+                                } else if let imageTitle = yokai.imageTitle {
+                                    Text(imageTitle)
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.appTextSecondary)
+                                }
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.appTextSecondary.opacity(0.1))
+                            .cornerRadius(12)
                             Spacer()
                         }
-                        .padding(.horizontal,24)
-                        .padding(.top,16)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 16)
                     }
 
                     
