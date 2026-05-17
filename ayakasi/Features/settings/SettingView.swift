@@ -1,6 +1,7 @@
 import SwiftUI
 import StoreKit
 import Kingfisher
+import UIKit
 
 struct SettingView: View {
     @Environment(\.requestReview) var requestReview
@@ -8,17 +9,30 @@ struct SettingView: View {
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
     @State private var showClearCacheAlert = false
+    @State private var currentAppIconName = UIApplication.shared.alternateIconName
     @AppStorage("isDarkMode") private var isDarkMode = false
+
+    private var settingIconImageName: String {
+        switch currentAppIconName {
+        case "KappaIcon":
+            return "kappaicon1"
+        case "RokuroIcon":
+            return "rokuroicon"
+        default:
+            return "settingIcon"
+        }
+    }
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     VStack(spacing: 12) {
-                        Image("settingIcon")
+                        Image(settingIconImageName)
                             .resizable()
+                            .scaledToFill()
                             .frame(width: 80, height: 80)
-                            .cornerRadius(16)
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
                         Text("妖怪図鑑")
                             .font(.title3)
@@ -67,6 +81,8 @@ struct SettingView: View {
 
                         SettingRowToggle(title: "ダークモード", isOn: $isDarkMode)
 
+                        SettingRowLink(title: "アプリアイコン", destination: IconSelect())
+
                         Button(action: {}) {
                             ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
                                 HStack {
@@ -97,6 +113,12 @@ struct SettingView: View {
             }
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            currentAppIconName = UIApplication.shared.alternateIconName
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .appIconDidChange)) { _ in
+            currentAppIconName = UIApplication.shared.alternateIconName
         }
         .alert("ログアウトしますか？", isPresented: $showLogoutAlert) {
             Button("キャンセル", role: .cancel) {}

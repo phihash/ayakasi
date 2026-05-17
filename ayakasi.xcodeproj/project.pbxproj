@@ -11,6 +11,7 @@
 		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
+		A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */; };
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */; };
 		A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelect.swift; sourceTree = "<group>"; };
 		A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReportService.swift; sourceTree = "<group>"; };
 		A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockingService.swift; sourceTree = "<group>"; };
 		A92B30082F71676600E84A15 /* MessageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUI.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */,
 				A9B08D9A2EE72BC300592CB5 /* SettingView.swift */,
+				A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
 				A9E83FA52F573562007E4435 /* GameView.swift in Sources */,
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
+				A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */,
 				A9E83FA32F573549007E4435 /* RankingSectionView.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
@@ -727,8 +731,10 @@
 		A97C2A082E4B6D3100889AB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "KappaIcon RokuroIcon";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ayakasi/ayakasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -756,7 +762,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.13.3;
+				MARKETING_VERSION = 3.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -773,8 +779,10 @@
 		A97C2A092E4B6D3100889AB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "KappaIcon RokuroIcon";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ayakasi/ayakasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -802,7 +810,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.13.3;
+				MARKETING_VERSION = 3.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
