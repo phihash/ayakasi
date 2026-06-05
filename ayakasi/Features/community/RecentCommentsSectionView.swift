@@ -114,7 +114,19 @@ struct RecentCommentsSectionView: View {
                             Spacer()
 
                             Group {
-                                if let url = URL(string: ayakasi.imageName), url.scheme?.hasPrefix("http") == true {
+                                if ayakasi.imageName == "NoImage" {
+                                    VStack(spacing: 4) {
+                                        Image(systemName: "questionmark.square")
+                                            .font(.system(size: 24))
+                                        Text("No Image")
+                                            .font(.caption2)
+                                            .foregroundColor(.appTextSecondary)
+                                    }
+                                    .foregroundColor(.appTextSecondary)
+                                    .frame(width: 70, height: 70)
+                                    .background(Color.gray.opacity(0.12))
+                                    .cornerRadius(8)
+                                } else if let url = URL(string: ayakasi.imageName), url.scheme?.hasPrefix("http") == true {
                                     KFImage(url)
                                         .resizable()
                                         .scaledToFill()

@@ -7,17 +7,32 @@ struct NeoCardItem: View {
     @EnvironmentObject var favoriteService : FavoriteService
     var body: some View {
         VStack(alignment: .leading){
-            KFImage(URL(string: item.imageName))
-                .placeholder {
-                    Image("loading")
+            Group {
+                if item.imageName == "NoImage" {
+                    VStack(spacing: 4) {
+                        Image(systemName: "questionmark.square")
+                            .font(.system(size: 32))
+                        Text("No Image")
+                            .font(.caption2)
+                    }
+                    .foregroundColor(.appTextSecondary)
+                    .frame(width: 120, height: 120)
+                    .background(Color.gray.opacity(0.12))
+                    .cornerRadius(12)
+                } else {
+                    KFImage(URL(string: item.imageName))
+                        .placeholder {
+                            Image("loading")
+                                .resizable()
+                                .scaledToFill()
+                        }
+                        .cacheOriginalImage()
                         .resizable()
                         .scaledToFill()
+                        .frame(width: 120, height: 120)
+                        .cornerRadius(12)
                 }
-                .cacheOriginalImage()
-                .resizable()
-                .scaledToFill()
-                .frame(width: 120,height: 120)
-                .cornerRadius(12)
+            }
             Text(item.name)
                 .font(.subheadline)
                 .lineLimit(1)

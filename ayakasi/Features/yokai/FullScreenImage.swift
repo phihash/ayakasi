@@ -12,7 +12,15 @@ struct FullScreenImage: View {
             Color.black.ignoresSafeArea()
             
             Group{
-                if let url = URL(string: imageName) , url.scheme?.hasPrefix("http") == true{
+                if imageName == "NoImage" {
+                    VStack(spacing: 12) {
+                        Image(systemName: "questionmark.square")
+                            .font(.system(size: 64))
+                        Text("No Image")
+                            .font(.title3)
+                    }
+                    .foregroundColor(.gray)
+                } else if let url = URL(string: imageName), url.scheme?.hasPrefix("http") == true {
                     Spacer()
                     KFImage(url)
                         .placeholder {
@@ -24,12 +32,11 @@ struct FullScreenImage: View {
                         .resizable()
                         .scaledToFit()
                     Spacer()
-                }else{
+                } else {
                     Image(imageName)
                         .resizable()
                         .scaledToFit()
                 }
-                
             }
             
             VStack{
@@ -51,17 +58,19 @@ struct FullScreenImage: View {
                 Spacer()
 
                 // 写真を保存ボタン
-                HStack {
-                    Text("写真を保存")
+                if imageName != "NoImage" {
+                    HStack {
+                        Text("写真を保存")
+                    }
+                    .font(.headline)
+                    .foregroundStyle(Color.white)
+                    .frame(width: screenWidth * 0.55, height: 48)
+                    .background(Capsule().fill(Color.appSecondary))
+                    .onTapGesture {
+                        requestAndSaveImage(imageName)
+                    }
+                    .padding(.bottom, 40)
                 }
-                .font(.headline)
-                .foregroundStyle(Color.white)
-                .frame(width: screenWidth * 0.55, height: 48)
-                .background(Capsule().fill(Color.appSecondary))
-                .onTapGesture {
-                    requestAndSaveImage(imageName)
-                }
-                .padding(.bottom, 40)
             }
         }
     }

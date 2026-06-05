@@ -175,7 +175,17 @@ struct NeoDetail: View {
     
     private var imageView: some View {
         Group{
-            if let url = URL(string: yokai.imageName), url.scheme?.hasPrefix("http") == true{
+            if yokai.imageName == "NoImage" {
+                VStack(spacing: 8) {
+                    Image(systemName: "questionmark.square")
+                        .font(.system(size: 48))
+                    Text("No Image")
+                        .font(.subheadline)
+                }
+                .foregroundColor(.appTextSecondary)
+                .frame(width: screenWidth, height: screenWidth * 0.75)
+                .background(Color.gray.opacity(0.12))
+            } else if let url = URL(string: yokai.imageName), url.scheme?.hasPrefix("http") == true{
                 KFImage(url)
                     .placeholder {
                         Image("loading")
@@ -192,7 +202,9 @@ struct NeoDetail: View {
             }
         }
         .onTapGesture {
-            showFullScreenImage = true
+            if yokai.imageName != "NoImage" {
+                showFullScreenImage = true
+            }
         }
         .fullScreenCover(isPresented: $showFullScreenImage) {
             FullScreenImage(imageName: yokai.imageName, requestAndSaveImage: requestAndSaveImage)
