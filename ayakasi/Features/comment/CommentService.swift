@@ -51,6 +51,7 @@ class CommentService : ObservableObject {
             isLoadingRecentComments = false
         } catch {
             isLoadingRecentComments = false
+            print("[CommentService] getRecentComments failed: \(error)")
         }
     }
 
@@ -86,6 +87,7 @@ class CommentService : ObservableObject {
             isLoadingYokaiComments = false
         } catch {
             isLoadingYokaiComments = false
+            print("[CommentService] fetchYokaiComments(\(yokaiId)) failed: \(error)")
         }
     }
 
