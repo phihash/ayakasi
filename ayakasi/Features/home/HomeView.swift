@@ -16,7 +16,6 @@ extension DateFormatter {
 }
 
 struct HomeView: View {
-    @State private var page = 0
     @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
@@ -127,7 +126,7 @@ struct HomeView: View {
                 }
 
                 HStack{
-                    Text("全国で開催中の妖怪イベント!")
+                    Text("全国の妖怪イベント!")
                         .font(.headline)
                         .fontWeight(.bold)
                     Spacer()
@@ -136,7 +135,6 @@ struct HomeView: View {
 
                 EventsSection(
                     filteredEvents: filteredEvents,
-                    page: $page,
                     selectedEventUrl: $selectedEventUrl
                 )
 

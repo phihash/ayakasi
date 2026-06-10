@@ -1,5 +1,4 @@
 import SwiftUI
-import Kingfisher
 
 struct EventItem: Codable {
     let title: String?
@@ -22,14 +21,11 @@ struct NoticeItem: Codable {
 }
 
 struct EventComponent: View {
-    @State private var ogImage: Image?
-    let screenWidth = UIScreen.main.bounds.width
-    let link : String
-    let linkTitle : String
-    let imageUrl : String?
-    let location : String?
-    let startDateTime : String?
-    let endDateTime : String?
+    let link: String
+    let linkTitle: String
+    let location: String?
+    let startDateTime: String?
+    let endDateTime: String?
     let onTap: () -> Void
 
     private var formattedDateRange: String {
@@ -62,94 +58,70 @@ struct EventComponent: View {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
 
-        // 開始前チェック
         if let start = startDateTime,
            let startDate = inputFormatter.date(from: start),
            now < startDate {
             return "開催前"
         }
 
-        // 終了チェック（終了日の翌日00:00:00以降を終了とする）
         if let end = endDateTime,
            let endDate = inputFormatter.date(from: end),
            let nextDay = calendar.date(byAdding: .day, value: 1, to: endDate),
            now >= nextDay {
-            return nil // 終了（表示しない）
+            return nil
         }
 
         return "開催中"
     }
-    
+
     var body: some View {
         Button {
             onTap()
         } label: {
-            VStack(spacing: 8) {
-                if let status = eventStatus {
-                    HStack {
-                        Image(systemName: "circle.fill")
-                            .font(.caption2)
-                            .foregroundStyle(status == "開催中" ? Color.appSuccess : Color.appPrimary)
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(linkTitle)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color.appTextPrimary)
+                        .multilineTextAlignment(.leading)
 
-                        Text(status)
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundStyle(status == "開催中" ? Color.appSuccess : Color.appPrimary)
-
-                        Spacer()
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
-                }
-                KFImage(imageUrl.flatMap { URL(string: $0) })
-                    .placeholder {
-                        Image("loading_banner")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    .cacheOriginalImage()
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 160)
-                    .frame(maxWidth: .infinity)
-                    .clipped()
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(linkTitle)
-                            .font(.headline)
-                            .foregroundStyle(Color.appTextPrimary)
-                            .fontWeight(.bold)
-
-                        HStack(spacing: 8) {
-                            Text(location ?? "")
+                    HStack(spacing: 8) {
+                        if let location, !location.isEmpty {
+                            Text(location)
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color.appTextPrimary)
                                 .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.appTextSecondary.opacity(0.2))
-                                .clipShape(RoundedRectangle(cornerRadius: 6))
+                                .padding(.vertical, 3)
+                                .background(Color.appTextSecondary.opacity(0.15))
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                        }
 
-                            if !formattedDateRange.isEmpty {
-                                Text(formattedDateRange)
-                                    .font(.caption)
-                                    .fontWeight(.medium)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
+                        if !formattedDateRange.isEmpty {
+                            Text(formattedDateRange)
+                                .font(.caption)
+                                .foregroundStyle(Color.appTextSecondary)
                         }
                     }
-
-                    Spacer()
                 }
-                .padding(.horizontal, 12)
+
+                Spacer()
+
+                if let status = eventStatus {
+                    Text(status)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundStyle(status == "開催中" ? Color.appSuccess : Color.appPrimary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background((status == "開催中" ? Color.appSuccess : Color.appPrimary).opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
             }
-            .padding(.top, 8)
-            .padding(.bottom, 12)
-            .frame(width: screenWidth * 0.72)
-            .background(Color.appCardBackground)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.05), radius: 8, x: 1, y: 0.5)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .frame(maxWidth: .infinity)
         }
     }
 }
