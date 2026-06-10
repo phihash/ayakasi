@@ -233,7 +233,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "たんたんころりん",
         documentId: "tantankorori",
-        imageName: "https://i.imgur.com/ZqCkjAK.png",
+        imageName: "NoImage",
         description:"仙台に伝わる妖怪。古い柿の木が実を収穫せずに放置すると出るといわれる",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -264,7 +264,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ぶるぶる",
         documentId: "buruburu",
-        imageName: "https://i.imgur.com/MqIxaMR.png",
+        imageName: "NoImage",                                                                                        
         description: "今昔画図続百鬼に描かれている妖怪。恐怖で人間がぞくっと震えるのは、ぶるぶるが取り憑くためだといわれる。",
         categories: ["鳥山石燕","詳細不明","すべて"],
         relatedCategory: "詳細不明",
@@ -392,7 +392,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "泥田坊",
         documentId: "dorotabou",
-        imageName: "https://i.imgur.com/bHPMhnP.png",
+        imageName: "NoImage",
         description: "泥田坊(どろたぼう)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -402,7 +402,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "火車",
         documentId: "kasya",
-        imageName: "https://i.imgur.com/q3Qa2wl.png",
+        imageName: "NoImage",
         description: "火車(かしゃ)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -456,7 +456,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "一本だたら",
         documentId: "ippondatara",
-        imageName: "https://i.imgur.com/xDk7DJb.png",
+        imageName: "NoImage",
         description: "一本だたら(いっぽんだたら)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -477,7 +477,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "般若",
         documentId: "hannya",
-        imageName: "https://i.imgur.com/vJLMuL6.png",
+        imageName: "NoImage",
         description: "般若(はんにゃ)",
         categories: ["すべて"],
         relatedCategory: "道の怪",
@@ -487,7 +487,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "蟹坊主",
         documentId: "kanibouzu",
-        imageName: "https://i.imgur.com/dAnN6cU.png",
+        imageName: "NoImage",
         description: "蟹坊主(かにぼうず)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -497,7 +497,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "油すまし",
         documentId: "aburasumasi",
-        imageName: "https://i.imgur.com/Ryo1n0t.png",
+        imageName: "NoImage",
         description: "油すまし",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -549,7 +549,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "くねゆすり",
         documentId: "kuneyusuri",
-        imageName: "https://i.imgur.com/r0uunaR.png",
+        imageName: "NoImage",
         description: "くねゆすり",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
@@ -559,7 +559,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "白虎",
         documentId: "byakko",
-        imageName: "https://i.imgur.com/ydebR4R.png",
+        imageName: "NoImage",
         description: "白虎",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -569,7 +569,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "青龍",
         documentId: "seiryu",
-        imageName: "https://i.imgur.com/Ch5JFEO.png",
+        imageName: "NoImage",
         description: "青龍",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -579,7 +579,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "朱雀",
         documentId: "suzaku",
-        imageName: "https://i.imgur.com/oRDLTjr.png",
+        imageName: "NoImage",
         description: "朱雀",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -589,7 +589,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "玄武",
         documentId: "genbu",
-        imageName: "https://i.imgur.com/GiVFGKQ.png",
+        imageName: "NoImage",
         description: "玄武",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -609,7 +609,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "蟹鬼",
         documentId: "kanioni",
-        imageName: "https://i.imgur.com/4OJ8ZhN.png",
+        imageName: "NoImage",
         description: "かにおに",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -619,7 +619,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "キョンシー",
         documentId: "kyonsi",
-        imageName: "https://i.imgur.com/RhjvBmt.png",
+        imageName: "NoImage",
         description: "キョンシー",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -629,7 +629,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "じゅうめん",
         documentId: "jumen",
-        imageName: "https://i.imgur.com/ibPZzTI.png",
+        imageName: "NoImage",
         description: "じゅうめん",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -639,7 +639,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "うやうやし",
         documentId: "uyauyasi",
-        imageName: "https://i.imgur.com/CLaOoRo.png",
+        imageName: "NoImage",
         description: "うやうやし",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -649,7 +649,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "にくらし",
         documentId: "nikurasi",
-        imageName: "https://i.imgur.com/KY1Qxgg.png",
+        imageName: "NoImage",
         description: "にくらし",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -685,7 +685,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ごたいめん",
         documentId: "gotaimen",
-        imageName: "https://i.imgur.com/wQ6lOM0.png",
+        imageName: "NoImage",
         description: "ごたいめんは、夜道や辻などで突然人の前に現れるとされる妖怪で、その名の通り「真正面から出会う」ことを特徴としている。振り返った先や道の曲がり角に、いつの間にか立っている姿が語られ、逃げようとしても進路を塞ぐように再び正面に現れるという。害を加えるわけではないが、道を進む者に強い動揺と不安を与え、夜道での不意の遭遇そのものを象徴する妖怪だと考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -694,7 +694,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "いが坊",
         documentId: "igabou",
-        imageName: "https://i.imgur.com/NqgfquS.png",
+        imageName: "NoImage",
         description: "いが坊は、夜の道ばたや林の近くに現れるとされる小さな妖怪で、いがいがした姿をした坊主のように語られている。道の端にじっと座っていたり、転がっているように見えることもあり、人が近づくと急に姿を消すことが多い。害をなすことはほとんどなく、旅人や通行人を驚かせる程度の存在で、夜道で感じる気配や違和感が形になった妖怪だと考えられている。",
         categories: ["すべて"],
         relatedCategory: "道の怪",
@@ -703,7 +703,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "べか太郎",
         documentId: "bekatarou",
-        imageName: "https://i.imgur.com/GYL8nlN.png",
+        imageName: "NoImage",
         description: "べか太郎は、夜道や人通りの少ない道に現れるとされる妖怪で、遠くから見ると人影のように見えるが、近づくと正体が分からなくなる存在だと語られている。追いかけても逃げることはなく、かといって捕まえることもできず、気づけばいつの間にか姿を消している。特別な害を及ぼすわけではないが、夜道で感じる不安や錯覚を形にした妖怪だと考えられている。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -754,7 +754,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "馬癇",
         documentId: "umakan",
-        imageName: "https://i.imgur.com/MnbUKMp.png",
+        imageName: "NoImage",
         description:"馬癇(うまかん)は人の体内に棲み病を引き起こす病虫の一種。『針聞書』では赤い体に白い足を持つ馬の姿で描かれ、心臓に生じる癇の虫とされ、針術による治療が有効と記されている。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -764,7 +764,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "牛癇",
         documentId: "gyuukan",
-        imageName: "https://i.imgur.com/52KBEw8.png",
+        imageName: "NoImage",
         description: "牛癇(ぎゅうかん)は、人の体内に生じて病を引き起こすと考えられた病虫の一種。戦国期の医書『針聞書』には黒い角を持つ牛の姿で描かれ、肺に発生して食事の際に癇の症状を起こすとされ、鍼による治療が記されている。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -796,7 +796,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "孫悟空",
         documentId: "songokuu",
-        imageName: "https://i.imgur.com/9fW3FIj.png",
+        imageName: "NoImage",
         description: "孫悟空",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -806,7 +806,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "猪八戒",
         documentId: "chohakkai",
-        imageName: "https://i.imgur.com/y0L0nPm.png",
+        imageName: "NoImage",
         description: "『西遊記』に登場する妖怪。もとは天界で天蓬元帥という武将の位にあったが、酒に酔って月宮の仙女に無礼を働いた罪により下界へ落とされた。転生の途中で道を誤り、人間ではなく豚の姿をした半妖として生まれ変わったとされる。\n\n人里近くの高老荘に住みつき、力仕事をしながらも、食欲と色欲に忠実で怠け者な性質から周囲を困らせていた。見た目は大柄で腹が出ており、鼻面は豚そのものだが、人の言葉を話し、農具を武器として振るうほどの怪力を持つ。欲深く弱音を吐きやすい一方で、どこか憎めない存在として語られることが多い。\n\n後に三蔵法師一行と出会い、観音菩薩の取りなしによって旅の供となる。修行僧としては未熟で、しばしば逃げ腰になるものの、危機の際には力仕事を引き受けるなど、実務的な役割を果たしたとされる。人間的な煩悩を色濃く残した妖怪として、沙悟浄とは対照的な存在である。",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -816,7 +816,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "沙悟浄",
         documentId: "sagojou",
-        imageName: "https://i.imgur.com/Eb4JLmi.png",
+        imageName: "NoImage",
         description: "『西遊記』に登場する妖怪。もとは天界に仕える存在であったが、天帝の宴の席で誤って玻璃の杯を壊した罪により下界へ落とされ、流砂河に追放されたとされる。以後、七日に一度、天から降ってくる剣によって脇腹を刺されるという罰を受け続け、水辺に棲む水怪と成り果てた。\n\n流砂河では、通りかかった旅人や僧を襲い、その骸骨を首にかけていたと伝えられる。首に下げた骸骨は七つあり、これは自身に科せられた七日の刑を象徴するとも言われる。髪はまばらで、痩せた体つきの異様な姿をしており、人の言葉を解しながらも長く孤独な日々を送っていたという。\n\n後に三蔵法師一行と出会い、観音菩薩の導きによって改心し、旅の供として加わることになる。それまでは恐れられる水の怪であったが、根は真面目で従順な性質であり、過去の罪を背負いながらも黙々と役目を果たす存在として語られる。",
         categories: ["水の怪","外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
@@ -835,7 +835,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "さとり",
         documentId: "satori",
-        imageName: "https://i.imgur.com/0TvCDKX.png",
+        imageName: "NoImage",
         description: "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
         categories: ["山の怪","動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -844,7 +844,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "くねくね",
         documentId: "kunekune",
-        imageName: "https://i.imgur.com/BlDlQs5.png",
+        imageName: "NoImage",
         description: "山間部や田畑の遠景に現れる、真っ白な人型のような異形。正体を凝視した者は発狂するとされ、詳細を認識してはならない存在として語られる。\n\n白い人影を望遠鏡で覗いた人物が正気を失った、という体験談がインターネット上で拡散された。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -874,7 +874,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "メリーさん",
         documentId: "merry",
-        imageName: "https://i.imgur.com/kiz17nF.png",
+        imageName: "NoImage",
         description: "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。\n\n電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -883,7 +883,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "八尺様",
         documentId: "hachishakusama",
-        imageName: "https://i.imgur.com/wjdcFZ9.png",
+        imageName: "NoImage",
         description: "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。\n\n長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -910,7 +910,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "アクロバティックサラサラ",
         documentId: "acrobaticsarasara",
-        imageName: "https://i.imgur.com/5S0vJnU.png",
+        imageName: "NoImage",
         description: "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。\n\n深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -921,7 +921,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "神虫",
         documentId: "sintyu",
-        imageName: "https://i.imgur.com/flpwgn1.png",
+        imageName: "NoImage",
         description: "巨大な虫のような姿で描かれる怪物。節くれだった体と多数の脚、翼や触角を持ち、うごめくだけで禍々しい気配を放つという。",
         categories: ["すべて"],
         relatedCategory: nil,
@@ -930,7 +930,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ぬりかべ",
         documentId: "nurikabe",
-        imageName: "https://i.imgur.com/k10aRdC.jpeg",
+        imageName: "NoImage",
         description: "前進を阻む“壁”として感じられ、押しても避けても進めない。低い位置を叩くと消える、角を探すと抜けられるなどの対処譚が伝わる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -950,7 +950,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "牛鬼",
         documentId: "usioni",
-        imageName: "https://imgur.com/hcnRbtx.jpeg",
+        imageName: "NoImage",
         imageSource: "パブリックドメイン",
         description: "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
         categories: ["水の怪","すべて"],
@@ -973,7 +973,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "件",
         documentId: "kudan",
-        imageName: "https://i.imgur.com/ZWININ4.jpeg",
+        imageName: "NoImage",
         description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。\n具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -1029,7 +1029,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "狐",
         documentId: "kitsune",
-        imageName: "https://i.imgur.com/IsPIXy5.jpeg",
+        imageName: "NoImage",
         description: "人間や僧・美女などに化け、幻術や『狐火』で人を惑わす。九尾に至るほど霊力が高いとされる。",
         categories: ["動物の怪","すべて"],
         relatedCategory: "動物の怪",
@@ -1060,7 +1060,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "百目鬼",
         documentId: "doumeki",
-        imageName: "https://i.imgur.com/lIYjeST.png",
+        imageName: "NoImage",
         description: "百目鬼(どうめき)とは腕や体に無数の目を持つ怪物、宇都宮では藤原秀郷によって退治されたという伝承がある。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1069,7 +1069,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "おおむかで",
         documentId: "oomukade",
-        imageName: "https://i.imgur.com/pCB7BHG.png",
+        imageName: "NoImage",
         description: "巨大なむかでの妖怪で、藤原秀郷が瀬田の唐橋で横たわっている大蛇に頼まれて、おおむかでを退治した",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1092,7 +1092,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "うわん",
         documentId: "uwan",
-        imageName: "https://i.imgur.com/VYr7nhI.jpeg",
+        imageName: "NoImage",
         description: "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。\n江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
         categories: ["音の怪","鳥山石燕","すべて"],
         relatedCategory: "音の怪",
@@ -1122,7 +1122,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "テケテケ",
         documentId: "teketeke",
-        imageName: "https://i.imgur.com/RN94Yrq.jpeg",
+        imageName: "NoImage",
         description: "上半身だけで地面を這いながら、“テケテケ”という音を立てて高速で迫る。見つかると逃げ切れないと言われ、出会った者に危害を加えるとされる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1165,7 +1165,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "トイレの花子さん",
         documentId: "toirenohanakosan",
-        imageName: "https://i.imgur.com/nWT8xfl.jpeg",
+        imageName: "NoImage",
         description: "赤いジャンパースカートに白いシャツ、おかっぱ頭の小学生の女の子。ランドセルを背負っていることも多い。女子トイレの3番目の個室から現れるとされ、呼びかけると返事をしたり、いたずら好きな一面も。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1346,7 +1346,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "口裂け女",
         documentId: "kuchisakenna",
-        imageName: "https://i.imgur.com/2Y4Vghp.jpeg",
+        imageName: "NoImage",
         description: "長い黒髪とコート姿、顔の下半分をマスクや布で隠していることが多い。正体は不明だが、マスクを外すと口が耳まで大きく裂けている。怖がらせる存在として語られるが、対処法や撃退エピソードも有名。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1367,7 +1367,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "玉梓",
         documentId: "tamasusa",
-        imageName: "https://i.imgur.com/awxxXQe.jpeg",
+        imageName: "NoImage",
         description: "神余光弘の愛妾から山下定包の妻となった美女。里見義実に捕らえられ斬首される際、呪詛を残し怨霊化して里見家を祟る。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -1389,7 +1389,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "座敷童",
         documentId: "zashikiwarashi",
-        imageName: "https://i.imgur.com/4M0QBCe.png",
+        imageName: "NoImage",
         description: "童子姿で家の中を走り回る気配を残す。姿が見えなくなると家運が傾くという俗信が広い。",
         categories: ["家の怪","すべて"],
         relatedCategory: "家の怪",
@@ -1408,7 +1408,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "こなき爺",
         documentId: "konakijiji",
-        imageName: "https://i.imgur.com/HCbgWxu.png",
+        imageName: "NoImage",
         description: "赤子の泣き声で人を誘い、抱き上げると途端に重さが増して身動きを取れなくさせる山の怪。",
         categories: ["山の怪","すべて"],
         relatedCategory: "山の怪",
@@ -1429,7 +1429,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "ひきこさん",
         documentId: "hikikosan",
-        imageName: "https://i.imgur.com/CtKYJvM.png",
+        imageName: "NoImage",
         description: "雨の日に白いぼろ着で現れ、目撃した子どもを引きずると噂される女の怪異。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1439,7 +1439,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "吉原千恵子",
         documentId: "yoshiwarachieko",
-        imageName: "https://i.imgur.com/Gzt7TEP.png",
+        imageName: "NoImage",
         description: "2000年代初頭にチェーンメールで広まった",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
