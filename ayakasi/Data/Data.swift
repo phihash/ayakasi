@@ -1044,6 +1044,15 @@ let ayakasis: [Ayakasi] = [
                 prefecture: "栃木県",
                 imageURL: nil,
                 spotType: .yokaiRelated
+            ),
+            YokaiSpot(
+                spotName: "化生寺",
+                coordinate: CLLocationCoordinate2D(latitude: 35.08462374318997, longitude: 133.69346715342348),
+                description: "十一面観音菩薩を本尊とする曹洞宗の寺院。鎮守として九尾の狐・玉藻前伝説の殺生石が祀られている。",
+                yokaiIds: ["kitsune"],
+                prefecture: "岡山県",
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
