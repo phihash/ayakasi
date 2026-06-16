@@ -2,6 +2,17 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "煙々羅",
+        documentId: "enenra",
+        imageName: "https://i.imgur.com/gtVXUHi.png",
+        imageSource: "パブリックドメイン",
+        description: "煙の中から不気味な顔が浮かび上がる妖怪。鳥山石燕の『今昔百鬼拾遺』に描かれており、蚊遣り火の煙がもつれ合って怪しい姿を成したものとされる。薄絹のように儚く風に崩れやすい姿から、煙々羅の名がついたという。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["えんえんら", "煙々羅", "えんらえんら", "煙羅煙羅", "煙", "けむり", "蚊遣り火", "かやりび", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい"],
+        story: false
+    ),
+    Ayakasi(
         name: "鞍野郎",
         documentId: "kurayarou",
         imageName: "https://i.imgur.com/vDyLXNz.png",
@@ -580,10 +591,10 @@ let ayakasis: [Ayakasi] = [
         name: "朱雀",
         documentId: "suzaku",
         imageName: "NoImage",
-        description: "朱雀",
+        description: "南方を守護する中国の神獣で、天の四霊の一つ。赤い翼を広げた鳥の姿で表され、五行説では「火」の象徴とされる。鳳凰と同一視されることもあるが本来は別の存在。日本でも薬師寺の本尊台座やキトラ古墳の壁画に描かれるなど、古くから親しまれてきた。俳句では夏を「朱夏」と呼ぶこともある。",
         categories: ["外国の妖怪","すべて"],
         relatedCategory: "外国の妖怪",
-        searchKeywords: ["すざく", "中国"],
+        searchKeywords: ["すざく", "朱雀", "中国", "四神", "ししん", "四霊", "しれい", "南", "火", "鳳凰", "ほうおう", "キトラ古墳", "薬師寺", "朱夏"],
         story: false
     ),
     Ayakasi(
