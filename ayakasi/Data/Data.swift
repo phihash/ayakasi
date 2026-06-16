@@ -202,7 +202,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "べとべとさん",
         documentId: "betobetosan",
-        imageName: "https://i.imgur.com/0FWOWRm.png",
+        imageName: "NoImage",
         description:"べとべとさん",
         categories: ["音の怪","すべて"],
         relatedCategory: "音の怪",
@@ -223,7 +223,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "タツクチナワ",
         documentId: "tatukutinawa",
-        imageName: "https://i.imgur.com/E16AQO6.png",
+        imageName: "NoImage",
         description: "タツクチナワ",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -254,7 +254,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "のづち",
         documentId: "noduti",
-        imageName: "https://i.imgur.com/dMZX8Jr.png",
+        imageName: "NoImage",
         description: "のづち",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -285,7 +285,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "三尸",
         documentId: "sansi",
-        imageName: "https://i.imgur.com/Lc1ltMW.png",
+        imageName: "NoImage",
         description: "道教に由来し、人が生まれた時から体内に棲む三匹の虫。上尸は脳に居て首から上の病気と大食を、中尸は腹に居て臓器の病気と宝貨への欲を、下尸は足に居て腰から下の病気と淫欲を引き起こす。庚申の夜に天帝へその人の罪を報告するとされる。姿は文献により異なる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -295,7 +295,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "家鳴",
         documentId: "yanari",
-        imageName: "https://i.imgur.com/cNnAzKh.png",
+        imageName: "NoImage",
         description: "家鳴(やなり)",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -305,7 +305,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "びわぼくぼく",
         documentId: "biwabokuboku",
-        imageName: "https://i.imgur.com/8XORrJO.png",
+        imageName: "NoImage",
         imageSource: "パブリックドメイン",
         description: "琵琶牧々（びわぼくぼく)",
         categories: ["道の怪","すべて"],
@@ -538,7 +538,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "応声虫",
         documentId: "ousei",
-        imageName: "https://i.imgur.com/tlw9Ehh.png",
+        imageName: "NoImage",
         description: "応声虫",
         categories: ["すべて"],
         relatedCategory: nil,
@@ -1055,6 +1055,39 @@ let ayakasis: [Ayakasi] = [
                 spotType: .yokaiRelated
             )
         ]
+    ),
+    Ayakasi(
+        name: "送り拍子木",
+        documentId: "okurihoushigi",
+        imageName: "https://i.imgur.com/TJv9SR1.png",
+        imageSource: "パブリックドメイン",
+        description: "本所七不思議のひとつ。江戸時代の本所（現・東京都墨田区）で、「火の用心」と夜回りしながら拍子木を打つと、打ち終えたはずの音が背後から繰り返し聞こえてくるという怪異。振り向いても誰もいない。\n単なる音の反響との説もあるが、拍子木を打っていない雨の日にも音が聞こえたという話もある。同じく本所七不思議の「送り提灯」と類似した怪異とされる。",
+        categories: ["音の怪", "すべて"],
+        relatedCategory: "音の怪",
+        searchKeywords: ["おくりひょうしぎ", "送り拍子木", "本所七不思議", "ほんじょしちふしぎ", "拍子木", "ひょうしぎ", "本所", "ほんじょ", "墨田区", "すみだく", "送り提灯", "おくりちょうちん", "火の用心", "夜回り"],
+        story: false
+    ),
+    Ayakasi(
+        name: "舞首",
+        documentId: "maikubi",
+        imageName: "https://i.imgur.com/Bk2nwRC.png",
+        imageSource: "パブリックドメイン",
+        description: "神奈川県真鶴町に伝わる怨霊。江戸時代の奇談集『絵本百物語』に記される。\n鎌倉時代、真鶴の祭で口論となった3人の武士が斬り合い、海に転げ落ちて互いに首を切り落とした。首だけになってもなお争い続け、夜は口から火炎を吹き、昼は海上に巴模様の波を起こしたという。この海は「巴が淵」と名づけられた。",
+        categories: ["水の怪", "すべて"],
+        relatedCategory: "水の怪",
+        searchKeywords: ["まいくび", "舞首", "舞い首", "真鶴", "まなづる", "神奈川", "かながわ", "巴が淵", "ともえがふち", "絵本百物語", "えほんひゃくものがたり", "怨霊", "おんりょう", "首", "くび", "鎌倉", "かまくら"],
+        story: false
+    ),
+    Ayakasi(
+        name: "鬼童丸",
+        documentId: "kidoumaru",
+        imageName: "https://i.imgur.com/EkwABHN.png",
+        imageSource: "パブリックドメイン",
+        description: "鎌倉時代の説話集『古今著聞集』に登場する鬼。源頼光の弟・頼信に捕らえられていたが、鎖を引きちぎって脱出。頼光を怨み、牛を殺してその体内に潜んで待ち伏せするという大胆な手口で暗殺を企てた。しかし頼光はこれを見抜き、渡辺綱が弓で牛を射抜いて鬼童丸を炙り出し、頼光が一刀で斬り捨てたという。\n鳥山石燕『今昔百鬼拾遺』には、雪の中で牛の皮をかぶり市原野で待ち受ける姿が描かれている。",
+        categories: ["鳥山石燕", "人の怪", "すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["きどうまる", "鬼童丸", "鬼同丸", "源頼光", "みなもとのよりみつ", "渡辺綱", "わたなべのつな", "鞍馬", "くらま", "市原野", "いちはらの", "古今著聞集", "ここんちょもんじゅう", "鳥山石燕", "今昔百鬼拾遺", "酒呑童子", "しゅてんどうじ"],
+        story: false
     ),
     Ayakasi(
         name: "二口女",
@@ -1818,39 +1851,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["びょうぶのぞき", "屏風闚", "屏風のぞき", "屏風", "びょうぶ", "付喪神", "つくもがみ", "鳥山石燕", "とりやませきえん", "今昔百鬼拾遺", "こんじゃくひゃっきしゅうい", "秋田", "あきた", "角館", "かくのだて", "秦の始皇帝"],
         story: false
     ),
-    Ayakasi(
-        name: "送り拍子木",
-        documentId: "okurihoushigi",
-        imageName: "https://i.imgur.com/TJv9SR1.png",
-        imageSource: "パブリックドメイン",
-        description: "本所七不思議のひとつ。江戸時代の本所（現・東京都墨田区）で、「火の用心」と夜回りしながら拍子木を打つと、打ち終えたはずの音が背後から繰り返し聞こえてくるという怪異。振り向いても誰もいない。\n単なる音の反響との説もあるが、拍子木を打っていない雨の日にも音が聞こえたという話もある。同じく本所七不思議の「送り提灯」と類似した怪異とされる。",
-        categories: ["音の怪", "すべて"],
-        relatedCategory: "音の怪",
-        searchKeywords: ["おくりひょうしぎ", "送り拍子木", "本所七不思議", "ほんじょしちふしぎ", "拍子木", "ひょうしぎ", "本所", "ほんじょ", "墨田区", "すみだく", "送り提灯", "おくりちょうちん", "火の用心", "夜回り"],
-        story: false
-    ),
-    Ayakasi(
-        name: "舞首",
-        documentId: "maikubi",
-        imageName: "https://i.imgur.com/Bk2nwRC.png",
-        imageSource: "パブリックドメイン",
-        description: "神奈川県真鶴町に伝わる怨霊。江戸時代の奇談集『絵本百物語』に記される。\n鎌倉時代、真鶴の祭で口論となった3人の武士が斬り合い、海に転げ落ちて互いに首を切り落とした。首だけになってもなお争い続け、夜は口から火炎を吹き、昼は海上に巴模様の波を起こしたという。この海は「巴が淵」と名づけられた。",
-        categories: ["水の怪", "すべて"],
-        relatedCategory: "水の怪",
-        searchKeywords: ["まいくび", "舞首", "舞い首", "真鶴", "まなづる", "神奈川", "かながわ", "巴が淵", "ともえがふち", "絵本百物語", "えほんひゃくものがたり", "怨霊", "おんりょう", "首", "くび", "鎌倉", "かまくら"],
-        story: false
-    ),
-    Ayakasi(
-        name: "鬼童丸",
-        documentId: "kidoumaru",
-        imageName: "https://i.imgur.com/EkwABHN.png",
-        imageSource: "パブリックドメイン",
-        description: "鎌倉時代の説話集『古今著聞集』に登場する鬼。源頼光の弟・頼信に捕らえられていたが、鎖を引きちぎって脱出。頼光を怨み、牛を殺してその体内に潜んで待ち伏せするという大胆な手口で暗殺を企てた。しかし頼光はこれを見抜き、渡辺綱が弓で牛を射抜いて鬼童丸を炙り出し、頼光が一刀で斬り捨てたという。\n鳥山石燕『今昔百鬼拾遺』には、雪の中で牛の皮をかぶり市原野で待ち受ける姿が描かれている。",
-        categories: ["鳥山石燕", "人の怪", "すべて"],
-        relatedCategory: "鳥山石燕",
-        searchKeywords: ["きどうまる", "鬼童丸", "鬼同丸", "源頼光", "みなもとのよりみつ", "渡辺綱", "わたなべのつな", "鞍馬", "くらま", "市原野", "いちはらの", "古今著聞集", "ここんちょもんじゅう", "鳥山石燕", "今昔百鬼拾遺", "酒呑童子", "しゅてんどうじ"],
-        story: false
-    ),
+ 
     Ayakasi(
         name: "付喪神",
         documentId: "tsukumogami",

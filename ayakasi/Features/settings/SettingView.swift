@@ -1,10 +1,8 @@
 import SwiftUI
-import StoreKit
 import Kingfisher
 import UIKit
 
 struct SettingView: View {
-    @Environment(\.requestReview) var requestReview
     @EnvironmentObject var authVM : AuthViewModel
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
@@ -48,7 +46,28 @@ struct SettingView: View {
                     VStack(spacing: 0) {
                         SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
 
-                        SettingRowLink(title: "みなさんの声から", destination: MessageUI())
+                        NavigationLink(destination: MessageUI()) {
+                            HStack {
+                                Text("みなさんの声")
+                                    .font(.subheadline)
+                                if Message.hasNewMessage {
+                                    Text("NEW")
+                                        .font(.caption2)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(Color.red)
+                                        .cornerRadius(4)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.vertical, 12)
+                        }
+                        .foregroundStyle(.primary)
 
                         SettingRowLink(title: "プライバシーポリシー", destination: WebView(url: URL(string: AppConstants.privacyPolicyURL)))
           
@@ -95,10 +114,6 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
 
-                        SettingRowButton(title: "アプリを評価する") {
-                            requestReview()
-                        }
-                        
                         SettingRowLink(title: "お気に入り一覧", destination: FavoriteYokaiView())
                         
                         SettingRowButton(title: "キャッシュを削除する") {
