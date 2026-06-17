@@ -21,6 +21,7 @@ struct BottomActionBar: View {
                     Task {
                         do {
                             try await voteVM.vote(aykasiId: yokai.documentId)
+                            Analytics.trackVoted(yokaiName: yokai.name, documentId: yokai.documentId)
                             voteSuccess.toggle()
                         } catch let error as VoteError {
                             alertMessage = error.localizedDescription
@@ -44,7 +45,9 @@ struct BottomActionBar: View {
 
                 // お気に入りボタン
                 Button {
+                    let willBeFavorite = !favoriteService.isFavoriteYokai(yokai.documentId)
                     favoriteService.toggleFavoriteYokai(yokai.documentId)
+                    Analytics.trackFavoriteToggled(yokaiName: yokai.name, documentId: yokai.documentId, isFavorite: willBeFavorite)
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "star.fill" : "star")

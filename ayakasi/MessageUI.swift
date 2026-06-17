@@ -27,6 +27,12 @@ struct Message: Identifiable {
 struct MessageUI: View {
     static let allMessages: [Message] = [
         Message(
+            content: "AI画像を使わないで欲しい",
+            status: .handled,
+            yearMonth: "2026.6",
+            note: "パブリックドメインの画像が見つからない妖怪についてはAI生成画像で代用しておりましたが、作品ごとの画風の統一感に欠ける点を踏まえ、No Imageの表示に変更いたしました。"
+        ),
+        Message(
             content: "新しい妖怪を追加して欲しい、1 ぬっぺっほふ 2 けうけげん 3 さんもとごぶろうざえもん",
             status: .handled,
             yearMonth: "2026.4",
@@ -43,12 +49,6 @@ struct MessageUI: View {
             status: .handled,
             yearMonth: "2026.4",
             note: "以津真天・遊火・鬼火・猩々・髪切り・雷獣は対応しました。「遊人（あそびび）」は高知県に伝わる怪火「遊火（あそびび）」のことと解釈して追加しました。「油引小僧」は「袖引小僧（そでひきこぞう）」のことと思われますが、パブリックドメインの画像が見つからず、ガラッパも同様の理由で保留にさせていただいております🙇‍♂️"
-        ),
-        Message(
-            content: "AI画像を使わないで欲しい",
-            status: .handled,
-            yearMonth: "2026.6",
-            note: "パブリックドメインの画像が見つからない妖怪についてはAI生成画像で代用しておりましたが、作品ごとの画風の統一感に欠ける点を踏まえ、No Imageの表示に変更いたしました。"
         ),
     ]
 

@@ -77,189 +77,189 @@ struct JapanView: View {
         }
     }
 
-    var body: some View {
-        GeometryReader { geometry in
-            VStack(spacing: 0) {
-                Map(position: $viewModel.cameraPosition) {
-                    // 妖怪関連スポット（赤いマーカー）
-                    ForEach(yokaiDestinations) { location in
-                        Annotation(location.name, coordinate: location.coordinate) {
-                            Button {
-                                viewModel.selectedLocation = .destination(location.id)
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color.appError)
-                                        .frame(width: 30, height: 30)
-                                    Image(systemName: "building.2")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 14))
-                                }
-                                .shadow(radius: 3)
-                            }
-                        }
-                    }
+    @State private var showSheet = false
+    @State private var selectedDetent: PresentationDetent = .fraction(0.35)
 
-                    // 妖怪スポット（タイプ別のAnnotation）
-                    ForEach(allYokaiSpots) { spot in
-                        let iconAndColor = spotIconAndColor(for: spot.spotType)
-                        Annotation(spot.spotName, coordinate: spot.coordinate) {
-                            Button {
-                                viewModel.selectedLocation = .yokaiSpot(spot.id)
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .fill(iconAndColor.color)
-                                        .frame(width: 30, height: 30)
-                                    Image(systemName: iconAndColor.icon)
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 14))
-                                }
-                                .shadow(radius: 3)
-                            }
+    var body: some View {
+        Map(position: $viewModel.cameraPosition) {
+            // 妖怪関連スポット（赤いマーカー）
+            ForEach(yokaiDestinations) { location in
+                Annotation(location.name, coordinate: location.coordinate) {
+                    Button {
+                        viewModel.selectedLocation = .destination(location.id)
+                        selectedDetent = .medium
+                        showSheet = true
+                        Analytics.trackMapSpotTapped(spotName: location.name, prefecture: location.prefecture)
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color.appError)
+                                .frame(width: 30, height: 30)
+                            Image(systemName: "building.2")
+                                .foregroundColor(.white)
+                                .font(.system(size: 14))
                         }
+                        .shadow(radius: 3)
                     }
                 }
-                .frame(height: geometry.size.height * 0.55)
+            }
 
-                VStack {
-                    if let selectedLocation = viewModel.selectedLocation {
-                        switch selectedLocation {
-                        case .destination(let destinationId):
-                            if let location = yokaiDestinations.first(where: { $0.id == destinationId }) {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    HStack {
-                                        Circle()
-                                            .fill(Color.appError)
-                                            .frame(width: 12, height: 12)
-                                        Text(location.name)
-                                            .font(.title2)
-                                            .fontWeight(.bold)
-                                    }
-
-                                    Text(location.prefecture)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-
-                                    if !location.description.isEmpty {
-                                        Text(location.description)
-                                            .font(.body)
-                                            .foregroundColor(.primary)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                    }
-
-                                    Button {
-                                        openInGoogleMaps(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, name: location.name)
-                                    } label: {
-                                        HStack {
-                                            Image(systemName: "map")
-                                            Text("Google Mapで開く")
-                                        }
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(Color.white)
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 12)
-                                        .background(Color.appSecondary)
-                                        .cornerRadius(10)
-                                    }
-                                    .padding(.top, 8)
+            // 妖怪スポット（タイプ別のAnnotation）
+            ForEach(allYokaiSpots) { spot in
+                let iconAndColor = spotIconAndColor(for: spot.spotType)
+                Annotation(spot.spotName, coordinate: spot.coordinate) {
+                    Button {
+                        viewModel.selectedLocation = .yokaiSpot(spot.id)
+                        selectedDetent = .medium
+                        showSheet = true
+                        Analytics.trackMapSpotTapped(spotName: spot.spotName, prefecture: spot.prefecture)
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(iconAndColor.color)
+                                .frame(width: 30, height: 30)
+                            Image(systemName: iconAndColor.icon)
+                                .foregroundColor(.white)
+                                .font(.system(size: 14))
+                        }
+                        .shadow(radius: 3)
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $showSheet) {
+            ScrollView {
+                if let selectedLocation = viewModel.selectedLocation {
+                    switch selectedLocation {
+                    case .destination(let destinationId):
+                        if let location = yokaiDestinations.first(where: { $0.id == destinationId }) {
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack {
+                                    Circle()
+                                        .fill(Color.appError)
+                                        .frame(width: 12, height: 12)
+                                    Text(location.name)
+                                        .font(.title2)
+                                        .fontWeight(.bold)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
-                            }
-                        case .yokaiSpot(let spotId):
-                            if let spot = allYokaiSpots.first(where: { $0.id == spotId }) {
-                                let iconAndColor = spotIconAndColor(for: spot.spotType)
-                                VStack(alignment: .leading, spacing: 12) {
+
+                                Text(location.prefecture)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+
+                                if !location.description.isEmpty {
+                                    Text(location.description)
+                                        .font(.body)
+                                        .foregroundColor(.primary)
+                                }
+
+                                Button {
+                                    openInGoogleMaps(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, name: location.name)
+                                } label: {
                                     HStack {
-                                        ZStack {
-                                            Circle()
-                                                .fill(iconAndColor.color)
-                                                .frame(width: 20, height: 20)
-                                            Image(systemName: iconAndColor.icon)
-                                                .foregroundColor(.white)
-                                                .font(.system(size: 10))
-                                        }
-                                        Text(spot.spotName)
-                                            .font(.title2)
-                                            .fontWeight(.bold)
+                                        Image(systemName: "map")
+                                        Text("Google Mapで開く")
                                     }
-
-                                    Text(spot.prefecture)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-
-                                    if let description = spot.description {
-                                        Text(description)
-                                            .font(.body)
-                                            .foregroundColor(.primary)
-                                            .fixedSize(horizontal: false, vertical: true)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 12)
+                                    .background(Color.appSecondary)
+                                    .cornerRadius(10)
+                                }
+                                .padding(.top, 8)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                        }
+                    case .yokaiSpot(let spotId):
+                        if let spot = allYokaiSpots.first(where: { $0.id == spotId }) {
+                            let iconAndColor = spotIconAndColor(for: spot.spotType)
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack {
+                                    ZStack {
+                                        Circle()
+                                            .fill(iconAndColor.color)
+                                            .frame(width: 20, height: 20)
+                                        Image(systemName: iconAndColor.icon)
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 10))
                                     }
+                                    Text(spot.spotName)
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                }
 
-                                    if !spot.yokaiIds.isEmpty {
-                                        let relatedYokais = getYokaiFromIds(spot.yokaiIds)
-                                        if !relatedYokais.isEmpty {
-                                            VStack(alignment: .leading, spacing: 8) {
-                                                Text("関連する妖怪:")
-                                                    .font(.caption)
-                                                    .foregroundColor(.secondary)
-                                                    .padding(.top, 4)
+                                Text(spot.prefecture)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
 
-                                                HStack(spacing: 8) {
-                                                    ForEach(relatedYokais) { yokai in
-                                                        Button {
-                                                            selectedYokai = yokai
-                                                        } label: {
-                                                            Text(yokai.name)
-                                                                .font(.subheadline)
-                                                                .fontWeight(.medium)
-                                                                .foregroundColor(.white)
-                                                                .padding(.horizontal, 12)
-                                                                .padding(.vertical, 6)
-                                                                .background(
-                                                                    RoundedRectangle(cornerRadius: 8)
-                                                                        .fill(Color.appSecondary)
-                                                                )
-                                                        }
-                                                        .buttonStyle(.plain)
+                                if let description = spot.description {
+                                    Text(description)
+                                        .font(.body)
+                                        .foregroundColor(.primary)
+                                }
+
+                                if !spot.yokaiIds.isEmpty {
+                                    let relatedYokais = getYokaiFromIds(spot.yokaiIds)
+                                    if !relatedYokais.isEmpty {
+                                        VStack(alignment: .leading, spacing: 8) {
+                                            Text("関連する妖怪:")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                                .padding(.top, 4)
+
+                                            HStack(spacing: 8) {
+                                                ForEach(relatedYokais) { yokai in
+                                                    Button {
+                                                        selectedYokai = yokai
+                                                    } label: {
+                                                        Text(yokai.name)
+                                                            .font(.subheadline)
+                                                            .fontWeight(.medium)
+                                                            .foregroundColor(.white)
+                                                            .padding(.horizontal, 12)
+                                                            .padding(.vertical, 6)
+                                                            .background(
+                                                                RoundedRectangle(cornerRadius: 8)
+                                                                    .fill(Color.appSecondary)
+                                                            )
                                                     }
+                                                    .buttonStyle(.plain)
                                                 }
                                             }
                                         }
                                     }
-
-                                    Button {
-                                        openInGoogleMaps(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude, name: spot.spotName)
-                                    } label: {
-                                        HStack {
-                                            Image(systemName: "map")
-                                            Text("Google Mapで開く")
-                                        }
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(Color.white)
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 12)
-                                        .background(Color.appSecondary)
-                                        .cornerRadius(10)
-                                    }
-                                    .padding(.top, 8)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
+
+                                Button {
+                                    openInGoogleMaps(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude, name: spot.spotName)
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "map")
+                                        Text("Google Mapで開く")
+                                    }
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 12)
+                                    .background(Color.appSecondary)
+                                    .cornerRadius(10)
+                                }
+                                .padding(.top, 8)
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
                         }
-                    } else {
-                        Text("地図上のマーカーをタップしてください")
-                            .font(.subheadline)
-                            .foregroundColor(.appTextSecondary)
                     }
                 }
-                .frame(height: geometry.size.height * 0.45)
-                .frame(maxWidth: .infinity)
-                .background(Color.appTextFieldBackground)
             }
+            .presentationDetents([.medium, .fraction(0.9)], selection: $selectedDetent)
+            .presentationDragIndicator(.visible)
+            .presentationBackgroundInteraction(.enabled)
+            .presentationBackground(.ultraThinMaterial)
         }
         .fullScreenCover(item: $selectedYokai) { yokai in
             NavigationStack {

@@ -60,6 +60,11 @@ struct SearchView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
                 .background(Color.appBackground)
+                .onChange(of: isSearchFocused) { _, focused in
+                    if !focused && !searchText.isEmpty {
+                        Analytics.trackSearch(keyword: searchText)
+                    }
+                }
 
                 ScrollView{
                     let allResults = categories.flatMap { filteredYokais(for: $0) }
@@ -80,6 +85,7 @@ struct SearchView: View {
                     } else {
                         if searchText.isEmpty {
                             RankingSectionView(rankedYokai: rankedYokai, selectedYokai: $selectedYokai) {
+                                Analytics.trackCategorySelected(category: "すべて")
                                 selectedCategoryForList = "すべて"
                             }
                         }
@@ -88,6 +94,7 @@ struct SearchView: View {
 
                             if !yokais.isEmpty {
                                 Button {
+                                    Analytics.trackCategorySelected(category: category)
                                     selectedCategoryForList = category
                                 } label: {
                                     HStack{

@@ -138,28 +138,28 @@ struct HomeView: View {
                     selectedEventUrl: $selectedEventUrl
                 )
 
-                HStack{
-                    Text("ゲーム")
-                    Spacer()
-                }
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding(.horizontal,20)
-                .padding(.top,8)
-
-                Button{
-                    showGameView = true
-                } label :{
-                    Text("ゲーム")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Color.appPrimary)
-                        .cornerRadius(12)
-                        .padding(.horizontal, 20)
-                }
-
+//                HStack{
+//                    Text("ゲーム")
+//                    Spacer()
+//                }
+//                .font(.headline)
+//                .fontWeight(.bold)
+//                .padding(.horizontal,20)
+//                .padding(.top,8)
+//
+//                Button{
+//                    showGameView = true
+//                } label :{
+//                    Text("ゲーム")
+//                        .font(.headline)
+//                        .fontWeight(.semibold)
+//                        .foregroundStyle(Color.white)
+//                        .frame(maxWidth: .infinity, minHeight: 50)
+//                        .background(Color.appPrimary)
+//                        .cornerRadius(12)
+//                        .padding(.horizontal, 20)
+//                }
+//
                 NewsSection(
                     selectedNews: $selectedNews,
                     newsYokai: newsYokai

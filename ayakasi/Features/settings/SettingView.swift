@@ -45,6 +45,9 @@ struct SettingView: View {
 
                     VStack(spacing: 0) {
                         SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
+                            .simultaneousGesture(TapGesture().onEnded {
+                                Analytics.trackScreenView(screenName: "匿名で問い合わせ")
+                            })
 
                         NavigationLink(destination: MessageUI()) {
                             HStack {
@@ -68,6 +71,9 @@ struct SettingView: View {
                             .padding(.vertical, 12)
                         }
                         .foregroundStyle(.primary)
+                        .simultaneousGesture(TapGesture().onEnded {
+                            Analytics.trackScreenView(screenName: "みなさんの声")
+                        })
 
                         SettingRowLink(title: "プライバシーポリシー", destination: WebView(url: URL(string: AppConstants.privacyPolicyURL)))
           

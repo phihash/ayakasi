@@ -2,6 +2,27 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "カリコボウズ",
+        documentId: "karikobouzu",
+        imageName: "NoImage",
+        description: "宮崎県の山村に伝わる子どもの姿をした妖怪。地域によってカリコ坊、ヒョウスボ、セコなどさまざまに呼ばれる。小学校低学年ほどの大きさで、大人には見えないが子どもの前には姿を現すことがあるという。山中では「ホイホイ」と澄んだ声で鳴き、近くにいるかと思えば遠くから、谷かと思えば山から聞こえるなど、不思議な動きを見せる。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["かりこぼうず", "カリコボウズ", "かりこぼう", "カリコボウ", "ヒョウスボ", "ヒョウスンボ", "セコ", "セコッポ", "宮崎", "みやざき", "山", "やま", "ホイホイ", "米良", "めら"],
+        story: false
+    ),
+    Ayakasi(
+        name: "木霊",
+        documentId: "kodama",
+        imageName: "https://i.imgur.com/4IJP8Lj.png",
+        imageSource: "パブリックドメイン",
+        description: "樹木に宿る精霊で、その精霊が宿った木そのものも木霊と呼ぶ。外見は普通の木だが、切り倒すと祟りがあるとされ、古老たちが代々語り継いで守ってきた。『古事記』の木の神ククノチノカミが木霊の原型とされ、『源氏物語』にも妖怪に近い存在として登場する。鳥山石燕は『画図百鬼夜行』で老いた男女の姿に描いた。沖縄のキジムナーも木の精キーヌシーに由来するとされる。",
+        categories: ["山の怪","鳥山石燕","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["こだま", "木霊", "木魂", "きだま", "コダマ", "木魅", "樹木", "精霊", "せいれい", "鳥山石燕", "とりやませきえん", "画図百鬼夜行", "がずひゃっきやぎょう", "ククノチノカミ", "キーヌシー", "キジムナー", "キダマサマ"],
+        story: false
+    ),
+    Ayakasi(
         name: "煙々羅",
         documentId: "enenra",
         imageName: "https://i.imgur.com/gtVXUHi.png",
@@ -1064,6 +1085,15 @@ let ayakasis: [Ayakasi] = [
                 prefecture: "岡山県",
                 imageURL: nil,
                 spotType: .yokaiRelated
+            ),
+            YokaiSpot(
+                spotName: "狐の嫁入り屋敷",
+                coordinate: CLLocationCoordinate2D(latitude: 37.68387746987358, longitude: 139.4538278423273),
+                description: "狐の嫁入り伝説にまつわる展示や体験ができる入館無料の施設。狐面づくりや狐メイクなどが人気で、上階からは阿賀野川と麒麟山を一望できる。",
+                yokaiIds: ["kitsune"],
+                prefecture: "新潟県",
+                imageURL: nil,
+                spotType: .yokaiRelated
             )
         ]
     ),
@@ -1283,7 +1313,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "濡れ女",
         documentId: "nureonna",
-        imageName: "https://i.imgur.com/Von1CEd.jpeg",
+        imageName: "NoImage",
         description: "長い黒髪と濡れた和服、青白い肌を持つ。哀しげな表情で現れ、川や沼のほとり、橋の上を歩く姿が多い。恐怖の象徴でありつつ、水難事故への警告とされることもある。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",
@@ -1292,7 +1322,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "すなかけばばあ",
         documentId: "sunakakebabaa",
-        imageName: "https://i.imgur.com/AXzMxMo.jpeg",
+        imageName: "NoImage",
         description: "背の曲がった老婆の姿で現れ、手にした杓や袋から砂を浴びせて人を惑わせるとされる。",
         categories: ["道の怪","すべて"],
         relatedCategory: "道の怪",
@@ -1315,6 +1345,15 @@ let ayakasis: [Ayakasi] = [
                 description: "岩手県盛岡市にある神社。鬼が三つの巨石に手形を押して二度と現れないと約束した伝説が残り、「岩手」の地名の由来となった。盛岡三大祭りの一つ「さんさ踊り」の起源でもある。",
                 yokaiIds: ["oni"],
                 prefecture: "岩手県",
+                imageURL: nil,
+                spotType: .yokaiRelated
+            ),
+            YokaiSpot(
+                spotName: "龍原寺 三重塔",
+                coordinate: CLLocationCoordinate2D(latitude: 33.11768225575674, longitude: 131.79539361349097),
+                description: "聖徳太子を祀ることから太子塔とも呼ばれる、九州に2つしかない江戸期の木造三重塔。県指定文化財。軒下には小さな鬼の像がユニークな表情で屋根を支えており、妖怪好きにも見応えがある。",
+                yokaiIds: ["oni"],
+                prefecture: "大分県",
                 imageURL: nil,
                 spotType: .yokaiRelated
             )

@@ -49,6 +49,13 @@ struct Container: View {
                 
             }
             .tint(.appSecondary)
+            .onChange(of: selection) { _, newValue in
+                let tabNames = ["検索", "コミュニティ", "マップ", "イベント", "設定"]
+                if newValue < tabNames.count {
+                    Analytics.trackTabChanged(tabName: tabNames[newValue])
+                    Analytics.trackScreenView(screenName: tabNames[newValue])
+                }
+            }
             .onAppear {
                 if AppLaunchCounter.shared.handleAppLaunch() {
                     showSatisfactionAlert = true
@@ -57,11 +64,13 @@ struct Container: View {
             .alert("アプリは気に入っていますか？", isPresented: $showSatisfactionAlert) {
                 Button("はい") {
                     // 満足しているユーザー → App Storeレビューへ
+                    Analytics.trackSatisfactionResponse(response: "positive")
                     requestReview()
                     AppLaunchCounter.shared.markReviewRequested()
                 }
                 Button("いいえ") {
                     // 不満があるユーザー → 問い合わせページへ
+                    Analytics.trackSatisfactionResponse(response: "negative")
                     showContactForm = true
                     AppLaunchCounter.shared.markReviewRequested()
                 }

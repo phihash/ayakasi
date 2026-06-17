@@ -487,6 +487,7 @@ struct NeoDetail: View {
             RegisterView()
         }
         .task {
+            Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
             // 詳細画面を開いたら自動で既読にする
             if !favoriteService.isReadYokai(yokai.documentId) {
