@@ -28,3 +28,4 @@ DerivedData
 
 .idea/
 GoogleService-Info.plist
+Secrets.xcconfig
