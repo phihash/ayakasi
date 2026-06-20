@@ -1,5 +1,4 @@
 import SwiftUI
-import Kingfisher
 import FirebaseFirestore
 
 struct RecentCommentsSectionView: View {
@@ -63,83 +62,26 @@ struct RecentCommentsSectionView: View {
                     let yokaiId = comment["yokaiId"] as? String ?? ""
 
                     if let ayakasi = ayakasis.first(where: { $0.documentId == yokaiId }) {
-                        HStack(spacing: 12) {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(comment["content"] as? String ?? "")
-                                    .fontWeight(.bold)
-                                    .font(.subheadline)
-                                    .lineLimit(3)
-
-                                HStack{
-
-                                   
-
-                                    if ayakasi.story {
-                                        Image("book2")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 12, height: 12)
-                                    }
-                                    
-                                    if let timestamp = comment["createdAt"] as? Timestamp {
-                                        Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
-                                            .font(.caption)
-                                            .foregroundColor(.appTextSecondary)
-                                            .fontWeight(.semibold)
-                                    }
-                                    
-                                    Text(ayakasi.name)
-                                        .font(.caption)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.appTextSecondary)
-                                    
-                                    Spacer()
-
-                                    if let currentUserId = authVM.user?.uid,
-                                       let commentUserId = comment["userId"] as? String,
-                                       currentUserId != commentUserId {
-                                        Image(systemName: "ellipsis")
-                                            .font(.title3)
-                                            .onTapGesture {
-                                                guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
-                                                    return
-                                                }
-
-                                                selectedCommentId = docId
-                                                reportTarget = ReportTarget(id: docId)
-                                            }
-                                    }
-
+                        CommentCardItem(
+                            content: comment["content"] as? String ?? "",
+                            yokaiName: ayakasi.name,
+                            imageURL: ayakasi.imageName,
+                            dateText: (comment["createdAt"] as? Timestamp).map {
+                                DateFormatter.shortDateTime.string(from: $0.dateValue())
+                            },
+                            currentUserId: authVM.user?.uid,
+                            commentUserId: comment["userId"] as? String,
+                            onTap: {
+                                selectedYokai = ayakasi
+                            },
+                            onReport: {
+                                guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
+                                    return
                                 }
+                                selectedCommentId = docId
+                                reportTarget = ReportTarget(id: docId)
                             }
-
-                            Spacer()
-
-                            Group {
-                                if let url = URL(string: ayakasi.imageName), url.scheme?.hasPrefix("http") == true {
-                                    KFImage(url)
-                                        .resizable()
-                                        .scaledToFill()
-                                } else {
-                                    VStack {
-                                        Text("👻")
-                                            .font(.title2)
-                                        Text("No picture")
-                                            .font(.caption2)
-                                            .foregroundColor(.appTextSecondary)
-                                    }
-                                }
-                            }
-                            .frame(width: 70, height: 70)
-                            .cornerRadius(8)
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 16)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedYokai = ayakasi
-                        }
+                        )
 
                         Divider()
                             .padding(.horizontal, 20)

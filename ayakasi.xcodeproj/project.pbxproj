@@ -11,6 +11,7 @@
 		A90029542E94146300F90FC5 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A90029532E94146300F90FC5 /* XMLKit */; };
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
+		A9063B552FE724AB007CF638 /* CommentCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9063B542FE724AB007CF638 /* CommentCardItem.swift */; };
 		A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */; };
 		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A9063B542FE724AB007CF638 /* CommentCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardItem.swift; sourceTree = "<group>"; };
 		A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelect.swift; sourceTree = "<group>"; };
 		A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReportService.swift; sourceTree = "<group>"; };
 		A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockingService.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A9063B542FE724AB007CF638 /* CommentCardItem.swift */,
 				A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
@@ -568,6 +571,7 @@
 				A92B30092F71676600E84A15 /* MessageUI.swift in Sources */,
 				A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */,
 				A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */,
+				A9063B552FE724AB007CF638 /* CommentCardItem.swift in Sources */,
 				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
 				A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */,
 				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
