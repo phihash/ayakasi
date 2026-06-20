@@ -1,30 +1,15 @@
 import SwiftUI
 
-extension String: Identifiable {
-    public var id: String { self }
-}
-
 struct SearchView: View {
     let categories = YokaiCategories.searchCategories
-    @State private var selectedYokai : Ayakasi? = nil
     @State private var searchText = ""
-    @State private var selectedCategoryForList: String? = nil
+    @State private var navigationPath = NavigationPath()
     @FocusState private var isSearchFocused: Bool
-    @EnvironmentObject var voteService: VoteService
-
-    var rankedYokai: [Ayakasi] {
-        ayakasis.sorted { e1, e2 in
-            let count1 = voteService.voteCountCache[e1.documentId] ?? 0
-            let count2 = voteService.voteCountCache[e2.documentId] ?? 0
-            return count1 > count2
-        }
-    }
-
     func filteredYokais(for category: String) -> [Ayakasi] {
         let categoryFiltered = ayakasis.filter { $0.categories.contains(category) }
 
         if searchText.isEmpty {
-            return categoryFiltered.shuffled()
+            return categoryFiltered
         } else {
             return categoryFiltered.filter { ayakasi in
                 ayakasi.name.contains(searchText) ||
@@ -34,7 +19,7 @@ struct SearchView: View {
     }
 
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $navigationPath) {
             VStack(spacing: 0){
                 HStack(spacing: 16) {
                     HStack {
@@ -83,63 +68,40 @@ struct SearchView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 100)
                     } else {
-                        if searchText.isEmpty {
-                            RankingSectionView(rankedYokai: rankedYokai, selectedYokai: $selectedYokai) {
-                                Analytics.trackCategorySelected(category: "すべて")
-                                selectedCategoryForList = "すべて"
-                            }
-                        }
-                        ForEach(categories,id:\.self) { category in
-                            let yokais = filteredYokais(for: category)
-
-                            if !yokais.isEmpty {
-                                Button {
-                                    Analytics.trackCategorySelected(category: category)
-                                    selectedCategoryForList = category
-                                } label: {
-                                    HStack{
-                                        Text(category)
-
-                                        Image(systemName: "chevron.right")
-                                            .foregroundColor(.appTextSecondary)
-                                            .font(.subheadline)
-                                        Spacer()
-                                    }
-                                    .font(.system(size: 18))
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.primary)
-                                    .padding(.horizontal,20)
-                                    .padding(.vertical,12)
+                        VStack(spacing: 16) {
+                            CardUI(
+                                imageURL: ayakasis.first(where: { $0.imageName != "NoImage" })?.imageName,
+                                title: "すべての妖怪",
+                                description: "\(ayakasis.count)体の妖怪",
+                                action: {
+                                    Analytics.trackCategorySelected(category: "すべて")
+                                    navigationPath.append("すべて")
                                 }
-
-                                ScrollView(.horizontal,showsIndicators: false){
-
-                                    HStack(spacing: 12){
-                                        ForEach(yokais, id: \.id) { ayakasi in
-                                            NeoCardItem(item: ayakasi)
-                                                .onTapGesture{
-                                                    selectedYokai = ayakasi
-                                                }
+                            )
+                            ForEach(categories, id: \.self) { category in
+                                let yokais = filteredYokais(for: category)
+                                if !yokais.isEmpty {
+                                    let representativeImage = yokais.first(where: { $0.imageName != "NoImage" })?.imageName
+                                    CardUI(
+                                        imageURL: representativeImage,
+                                        title: category,
+                                        description: "\(yokais.count)体の妖怪",
+                                        action: {
+                                            Analytics.trackCategorySelected(category: category)
+                                            navigationPath.append(category)
                                         }
-
-                                    }
-                                    .padding(.horizontal,20)
-                                    .padding(.bottom,8)
+                                    )
                                 }
                             }
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 8)
                     }
                 }
                 .background(Color.appBackground)
             }
             .navigationBarHidden(true)
-            .fullScreenCover(item: $selectedYokai) { yokai in
-                NavigationStack {
-                    NeoDetail(yokai: yokai)
-                }
-            }
-            .fullScreenCover(item: $selectedCategoryForList) { category in
+            .navigationDestination(for: String.self) { category in
                 AllYokaiListView(selectedCategory: category)
             }
         }

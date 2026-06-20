@@ -3,70 +3,83 @@ import Kingfisher
 
 struct NeoCardItem: View {
     let item: Ayakasi
-    @EnvironmentObject var voteService : VoteService
-    @EnvironmentObject var favoriteService : FavoriteService
+    let onTap: () -> Void
+    @EnvironmentObject var favoriteService: FavoriteService
+
     var body: some View {
-        VStack(alignment: .leading){
-            Group {
-                if item.imageName == "NoImage" {
-                    VStack(spacing: 4) {
-                        Image(systemName: "questionmark.square")
-                            .font(.system(size: 32))
-                        Text("No Image")
-                            .font(.caption2)
-                    }
-                    .foregroundColor(.appTextSecondary)
-                    .frame(width: 120, height: 120)
-                    .background(Color.gray.opacity(0.12))
-                    .cornerRadius(12)
-                } else {
-                    KFImage(URL(string: item.imageName))
-                        .placeholder {
-                            Image("loading")
-                                .resizable()
-                                .scaledToFill()
+        VStack(alignment: .leading, spacing: 0) {
+            // イメージエリア + メインエリア（タップで詳細遷移）
+            Button(action: onTap) {
+                VStack(alignment: .leading, spacing: 0) {
+                    // イメージエリア
+                    GeometryReader { proxy in
+                        ZStack {
+                            if item.imageName == "NoImage" {
+                                Color.gray.opacity(0.12)
+                                VStack(spacing: 4) {
+                                    Image(systemName: "questionmark.square")
+                                        .font(.system(size: 32))
+                                    Text("No Image")
+                                        .font(.caption2)
+                                }
+                                .foregroundColor(.appTextSecondary)
+                            } else {
+                                KFImage(URL(string: item.imageName))
+                                    .placeholder {
+                                        Image("loading")
+                                            .resizable()
+                                            .scaledToFill()
+                                    }
+                                    .cacheOriginalImage()
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: proxy.size.width, height: proxy.size.width)
+                                    .clipped()
+                            }
                         }
-                        .cacheOriginalImage()
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 120)
-                        .cornerRadius(12)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .aspectRatio(1, contentMode: .fit)
+                    .clipped()
+
+                    // メインエリア
+                    Text(item.name)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .foregroundColor(.appTextPrimary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 52)
+                        .padding(.horizontal, 10)
                 }
             }
-            Text(item.name)
-                .font(.subheadline)
-                .lineLimit(1)
-                .fontWeight(.bold)
-                .padding(.bottom,2)
-            HStack(spacing: 4){
-                HStack(spacing: 1){
-                    Image(systemName: "heart")
-                    Text("\(voteService.voteCountCache[item.documentId] ?? 0)")
-                }
+            .buttonStyle(.plain)
 
-                Image(systemName: favoriteService.isFavoriteYokai(item.documentId) ? "star.fill" : "star")
-                    .font(.system(size: 10))
-
-                if let relatedSpots = item.relatedSpots, !relatedSpots.isEmpty {
-                    Image(systemName: "mappin.and.ellipse")
-                        .font(.system(size: 10))
-                        .foregroundStyle(Color.appSecondary)
-                }
-
-                if item.story {
-                    Image("book")
-                        .renderingMode(.template)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 13, height: 13)
-                        .foregroundStyle(Color.appTextPrimary)
-                }
-
-                Spacer()
+            // サブエリア
+            Button {
+                favoriteService.toggleFavoriteYokai(item.documentId)
+            } label: {
+                Text(favoriteService.isFavoriteYokai(item.documentId) ? "お気に入り済み" : "お気に入り")
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundColor(favoriteService.isFavoriteYokai(item.documentId) ? .white : .appTextPrimary)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 6)
+                    .background(favoriteService.isFavoriteYokai(item.documentId) ? Color.appSecondary : Color.clear)
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(favoriteService.isFavoriteYokai(item.documentId) ? Color.clear : Color.appTextSecondary, lineWidth: 1)
+                    )
             }
-            .font(.caption)
+            .buttonStyle(.plain)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 10)
         }
-        .foregroundColor(Color.appTextPrimary)
-        .frame(width: 120)
+        .background(Color.appCardBackground)
+        .cornerRadius(12)
+        .shadow(color: .black.opacity(0.08), radius: 4, x: 0, y: 2)
+        .padding(.horizontal, 2)
     }
 }

@@ -256,6 +256,7 @@ struct JapanView: View {
                     }
                 }
             }
+            .padding(.top, 16)
             .presentationDetents([.medium, .fraction(0.9)], selection: $selectedDetent)
             .presentationDragIndicator(.visible)
             .presentationBackgroundInteraction(.enabled)

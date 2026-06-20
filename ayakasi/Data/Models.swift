@@ -45,4 +45,14 @@ struct Ayakasi : Identifiable {
     var videoId: String? = nil  // YouTube動画ID
 }
 
+extension Ayakasi: Hashable {
+    static func == (lhs: Ayakasi, rhs: Ayakasi) -> Bool {
+        lhs.documentId == rhs.documentId
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(documentId)
+    }
+}
+
 struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }

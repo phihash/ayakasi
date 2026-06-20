@@ -1,6 +1,9 @@
 import AmplitudeUnified
 
-let amplitude = Amplitude(apiKey: Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as? String ?? "")
+let amplitude = Amplitude(
+    apiKey: Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as? String ?? "",
+    logger: ConsoleLogger(logLevel: LogLevelEnum.off.rawValue)
+)
 
 enum Analytics {
     static func trackYokaiViewed(name: String, documentId: String) {

@@ -2,6 +2,83 @@ import MapKit
 
 let ayakasis: [Ayakasi] = [
     Ayakasi(
+        name: "猪口暮露",
+        documentId: "chokuboron",
+        imageName: "https://i.imgur.com/4LGb76g.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕の『百器徒然袋』に描かれた妖怪。猪口を頭にかぶった虚無僧のような姿で、箱の中から次々と現れる様子が描かれている。酒器である猪口の付喪神とされる。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["ちょくぼろん", "猪口暮露", "猪口", "ちょく", "虚無僧", "こむそう", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ", "付喪神", "つくもがみ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "松明丸",
+        documentId: "taimatsumaru",
+        imageName: "https://i.imgur.com/ewjk3Yd.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕の『百器徒然袋』に描かれた、火を携えた猛禽のような姿の妖怪。天狗礫が放つ光とされ、深山の森の奥に現れるという。暗闇を照らす火ではなく、仏道の修行を惑わせる存在とされている。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["たいまつまる", "松明丸", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ", "天狗礫", "てんぐつぶて", "火", "ひ", "猛禽", "もうきん"],
+        story: false
+    ),
+    Ayakasi(
+        name: "ソンツル",
+        documentId: "sontsuru",
+        imageName: "https://i.imgur.com/ndOToOO.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥取県伯耆地方に伝わる憑きもの筋の呼び名。多くは狐憑きの家系を指し、75匹の眷属が家の周りにいるとされる。まれにトウビョウというヘビやミミズに似た霊が憑く家系を指すこともあり、月末に粥を供えて害を避ける風習があった。憑きもの筋とされた家は縁談が破談になるなど社会的な差別を受けた。",
+        categories: ["動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["そんつる", "ソンツル", "狐ヅル", "きつねづる", "人狐", "ひとぎつね", "トウビョウ", "憑きもの", "つきもの", "鳥取", "とっとり", "伯耆", "ほうき"],
+        story: false
+    ),
+    Ayakasi(
+        name: "禅釜尚",
+        documentId: "zenpushou",
+        imageName: "https://i.imgur.com/M9MFIIZ.png",
+        imageSource: "パブリックドメイン",
+        description: "鳥山石燕の『百器徒然袋』に描かれた茶釜の付喪神。虎隠良や槍毛長と共に登場し、その構図は室町時代の『百鬼夜行絵巻』がもとになっているとされる。茶道と禅宗の深い結びつきから、名前は「禅和尚」をもじったものとの説がある。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["ぜんふしょう", "禅釜尚", "茶釜", "ちゃがま", "付喪神", "つくもがみ", "鳥山石燕", "とりやませきえん", "百器徒然袋", "ひゃっきつれづれぶくろ", "虎隠良", "槍毛長", "禅和尚"],
+        story: false
+    ),
+    Ayakasi(
+        name: "神社姫",
+        documentId: "jinjahime",
+        imageName: "https://i.imgur.com/6cSW1LI.png",
+        imageSource: "パブリックドメイン",
+        description: "文政時代に肥前国（現在の長崎・佐賀）の浜辺に現れたとされる人魚に似た妖怪。2本の角と人の顔を持ち、腹は紅色、三刃の剣のような尾びれが特徴。龍宮の使者を名乗り、豊作の後に疫病が流行ると予言し、自分の姿を描き写せば難を逃れられると告げたという。その写し絵は多くの家で大切にされた。",
+        categories: ["水の怪","すべて"],
+        relatedCategory: "水の怪",
+        searchKeywords: ["じんじゃひめ", "神社姫", "人魚", "にんぎょ", "肥前", "ひぜん", "長崎", "ながさき", "佐賀", "さが", "龍宮", "りゅうぐう", "コロリ", "予言", "よげん", "我衣", "わがころも"],
+        story: false
+    ),
+    Ayakasi(
+        name: "木の葉天狗",
+        documentId: "konohatengu",
+        imageName: "https://i.imgur.com/2V72P0N.png",
+        imageSource: "パブリックドメイン",
+        description: "天狗の一種で、境鳥とも呼ばれる。鼻の高い山伏姿の天狗とは異なり、トビに似た大きな翼を持つ鳥のような姿とされる。天狗の世界では地位が低く、薪売りや荷物運びで生計を立てていたという。一方で、人前に小僧の姿で現れるなど変化の術を使う話も伝わっており、その実力には諸説ある。",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["このはてんぐ", "木の葉天狗", "木葉天狗", "天狗", "てんぐ", "境鳥", "さかいどり", "白狼", "はくろう", "大井川", "静岡", "甲子夜話", "かっしやわ", "諸国里人談"],
+        story: false
+    ),
+    Ayakasi(
+        name: "金霊",
+        documentId: "kanedama",
+        imageName: "https://i.imgur.com/OZCJ6qf.png",
+        imageSource: "パブリックドメイン",
+        description: "金の精霊とされる妖怪で、光る玉の姿で夜空を飛ぶとされる。この霊が飛び込んだ家は富み栄え、去った家は衰えるという。金玉（かなだま）とも呼ばれ、似た伝承が各地に残る。",
+        categories: ["鳥山石燕","すべて"],
+        relatedCategory: "鳥山石燕",
+        searchKeywords: ["かねだま", "金霊", "かなだま", "金玉", "鳥山石燕", "とりやませきえん", "金", "かね", "富", "とみ", "精霊", "せいれい"],
+        story: false
+    ),
+    Ayakasi(
         name: "カリコボウズ",
         documentId: "karikobouzu",
         imageName: "NoImage",
@@ -924,7 +1001,7 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "隙間女",
         documentId: "sukimaonna",
-        imageName: "https://i.imgur.com/ds8JAyn.png",
+        imageName: "NoImage",
         description: "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。\n\n隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
         categories: ["都市伝説","すべて"],
         relatedCategory: "都市伝説",
@@ -1313,7 +1390,8 @@ let ayakasis: [Ayakasi] = [
     Ayakasi(
         name: "濡れ女",
         documentId: "nureonna",
-        imageName: "NoImage",
+        imageName: "https://i.imgur.com/P58gOj9.png",
+        imageSource: "パブリックドメイン",
         description: "長い黒髪と濡れた和服、青白い肌を持つ。哀しげな表情で現れ、川や沼のほとり、橋の上を歩く姿が多い。恐怖の象徴でありつつ、水難事故への警告とされることもある。",
         categories: ["水の怪","すべて"],
         relatedCategory: "水の怪",

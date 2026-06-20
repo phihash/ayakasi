@@ -106,6 +106,7 @@ struct NeoDetail: View {
     @State private var showStoryView = false
     @State private var isCommentUI = false
     @State private var voteSuccess = false
+    @State private var selectedRelatedYokai: Ayakasi? = nil
     @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
@@ -452,10 +453,10 @@ struct NeoDetail: View {
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack(spacing: 16){
                                     ForEach(relatedYokais.prefix(7)){ ayakasi in
-                                        NavigationLink(destination: NeoDetail(yokai: ayakasi)) {
-                                            NeoCardItem(item: ayakasi)
+                                        NeoCardItem(item: ayakasi) {
+                                            selectedRelatedYokai = ayakasi
                                         }
-                                        
+                                        .frame(width: 160)
                                     }
                                 }
                                 .padding(.horizontal,20)
@@ -485,6 +486,9 @@ struct NeoDetail: View {
         }
         .navigationDestination(isPresented: $authVM.isShowRegisterView) {
             RegisterView()
+        }
+        .navigationDestination(item: $selectedRelatedYokai) { yokai in
+            NeoDetail(yokai: yokai)
         }
         .task {
             Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)

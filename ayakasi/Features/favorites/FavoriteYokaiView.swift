@@ -4,8 +4,10 @@ import Kingfisher
 struct FavoriteYokaiView: View {
     @EnvironmentObject var favoriteService: FavoriteService
     @State private var selectedYokai: Ayakasi? = nil
-    let screenWidth = UIScreen.main.bounds.width
-    let itemSpacing: CGFloat = 30
+    private let columns = [
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
+    ]
 
     var favoriteYokais: [Ayakasi] {
         let favoriteIds = favoriteService.favoriteYokaiIds
@@ -26,17 +28,14 @@ struct FavoriteYokaiView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.top, 100)
             } else {
-                let columns = Array(repeating: GridItem(.flexible(), spacing: itemSpacing), count: 3)
-
-                LazyVGrid(columns: columns, spacing: itemSpacing) {
+                LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(favoriteYokais, id: \.id) { ayakasi in
-                        NeoCardItem(item: ayakasi)
-                            .onTapGesture {
-                                selectedYokai = ayakasi
-                            }
+                        NeoCardItem(item: ayakasi) {
+                            selectedYokai = ayakasi
+                        }
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 16)
                 .padding(.top, 20)
             }
         }
