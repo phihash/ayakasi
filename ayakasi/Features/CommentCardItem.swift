@@ -34,17 +34,17 @@ struct CommentCardItem: View {
                     }
                 }
             }
-            .frame(width: 56, height: 56)
-            .cornerRadius(8)
-            .clipped()
+            .frame(width: 72, height: 72)
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
 
             // メインエリア
-            VStack(alignment: .leading, spacing: 4) {
-                HStack {
+            Button(action: onTap) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(yokaiName)
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.appTextSecondary)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.appTextPrimary)
+                        .lineLimit(1)
 
                     if let dateText {
                         Text(dateText)
@@ -52,30 +52,37 @@ struct CommentCardItem: View {
                             .foregroundColor(.appTextSecondary)
                     }
 
-                    Spacer()
-
-                    if let currentUserId, let commentUserId,
-                       currentUserId != commentUserId {
-                        Button(action: onReport) {
-                            Image(systemName: "ellipsis")
-                                .font(.caption)
-                                .foregroundColor(.appTextSecondary)
-                                .frame(width: 44, height: 44)
-                                .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                    }
+                    Text(content)
+                        .font(.subheadline)
+                        .lineLimit(2)
+                        .foregroundColor(.appTextPrimary)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .buttonStyle(.plain)
 
-                Text(content)
-                    .font(.subheadline)
-                    .lineLimit(2)
-                    .foregroundColor(.appTextPrimary)
+            if let currentUserId, let commentUserId,
+               currentUserId != commentUserId {
+                Button(action: onReport) {
+                    Image(systemName: "ellipsis")
+                        .font(.body)
+                        .foregroundColor(.appTextSecondary)
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
             }
         }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.appCardBackground)
+        .overlay(
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .stroke(Color.appTextSecondary, lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
         .padding(.horizontal, 20)
-        .padding(.vertical, 8)
-        .contentShape(Rectangle())
-        .onTapGesture(perform: onTap)
+        .padding(.vertical, 6)
     }
 }

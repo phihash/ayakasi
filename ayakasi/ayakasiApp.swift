@@ -3,23 +3,33 @@ import Firebase
 
 @main
 struct ayakasiApp: App {
-    @StateObject private var AuthVM = AuthViewModel()
-    @StateObject private var VoteVM = VoteService(
-        authService: AuthService.shared,
-        tokenBucket: TokenBucket(maxToken: 15, refillInterval: 300, storageKeyPrefix: "vote")
-    )
-    @StateObject private var BlockingVM = UserBlockingService(authService: AuthService.shared)
-    @StateObject private var ReportVM = CommentReportService(authService: AuthService.shared)
-    @StateObject private var CommentVM = CommentService(
-        authService: AuthService.shared,
-        tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment"),
-        blockingService: UserBlockingService(authService: AuthService.shared)
-    )
-    @StateObject private var FavoriteVM = FavoriteService.shared
+    @StateObject private var AuthVM: AuthViewModel
+    @StateObject private var VoteVM: VoteService
+    @StateObject private var BlockingVM: UserBlockingService
+    @StateObject private var ReportVM: CommentReportService
+    @StateObject private var CommentVM: CommentService
+    @StateObject private var FavoriteVM: FavoriteService
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     init(){
         FirebaseApp.configure()
+
+        let authService = AuthService.shared
+        let blockingService = UserBlockingService(authService: authService)
+
+        _AuthVM = StateObject(wrappedValue: AuthViewModel())
+        _VoteVM = StateObject(wrappedValue: VoteService(
+            authService: authService,
+            tokenBucket: TokenBucket(maxToken: 15, refillInterval: 300, storageKeyPrefix: "vote")
+        ))
+        _BlockingVM = StateObject(wrappedValue: blockingService)
+        _ReportVM = StateObject(wrappedValue: CommentReportService(authService: authService))
+        _CommentVM = StateObject(wrappedValue: CommentService(
+            authService: authService,
+            tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment"),
+            blockingService: blockingService
+        ))
+        _FavoriteVM = StateObject(wrappedValue: FavoriteService.shared)
     }
     var body: some Scene {
         WindowGroup {

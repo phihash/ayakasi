@@ -13,7 +13,7 @@ class UserBlockingService: ObservableObject {
 
     // ユーザーがブロック済みかチェック
     func isUserBlocked(userId: String) async -> Bool {
-        guard let user = authService.currentUser else { return false }
+        guard let user = authService.currentUser, user.isEmailVerified else { return false }
 
         do {
             let userDoc = try await db.collection("users").document(user.uid).getDocument()
@@ -30,7 +30,7 @@ class UserBlockingService: ObservableObject {
             throw CommentError(message: "無効なユーザーIDです")
         }
 
-        guard let user = authService.currentUser else {
+        guard let user = authService.currentUser, user.isEmailVerified else {
             throw CommentError(message: "ログインが必要です")
         }
 
@@ -54,7 +54,7 @@ class UserBlockingService: ObservableObject {
 
     // コメント配列をフィルタリング（ブロックユーザーの投稿を除外）
     func filterBlockedComments(_ comments: [[String: Any]]) async -> [[String: Any]] {
-        guard authService.currentUser != nil else { return comments }
+        guard authService.currentUser?.isEmailVerified == true else { return comments }
 
         var filteredComments: [[String: Any]] = []
 

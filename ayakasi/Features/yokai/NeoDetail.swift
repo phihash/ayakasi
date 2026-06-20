@@ -47,7 +47,8 @@ struct CommentListView: View {
                         
                         HStack{
                             Spacer()
-                            if let currentUserId = authVM.user?.uid,
+                            if authVM.authStatus == .authenticated,
+                               let currentUserId = authVM.user?.uid,
                                let commentUserId = comment["userId"] as? String,
                                currentUserId != commentUserId {
                                 Image(systemName: "ellipsis")

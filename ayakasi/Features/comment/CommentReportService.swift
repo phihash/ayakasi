@@ -17,7 +17,7 @@ class CommentReportService: ObservableObject {
             throw CommentError(message: "無効なコメントIDです")
         }
 
-        guard let user = authService.currentUser else {
+        guard let user = authService.currentUser, user.isEmailVerified else {
             throw CommentError(message: "ログインが必要です")
         }
 

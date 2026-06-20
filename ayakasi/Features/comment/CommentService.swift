@@ -13,7 +13,7 @@ class CommentService : ObservableObject {
     private let db = Firestore.firestore()
 
     // 定数
-    private let maxRecentComments = 15
+    private let maxRecentComments = 20
     private let cacheValidDuration: TimeInterval = 300 // 5分
     private let authService: AuthServiceProtocol
     private let commentTokenBucket: TokenBucketProtocol
@@ -98,7 +98,7 @@ class CommentService : ObservableObject {
         guard !content.isEmpty else {
             throw CommentError(message: "コメントが空です")
         }
-        guard let user = authService.currentUser else {
+        guard let user = authService.currentUser, user.isEmailVerified else {
             throw CommentError(message: "ログインが必要です")
         }
         // トークンバケットチェック

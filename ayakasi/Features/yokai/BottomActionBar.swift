@@ -75,7 +75,7 @@ struct BottomActionBar: View {
 
                 // コメントボタン
                 Button {
-                    if authVM.user != nil {
+                    if authVM.authStatus == .authenticated {
                         isCommentUI.toggle()
                     } else {
                         showLoginAlert = true

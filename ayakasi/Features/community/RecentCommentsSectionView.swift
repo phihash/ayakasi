@@ -21,7 +21,7 @@ struct RecentCommentsSectionView: View {
             .padding(.bottom,4)
 
             // 未ログインユーザー向けの注意書き
-            if authVM.user == nil {
+            if authVM.authStatus != .authenticated {
                 HStack(spacing: 8) {
                     Text("コメントの投稿・通報・ブロックはログインが必要です")
                         .font(.caption)
@@ -68,7 +68,7 @@ struct RecentCommentsSectionView: View {
                             dateText: (comment["createdAt"] as? Timestamp).map {
                                 DateFormatter.shortDateTime.string(from: $0.dateValue())
                             },
-                            currentUserId: authVM.user?.uid,
+                            currentUserId: authVM.authStatus == .authenticated ? authVM.user?.uid : nil,
                             commentUserId: comment["userId"] as? String,
                             onTap: {
                                 selectedYokai = ayakasi
@@ -81,9 +81,6 @@ struct RecentCommentsSectionView: View {
                                 reportTarget = ReportTarget(id: docId)
                             }
                         )
-
-                        Divider()
-                            .padding(.horizontal, 20)
                     }
                 }
             }

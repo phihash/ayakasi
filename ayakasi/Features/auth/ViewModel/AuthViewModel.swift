@@ -23,6 +23,7 @@ class AuthViewModel : ObservableObject{
     @Published var isShowRegisterView: Bool = false
 
     private let authService = AuthService.shared
+    private var authStateHandle: AuthStateDidChangeListenerHandle?
 
     init(){
         setupAuthStateListener()
@@ -30,6 +31,12 @@ class AuthViewModel : ObservableObject{
         // 既存ユーザーがいればusersドキュメントを確保
         Task {
             await authService.ensureUserExists()
+        }
+    }
+
+    deinit {
+        if let authStateHandle {
+            authService.removeAuthStateListener(authStateHandle)
         }
     }
     
@@ -42,11 +49,17 @@ class AuthViewModel : ObservableObject{
     }
     
     private func setupAuthStateListener(){
-        self.user = authService.currentUser
-        
-        if authService.currentUser == nil {
+        authStateHandle = authService.observeAuthState { [weak self] user in
+            self?.applyAuthState(user)
+        }
+    }
+
+    private func applyAuthState(_ user: User?) {
+        self.user = user
+
+        if user == nil {
             self.authStatus = .none
-        } else if authService.isEmailVerified {
+        } else if user?.isEmailVerified == true {
             self.authStatus = .authenticated
         } else {
             self.authStatus = .waitingVerification
@@ -172,15 +185,7 @@ class AuthViewModel : ObservableObject{
     func checkEmailVerification() async {
         do {
             try await authService.reloadUser()
-            self.user = authService.currentUser
-            
-            if authService.currentUser == nil {
-                self.authStatus = .none
-            } else if authService.isEmailVerified {
-                self.authStatus = .authenticated
-            } else {
-                self.authStatus = .waitingVerification
-            }
+            applyAuthState(authService.currentUser)
         } catch {
             print("ユーザー情報の更新エラー: \(error)")
         }

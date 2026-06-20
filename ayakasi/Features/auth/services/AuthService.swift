@@ -11,7 +11,9 @@ protocol AuthServiceProtocol {
 @MainActor
 class AuthService: ObservableObject , AuthServiceProtocol {
     static let shared = AuthService()
-    private let db = Firestore.firestore()
+    private var db: Firestore {
+        Firestore.firestore()
+    }
 
     private init() {}
         
@@ -40,8 +42,14 @@ class AuthService: ObservableObject , AuthServiceProtocol {
     
     func observeAuthState(completion: @escaping (User?) -> Void) -> AuthStateDidChangeListenerHandle {
         return Auth.auth().addStateDidChangeListener { _, user in
-            completion(user)
+            Task { @MainActor in
+                completion(user)
+            }
         }
+    }
+
+    nonisolated func removeAuthStateListener(_ handle: AuthStateDidChangeListenerHandle) {
+        Auth.auth().removeStateDidChangeListener(handle)
     }
     
     func resetPassword(email:String) async throws{

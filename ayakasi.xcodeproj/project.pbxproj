@@ -19,6 +19,7 @@
 		A92B30092F71676600E84A15 /* MessageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B30082F71676600E84A15 /* MessageUI.swift */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
+		A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */; };
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
 		A937148D2F3CADA20056D6A3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */; };
 		A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */; };
@@ -104,6 +105,7 @@
 		A92B30082F71676600E84A15 /* MessageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUI.swift; sourceTree = "<group>"; };
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
 		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
+		A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiSearchResultItem.swift; sourceTree = "<group>"; };
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
 		A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A97816762F41DBBC005CAEAE /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
 				A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */,
 				A9B08DAC2EE72BC300592CB5 /* SearchView.swift */,
+				A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */,
 				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
 				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
 			);
@@ -605,6 +608,7 @@
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
+				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
 				A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */,
 			);

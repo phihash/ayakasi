@@ -1,6 +1,60 @@
 import MapKit
 
 let ayakasis: [Ayakasi] = [
+    
+    Ayakasi(
+        name: "豆腐小僧",
+        documentId: "toufukozou",
+        imageName: "https://i.imgur.com/GkDSwwS.png",
+        imageSource: "パブリックドメイン",
+        description: "笠をかぶり、盆に豆腐をのせた子供の姿の妖怪。江戸時代の草双紙で生まれた創作上の存在で、民間伝承にはほとんど記録がない。\n雨の夜に人の後をついて歩くことがあるが、特に悪さをするわけではなく、お人好しで気弱な役回りとして描かれることが多い。他の妖怪たちにいじめられているストーリーもあるなど、どこか憎めない妖怪。",
+        categories: ["詳細不明", "すべて"],
+        relatedCategory: "詳細不明",
+        searchKeywords: ["とうふこぞう", "豆腐小僧", "豆腐", "とうふ", "一つ目", "笠", "かさ", "紅葉豆腐", "こうようどうふ", "草双紙", "くさぞうし", "見越入道", "みこしにゅうどう", "轆轤首", "ろくろくび"],
+        story: false
+    ),
+    Ayakasi(
+        name: "うみぼうず",
+        documentId: "umibouzu",
+        imageName: "https://i.imgur.com/06WVJKo.png",
+        imageSource: "パブリックドメイン",
+        description: "海面から巨大な黒い僧形の影が現れ、船を揺らし、油を要求するなどの話型がある。桶を差し出し機先を制する対処譚も有名。",
+        categories: ["水の怪","すべて"],
+        relatedCategory: "水の怪",
+        story: false
+    ),
+    Ayakasi(
+        name: "絹狸",
+        documentId: "kinutanuki",
+        imageName: "https://i.imgur.com/iv40FyL.png",
+        imageSource: "パブリックドメイン",
+        description: "絹織物（八丈絹）と組み合わされた狸。鳥山石燕による創作妖怪で、八丈島の名産「八丈絹」と「狸の金玉八畳敷き」の掛詞から生まれた。砧（きぬた）との語呂合わせでもある。",
+        categories: ["鳥山石燕","動物の怪","すべて"],
+        relatedCategory: "動物の怪",
+        searchKeywords: ["きぬたぬき", "絹狸", "たぬき", "狸", "化け狸", "ばけたぬき", "八丈絹", "はちじょうぎぬ", "八丈島", "はちじょうじま", "鳥山石燕", "とりやませきえん", "砧", "きぬた", "黄八丈", "きはちじょう", "水木しげる"],
+        story: false
+    ),
+    Ayakasi(
+        name: "崇徳天皇",
+        documentId: "sutokutennnou",
+        imageName: "https://i.imgur.com/miGyilj.png",
+        imageSource: "パブリックドメイン",
+        description: "平安時代末期の第75代天皇。保元の乱で後白河天皇に敗れ讃岐に配流された。写経を朝廷に奉納しようとしたが拒絶され激怒。「日本の大魔縁となり、皇を民とし民を皇とする」と血で呪詛を書き込み、爪・髪を伸ばしたまま崩御したとされる。菅原道真・平将門と並ぶ日本三大怨霊の一人。",
+        categories: ["怨霊", "すべて"],
+        relatedCategory: "怨霊",
+        searchKeywords: ["すとくてんのう", "崇徳天皇", "崇徳院", "すとくいん", "讃岐院", "さぬきいん", "日本三大怨霊", "にほんさんだいおんりょう", "保元の乱", "ほうげんのらん", "後白河天皇", "ごしらかわてんのう", "怨霊", "おんりょう", "天狗", "てんぐ", "讃岐", "さぬき", "香川", "かがわ"],
+        story: false
+    ),
+    Ayakasi(
+        name: "件",
+        documentId: "kudan",
+        imageName: "https://i.imgur.com/zXzFXJi.png",
+        description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。\n具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
+        categories: ["山の怪","すべて"],
+        relatedCategory: "山の怪",
+        searchKeywords: ["くだん", "件", "人面牛", "予言", "牛", "吉凶", "災い", "吉報", "予知", "牛人", "半人半牛", "妖怪", "怪異"],
+        story: false
+    ),
     Ayakasi(
         name: "猪口暮露",
         documentId: "chokuboron",
@@ -209,17 +263,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["おんもらき", "陰摩羅鬼", "怪鳥", "かいちょう", "大蔵経", "だいぞうきょう", "太平百物語", "たいへいひゃくものがたり", "京都", "きょうと", "山城国", "やましろのくに", "死体", "したい", "供養", "くよう", "僧侶", "そうりょ", "寺", "てら"],
         story: false
     ),
-    Ayakasi(
-        name: "絹狸",
-        documentId: "kinutanuki",
-        imageName: "https://i.imgur.com/iv40FyL.png",
-        imageSource: "パブリックドメイン",
-        description: "絹織物（八丈絹）と組み合わされた狸。鳥山石燕による創作妖怪で、八丈島の名産「八丈絹」と「狸の金玉八畳敷き」の掛詞から生まれた。砧（きぬた）との語呂合わせでもある。",
-        categories: ["鳥山石燕","動物の怪","すべて"],
-        relatedCategory: "動物の怪",
-        searchKeywords: ["きぬたぬき", "絹狸", "たぬき", "狸", "化け狸", "ばけたぬき", "八丈絹", "はちじょうぎぬ", "八丈島", "はちじょうじま", "鳥山石燕", "とりやませきえん", "砧", "きぬた", "黄八丈", "きはちじょう", "水木しげる"],
-        story: false
-    ),
+  
     Ayakasi(
         name: "金魚の幽霊",
         documentId: "kingyonoyuurei",
@@ -1078,17 +1122,7 @@ let ayakasis: [Ayakasi] = [
             )
         ]
     ),
-    
-    Ayakasi(
-        name: "件",
-        documentId: "kudan",
-        imageName: "NoImage",
-        description: "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。\n具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
-        categories: ["山の怪","すべて"],
-        relatedCategory: "山の怪",
-        searchKeywords: ["くだん", "件", "人面牛", "予言", "牛", "吉凶", "災い", "吉報", "予知", "牛人", "半人半牛", "妖怪", "怪異"],
-        story: false
-    ),
+   
     
     Ayakasi(
         name: "ろくろ首",
@@ -1503,16 +1537,7 @@ let ayakasis: [Ayakasi] = [
         story: false
     ),
     
-    Ayakasi(
-        name: "うみぼうず",
-        documentId: "umibouzu",
-        imageName: "https://i.imgur.com/06WVJKo.png",
-        imageSource: "パブリックドメイン",
-        description: "海面から巨大な黒い僧形の影が現れ、船を揺らし、油を要求するなどの話型がある。桶を差し出し機先を制する対処譚も有名。",
-        categories: ["水の怪","すべて"],
-        relatedCategory: "水の怪",
-        story: false
-    ),
+
     Ayakasi(
         name: "口裂け女",
         documentId: "kuchisakenna",
@@ -1902,17 +1927,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["こわい", "狐者異", "怖い", "絵本百物語", "えほんひゃくものがたり", "食い意地", "貪欲", "どんよく", "うどん"],
         story: false
     ),
-    Ayakasi(
-        name: "豆腐小僧",
-        documentId: "toufukozou",
-        imageName: "https://i.imgur.com/GkDSwwS.png",
-        imageSource: "パブリックドメイン",
-        description: "笠をかぶり、盆に豆腐をのせた子供の姿の妖怪。江戸時代の草双紙で生まれた創作上の存在で、民間伝承にはほとんど記録がない。\n雨の夜に人の後をついて歩くことがあるが、特に悪さをするわけではなく、お人好しで気弱な役回りとして描かれることが多い。他の妖怪たちにいじめられているストーリーもあるなど、どこか憎めない妖怪。",
-        categories: ["詳細不明", "すべて"],
-        relatedCategory: "詳細不明",
-        searchKeywords: ["とうふこぞう", "豆腐小僧", "豆腐", "とうふ", "一つ目", "笠", "かさ", "紅葉豆腐", "こうようどうふ", "草双紙", "くさぞうし", "見越入道", "みこしにゅうどう", "轆轤首", "ろくろくび"],
-        story: false
-    ),
+
     Ayakasi(
         name: "雲外鏡",
         documentId: "ungaikyo",
@@ -2024,17 +2039,7 @@ let ayakasis: [Ayakasi] = [
         searchKeywords: ["すがわらのみちざね", "菅原道真", "天満天神", "てんまてんじん", "天神", "てんじん", "日本三大怨霊", "にほんさんだいおんりょう", "昌泰の変", "しょうたいのへん", "藤原時平", "ふじわらのときひら", "大宰府", "だざいふ", "清涼殿", "せいりょうでん", "落雷", "らくらい", "怨霊", "おんりょう", "学問の神", "がくもんのかみ", "太宰府天満宮", "だざいふてんまんぐう", "北野天満宮", "きたのてんまんぐう", "宇多天皇", "うだてんのう", "醍醐天皇", "だいごてんのう"],
         story: false
     ),
-    Ayakasi(
-        name: "崇徳天皇",
-        documentId: "sutokutennnou",
-        imageName: "https://i.imgur.com/miGyilj.png",
-        imageSource: "パブリックドメイン",
-        description: "平安時代末期の第75代天皇。保元の乱で後白河天皇に敗れ讃岐に配流された。写経を朝廷に奉納しようとしたが拒絶され激怒。「日本の大魔縁となり、皇を民とし民を皇とする」と血で呪詛を書き込み、爪・髪を伸ばしたまま崩御したとされる。菅原道真・平将門と並ぶ日本三大怨霊の一人。",
-        categories: ["怨霊", "すべて"],
-        relatedCategory: "怨霊",
-        searchKeywords: ["すとくてんのう", "崇徳天皇", "崇徳院", "すとくいん", "讃岐院", "さぬきいん", "日本三大怨霊", "にほんさんだいおんりょう", "保元の乱", "ほうげんのらん", "後白河天皇", "ごしらかわてんのう", "怨霊", "おんりょう", "天狗", "てんぐ", "讃岐", "さぬき", "香川", "かがわ"],
-        story: false
-    ),
+    
     Ayakasi(
         name: "赤舌",
         documentId: "akashita",

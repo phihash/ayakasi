@@ -41,7 +41,7 @@ struct ReportUI: View {
                 .padding(.vertical, 6)
             }
 
-            if authViewModel.user != nil {
+            if authViewModel.authStatus == .authenticated {
                 Button {
                     Task {
                         do {

@@ -36,7 +36,8 @@ class FavoriteService : ObservableObject{
 
     
     func fetchBookmarkCommentIds() async throws {
-        guard let userId = authService.currentUser?.uid else {return}
+        guard let user = authService.currentUser, user.isEmailVerified else { return }
+        let userId = user.uid
         
         isBookmarkCommentsLoading = true
         defer {isBookmarkCommentsLoading = false}
@@ -71,7 +72,8 @@ class FavoriteService : ObservableObject{
     }
     
     func bookmarkComments(_ commentId: String)async throws{
-        guard let userId = authService.currentUser?.uid else {return}
+        guard let user = authService.currentUser, user.isEmailVerified else { return }
+        let userId = user.uid
 
         let isBookmarked = bookmarkedCommentIds.contains(commentId)
 
