@@ -20,6 +20,8 @@
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
 		A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */; };
+		A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265952F365C8E00F1F72C /* NewsListItem.swift */; };
+		A93265982F36615A00F1F72C /* EventListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265972F36615A00F1F72C /* EventListItem.swift */; };
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
 		A937148D2F3CADA20056D6A3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */; };
 		A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */; };
@@ -106,6 +108,8 @@
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
 		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
 		A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiSearchResultItem.swift; sourceTree = "<group>"; };
+		A93265952F365C8E00F1F72C /* NewsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListItem.swift; sourceTree = "<group>"; };
+		A93265972F36615A00F1F72C /* EventListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListItem.swift; sourceTree = "<group>"; };
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
 		A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A97816762F41DBBC005CAEAE /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
@@ -332,8 +336,6 @@
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
 				A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */,
 				A9B08DAC2EE72BC300592CB5 /* SearchView.swift */,
-				A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */,
-				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
 				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
 			);
 			path = yokai;
@@ -342,7 +344,6 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A9063B542FE724AB007CF638 /* CommentCardItem.swift */,
 				A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
@@ -359,6 +360,35 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		A9B08DB12EE72BC300592CB5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A9B08DB22EE72BC300592CB5 /* Cards */,
+				A9B08DB32EE72BC300592CB5 /* ListItems */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A9B08DB22EE72BC300592CB5 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				A9C60B4C2FE599B3003AC316 /* CardUI.swift */,
+				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		A9B08DB32EE72BC300592CB5 /* ListItems */ = {
+			isa = PBXGroup;
+			children = (
+				A9063B542FE724AB007CF638 /* CommentCardItem.swift */,
+				A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */,
+				A93265952F365C8E00F1F72C /* NewsListItem.swift */,
+				A93265972F36615A00F1F72C /* EventListItem.swift */,
+			);
+			path = ListItems;
+			sourceTree = "<group>";
+		};
 		A9B08DC92EE72BC300592CB5 /* ayakasi */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +399,7 @@
 				A905C42C2F0AD17F00587825 /* JapanView.swift */,
 				A9B08E272EEEF52B00592CB5 /* Util */,
 				A9B08D892EE72BC300592CB5 /* Data */,
+				A9B08DB12EE72BC300592CB5 /* Components */,
 				A9B08DAE2EE72BC300592CB5 /* Features */,
 				A9B08DBF2EE72BC300592CB5 /* Assets.xcassets */,
 				A9B08DC02EE72BC300592CB5 /* ayakasi.entitlements */,
@@ -379,7 +410,6 @@
 				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
 				A92B30082F71676600E84A15 /* MessageUI.swift */,
 				A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */,
-				A9C60B4C2FE599B3003AC316 /* CardUI.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -609,6 +639,8 @@
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
 				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
+				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
+				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
 				A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */,
 			);
@@ -783,7 +815,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.14.3;
+				MARKETING_VERSION = 3.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -832,7 +864,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.14.3;
+				MARKETING_VERSION = 3.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

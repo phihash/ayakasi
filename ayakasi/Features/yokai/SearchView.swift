@@ -40,7 +40,8 @@ struct SearchView: View {
                 }
                 .background(Color.appBackground)
             }
-            .navigationBarHidden(true)
+            .navigationTitle("さがす")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: String.self) { category in
                 AllYokaiListView(selectedCategory: category)
             }

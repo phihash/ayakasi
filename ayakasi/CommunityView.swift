@@ -10,10 +10,11 @@ struct CommunityView: View {
     @EnvironmentObject var favoriteService: FavoriteService
     @EnvironmentObject var voteService  : VoteService
     @State private var selectedYokai : Ayakasi? = nil
+    @State private var navigationPath: [Ayakasi] = []
     @State private var selectedCommentId : String = ""
     @State private var reportTarget: ReportTarget? = nil
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $navigationPath){
             ScrollView{
                 RecentCommentsSectionView(
                     selectedYokai: $selectedYokai,
@@ -27,11 +28,16 @@ struct CommunityView: View {
                     await favoriteService.fetchBookmarkCommentIdsIfNeeded()
                 }
             }
+            .onChange(of: selectedYokai) { _, yokai in
+                guard let yokai else { return }
+                navigationPath.append(yokai)
+                selectedYokai = nil
+            }
             .refreshable {
                 await commentService.getRecentComments()
                 try? await favoriteService.fetchBookmarkCommentIds()
             }
-            .fullScreenCover(item: $selectedYokai){ yokai in
+            .navigationDestination(for: Ayakasi.self) { yokai in
                 NeoDetail(yokai: yokai)
             }
             .sheet(item: $reportTarget) { target in

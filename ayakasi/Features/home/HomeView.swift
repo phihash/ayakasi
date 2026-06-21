@@ -23,8 +23,6 @@ struct HomeView: View {
     @State private var showGameView = false
     @EnvironmentObject var voteService  : VoteService
     
-    @State var selectedNews = "妖怪"
-    let newsYokai = ["妖怪","イベント","雪女","河童"]
     var rankedYokai : [Ayakasi] {
         ayakasis.sorted{ element1 , element2 in
             let count1 = voteService.voteCountCache[element1.documentId] ?? 0
@@ -160,10 +158,7 @@ struct HomeView: View {
 //                        .padding(.horizontal, 20)
 //                }
 //
-                NewsSection(
-                    selectedNews: $selectedNews,
-                    newsYokai: newsYokai
-                )
+                NewsSection()
             }
             .background(Color.appBackground)
             

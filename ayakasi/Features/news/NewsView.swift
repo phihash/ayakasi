@@ -29,30 +29,18 @@ struct NewsView : View{
                         let item = newsService.items[index]
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
-                            Button {
+                            NewsListItem(
+                                title: title,
+                                published: item.published
+                            ) {
                                 selectedNewsUrl = url
-                            } label: {
-                                VStack(alignment: .leading, spacing: 12){
-                                
-                                    Text("\(title)")
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(2)
-                                        .padding(.top,6)
+                            }
+                            .padding(.horizontal, 20)
 
-                                    Text(publishedFormatter.string(from: item.published))
-                                        .foregroundStyle(Color.appTextSecondary)
-                                        .font(.caption)
-                                        .padding(.bottom,6)
-                                    Rectangle()
-                                        .fill(Color.appTextSecondary)
-                                        .frame(height: 1)
-                                    
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .truncationMode(.tail)
-                                .fontWeight(.bold)
-                                .foregroundStyle(Color.appTextPrimary)
-                                .padding(.horizontal,20)
+                            if index < newsService.items.count - 1 {
+                                Divider()
+                                    .padding(.leading, 20)
+                                    .padding(.trailing, 20)
                             }
                         } else {
                             Text("\(index + 1). \(title)")

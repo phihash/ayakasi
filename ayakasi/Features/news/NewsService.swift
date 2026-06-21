@@ -7,21 +7,15 @@ class NewsService: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     
-    let newsSources = [
-        "妖怪":"https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913",
-        "イベント":"https://www.google.co.jp/alerts/feeds/14350951871509070518/14131475351883460019",
-        "河童":"https://www.google.co.jp/alerts/feeds/14350951871509070518/13120840386550034680",
-        "雪女":"https://www.google.co.jp/alerts/feeds/14350951871509070518/3735127170972070277",
-    ]
+    private let yokaiFeedURL = "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913"
     
-    func fetchFeed(for category: String) async {
+    func fetchFeed(for _: String) async {
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
         
         do {
-            let urlString = newsSources[category] ?? (newsSources["妖怪"] ?? "")
-            let atom = try await AtomFeed(urlString: urlString)
+            let atom = try await AtomFeed(urlString: yokaiFeedURL)
             let entries = atom.entries ?? []
             
             var seenTitles = Set<Substring>()

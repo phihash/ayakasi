@@ -8,25 +8,18 @@ struct EventsSection: View {
         if filteredEvents.isEmpty {
             emptyState
         } else {
-            VStack(spacing: 8) {
+            VStack(spacing: 2) {
                 ForEach(filteredEvents.indices, id: \.self) { index in
-                    EventComponent(
-                        link: filteredEvents[index].link ?? "",
-                        linkTitle: filteredEvents[index].title ?? "イベント",
-                        location: filteredEvents[index].location,
-                        startDateTime: filteredEvents[index].startDateTime,
-                        endDateTime: filteredEvents[index].endDateTime,
-                        onTap: {
-                            if let urlString = filteredEvents[index].link,
-                               let url = URL(string: urlString) {
-                                Analytics.trackEventLinkTapped(
-                                    title: filteredEvents[index].title ?? "イベント",
-                                    link: urlString
-                                )
-                                selectedEventUrl = url
-                            }
+                    EventListItem(event: filteredEvents[index]) {
+                        if let urlString = filteredEvents[index].link,
+                           let url = URL(string: urlString) {
+                            Analytics.trackEventLinkTapped(
+                                title: filteredEvents[index].title ?? "イベント",
+                                link: urlString
+                            )
+                            selectedEventUrl = url
                         }
-                    )
+                    }
                 }
             }
         }
