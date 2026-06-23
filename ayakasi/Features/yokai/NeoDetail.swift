@@ -88,8 +88,9 @@ struct CommentListView: View {
                 if let comment = comments.first(where: { ($0["documentId"] as? String) == target.id }),
                    let userId = comment["userId"] as? String {
                     ReportUI(commentId: target.id, userId: userId)
-                        .presentationDetents([.fraction(0.25)])
-                        .presentationBackground(.regularMaterial)
+                        .presentationDetents([.height(220)])
+                        .presentationBackground(Color.appBackground)
+                        .presentationCornerRadius(36)
                 }
             }
         }
@@ -494,10 +495,6 @@ struct NeoDetail: View {
         .task {
             Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
-            // 詳細画面を開いたら自動で既読にする
-            if !favoriteService.isReadYokai(yokai.documentId) {
-                favoriteService.toggleReadYokai(yokai.documentId)
-            }
         }
         .sheet(isPresented: $isCommentUI) {
             CommentUI(isPresented: $isCommentUI, yokai: yokai)
@@ -514,6 +511,7 @@ struct NeoDetail: View {
                 alertMessage: $alertMessage
             )
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

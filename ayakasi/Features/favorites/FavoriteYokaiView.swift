@@ -42,10 +42,8 @@ struct FavoriteYokaiView: View {
         .background(Color.appBackground)
         .navigationTitle("お気に入り")
         .navigationBarTitleDisplayMode(.inline)
-        .fullScreenCover(item: $selectedYokai) { yokai in
-            NavigationStack {
-                NeoDetail(yokai: yokai)
-            }
+        .navigationDestination(item: $selectedYokai) { yokai in
+            NeoDetail(yokai: yokai)
         }
     }
 }

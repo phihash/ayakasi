@@ -63,10 +63,8 @@ struct AllYokaiListView: View {
                 .padding(.bottom, 24)
             }
         }
-        .fullScreenCover(item: $selectedYokai) { yokai in
-            NavigationStack {
-                NeoDetail(yokai: yokai)
-            }
+        .navigationDestination(item: $selectedYokai) { yokai in
+            NeoDetail(yokai: yokai)
         }
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)

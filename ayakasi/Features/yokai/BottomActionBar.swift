@@ -59,20 +59,6 @@ struct BottomActionBar: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                // 既読ボタン
-                Button {
-                    favoriteService.toggleReadYokai(yokai.documentId)
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: favoriteService.isReadYokai(yokai.documentId) ? "checkmark.circle.fill" : "checkmark.circle")
-                            .foregroundStyle(Color.appSuccess)
-                        Text("既読")
-                            .font(.caption)
-                            .foregroundStyle(Color.appTextPrimary)
-                    }
-                }
-                .frame(maxWidth: .infinity)
-
                 // コメントボタン
                 Button {
                     if authVM.authStatus == .authenticated {

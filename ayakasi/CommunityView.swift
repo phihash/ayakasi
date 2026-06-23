@@ -44,8 +44,9 @@ struct CommunityView: View {
                 if let comment = commentService.recentComments.first(where: { ($0["documentId"] as? String) == target.id }),
                    let userId = comment["userId"] as? String {
                     ReportUI(commentId: target.id, userId: userId)
-                        .presentationDetents([.fraction(0.25)])
-                        .presentationBackground(.regularMaterial)
+                        .presentationDetents([.height(220)])
+                        .presentationBackground(Color.appBackground)
+                        .presentationCornerRadius(36)
                 }
             }
         }

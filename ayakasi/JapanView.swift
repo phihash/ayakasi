@@ -81,6 +81,7 @@ struct JapanView: View {
     @State private var selectedDetent: PresentationDetent = .fraction(0.35)
 
     var body: some View {
+        NavigationStack {
         Map(position: $viewModel.cameraPosition) {
             // 妖怪関連スポット（赤いマーカー）
             ForEach(yokaiDestinations) { location in
@@ -262,10 +263,10 @@ struct JapanView: View {
             .presentationBackgroundInteraction(.enabled)
             .presentationBackground(.ultraThinMaterial)
         }
-        .fullScreenCover(item: $selectedYokai) { yokai in
-            NavigationStack {
-                NeoDetail(yokai: yokai)
-            }
+        .navigationDestination(item: $selectedYokai) { yokai in
+            NeoDetail(yokai: yokai)
+        }
+        .navigationBarHidden(true)
         }
     }
 }
