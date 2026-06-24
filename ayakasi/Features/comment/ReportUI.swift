@@ -6,6 +6,8 @@ struct ReportUI: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var favoriteService: FavoriteService
     @State private var showAlert = false
+    @State private var showReportConfirmation = false
+    @State private var showBlockConfirmation = false
     @State private var alertMessage = ""
     @State private var alertTitle = ""
     let commentId: String
@@ -24,7 +26,7 @@ struct ReportUI: View {
                 systemImage: "exclamationmark.triangle",
                 foregroundColor: Color.appError
             ) {
-                reportComment()
+                showReportConfirmation = true
             }
 
             if authViewModel.authStatus == .authenticated {
@@ -33,13 +35,29 @@ struct ReportUI: View {
                     systemImage: "person.fill.xmark",
                     foregroundColor: Color.appTextPrimary
                 ) {
-                    blockUser()
+                    showBlockConfirmation = true
                 }
             }
 
             Spacer(minLength: 0)
         }
         .padding(.horizontal, 20)
+        .confirmationDialog("コメントを報告しますか？", isPresented: $showReportConfirmation, titleVisibility: .visible) {
+            Button("報告する", role: .destructive) {
+                reportComment()
+            }
+            Button("キャンセル", role: .cancel) {}
+        } message: {
+            Text("不適切なコメントとして報告します。")
+        }
+        .confirmationDialog("ユーザーをブロックしますか？", isPresented: $showBlockConfirmation, titleVisibility: .visible) {
+            Button("ブロックする", role: .destructive) {
+                blockUser()
+            }
+            Button("キャンセル", role: .cancel) {}
+        } message: {
+            Text("このユーザーのコメントは表示されなくなります。")
+        }
         .alert(alertTitle, isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
         } message: {
