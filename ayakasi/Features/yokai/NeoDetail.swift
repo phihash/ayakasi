@@ -100,16 +100,13 @@ struct CommentListView: View {
 struct NeoDetail: View {
     let yokai : Ayakasi
     let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     @State private var selectedTab = 0
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @State private var isCommentUI = false
-    @State private var voteSuccess = false
     @State private var selectedRelatedYokai: Ayakasi? = nil
-    @EnvironmentObject var voteService : VoteService
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
     @EnvironmentObject var favoriteService : FavoriteService
@@ -212,25 +209,6 @@ struct NeoDetail: View {
         .fullScreenCover(isPresented: $showFullScreenImage) {
             FullScreenImage(imageName: yokai.imageName, requestAndSaveImage: requestAndSaveImage)
         }
-    }
-    
-    private var backButtonView: some View {
-        HStack {
-            Circle()
-                .fill(Color.black.opacity(0.6))
-                .frame(width: 40, height: 40)
-                .overlay(
-                    Image(systemName: "chevron.backward")
-                        .foregroundStyle(Color.white)
-                        .font(.system(size: 18))
-                )
-                .onTapGesture {
-                    dismiss()
-                }
-        }
-        .padding(.horizontal, 20)
-        .padding(.top, 48)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
     
     private var titleView: some View {
@@ -469,17 +447,15 @@ struct NeoDetail: View {
                     }
                 }
             }
-
-            backButtonView
         }
         .alert("", isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
         }
-        .ignoresSafeArea(edges: .top) // ノッチやステータスバーを無視
         .background(Color.appBackground)
-        .navigationBarBackButtonHidden(true)
+        .navigationTitle(yokai.name)
+        .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }
@@ -504,11 +480,7 @@ struct NeoDetail: View {
         .safeAreaInset(edge: .bottom){
             BottomActionBar(
                 yokai: yokai,
-                screenWidth: screenWidth,
-                isCommentUI: $isCommentUI,
-                voteSuccess: $voteSuccess,
-                showAlert: $showAlert,
-                alertMessage: $alertMessage
+                isCommentUI: $isCommentUI
             )
         }
         .toolbar(.hidden, for: .tabBar)

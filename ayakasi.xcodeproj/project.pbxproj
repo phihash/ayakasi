@@ -43,7 +43,6 @@
 		A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D912EE72BC300592CB5 /* RegisterView.swift */; };
 		A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D952EE72BC300592CB5 /* HomeView.swift */; };
 		A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9A2EE72BC300592CB5 /* SettingView.swift */; };
-		A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA42EE72BC300592CB5 /* VoteService.swift */; };
 		A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */; };
 		A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */; };
 		A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */; };
@@ -130,7 +129,6 @@
 		A9B08D912EE72BC300592CB5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		A9B08D952EE72BC300592CB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A9B08D9A2EE72BC300592CB5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		A9B08DA42EE72BC300592CB5 /* VoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteService.swift; sourceTree = "<group>"; };
 		A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionBar.swift; sourceTree = "<group>"; };
 		A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImage.swift; sourceTree = "<group>"; };
 		A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoDetail.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 		A9B08DA52EE72BC300592CB5 /* vote */ = {
 			isa = PBXGroup;
 			children = (
-				A9B08DA42EE72BC300592CB5 /* VoteService.swift */,
 			);
 			path = vote;
 			sourceTree = "<group>";
@@ -629,7 +626,6 @@
 				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
 				A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
-				A9B08DE12EE72BC300592CB5 /* VoteService.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
 				A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */,
 				A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */,
@@ -815,7 +811,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.15.1;
+				MARKETING_VERSION = 3.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -864,7 +860,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.15.1;
+				MARKETING_VERSION = 3.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

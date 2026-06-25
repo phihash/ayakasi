@@ -11,7 +11,7 @@ class FavoriteService : ObservableObject{
     @Published var bookmarkedComments: [[String: Any]] = []
     @Published var isBookmarkCommentsLoading: Bool = false
 
-    // 妖怪のお気に入り（ローカル保存）
+    // 妖怪のブックマーク（既存データ互換のためキー名はfavoriteのまま）
     @Published var favoriteYokaiIds: [String] = [] {
         didSet {
             UserDefaults.standard.set(favoriteYokaiIds, forKey: "favoriteYokaiIds")
@@ -29,7 +29,7 @@ class FavoriteService : ObservableObject{
     @AppStorage("lastBookmarkFetch") private var lastBookmarkFetch: Double = 0
 
     private init(){
-        // 保存されたお気に入りと既読を読み込む
+        // 保存されたブックマークと既読を読み込む
         self.favoriteYokaiIds = UserDefaults.standard.stringArray(forKey: "favoriteYokaiIds") ?? []
         self.readYokaiIds = UserDefaults.standard.stringArray(forKey: "readYokaiIds") ?? []
     }

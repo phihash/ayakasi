@@ -8,7 +8,6 @@ struct CommunityView: View {
     @EnvironmentObject var commentService  : CommentService
     @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var favoriteService: FavoriteService
-    @EnvironmentObject var voteService  : VoteService
     @State private var selectedYokai : Ayakasi? = nil
     @State private var navigationPath: [Ayakasi] = []
     @State private var selectedCommentId : String = ""

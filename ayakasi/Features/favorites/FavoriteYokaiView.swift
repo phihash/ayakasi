@@ -19,7 +19,7 @@ struct FavoriteYokaiView: View {
             if favoriteYokais.isEmpty {
                 VStack(spacing: 16) {
 
-                    Text("お気に入りに追加した妖怪はありません")
+                    Text("ブックマークした妖怪はありません")
                         .font(.body)
                         .fontWeight(.medium)
                         .foregroundColor(.appTextSecondary)
@@ -40,7 +40,7 @@ struct FavoriteYokaiView: View {
             }
         }
         .background(Color.appBackground)
-        .navigationTitle("お気に入り")
+        .navigationTitle("ブックマーク")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $selectedYokai) { yokai in
             NeoDetail(yokai: yokai)

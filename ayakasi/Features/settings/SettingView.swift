@@ -120,7 +120,7 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
 
-                        SettingRowLink(title: "お気に入り一覧", destination: FavoriteYokaiView())
+                        SettingRowLink(title: "ブックマーク一覧", destination: FavoriteYokaiView())
                         
                         SettingRowButton(title: "キャッシュを削除する") {
                             showClearCacheAlert = true

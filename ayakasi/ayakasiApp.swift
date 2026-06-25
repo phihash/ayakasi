@@ -4,7 +4,6 @@ import Firebase
 @main
 struct ayakasiApp: App {
     @StateObject private var AuthVM: AuthViewModel
-    @StateObject private var VoteVM: VoteService
     @StateObject private var BlockingVM: UserBlockingService
     @StateObject private var ReportVM: CommentReportService
     @StateObject private var CommentVM: CommentService
@@ -18,10 +17,6 @@ struct ayakasiApp: App {
         let blockingService = UserBlockingService(authService: authService)
 
         _AuthVM = StateObject(wrappedValue: AuthViewModel())
-        _VoteVM = StateObject(wrappedValue: VoteService(
-            authService: authService,
-            tokenBucket: TokenBucket(maxToken: 15, refillInterval: 300, storageKeyPrefix: "vote")
-        ))
         _BlockingVM = StateObject(wrappedValue: blockingService)
         _ReportVM = StateObject(wrappedValue: CommentReportService(authService: authService))
         _CommentVM = StateObject(wrappedValue: CommentService(
@@ -36,7 +31,6 @@ struct ayakasiApp: App {
             Container()
                 .environment(\.locale, Locale(identifier: "ja_JP"))
                 .environmentObject(AuthVM)
-                .environmentObject(VoteVM)
                 .environmentObject(CommentVM)
                 .environmentObject(BlockingVM)
                 .environmentObject(ReportVM)

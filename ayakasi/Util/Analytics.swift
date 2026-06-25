@@ -47,7 +47,7 @@ enum Analytics {
         ])
     }
 
-    // お気に入り登録/解除
+    // ブックマーク登録/解除
     static func trackFavoriteToggled(yokaiName: String, documentId: String, isFavorite: Bool) {
         amplitude.track(eventType: "favorite_toggled", eventProperties: [
             "yokai_name": yokaiName,
@@ -59,14 +59,6 @@ enum Analytics {
     // コメント投稿
     static func trackCommentPosted(documentId: String) {
         amplitude.track(eventType: "comment_posted", eventProperties: [
-            "document_id": documentId
-        ])
-    }
-
-    // 投票
-    static func trackVoted(yokaiName: String, documentId: String) {
-        amplitude.track(eventType: "voted", eventProperties: [
-            "yokai_name": yokaiName,
             "document_id": documentId
         ])
     }

@@ -4,7 +4,6 @@ struct ReportUI: View {
     @EnvironmentObject var reportService: CommentReportService
     @EnvironmentObject var blockingService: UserBlockingService
     @EnvironmentObject var authViewModel: AuthViewModel
-    @EnvironmentObject var favoriteService: FavoriteService
     @State private var showAlert = false
     @State private var showReportConfirmation = false
     @State private var showBlockConfirmation = false

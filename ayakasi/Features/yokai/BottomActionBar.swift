@@ -2,103 +2,60 @@ import SwiftUI
 
 struct BottomActionBar: View {
     let yokai: Ayakasi
-    let screenWidth: CGFloat
-    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var voteVM: VoteService
     @EnvironmentObject var favoriteService: FavoriteService
     @EnvironmentObject var authVM: AuthViewModel
     @Binding var isCommentUI: Bool
-    @Binding var voteSuccess: Bool
-    @Binding var showAlert: Bool
-    @Binding var alertMessage: String
     @State private var showLoginAlert = false
 
     var body: some View {
-        VStack {
-            HStack(spacing: 0) {
-                // 投票ボタン
-                Button {
-                    Task {
-                        do {
-                            try await voteVM.vote(aykasiId: yokai.documentId)
-                            Analytics.trackVoted(yokaiName: yokai.name, documentId: yokai.documentId)
-                            voteSuccess.toggle()
-                        } catch let error as VoteError {
-                            alertMessage = error.localizedDescription
-                            showAlert = true
-                        } catch {
-                            alertMessage = "投票中にエラーが発生しました"
-                            showAlert = true
-                        }
-                    }
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(Color.appError)
-                        Text("\(voteVM.voteCountCache[yokai.documentId] ?? 0)")
-                            .font(.caption)
-                            .foregroundStyle(Color.appTextPrimary)
-                    }
-                }
-                .sensoryFeedback(.success, trigger: voteSuccess)
-                .frame(maxWidth: .infinity)
+        HStack(spacing: 16) {
+            Spacer()
 
-                // お気に入りボタン
-                Button {
-                    let willBeFavorite = !favoriteService.isFavoriteYokai(yokai.documentId)
-                    favoriteService.toggleFavoriteYokai(yokai.documentId)
-                    Analytics.trackFavoriteToggled(yokaiName: yokai.name, documentId: yokai.documentId, isFavorite: willBeFavorite)
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "star.fill" : "star")
-                            .foregroundStyle(Color.appHighlight)
-                        Text("お気に入り")
-                            .font(.caption)
-                            .foregroundStyle(Color.appTextPrimary)
-                    }
-                }
-                .frame(maxWidth: .infinity)
-
-                // コメントボタン
-                Button {
-                    if authVM.authStatus == .authenticated {
-                        isCommentUI.toggle()
-                    } else {
-                        showLoginAlert = true
-                    }
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "bubble.left.and.bubble.right")
-                            .foregroundStyle(Color.appTextPrimary)
-                        Text("コメント")
-                            .font(.caption)
-                            .foregroundStyle(Color.appTextPrimary)
-                    }
-                }
-                .frame(maxWidth: .infinity)
-
-                // 戻るボタン
-                Button {
-                    dismiss()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "arrowshape.turn.up.backward")
-                        Text("戻る")
-                            .font(.caption)
-                    }
-                    .foregroundStyle(Color.appTextPrimary)
-                }
-                .frame(maxWidth: .infinity)
+            Button {
+                let willBeBookmarked = !favoriteService.isFavoriteYokai(yokai.documentId)
+                favoriteService.toggleFavoriteYokai(yokai.documentId)
+                Analytics.trackFavoriteToggled(yokaiName: yokai.name, documentId: yokai.documentId, isFavorite: willBeBookmarked)
+            } label: {
+                actionIcon(
+                    systemName: favoriteService.isFavoriteYokai(yokai.documentId) ? "bookmark.fill" : "bookmark",
+                    foregroundColor: Color.appHighlight
+                )
             }
-            .padding(.top, 12)
+            .accessibilityLabel(favoriteService.isFavoriteYokai(yokai.documentId) ? "ブックマーク済み" : "ブックマーク")
+
+            Button {
+                if authVM.authStatus == .authenticated {
+                    isCommentUI.toggle()
+                } else {
+                    showLoginAlert = true
+                }
+            } label: {
+                actionIcon(
+                    systemName: "bubble.left.and.bubble.right",
+                    foregroundColor: Color.appTextPrimary
+                )
+            }
+            .accessibilityLabel("コメント")
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 72)
-        .background(Color.appCardBackground)
+        .padding(.horizontal, 22)
+        .padding(.vertical, 14)
         .alert("ログインが必要です", isPresented: $showLoginAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text("コメントを投稿するには、設定画面からログインまたは新規登録してください。")
         }
+    }
+
+    private func actionIcon(systemName: String, foregroundColor: Color) -> some View {
+        Image(systemName: systemName)
+            .font(.system(size: 25, weight: .semibold))
+            .foregroundStyle(foregroundColor)
+            .frame(width: 62, height: 62)
+            .background(
+                Circle()
+                    .fill(Color.appCardBackground.opacity(0.94))
+            )
+            .shadow(color: .black.opacity(0.14), radius: 18, x: 0, y: 8)
     }
 }

@@ -21,15 +21,6 @@ struct HomeView: View {
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
     @State private var showGameView = false
-    @EnvironmentObject var voteService  : VoteService
-    
-    var rankedYokai : [Ayakasi] {
-        ayakasis.sorted{ element1 , element2 in
-            let count1 = voteService.voteCountCache[element1.documentId] ?? 0
-            let count2 = voteService.voteCountCache[element2.documentId] ?? 0
-            return count1 > count2
-        }
-    }
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
