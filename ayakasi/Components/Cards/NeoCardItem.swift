@@ -1,10 +1,12 @@
 import SwiftUI
 import Kingfisher
+import StoreKit
 
 struct NeoCardItem: View {
     let item: Ayakasi
     let onTap: () -> Void
     @EnvironmentObject var favoriteService: FavoriteService
+    @Environment(\.requestReview) private var requestReview
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -57,7 +59,19 @@ struct NeoCardItem: View {
 
             // サブエリア
             Button {
+                let isAddingFavorite = !favoriteService.isFavoriteYokai(item.documentId)
+                let isFirstFavorite = isAddingFavorite && favoriteService.favoriteYokaiIds.isEmpty
                 favoriteService.toggleFavoriteYokai(item.documentId)
+                Analytics.trackFavoriteToggled(
+                    yokaiName: item.name,
+                    documentId: item.documentId,
+                    isFavorite: isAddingFavorite
+                )
+
+                if isFirstFavorite,
+                   ReviewRequestManager.shared.shouldRequestReviewAfterFirstFavorite() {
+                    requestReview()
+                }
             } label: {
                 Text(favoriteService.isFavoriteYokai(item.documentId) ? "ブックマーク済み" : "ブックマーク")
                     .font(.caption)

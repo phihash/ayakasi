@@ -32,6 +32,9 @@ class FavoriteService : ObservableObject{
         // 保存されたブックマークと既読を読み込む
         self.favoriteYokaiIds = UserDefaults.standard.stringArray(forKey: "favoriteYokaiIds") ?? []
         self.readYokaiIds = UserDefaults.standard.stringArray(forKey: "readYokaiIds") ?? []
+        ReviewRequestManager.shared.registerExistingFavoriteIfNeeded(
+            hasFavorites: !favoriteYokaiIds.isEmpty
+        )
     }
 
     

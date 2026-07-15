@@ -20,7 +20,6 @@ struct HomeView: View {
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
-    @State private var showGameView = false
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
@@ -127,28 +126,6 @@ struct HomeView: View {
                     selectedEventUrl: $selectedEventUrl
                 )
 
-//                HStack{
-//                    Text("ゲーム")
-//                    Spacer()
-//                }
-//                .font(.headline)
-//                .fontWeight(.bold)
-//                .padding(.horizontal,20)
-//                .padding(.top,8)
-//
-//                Button{
-//                    showGameView = true
-//                } label :{
-//                    Text("ゲーム")
-//                        .font(.headline)
-//                        .fontWeight(.semibold)
-//                        .foregroundStyle(Color.white)
-//                        .frame(maxWidth: .infinity, minHeight: 50)
-//                        .background(Color.appPrimary)
-//                        .cornerRadius(12)
-//                        .padding(.horizontal, 20)
-//                }
-//
                 NewsSection()
             }
             .background(Color.appBackground)
@@ -160,9 +137,6 @@ struct HomeView: View {
             }
             .sheet(item: $selectedEventUrl) { url in
                 SafariView(url: url)
-            }
-            .fullScreenCover(isPresented: $showGameView) {
-                GameView()
             }
         }
     }

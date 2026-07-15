@@ -25,16 +25,13 @@
 		A937148B2F3CADA20056D6A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */; };
 		A937148D2F3CADA20056D6A3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */; };
 		A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */; };
-		A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */; };
 		A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816762F41DBBC005CAEAE /* LocationModels.swift */; };
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
-		A99F93042F8A950F0077EB40 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
-		A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D842EE72BC300592CB5 /* CategoryBar.swift */; };
 		A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D872EE72BC300592CB5 /* Data.swift */; };
 		A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8C2EE72BC300592CB5 /* AuthService.swift */; };
@@ -44,6 +41,7 @@
 		A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D952EE72BC300592CB5 /* HomeView.swift */; };
 		A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D9A2EE72BC300592CB5 /* SettingView.swift */; };
 		A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */; };
+		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
 		A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */; };
 		A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */; };
 		A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08DAC2EE72BC300592CB5 /* SearchView.swift */; };
@@ -57,6 +55,7 @@
 		A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E262EEEF52B00592CB5 /* WebView.swift */; };
 		A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2A2EEEF55900592CB5 /* CommentService.swift */; };
 		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
+		A9C0009A3002B33200F6FC35 /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */; };
 		A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */ = {isa = PBXBuildFile; productRef = A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */; };
 		A9C60B202FE2CE33003AC316 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */; };
 		A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B212FE2CE84003AC316 /* Analytics.swift */; };
@@ -67,7 +66,6 @@
 		A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */; };
 		A9DBF7222E8A453500F5CDBF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF7212E8A453500F5CDBF /* FeedKit */; };
 		A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF79D2E90ECE900F5CDBF /* XMLKit */; };
-		A9E83FA52F573562007E4435 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA42F573562007E4435 /* GameView.swift */; };
 		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +108,6 @@
 		A93265952F365C8E00F1F72C /* NewsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListItem.swift; sourceTree = "<group>"; };
 		A93265972F36615A00F1F72C /* EventListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListItem.swift; sourceTree = "<group>"; };
 		A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowComponents.swift; sourceTree = "<group>"; };
-		A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A97816762F41DBBC005CAEAE /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
 		A97C29FB2E4B6D3000889AB0 /* ayakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ayakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AyakasiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,9 +115,7 @@
 		A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
-		A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
-		A9B08D842EE72BC300592CB5 /* CategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBar.swift; sourceTree = "<group>"; };
 		A9B08D872EE72BC300592CB5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		A9B08D882EE72BC300592CB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A9B08D8C2EE72BC300592CB5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -130,6 +125,7 @@
 		A9B08D952EE72BC300592CB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A9B08D9A2EE72BC300592CB5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionBar.swift; sourceTree = "<group>"; };
+		B10000010000000000000001 /* YokaiShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiShareCard.swift; sourceTree = "<group>"; };
 		A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImage.swift; sourceTree = "<group>"; };
 		A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoDetail.swift; sourceTree = "<group>"; };
 		A9B08DAC2EE72BC300592CB5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -145,10 +141,10 @@
 		A9B08E262EEEF52B00592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
+		A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A9C60B212FE2CE84003AC316 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A9C60B4C2FE599B3003AC316 /* CardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUI.swift; sourceTree = "<group>"; };
-		A9E83FA42F573562007E4435 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A9E840A82F59D0B3007E4435 /* TokenBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBucket.swift; sourceTree = "<group>"; };
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,10 +326,10 @@
 			children = (
 				A93265912F34EE3500F1F72C /* AllYokaiListView.swift */,
 				A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */,
+				B10000010000000000000001 /* YokaiShareCard.swift */,
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
 				A9B08DAB2EE72BC300592CB5 /* NeoDetail.swift */,
 				A9B08DAC2EE72BC300592CB5 /* SearchView.swift */,
-				A9B08D842EE72BC300592CB5 /* CategoryBar.swift */,
 			);
 			path = yokai;
 			sourceTree = "<group>";
@@ -341,7 +337,7 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A97816742F419AC0005CAEAE /* RecentCommentsSectionView.swift */,
+				A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
 				A9B08E302EEF096500592CB5 /* events */,
@@ -352,7 +348,6 @@
 				A9B08D922EE72BC300592CB5 /* auth */,
 				A9B08D962EE72BC300592CB5 /* home */,
 				A9B08D9B2EE72BC300592CB5 /* settings */,
-				A9E83FA42F573562007E4435 /* GameView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -406,7 +401,6 @@
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
 				A92B30082F71676600E84A15 /* MessageUI.swift */,
-				A99F93032F8A950F0077EB40 /* YouTubePlayerView.swift */,
 			);
 			path = ayakasi;
 			sourceTree = "<group>";
@@ -602,16 +596,12 @@
 				A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */,
 				A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */,
 				A9063B552FE724AB007CF638 /* CommentCardItem.swift in Sources */,
-				A9B08DCC2EE72BC300592CB5 /* CategoryBar.swift in Sources */,
 				A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */,
 				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
-				A9E83FA52F573562007E4435 /* GameView.swift in Sources */,
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */,
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
-				A99F93042F8A950F0077EB40 /* YouTubePlayerView.swift in Sources */,
-				A97816752F419AC0005CAEAE /* RecentCommentsSectionView.swift in Sources */,
 				A9C60B4D2FE599B3003AC316 /* CardUI.swift in Sources */,
 				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
@@ -627,6 +617,7 @@
 				A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
+				B10000020000000000000001 /* YokaiShareCard.swift in Sources */,
 				A9B08DE52EE72BC300592CB5 /* FullScreenImage.swift in Sources */,
 				A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */,
 				A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */,
@@ -635,6 +626,7 @@
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
 				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
+				A9C0009A3002B33200F6FC35 /* RecentCommentsSectionView.swift in Sources */,
 				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
 				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
@@ -811,7 +803,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.16.0;
+				MARKETING_VERSION = 3.17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -860,7 +852,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.16.0;
+				MARKETING_VERSION = 3.17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -894,7 +886,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.6.4;
+				MARKETING_VERSION = 3.17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -925,7 +917,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.6.4;
+				MARKETING_VERSION = 3.17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

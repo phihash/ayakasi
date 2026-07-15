@@ -1,48 +1,47 @@
 import Foundation
 
-class AppLaunchCounter {
-    static let shared = AppLaunchCounter()
-    private let launchCountKey = "appLaunchCount"
+final class ReviewRequestManager {
+    static let shared = ReviewRequestManager()
+
+    private let viewedYokaiIdsKey = "reviewViewedYokaiIds"
+    private let hasAddedFavoriteKey = "hasAddedFavorite"
     private let hasRequestedReviewKey = "hasRequestedReview"
 
     private init() {}
 
-    // 起動回数を取得
-    var launchCount: Int {
-        UserDefaults.standard.integer(forKey: launchCountKey)
+    private var viewedYokaiIds: Set<String> {
+        get {
+            Set(UserDefaults.standard.stringArray(forKey: viewedYokaiIdsKey) ?? [])
+        }
+        set {
+            UserDefaults.standard.set(Array(newValue), forKey: viewedYokaiIdsKey)
+        }
     }
 
-    // レビューリクエスト済みかどうか
-    var hasRequestedReview: Bool {
-        UserDefaults.standard.bool(forKey: hasRequestedReviewKey)
+    func recordYokaiViewed(documentId: String) {
+        var ids = viewedYokaiIds
+        ids.insert(documentId)
+        viewedYokaiIds = ids
     }
 
-    // 起動回数をインクリメント
-    func incrementLaunchCount() {
-        let newCount = launchCount + 1
-        UserDefaults.standard.set(newCount, forKey: launchCountKey)
+    func registerExistingFavoriteIfNeeded(hasFavorites: Bool) {
+        if hasFavorites {
+            UserDefaults.standard.set(true, forKey: hasAddedFavoriteKey)
+        }
     }
 
-    // レビューリクエストが必要かチェック
-    func shouldRequestReview() -> Bool {
-        // すでにリクエスト済みなら不要
-        guard !hasRequestedReview else { return false }
+    /// 初めてお気に入りを追加した瞬間に一度だけ判定する。
+    /// 異なる妖怪を3体以上閲覧済みなら、Apple標準レビューを要求してよい。
+    func shouldRequestReviewAfterFirstFavorite() -> Bool {
+        let defaults = UserDefaults.standard
 
-        // 3回目の起動時にレビューリクエスト
-        return launchCount >= 3
-    }
+        guard !defaults.bool(forKey: hasAddedFavoriteKey) else { return false }
+        defaults.set(true, forKey: hasAddedFavoriteKey)
 
-    // レビューリクエスト済みフラグを立てる
-    func markReviewRequested() {
-        UserDefaults.standard.set(true, forKey: hasRequestedReviewKey)
-    }
+        guard viewedYokaiIds.count >= 3 else { return false }
+        guard !defaults.bool(forKey: hasRequestedReviewKey) else { return false }
 
-    // アプリ起動時の処理（満足度アラートを表示すべきかを返す）
-    func handleAppLaunch() -> Bool {
-        // 起動回数をカウント
-        incrementLaunchCount()
-
-        // 3回目の起動時に満足度アラートを表示
-        return shouldRequestReview()
+        defaults.set(true, forKey: hasRequestedReviewKey)
+        return true
     }
 }

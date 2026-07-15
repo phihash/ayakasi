@@ -1,8 +1,12 @@
 import SwiftUI
 
+private enum SearchRoute: Hashable {
+    case category(String)
+}
+
 struct SearchView: View {
     let categories = YokaiCategories.searchCategories
-    @State private var navigationPath = NavigationPath()
+    @State private var navigationPath: [SearchRoute] = []
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -15,7 +19,7 @@ struct SearchView: View {
                             description: "\(ayakasis.count)体の妖怪",
                             action: {
                                 Analytics.trackCategorySelected(category: "すべて")
-                                navigationPath.append("すべて")
+                                navigationPath.append(.category("すべて"))
                             }
                         )
                         ForEach(categories, id: \.self) { category in
@@ -28,7 +32,7 @@ struct SearchView: View {
                                     description: "\(yokais.count)体の妖怪",
                                     action: {
                                         Analytics.trackCategorySelected(category: category)
-                                        navigationPath.append(category)
+                                        navigationPath.append(.category(category))
                                     }
                                 )
                             }
@@ -42,8 +46,12 @@ struct SearchView: View {
             }
             .navigationTitle("さがす")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: String.self) { category in
-                AllYokaiListView(selectedCategory: category)
+            .toolbar(navigationPath.isEmpty ? .visible : .hidden, for: .tabBar)
+            .navigationDestination(for: SearchRoute.self) { route in
+                switch route {
+                case .category(let category):
+                    AllYokaiListView(selectedCategory: category)
+                }
             }
         }
     }

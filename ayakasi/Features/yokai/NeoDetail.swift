@@ -470,6 +470,7 @@ struct NeoDetail: View {
         }
         .task {
             Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)
+            ReviewRequestManager.shared.recordYokaiViewed(documentId: yokai.documentId)
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
         }
         .sheet(isPresented: $isCommentUI) {
