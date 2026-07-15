@@ -17,7 +17,8 @@ struct RecentCommentsSectionView: View {
                 Spacer()
             }
             .padding(.horizontal,20)
-            .padding(.vertical,8)
+            .padding(.top,12)
+            .padding(.bottom,4)
 
             // 未ログインユーザー向けの注意書き
             if authVM.authStatus != .authenticated {
@@ -29,7 +30,7 @@ struct RecentCommentsSectionView: View {
                         .opacity(0.4)
                     Spacer()
                 }
-                .padding(.horizontal,20)
+                .padding(.horizontal,24)
             }
 
             if commentService.isLoadingRecentComments {
@@ -43,7 +44,6 @@ struct RecentCommentsSectionView: View {
                         .foregroundColor(.appTextSecondary)
                 }
                 .frame(height: 120)
-                .padding(.top,32)
             } else if commentService.recentComments.isEmpty {
                 VStack(spacing: 16) {
                     Image(systemName: "bubble.left.and.bubble.right")
@@ -56,7 +56,6 @@ struct RecentCommentsSectionView: View {
                         .foregroundColor(.appTextSecondary)
                 }
                 .frame(height: 120)
-                .padding(.top,32)
             } else {
                 ForEach(Array(commentService.recentComments.enumerated()), id: \.offset) { index, comment in
                     let yokaiId = comment["yokaiId"] as? String ?? ""
