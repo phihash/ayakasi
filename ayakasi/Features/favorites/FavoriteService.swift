@@ -8,7 +8,6 @@ class FavoriteService : ObservableObject{
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
     @Published var bookmarkedCommentIds: Set<String> = []
-    @Published var bookmarkedComments: [[String: Any]] = []
     @Published var isBookmarkCommentsLoading: Bool = false
 
     // 妖怪のブックマーク（既存データ互換のためキー名はfavoriteのまま）
@@ -61,36 +60,6 @@ class FavoriteService : ObservableObject{
         }
 
         try? await fetchBookmarkCommentIds()
-    }
-    
-    func fetchBookmarkComments() async throws {
-        try await fetchBookmarkCommentIds()
-        let commentIds = Array(bookmarkedCommentIds)
-        
-        guard !commentIds.isEmpty else {
-            bookmarkedComments = []
-            return
-        }
-        
-    }
-    
-    func bookmarkComments(_ commentId: String)async throws{
-        guard let user = authService.currentUser, user.isEmailVerified else { return }
-        let userId = user.uid
-
-        let isBookmarked = bookmarkedCommentIds.contains(commentId)
-
-        if isBookmarked{
-            try await db.collection("users").document(userId).updateData(
-                ["bookmarkedComments": FieldValue.arrayRemove([commentId])]
-            )
-            bookmarkedCommentIds.remove(commentId)
-        } else{
-            try await db.collection("users").document(userId).updateData(
-                ["bookmarkedComments": FieldValue.arrayUnion([commentId])]
-            )
-            bookmarkedCommentIds.insert(commentId)
-        }
     }
 
     func isFavoriteYokai(_ documentId: String) -> Bool {
