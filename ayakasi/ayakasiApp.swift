@@ -3,6 +3,7 @@ import Firebase
 
 @main
 struct ayakasiApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var AuthVM: AuthViewModel
     @StateObject private var BlockingVM: UserBlockingService
     @StateObject private var ReportVM: CommentReportService
