@@ -2,11 +2,13 @@ import SwiftUI
 
 private enum SearchRoute: Hashable {
     case category(String)
+    case yokai(String)   // documentId（通知タップからの deep link 用）
 }
 
 struct SearchView: View {
     let categories = YokaiCategories.searchCategories
     @State private var navigationPath: [SearchRoute] = []
+    @EnvironmentObject private var router: DeepLinkRouter
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -51,8 +53,26 @@ struct SearchView: View {
                 switch route {
                 case .category(let category):
                     AllYokaiListView(selectedCategory: category)
+                case .yokai(let documentId):
+                    if let yokai = ayakasis.first(where: { $0.documentId == documentId }) {
+                        NeoDetail(yokai: yokai)
+                    }
                 }
             }
         }
+        .onChange(of: router.pendingYokaiId) { _, id in
+            consumeDeepLink(id)
+        }
+        .onAppear {
+            // コールド起動（通知タップで起動）時の取りこぼし対策
+            consumeDeepLink(router.pendingYokaiId)
+        }
+    }
+
+    /// 通知タップで来た documentId を消化して該当妖怪へ遷移
+    private func consumeDeepLink(_ id: String?) {
+        guard let id, ayakasis.contains(where: { $0.documentId == id }) else { return }
+        navigationPath = [.yokai(id)]
+        router.pendingYokaiId = nil
     }
 }

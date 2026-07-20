@@ -36,6 +36,7 @@ struct ayakasiApp: App {
                 .environmentObject(BlockingVM)
                 .environmentObject(ReportVM)
                 .environmentObject(FavoriteVM)
+                .environmentObject(DeepLinkRouter.shared)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }

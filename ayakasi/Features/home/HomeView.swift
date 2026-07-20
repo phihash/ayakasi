@@ -20,6 +20,7 @@ struct HomeView: View {
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
+    @EnvironmentObject private var router: DeepLinkRouter
     
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     let screenWidth = UIScreen.main.bounds.width
@@ -138,6 +139,22 @@ struct HomeView: View {
             .sheet(item: $selectedEventUrl) { url in
                 SafariView(url: url)
             }
+            .onChange(of: router.pendingEventURL) { _, url in
+                consumeEventDeepLink(url)
+            }
+            .onAppear {
+                // イベントタブを見たタイミングで通知許可を求める（未決定のときだけ）
+                PushAuthorization.requestIfNeeded()
+                // コールド起動（通知タップで起動）時の取りこぼし対策
+                consumeEventDeepLink(router.pendingEventURL)
+            }
         }
+    }
+
+    /// 通知タップで来たイベントURLを消化して SafariView で開く
+    private func consumeEventDeepLink(_ url: URL?) {
+        guard let url else { return }
+        selectedEventUrl = url
+        router.pendingEventURL = nil
     }
 }
