@@ -38,6 +38,7 @@ struct ayakasiApp: App {
                 .environmentObject(FavoriteVM)
                 .environmentObject(DeepLinkRouter.shared)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
+                .task { await YokaiStore.shared.refresh() }
         }
     }
 }

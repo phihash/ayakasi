@@ -1,7 +1,7 @@
 import Foundation
 import MapKit
 
-enum MediaType: String {
+enum MediaType: String, Codable {
     case novel = "小説"
     case manga = "漫画"
     case anime = "アニメ"
@@ -10,20 +10,28 @@ enum MediaType: String {
     case other = "その他"
 }
 
-struct MediaAppearance: Identifiable {
+struct MediaAppearance: Identifiable, Codable {
     let id = UUID()
     let title: String
     let type: [MediaType]
     let note: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case title, type, note
+    }
 }
 
-struct ReferenceLink: Identifiable{
+struct ReferenceLink: Identifiable, Codable {
     let id = UUID()
     let title: String
     let url: URL
+
+    private enum CodingKeys: String, CodingKey {
+        case title, url
+    }
 }
 
-struct Ayakasi : Identifiable {
+struct Ayakasi : Identifiable, Codable {
     let id : UUID = UUID()
     let name : String
     let documentId: String  // Firestore用のドキュメントID
@@ -43,6 +51,19 @@ struct Ayakasi : Identifiable {
     var mediaAppearances: [MediaAppearance]? = nil
 
     var videoId: String? = nil  // YouTube動画ID
+
+    private enum CodingKeys: String, CodingKey {
+        case name, documentId, imageName, imageSource, imageAuthor, imageTitle
+        case description, categories, relatedCategory, references, searchKeywords
+        case story, relatedSpots, mediaAppearances, videoId
+    }
+}
+
+// リモート配信用のトップレベル構造（data.json）
+struct YokaiData: Codable {
+    let version: Int
+    let updatedAt: String
+    let yokai: [Ayakasi]
 }
 
 extension Ayakasi: Hashable {

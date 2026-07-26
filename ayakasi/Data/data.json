@@ -1,0 +1,6929 @@
+{
+  "updatedAt" : "2026-07-26T11:33:36Z",
+  "version" : 1,
+  "yokai" : [
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "笠をかぶり、盆に豆腐をのせた子供の姿の妖怪。江戸時代の草双紙で生まれた創作上の存在で、民間伝承にはほとんど記録がない。\n雨の夜に人の後をついて歩くことがあるが、特に悪さをするわけではなく、お人好しで気弱な役回りとして描かれることが多い。他の妖怪たちにいじめられているストーリーもあるなど、どこか憎めない妖怪。",
+      "documentId" : "toufukozou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/GkDSwwS.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "豆腐小僧",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "とうふこぞう",
+        "豆腐小僧",
+        "豆腐",
+        "とうふ",
+        "一つ目",
+        "笠",
+        "かさ",
+        "紅葉豆腐",
+        "こうようどうふ",
+        "草双紙",
+        "くさぞうし",
+        "見越入道",
+        "みこしにゅうどう",
+        "轆轤首",
+        "ろくろくび"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "海面から巨大な黒い僧形の影が現れ、船を揺らし、油を要求するなどの話型がある。桶を差し出し機先を制する対処譚も有名。",
+      "documentId" : "umibouzu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/06WVJKo.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "うみぼうず",
+      "relatedCategory" : "水の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "絹織物（八丈絹）と組み合わされた狸。鳥山石燕による創作妖怪で、八丈島の名産「八丈絹」と「狸の金玉八畳敷き」の掛詞から生まれた。砧（きぬた）との語呂合わせでもある。",
+      "documentId" : "kinutanuki",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/iv40FyL.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "絹狸",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "きぬたぬき",
+        "絹狸",
+        "たぬき",
+        "狸",
+        "化け狸",
+        "ばけたぬき",
+        "八丈絹",
+        "はちじょうぎぬ",
+        "八丈島",
+        "はちじょうじま",
+        "鳥山石燕",
+        "とりやませきえん",
+        "砧",
+        "きぬた",
+        "黄八丈",
+        "きはちじょう",
+        "水木しげる"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "平安時代末期の第75代天皇。保元の乱で後白河天皇に敗れ讃岐に配流された。写経を朝廷に奉納しようとしたが拒絶され激怒。「日本の大魔縁となり、皇を民とし民を皇とする」と血で呪詛を書き込み、爪・髪を伸ばしたまま崩御したとされる。菅原道真・平将門と並ぶ日本三大怨霊の一人。",
+      "documentId" : "sutokutennnou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/miGyilj.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "崇徳天皇",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "すとくてんのう",
+        "崇徳天皇",
+        "崇徳院",
+        "すとくいん",
+        "讃岐院",
+        "さぬきいん",
+        "日本三大怨霊",
+        "にほんさんだいおんりょう",
+        "保元の乱",
+        "ほうげんのらん",
+        "後白河天皇",
+        "ごしらかわてんのう",
+        "怨霊",
+        "おんりょう",
+        "天狗",
+        "てんぐ",
+        "讃岐",
+        "さぬき",
+        "香川",
+        "かがわ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "件（くだん）は、牛の体に人の顔を持ち、牛からうまれる。\n地域によって、下は牛以外にも馬・ヘビ・魚などの生き物であると伝えられる。\n件（くだん）は、牛からうまれたあとに、その年の吉報あるいは災いを予言し、数日ほどで死ぬと伝えられ、その予言は決して外れないと言われた。\n具体的な逸話として、昔、牛からうまれた後に、「これから大変な世の中になるから、ヒエやアワなどの食料を蓄えるように」と告げ数日で死んだ。まもなくして、戦争が始まり、予言を告げられたものは食べ物に困らなかったという。\n ",
+      "documentId" : "kudan",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/zXzFXJi.png",
+      "name" : "件",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "くだん",
+        "件",
+        "人面牛",
+        "予言",
+        "牛",
+        "吉凶",
+        "災い",
+        "吉報",
+        "予知",
+        "牛人",
+        "半人半牛",
+        "妖怪",
+        "怪異"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "鳥山石燕の『百器徒然袋』に描かれた妖怪。猪口を頭にかぶった虚無僧のような姿で、箱の中から次々と現れる様子が描かれている。酒器である猪口の付喪神とされる。",
+      "documentId" : "chokuboron",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4LGb76g.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "猪口暮露",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ちょくぼろん",
+        "猪口暮露",
+        "猪口",
+        "ちょく",
+        "虚無僧",
+        "こむそう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "付喪神",
+        "つくもがみ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "鳥山石燕の『百器徒然袋』に描かれた、火を携えた猛禽のような姿の妖怪。天狗礫が放つ光とされ、深山の森の奥に現れるという。暗闇を照らす火ではなく、仏道の修行を惑わせる存在とされている。",
+      "documentId" : "taimatsumaru",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/ewjk3Yd.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "松明丸",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "たいまつまる",
+        "松明丸",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "天狗礫",
+        "てんぐつぶて",
+        "火",
+        "ひ",
+        "猛禽",
+        "もうきん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "鳥取県伯耆地方に伝わる憑きもの筋の呼び名。多くは狐憑きの家系を指し、75匹の眷属が家の周りにいるとされる。まれにトウビョウというヘビやミミズに似た霊が憑く家系を指すこともあり、月末に粥を供えて害を避ける風習があった。憑きもの筋とされた家は縁談が破談になるなど社会的な差別を受けた。",
+      "documentId" : "sontsuru",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/ndOToOO.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ソンツル",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "そんつる",
+        "ソンツル",
+        "狐ヅル",
+        "きつねづる",
+        "人狐",
+        "ひとぎつね",
+        "トウビョウ",
+        "憑きもの",
+        "つきもの",
+        "鳥取",
+        "とっとり",
+        "伯耆",
+        "ほうき"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "鳥山石燕の『百器徒然袋』に描かれた茶釜の付喪神。虎隠良や槍毛長と共に登場し、その構図は室町時代の『百鬼夜行絵巻』がもとになっているとされる。茶道と禅宗の深い結びつきから、名前は「禅和尚」をもじったものとの説がある。",
+      "documentId" : "zenpushou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/M9MFIIZ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "禅釜尚",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ぜんふしょう",
+        "禅釜尚",
+        "茶釜",
+        "ちゃがま",
+        "付喪神",
+        "つくもがみ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "虎隠良",
+        "槍毛長",
+        "禅和尚"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "文政時代に肥前国（現在の長崎・佐賀）の浜辺に現れたとされる人魚に似た妖怪。2本の角と人の顔を持ち、腹は紅色、三刃の剣のような尾びれが特徴。龍宮の使者を名乗り、豊作の後に疫病が流行ると予言し、自分の姿を描き写せば難を逃れられると告げたという。その写し絵は多くの家で大切にされた。",
+      "documentId" : "jinjahime",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/6cSW1LI.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "神社姫",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "じんじゃひめ",
+        "神社姫",
+        "人魚",
+        "にんぎょ",
+        "肥前",
+        "ひぜん",
+        "長崎",
+        "ながさき",
+        "佐賀",
+        "さが",
+        "龍宮",
+        "りゅうぐう",
+        "コロリ",
+        "予言",
+        "よげん",
+        "我衣",
+        "わがころも"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "九州西部の海辺に伝わる女の妖怪。長い黒髪の美女のように現れるが、下半身はぼやけていたり、蛇のようだったりするとされる。\n浜辺や船に近づいた者へ髪をまとわりつかせ、その毛を伝って血を吸うという。地域によって磯女子、海女、海姫、海女房、濡女子などとも呼ばれる。",
+      "documentId" : "isoonna",
+      "imageName" : "NoImage",
+      "name" : "磯女",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "いそおんな",
+        "磯女",
+        "磯女子",
+        "いそおなご",
+        "海女",
+        "あま",
+        "海姫",
+        "うみひめ",
+        "海女房",
+        "うみにょうぼう",
+        "濡女子",
+        "ぬれおなご",
+        "濡女",
+        "ぬれおんな",
+        "長崎",
+        "ながさき",
+        "熊本",
+        "くまもと",
+        "天草",
+        "あまくさ",
+        "五島列島",
+        "ごとうれっとう",
+        "宇久島",
+        "うくじま",
+        "小値賀",
+        "おぢか",
+        "黒髪",
+        "水死者",
+        "船",
+        "艫綱"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "天狗の一種で、境鳥とも呼ばれる。鼻の高い山伏姿の天狗とは異なり、トビに似た大きな翼を持つ鳥のような姿とされる。天狗の世界では地位が低く、薪売りや荷物運びで生計を立てていたという。一方で、人前に小僧の姿で現れるなど変化の術を使う話も伝わっており、その実力には諸説ある。",
+      "documentId" : "konohatengu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/2V72P0N.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "木の葉天狗",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "このはてんぐ",
+        "木の葉天狗",
+        "木葉天狗",
+        "天狗",
+        "てんぐ",
+        "境鳥",
+        "さかいどり",
+        "白狼",
+        "はくろう",
+        "大井川",
+        "静岡",
+        "甲子夜話",
+        "かっしやわ",
+        "諸国里人談"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "金の精霊とされる妖怪で、光る玉の姿で夜空を飛ぶとされる。この霊が飛び込んだ家は富み栄え、去った家は衰えるという。金玉（かなだま）とも呼ばれ、似た伝承が各地に残る。",
+      "documentId" : "kanedama",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/OZCJ6qf.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "金霊",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "かねだま",
+        "金霊",
+        "かなだま",
+        "金玉",
+        "鳥山石燕",
+        "とりやませきえん",
+        "金",
+        "かね",
+        "富",
+        "とみ",
+        "精霊",
+        "せいれい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "宮崎県の山村に伝わる子どもの姿をした妖怪。地域によってカリコ坊、ヒョウスボ、セコなどさまざまに呼ばれる。小学校低学年ほどの大きさで、大人には見えないが子どもの前には姿を現すことがあるという。山中では「ホイホイ」と澄んだ声で鳴き、近くにいるかと思えば遠くから、谷かと思えば山から聞こえるなど、不思議な動きを見せる。",
+      "documentId" : "karikobouzu",
+      "imageName" : "NoImage",
+      "name" : "カリコボウズ",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "かりこぼうず",
+        "カリコボウズ",
+        "かりこぼう",
+        "カリコボウ",
+        "ヒョウスボ",
+        "ヒョウスンボ",
+        "セコ",
+        "セコッポ",
+        "宮崎",
+        "みやざき",
+        "山",
+        "やま",
+        "ホイホイ",
+        "米良",
+        "めら"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "樹木に宿る精霊で、その精霊が宿った木そのものも木霊と呼ぶ。外見は普通の木だが、切り倒すと祟りがあるとされ、古老たちが代々語り継いで守ってきた。『古事記』の木の神ククノチノカミが木霊の原型とされ、『源氏物語』にも妖怪に近い存在として登場する。鳥山石燕は『画図百鬼夜行』で老いた男女の姿に描いた。沖縄のキジムナーも木の精キーヌシーに由来するとされる。",
+      "documentId" : "kodama",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4IJP8Lj.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "木霊",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "こだま",
+        "木霊",
+        "木魂",
+        "きだま",
+        "コダマ",
+        "木魅",
+        "樹木",
+        "精霊",
+        "せいれい",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "ククノチノカミ",
+        "キーヌシー",
+        "キジムナー",
+        "キダマサマ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "煙の中から不気味な顔が浮かび上がる妖怪。鳥山石燕の『今昔百鬼拾遺』に描かれており、蚊遣り火の煙がもつれ合って怪しい姿を成したものとされる。薄絹のように儚く風に崩れやすい姿から、煙々羅の名がついたという。",
+      "documentId" : "enenra",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/gtVXUHi.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "煙々羅",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "えんえんら",
+        "煙々羅",
+        "えんらえんら",
+        "煙羅煙羅",
+        "煙",
+        "けむり",
+        "蚊遣り火",
+        "かやりび",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "百物語の百話目、または語り終えた後に現れるとされる怪異。鳥山石燕『今昔百鬼拾遺』では、青い行燈のそばに座る鬼女の姿で描かれている。\n百物語では怪異を恐れて九十九話でやめたとも伝わり、青行燈は怪談の場そのものが呼び寄せる不吉な気配を表す存在とも考えられる。",
+      "documentId" : "aoandon",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/zUQCKVf.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "青行燈",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あおあんどん",
+        "青行燈",
+        "青行灯",
+        "百物語",
+        "ひゃくものがたり",
+        "怪談",
+        "かいだん",
+        "行燈",
+        "行灯",
+        "あんどん",
+        "鬼女",
+        "きじょ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "宿直草",
+        "とのいぐさ",
+        "蜘蛛",
+        "くも",
+        "嫉妬",
+        "しっと"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "雨の夜に現れる子どもの姿の妖怪。鳥山石燕『今昔画図続百鬼』では、和傘を頭にかぶり提灯を持つ姿で描かれている。\n中国の雨の神である雨師に仕える童子ともされ、江戸時代の黄表紙では豆腐小僧のように小間使い役の妖怪として登場する。",
+      "documentId" : "amefurikozou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/CpyUoZh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "雨降小僧",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あめふりこぞう",
+        "雨降小僧",
+        "雨降り小僧",
+        "雨ふり小僧",
+        "雨",
+        "あめ",
+        "雨師",
+        "うし",
+        "侍童",
+        "じどう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "黄表紙",
+        "きびょうし",
+        "御存之化物",
+        "ごぞんじのばけもの",
+        "豆腐小僧",
+        "とうふこぞう",
+        "和傘",
+        "提灯"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた、雨の中に立つ僧侶姿の妖怪。雨の夜、大峰山や葛城山の山中をさまよい、斎料を乞うとされる。\n後世の文献では旅人に食べ物や小銭をねだる妖怪として語られることもあるが、石燕の小雨坊との関係ははっきりしない。",
+      "documentId" : "kosamebou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/aI8w9Us.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "小雨坊",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "こさめぼう",
+        "小雨坊",
+        "雨",
+        "あめ",
+        "小雨",
+        "こさめ",
+        "僧侶",
+        "そうりょ",
+        "坊主",
+        "ぼうず",
+        "斎料",
+        "ときりょう",
+        "大峰山",
+        "おおみねさん",
+        "葛城山",
+        "かつらぎさん",
+        "修験道",
+        "しゅげんどう",
+        "山中",
+        "さんちゅう",
+        "粟",
+        "あわ",
+        "津軽街道",
+        "つがるかいどう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "鞍に牙と目が生えた姿の妖怪。源氏の家臣・鎌田政清が使った馬の鞍が化けたとされる付喪神。手には鞭を持つ。",
+      "documentId" : "kurayarou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/vDyLXNz.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鞍野郎",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "くらやろう",
+        "鞍野郎",
+        "鎌田政清",
+        "かまたまさきよ",
+        "付喪神",
+        "つくもがみ",
+        "馬具",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "アイヌの伝承に登場する小人の妖精。蕗の葉の下に住むとされる。地域により伝説は異なり、十勝地方ではアイヌに迫害され土地を去ったと伝わる。",
+      "documentId" : "koropokkuru",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/NAWFv2N.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "コロポックル",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "ころぽっくる",
+        "コロポックル",
+        "小人",
+        "こびと",
+        "アイヌ",
+        "蕗の葉",
+        "ふきのは",
+        "十勝",
+        "とかち",
+        "トカップチ",
+        "北海道",
+        "ほっかいどう",
+        "妖精",
+        "ようせい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "路上を歩く馬を突然死に至らしめる怪異。つむじ風と共に現れ、馬の鼻から入り肛門から抜けるとされる。美濃や尾張ではギバ（馬魔）と呼ばれ、小さな女性の姿で馬を襲う。",
+      "documentId" : "taiba",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/zP9DnoF.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "頽馬",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "たいば",
+        "頽馬",
+        "ギバ",
+        "馬魔",
+        "うまま",
+        "御伽婢子",
+        "おとぎぼうこ",
+        "浅井了意",
+        "あさいりょうい",
+        "尾張",
+        "おわり",
+        "美濃",
+        "みの",
+        "愛知",
+        "岐阜",
+        "常陸",
+        "ひたち",
+        "茨城",
+        "大津"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "西日本に広く伝わる犬霊の憑き物。特に四国を中心に根強く信仰され、人や家に憑いて福や禍をもたらすとされる。地域によってインガメ、イリガミなどとも呼ばれる。",
+      "documentId" : "inugami",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4ItCkkf.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "犬神",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "いぬがみ",
+        "犬神",
+        "インガメ",
+        "イリガミ",
+        "狗神",
+        "憑き物",
+        "つきもの",
+        "四国",
+        "西日本",
+        "大分",
+        "島根",
+        "高知",
+        "熊本",
+        "宮崎"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "人間の女性が怨念や宿業によって鬼と化したもの。若い女性を鬼女、老婆姿を鬼婆と呼ぶ。紅葉伝説、鈴鹿御前、安達ヶ原の鬼婆（黒塚）などが有名。転じて、心の酷い女性や怒った女性を指すこともある。",
+      "documentId" : "kijo",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/8QkhNl3.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鬼女",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "きじょ",
+        "鬼女",
+        "きばば",
+        "鬼婆",
+        "紅葉",
+        "もみじ",
+        "紅葉伝説",
+        "鈴鹿御前",
+        "すずかごぜん",
+        "安達ヶ原",
+        "あだちがはら",
+        "黒塚",
+        "くろづか",
+        "戸隠",
+        "とがくし",
+        "鬼無里",
+        "きなさ",
+        "長野",
+        "福島",
+        "土佐",
+        "高知"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "首から上がなく、代わりに胴体に顔がある妖怪。尾田郷澄『百鬼夜行絵巻』に描かれているが、詳細は不明。",
+      "documentId" : "dounotsura",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/MlAWmAA.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "胴面",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "どうのつら",
+        "胴面",
+        "どうめん",
+        "百鬼夜行絵巻",
+        "ひゃっきやぎょうえまき",
+        "あかはだか",
+        "赤裸",
+        "刑天",
+        "けいてん",
+        "尾田郷澄",
+        "おだごうちょう",
+        "山海経",
+        "せんがいきょう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "外見は美しい女性だが、男の心を迷わせて身を滅ぼす妖怪。江戸時代の『絵本百物語』に登場。女犯を戒めるために創作されたとされる。",
+      "documentId" : "hinoennma",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/YypCD91.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "飛縁魔",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "ひのえんま",
+        "飛縁魔",
+        "えんしょうじょ",
+        "縁障女",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "丙午",
+        "ひのえうま",
+        "八百屋お七",
+        "やおやおしち",
+        "妖婦",
+        "ようふ",
+        "女の怪"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "夜中に山道を歩くとついてくる犬。転ぶと食い殺されるが、座った振りをすれば襲わない。無事に山道を抜けたら礼を言うと帰る。地域によっては人を守る存在。",
+      "documentId" : "okuriinu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/2E5RAga.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "送り犬",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "おくりいぬ",
+        "送り犬",
+        "山犬",
+        "やまいぬ",
+        "送り狼",
+        "おくりおおかみ",
+        "狼",
+        "おおかみ",
+        "迎え犬",
+        "むかえいぬ",
+        "長野",
+        "上田",
+        "塩田",
+        "南佐久郡",
+        "小海町",
+        "こうみまち",
+        "高知",
+        "山道",
+        "やまみち",
+        "峠",
+        "とうげ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "新しい死体から生じた気が化けた怪鳥。充分な供養を受けていない死体が化けたもので、経文読みを怠る僧侶のもとに現れるという。",
+      "documentId" : "onmoraki",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/J1E9oTL.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "陰摩羅鬼",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "おんもらき",
+        "陰摩羅鬼",
+        "怪鳥",
+        "かいちょう",
+        "大蔵経",
+        "だいぞうきょう",
+        "太平百物語",
+        "たいへいひゃくものがたり",
+        "京都",
+        "きょうと",
+        "山城国",
+        "やましろのくに",
+        "死体",
+        "したい",
+        "供養",
+        "くよう",
+        "僧侶",
+        "そうりょ",
+        "寺",
+        "てら"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "山東京伝の小説『梅花氷裂』に登場。信濃国で藻之花という女性が金魚鉢に頭を突っ込まれて殺され、その怨念が金魚に憑いた。ランチュウの始まりとされる。",
+      "documentId" : "kingyonoyuurei",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/5JPNfA9.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "金魚の幽霊",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "きんぎょのゆうれい",
+        "金魚の幽霊",
+        "金魚",
+        "きんぎょ",
+        "梅花氷裂",
+        "ばいかひょうれつ",
+        "山東京伝",
+        "さんとうきょうでん",
+        "藻之花",
+        "もかのはな",
+        "らんちゅう",
+        "ランチュウ",
+        "蘭鋳",
+        "信濃",
+        "しなの",
+        "長野",
+        "水木しげる",
+        "怨念",
+        "おんねん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "夜中に寝ている人の枕をひっくり返したり、頭と足の向きを変えたりする妖怪。小さな坊主や仁王のような姿で描かれることが多い。東北        地方では座敷童子の悪戯ともいわれる。かつては枕に人の魂が宿ると信じられており、枕を返されることは死を意味するとして恐れられていたが、徐々に        その信仰が廃れ、単なる悪戯と見なされるようになった",
+      "documentId" : "makuragaesi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/kd5wwgm.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "枕返し",
+      "relatedCategory" : "家の怪",
+      "relatedSpots" : [
+        {
+          "description" : "江戸時代から伝わる「枕返しの幽霊」という掛け軸がある寺。この掛け軸の前で眠ると、翌朝には枕が返されているという伝承が残る。坐禅や写経の体験もできる。",
+          "latitude" : 36.86583557069369,
+          "longitude" : 140.1226900441809,
+          "prefecture" : "栃木県",
+          "spotName" : "大雄寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "makuragaesi"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "まくら",
+        "マクラ",
+        "枕",
+        "まくらがえし",
+        "まくらこぞう",
+        "枕小僧",
+        "ざしきわらし",
+        "座敷童子",
+        "いたずら",
+        "悪戯",
+        "寝る",
+        "睡眠",
+        "夜"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "徳島の市街地近くの墓地にある、「おっぱしょ」と声を掛けて人をおどかす怪石。",
+      "documentId" : "oppasho_ishi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/3tBMuPN.png",
+      "name" : "オッパショ石",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "徳島の市街地近くの墓地にある怪石の伝承地",
+          "latitude" : 34.05645998373413,
+          "longitude" : 134.54422761534468,
+          "prefecture" : "徳島県",
+          "spotName" : "オッパショ石",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "oppasho_ishi"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "オッパショ石",
+        "おっぱしょ",
+        "オッパショいし",
+        "徳島",
+        "とくしま",
+        "徳島県",
+        "怪石",
+        "かいせき",
+        "石",
+        "いし",
+        "力士",
+        "墓地",
+        "道の怪"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "1846年、肥後の海に現れた半人半魚の妖怪。長い髪と鳥のくちばしを持ち、豊作や疫病などの予言を伝えて、海にもどったという言い伝えがある。",
+      "documentId" : "amabie",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/jK10Hbs.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "アマビエ",
+      "relatedCategory" : "水の怪",
+      "relatedSpots" : [
+        {
+          "description" : "天草・島原の戦い初戦地として知られる歴史ある神社。令和2年、コロナ禍における疫病終息を願い、アマビエの石神が鎮座された。",
+          "latitude" : 32.477377901069154,
+          "longitude" : 130.26318643678658,
+          "prefecture" : "熊本県",
+          "spotName" : "大島子諏訪神社",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "amabie"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "あまびえ",
+        "アマビエ",
+        "熊本",
+        "くまもと",
+        "熊本県",
+        "肥後",
+        "ひご",
+        "大島子諏訪神社",
+        "予言",
+        "よげん",
+        "疫病",
+        "コロナ",
+        "COVID-19",
+        "水の怪",
+        "海",
+        "人魚",
+        "件",
+        "くだん",
+        "天草"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "あかなめは、風呂場で桶の垢を舐める妖怪。これといって大きな害はない。風呂場を清潔にすれば、垢も発生しないため、あかなめには教訓が含まれているという説もある。",
+      "documentId" : "akaname",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/1kUq6RO.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "あかなめ",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "教訓",
+        "ふろ",
+        "垢",
+        "あかなめ",
+        "桶",
+        "おけ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "すべて"
+      ],
+      "description" : "べとべとさん",
+      "documentId" : "betobetosan",
+      "imageName" : "NoImage",
+      "name" : "べとべとさん",
+      "relatedCategory" : "音の怪",
+      "searchKeywords" : [
+        "べとべとさん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "おとろし",
+      "documentId" : "otorosi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/fNhSHPs.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "おとろし",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "おとろし"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "タツクチナワ",
+      "documentId" : "tatukutinawa",
+      "imageName" : "NoImage",
+      "name" : "タツクチナワ",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "北九州",
+        "きたきゅうしゅう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "仙台に伝わる妖怪。古い柿の木が実を収穫せずに放置すると出るといわれる",
+      "documentId" : "tantankorori",
+      "imageName" : "NoImage",
+      "name" : "たんたんころりん",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "たんたんころりん",
+        "柿",
+        "仙台",
+        "宮城",
+        "かき",
+        "みやぎ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "天井下り",
+      "documentId" : "tenjokudari",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/13jR5iS.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "天井下り",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "てんじょうくだり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "のづち",
+      "documentId" : "noduti",
+      "imageName" : "NoImage",
+      "name" : "のづち",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "のづち"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "今昔画図続百鬼に描かれている妖怪。恐怖で人間がぞくっと震えるのは、ぶるぶるが取り憑くためだといわれる。",
+      "documentId" : "buruburu",
+      "imageName" : "NoImage",
+      "name" : "ぶるぶる",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "鳥山石燕",
+        "今昔画図続百鬼"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "百鬼夜行絵巻をはじめとした、絵巻物に描かれている妖怪\n白くて細長い妖怪で詳細は不明",
+      "documentId" : "siroukari",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/pSFU2pT.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "しろうかり",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "ばけ物つくし帖",
+        "百物語化絵絵巻",
+        "百鬼夜行絵巻",
+        "尾田郷澄",
+        "江戸時代"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "道教に由来し、人が生まれた時から体内に棲む三匹の虫。上尸は脳に居て首から上の病気と大食を、中尸は腹に居て臓器の病気と宝貨への欲を、下尸は足に居て腰から下の病気と淫欲を引き起こす。庚申の夜に天帝へその人の罪を報告するとされる。姿は文献により異なる。",
+      "documentId" : "sansi",
+      "imageName" : "NoImage",
+      "name" : "三尸",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "さんし",
+        "三尸",
+        "上尸",
+        "じょうし",
+        "彭踞",
+        "ほうきょ",
+        "中尸",
+        "ちゅうし",
+        "彭躓",
+        "ほうしつ",
+        "下尸",
+        "げし",
+        "彭蹻",
+        "ほうきょう",
+        "庚申",
+        "こうしん",
+        "道教",
+        "どうきょう",
+        "太上除三尸九虫保生経",
+        "太上三尸中経"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "家鳴(やなり)",
+      "documentId" : "yanari",
+      "imageName" : "NoImage",
+      "name" : "家鳴",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "やなり",
+        "家鳴"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "琵琶牧々（びわぼくぼく)",
+      "documentId" : "biwabokuboku",
+      "imageName" : "NoImage",
+      "imageSource" : "パブリックドメイン",
+      "name" : "びわぼくぼく",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "びわぼくぼく",
+        "琵琶"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "ひゃくもく",
+      "documentId" : "hyakumoku",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/7HzojTV.png",
+      "name" : "ひゃくもく",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "ひゃくもく",
+        "百"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "夜道を歩いていると僧の姿で突然現れ、はじめは小さな背丈だが見上げれば見上げるほど大きくなるという妖怪。全国各地に伝承があり、入道が大きくなるのを見上げると、喉を噛み切られるという言い伝えがある。「みこしにゅうどう見抜いた」と言えば消え去るという。",
+      "documentId" : "mikosinyuudou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/GyqfXnb.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "みこしにゅうどう",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "宿直草",
+        "煙霞奇談",
+        "みあげにゅうどう",
+        "江戸時代",
+        "ノビアガリ",
+        "シダイダカ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "がごぜ",
+      "documentId" : "gagoze",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/7ZlvwAJ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "がごぜ",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "飛鳥時代に元興寺に現れた妖怪。『日本霊異記』に記された鬼退治の伝説で知られ、境内には5体の小鬼の像が潜んでいる。",
+          "latitude" : 34.67810978190381,
+          "longitude" : 135.8314418711626,
+          "prefecture" : "奈良県",
+          "spotName" : "元興寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "gagoze"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "元興寺",
+        "奈良",
+        "鬼",
+        "日本霊異記",
+        "飛鳥時代",
+        "寺",
+        "仏教",
+        "伝説"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "江戸時代の妖怪絵巻に描かれる、顔と体の区別がつかない肉塊のような姿の妖怪。のっぺらぼうの一種とされ、人に成りすまして近づき、油断したところで正体を現す。死人の脂を吸うともいわれる。",
+      "documentId" : "nuppeppou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4QAE4II.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ぬっぺっぽう",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "画図百鬼夜行",
+        "百怪図巻",
+        "江戸時代",
+        "のっぺらぼう",
+        "肉塊",
+        "ぬっぺふほふ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた全身が毛に覆われた妖怪。希有希見とも書き、滅多に見ることができない存在とされる。湿気の多い場所に棲み、病気をもたらす疫神の一種ともいわれる。",
+      "documentId" : "keukegen",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/dlAHOXq.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "毛羽毛現",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "今昔百鬼拾遺",
+        "鳥山石燕",
+        "希有希見",
+        "希有希現",
+        "疫神",
+        "病気",
+        "毛むくじゃら",
+        "江戸時代",
+        "けうけげん",
+        "けうげげん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "江戸時代の妖怪物語『稲生物怪録』に登場する妖怪の頭領。三つ目の烏天狗として描かれ、広島県三次の稲生平太郎を30日間怪異で脅したが、平太郎の勇気に負けを認め、木槌を与えて去った。",
+      "documentId" : "yamamotogorozaemon",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/bHmF0Nm.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "山本五郎左衛門",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "稲生物怪録",
+        "いのうもののけろく",
+        "稲生平太郎",
+        "いのうへいたろう",
+        "三次",
+        "みよし",
+        "広島",
+        "ひろしま",
+        "烏天狗",
+        "からすてんぐ",
+        "魔王",
+        "まおう",
+        "神野悪五郎",
+        "しんのあくごろう",
+        "木槌",
+        "きづち",
+        "江戸時代",
+        "さんもとごろうざえもん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "泥田坊(どろたぼう)",
+      "documentId" : "dorotabou",
+      "imageName" : "NoImage",
+      "name" : "泥田坊",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "どろたぼう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "火車(かしゃ)",
+      "documentId" : "kasya",
+      "imageName" : "NoImage",
+      "name" : "火車",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "猫",
+        "火車",
+        "かしゃ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "日本各地に伝わる巨人伝説。山を作り、谷を掘り、巨大な足跡が湖になったとされる。地域によって「デイダラボッチ」「ダイダラボウ」など呼び方が異なる。",
+      "documentId" : "daidarabotti",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/XNQ5ovy.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "だいだらぼっち",
+      "relatedCategory" : "山の怪",
+      "relatedSpots" : [
+        {
+          "description" : "平地に浮かぶ石森山に鎮座する神社。だいだらぼっちが作ったという伝承が残り、巨石群や奇岩が立ち並ぶ。躑躅の名所としても知られる。",
+          "latitude" : 35.67921691481622,
+          "longitude" : 138.69168615581916,
+          "prefecture" : "山梨県",
+          "spotName" : "山梨岡神社",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "daidarabotti"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "だいだらぼっち",
+        "ダイダラボッチ",
+        "デイダラボッチ",
+        "ダイダラボウ",
+        "でいだらぼっち",
+        "巨人",
+        "きょじん",
+        "山",
+        "やま",
+        "山の怪",
+        "山梨",
+        "やまなし",
+        "山梨県",
+        "山梨岡神社",
+        "石森山",
+        "足跡",
+        "湖"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "ヤマタノオロチ",
+      "documentId" : "yamatanooroti",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/QVnoJHi.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ヤマタノオロチ",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "斐伊川の源流にある山。スサノオノミコトがヤマタノオロチを退治した出雲神話の舞台として知られる。",
+          "latitude" : 35.156637675418914,
+          "longitude" : 133.17866874603408,
+          "prefecture" : "島根県",
+          "spotName" : "船通山",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "yamatanooroti"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "ヤマタノオロチ",
+        "やまたのおろち",
+        "八岐大蛇",
+        "オロチ",
+        "蛇",
+        "ヘビ",
+        "へび",
+        "大蛇",
+        "8つの頭",
+        "八つ頭"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "一本だたら(いっぽんだたら)",
+      "documentId" : "ippondatara",
+      "imageName" : "NoImage",
+      "name" : "一本だたら",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "一本足で目が皿のような妖怪が現れる山脈。普段は無害だが、旧暦12月20日の『果ての二十日』には人を襲うと恐れられた。",
+          "latitude" : 33.910530545321635,
+          "longitude" : 135.74460219642324,
+          "prefecture" : "奈良県",
+          "spotName" : "果無山脈",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "ippondatara"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "1本",
+        "いっぽんだたら",
+        "一本足",
+        "一つ目",
+        "1つ目",
+        "一眼一足",
+        "山の妖怪",
+        "鍛冶",
+        "イッポンダタラ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "般若(はんにゃ)",
+      "documentId" : "hannya",
+      "imageName" : "NoImage",
+      "name" : "般若",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "はんにゃ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "蟹坊主(かにぼうず)",
+      "documentId" : "kanibouzu",
+      "imageName" : "NoImage",
+      "name" : "蟹坊主",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "かに"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "油すまし",
+      "documentId" : "aburasumasi",
+      "imageName" : "NoImage",
+      "name" : "油すまし",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "熊本県栖本町河内地区に残る油すましの墓とされる石像。地元では古くから妖怪伝承が語り継がれており、現在も地域の人々によって大切に管理されている。",
+          "latitude" : 32.445623276269785,
+          "longitude" : 130.31227092831656,
+          "prefecture" : "熊本県",
+          "spotName" : "妖怪「油すまし」の墓",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "aburasumasi"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "あぶらすまし",
+        "アブラスマシ",
+        "油盗み",
+        "あぶらぬすみ",
+        "熊本",
+        "くまもと",
+        "河内",
+        "かわち",
+        "墓"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "土蜘蛛(つちぐも)",
+      "documentId" : "tutigumo",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/92Rbhpz.png",
+      "name" : "土蜘蛛",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "つちぐも"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "彭侯(ほうこう)",
+      "documentId" : "houkou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/KcZayuW.png",
+      "name" : "ほうこう",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "彭侯",
+        "中国",
+        "外国の妖怪"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "応声虫",
+      "documentId" : "ousei",
+      "imageName" : "NoImage",
+      "name" : "応声虫",
+      "searchKeywords" : [
+        "応声虫"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "すべて"
+      ],
+      "description" : "くねゆすり",
+      "documentId" : "kuneyusuri",
+      "imageName" : "NoImage",
+      "name" : "くねゆすり",
+      "relatedCategory" : "音の怪",
+      "searchKeywords" : [
+        "くねゆすり",
+        "秋田",
+        "仙北市"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "白虎",
+      "documentId" : "byakko",
+      "imageName" : "NoImage",
+      "name" : "白虎",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "びゃっこ",
+        "中国"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "青龍",
+      "documentId" : "seiryu",
+      "imageName" : "NoImage",
+      "name" : "青龍",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "せいりゅう",
+        "中国"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "南方を守護する中国の神獣で、天の四霊の一つ。赤い翼を広げた鳥の姿で表され、五行説では「火」の象徴とされる。鳳凰と同一視されることもあるが本来は別の存在。日本でも薬師寺の本尊台座やキトラ古墳の壁画に描かれるなど、古くから親しまれてきた。俳句では夏を「朱夏」と呼ぶこともある。",
+      "documentId" : "suzaku",
+      "imageName" : "NoImage",
+      "name" : "朱雀",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "すざく",
+        "朱雀",
+        "中国",
+        "四神",
+        "ししん",
+        "四霊",
+        "しれい",
+        "南",
+        "火",
+        "鳳凰",
+        "ほうおう",
+        "キトラ古墳",
+        "薬師寺",
+        "朱夏"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "玄武",
+      "documentId" : "genbu",
+      "imageName" : "NoImage",
+      "name" : "玄武",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "げんぶ",
+        "中国"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "波蛇",
+      "documentId" : "namihebi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Xi9meFI.png",
+      "name" : "波蛇",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "波蛇",
+        "なみへび"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "かにおに",
+      "documentId" : "kanioni",
+      "imageName" : "NoImage",
+      "name" : "蟹鬼",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "蟹鬼",
+        "かにおに"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "キョンシー",
+      "documentId" : "kyonsi",
+      "imageName" : "NoImage",
+      "name" : "キョンシー",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "キョンシー",
+        "中国"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "じゅうめん",
+      "documentId" : "jumen",
+      "imageName" : "NoImage",
+      "name" : "じゅうめん",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "じゅうめん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "うやうやし",
+      "documentId" : "uyauyasi",
+      "imageName" : "NoImage",
+      "name" : "うやうやし",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "うやうやし"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "にくらし",
+      "documentId" : "nikurasi",
+      "imageName" : "NoImage",
+      "name" : "にくらし",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "馬肝入道",
+      "documentId" : "bakkannyudou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4Nlpvq7.png",
+      "name" : "馬肝入道",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "",
+      "documentId" : "nanjiyaka",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/z3MAS9i.png",
+      "name" : "なんじやか",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "",
+      "documentId" : "mappira",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Bq5cPyz.png",
+      "name" : "まっぴら",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "ごたいめんは、夜道や辻などで突然人の前に現れるとされる妖怪で、その名の通り「真正面から出会う」ことを特徴としている。振り返った先や道の曲がり角に、いつの間にか立っている姿が語られ、逃げようとしても進路を塞ぐように再び正面に現れるという。害を加えるわけではないが、道を進む者に強い動揺と不安を与え、夜道での不意の遭遇そのものを象徴する妖怪だと考えられている。",
+      "documentId" : "gotaimen",
+      "imageName" : "NoImage",
+      "name" : "ごたいめん",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "いが坊は、夜の道ばたや林の近くに現れるとされる小さな妖怪で、いがいがした姿をした坊主のように語られている。道の端にじっと座っていたり、転がっているように見えることもあり、人が近づくと急に姿を消すことが多い。害をなすことはほとんどなく、旅人や通行人を驚かせる程度の存在で、夜道で感じる気配や違和感が形になった妖怪だと考えられている。",
+      "documentId" : "igabou",
+      "imageName" : "NoImage",
+      "name" : "いが坊",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "べか太郎は、夜道や人通りの少ない道に現れるとされる妖怪で、遠くから見ると人影のように見えるが、近づくと正体が分からなくなる存在だと語られている。追いかけても逃げることはなく、かといって捕まえることもできず、気づけばいつの間にか姿を消している。特別な害を及ぼすわけではないが、夜道で感じる不安や錯覚を形にした妖怪だと考えられている。",
+      "documentId" : "bekatarou",
+      "imageName" : "NoImage",
+      "name" : "べか太郎",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "わいらは、家の縁の下や暗がりに潜むとされる妖怪で、人目につかない場所からじっと人を見つめている存在だと語られている。はっきりとした姿や性質は伝わっておらず、影のように現れては気配だけを残し、特別な害をなすことも少ない。その正体の曖昧さゆえに、「そこに何かいるのではないか」という不安や違和感そのものが、わいらの正体だとも考えられている。",
+      "documentId" : "waira",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/r9ld7sZ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "わいら",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "ぬらりひょんは、夕暮れ時に人の家へ何食わぬ顔で上がり込み、まるで主のように振る舞うとされる妖怪である。老人のような姿をしているが、正体や目的ははっきりせず、追い出そうとしても気づけばいつの間にか消えているという。特別な害をなすわけではないが、その得体の知れなさと図々しさから、家に忍び込む怪異の代表的存在として語られてきた。",
+      "documentId" : "nurarihyon",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/l2lnRiI.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ぬらりひょん",
+      "relatedCategory" : "家の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "灰坊主（あくぼうず）は、囲炉裏や竈の灰の中から現れるとされる妖怪で、秋田県や岩手県などに伝わる。姿は灰まみれの坊主のように描かれ、ぬっと這い出て人を驚かせたり、夜に家の中をうろつくともいわれる。名前の通り「灰」に関わる怪異であり、火の気が消えた後の囲炉裏に残る灰の不気味さが、その伝承の背景にあると考えられている。",
+      "documentId" : "akubouzu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/UMP1Qnv.png",
+      "name" : "灰坊主",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "秋田",
+        "岩手",
+        "あくぼうず"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "獏は、人の見る悪夢を食らうとされる霊獣で、中国由来の想像上の動物が日本に伝わったものと考えられている。象の鼻、熊の足、牛の尾など複数の動物の特徴を併せ持つ姿で描かれることが多い。夜ごと夢を荒らす邪気を払い、安眠をもたらす存在として、枕元に絵や像を置く風習もあった。",
+      "documentId" : "baku",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/MVu6BOt.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "獏",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "ばく",
+        "悪夢"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "馬癇(うまかん)は人の体内に棲み病を引き起こす病虫の一種。『針聞書』では赤い体に白い足を持つ馬の姿で描かれ、心臓に生じる癇の虫とされ、針術による治療が有効と記されている。",
+      "documentId" : "umakan",
+      "imageName" : "NoImage",
+      "name" : "馬癇",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "馬",
+        "うまかん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "牛癇(ぎゅうかん)は、人の体内に生じて病を引き起こすと考えられた病虫の一種。戦国期の医書『針聞書』には黒い角を持つ牛の姿で描かれ、肺に発生して食事の際に癇の症状を起こすとされ、鍼による治療が記されている。",
+      "documentId" : "gyuukan",
+      "imageName" : "NoImage",
+      "name" : "牛癇",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "牛",
+        "ぎゅうかん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "ノブスマ（野衾）は、夜道を歩く人の前に壁のように立ちふさがる現象型の妖怪。上下左右に果てがなく進退を失わせ、恐怖や不安を増幅させるが、腰を下ろして落ち着くと消えると伝えられる。",
+      "documentId" : "nobusuma",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/6f5AJml.png",
+      "name" : "野衾",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "ふすま",
+        "のぶすま",
+        "野衾"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "刑天は中国神話に登場する怪異的存在で、黄帝に敗れ首を失っても滅びず、胸を目、臍を口として斧と盾を手に戦い続けたとされる。勝敗を超え、闘争そのものに囚われた執念の象徴として語られる。",
+      "documentId" : "keiten",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/LwXUPb6.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "刑天",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "中国",
+        "けいてん",
+        "刑天"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "孫悟空",
+      "documentId" : "songokuu",
+      "imageName" : "NoImage",
+      "name" : "孫悟空",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "中国",
+        "西遊記",
+        "そんごくう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "『西遊記』に登場する妖怪。もとは天界で天蓬元帥という武将の位にあったが、酒に酔って月宮の仙女に無礼を働いた罪により下界へ落とされた。転生の途中で道を誤り、人間ではなく豚の姿をした半妖として生まれ変わったとされる。\n\n人里近くの高老荘に住みつき、力仕事をしながらも、食欲と色欲に忠実で怠け者な性質から周囲を困らせていた。見た目は大柄で腹が出ており、鼻面は豚そのものだが、人の言葉を話し、農具を武器として振るうほどの怪力を持つ。欲深く弱音を吐きやすい一方で、どこか憎めない存在として語られることが多い。\n\n後に三蔵法師一行と出会い、観音菩薩の取りなしによって旅の供となる。修行僧としては未熟で、しばしば逃げ腰になるものの、危機の際には力仕事を引き受けるなど、実務的な役割を果たしたとされる。人間的な煩悩を色濃く残した妖怪として、沙悟浄とは対照的な存在である。",
+      "documentId" : "chohakkai",
+      "imageName" : "NoImage",
+      "name" : "猪八戒",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "中国",
+        "西遊記",
+        "猪八戒",
+        "ちょはっかい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "『西遊記』に登場する妖怪。もとは天界に仕える存在であったが、天帝の宴の席で誤って玻璃の杯を壊した罪により下界へ落とされ、流砂河に追放されたとされる。以後、七日に一度、天から降ってくる剣によって脇腹を刺されるという罰を受け続け、水辺に棲む水怪と成り果てた。\n\n流砂河では、通りかかった旅人や僧を襲い、その骸骨を首にかけていたと伝えられる。首に下げた骸骨は七つあり、これは自身に科せられた七日の刑を象徴するとも言われる。髪はまばらで、痩せた体つきの異様な姿をしており、人の言葉を解しながらも長く孤独な日々を送っていたという。\n\n後に三蔵法師一行と出会い、観音菩薩の導きによって改心し、旅の供として加わることになる。それまでは恐れられる水の怪であったが、根は真面目で従順な性質であり、過去の罪を背負いながらも黙々と役目を果たす存在として語られる。",
+      "documentId" : "sagojou",
+      "imageName" : "NoImage",
+      "name" : "沙悟浄",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "西遊記",
+        "中国",
+        "沙悟浄",
+        "さごじょう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "江戸時代の妖怪絵巻『化け物尽くし絵巻』などに描かれる海の怪異。海面から細長い胴を伸ばし、象の鼻のような口先から潮を高く噴き上げるとされる。姿を見た者は、遠くからでも異様な水柱に気づくが、近づくほど正体がつかめず不気味だという。\n\n海辺で漁をしていた人々が、沖合に不自然に高い潮の噴き上がりを見つけた。最初は鯨の潮吹きだと思って船を出したが、近づくほど霧のような飛沫だけが増え、波間から細長い影が一瞬だけ立ち上がったという。影は象の鼻のような口先でさらに潮を噴き、あたりを白く霞ませたのち、何事もなかったかのように海へ沈んで消えた。以来、その海域では『潮の柱が立ったら近づくな』と語られるようになった。",
+      "documentId" : "siohuki",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/L5i1unD.png",
+      "name" : "しおふき",
+      "relatedCategory" : "水の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "人の心を読む能力を持つとされる山の妖怪。胸に大きな目を持ち、出会った相手の内心を言い当てて動揺させると伝えられる。\n\n山中で出会った旅人の考えを次々と言い当て、恐怖のあまり逃げ出させたという話が残る。",
+      "documentId" : "satori",
+      "imageName" : "NoImage",
+      "name" : "さとり",
+      "relatedCategory" : "動物の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "山間部や田畑の遠景に現れる、真っ白な人型のような異形。正体を凝視した者は発狂するとされ、詳細を認識してはならない存在として語られる。\n\n白い人影を望遠鏡で覗いた人物が正気を失った、という体験談がインターネット上で拡散された。",
+      "documentId" : "kunekune",
+      "imageName" : "NoImage",
+      "name" : "くねくね",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "くねくね",
+        "都市伝説"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "雨の夜、足元をふいに横切る小さな影。すねに柔らかく身を擦り寄せ、歩幅を乱して人をたじろがせる。悪意は薄く、驚かせては霧のように消えると伝わる。\n\n暗闇の中で足元にまとわりつき、人を驚かせる。",
+      "documentId" : "sunekosuri",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/0kMuhjp.png",
+      "name" : "すねこすり",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "夜に現れ、人の血を吸うとされる怪異。コウモリと関連し、影のように忍び寄る存在として語られる。\n\n日光を嫌い、夜に活動する。血を吸われると吸血鬼になるとも言われる。",
+      "documentId" : "vampire",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Jk0nTE9.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "吸血鬼",
+      "searchKeywords" : [
+        "吸血鬼"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "電話で『いま○○にいるの』と居場所を知らせながら徐々に接近してくる人形の怪異。最後は背後に現れるとされる。\n\n電話の度に居場所が近づく。最後は『いま、あなたの後ろにいるの』と言う。",
+      "documentId" : "merry",
+      "imageName" : "NoImage",
+      "name" : "メリーさん",
+      "relatedCategory" : "都市伝説",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "背丈が八尺（約240cm）あるとされる異様に背の高い女性の怪異。「ポポポ…」という声とともに現れ、人に憑くとされる。\n\n長身の影が遠くから近づいてくる。憑かれた者を狙うとされる。",
+      "documentId" : "hachishakusama",
+      "imageName" : "NoImage",
+      "name" : "八尺様",
+      "relatedCategory" : "都市伝説",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "押し入れや家具、壁の狭い隙間などから覗き込む女性の怪異。細い空間に潜み、じっとこちらを見つめる。\n\n隙間に潜んで視線を送ってくる。視線が合うと近づいてくると言われる。",
+      "documentId" : "sukimaonna",
+      "imageName" : "NoImage",
+      "name" : "隙間女",
+      "relatedCategory" : "都市伝説",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "死者の霊が灯火のように漂うとされる怪異。夜道や墓地にふわりと浮かび、青白い炎の姿で現れる。\n\n夜間に漂い、人を驚かせる。怪異の前触れとされることもある。",
+      "documentId" : "hitodama",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/oY0NygQ.png",
+      "name" : "人魂",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "都市伝説談に登場する背の高い女の怪異。赤い服と帽子を身に着け、長い黒髪をサラサラとなびかせながら、奇妙なポーズで近づいてくるとされる。\n\n深夜の道路脇で、看板の前にアクロバティックなポーズで立ちつくしている姿を見たという話。",
+      "documentId" : "acrobaticsarasara",
+      "imageName" : "NoImage",
+      "name" : "アクロバティックサラサラ",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "都市伝説"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "すべて"
+      ],
+      "description" : "巨大な虫のような姿で描かれる怪物。節くれだった体と多数の脚、翼や触角を持ち、うごめくだけで禍々しい気配を放つという。",
+      "documentId" : "sintyu",
+      "imageName" : "NoImage",
+      "name" : "神虫",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "前進を阻む“壁”として感じられ、押しても避けても進めない。低い位置を叩くと消える、角を探すと抜けられるなどの対処譚が伝わる。",
+      "documentId" : "nurikabe",
+      "imageName" : "NoImage",
+      "name" : "ぬりかべ",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "一本足で飛び跳ねる、古い唐傘の妖怪。目玉と長い舌を持ち、雨の夜に出現すると言われる。人々を驚かせることを好むが、悪さはしないとされる。",
+      "documentId" : "kasakozou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Q5Y4U7J.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "傘小僧",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "かさこぞう",
+        "傘"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "頭が牛で首から下は蜘蛛のような胴体、あるいはその逆の場合もある。人を襲うとされ、牛鬼が出現する前に、濡れ女が赤ん坊を抱かせようとしてくる。\n島根県で牛鬼の伝承が多い。男が釣りから帰ろうとしたとき、濡女が現れて赤子を渡すと消えてしまった。\n赤子を離そうとしても、石のようになって手から離れず、その間に牛鬼があらわれ襲いかかろうとするが、なんとか逃げ切って助かったという伝承がある。\n",
+      "documentId" : "usioni",
+      "imageName" : "NoImage",
+      "imageSource" : "パブリックドメイン",
+      "name" : "牛鬼",
+      "relatedCategory" : "水の怪",
+      "relatedSpots" : [
+        {
+          "description" : "香川県の根香寺に伝わる牛鬼伝説。弓名人・山田蔵人高清が退治した牛鬼の角が今も寺に保存されている。牛鬼の絵は魔よけのお守りとして親しまれている。",
+          "latitude" : 34.34323013625954,
+          "longitude" : 133.96153552883618,
+          "prefecture" : "香川県",
+          "spotName" : "根香寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "usioni"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "うしおに",
+        "ウシオニ",
+        "牛鬼",
+        "濡れ女",
+        "ぬれおんな",
+        "牛",
+        "うし",
+        "蜘蛛",
+        "くも",
+        "島根",
+        "しまね",
+        "香川",
+        "かがわ",
+        "香川県",
+        "根香寺",
+        "ねごろじ",
+        "水の怪",
+        "海",
+        "うみ",
+        "ゲゲゲの鬼太郎"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "昼は普通の人の姿で暮らし、夜に首だけが伸びて彷徨うとされる。自覚のない型・自覚して人を脅かす型の両方が伝わる。",
+      "documentId" : "rokurokubi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Z3P2J1E.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ろくろ首",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "ろくろくび",
+        "轆轤首"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "小豆洗い（あずきあらい）は川で小豆を洗う妖怪で、小豆とぎ（あずきとぎ）、小豆あらいど（あずきあらいど）など、様々な呼び名で全国的に分布している。\n小豆洗いは、川のほとりでシャキシャキと小豆をとぐ音が聞こえ、音をする方にいってもその姿はないといったものや、「小豆洗おか、人取って喰おか」など歌いながら小豆を洗うタイプもいる。",
+      "documentId" : "azukiarai",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/xkEzUFq.jpeg",
+      "imageSource" : "パブリックドメイン",
+      "name" : "小豆洗い",
+      "relatedCategory" : "音の怪",
+      "searchKeywords" : [
+        "あずきあらい",
+        "小豆とぎ",
+        "あずきとぎ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "物の怪のいる家で、月影に照らされた女の姿の影が家の障子に映るものとされる",
+      "documentId" : "kageonna",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/qOqREju.png",
+      "name" : "影女",
+      "relatedCategory" : "家の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "長命の猫が尾を二つに分け、着物をまとって踊ったり三味線を弾いたりする。人に化けて家に入り込むこともある。",
+      "documentId" : "nekomata",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/bjGICgl.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "猫又",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "ねこまた",
+        "化け猫"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "人間や僧・美女などに化け、幻術や『狐火』で人を惑わす。九尾に至るほど霊力が高いとされる。",
+      "documentId" : "kitsune",
+      "imageName" : "NoImage",
+      "name" : "狐",
+      "relatedCategory" : "動物の怪",
+      "relatedSpots" : [
+        {
+          "description" : "九尾の狐伝説で言い伝えられる屈指のパワースポットで、殺生石は2022年3月に2つに割れ、話題を呼んでいるスポット。",
+          "latitude" : 37.10157952451793,
+          "longitude" : 139.99920461905108,
+          "prefecture" : "栃木県",
+          "spotName" : "殺生石",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "kitsune"
+          ]
+        },
+        {
+          "description" : "十一面観音菩薩を本尊とする曹洞宗の寺院。鎮守として九尾の狐・玉藻前伝説の殺生石が祀られている。",
+          "latitude" : 35.08462374318997,
+          "longitude" : 133.69346715342348,
+          "prefecture" : "岡山県",
+          "spotName" : "化生寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "kitsune"
+          ]
+        },
+        {
+          "description" : "狐の嫁入り伝説にまつわる展示や体験ができる入館無料の施設。狐面づくりや狐メイクなどが人気で、上階からは阿賀野川と麒麟山を一望できる。",
+          "latitude" : 37.68387746987358,
+          "longitude" : 139.4538278423273,
+          "prefecture" : "新潟県",
+          "spotName" : "狐の嫁入り屋敷",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "kitsune"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "きつね",
+        "九尾",
+        "狐火"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "すべて"
+      ],
+      "description" : "本所七不思議のひとつ。江戸時代の本所（現・東京都墨田区）で、「火の用心」と夜回りしながら拍子木を打つと、打ち終えたはずの音が背後から繰り返し聞こえてくるという怪異。振り向いても誰もいない。\n単なる音の反響との説もあるが、拍子木を打っていない雨の日にも音が聞こえたという話もある。同じく本所七不思議の「送り提灯」と類似した怪異とされる。",
+      "documentId" : "okurihoushigi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TJv9SR1.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "送り拍子木",
+      "relatedCategory" : "音の怪",
+      "searchKeywords" : [
+        "おくりひょうしぎ",
+        "送り拍子木",
+        "本所七不思議",
+        "ほんじょしちふしぎ",
+        "拍子木",
+        "ひょうしぎ",
+        "本所",
+        "ほんじょ",
+        "墨田区",
+        "すみだく",
+        "送り提灯",
+        "おくりちょうちん",
+        "火の用心",
+        "夜回り"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "神奈川県真鶴町に伝わる怨霊。江戸時代の奇談集『絵本百物語』に記される。\n鎌倉時代、真鶴の祭で口論となった3人の武士が斬り合い、海に転げ落ちて互いに首を切り落とした。首だけになってもなお争い続け、夜は口から火炎を吹き、昼は海上に巴模様の波を起こしたという。この海は「巴が淵」と名づけられた。",
+      "documentId" : "maikubi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Bk2nwRC.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "舞首",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "まいくび",
+        "舞首",
+        "舞い首",
+        "真鶴",
+        "まなづる",
+        "神奈川",
+        "かながわ",
+        "巴が淵",
+        "ともえがふち",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "怨霊",
+        "おんりょう",
+        "首",
+        "くび",
+        "鎌倉",
+        "かまくら"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "鈴鹿山に住んだと伝わる鬼神。黒雲で山を覆い、暴風雨や雷、火の雨を起こすほどの神通力を持っていたという。\n酒呑童子・玉藻前と並ぶ強大な怪異として語られることもあり、坂上田村麻呂による討伐伝説と結びついている。",
+      "documentId" : "ootakemaru",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Hv7LjMp.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "大嶽丸",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "おおたけまる",
+        "大嶽丸",
+        "大岳丸",
+        "大だけ丸",
+        "大竹丸",
+        "鬼神魔王",
+        "きじんまおう",
+        "鬼",
+        "おに",
+        "鬼神",
+        "鈴鹿山",
+        "すずかやま",
+        "伊勢",
+        "いせ",
+        "近江",
+        "おうみ",
+        "坂上田村麻呂",
+        "さかのうえのたむらまろ",
+        "鈴鹿御前",
+        "すずかごぜん",
+        "暴風雨",
+        "雷",
+        "火の雨",
+        "日本三大妖怪"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "鳥羽上皇に仕えた絶世の美女として語られる伝説上の人物。その正体は九尾の狐で、人の世を乱す妖狐の化身だったとされる。\n正体を見破られた後は那須野へ逃れ、討たれて殺生石になったという。室町期の物語や能、江戸時代の読本などで広く語られた。",
+      "documentId" : "tamamonomae",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/7n5mGqa.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "玉藻前",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "たまものまえ",
+        "玉藻前",
+        "九尾の狐",
+        "きゅうびのきつね",
+        "妖狐",
+        "ようこ",
+        "狐",
+        "きつね",
+        "鳥羽上皇",
+        "とばじょうこう",
+        "殺生石",
+        "せっしょうせき",
+        "那須野",
+        "なすの",
+        "下野国",
+        "しもつけのくに",
+        "栃木",
+        "とちぎ",
+        "玉藻の草子",
+        "たまものそうし",
+        "能",
+        "妲己",
+        "だっき",
+        "褒姒",
+        "ほうじ",
+        "美福門院"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "大江山に住んだと伝わる鬼の頭領。酒を好んだことから酒呑童子と呼ばれ、茨木童子ら多くの鬼を従えていたという。\n都を脅かす存在として恐れられたが、源頼光と四天王によって討たれた。頼光が用いた太刀「童子切」には、酒呑童子退治の伝承が残る。",
+      "documentId" : "shutendouji",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/LVo2mKm.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "酒呑童子",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "しゅてんどうじ",
+        "酒呑童子",
+        "酒顛童子",
+        "酒天童子",
+        "朱点童子",
+        "鬼",
+        "おに",
+        "大江山",
+        "おおえやま",
+        "大枝",
+        "老の坂",
+        "丹波",
+        "丹後",
+        "京都",
+        "源頼光",
+        "みなもとのよりみつ",
+        "頼光四天王",
+        "渡辺綱",
+        "わたなべのつな",
+        "茨木童子",
+        "いばらきどうじ",
+        "童子切",
+        "どうじぎり",
+        "鬼切丸"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "大江山の鬼の一人で、酒呑童子の重臣として語られる。源頼光らによる鬼退治の際には逃げ延びたとされ、その後も京に現れたという。\n渡辺綱と一条戻橋や羅生門で戦った説話が有名で、後世には羅城門の鬼と同一視されることもある。",
+      "documentId" : "ibarakidouji",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/3dFCqeY.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "茨木童子",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "いばらきどうじ",
+        "茨木童子",
+        "茨城童子",
+        "鬼",
+        "おに",
+        "大江山",
+        "おおえやま",
+        "酒呑童子",
+        "しゅてんどうじ",
+        "源頼光",
+        "みなもとのよりみつ",
+        "頼光四天王",
+        "渡辺綱",
+        "わたなべのつな",
+        "一条戻橋",
+        "いちじょうもどりばし",
+        "羅生門",
+        "らしょうもん",
+        "羅城門",
+        "らじょうもん",
+        "摂津",
+        "茨木市",
+        "尼崎",
+        "越後",
+        "長岡"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "古い橋に祀られる女神、または橋にまつわる怪異。橋を守る水神として信仰される一方、嫉妬深い存在として恐れられることもある。\n宇治橋の橋姫が特に有名で、橋の上で他の橋を褒めると祟りがあるとも伝わる。",
+      "documentId" : "hashihime",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/I17VLtC.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "橋姫",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "はしひめ",
+        "橋姫",
+        "宇治の橋姫",
+        "宇治橋",
+        "うじばし",
+        "宇治川",
+        "うじがわ",
+        "橋",
+        "はし",
+        "水神",
+        "すいじん",
+        "守護神",
+        "しゅごしん",
+        "嫉妬",
+        "しっと",
+        "祟り",
+        "たたり",
+        "長柄橋",
+        "ながらばし",
+        "瀬田の唐橋",
+        "せたのからはし",
+        "葵の上",
+        "野宮"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "鎌倉時代の説話集『古今著聞集』に登場する鬼。源頼光の弟・頼信に捕らえられていたが、鎖を引きちぎって脱出。頼光を怨み、牛を殺してその体内に潜んで待ち伏せするという大胆な手口で暗殺を企てた。しかし頼光はこれを見抜き、渡辺綱が弓で牛を射抜いて鬼童丸を炙り出し、頼光が一刀で斬り捨てたという。\n鳥山石燕『今昔百鬼拾遺』には、雪の中で牛の皮をかぶり市原野で待ち受ける姿が描かれている。",
+      "documentId" : "kidoumaru",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/EkwABHN.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鬼童丸",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "きどうまる",
+        "鬼童丸",
+        "鬼同丸",
+        "源頼光",
+        "みなもとのよりみつ",
+        "渡辺綱",
+        "わたなべのつな",
+        "鞍馬",
+        "くらま",
+        "市原野",
+        "いちはらの",
+        "古今著聞集",
+        "ここんちょもんじゅう",
+        "鳥山石燕",
+        "今昔百鬼拾遺",
+        "酒呑童子",
+        "しゅてんどうじ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "少食を装うが、もう一つの口で主に食べ物を摂取する。",
+      "documentId" : "futakuchionna",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/esKjxgn.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "二口女",
+      "relatedCategory" : "家の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "百目鬼(どうめき)とは腕や体に無数の目を持つ怪物、宇都宮では藤原秀郷によって退治されたという伝承がある。",
+      "documentId" : "doumeki",
+      "imageName" : "NoImage",
+      "name" : "百目鬼",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "巨大なむかでの妖怪で、藤原秀郷が瀬田の唐橋で横たわっている大蛇に頼まれて、おおむかでを退治した",
+      "documentId" : "oomukade",
+      "imageName" : "NoImage",
+      "name" : "おおむかで",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "藤原秀郷が大蛇の頼みを受けて、巨大なむかでを退治したとされる伝説の橋。日本三名橋の一つ。",
+          "latitude" : 34.97314401171696,
+          "longitude" : 135.90665321349147,
+          "prefecture" : "滋賀県",
+          "spotName" : "瀬田の唐橋",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "oomukade"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "藤原秀郷",
+        "滋賀",
+        "瀬田の唐橋"
+      ],
+      "story" : false,
+      "videoId" : "-S47DG4F9wQ"
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "画図百鬼夜行や百怪図巻などに描かれた妖怪。お歯黒で、3本指の先には鋭い爪がついている。名前の通り、うわんと大きな声で人を驚かす。\n江戸時代、青森県の夫婦が古い屋敷に引っ越したその夜、「うわん」という大声が響いて一睡できなかった。\n近所の老人から「古い屋敷にはうわんという怪物が住んでいる」と聞いた。",
+      "documentId" : "uwan",
+      "imageName" : "NoImage",
+      "name" : "うわん",
+      "relatedCategory" : "音の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "白い着物に長い黒髪、透き通るような肌。地に足跡を残さず、静かに漂うように現れるとされる。",
+      "documentId" : "yukionna",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/5J4RYLD.png",
+      "name" : "雪女",
+      "relatedCategory" : "家の怪",
+      "relatedSpots" : [
+        {
+          "description" : "小泉八雲の小説『雪女』の舞台が、青梅にあった調布村であると類推されることから、2002年(平成14)に調布橋のたもとに碑が建てられた",
+          "latitude" : 35.784586762798774,
+          "longitude" : 139.26487723727587,
+          "prefecture" : "東京都",
+          "spotName" : "雪おんな縁の地",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "yukionna"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "ゆきおんな",
+        "雪んば"
+      ],
+      "story" : true
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "上半身だけで地面を這いながら、“テケテケ”という音を立てて高速で迫る。見つかると逃げ切れないと言われ、出会った者に危害を加えるとされる。",
+      "documentId" : "teketeke",
+      "imageName" : "NoImage",
+      "name" : "テケテケ",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "都市伝説",
+        "テケテケ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "犬の体に人間の顔をついた奇妙な姿。“ワンワン”としゃべる、バイクに乗っている、夜道を歩いているなどバリエーションは豊富。見た目は気味が悪いが、実害は少ないとも言われる。",
+      "documentId" : "jinmenken",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/uNrALt5.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "人面犬",
+      "relatedCategory" : "都市伝説",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "目が一つしかない小僧の妖怪\n12月8日の晩になると人の目には見えない一つ目小僧が、戸締りされていない家をさがして入ってくるといわれてた。",
+      "documentId" : "hitotsumekozou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/dYXMVfh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "一つ目小僧",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "昭和7年、単眼の頭蓋骨が発見され、供養のためにお地蔵様が祀られている。",
+          "latitude" : 35.482592556121666,
+          "longitude" : 139.42085641534467,
+          "prefecture" : "神奈川県",
+          "spotName" : "一つ目小僧地蔵",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "hitotsumekozou"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "神奈川",
+        "一つ目小僧"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "赤いジャンパースカートに白いシャツ、おかっぱ頭の小学生の女の子。ランドセルを背負っていることも多い。女子トイレの3番目の個室から現れるとされ、呼びかけると返事をしたり、いたずら好きな一面も。",
+      "documentId" : "toirenohanakosan",
+      "imageName" : "NoImage",
+      "name" : "トイレの花子さん",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "学校の怪談",
+        "都市伝説",
+        "トイレ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "ふつうの人型であるが、顔には目,鼻,耳,口がない妖怪\nおいてけ堀で釣った魚を持って帰ろうとすると、のっぺらぼうが現れ、逃げた先でも遭遇する。\nおいてけ堀の「おいてけ〜」という声の主は、河童とも言われており、おいてけ掘の舞台は、現在の錦糸町周辺とされる。",
+      "documentId" : "nopperabou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Yx7yjYf.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "のっぺらぼう",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "おいてけ",
+        "顔"
+      ],
+      "story" : true
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "紀伊国の娘・清姫は安珍に恋い焦がれ、やがて蛇となって追い詰め、道成寺の鐘に隠れた安珍を炎で焼き滅ぼしたと語られる。人の情念が怪へと変ずる典型。",
+      "documentId" : "kiyohime",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/uCtfi1y.png",
+      "name" : "清姫",
+      "relatedCategory" : "動物の怪",
+      "relatedSpots" : [
+        {
+          "description" : "安珍清姫の伝説で知られる天台宗の古刹。清姫が蛇となって安珍を追い詰め、鐘の中で焼き殺したという物語の舞台。",
+          "latitude" : 33.914798277659315,
+          "longitude" : 135.17422150000002,
+          "prefecture" : "和歌山県",
+          "spotName" : "道成寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "kiyohime"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "蛇",
+        "和歌山",
+        "安珍",
+        "あんちんきよひめ"
+      ],
+      "story" : true
+    },
+    {
+      "categories" : [
+        "音の怪",
+        "すべて"
+      ],
+      "description" : "鵺(ぬえ)とは頭が猿で胴が狸、手足は虎で尾は蛇の姿で、鵺の鳴き声は、夜中に不穏な声で鳴くトラツグミに似ているとされる。都を騒がす鵺を退治するように命じられた源頼政が、夜に矢で射ったところ怪しいものが落ちた。\n火を灯してそれを見ると、頭は猿、体は狸、尾は蛇、手足は虎の姿をした妖怪がなくなっていたという話があり、その射った矢を洗ったのが鵺池とされる。\nそして、その死がいを丸木舟にのせて川に流したところ、最終的に芦屋に漂着した。\n祟りを恐れた村人たちは立派な墓をつくり、これが今日までに残る鵺塚である。",
+      "documentId" : "nue",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/togTHLQ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鵺",
+      "relatedCategory" : "音の怪",
+      "relatedSpots" : [
+        {
+          "description" : "兵庫県西脇市にある長明寺。源頼政による鵺退治像があり、平家物語の伝説を今に伝える。",
+          "latitude" : 34.96435197050908,
+          "longitude" : 134.9776680865085,
+          "prefecture" : "兵庫県",
+          "spotName" : "長明寺",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "nue"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "ぬえ",
+        "トラツグミ",
+        "源頼政",
+        "西脇",
+        "兵庫"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "長い黒髪と濡れた和服、青白い肌を持つ。哀しげな表情で現れ、川や沼のほとり、橋の上を歩く姿が多い。恐怖の象徴でありつつ、水難事故への警告とされることもある。",
+      "documentId" : "nureonna",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/P58gOj9.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "濡れ女",
+      "relatedCategory" : "水の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "背の曲がった老婆の姿で現れ、手にした杓や袋から砂を浴びせて人を惑わせるとされる。",
+      "documentId" : "sunakakebabaa",
+      "imageName" : "NoImage",
+      "name" : "すなかけばばあ",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "赤や青の肌、虎皮の褌、手には金棒。残虐な怪として語られる一方、悪を懲らす存在や守護の側面が描かれることもある。",
+      "documentId" : "oni",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/XbUp4lJ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鬼",
+      "relatedCategory" : "山の怪",
+      "relatedSpots" : [
+        {
+          "description" : "岩手県盛岡市にある神社。鬼が三つの巨石に手形を押して二度と現れないと約束した伝説が残り、「岩手」の地名の由来となった。盛岡三大祭りの一つ「さんさ踊り」の起源でもある。",
+          "latitude" : 39.70900790250411,
+          "longitude" : 141.154569276687,
+          "prefecture" : "岩手県",
+          "spotName" : "三ツ石神社",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "oni"
+          ]
+        },
+        {
+          "description" : "聖徳太子を祀ることから太子塔とも呼ばれる、九州に2つしかない江戸期の木造三重塔。県指定文化財。軒下には小さな鬼の像がユニークな表情で屋根を支えており、妖怪好きにも見応えがある。",
+          "latitude" : 33.11768225575674,
+          "longitude" : 131.79539361349097,
+          "prefecture" : "大分県",
+          "spotName" : "龍原寺 三重塔",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "oni"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "おに",
+        "オニ",
+        "鬼",
+        "赤鬼",
+        "あかおに",
+        "青鬼",
+        "あおおに",
+        "岩手",
+        "いわて",
+        "岩手県",
+        "盛岡",
+        "もりおか",
+        "三ツ石神社",
+        "みついしじんじゃ",
+        "さんさ踊り",
+        "金棒",
+        "虎皮",
+        "節分",
+        "山の怪",
+        "桃太郎"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "カッパは、日本全国の川・池・沼・海などの水界に棲み、陸上も歩行する。カッパという呼称が一般的であるが、ガワタロ、メドチなど場所によっていろいろな呼び方がある。\nカッパは、子供を溺死させたり、馬を川へ引きずり込んだり、田畑を荒らしたりするといった恐ろしい一面をもつ一方で、田植え、田の草取りの手伝いをしたり、命を助けてもらったお礼として人間に薬の製法を教えたりもするといったエピソードもある",
+      "documentId" : "kappa",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Pkgy79t.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "河童",
+      "relatedCategory" : "水の怪",
+      "relatedSpots" : [
+        {
+          "description" : "おいてけ堀の由来となった場所であり河童の像があります",
+          "latitude" : 35.694625020814044,
+          "longitude" : 139.81623236132535,
+          "prefecture" : "東京都",
+          "spotName" : "錦糸堀公園",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "kappa"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "かっぱ",
+        "カッパ",
+        "河童",
+        "ガワタロ",
+        "メドチ",
+        "水虎",
+        "すいこ",
+        "水の怪",
+        "川",
+        "かわ",
+        "皿",
+        "さら",
+        "キュウリ",
+        "きゅうり",
+        "胡瓜",
+        "相撲",
+        "すもう",
+        "尻子玉",
+        "遠野物語",
+        "岩手",
+        "ゲゲゲの鬼太郎",
+        "妖怪ウォッチ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "家屋をも見下ろすほどの巨体の骸骨で、闇夜に現れて旅人を襲うとされる。顎を鳴らす音や不気味な気配とともに近づき、油断した者の首を噛みちぎるという。",
+      "documentId" : "gashadokuro",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/T7k09o9.jpeg",
+      "imageSource" : "パブリックドメイン",
+      "name" : "がしゃどくろ",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "白い反物が生き物のようにたなびき、風に乗って飛ぶ。人の顔に巻きついたり、肩にまとわりついたりする挙動が語られる。",
+      "documentId" : "ittanmomen",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/GTQ0w2t.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "いったんもめん",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "この滝や近くの権現山は一旦木綿伝承の地とされている。",
+          "latitude" : 31.3464863174227,
+          "longitude" : 131.00797480714246,
+          "prefecture" : "鹿児島県",
+          "spotName" : "轟の滝",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "ittanmomen"
+          ]
+        }
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "長い鼻の大天狗、鳥の嘴を思わせる烏天狗などの相。山風を操り、剣術・幻術に長けるとされる。",
+      "documentId" : "tengu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/szimXYf.jpeg",
+      "imageSource" : "パブリックドメイン",
+      "name" : "てんぐ",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "天狗",
+        "烏天狗",
+        "カラステング"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "長い黒髪とコート姿、顔の下半分をマスクや布で隠していることが多い。正体は不明だが、マスクを外すと口が耳まで大きく裂けている。怖がらせる存在として語られるが、対処法や撃退エピソードも有名。",
+      "documentId" : "kuchisakenna",
+      "imageName" : "NoImage",
+      "name" : "口裂け女",
+      "relatedCategory" : "都市伝説",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "燃える大車輪に苦悶の表情の頭部が付いた姿で夜道を転がる。見る者の魂を奪うとも子を攫うともいう。",
+      "documentId" : "wanyuudou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/QLY9RUK.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "わにゅうどう",
+      "relatedCategory" : "道の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "神余光弘の愛妾から山下定包の妻となった美女。里見義実に捕らえられ斬首される際、呪詛を残し怨霊化して里見家を祟る。",
+      "documentId" : "tamasusa",
+      "imageName" : "NoImage",
+      "name" : "玉梓",
+      "relatedCategory" : "家の怪",
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "乱れ髪に異様な力を持つ山姥。旅人を惑わし喰らう話の一方、子を授ける・助けるなど多面的な像を持つ。",
+      "documentId" : "yamanba",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/eqzWV4L.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "やまんば",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "やま",
+        "ばばあ"
+      ],
+      "story" : true
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "童子姿で家の中を走り回る気配を残す。姿が見えなくなると家運が傾くという俗信が広い。",
+      "documentId" : "zashikiwarashi",
+      "imageName" : "NoImage",
+      "name" : "座敷童",
+      "relatedCategory" : "家の怪",
+      "story" : true
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "かまいたちは、外見はイタチに似ると考えられる一方、実際には人間の目には見えないともされる。また、痛みを感じないうちに深い傷を負わせるが、そのわりには出血はしない現象を指す。\n岐阜県の飛騨地方などでは、かまいたちは三人の神様と考えられる。\n最初の神様がぶつかって人を転ばせ、二番目の神様が切りつけ、三番目の神様が薬をつけて治す。よって、鎌で切ったような傷の形をしていながら、出血や痛みがないとされる。",
+      "documentId" : "kamaitachi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/DA4BdY7.jpeg",
+      "name" : "かまいたち",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "かまいたち"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "赤子の泣き声で人を誘い、抱き上げると途端に重さが増して身動きを取れなくさせる山の怪。",
+      "documentId" : "konakijiji",
+      "imageName" : "NoImage",
+      "name" : "こなき爺",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "ゲゲゲの鬼太郎",
+        "こなきじじい",
+        "子泣き",
+        "こなき爺"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "霧の夜に現れ、桶や柄杓を求めて船に取りつく海の怪。渡すと水を汲み入れて沈めるとされる。",
+      "documentId" : "funayurei",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/3J2qyCn.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "船幽霊",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "船",
+        "ひしゃく",
+        "船幽霊",
+        "海",
+        "ふなゆうれい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "雨の日に白いぼろ着で現れ、目撃した子どもを引きずると噂される女の怪異。",
+      "documentId" : "hikikosan",
+      "imageName" : "NoImage",
+      "name" : "ひきこさん",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "都市伝説",
+        "ひきこさん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "2000年代初頭にチェーンメールで広まった",
+      "documentId" : "yoshiwarachieko",
+      "imageName" : "NoImage",
+      "name" : "吉原千恵子",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "吉原千恵子",
+        "チェーンメール",
+        "都市伝説"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた川辺の妖怪。全身が毛に覆われ、やすりのような歯を持ち魚を獲る。雁木小僧とも表記される。古典や民間伝承には確認されず、石燕の創作と考えられる。",
+      "documentId" : "gangikozou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/bJFGxYm.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "岸涯小僧",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "がんぎこぞう",
+        "岸涯小僧",
+        "岸崖小僧",
+        "雁木小僧",
+        "がんきこぞう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "タキワロ",
+        "エンコ",
+        "河童",
+        "かっぱ",
+        "川辺",
+        "水木しげる"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた布の妖怪。帰らぬ夫への怨みを抱いて機を織る女性の念が布にこもり、蛇の姿となって夫を探すとされる。布が蛇と化す伝承は確認されず、石燕の創作と考えられる。",
+      "documentId" : "hatahiro",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Si95KOk.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "機尋",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "はたひろ",
+        "機尋",
+        "機織り",
+        "はたおり",
+        "蛇",
+        "へび",
+        "布",
+        "ぬの",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "二十尋",
+        "にじゅっぴろ",
+        "機織淵",
+        "機織池"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "各地の民話に登場する一つ目の入道。見越し入道のように背が伸び縮みするとされる。京都では狐、『稲生物怪録』では狸が化けた姿とされる。和歌山県日高郡では巨大な一つ目の大男として伝承される。",
+      "documentId" : "hitotsumenyugoudou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/atd80KF.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "一つ目入道",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "ひとつめにゅうどう",
+        "一つ目入道",
+        "一つ目",
+        "ひとつめ",
+        "入道",
+        "にゅうどう",
+        "見越し入道",
+        "みこしにゅうどう",
+        "稲生物怪録",
+        "いのうもののけろく",
+        "和歌山",
+        "わかやま",
+        "日高郡",
+        "ひだかぐん",
+        "狐",
+        "きつね",
+        "狸",
+        "たぬき"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "『百怪図巻』『化物づくし』『画図百鬼夜行』などに描かれた炎に包まれた鳥の妖怪。犬のような顔をした鳥の姿で描かれる。詳細な伝承は確認されていない。",
+      "documentId" : "furaribi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/x476VZe.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ふらり火",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "ふらりび",
+        "ふらり火",
+        "百怪図巻",
+        "ひゃっかいずかん",
+        "化物づくし",
+        "ばけものづくし",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "炎",
+        "ほのお",
+        "鳥",
+        "とり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『百器徒然袋』に描かれた妖怪。御幣を右手に持ち上半身裸の姿。室町時代の『百鬼夜行絵巻』に描かれた御幣を持つ赤い鬼から着想を得たと考えられる。詳細は不明。",
+      "documentId" : "heiroku",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/3L4zNFA.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "幣六",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "へいろく",
+        "幣六",
+        "御幣",
+        "ごへい",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "百鬼夜行絵巻",
+        "ひゃっきやぎょうえまき",
+        "鬼",
+        "おに"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔画図続百鬼』に描かれた骸骨の姿をした女性の妖怪。浅井了意『伽婢子』の『牡丹灯籠』がモチーフとされる。青森県の民話にも同名の妖怪が伝わる。",
+      "documentId" : "honeonna",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/QOjkGn6.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "骨女",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "ほねおんな",
+        "骨女",
+        "骸骨",
+        "がいこつ",
+        "牡丹灯籠",
+        "ぼたんどうろう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "伽婢子",
+        "おとぎぼうこ",
+        "浅井了意",
+        "あさいりょうい",
+        "青森",
+        "あおもり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "各地に伝わる山の妖怪。山の神やその眷属とされる。山や谷に向かって発した音が反響して返る現象を山彦が応えた声と考えられた。木霊（こだま）とも呼ばれる。",
+      "documentId" : "yamabiko",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/ayI9JfW.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "山彦",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "やまびこ",
+        "山彦",
+        "木霊",
+        "こだま",
+        "木魂",
+        "きだま",
+        "山の神",
+        "やまのかみ",
+        "反響",
+        "はんきょう",
+        "エコー",
+        "山",
+        "やま"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔画図続百鬼』に描かれた水辺に現れる赤ん坊の姿の妖怪。河童の一種とされる。赤ん坊の泣き声で人を騙すとも。民間伝承は残されておらず、石燕の創作的要素が強いとの指摘もある。",
+      "documentId" : "kawaakago",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/0Fyfaps.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "川赤子",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "かわあかご",
+        "川赤子",
+        "川赤児",
+        "赤ん坊",
+        "あかんぼう",
+        "河童",
+        "かっぱ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "川",
+        "かわ",
+        "池",
+        "いけ",
+        "沼",
+        "ぬま",
+        "水辺",
+        "みずべ",
+        "秋田",
+        "あきた",
+        "九州",
+        "きゅうしゅう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "石にまつわる日本各地の伝説。泣き声がする石、または子どもの夜泣きが収まると伝わる石の総称。静岡県の小夜の中山が有名。殺された者の霊が乗り移るとも、石自体が怪音を出すともされる。",
+      "documentId" : "yonakiishi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/v33DqCQ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "夜泣き石",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "よなきいし",
+        "夜泣き石",
+        "夜泣石",
+        "小夜の中山",
+        "さよのなかやま",
+        "静岡",
+        "しずおか",
+        "石",
+        "いし",
+        "泣き声",
+        "なきごえ",
+        "霊",
+        "れい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "『百鬼夜行絵巻』などに描かれた妖怪。口から舌を出した人間のような顔と蛇のような首を持つ。絵巻には名前と絵のみで解説文がなく詳細は不明。",
+      "documentId" : "bukakkou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/CZEq2XJ.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "ぶかっこう",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "ぶかっこう",
+        "ぶっ法そう",
+        "ぶっぽうそう",
+        "百鬼夜行絵巻",
+        "ひゃっきやぎょうえまき",
+        "百物語化絵絵巻",
+        "ひゃくものがたりかええまき",
+        "尾田郷澄",
+        "おだごうちょう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "妖怪絵巻『土佐お化け草紙』に描かれた馬の妖怪。火事で焼け死んだ馬が化けたものとされる。",
+      "documentId" : "bakotsu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TW7lTEp.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "馬骨",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "ばこつ",
+        "馬骨",
+        "馬",
+        "うま",
+        "土佐お化け草紙",
+        "とさおばけぞうし",
+        "火事",
+        "かじ",
+        "宿守",
+        "やどもり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "剣術・神通力に秀でた天狗。鞍馬山の烏天狗は幼少の牛若丸に剣を教えたとも伝わる。中世以降は猛禽類の姿の天狗こそが天狗の主流であり、鼻の高い天狗は近世になってから広まった。",
+      "documentId" : "karasutengu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/ef0CacR.png",
+      "imageSource" : "CC BY 2.0 / Christian Bauer",
+      "name" : "烏天狗",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "からすてんぐ",
+        "烏天狗",
+        "天狗",
+        "てんぐ",
+        "鞍馬山",
+        "くらまやま",
+        "牛若丸",
+        "うしわかまる",
+        "源義経",
+        "みなもとのよしつね",
+        "修験者",
+        "しゅげんしゃ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "足長人と手長人の2種の総称。海で漁をする際は2人1組で行動し、足長人が手長人を背負い、手長人が獲物を捕らえる。中国の古代地理書『山海経』に記された異国人物の伝説が起源とされる。",
+      "documentId" : "ashinagatenaga",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/lM5tScX.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "足長手長",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "あしながてなが",
+        "足長手長",
+        "足長人",
+        "あしながじん",
+        "手長人",
+        "てながじん",
+        "山海経",
+        "さんかいきょう",
+        "三才図会",
+        "和漢三才図会"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "人の首のような花をつける不思議な木。問いかけると花が笑いかけるが人語は解さず、笑いすぎると花がしぼんで落ちてしまう。中国の書『三才図会』に記された大食国に生えるとされる。",
+      "documentId" : "jinmenju",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/yAZjlYD.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "人面樹",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "じんめんじゅ",
+        "人面樹",
+        "今昔百鬼拾遺",
+        "いまむかしひゃっきしゅうい",
+        "和漢三才図会",
+        "わかんさんさいずえ",
+        "三才図会",
+        "さんさいずえ",
+        "大食国",
+        "だいしこく"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "人の心を読んで反対に悪戯をしかける小鬼。記紀に登場する天探女（アメノサグメ）が起源とされ、人の動きや心を探るシャーマン的な存在が、意地悪な鬼へと変化したとされる。",
+      "documentId" : "amanojaku",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/JGcUcv6.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "あまのじゃく",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "あまのじゃく",
+        "天邪鬼",
+        "天探女",
+        "アメノサグメ",
+        "天稚彦",
+        "アメノワカヒコ",
+        "四天王",
+        "毘沙門天"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "夜道を歩く者の前に提灯のような明かりが現れ、人を送るように揺れながら進む。近づくと消え、また現れるを繰り返し、いつまでも追いつけない。本所七不思議の一つ。",
+      "documentId" : "okurichochin",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/q7c6z8X.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "送り提灯",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "おくりちょうちん",
+        "提灯",
+        "ちょうちん",
+        "本所七不思議",
+        "ほんじょしちふしぎ",
+        "墨田区",
+        "すみだく",
+        "提灯小僧",
+        "ちょうちんこぞう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "建部綾足『折々草』に記された怪蛇。信州松代で若者が山で遭遇した巨大な蛇のような生物。全長約3メートルで6本の足がある。殺した者に祟りをもたらすとされる。",
+      "documentId" : "nomorimushi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4RnF1rE.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "野守虫",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "のもりむし",
+        "野守虫",
+        "野守",
+        "のもり",
+        "建部綾足",
+        "たけべあやたり",
+        "折々草",
+        "おりおりぐさ",
+        "漫遊記",
+        "まんゆうき",
+        "信州",
+        "しんしゅう",
+        "松代",
+        "まつしろ",
+        "長野",
+        "ながの",
+        "井守",
+        "いもり",
+        "家守",
+        "やもり",
+        "蛇",
+        "へび"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔画図続百鬼』に描かれた怪鳥。\n建武元年（1334年）、疫病が猛威をふるう中、毎夜のように紫宸殿の上に現れ「いつまで、いつまで」と鳴いて人々を恐れさせたとされる。弓の名手・広有が鏑矢で射落とすと、人のような顔、鋸状の歯、蛇のような胴、剣のような爪を持ち、翼長は約4.8メートルにも及ぶ恐ろしい姿であったという。\n「いつまで」という名は、鳥山石燕がその鳴き声をもとに名づけたとされる。",
+      "documentId" : "itsumade",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/m5lgm42.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "以津真天",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "いつまで",
+        "以津真天",
+        "怪鳥",
+        "太平記",
+        "たいへいき",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "広有",
+        "ひろあり",
+        "紫宸殿",
+        "ししんでん",
+        "疫病",
+        "えきびょう",
+        "建武",
+        "けんむ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "落雷とともに地上に降り立つとされる獣の妖怪。東日本を中心に各地で伝承が残り、江戸時代には非常に知名度が高かった。\n航空技術のなかった時代、空は未知の世界であり、そこに棲む生物が雷とともに落ちてくるものと信じられた。\n一説では、源頼政が退治した怪物・鵺の正体は雷獣だともいわれる。",
+      "documentId" : "raijuu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/H66NZtV.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "雷獣",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "らいじゅう",
+        "雷獣",
+        "雷",
+        "かみなり",
+        "落雷",
+        "らくらい",
+        "鵺",
+        "ぬえ",
+        "源頼政",
+        "みなもとのよりまさ",
+        "平家物語",
+        "へいけものがたり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "人が気づかぬ間に頭髪を根元から切り落とすとされる妖怪。江戸時代の市街地で度々噂になり、17〜19世紀にかけて各地で記録が残る。\n元禄の頃、伊勢国松坂や江戸の紺屋町では夜道を歩く男女が次々と髪を切られる怪異が多発。被害者は切られたことにまったく気づかず、結ったままの髪が道に落ちていたという。\n犯人の姿は誰にも目撃されなかった。",
+      "documentId" : "kamikiri",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/kvkOsP5.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "髪切り",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "かみきり",
+        "髪切り",
+        "黒髪切",
+        "くろかみきり",
+        "江戸",
+        "えど",
+        "松坂",
+        "まつさか",
+        "三重",
+        "みえ",
+        "千代田区",
+        "台東区",
+        "文京区",
+        "元禄",
+        "げんろく",
+        "怪異"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "空中を漂う正体不明の火の玉。人や動物の死から生じた霊、または怨念が火となって現れるとされる。\n『和漢三才図会』によれば、松明のような青い光がいくつにも散らばったり集まったりし、生きた人間に近づいて精気を吸いとるという。大きさは数センチから30センチほどで、地面から1〜2メートルの高さを漂う。色は青が一般的だが、青白・赤・黄色のものも伝わる。",
+      "documentId" : "onibi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TsURWUh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "鬼火",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "おにび",
+        "鬼火",
+        "怪火",
+        "かいか",
+        "火の玉",
+        "ひのたま",
+        "霊",
+        "れい",
+        "怨念",
+        "おんねん",
+        "和漢三才図会",
+        "わかんさんさいずえ",
+        "耳嚢",
+        "みみぶくろ",
+        "箱根",
+        "はこね",
+        "ウィルオウィスプ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "人語を解し、酒を好むとされる霊獣。中国の古典では黄色い毛を持ち人の顔と足を持つ獣として記され、オランウータンをルーツとする説がある。\n日本では能の演目『猩々』が広く知られ、海に棲む精霊として描かれる。真っ赤な装束で着飾り、酒に浮かれながら舞う姿が印象的で、海棲という設定は日本独自のもの。",
+      "documentId" : "shoujou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/AQISS0t.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "猩々",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "しょうじょう",
+        "猩々",
+        "猩猩",
+        "酒",
+        "さけ",
+        "能",
+        "のう",
+        "海",
+        "うみ",
+        "霊獣",
+        "れいじゅう",
+        "オランウータン",
+        "中国",
+        "ちゅうごく",
+        "本草綱目",
+        "ほんぞうこうもく"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "高知県の城下や海上に現れるとされる怪火。すぐそこに見えたかと思えば遠くへ飛び去り、一つの炎がいくつにも分裂したかと思えば再び一つにまとまるという不思議な動きをする。鬼火の一種とされるが、特に人間に危害を及ぼすことはないとされる。",
+      "documentId" : "asobi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TsURWUh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "遊火",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "あそびび",
+        "遊火",
+        "遊人",
+        "あそびひ",
+        "怪火",
+        "かいか",
+        "鬼火",
+        "おにび",
+        "火の玉",
+        "ひのたま",
+        "高知",
+        "こうち",
+        "三谷山",
+        "みたにやま",
+        "海上"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "タヌキやムササビに似た姿で、北国の山中に棲むとされる妖怪。夕暮れ時に人を襲い、顔に覆いかぶさって視界を奪うという。一説では口からコウモリのようなものを放って目をふさぐとも。懐に巻耳を入れておくと防げるとされる。\n老いたタヌキが妖怪化したものとも、一反木綿の同種とも言われ、視界を奪った隙に食料を奪い去るという伝承もある。",
+      "documentId" : "nodeppou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/KgYCrOp.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "野鉄砲",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "のでっぽう",
+        "野鉄砲",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "タヌキ",
+        "たぬき",
+        "ムササビ",
+        "野衾",
+        "のぶすま",
+        "一反木綿",
+        "いったんもめん",
+        "コウモリ",
+        "かわほり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "3つの目を持つ入道（僧）の姿の妖怪。江戸時代の黄表紙では見越し入道の一種として、首の長い三つ目の怪として描かれた。\n明治6年（1873年）、東京・神田で三つ目の怪僧が出現し次第に巨大化、天井を突き破るほどになったという事件が錦絵新聞に報じられた。度胸の据わった当事者が裾を引っ張り倒すと、正体は古狸だったという。",
+      "documentId" : "mitsumenyugoudou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/aNyH6XK.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "三つ目入道",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "みつめにゅうどう",
+        "三つ目入道",
+        "三つ目",
+        "入道",
+        "にゅうどう",
+        "見越し入道",
+        "みこしにゅうどう",
+        "古狸",
+        "ふるだぬき",
+        "神田",
+        "かんだ",
+        "東京",
+        "明治",
+        "めいじ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "江戸時代の奇談集『絵本百物語』に登場する妖怪。生前に他人の食べ物まで貪るような者が、死後もその執着を引きずってなると伝えられる。\n涎を垂らしながら血眼で食べ物を探し、店を襲い、ゴミをあさり、死肉すら口にするという。「狐者異（こわい）」という名がそのまま「怖い」の語源とされる。",
+      "documentId" : "kowai",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/IYGybce.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "狐者異",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "こわい",
+        "狐者異",
+        "怖い",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "食い意地",
+        "貪欲",
+        "どんよく",
+        "うどん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『百器徒然袋』に描かれた鏡の妖怪。魔物の正体を映し出すとされる伝説の「照魔鏡」に、妖魔の影が宿って動き出したものと石燕は解釈した。\n悪戯そうに舌を出した顔が浮かび上がった丸鏡の姿で描かれている。名前は中国の地理書『山海経（せんがいきょう）』に掛けたともいわれる。",
+      "documentId" : "ungaikyo",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/sZuAPU2.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "雲外鏡",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "うんがいきょう",
+        "雲外鏡",
+        "鏡",
+        "かがみ",
+        "照魔鏡",
+        "しょうまきょう",
+        "付喪神",
+        "つくもがみ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "山海経",
+        "せんがいきょう",
+        "封神演義"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔画図続百鬼』に描かれた妖怪。屏風より背が高く、菊模様の振袖を着た禿頭の人物の姿で描かれている。\n禿（かぶろ）とは遊里で働く遊女見習いの少女のこと。石燕の解説文は、菊の露を飲んで不老不死となった仙人「菊慈童」を踏まえたパロディとされており、具体的にどのような妖怪かは見た目以外よくわからない。風刺や絵解き遊びを込めた石燕の創作と考えられている。",
+      "documentId" : "ookaburo",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/BnZwrPz.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "大禿",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "おおかぶろ",
+        "大禿",
+        "禿",
+        "かぶろ",
+        "かむろ",
+        "菊慈童",
+        "きくじどう",
+        "彭祖",
+        "ほうそ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "那智",
+        "なち",
+        "高野山",
+        "こうやさん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "奈良県吉野郡の十津川流域に伝わる老婆の妖怪。鏡を引きずり、じゃらじゃらと音を立てて現れるとされる。\n鳥山石燕『今昔百鬼拾遺』にも描かれ、白粉の神に仕える侍女のように説明されている。山姥や山女など、山中に現れる女の妖怪との関係も指摘される。",
+      "documentId" : "oshiroibaba",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/0nI4bzw.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "白粉婆",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "おしろいばばあ",
+        "おしろいばば",
+        "白粉婆",
+        "白粉婆さん",
+        "おしろいばあさん",
+        "白粉",
+        "おしろい",
+        "脂粉仙娘",
+        "しふんせんじょう",
+        "奈良",
+        "なら",
+        "吉野",
+        "よしの",
+        "十津川",
+        "とつかわ",
+        "鏡",
+        "かがみ",
+        "老婆",
+        "ろうば",
+        "山姥",
+        "やまんば",
+        "山女",
+        "やまおんな",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "大阪・河内や京都・丹波に伝わる怪火。枚岡神社から灯油を盗んだ老女が祟りで火の玉になったとされる。\n雨の夜に約30センチの火の玉として現れ、人の肩をかすめると3年以内に死ぬという。「油さし」と言うと消えるとも伝わる。鳥山石燕『画図百鬼夜行』には、怪火の中に老女の顔が浮かび上がった姿で描かれている。\n大阪府東大阪市の枚岡神社には、この伝説にちなむ「姥ヶ池」が残る。",
+      "documentId" : "ubagabi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/i6CX81x.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "姥ヶ火",
+      "relatedCategory" : "道の怪",
+      "relatedSpots" : [
+        {
+          "description" : "姥ヶ火伝説にちなむ池「姥ヶ池」がある神社。灯油を盗んだ老女が身を投げたとされる池が境内に復元されている。",
+          "latitude" : 34.6708031823944,
+          "longitude" : 135.65122321534537,
+          "prefecture" : "大阪府",
+          "spotName" : "枚岡神社（姥ヶ池）",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "ubagabi"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "うばがび",
+        "姥ヶ火",
+        "怪火",
+        "かいか",
+        "火の玉",
+        "ひのたま",
+        "枚岡",
+        "ひらおか",
+        "東大阪",
+        "ひがしおさか",
+        "大阪",
+        "おおさか",
+        "河内",
+        "かわち",
+        "保津川",
+        "ほづがわ",
+        "丹波",
+        "たんば",
+        "京都",
+        "きょうと",
+        "鳥山石燕",
+        "画図百鬼夜行",
+        "枚岡神社"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『百器徒然袋』に描かれた、石灯籠の火の妖怪。石灯籠の上に座り、口から火を吐く姿で表される。\n古戦場の血が鬼火になる話を引き合いに出しつつ、灯籠の火が怪になる話は聞かないと石燕は記しており、石燕の創作妖怪と考えられている。",
+      "documentId" : "korouka",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/fFehkQS.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "古籠火",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ころうか",
+        "古籠火",
+        "石灯籠",
+        "いしどうろう",
+        "灯籠",
+        "とうろう",
+        "火",
+        "ひ",
+        "鬼火",
+        "おにび",
+        "怪火",
+        "かいか",
+        "古戦場",
+        "こせんじょう",
+        "汗血",
+        "かんけつ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔画図続百鬼』に描かれた怪鳥。キツツキのような姿で四天王寺や法隆寺に現れ、嘴で寺を突き破壊しようとするとされる。\nその正体は、聖徳太子と蘇我馬子に討たれた物部守屋の怨霊とされ、仏法を妨げるために太子建立の寺を狙うという。源平盛衰記では、太子が鷹に化けて対抗したことで二度と現れなくなったと伝わる。正体はアカゲラだともいわれる。",
+      "documentId" : "teratsutuki",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/FR5M0lP.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "寺つつき",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "てらつつき",
+        "寺つつき",
+        "怪鳥",
+        "キツツキ",
+        "アカゲラ",
+        "物部守屋",
+        "もののべのもりや",
+        "聖徳太子",
+        "しょうとくたいし",
+        "四天王寺",
+        "してんのうじ",
+        "法隆寺",
+        "ほうりゅうじ",
+        "蘇我馬子",
+        "そがのうまこ",
+        "源平盛衰記",
+        "げんぺいせいすいき",
+        "鳥山石燕",
+        "今昔画図続百鬼"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた妖怪。7尺もの屏風の向こうから人を覗き込むとされる。中国の古典をもとにした石燕の創作、あるいは男女の秘め事を見続けた屏風が付喪神になったものとも言われる。\n秋田県の怪談では、新婚初夜に屏風の陰から髪の長い痩せた女が覗き込み「のぞき女だ」と名乗った。屏風を蔵にしまったところ現れなくなり、後にその屏風は寺に奉納されたという。",
+      "documentId" : "byoubunozoki",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TvuDcD1.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "屏風闚",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "びょうぶのぞき",
+        "屏風闚",
+        "屏風のぞき",
+        "屏風",
+        "びょうぶ",
+        "付喪神",
+        "つくもがみ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "秋田",
+        "あきた",
+        "角館",
+        "かくのだて",
+        "秦の始皇帝"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『百器徒然袋』に描かれた、瀬戸物を寄せ集めた甲冑姿の妖怪。陶磁器が武者のように組み上がった姿で表される。\n関羽や曹操を陶磁器の言葉遊びにからめた趣向とされ、実際の民間伝承ではなく石燕の創作妖怪と考えられている。",
+      "documentId" : "setotaishou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/ut8QlaL.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "瀬戸大将",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "せとたいしょう",
+        "瀬戸大将",
+        "瀬戸物",
+        "せともの",
+        "陶磁器",
+        "とうじき",
+        "唐津焼",
+        "からつやき",
+        "燗鍋",
+        "かんなべ",
+        "錦手",
+        "にしきで",
+        "関羽",
+        "かんう",
+        "寿亭侯",
+        "じゅていこう",
+        "曹操",
+        "そうそう",
+        "曹孟徳",
+        "そうもうとく",
+        "鳥山石燕",
+        "とりやませきえん",
+        "百器徒然袋",
+        "ひゃっきつれづれぶくろ",
+        "百器夜行",
+        "月岡芳年"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "古い提灯が化けた妖怪。裂けた提灯の口から長い舌が出て、上部に一つ目や二つ目が現れる姿で知られる。\n江戸時代の浮世絵や怪談表現に多く見られ、四谷怪談のお岩の霊が提灯から現れる演出とも結びついて語られる。",
+      "documentId" : "chouchinobake",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/8SNpiXV.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "提灯お化け",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "ちょうちんおばけ",
+        "提灯お化け",
+        "提灯おばけ",
+        "提灯",
+        "ちょうちん",
+        "化け提灯",
+        "ばけちょうちん",
+        "付喪神",
+        "つくもがみ",
+        "不落不落",
+        "ぶらぶら",
+        "鳥山石燕",
+        "百器徒然袋",
+        "四谷怪談",
+        "よつやかいだん",
+        "お岩",
+        "おいわ",
+        "提灯お岩",
+        "ちょうちんおいわ",
+        "葛飾北斎",
+        "歌川国芳",
+        "百鬼夜行"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "古い障子に無数の目が浮かび上がる妖怪。鳥山石燕『今昔百鬼拾遺』に描かれており、石燕の創作妖怪とする説がある。\n月明かりに照らされた障子の格子が目のように見える錯覚から生まれた怪異とも考えられている。",
+      "documentId" : "mokumokuren",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/v6iZ1FO.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "目目連",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "もくもくれん",
+        "目目連",
+        "障子",
+        "しょうじ",
+        "目",
+        "め",
+        "一目連",
+        "いちもくれん",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "錯視",
+        "バーゲン錯視",
+        "家",
+        "古家"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "長い年月を経た道具や器物に精霊が宿ったもの。室町時代の絵巻『付喪神絵巻』によれば、道具は百年経つと精霊を得て妖怪に変化するという。\n人々は毎年立春前の「煤払い」に古道具を捨てていたが、廃棄された器物たちが怒って節分の夜に一揆を起こす。しかし人間や護法童子に懲らしめられ、最終的に仏教に帰依するという物語が伝わる。",
+      "documentId" : "tsukumogami",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/9SFuiuY.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "付喪神",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "つくもがみ",
+        "付喪神",
+        "九十九神",
+        "つくも神",
+        "道具",
+        "どうぐ",
+        "器物",
+        "付喪神絵巻",
+        "つくもがみえまき",
+        "煤払い",
+        "すすはらい",
+        "節分",
+        "せつぶん",
+        "一揆",
+        "いっき",
+        "百年",
+        "霊魂",
+        "精霊"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "奈良時代の皇子で桓武天皇の皇太子。藤原種継の暗殺に関与した罪で廃され、抗議の絶食により没した。その後、桓武天皇の周辺で疫病・洪水・皇后や皇子の相次ぐ死が続き、早良親王の怨霊による祟りと恐れられた。\n鎮魂のために崇道天皇と追諡され、御霊信仰の源流のひとつとなった。",
+      "documentId" : "sawarashinnou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/AOj2IB1.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "早良親王",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "さわらしんのう",
+        "早良親王",
+        "崇道天皇",
+        "すどうてんのう",
+        "桓武天皇",
+        "かんむてんのう",
+        "藤原種継",
+        "ふじわらのたねつぐ",
+        "怨霊",
+        "おんりょう",
+        "御霊信仰",
+        "ごりょうしんこう",
+        "奈良時代",
+        "ならじだい",
+        "平安京"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "聖武天皇の皇女で、光仁天皇の皇后。呪詛の疑いにより廃后となり、子の他戸親王とともに幽閉され、同じ日に没した。\nその後に天災や異変が続いたため、井上内親王と他戸親王の怨霊による祟りと恐れられた。のちに皇后号を回復され、御霊信仰の祭神として祀られている。",
+      "documentId" : "inoenaishinnou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/UBeWWIu.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "井上内親王",
+      "relatedCategory" : "怨霊",
+      "relatedSpots" : [
+        {
+          "description" : "800年に桓武天皇の勅命で創祀された神社。無実の罪で廃后され薨去した井上内親王と他戸親王の霊を鎮めるために建てられた。境内には八所御霊大神が祀られ、狛犬の足元に赤い紐を結ぶ「足止め祈願」でも知られる。",
+          "latitude" : 34.33562397385116,
+          "longitude" : 135.69802365412377,
+          "prefecture" : "奈良県",
+          "spotName" : "御霊神社（五條）",
+          "spotType" : "yokaiRelated",
+          "yokaiIds" : [
+            "inoenaishinnou"
+          ]
+        }
+      ],
+      "searchKeywords" : [
+        "いのえないしんのう",
+        "いがみないしんのう",
+        "井上内親王",
+        "井上廃后",
+        "吉野皇后",
+        "聖武天皇",
+        "しょうむてんのう",
+        "光仁天皇",
+        "こうにんてんのう",
+        "他戸親王",
+        "おさべしんのう",
+        "廃后",
+        "はいごう",
+        "怨霊",
+        "おんりょう",
+        "御霊信仰",
+        "ごりょうしんこう",
+        "御霊神社",
+        "ごりょうじんじゃ",
+        "宇智陵",
+        "うちのみささぎ",
+        "奈良",
+        "なら",
+        "五條",
+        "ごじょう",
+        "呪詛",
+        "じゅそ",
+        "竜",
+        "龍"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "平安時代の関東の豪族で、桓武天皇四代の皇胤。関東諸国を巻き込む争いの末に「新皇」を自称し朝廷に反旗を翻したが、藤原秀郷・平貞盛らに討伐された（平将門の乱）。\n菅原道真・崇徳天皇と並ぶ日本三大怨霊の一人。一方で仁義に厚い人物だったとも伝わり、御首神社・神田明神などに祀られ、現在も篤く信仰されている。",
+      "documentId" : "tairanomaskado",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/lsrRheh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "平将門",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "たいらのまさかど",
+        "平将門",
+        "新皇",
+        "しんのう",
+        "日本三大怨霊",
+        "にほんさんだいおんりょう",
+        "平将門の乱",
+        "藤原秀郷",
+        "ふじわらのひでさと",
+        "平貞盛",
+        "たいらのさだもり",
+        "神田明神",
+        "かんだみょうじん",
+        "御首神社",
+        "みくびじんじゃ",
+        "築土神社",
+        "つくどじんじゃ",
+        "国王神社",
+        "こくおうじんじゃ",
+        "関東",
+        "かんとう",
+        "下総",
+        "しもうさ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "平安時代の公卿・学者。宇多・醍醐天皇に重用され右大臣にまで上り詰めたが、藤原時平の讒言（昌泰の変）により大宰府へ左遷され、現地で没した。\n死後は怨霊となり清涼殿落雷事件などを引き起こしたとして恐れられ、平将門・崇徳天皇と並ぶ日本三大怨霊の一人に数えられる。のちに天満天神として祀られ、現在は学問の神様として広く信仰されている。",
+      "documentId" : "sugarawanomichizane",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/vx0Abpy.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "菅原道真",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "すがわらのみちざね",
+        "菅原道真",
+        "天満天神",
+        "てんまてんじん",
+        "天神",
+        "てんじん",
+        "日本三大怨霊",
+        "にほんさんだいおんりょう",
+        "昌泰の変",
+        "しょうたいのへん",
+        "藤原時平",
+        "ふじわらのときひら",
+        "大宰府",
+        "だざいふ",
+        "清涼殿",
+        "せいりょうでん",
+        "落雷",
+        "らくらい",
+        "怨霊",
+        "おんりょう",
+        "学問の神",
+        "がくもんのかみ",
+        "太宰府天満宮",
+        "だざいふてんまんぐう",
+        "北野天満宮",
+        "きたのてんまんぐう",
+        "宇多天皇",
+        "うだてんのう",
+        "醍醐天皇",
+        "だいごてんのう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『画図百鬼夜行』に描かれた妖怪。黒雲と水門の上に姿を見せるが、説明文はなく詳細は不明。名称については陰陽道の赤舌神・赤舌日との関連が指摘されており、「口を開いている限り吉事に恵まれない」という一種の羅刹神ではないかとする説もある。",
+      "documentId" : "akashita",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/TZgRBST.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『画図百鬼夜行』- 「赤舌（あかした）」",
+      "name" : "赤舌",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あかした",
+        "赤舌",
+        "赤舌神",
+        "しゃくぜつじん",
+        "赤舌日",
+        "しゃくぜつにち",
+        "太歳",
+        "たいさい",
+        "陰陽道",
+        "おんみょうどう",
+        "羅刹神",
+        "らせつしん",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "百鬼夜行絵巻",
+        "ひゃっきやぎょうえまき",
+        "十界双六",
+        "じっかいすごろく",
+        "水門",
+        "すいもん",
+        "黒雲",
+        "くろくも",
+        "稲田篤信",
+        "いなだあつのぶ",
+        "多田克己",
+        "ただかつみ",
+        "村上健司",
+        "むらかみけんじ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "雨にまつわる女性の姿をした妖怪。石燕が『今昔百鬼拾遺』で描いたものが知られるが、添えられた文章は中国の男女の情を詠んだ詩の引用であり、天候を操る存在というよりも、当時の花街の情景を重ねた絵だったとも読める。\n地方には雨夜に現れて子供を連れ去るという話が残る一方、日照りの際に恵みの雨をもたらす存在として敬われた土地もあり、同じ名で語られながら土地ごとに異なる顔をもっている。",
+      "documentId" : "ameonna",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/XR3EXYR.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『今昔百鬼拾遺』- 「雨女（あめおんな）」",
+      "name" : "雨女",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あめおんな",
+        "雨女",
+        "雨おんば",
+        "あめおんば",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "朝雲暮雨",
+        "ちょううんぼう",
+        "巫山",
+        "ふざん",
+        "宋玉",
+        "そうぎょく",
+        "雨神",
+        "あめがみ",
+        "長野",
+        "下伊那"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "エビのような体にカニやサソリを思わせるはさみを持った姿で、石燕が『画図百鬼夜行』に描いた妖怪。作中に説明は一切なく、正体は謎に包まれている。\n先行する絵巻に登場する「髪切り」という妖怪がモデルではないかとする見方や、「網」と小さな甲殻類の「アミ」をかけた石燕流のダジャレから生まれた創作ではないかとする説もある。",
+      "documentId" : "amikiri",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/RTgmW0z.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『画図百鬼夜行』- 「網切（あみきり）」",
+      "name" : "網切",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あみきり",
+        "網切",
+        "網剪",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "髪切り",
+        "かみきり",
+        "多田克己",
+        "ただかつみ",
+        "百怪図巻",
+        "ひゃっかいずかん",
+        "はさみ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "不意に背後に現れ、後ろ髪を引くとされる妖怪。石燕は『今昔百鬼拾遺』で頭に一つ目をもつ女の幽霊のように描いた。「後ろ髪を引かれる」という慣用句と「神」をかけた言葉遊びから生まれた存在とされている。\n何かを決めようとしたとき、心の奥で引き留めようとする迷いや未練そのものを霊として形にしたもの、という解釈もある。伊勢では、親が子を勘当しようとした際にその気持ちをなだめる存在として祀られていたという話も伝わる。",
+      "documentId" : "ushirogami",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/4bydqk4.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『今昔百鬼拾遺』- 「後神（うしろがみ）」",
+      "name" : "後神",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "うしろがみ",
+        "後神",
+        "後髪",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "村上健司",
+        "むらかみけんじ",
+        "井原西鶴",
+        "いはらさいかく",
+        "西鶴織留",
+        "伊勢",
+        "いせ",
+        "一つ目",
+        "ひとつめ",
+        "後ろ髪を引かれる"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "長く生きた蜘蛛が妖力を得て、美しい女に化けるという妖怪。各地に伝承が残り、滝壺や淵のそばで旅人を誘い糸で絡めとる話が多い。\n石燕は『画図百鬼夜行』で、火を吐く小蜘蛛たちを従えた妖艶な蜘蛛女として描いている。「女郎蜘蛛」の字が本来の表記で、「絡新婦」は漢籍から借りた当て字。蜘蛛の巣のように逃れられない美しさと恐ろしさを併せもつ、妖怪の中でも人気の高い存在。",
+      "documentId" : "jorougumo",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/2183Drq.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『画図百鬼夜行』- 「絡新婦（じょろうぐも）」",
+      "name" : "絡新婦",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "じょろうぐも",
+        "絡新婦",
+        "女郎蜘蛛",
+        "じょろうぐも",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "蜘蛛",
+        "くも",
+        "蜘蛛女",
+        "くもおんな",
+        "滝壺",
+        "たきつぼ",
+        "淵",
+        "ふち"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "平安時代、園城寺（三井寺）の僧・頼豪が朝廷との約束を反故にされた恨みから憤死し、その怨念が無数の鼠となって延暦寺の経典や仏像を食い荒らしたという伝説に基づく妖怪。\n僧の執念が獣の姿をとって寺ひとつを荒廃させるという話は、信仰の裏にある人間の激しい感情を物語っている。芳年は『新形三十六怪撰』で、鼠に変じようとする頼豪の鬼気迫る姿を描いた。",
+      "documentId" : "tessou",
+      "imageAuthor" : "月岡芳年",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/f8Lf9WO.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『新形三十六怪撰』- 「三井寺頼豪阿闍梨悪念鼠と変ずる図」",
+      "name" : "鉄鼠",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "てっそ",
+        "鉄鼠",
+        "頼豪",
+        "らいごう",
+        "園城寺",
+        "おんじょうじ",
+        "三井寺",
+        "みいでら",
+        "延暦寺",
+        "えんりゃくじ",
+        "月岡芳年",
+        "つきおかよしとし",
+        "新形三十六怪撰",
+        "しんけいさんじゅうろっかいせん",
+        "源平盛衰記",
+        "げんぺいせいすいき",
+        "鼠",
+        "ねずみ",
+        "平安時代"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "鳥山石燕『今昔百鬼拾遺』に描かれた、井戸から現れる骸骨姿の妖怪。白い衣をまとい、釣瓶に吊られるように浮かび上がる姿で表される。\n強い怨みを持つ存在とされるが、具体的な伝承ははっきりしない。方言や白骨を意味する語をもとに、石燕が言葉遊びから創作した妖怪とも考えられている。",
+      "documentId" : "kyoukotsu",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/JqwnZRM.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "狂骨",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "きょうこつ",
+        "狂骨",
+        "井戸",
+        "いど",
+        "釣瓶",
+        "つるべ",
+        "骸骨",
+        "がいこつ",
+        "白骨",
+        "はっこつ",
+        "髐骨",
+        "怨み",
+        "うらみ",
+        "怨霊",
+        "おんりょう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "狂骨の夢",
+        "京極夏彦"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "大木の上から釣瓶のように何かが落ちてくるという妖怪。江戸時代の『古今百物語評判』では大木の精霊が火の玉となって降りてくるものとして紹介され、木が長い年月を経てはじめて火の気を生むという五行思想で説明されている。\n後に石燕が「釣瓶火」として別に描いたことで、生首が落ちてくる妖怪と怪火の妖怪に分かれて伝わるようになったが、もとは同じ「木から降りてくる火」だったとする見方もある。",
+      "documentId" : "tsurubeotoshi",
+      "imageAuthor" : "山岡元隣",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/icV8xje.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『古今百物語評判』- 「西岡の釣瓶おろし」",
+      "name" : "釣瓶落とし",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "つるべおとし",
+        "釣瓶落とし",
+        "釣瓶おろし",
+        "つるべおろし",
+        "釣瓶火",
+        "つるべび",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "古今百物語評判",
+        "ここんひゃくものがたりひょうばん",
+        "山岡元隣",
+        "やまおかげんりん",
+        "五行",
+        "ごぎょう",
+        "大木",
+        "怪火"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "西日本の海に現れるとされる巨大な怪魚。サメに似た姿だが、尾びれにおろし金のような無数の細かい針をもち、海辺の人間をその尾で撫でるようにさらっていくという。\n肥前松浦（現在の長崎・佐賀あたり）の海を中心に語られ、『絵本百物語』にその姿が描かれている。古い文献では「巨口鰐」とも呼ばれており、漁師たちに恐れられた海の脅威が妖怪として形を与えられたものといえる。",
+      "documentId" : "isonade",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/vdvuC4T.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『絵本百物語』- 「磯撫で（いそなで）」",
+      "name" : "磯撫で",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "いそなで",
+        "磯撫で",
+        "磯撫",
+        "巨口鰐",
+        "おおぐちわに",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "本草異考",
+        "ほんぞういこう",
+        "松浦",
+        "まつうら",
+        "肥前",
+        "ひぜん",
+        "怪魚",
+        "サメ",
+        "鮫",
+        "西日本",
+        "長崎",
+        "佐賀"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "中国に伝わる怪鳥で、死んだ産婦の念が鳥の姿をとったものとされる。夜になると飛び回り、人間の子供を自分の子として奪おうとするという。「乳母鳥」「夜行遊女」「鬼鳥」など多くの異名をもつ。\n日本には『和漢三才図会』などを通じて紹介され、うぶめ（産女）と結びつけて語られることも多い。子を失った母の執念が鳥に宿るという話の型は、洋の東西を問わず人の心に響くものがある。",
+      "documentId" : "kokakuchou",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/HQbJRrh.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "姑獲鳥",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "こかくちょう",
+        "姑獲鳥",
+        "うぶめ",
+        "産女",
+        "乳母鳥",
+        "うばどり",
+        "夜行遊女",
+        "やぎょうゆうじょ",
+        "鬼鳥",
+        "おにどり",
+        "天帝少女",
+        "無辜鳥",
+        "むこどり",
+        "和漢三才図会",
+        "わかんさんさいずえ",
+        "本草綱目",
+        "ほんぞうこうもく",
+        "玄中記",
+        "げんちゅうき",
+        "中国"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "石燕が『画図百鬼夜行』で描いた、草庵のそばに立つ一つ目の坊主姿の妖怪。例によって解説文はなく、正体は定かでない。先行する妖怪絵巻の「目一つ坊」を元にしたとみられている。\n「青」には未熟という意味があることから、修行が足りない半人前の坊主を妖怪に仕立てたのではないか、という読み解きもある。各地に「青坊主」の名をもつ伝承があるが、姿や性格はバラバラで、名前だけが共通している。",
+      "documentId" : "aobouzu",
+      "imageAuthor" : "鳥山石燕",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/Wm8RL4w.png",
+      "imageSource" : "パブリックドメイン",
+      "imageTitle" : "『画図百鬼夜行』- 「青坊主（あおぼうず）」",
+      "name" : "青坊主",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "あおぼうず",
+        "青坊主",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "一つ目",
+        "ひとつめ",
+        "目一つ坊",
+        "めひとつぼう",
+        "佐脇嵩之",
+        "さわきすうし",
+        "百怪図巻",
+        "ひゃっかいずかん",
+        "坊主",
+        "ぼうず"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "江戸時代の妖怪絵巻や鳥山石燕『画図百鬼夜行』に描かれた妖怪。黒い坊主のような体に、飛び出して垂れ下がった両目を持つ姿で表される。\n詳しい伝承は不明だが、石燕の絵では仏壇の中から現れている。絵巻によっては「黒坊」とも呼ばれ、背に髪や魚の尾のようなものを持つ姿もある。",
+      "documentId" : "nuribotoke",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/aFNJ7zH.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "塗仏",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ぬりぼとけ",
+        "塗仏",
+        "ぬり仏",
+        "黒坊",
+        "くろぼう",
+        "黒い坊主",
+        "坊主",
+        "ぼうず",
+        "仏壇",
+        "ぶつだん",
+        "目玉",
+        "めだま",
+        "百怪図巻",
+        "ひゃっかいずかん",
+        "佐脇嵩之",
+        "さわきすうし",
+        "鳥山石燕",
+        "とりやませきえん",
+        "画図百鬼夜行",
+        "がずひゃっきやぎょう",
+        "百鬼夜行絵巻",
+        "ひゃっきやぎょうえまき",
+        "十界双六",
+        "じっかいすごろく",
+        "河鍋暁斎",
+        "かわなべきょうさい"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "姫路城の天守に棲むと伝わる女の妖怪、または城の神。城主の行いによっては祟る存在として恐れられた。\n鳥山石燕『今昔画図続百鬼』では「長壁」として、コウモリを従えた老姫の姿で描かれている。刑部大神や姫路城の怪異伝承と結びついて語られる。",
+      "documentId" : "osakabehime",
+      "imageName" : "NoImage",
+      "imageSource" : "パブリックドメイン",
+      "name" : "長壁姫",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "おさかべひめ",
+        "長壁姫",
+        "長壁",
+        "おさかべ",
+        "刑部姫",
+        "刑部大神",
+        "おさかべおおかみ",
+        "姫路城",
+        "ひめじじょう",
+        "姫山",
+        "ひめやま",
+        "天守",
+        "てんしゅ",
+        "城",
+        "しろ",
+        "城ばけ物",
+        "しろばけもの",
+        "池田輝政",
+        "いけだてるまさ",
+        "八天堂",
+        "大八天狗",
+        "天狗の書状",
+        "稲荷神",
+        "狐",
+        "こうもり",
+        "鳥山石燕",
+        "とりやませきえん",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "詳細不明",
+        "すべて"
+      ],
+      "description" : "夜空を飛ぶサギの体が青白く光って見えるという怪現象で、別名「五位の火」。夜行性のゴイサギが闇の中で鳴き声を上げながら飛ぶ不気味さが妖怪視につながったとされる。\n現代では水辺の発光バクテリアが羽に付着して光った、という説が有力。",
+      "documentId" : "aosagibi",
+      "imageName" : "https://yokai-images.insharp0220.workers.dev/QzIscsq.png",
+      "imageSource" : "パブリックドメイン",
+      "name" : "青鷺火",
+      "relatedCategory" : "詳細不明",
+      "searchKeywords" : [
+        "あおさぎび",
+        "青鷺火",
+        "あおさぎのひ",
+        "五位の火",
+        "ごいのひ",
+        "五位の光",
+        "ごいのひかり",
+        "ゴイサギ",
+        "ごいさぎ",
+        "アオサギ",
+        "あおさぎ",
+        "和漢三才図会",
+        "わかんさんさいずえ",
+        "怪火",
+        "鷺",
+        "さぎ",
+        "南方熊楠",
+        "みなかたくまぐす"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "「一枚、二枚……」と井戸の底から皿を数える声。日本で最も有名な怪談のひとつ「皿屋敷」のヒロイン。家宝の十枚組の皿を一枚割った咎で(あるいは割った濡れ衣を着せられて)手討ちにされ、井戸へ投げ込まれた女中お菊の霊は、夜ごと九枚まで数えては泣き崩れるという。\n姫路を舞台とする「播州皿屋敷」と江戸の「番町皿屋敷」の二大系統のほか、よく似た話が全国に残る。姫路城には今も「お菊井戸」があり、後年この地で大発生した蝶の蛹は、後ろ手に縛られた女の姿に見えるとして「お菊虫」と呼ばれた。",
+      "documentId" : "okiku",
+      "imageName" : "NoImage",
+      "name" : "お菊",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "おきく",
+        "お菊",
+        "皿屋敷",
+        "さらやしき",
+        "播州皿屋敷",
+        "ばんしゅうさらやしき",
+        "番町皿屋敷",
+        "ばんちょうさらやしき",
+        "姫路城",
+        "ひめじじょう",
+        "お菊井戸",
+        "おきくいど",
+        "井戸",
+        "いど",
+        "皿",
+        "さら",
+        "青山鉄山",
+        "あおやまてつざん",
+        "お菊虫",
+        "おきくむし",
+        "幽霊",
+        "ゆうれい",
+        "兵庫",
+        "ひょうご"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "鶴屋南北の歌舞伎『東海道四谷怪談』のヒロイン。夫・民谷伊右衛門に裏切られ、盛られた毒で顔が崩れたまま非業の死を遂げ、恨みを晴らすべく化けて出る。提灯の中に顔が浮かび上がる「提灯お岩」の演出はあまりにも有名。\nモデルとされる実在の田宮家のお岩は夫婦仲もよく家を再興した働き者と伝わり、芝居の岩とはまるで別人。四谷の於岩稲荷には、お岩を演じる役者や関係者が今も興行の無事を祈りに訪れる。",
+      "documentId" : "oiwa",
+      "imageName" : "NoImage",
+      "name" : "お岩",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "おいわ",
+        "お岩",
+        "お岩さん",
+        "四谷怪談",
+        "よつやかいだん",
+        "東海道四谷怪談",
+        "とうかいどうよつやかいだん",
+        "鶴屋南北",
+        "つるやなんぼく",
+        "伊右衛門",
+        "いえもん",
+        "民谷伊右衛門",
+        "於岩稲荷",
+        "おいわいなり",
+        "田宮神社",
+        "たみやじんじゃ",
+        "四谷",
+        "よつや",
+        "提灯お岩",
+        "ちょうちんおいわ",
+        "幽霊",
+        "ゆうれい",
+        "歌舞伎",
+        "かぶき",
+        "東京"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "怨霊",
+        "すべて"
+      ],
+      "description" : "下総国羽生村(現在の茨城県常総市)に伝わる怨霊譚の主人公。顔かたちを疎まれ、夫の与右衛門に鬼怒川で殺された累の霊は、二十年余りのちに後妻の娘・菊に取り憑き、一部始終を語って一家を責め立てた。名僧・祐天上人の念仏によってようやく解脱したという。\nこの事件は『死霊解脱物語聞書』として江戸で評判を呼び、歌舞伎や三遊亭円朝の怪談噺『真景累ヶ淵』など、数々の「累もの」の源流になった。",
+      "documentId" : "kasane",
+      "imageName" : "NoImage",
+      "name" : "累",
+      "relatedCategory" : "怨霊",
+      "searchKeywords" : [
+        "かさね",
+        "累",
+        "累ヶ淵",
+        "かさねがふち",
+        "羽生村",
+        "はにゅうむら",
+        "常総市",
+        "じょうそうし",
+        "茨城",
+        "いばらき",
+        "下総",
+        "しもうさ",
+        "鬼怒川",
+        "きぬがわ",
+        "祐天上人",
+        "ゆうてんしょうにん",
+        "真景累ヶ淵",
+        "しんけいかさねがふち",
+        "三遊亭円朝",
+        "さんゆうていえんちょう",
+        "死霊解脱物語聞書",
+        "憑依",
+        "ひょうい",
+        "怨霊",
+        "おんりょう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "上半身が人、下半身が魚という水の異形。美しいマーメイド像が広まったのは近代以降のことで、日本の古い記録では顔だけが人で体は魚など、どこか不気味な姿で語られることが多い。出現は吉凶の前触れとされ、『日本書紀』の時代から目撃の記録が残る。\nその肉を食べると不老長寿を得るという言い伝えが各地にあり、八百比丘尼伝説の核になった。江戸時代には猿と魚を継ぎ合わせた「人魚のミイラ」が見世物として作られ、海を渡って欧米まで売られている。",
+      "documentId" : "ningyo",
+      "imageName" : "NoImage",
+      "name" : "人魚",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "にんぎょ",
+        "人魚",
+        "マーメイド",
+        "まーめいど",
+        "八百比丘尼",
+        "やおびくに",
+        "不老不死",
+        "ふろうふし",
+        "不老長寿",
+        "人魚の肉",
+        "にんぎょのにく",
+        "ミイラ",
+        "みいら",
+        "日本書紀",
+        "にほんしょき",
+        "海",
+        "うみ",
+        "予言",
+        "よげん",
+        "アマビエ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "人魚の肉を口にしたばかりに、八百年の齢を生きたと伝わる尼僧。娘のころ、父が寄合から持ち帰った肉を何も知らずに食べて以来、まったく老いなくなった。夫や身内を次々に見送る果てしない歳月の末に出家し、諸国を巡って椿を植え、橋を架け、飢えた人を助けて歩いたという。\n伝説の中心地は若狭小浜(福井県)で、空印寺には八百比丘尼が最期に入定したと伝わる洞穴が残る。白比丘尼とも呼ばれる。",
+      "documentId" : "yaobikuni",
+      "imageName" : "NoImage",
+      "name" : "八百比丘尼",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "やおびくに",
+        "八百比丘尼",
+        "はっぴゃくびくに",
+        "白比丘尼",
+        "しらびくに",
+        "人魚",
+        "にんぎょ",
+        "人魚の肉",
+        "不老不死",
+        "ふろうふし",
+        "若狭",
+        "わかさ",
+        "小浜",
+        "おばま",
+        "空印寺",
+        "くういんじ",
+        "椿",
+        "つばき",
+        "福井",
+        "ふくい",
+        "尼",
+        "あま",
+        "入定",
+        "にゅうじょう"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "人の怪",
+        "すべて"
+      ],
+      "description" : "人を死へと誘う憑き物。取り憑かれた者は、ふと首をくくりたくなったり、人が死んだ場所へ引き寄せられたりするという。江戸後期の『絵本百物語』には、悪念の積もり重なりが死神となり、人を死地へ導くとある。\n落語の「死神」では、病人の枕元に座るか足元に座るかで生死が知れ、人の寿命は洞窟に並ぶ蝋燭の火に喩えられる。大鎌を持つ西洋の死神像とは別の系譜だが、明治以降は互いに混ざり合って語られるようになった。",
+      "documentId" : "shinigami",
+      "imageName" : "NoImage",
+      "name" : "死神",
+      "relatedCategory" : "人の怪",
+      "searchKeywords" : [
+        "しにがみ",
+        "死神",
+        "絵本百物語",
+        "えほんひゃくものがたり",
+        "落語",
+        "らくご",
+        "蝋燭",
+        "ろうそく",
+        "寿命",
+        "じゅみょう",
+        "憑き物",
+        "つきもの",
+        "大鎌",
+        "おおがま",
+        "死",
+        "縁起",
+        "アジャラカモクレン"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "取り憑いた家を貧乏にする神。薄汚れた痩せた老人が破れ団扇を手に、押し入れや物陰にじっと潜んでいるなどと語られる。怠け者や火の始末の悪い家を好み、居着かれると何をしても金が出ていく。\n大晦日に囲炉裏で焙り出す、好物の焼き味噌で釣って送り出すなど、追い払う作法が各地に伝わる。その一方で、粗末に扱わずもてなしたところ福の神に転じた、という逸話もある。神は神なので、無下にはできないところが悩ましい。",
+      "documentId" : "binbougami",
+      "imageName" : "NoImage",
+      "name" : "貧乏神",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "びんぼうがみ",
+        "貧乏神",
+        "びんぼう神",
+        "福の神",
+        "ふくのかみ",
+        "大晦日",
+        "おおみそか",
+        "囲炉裏",
+        "いろり",
+        "焼き味噌",
+        "やきみそ",
+        "破れ団扇",
+        "やぶれうちわ",
+        "憑き物",
+        "つきもの",
+        "家",
+        "いえ",
+        "貧乏神神社",
+        "長野",
+        "ながの"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "流行り病を運んでくるとされた神。疫病が人から人へ広がっていくさまは、目に見えない何者かが家々を訪ね歩く姿として想像された。門口に「蘇民将来子孫也」の札を貼る、人形に病を移して川へ流す、江戸の流行り風邪では「久松るす」と書いて貼るなど、防ぎ方と送り方の風習が全国に残る。\nただ追い払うだけでなく、鄭重に祀って帰っていただく相手でもあった。祇園祭をはじめ、日本の夏祭りの多くはこの疫病神送りにルーツを持つ。",
+      "documentId" : "yakubyougami",
+      "imageName" : "NoImage",
+      "name" : "疫病神",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "やくびょうがみ",
+        "疫病神",
+        "やくびょう神",
+        "疫病",
+        "えきびょう",
+        "流行り病",
+        "はやりやまい",
+        "蘇民将来",
+        "そみんしょうらい",
+        "茅の輪",
+        "ちのわ",
+        "祇園祭",
+        "ぎおんまつり",
+        "御霊会",
+        "ごりょうえ",
+        "久松るす",
+        "ひさまつるす",
+        "厄除け",
+        "やくよけ",
+        "アマビエ",
+        "コレラ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "中国から伝わった聖獣。人の言葉を解し、この世のあらゆる妖怪変化に通じているという。徳の高い為政者の世にだけ姿を見せるとされ、いにしえの黄帝の前に現れて一万一千五百二十種の妖異とその祓い方を残らず語った、という故事で知られる。\n日本では魔除けの霊獣として大人気となり、江戸時代には白澤の絵を旅の護符や病除けとして持ち歩いた。人の顔に体の左右にも眼を持つ異相で描かれる。妖怪図鑑の元祖のような存在でもある。",
+      "documentId" : "hakutaku",
+      "imageName" : "NoImage",
+      "name" : "白澤",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "はくたく",
+        "白澤",
+        "白沢",
+        "黄帝",
+        "こうてい",
+        "白澤図",
+        "はくたくず",
+        "魔除け",
+        "まよけ",
+        "護符",
+        "ごふ",
+        "中国",
+        "ちゅうごく",
+        "聖獣",
+        "せいじゅう",
+        "瑞獣",
+        "ずいじゅう",
+        "クタベ",
+        "麒麟",
+        "鳳凰"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "聖人が世に現れるときにだけ姿を見せるという中国の瑞獣。鹿の体に牛の尾、馬の蹄、頭に一本の角を持ち、生きた草を踏まず虫も殺さないほど殺生を嫌う、仁の獣とされる。\n孔子の誕生と最期には麒麟の出現が結びつけて語られた。才気あふれる子どもを「麒麟児」と呼ぶのはここから。ビールのラベルから動物のキリンの名まで、瑞獣の中でも飛び抜けて日本人の暮らしに溶け込んでいる。",
+      "documentId" : "kirin",
+      "imageName" : "NoImage",
+      "name" : "麒麟",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "きりん",
+        "麒麟",
+        "瑞獣",
+        "ずいじゅう",
+        "聖獣",
+        "せいじゅう",
+        "孔子",
+        "こうし",
+        "麒麟児",
+        "きりんじ",
+        "中国",
+        "ちゅうごく",
+        "四霊",
+        "しれい",
+        "鳳凰",
+        "ほうおう",
+        "白澤",
+        "はくたく",
+        "角",
+        "つの"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "太平の世に現れるという中国の霊鳥で、百鳥の王。梧桐の木にだけ棲み、竹の実だけを食べ、醴泉の清らかな水だけを飲むという高潔さで知られる。雄を鳳、雌を凰と呼び分けたのが名の由来。\n日本でも古くから最高位の意匠として扱われ、平等院鳳凰堂や金閣の屋根に翼を広げている。旧一万円札の裏面にいたのもこの鳥。西洋の不死鳥フェニックスとは別物だが、炎とともに描かれるためよく混同される。",
+      "documentId" : "houou",
+      "imageName" : "NoImage",
+      "name" : "鳳凰",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "ほうおう",
+        "鳳凰",
+        "霊鳥",
+        "れいちょう",
+        "瑞鳥",
+        "ずいちょう",
+        "百鳥の王",
+        "平等院",
+        "びょうどういん",
+        "鳳凰堂",
+        "ほうおうどう",
+        "金閣寺",
+        "きんかくじ",
+        "フェニックス",
+        "ふぇにっくす",
+        "不死鳥",
+        "ふしちょう",
+        "火の鳥",
+        "ひのとり",
+        "梧桐",
+        "ごとう",
+        "中国",
+        "ちゅうごく"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "冥界の王にして、地獄の裁判官。死者は七日ごとに十人の王の裁きを順に受けるとされ、閻魔はその五番目、三十五日目の審理を受け持つ最高位の王。生前の嘘を浄玻璃の鏡にすべて映し出されたうえで、「嘘をつくと閻魔様に舌を抜かれる」というあの刑罰が下る。\nルーツはインド神話の死者の王ヤマ。中国で裁判官の姿になり、日本へ伝わった。地蔵菩薩と同体ともされ、恐ろしい憤怒の形相の裏に、亡者を救おうとする顔を隠し持つ。",
+      "documentId" : "enma",
+      "imageName" : "NoImage",
+      "name" : "閻魔",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "えんま",
+        "閻魔",
+        "閻魔大王",
+        "えんまだいおう",
+        "えんま様",
+        "ヤマ",
+        "地獄",
+        "じごく",
+        "十王",
+        "じゅうおう",
+        "浄玻璃の鏡",
+        "じょうはりのかがみ",
+        "閻魔帳",
+        "えんまちょう",
+        "舌抜き",
+        "したぬき",
+        "地蔵菩薩",
+        "じぞうぼさつ",
+        "インド",
+        "冥界",
+        "めいかい",
+        "裁判",
+        "嘘",
+        "うそ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "外国の妖怪",
+        "すべて"
+      ],
+      "description" : "地獄で亡者を責め立てる獄卒の鬼。その名の通り、牛の頭を持つ牛頭と馬の頭を持つ馬頭の対で語られ、地獄絵では金棒を手に亡者を追い立てる姿がお決まりになっている。\n経典に説かれる阿防羅刹などが原型とされ、日本では地獄めぐりの説話や絵解きを通じて庶民にまで広まった。恐ろしい役回りではあるが、閻魔の指揮の下で職務に励む、地獄の実直な現場担当である。",
+      "documentId" : "gozumezu",
+      "imageName" : "NoImage",
+      "name" : "牛頭馬頭",
+      "relatedCategory" : "外国の妖怪",
+      "searchKeywords" : [
+        "ごずめず",
+        "牛頭馬頭",
+        "牛頭",
+        "ごず",
+        "馬頭",
+        "めず",
+        "獄卒",
+        "ごくそつ",
+        "地獄",
+        "じごく",
+        "鬼",
+        "おに",
+        "閻魔",
+        "えんま",
+        "阿防羅刹",
+        "あぼうらせつ",
+        "地獄絵",
+        "じごくえ",
+        "牛",
+        "うし",
+        "馬",
+        "うま"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "沖縄のガジュマルの古木に棲む精霊。赤い髪をした子どものような姿で語られることが多い。人懐こく、気に入った人間の漁を手伝ってくれるため、キジムナーと組んだ漁師は大漁続きになるという。獲った魚は左目だけを食べる。\nただし機嫌を損ねると恐ろしく、棲み家の木を切ったり焼いたりすれば家畜が死ぬなどの祟りがあり、夜中に胸の上に乗られて金縛りに遭うとも。苦手なものはタコ。今も沖縄では、大きなガジュマルを見上げてキジムナーの話をする人がいる。",
+      "documentId" : "kijimuna",
+      "imageName" : "NoImage",
+      "name" : "キジムナー",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "きじむなー",
+        "キジムナー",
+        "キジムン",
+        "ブナガヤ",
+        "ぶながや",
+        "沖縄",
+        "おきなわ",
+        "ガジュマル",
+        "がじゅまる",
+        "精霊",
+        "せいれい",
+        "木の精",
+        "きのせい",
+        "漁",
+        "りょう",
+        "魚の左目",
+        "タコ",
+        "たこ",
+        "赤髪",
+        "金縛り",
+        "かなしばり"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "奄美群島に伝わる妖怪で、ガジュマルやアコウの古木に棲む。河童と木の精の性質をあわせ持ち、濡れたような体と長い手足で、木から木へ身軽に跳び移るという。相撲を挑んでくる、夜道で人の目を突く、といった悪戯が語られる一方、山や海の恵みを司る存在として畏れられてもきた。\nカタツムリや貝を好み、棲み家の木の根元に殻が積もっているとか。沖縄のキジムナーとは兄弟のような間柄だが、奄美の人々にとってケンムンは今も「いる」ものである。",
+      "documentId" : "kenmun",
+      "imageName" : "NoImage",
+      "name" : "ケンムン",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "けんむん",
+        "ケンムン",
+        "ケンモン",
+        "奄美",
+        "あまみ",
+        "奄美大島",
+        "あまみおおしま",
+        "鹿児島",
+        "かごしま",
+        "ガジュマル",
+        "がじゅまる",
+        "アコウ",
+        "河童",
+        "かっぱ",
+        "相撲",
+        "すもう",
+        "目を突く",
+        "カタツムリ",
+        "かたつむり",
+        "木の精",
+        "キジムナー"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "沖縄や奄美で語られる悪霊の総称。アヒルや子牛、豚といった身近な家畜の姿で夜道に現れるものが多く、股の下をくぐられると魂を抜かれて死ぬという。だから夜道でマジムンに出くわしたら、まず足を閉じよと言い伝えられてきた。\nアヒルガーマジムン、豚のワーマジムン、宮古島の一本足の山羊ピンザマジムンなど、土地ごとに顔ぶれが豊富。屋根のシーサーや石敢當など、沖縄の魔除け文化の多くはこのマジムンを防ぐためのものである。",
+      "documentId" : "majimun",
+      "imageName" : "NoImage",
+      "name" : "マジムン",
+      "relatedCategory" : "道の怪",
+      "searchKeywords" : [
+        "まじむん",
+        "マジムン",
+        "沖縄",
+        "おきなわ",
+        "奄美",
+        "あまみ",
+        "悪霊",
+        "あくりょう",
+        "魔物",
+        "まもの",
+        "股くぐり",
+        "またくぐり",
+        "アヒル",
+        "あひる",
+        "豚",
+        "ぶた",
+        "山羊",
+        "やぎ",
+        "ピンザマジムン",
+        "宮古島",
+        "みやこじま",
+        "シーサー",
+        "石敢當",
+        "いしがんとう",
+        "夜道",
+        "よみち"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "東北、とりわけ青森・岩手の旧家に祀られてきた家の神。桑の木の棒の先に男女や馬の顔を刻み、オセンダクと呼ぶ布を毎年一枚ずつ重ね着せた、一対の神体で祀られる。蚕の神、農業の神、目の神ともされ、祭日にはイタコが神体を手に持って舞わせる「オシラアソバセ」が行われた。\n『遠野物語』に載る起源譚が名高い。飼い馬と恋仲になった娘の話で、怒った父が馬を殺して桑の木に吊るすと、娘は馬の首に乗ったまま天に昇り、オシラサマになったという。",
+      "documentId" : "oshirasama",
+      "imageName" : "NoImage",
+      "name" : "オシラサマ",
+      "relatedCategory" : "家の怪",
+      "searchKeywords" : [
+        "おしらさま",
+        "オシラサマ",
+        "おしら様",
+        "オシラ神",
+        "東北",
+        "とうほく",
+        "青森",
+        "あおもり",
+        "岩手",
+        "いわて",
+        "遠野",
+        "とおの",
+        "遠野物語",
+        "とおのものがたり",
+        "柳田國男",
+        "やなぎたくにお",
+        "蚕",
+        "かいこ",
+        "桑",
+        "くわ",
+        "馬",
+        "うま",
+        "イタコ",
+        "いたこ",
+        "オシラアソバセ",
+        "家の神",
+        "いえのかみ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "秋田・男鹿半島の来訪神。大晦日(もとは小正月)の晩、鬼の面をつけ蓑をまとった異形が「泣ぐ子はいねがー、怠け者はいねがー」と叫びながら家々を巡り、子どもを戒め、家に祝福を残して山へ帰っていく。\n名の由来は、囲炉裏にあたってばかりいると手足にできる火だこ「ナモミ」を剥ぎに来ることから。恐ろしい姿だが正体は山の神の使いであり、家の主人は正装で迎え、酒肴でもてなして送り出す。2018年、ユネスコ無形文化遺産「来訪神 仮面・仮装の神々」のひとつに登録された。",
+      "documentId" : "namahage",
+      "imageName" : "NoImage",
+      "name" : "ナマハゲ",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "なまはげ",
+        "ナマハゲ",
+        "生剥",
+        "秋田",
+        "あきた",
+        "男鹿",
+        "おが",
+        "男鹿半島",
+        "おがはんとう",
+        "来訪神",
+        "らいほうしん",
+        "大晦日",
+        "おおみそか",
+        "小正月",
+        "こしょうがつ",
+        "鬼",
+        "おに",
+        "ナモミ",
+        "なもみ",
+        "泣く子",
+        "蓑",
+        "みの",
+        "ユネスコ",
+        "無形文化遺産",
+        "アマメハギ",
+        "パーントゥ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "アイヌに伝わる水の魔物で、和人の言う河童にあたる。オキクルミ神が疱瘡神を追い払うために蓬で作った草人形たちが、役目を終えたのち川に入ってミンツチになった、という由来譚が知られる。\n人や馬を水へ引き込む恐ろしさの一方で、棲みついた川筋の家を富ませるとも語られ、川の恵みと危うさの両面を一身に背負っている。名はアイヌ語の中に和語の「ミヅチ(水の霊)」が流れ込んだものとする説がある。",
+      "documentId" : "mintsuchi",
+      "imageName" : "NoImage",
+      "name" : "ミンツチ",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "みんつち",
+        "ミンツチ",
+        "ミントゥチ",
+        "アイヌ",
+        "あいぬ",
+        "北海道",
+        "ほっかいどう",
+        "河童",
+        "かっぱ",
+        "蛟",
+        "みずち",
+        "オキクルミ",
+        "疱瘡神",
+        "ほうそうがみ",
+        "蓬",
+        "よもぎ",
+        "草人形",
+        "川",
+        "かわ",
+        "水難",
+        "すいなん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "佐渡の狸たちの総大将。相川の二つ岩に棲み、佐渡に狐がいないのは団三郎が追い払ったからだと語られる。人間相手に証文を交わして金を貸した、立派な屋敷の幻で客をもてなした、化け方を狸たちに教えたなど、親分らしい豪快な逸話に事欠かない。\n淡路の芝右衛門、屋島の太三郎と並んで日本三名狸に数えられ、地元では二つ岩大明神として祀られている。金を借りたら、きちんと返したほうがいい相手である。",
+      "documentId" : "danzaburoudanuki",
+      "imageName" : "NoImage",
+      "name" : "団三郎狸",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "だんざぶろうだぬき",
+        "団三郎狸",
+        "団三郎",
+        "だんざぶろう",
+        "佐渡",
+        "さど",
+        "新潟",
+        "にいがた",
+        "二つ岩",
+        "ふたついわ",
+        "二つ岩大明神",
+        "狸",
+        "たぬき",
+        "化け狸",
+        "ばけだぬき",
+        "三名狸",
+        "さんめいり",
+        "金貸し",
+        "かねかし",
+        "相川",
+        "あいかわ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "淡路島・洲本に棲んだ古狸。無類の芝居好きで、人に化けては木の葉の銭を握りしめ、海を渡って大坂道頓堀の芝居小屋に通いつめた。だがある日、連れ込まれた犬に正体を見破られ、打ち殺されてしまったという。\nその後、芝居小屋は不入りが続いて祟りと噂され、手厚く供養された芝右衛門はやがて芝居の守り神に。大阪中座の楽屋で祀られ、故郷の洲本・三熊山にも祠がある。日本三名狸の一角ながら、どこか憎めない最期である。",
+      "documentId" : "shibaemondanuki",
+      "imageName" : "NoImage",
+      "name" : "芝右衛門狸",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "しばえもんだぬき",
+        "芝右衛門狸",
+        "芝右衛門",
+        "しばえもん",
+        "淡路島",
+        "あわじしま",
+        "洲本",
+        "すもと",
+        "兵庫",
+        "ひょうご",
+        "三熊山",
+        "みくまやま",
+        "道頓堀",
+        "どうとんぼり",
+        "大阪",
+        "おおさか",
+        "中座",
+        "なかざ",
+        "芝居",
+        "しばい",
+        "狸",
+        "たぬき",
+        "化け狸",
+        "三名狸",
+        "木の葉の銭"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "讃岐・屋島に棲むと伝わる化け狸の大御所。変化の腕前は日本一とうたわれ、源平屋島の合戦のありさまをありありと幻に見せたという逸話で知られる。平家の亡霊を慰めるためだったとも語られる。\n狸王国・四国でも別格の存在で、屋島寺の蓑山大明神として祀られ、家庭円満や商売繁盛の神になっている。スタジオジブリ『平成狸合戦ぽんぽこ』には、四国の長老・屋島の禿狸として登場した。",
+      "documentId" : "tasaburoudanuki",
+      "imageName" : "NoImage",
+      "name" : "太三郎狸",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "たさぶろうだぬき",
+        "太三郎狸",
+        "太三郎",
+        "たさぶろう",
+        "禿狸",
+        "はげだぬき",
+        "屋島",
+        "やしま",
+        "讃岐",
+        "さぬき",
+        "香川",
+        "かがわ",
+        "屋島寺",
+        "やしまじ",
+        "蓑山大明神",
+        "みのやまだいみょうじん",
+        "狸",
+        "たぬき",
+        "化け狸",
+        "三名狸",
+        "源平合戦",
+        "げんぺいかっせん",
+        "平成狸合戦ぽんぽこ",
+        "ぽんぽこ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "伊予・松山に伝わる八百八狸の頭領。松山城の守護を任じられた由緒ある古狸で、「刑部」の名を許されるほどの格式を誇った。しかしお家騒動に巻き込まれ、謀反の側に加担して人を化かしたかどで、久万山の岩屋に封じ込められたという。\nこの顛末は講談『松山騒動八百八狸物語』として全国に広まった。封印の地とされる山口霊神には、今も刑部狸を慰める参拝者が訪れる。封印は、まだ解けていないことになっている。",
+      "documentId" : "inugamigyoubu",
+      "imageName" : "NoImage",
+      "name" : "隠神刑部",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "いぬがみぎょうぶ",
+        "隠神刑部",
+        "刑部狸",
+        "ぎょうぶだぬき",
+        "八百八狸",
+        "はっぴゃくやだぬき",
+        "松山",
+        "まつやま",
+        "愛媛",
+        "えひめ",
+        "伊予",
+        "いよ",
+        "松山城",
+        "まつやまじょう",
+        "久万山",
+        "くまやま",
+        "山口霊神",
+        "やまぐちれいじん",
+        "狸",
+        "たぬき",
+        "化け狸",
+        "講談",
+        "こうだん",
+        "松山騒動",
+        "封印",
+        "ふういん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "上州館林・茂林寺にいたと伝わる不思議な僧。愛用の茶釜は千人の茶会でも湯の尽きない「分福茶釜」として寺の誉れだったが、守鶴の正体は数千年を生きた狸(貉)で、うたた寝の最中に尻尾を出してしまい、正体を明かして寺を去ったという。\n別れの日、守鶴は源平屋島の合戦と釈迦の説法のありさまを幻に見せ、人々を涙させたと伝わる。おとぎ話「ぶんぶく茶釜」の元になった伝承で、茂林寺には今もその茶釜が伝わり、参道にはずらりと狸像が並ぶ。",
+      "documentId" : "shukaku",
+      "imageName" : "NoImage",
+      "name" : "守鶴",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "しゅかく",
+        "守鶴",
+        "分福茶釜",
+        "ぶんぶくちゃがま",
+        "文福茶釜",
+        "茂林寺",
+        "もりんじ",
+        "館林",
+        "たてばやし",
+        "群馬",
+        "ぐんま",
+        "上州",
+        "じょうしゅう",
+        "狸",
+        "たぬき",
+        "貉",
+        "むじな",
+        "茶釜",
+        "ちゃがま",
+        "僧",
+        "そう",
+        "おとぎ話",
+        "屋島の合戦"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "両の手のひらに眼を見開いた盲人の妖怪。鳥山石燕『画図百鬼夜行』には、杖を携えた座頭が手のひらの目をこちらへ向ける姿で描かれている。\n下敷きとされるのは『諸国百物語』の怪談。追い剥ぎに殺された座頭が「せめて一目なりとも仇の顔を見たかった」と念じた執心が、死してのち、手のひらに目を開かせた。墓場で人を追い回すその姿は、恨めしさより悲しさが勝る。",
+      "documentId" : "tenome",
+      "imageName" : "NoImage",
+      "name" : "手の目",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "てのめ",
+        "手の目",
+        "座頭",
+        "ざとう",
+        "盲人",
+        "もうじん",
+        "手のひら",
+        "目",
+        "め",
+        "墓場",
+        "はかば",
+        "諸国百物語",
+        "しょこくひゃくものがたり",
+        "画図百鬼夜行",
+        "がずひゃっきやこう",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "塀の向こうからぬっと覗き込み、けらけらと嘲るように高笑いする大女の妖怪。声のする方を見ても誰もおらず、逃げても逃げても笑い声だけが耳に追いすがってくるという。笑われ続けた者は、しまいに気力を吸い取られてしまうとも。\n鳥山石燕『今昔百鬼拾遺』に描かれ、その解説は漢籍の「倩兮たる巧笑」を引く。色里に生きた遊女たちの妄念が凝って形になったもの、とする読みもある。",
+      "documentId" : "kerakeraonna",
+      "imageName" : "NoImage",
+      "name" : "倩兮女",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "けらけらおんな",
+        "倩兮女",
+        "けらけら女",
+        "笑い女",
+        "わらいおんな",
+        "大女",
+        "おおおんな",
+        "笑い声",
+        "わらいごえ",
+        "遊女",
+        "ゆうじょ",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "常陸の山中にいるといい、雨の日には姿を隠し、晴れた日にだけ現れるという妖怪。鳥山石燕『今昔百鬼拾遺』は、軒先に吊るすてるてる坊主はこの日和坊を象ったものだと記している。\n晴れを呼ぶだけで悪さの話がまったくない、妖怪としては極めて珍しい平和な存在。明日晴れてほしい夜、窓辺のてるてる坊主の向こうには、この妖怪がいるのかもしれない。",
+      "documentId" : "hiyoribou",
+      "imageName" : "NoImage",
+      "name" : "日和坊",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ひよりぼう",
+        "日和坊",
+        "てるてる坊主",
+        "てるてるぼうず",
+        "照る照る坊主",
+        "晴れ",
+        "はれ",
+        "天気",
+        "てんき",
+        "常陸",
+        "ひたち",
+        "茨城",
+        "いばらき",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "深夜の野原に現れる不気味な老人の妖怪。鳥山石燕『今昔画図続百鬼』に描かれ、行き会った旅人は必ず病になると恐れられた。\n石燕は解説で、子どもを脅す化け物「ももんがあ」と野の妖怪「野襖」を合わせて老人の姿にしたと明かしており、いわば石燕プロデュースの創作妖怪。両袖を広げて「ももんがー!」と子どもを脅かすあの遊びの、遠いご先祖にあたる。",
+      "documentId" : "momonjii",
+      "imageName" : "NoImage",
+      "name" : "百々爺",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ももんじい",
+        "百々爺",
+        "ももんがあ",
+        "モモンガ",
+        "野襖",
+        "のぶすま",
+        "老人",
+        "ろうじん",
+        "野原",
+        "のはら",
+        "夜道",
+        "よみち",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "鳥山石燕",
+        "とりやませきえん",
+        "創作妖怪"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "右手に青蛇、左手に赤蛇を握った老婆の妖怪。鳥山石燕『今昔百鬼拾遺』によれば、蛇塚に封じられた夫・蛇五右衛門の塚を守り、近づく者を二匹の蛇で追い払うという。\n蛇五右衛門の妻だから蛇骨婆——と石燕はもっともらしく書いているが、その夫の素性からして謎で、石燕一流の言葉遊びから生まれた妖怪とみられている。それでも両手に蛇を構えた姿の禍々しさは本物である。",
+      "documentId" : "jakotsubabaa",
+      "imageName" : "NoImage",
+      "name" : "蛇骨婆",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "じゃこつばばあ",
+        "蛇骨婆",
+        "じゃこつばば",
+        "蛇",
+        "へび",
+        "青蛇",
+        "赤蛇",
+        "蛇塚",
+        "へびづか",
+        "蛇五右衛門",
+        "じゃごえもん",
+        "老婆",
+        "ろうば",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "朧月の夜、都の大路にきしる音を響かせて現れるという牛車の妖怪。車の前面が巨大な顔になっている。鳥山石燕『今昔画図続百鬼』の解説は、王朝の昔、祭見物の場所取りで演じられた「車争い」の遺恨が形になったものかと記す。\n『源氏物語』で葵の上と六条御息所が演じた車争いを思わせる出自で、雅やかな都の底に沈んだ怨みを乗せて、朧夜のどこかを今も走っているのかもしれない。",
+      "documentId" : "oboroguruma",
+      "imageName" : "NoImage",
+      "name" : "朧車",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "おぼろぐるま",
+        "朧車",
+        "牛車",
+        "ぎっしゃ",
+        "車争い",
+        "くるまあらそい",
+        "朧月夜",
+        "おぼろづきよ",
+        "京都",
+        "きょうと",
+        "賀茂",
+        "かも",
+        "源氏物語",
+        "げんじものがたり",
+        "六条御息所",
+        "ろくじょうのみやすどころ",
+        "葵の上",
+        "あおいのうえ",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "鳥山石燕",
+        "とりやませきえん",
+        "片輪車",
+        "輪入道"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "道の怪",
+        "すべて"
+      ],
+      "description" : "炎に包まれた片輪だけの車に乗り、夜の辻を走るという妖怪。見ること自体が祟りを呼ぶとされた。近江甲賀の伝承では、車の音をそっと覗き見た女の家から幼子が消える。女が「罪科は我にこそあれ小車の やるかたわかぬ子をばかくしそ」と詠んで戸口に貼り出すと、翌夜、歌に感じ入った片輪車が子を返して立ち去ったという。\n覗き見を許さぬ苛烈さと、歌ひとつで心を動かす情の深さをあわせ持つ。京都を走る輪入道と対で語られることも多い。",
+      "documentId" : "katawaguruma",
+      "imageName" : "NoImage",
+      "name" : "片輪車",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "かたわぐるま",
+        "片輪車",
+        "車輪",
+        "しゃりん",
+        "牛車",
+        "ぎっしゃ",
+        "炎",
+        "ほのお",
+        "甲賀",
+        "こうか",
+        "近江",
+        "おうみ",
+        "滋賀",
+        "しが",
+        "和歌",
+        "わか",
+        "子隠し",
+        "見るなの怪",
+        "輪入道",
+        "わにゅうどう",
+        "朧車",
+        "今昔画図続百鬼",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "大晦日の晩、厠に現れるという入道姿の妖怪。鳥山石燕は、口から鳥を吐き出す毛むくじゃらの入道として描いた。大晦日に厠で「がんばり入道ほととぎす」と唱えるとこの妖怪に遭わない——逆に唱えれば不吉とする伝えもあり、作法は一定しない。\n中国の厠神・郭登と結びつける説も記されており、便所という異界との境目を守る(あるいは覗く)存在として語られてきた。トイレの妖怪の、江戸代表である。",
+      "documentId" : "kanbarinyuudou",
+      "imageName" : "NoImage",
+      "name" : "加牟波理入道",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "かんばりにゅうどう",
+        "加牟波理入道",
+        "がんばり入道",
+        "がんばりにゅうどう",
+        "厠",
+        "かわや",
+        "トイレ",
+        "といれ",
+        "便所",
+        "べんじょ",
+        "大晦日",
+        "おおみそか",
+        "ほととぎす",
+        "郭登",
+        "かくとう",
+        "厠神",
+        "かわやがみ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "トイレの花子さん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "家の怪",
+        "すべて"
+      ],
+      "description" : "生前ろくに働かなかった者のなれの果てという妖怪。夜なべ仕事の行灯に長い首を伸ばし、油を舐めて灯りを暗くし、勤勉な人の邪魔をする。鳥山石燕が描き、生きているうちに「ひま」を貪った者は死んでなお「火間」の虫になる、という説教めいた言葉遊びを添えた。\n怠け者は死後も進歩がない、という手厳しい造形だが、夜更かしの作業中にふっと灯りが暗くなったら、それはこの妖怪のせいにしていい。",
+      "documentId" : "himamushinyuudou",
+      "imageName" : "NoImage",
+      "name" : "火間虫入道",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ひまむしにゅうどう",
+        "火間虫入道",
+        "行灯",
+        "あんどん",
+        "油",
+        "あぶら",
+        "油舐め",
+        "あぶらなめ",
+        "怠け者",
+        "なまけもの",
+        "夜なべ",
+        "よなべ",
+        "入道",
+        "にゅうどう",
+        "鳥山石燕",
+        "とりやませきえん",
+        "言葉遊び"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "山林の悪しき気が凝り固まったものとされる、正体のつかめない妖怪。鳥山石燕『今昔画図続百鬼』に獣めいた姿で描かれるが、その解説は「魑魅の類」とだけあって、そっけない。\n姿を見せぬまま人に取り憑き、原因のわからない病を起こすと考えられた。名前と気配だけが先行する、「得体の知れなさ」そのものを絵にしたような妖怪である。",
+      "documentId" : "jami",
+      "imageName" : "NoImage",
+      "name" : "邪魅",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "じゃみ",
+        "邪魅",
+        "魑魅",
+        "ちみ",
+        "すだま",
+        "悪気",
+        "あっき",
+        "山林",
+        "さんりん",
+        "病",
+        "やまい",
+        "憑き物",
+        "つきもの",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "鳥山石燕",
+        "とりやませきえん",
+        "魍魎"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "すべて"
+      ],
+      "description" : "山や川、木や石の精とされる中国渡来の妖怪。三歳の童子ほどの背丈に赤黒い体、赤い目に長い耳を持ち、人の声を真似るという。墓所に忍び入って死者の肝を食うと恐れられ、鳥山石燕『今昔画図続百鬼』でも亡骸に手を伸ばす姿で描かれた。\n「魑魅魍魎」という四字熟語の後ろ半分として、得体の知れないものたち全般の代名詞になっている。個体としての姿より、名前のほうがはるかに有名な妖怪かもしれない。",
+      "documentId" : "mouryou",
+      "imageName" : "NoImage",
+      "name" : "魍魎",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "もうりょう",
+        "魍魎",
+        "魑魅魍魎",
+        "ちみもうりょう",
+        "山川の精",
+        "死肝",
+        "しかん",
+        "墓",
+        "はか",
+        "亡骸",
+        "なきがら",
+        "中国",
+        "ちゅうごく",
+        "今昔画図続百鬼",
+        "こんじゃくがずぞくひゃっき",
+        "鳥山石燕",
+        "とりやませきえん",
+        "魍魎の匣"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "中国の川に棲むという水の怪。『本草綱目』には、三、四歳の子どもほどの大きさで、矢も通らぬ穿山甲のような鱗に覆われ、膝頭に虎の爪を持つとある。日本では河童の同類、あるいは河童より格上の大物として受け取られた。\n津軽では「水虎様」と呼んで河童を神に祀り、九州には捕らえられた水虎が詫び証文を書かされる話も残る。同じ水辺の住人でも、水虎の名で呼ばれるときはどこか凄みが増す。",
+      "documentId" : "suiko",
+      "imageName" : "NoImage",
+      "name" : "水虎",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "すいこ",
+        "水虎",
+        "水虎様",
+        "すいこさま",
+        "河童",
+        "かっぱ",
+        "本草綱目",
+        "ほんぞうこうもく",
+        "中国",
+        "ちゅうごく",
+        "津軽",
+        "つがる",
+        "青森",
+        "あおもり",
+        "鱗",
+        "うろこ",
+        "虎の爪",
+        "川",
+        "かわ",
+        "詫び証文",
+        "鳥山石燕",
+        "とりやませきえん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "中国の山中に棲むという一本足の小人。夜更けに山小屋へ現れて塩を無心し、沢蟹を焼いて食うのを好むという。こちらが先に「山精」と名を呼べば手出しできなくなるが、向こうに名を言い当てられると病にされる——名前の主導権争いが命運を分ける。\n『抱朴子』などの漢籍に載る妖怪で、鳥山石燕が日本に紹介した。山童や一本だたらなど、日本の山の一本足たちと響き合う存在である。",
+      "documentId" : "sansei",
+      "imageName" : "NoImage",
+      "name" : "山精",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "さんせい",
+        "山精",
+        "一本足",
+        "いっぽんあし",
+        "小人",
+        "こびと",
+        "蟹",
+        "かに",
+        "沢蟹",
+        "さわがに",
+        "塩",
+        "しお",
+        "山小屋",
+        "やまごや",
+        "中国",
+        "ちゅうごく",
+        "抱朴子",
+        "ほうぼくし",
+        "鳥山石燕",
+        "とりやませきえん",
+        "一本だたら",
+        "山童",
+        "やまわろ"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "囲炉裏端で五徳を頭にかぶり、火吹き竹で火をおこす猫の妖怪。尾が二叉に分かれており、猫又の類とされる。鳥山石燕『画図百器徒然袋』に描かれた。\n名は「七徳の舞を二つ忘れて五徳の冠者」という古い洒落にちなむと石燕は記す。古びた器物が化ける付喪神と、年経た猫の怪が入り混じった、石燕らしい遊び心の造形。冬の夜、消えたはずの囲炉裏に火が入っていたら、この猫の仕業である。",
+      "documentId" : "gotokuneko",
+      "imageName" : "NoImage",
+      "name" : "五徳猫",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "ごとくねこ",
+        "五徳猫",
+        "猫又",
+        "ねこまた",
+        "猫",
+        "ねこ",
+        "五徳",
+        "ごとく",
+        "囲炉裏",
+        "いろり",
+        "火吹き竹",
+        "ひふきだけ",
+        "二叉の尾",
+        "付喪神",
+        "つくもがみ",
+        "画図百器徒然袋",
+        "がずひゃっきつれづれぶくろ",
+        "鳥山石燕",
+        "とりやませきえん",
+        "七徳の舞"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "鳥山石燕",
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "僧に化けた古狐。狩人に仲間を狩られ続けた狐が、狩人の伯父である僧・白蔵主の姿を借りて「殺生をやめよ」と説法した——という狂言「釣狐」の題材として名高い。化けの皮が剥がれかけながら、仕掛けられた罠の前で狐の本性と戦う後半は、狂言師の卒業試験と呼ばれるほどの大曲になっている。\n鳥山石燕『今昔百鬼拾遺』にも僧衣の狐として描かれた。堺の少林寺に伝承が残り、白蔵主を祀る祠がある。",
+      "documentId" : "hakuzousu",
+      "imageName" : "NoImage",
+      "name" : "白蔵主",
+      "relatedCategory" : "鳥山石燕",
+      "searchKeywords" : [
+        "はくぞうす",
+        "白蔵主",
+        "はくぞうず",
+        "釣狐",
+        "つりぎつね",
+        "狂言",
+        "きょうげん",
+        "狐",
+        "きつね",
+        "化け狐",
+        "ばけぎつね",
+        "僧",
+        "そう",
+        "説法",
+        "せっぽう",
+        "少林寺",
+        "しょうりんじ",
+        "堺",
+        "さかい",
+        "大阪",
+        "今昔百鬼拾遺",
+        "こんじゃくひゃっきしゅうい",
+        "鳥山石燕",
+        "とりやませきえん",
+        "玉藻前"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "海から現れて豊凶と流行り病を告げ、「我が姿を写して人々に見せよ」と言い残して消える予言獣。猿に似た顔に三本の足という異形で、江戸後期から明治にかけての瓦版にたびたび登場した。尼彦、天彦などとも書く。\nかの有名なアマビエは、このアマビコの名の写し間違いから生まれた、とする説が有力視されている。元祖でありながら知名度で後発にすっかり抜かれてしまった、少し不憫な妖怪でもある。",
+      "documentId" : "amabiko",
+      "imageName" : "NoImage",
+      "name" : "アマビコ",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "あまびこ",
+        "アマビコ",
+        "尼彦",
+        "天彦",
+        "あま彦",
+        "予言獣",
+        "よげんじゅう",
+        "予言",
+        "よげん",
+        "アマビエ",
+        "あまびえ",
+        "瓦版",
+        "かわらばん",
+        "豊作",
+        "ほうさく",
+        "疫病",
+        "えきびょう",
+        "海",
+        "うみ",
+        "三本足",
+        "さんぼんあし",
+        "肥後",
+        "ひご",
+        "熊本",
+        "くまもと"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "山の怪",
+        "すべて"
+      ],
+      "description" : "越中立山に現れたと伝わる人面獣身の予言獣。山で薬草を採る者の前に姿を見せ、「近いうちに原因の知れぬ病が流行るが、我が姿を見た者は難を逃れる」と告げたという。\n地獄谷を擁する霊山・立山と、薬売りの国・富山ならではの妖怪で、病除けの護符としてその絵が広まった。あらゆる妖異に通じる中国の聖獣・白澤の日本ローカル版ともいわれ、アマビエらと並ぶ予言獣ブームの一角を占める。",
+      "documentId" : "kutabe",
+      "imageName" : "NoImage",
+      "name" : "クタベ",
+      "relatedCategory" : "山の怪",
+      "searchKeywords" : [
+        "くたべ",
+        "クタベ",
+        "くだべ",
+        "立山",
+        "たてやま",
+        "富山",
+        "とやま",
+        "越中",
+        "えっちゅう",
+        "予言獣",
+        "よげんじゅう",
+        "人面",
+        "じんめん",
+        "薬売り",
+        "くすりうり",
+        "薬草",
+        "やくそう",
+        "疫病除け",
+        "白澤",
+        "はくたく",
+        "アマビエ",
+        "件",
+        "くだん"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "黒い体に頭が二つある、烏のような姿の予言獣。江戸末期、コレラが流行した年の甲斐国の役人の記録『暴瀉病流行日記』に描かれ、「来年、世の人が九割方死ぬ難があるが、朝夕に我らの姿を拝めば難を逃れる」と告げたと記される。加賀白山に現れたという触れ込みだった。\n長らく埋もれていたが、山梨県立博物館の紹介をきっかけにコロナ禍で一躍脚光を浴び、アマビエと並ぶ疫病除けの顔になった。",
+      "documentId" : "yogennotori",
+      "imageName" : "NoImage",
+      "name" : "ヨゲンノトリ",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "よげんのとり",
+        "ヨゲンノトリ",
+        "予言の鳥",
+        "双頭",
+        "そうとう",
+        "烏",
+        "からす",
+        "カラス",
+        "甲斐",
+        "かい",
+        "山梨",
+        "やまなし",
+        "白山",
+        "はくさん",
+        "コレラ",
+        "これら",
+        "暴瀉病",
+        "ぼうしゃびょう",
+        "予言獣",
+        "よげんじゅう",
+        "疫病除け",
+        "アマビエ",
+        "山梨県立博物館"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "竹筒に収まるほど小さな狐の憑き物。信州や東海の山間部で恐れられ、管狐を操る「管使い」は占いも呪いも自在とされた。一方で管狐が棲みつく家は「クダ持ち」の家筋と呼ばれ、縁組を避けられるなど、共同体の中で重い意味を負わされた。\n憑かれた家は最初こそ富むが、管狐は七十五匹まで殖えて、しまいに家を食い潰すという。飯綱使いが操る飯綱とはほぼ同系の存在である。",
+      "documentId" : "kudagitsune",
+      "imageName" : "NoImage",
+      "name" : "管狐",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "くだぎつね",
+        "管狐",
+        "クダ狐",
+        "くだきつね",
+        "憑き物",
+        "つきもの",
+        "狐憑き",
+        "きつねつき",
+        "飯綱",
+        "いづな",
+        "飯綱使い",
+        "いづなつかい",
+        "管使い",
+        "くだつかい",
+        "信州",
+        "しんしゅう",
+        "長野",
+        "ながの",
+        "憑き物筋",
+        "つきものすじ",
+        "七十五匹",
+        "竹筒",
+        "たけづつ",
+        "狐",
+        "きつね"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "動物の怪",
+        "すべて"
+      ],
+      "description" : "関東北西部——上州や武州秩父のあたりで語られる狐の憑き物。鼠より少し大きいほどの体に裂けた尾を持ち、群れをなして「オサキ持ち」の家に棲みつくという。尾裂、御先狐とも書く。\n家人の念に感応して他家から富を運び込み、あるいは妬んだ相手に取り憑くとされた。オサキ持ちの家との縁組を避ける憑き物筋の観念は、近代まで縁談や近所づきあいに影を落とし、妖怪というより社会の仕組みとして働いた面がある。",
+      "documentId" : "osaki",
+      "imageName" : "NoImage",
+      "name" : "オサキ",
+      "relatedCategory" : "動物の怪",
+      "searchKeywords" : [
+        "おさき",
+        "オサキ",
+        "オサキ狐",
+        "おさきぎつね",
+        "尾裂",
+        "御先狐",
+        "憑き物",
+        "つきもの",
+        "憑き物筋",
+        "つきものすじ",
+        "上州",
+        "じょうしゅう",
+        "群馬",
+        "ぐんま",
+        "秩父",
+        "ちちぶ",
+        "埼玉",
+        "さいたま",
+        "関東",
+        "かんとう",
+        "狐",
+        "きつね",
+        "管狐",
+        "くだぎつね"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "2004年、ネット掲示板への書き込みから生まれた異界の駅。新浜松から乗った終電がいつまでも停まらず、たどり着いたのは時刻表にも路線図にもない無人駅「きさらぎ駅」。投稿者「はすみ」は掲示板の住人たちの助言を受けながら脱出を試みるが、太鼓と鈴の音、線路を歩く片足の老人と怪異が重なり、やがて書き込みは途絶える——この一部始終がリアルタイムで進行した。\n以後も「きさらぎ駅に着いた」という類話が繰り返し投稿される、実況型ネット怪談の金字塔。異界に迷い込む話型は、マヨイガなど古い伝承とも地続きである。",
+      "documentId" : "kisaragieki",
+      "imageName" : "NoImage",
+      "name" : "きさらぎ駅",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "きさらぎえき",
+        "きさらぎ駅",
+        "如月駅",
+        "異界駅",
+        "いかいえき",
+        "異世界",
+        "いせかい",
+        "無人駅",
+        "むじんえき",
+        "はすみ",
+        "電車",
+        "でんしゃ",
+        "終電",
+        "しゅうでん",
+        "新浜松",
+        "しんはままつ",
+        "静岡",
+        "しずおか",
+        "遠州",
+        "えんしゅう",
+        "2ちゃんねる",
+        "ネット怪談",
+        "都市伝説",
+        "としでんせつ",
+        "マヨイガ",
+        "やみ駅"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "「あまりの恐ろしさに、聞いた者は三日と生きられない」——そうとだけ伝わる怪談。では中身はというと、聞いて生き延びた者がいないため、誰も知らない。恐ろしすぎる怪談の中身がこの世に存在しない、という構造そのものが仕掛けになった話である。\n小松左京が1965年の短編でこの「中身のない怪談」を描き、実在の怪談として広く知られるようになった。怪談会で「牛の首という話をご存知ですか」と切り出されたら、それはたぶん、知らないままのほうがいい。",
+      "documentId" : "ushinokubi",
+      "imageName" : "NoImage",
+      "name" : "牛の首",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "うしのくび",
+        "牛の首",
+        "怪談",
+        "かいだん",
+        "小松左京",
+        "こまつさきょう",
+        "都市伝説",
+        "としでんせつ",
+        "禁忌",
+        "きんき",
+        "メタ怪談",
+        "最恐",
+        "牛",
+        "うし"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "「この話を聞いた者のもとに現れる」と語られる、足を失った女の霊。深夜、夢や電話で「足、いるか」と問いかけ、答えを誤ると足を奪われるという。「カ=仮面、シ=死人、マ=悪魔」と唱える、「今、必要です」と答えるなど、助かる問答の作法は地域や時代でさまざまに変わる。\n昭和四十年代ごろから学校を中心に広まった学校怪談の古株で、カシマレイコの名で語られることもある。読んでしまったあなたのところに現れるかどうかは、保証しかねる。",
+      "documentId" : "kashimasan",
+      "imageName" : "NoImage",
+      "name" : "カシマさん",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "かしまさん",
+        "カシマさん",
+        "カシマレイコ",
+        "鹿島さん",
+        "かしまれいこ",
+        "足",
+        "あし",
+        "問答",
+        "もんどう",
+        "電話",
+        "でんわ",
+        "夢",
+        "ゆめ",
+        "学校の怪談",
+        "がっこうのかいだん",
+        "都市伝説",
+        "としでんせつ",
+        "テケテケ",
+        "口裂け女"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "都市伝説",
+        "すべて"
+      ],
+      "description" : "もう一人の自分。自分と瓜二つの姿が、自分のいないはずの場所で目撃される怪異で、本人が分身と出会ってしまうと死期が近いと恐れられる。ドイツ語の「二重に歩む者」に由来し、洋の東西を問わず類話がある。\n日本でも芥川龍之介が自らの分身を見たと語った逸話が残るほか、江戸の随筆には「影の病」「離魂病」として、同じ怪異が記されている。もし今夜、向こうから自分が歩いてきても、目を合わせないほうがいい。",
+      "documentId" : "doppelganger",
+      "imageName" : "NoImage",
+      "name" : "ドッペルゲンガー",
+      "relatedCategory" : "都市伝説",
+      "searchKeywords" : [
+        "どっぺるげんがー",
+        "ドッペルゲンガー",
+        "分身",
+        "ぶんしん",
+        "もう一人の自分",
+        "影の病",
+        "かげのやまい",
+        "離魂病",
+        "りこんびょう",
+        "芥川龍之介",
+        "あくたがわりゅうのすけ",
+        "自己像幻視",
+        "じこぞうげんし",
+        "都市伝説",
+        "としでんせつ",
+        "ドイツ",
+        "死の前兆"
+      ],
+      "story" : false
+    },
+    {
+      "categories" : [
+        "水の怪",
+        "すべて"
+      ],
+      "description" : "九州の八代海や有明海で、旧暦八朔の夜更けに沖に現れるという怪火。ひとつ灯った「親火」が左右に分かれて殖え、やがて数百から数千の火が幾里にもわたって連なるという。古くは景行天皇の九州巡幸の折、闇夜の海でこの火が船を導いたと伝えられ、「火の国」肥後の名の起こりとも結びつけられる。\n正体は漁火が大気の異常屈折で揺らめいて見える蜃気楼の一種とされるが、干潟の沖に並ぶ火の列は、今も土地の言い伝えとともに語り継がれている。",
+      "documentId" : "shiranui",
+      "imageName" : "NoImage",
+      "name" : "不知火",
+      "relatedCategory" : "水の怪",
+      "searchKeywords" : [
+        "しらぬい",
+        "不知火",
+        "怪火",
+        "かいか",
+        "八代海",
+        "やつしろかい",
+        "有明海",
+        "ありあけかい",
+        "熊本",
+        "くまもと",
+        "九州",
+        "きゅうしゅう",
+        "八朔",
+        "はっさく",
+        "親火",
+        "おやび",
+        "蜃気楼",
+        "しんきろう",
+        "漁火",
+        "いさりび",
+        "景行天皇",
+        "けいこうてんのう",
+        "火の国",
+        "ひのくに",
+        "鬼火",
+        "おにび"
+      ],
+      "story" : false
+    }
+  ]
+}

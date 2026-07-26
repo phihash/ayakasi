@@ -32,7 +32,10 @@
 		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
-		A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D872EE72BC300592CB5 /* Data.swift */; };
+		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
+		C20000010000000000000002 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
+		C20000010000000000000003 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
+		C20000010000000000000004 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
 		A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8C2EE72BC300592CB5 /* AuthService.swift */; };
 		A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */; };
@@ -56,7 +59,6 @@
 		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
 		A9C0009A3002B33200F6FC35 /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */; };
 		A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */ = {isa = PBXBuildFile; productRef = A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */; };
-		A9C60B202FE2CE33003AC316 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */; };
 		A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B212FE2CE84003AC316 /* Analytics.swift */; };
 		A9C60B4D2FE599B3003AC316 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B4C2FE599B3003AC316 /* CardUI.swift */; };
 		A9D23AE7300B0BAB00737A0D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A9D23AE6300B0BAB00737A0D /* FirebaseMessaging */; };
@@ -70,6 +72,9 @@
 		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
+		B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000002 /* PrivacyInfo.xcprivacy */; };
+		B10000010000000000000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
+		B10000010000000000000006 /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816762F41DBBC005CAEAE /* LocationModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +123,8 @@
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
-		A9B08D872EE72BC300592CB5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
+		C20000010000000000000102 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		A9B08D882EE72BC300592CB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A9B08D8C2EE72BC300592CB5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 		A9E840A82F59D0B3007E4435 /* TokenBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBucket.swift; sourceTree = "<group>"; };
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 		B10000010000000000000001 /* YokaiShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiShareCard.swift; sourceTree = "<group>"; };
+		B10000010000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -266,8 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				A97816762F41DBBC005CAEAE /* LocationModels.swift */,
-				A9B08D872EE72BC300592CB5 /* Data.swift */,
 				A9B08D882EE72BC300592CB5 /* Models.swift */,
+				C20000010000000000000101 /* YokaiStore.swift */,
+				C20000010000000000000102 /* data.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -402,6 +410,7 @@
 				A9B08DC02EE72BC300592CB5 /* ayakasi.entitlements */,
 				A9B08DC32EE72BC300592CB5 /* GoogleService-Info.plist */,
 				A9B08DC42EE72BC300592CB5 /* Info.plist */,
+				B10000010000000000000002 /* PrivacyInfo.xcprivacy */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
 				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
@@ -552,6 +561,8 @@
 			files = (
 				A9B08DFB2EE72BC300592CB5 /* Assets.xcassets in Resources */,
 				A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */,
+				B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
+				C20000010000000000000003 /* data.json in Resources */,
 				A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */,
 				A9B08DFF2EE72BC300592CB5 /* MaterialIcons-Regular.ttf in Resources */,
 			);
@@ -561,7 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C60B202FE2CE33003AC316 /* Secrets.xcconfig in Resources */,
+				C20000010000000000000004 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +614,7 @@
 				A9D23AE9300B10A300737A0D /* PushManager.swift in Sources */,
 				A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */,
 				A9063B552FE724AB007CF638 /* CommentCardItem.swift in Sources */,
-				A9B08DCE2EE72BC300592CB5 /* Data.swift in Sources */,
+				C20000010000000000000001 /* YokaiStore.swift in Sources */,
 				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
 				A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */,
 				A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */,
@@ -645,6 +656,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20000010000000000000002 /* YokaiStore.swift in Sources */,
+				B10000010000000000000005 /* Models.swift in Sources */,
+				B10000010000000000000006 /* LocationModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,7 +907,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.17.0;
+				MARKETING_VERSION = 3.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -924,7 +938,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.17.0;
+				MARKETING_VERSION = 3.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

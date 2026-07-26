@@ -50,6 +50,12 @@ struct Container: View {
                 // 通知タップで妖怪IDが来たら検索タブへ（SearchViewが遷移を消化する）
                 if newValue != nil { selection = 0 }
             }
+            .onOpenURL { url in
+                // Widgetタップ (ayakasi://yokai/<documentId>) からのディープリンク
+                guard url.scheme == "ayakasi", url.host == "yokai",
+                      let id = url.pathComponents.dropFirst().first else { return }
+                router.pendingYokaiId = id
+            }
             .onChange(of: router.pendingEventURL) { _, newValue in
                 // 通知タップでイベントURLが来たらイベントタブへ（HomeViewが消化する）
                 if newValue != nil { selection = 3 }
