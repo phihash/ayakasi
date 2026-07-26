@@ -29,3 +29,6 @@ DerivedData
 .idea/
 GoogleService-Info.plist
 Secrets.xcconfig
+
+# Cloudflare wrangler cache
+.wrangler/
