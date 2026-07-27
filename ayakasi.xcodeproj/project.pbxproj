@@ -32,10 +32,6 @@
 		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
-		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
-		C20000010000000000000002 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
-		C20000010000000000000003 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
-		C20000010000000000000004 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
 		A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8C2EE72BC300592CB5 /* AuthService.swift */; };
 		A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */; };
@@ -71,10 +67,15 @@
 		A9DBF79E2E90ECE900F5CDBF /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF79D2E90ECE900F5CDBF /* XMLKit */; };
 		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
-		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
 		B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000002 /* PrivacyInfo.xcprivacy */; };
 		B10000010000000000000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		B10000010000000000000006 /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816762F41DBBC005CAEAE /* LocationModels.swift */; };
+		B10000010000000000000008 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000007 /* Log.swift */; };
+		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
+		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
+		C20000010000000000000002 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
+		C20000010000000000000003 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
+		C20000010000000000000004 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,8 +124,6 @@
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
-		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
-		C20000010000000000000102 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		A9B08D882EE72BC300592CB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A9B08D8C2EE72BC300592CB5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A9B08D8E2EE72BC300592CB5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +156,9 @@
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 		B10000010000000000000001 /* YokaiShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiShareCard.swift; sourceTree = "<group>"; };
 		B10000010000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B10000010000000000000007 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
+		C20000010000000000000102 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -423,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C60B212FE2CE84003AC316 /* Analytics.swift */,
+				B10000010000000000000007 /* Log.swift */,
 				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
 				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
 				A905C42E2F0C09FE00587825 /* Constants.swift */,
@@ -609,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */,
+				B10000010000000000000008 /* Log.swift in Sources */,
 				A92B30092F71676600E84A15 /* MessageUI.swift in Sources */,
 				A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */,
 				A9D23AE9300B10A300737A0D /* PushManager.swift in Sources */,
@@ -824,7 +828,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -873,7 +877,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -907,7 +911,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -938,7 +942,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
