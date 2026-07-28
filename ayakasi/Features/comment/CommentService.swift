@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+import os
 
 struct CommentError: LocalizedError {
     let message: String
@@ -51,7 +52,7 @@ class CommentService : ObservableObject {
             isLoadingRecentComments = false
         } catch {
             isLoadingRecentComments = false
-            print("[CommentService] getRecentComments failed: \(error)")
+            Logger.comment.error("getRecentComments失敗: \(String(describing: error))")
         }
     }
 
@@ -87,7 +88,7 @@ class CommentService : ObservableObject {
             isLoadingYokaiComments = false
         } catch {
             isLoadingYokaiComments = false
-            print("[CommentService] fetchYokaiComments(\(yokaiId)) failed: \(error)")
+            Logger.comment.error("fetchYokaiComments(\(yokaiId))失敗: \(String(describing: error))")
         }
     }
 

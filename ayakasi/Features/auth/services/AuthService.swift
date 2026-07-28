@@ -2,6 +2,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 import SwiftUI
+import os
 
 @MainActor
 protocol AuthServiceProtocol {
@@ -107,20 +108,27 @@ class AuthService: ObservableObject , AuthServiceProtocol {
         ])
     }
 
-    // TODO エラー処理を考える
+    /// usersドキュメントの存在を保証する。起動直後のネットワーク不調に備えて1回だけリトライする。
+    /// 失敗してもアプリは閲覧機能で使えるためthrowはしない（コメント系が使うときに再度呼ばれる）。
+    @discardableResult
     func ensureUserExists() async -> Bool {
         guard let user = currentUser else { return false }
 
-        do {
-            if try await userDocumentExists(user) {
+        for attempt in 1...2 {
+            do {
+                if try await userDocumentExists(user) {
+                    return true
+                }
+                try await createUserDocument(user)
                 return true
+            } catch {
+                Logger.auth.error("ensureUserExists失敗(\(attempt)回目): \(String(describing: error))")
+                if attempt == 1 {
+                    try? await Task.sleep(nanoseconds: 2_000_000_000) // 2秒後に再試行
+                }
             }
-            try await createUserDocument(user)
-            return true
-        } catch {
-            print("⚠️ ensureUserExists失敗: \(error)")
-            return false
         }
+        return false
     }
     //ここまで
     

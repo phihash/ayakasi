@@ -36,14 +36,11 @@ struct CommentUI: View {
                 
                 // 投稿ボタン
                 Button(action: { // 投稿処理
-                    print("🔘 投稿ボタン押下")
                     Task {
                         do {
                             try await commentStore.postComment(content: commentText, yokai: yokai)
                             Analytics.trackCommentPosted(documentId: yokai.documentId)
-                            print("🔄 fetchYokaiComments呼び出し")
                             await commentStore.fetchYokaiComments(yokaiId: yokai.documentId)
-                            print("🏁 投稿処理完了")
                             commentText = ""
                             isPresented = false
                         } catch {

@@ -2,6 +2,7 @@ import UIKit
 import SwiftUI
 import FirebaseMessaging
 import UserNotifications
+import os
 
 /// 通知タップからの遷移先を保持する共有ルーター
 @MainActor
@@ -60,14 +61,14 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("[Push] APNs 登録失敗:", error)
+        Logger.push.error("APNs 登録失敗: \(String(describing: error))")
     }
 }
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        // ↓ テスト送信で使うトークン。Xcodeのログからコピーする
-        print("[Push] FCM token:", fcmToken ?? "nil")
+        // ↓ テスト送信で使うトークン。デバッガ接続中はXcodeコンソールに出る（リリースでは伏せられる）
+        Logger.push.debug("FCM token: \(fcmToken ?? "nil", privacy: .private)")
 
         #if DEBUG
         // 開発ビルドはテスト用トピックに入れる（誤爆防止）
@@ -90,7 +91,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
-        print("[Push] tapped:", userInfo)
+        Logger.push.debug("通知タップ: \(String(describing: userInfo), privacy: .private)")
         if let id = userInfo["documentId"] as? String {
             await MainActor.run { DeepLinkRouter.shared.pendingYokaiId = id }
         } else if let urlString = userInfo["url"] as? String,

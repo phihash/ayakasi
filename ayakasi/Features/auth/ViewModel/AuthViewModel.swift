@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import os
 
 enum AuthStatus {
     case none              // 何もしてない
@@ -89,14 +90,13 @@ class AuthViewModel : ObservableObject{
             self.authStatus = .waitingVerification
             clearFields()
             message = "認証メールを送信しました"
-            print("登録成功！認証メールを送信しました。")
-            
+
             // 新規登録時にusersコレクションを作成
             Task {
                 await authService.ensureUserExists()
             }
         } catch{
-            print("登録エラー: \(error)")
+            Logger.auth.error("登録エラー: \(String(describing: error))")
             if let authError = error as NSError? {
                 switch authError.code {
                 case 17007: // ERROR_EMAIL_ALREADY_IN_USE
@@ -131,8 +131,7 @@ class AuthViewModel : ObservableObject{
                 self.authStatus = .authenticated
                 message = ""
                 clearFields()
-                print("ログイン成功！")
-                
+
                 // ログイン時にusersコレクションを確保
                 Task {
                     await authService.ensureUserExists()
@@ -142,7 +141,7 @@ class AuthViewModel : ObservableObject{
                 message = "メールアドレスの認証が完了していません"
             }
         } catch{
-            print("ログインエラー: \(error)")
+            Logger.auth.error("ログインエラー: \(String(describing: error))")
             if let authError = error as NSError? {
                 switch authError.code {
                 case 17009: // ERROR_USER_NOT_FOUND
@@ -165,7 +164,7 @@ class AuthViewModel : ObservableObject{
             self.authStatus = .none
             clearFields()
         } catch {
-            print("アカウント削除失敗: \(error)")
+            Logger.auth.error("アカウント削除失敗: \(String(describing: error))")
         }
     }
 
@@ -177,7 +176,7 @@ class AuthViewModel : ObservableObject{
             self.authStatus = .none
             clearFields()
         } catch{
-            print("ログアウトエラー")
+            Logger.auth.error("ログアウトエラー: \(String(describing: error))")
         }
     }
     
@@ -187,7 +186,7 @@ class AuthViewModel : ObservableObject{
             try await authService.reloadUser()
             applyAuthState(authService.currentUser)
         } catch {
-            print("ユーザー情報の更新エラー: \(error)")
+            Logger.auth.error("ユーザー情報の更新エラー: \(String(describing: error))")
         }
     }
     
@@ -195,9 +194,8 @@ class AuthViewModel : ObservableObject{
     func resendVerificationEmail() async {
         do {
             try await authService.sendEmailVerification()
-            print("認証メールを再送信しました")
         } catch {
-            print("メール再送信エラー: \(error)")
+            Logger.auth.error("メール再送信エラー: \(String(describing: error))")
         }
     }
 }

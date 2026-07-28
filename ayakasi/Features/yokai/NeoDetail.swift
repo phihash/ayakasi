@@ -3,6 +3,7 @@ import Photos
 import Kingfisher
 import FirebaseFirestore
 import MapKit
+import os
 
 struct CommentListView: View {
     let comments: [[String: Any]]
@@ -55,7 +56,7 @@ struct CommentListView: View {
                                     .font(.title3)
                                     .onTapGesture {
                                         guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
-                                            print("❗️ documentId is missing; not opening report sheet")
+                                            Logger.comment.error("documentIdが無いため通報シートを開けない")
                                             return
                                         }
 

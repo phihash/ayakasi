@@ -2,6 +2,7 @@ import SwiftUI
 import FeedKit
 import Kingfisher
 import FirebaseFirestore
+import os
 
 extension URL: Identifiable {
     public var id: String { absoluteString }
@@ -103,7 +104,7 @@ struct HomeView: View {
             let events = try JSONDecoder().decode([EventItem].self, from: data)
             return events
         } catch {
-            print("❌ Failed to load events: \(error)")
+            Logger.data.error("イベント読み込み失敗: \(String(describing: error))")
             return []
         }
     }
