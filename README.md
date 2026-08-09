@@ -1,7 +1,9 @@
+
 こちらは「妖怪図鑑」のリポジトリになります。バックエンドはFirebaseを利用しています。
 
 # 妖怪図鑑
-<img width="1280" height="540" alt="yokai-hero-final240" src="https://github.com/user-attachments/assets/34a50e98-b3ac-43c3-82c2-5b5d26f947b2" />
+
+<img width="1280" height="540" alt="yokai-hero-finalneo" src="https://github.com/user-attachments/assets/968f1c11-8195-45c3-939e-78811e3d62bc" />
 
 
 
