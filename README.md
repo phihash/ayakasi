@@ -5,7 +5,7 @@
 
 <img width="1280" height="540" alt="yokai-hero-finalneo" src="https://github.com/user-attachments/assets/968f1c11-8195-45c3-939e-78811e3d62bc" />
 
-
+[妖怪図鑑](https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503)
 
 ## サービス概要
 
