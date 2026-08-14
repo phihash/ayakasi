@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>歩数を読み取って、ウィジェットの妖怪育成に使用します。歩数データが外部に送信されることはありません。</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>本アプリがヘルスケアにデータを書き込むことはありません。</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
