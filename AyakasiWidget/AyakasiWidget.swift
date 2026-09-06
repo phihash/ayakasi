@@ -16,9 +16,10 @@ struct Provider: TimelineProvider {
         Task {
             // 表示用に今日の歩数をHealthKitから読む（読み取りのみ・状態は書き換えない）。
             // 取れない（ロック中・未許可）ときは保存済みキャッシュを使う。孵化・記録はアプリだけが行う。
+            // 許可時刻より前の歩数は表示にも使わない（アプリのカウントと揃える）。
             let snapshot: GrowthStore.Snapshot
-            if let live = await HealthKitSteps.today() {
-                snapshot = GrowthStore.provisionalSnapshot(liveSteps: live)
+            if let reading = await HealthKitSteps.today(notBefore: GrowthStore.syncContext().setupDate) {
+                snapshot = GrowthStore.provisionalSnapshot(liveSteps: reading.steps, asOf: reading.asOf)
             } else {
                 snapshot = GrowthStore.cachedSnapshot()
             }
@@ -45,9 +46,20 @@ struct Provider: TimelineProvider {
                                     hatchedName: hatchedName,
                                     hatchedDocumentId: hatchedDocumentId,
                                     hatchedImageData: imageData)
+            // 翌日0時に表示だけ切り替えるエントリ（歩数0・「うまれた！」終了）。
+            // リロードが遅れても、昨日の歩数が「今日」として表示され続けることがなくなる。
+            var entries = [entry]
+            let calendar = Calendar.current
+            if let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) {
+                let midnight = calendar.startOfDay(for: tomorrow)
+                entries.append(GrowthEntry(date: midnight,
+                                           snapshot: snapshot.resettingForNewDay(),
+                                           hatchedName: nil, hatchedDocumentId: nil,
+                                           hatchedImageData: nil))
+            }
             // 30分ごとに歩数を読み直す（iOSの予算内。アプリ更新時はreloadTimelinesで即反映）
             let refreshAt = Date().addingTimeInterval(30 * 60)
-            completion(Timeline(entries: [entry], policy: .after(refreshAt)))
+            completion(Timeline(entries: entries, policy: .after(refreshAt)))
         }
     }
 }
@@ -72,14 +84,23 @@ struct AyakasiWidgetEntryView : View {
             if !snap.setupDone {
                 // 許可フロー未通過 → 誘導表示（0歩や空バーは出さない）
                 if family == .systemMedium { notSetUpMedium } else { notSetUpSmall }
+            } else if !snap.healthReadOK {
+                // 許可フローは通過したが歩数が読めていない（拒否された可能性大）→ 確認誘導
+                if family == .systemMedium { unreadableMedium } else { unreadableSmall }
             } else if family == .systemMedium {
                 medium
             } else {
                 small
             }
         }
-        // 未セットアップのときはタップで許可フローへ（アプリが ayakasi://start を消化）
-        .widgetURL(snap.setupDone ? nil : URL(string: "ayakasi://start"))
+        // 未セットアップ/読めないときはタップで該当フローへ（アプリが ayakasi:// を消化）
+        .widgetURL(deepLink)
+    }
+
+    private var deepLink: URL? {
+        if !snap.setupDone { return URL(string: "ayakasi://start") }
+        if !snap.healthReadOK { return URL(string: "ayakasi://health") }
+        return nil
     }
 
 
@@ -102,6 +123,44 @@ struct AyakasiWidgetEntryView : View {
                     .foregroundStyle(accentGreen)
             }
             Spacer(minLength: 0)
+        }
+    }
+
+    private var unreadableMedium: some View {
+        HStack(spacing: 14) {
+            Text("🥚")
+                .font(.system(size: 74))
+                .frame(width: 92, height: 92)
+                .opacity(0.5)
+            VStack(alignment: .leading, spacing: 6) {
+                Text("歩数が読めていません")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                Text("ヘルスケアの許可を確認してね")
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.75))
+                Text("タップして確認")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundStyle(accentGreen)
+            }
+            Spacer(minLength: 0)
+        }
+    }
+
+    private var unreadableSmall: some View {
+        VStack(spacing: 6) {
+            Text("🥚")
+                .font(.system(size: 58))
+                .opacity(0.5)
+            Text("歩数が読めない")
+                .font(.caption)
+                .foregroundStyle(.white.opacity(0.85))
+            Text("タップで確認")
+                .font(.caption)
+                .fontWeight(.bold)
+                .foregroundStyle(accentGreen)
         }
     }
 
