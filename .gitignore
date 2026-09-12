@@ -32,3 +32,7 @@ Secrets.xcconfig
 
 # Cloudflare wrangler cache
 .wrangler/
+
+# Claude Code local config
+.claude/
+
