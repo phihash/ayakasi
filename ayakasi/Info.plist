@@ -4,6 +4,10 @@
 <dict>
 	<key>AMPLITUDE_API_KEY</key>
 	<string>$(AMPLITUDE_API_KEY)</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>歩数を読み取って、ウィジェットの妖怪育成に使用します。歩数データが外部に送信されることはありません。</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>本アプリがヘルスケアにデータを書き込むことはありません。</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
