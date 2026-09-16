@@ -49,6 +49,16 @@ struct SearchView: View {
             .navigationTitle("さがす")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(navigationPath.isEmpty ? .visible : .hidden, for: .tabBar)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Analytics.trackScreenView(screenName: "設定")
+                        router.showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
             .navigationDestination(for: SearchRoute.self) { route in
                 switch route {
                 case .category(let category):

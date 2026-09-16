@@ -12,6 +12,8 @@ final class DeepLinkRouter: ObservableObject {
     @Published var pendingYokaiId: String?
     /// タップされたイベントのURL（消化したら nil に戻す）
     @Published var pendingEventURL: URL?
+    /// 設定シートの表示要求（歯車ボタン・ayakasi://health から）
+    @Published var showSettings = false
     private init() {}
 }
 
@@ -50,6 +52,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         // 許可プロンプトはイベントタブ表示時に出す（PushAuthorization.requestIfNeeded）。
         // 起動時は「既に許可済みならAPNs登録だけ」してトークンを新鮮に保つ。
         PushAuthorization.registerIfAuthorized()
+        // 歩数変化でのバックグラウンド更新を監視（バックグラウンド起動時もここで再登録される）
+        HealthKitStepReader.startObserving()
         return true
     }
 

@@ -121,6 +121,8 @@ struct SettingView: View {
                         .foregroundStyle(.primary)
 
                         SettingRowLink(title: "ブックマーク一覧", destination: FavoriteYokaiView())
+
+                        SettingRowLink(title: "孵化リスト", destination: HatchListView())
                         
                         SettingRowButton(title: "キャッシュを削除する") {
                             showClearCacheAlert = true

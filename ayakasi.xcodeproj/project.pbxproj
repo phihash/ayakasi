@@ -29,7 +29,6 @@
 		A97C2ACA2E561B5000889AB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */; };
 		A97C2ACC2E561B5000889AB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */; };
 		A97C2AD72E561B5100889AB0 /* AyakasiWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A97C2AC72E561B4F00889AB0 /* AyakasiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DD5902EFFAC5E00BC354E /* CommunityView.swift */; };
 		A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A99B6CAB2EC382D700D5D274 /* Kingfisher */; };
 		A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */; };
 		A9B08DCF2EE72BC300592CB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
@@ -53,7 +52,6 @@
 		A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E262EEEF52B00592CB5 /* WebView.swift */; };
 		A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2A2EEEF55900592CB5 /* CommentService.swift */; };
 		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
-		A9C0009A3002B33200F6FC35 /* RecentCommentsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */; };
 		A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */ = {isa = PBXBuildFile; productRef = A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */; };
 		A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B212FE2CE84003AC316 /* Analytics.swift */; };
 		A9C60B4D2FE599B3003AC316 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B4C2FE599B3003AC316 /* CardUI.swift */; };
@@ -71,6 +69,13 @@
 		B10000010000000000000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08D882EE72BC300592CB5 /* Models.swift */; };
 		B10000010000000000000006 /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97816762F41DBBC005CAEAE /* LocationModels.swift */; };
 		B10000010000000000000008 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000007 /* Log.swift */; };
+		B1000001000000000000000A /* GrowthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000009 /* GrowthStore.swift */; };
+		B1000001000000000000000B /* GrowthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000009 /* GrowthStore.swift */; };
+		B1000001000000000000000D /* HatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000000C /* HatchListView.swift */; };
+		B1000001000000000000000F /* HealthKitStepReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000000E /* HealthKitStepReader.swift */; };
+		B10000010000000000000011 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000010 /* NotificationScheduler.swift */; };
+		B10000010000000000000013 /* HealthKitSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000012 /* HealthKitSteps.swift */; };
+		B10000010000000000000014 /* HealthKitSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000012 /* HealthKitSteps.swift */; };
 		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
 		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
 		C20000010000000000000002 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
@@ -122,7 +127,6 @@
 		A97C2AC92E561B4F00889AB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A97C2ACB2E561B5000889AB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A97C2AF42E5C959000889AB0 /* AyakasiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyakasiWidgetExtension.entitlements; sourceTree = "<group>"; };
-		A98DD5902EFFAC5E00BC354E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUI.swift; sourceTree = "<group>"; };
 		A9B08D882EE72BC300592CB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A9B08D8C2EE72BC300592CB5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -147,7 +151,6 @@
 		A9B08E262EEEF52B00592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
-		A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCommentsSectionView.swift; sourceTree = "<group>"; };
 		A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A9C60B212FE2CE84003AC316 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A9C60B4C2FE599B3003AC316 /* CardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUI.swift; sourceTree = "<group>"; };
@@ -157,6 +160,11 @@
 		B10000010000000000000001 /* YokaiShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiShareCard.swift; sourceTree = "<group>"; };
 		B10000010000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B10000010000000000000007 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		B10000010000000000000009 /* GrowthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthStore.swift; sourceTree = "<group>"; };
+		B1000001000000000000000C /* HatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HatchListView.swift; sourceTree = "<group>"; };
+		B1000001000000000000000E /* HealthKitStepReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitStepReader.swift; sourceTree = "<group>"; };
+		B10000010000000000000010 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
+		B10000010000000000000012 /* HealthKitSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSteps.swift; sourceTree = "<group>"; };
 		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
 		C20000010000000000000102 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +282,9 @@
 		A9B08D892EE72BC300592CB5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B10000010000000000000009 /* GrowthStore.swift */,
+				B1000001000000000000000E /* HealthKitStepReader.swift */,
+				B10000010000000000000012 /* HealthKitSteps.swift */,
 				A97816762F41DBBC005CAEAE /* LocationModels.swift */,
 				A9B08D882EE72BC300592CB5 /* Models.swift */,
 				C20000010000000000000101 /* YokaiStore.swift */,
@@ -323,6 +334,7 @@
 			children = (
 				A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */,
 				A9B08D9A2EE72BC300592CB5 /* SettingView.swift */,
+				B1000001000000000000000C /* HatchListView.swift */,
 				A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */,
 			);
 			path = settings;
@@ -351,7 +363,6 @@
 		A9B08DAE2EE72BC300592CB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A9C000993002B33200F6FC35 /* RecentCommentsSectionView.swift */,
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
 				A9B08E302EEF096500592CB5 /* events */,
@@ -400,7 +411,6 @@
 			children = (
 				A9D23AE8300B10A300737A0D /* PushManager.swift */,
 				A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */,
-				A98DD5902EFFAC5E00BC354E /* CommunityView.swift */,
 				A9B08DC12EE72BC300592CB5 /* ayakasiApp.swift */,
 				A9B08DC22EE72BC300592CB5 /* Container.swift */,
 				A905C42C2F0AD17F00587825 /* JapanView.swift */,
@@ -426,6 +436,7 @@
 			children = (
 				A9C60B212FE2CE84003AC316 /* Analytics.swift */,
 				B10000010000000000000007 /* Log.swift */,
+				B10000010000000000000010 /* NotificationScheduler.swift */,
 				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
 				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
 				A905C42E2F0C09FE00587825 /* Constants.swift */,
@@ -613,10 +624,13 @@
 			files = (
 				A92B2FCD2F6AF51B00E84A15 /* UserBlockingService.swift in Sources */,
 				B10000010000000000000008 /* Log.swift in Sources */,
+				B1000001000000000000000A /* GrowthStore.swift in Sources */,
+				B1000001000000000000000F /* HealthKitStepReader.swift in Sources */,
+				B10000010000000000000013 /* HealthKitSteps.swift in Sources */,
+				B10000010000000000000011 /* NotificationScheduler.swift in Sources */,
 				A92B30092F71676600E84A15 /* MessageUI.swift in Sources */,
 				A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */,
 				A9D23AE9300B10A300737A0D /* PushManager.swift in Sources */,
-				A98DD5912EFFAC5E00BC354E /* CommunityView.swift in Sources */,
 				A9063B552FE724AB007CF638 /* CommentCardItem.swift in Sources */,
 				C20000010000000000000001 /* YokaiStore.swift in Sources */,
 				A97816772F41DBBC005CAEAE /* LocationModels.swift in Sources */,
@@ -632,6 +646,7 @@
 				A9B08DD42EE72BC300592CB5 /* RegisterView.swift in Sources */,
 				A9B08DD62EE72BC300592CB5 /* HomeView.swift in Sources */,
 				A9B08DDA2EE72BC300592CB5 /* SettingView.swift in Sources */,
+				B1000001000000000000000D /* HatchListView.swift in Sources */,
 				A9B08E282EEEF52B00592CB5 /* SafariView.swift in Sources */,
 				A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
@@ -648,7 +663,6 @@
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
 				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
-				A9C0009A3002B33200F6FC35 /* RecentCommentsSectionView.swift in Sources */,
 				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
 				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
@@ -663,6 +677,8 @@
 				C20000010000000000000002 /* YokaiStore.swift in Sources */,
 				B10000010000000000000005 /* Models.swift in Sources */,
 				B10000010000000000000006 /* LocationModels.swift in Sources */,
+				B1000001000000000000000B /* GrowthStore.swift in Sources */,
+				B10000010000000000000014 /* HealthKitSteps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,8 +826,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ayakasi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数、消費カロリー、基礎代謝データの読み取りに使用します。";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "このアプリはヘルスケアへのデータ書き込みは行いません。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -828,7 +842,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.19.0;
+				MARKETING_VERSION = 3.20.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -859,8 +873,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ayakasi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数、消費カロリー、基礎代謝データの読み取りに使用します。";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "このアプリはヘルスケアへのデータ書き込みは行いません。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -877,7 +889,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.19.0;
+				MARKETING_VERSION = 3.20.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -911,7 +923,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.19.0;
+				MARKETING_VERSION = 3.20.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -942,7 +954,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.19.0;
+				MARKETING_VERSION = 3.20.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

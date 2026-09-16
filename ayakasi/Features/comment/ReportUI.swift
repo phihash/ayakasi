@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// 通報シートの表示対象コメント（NeoDetail の sheet(item:) 用）
+struct ReportTarget: Identifiable { let id: String }
+
 struct ReportUI: View {
     @EnvironmentObject var reportService: CommentReportService
     @EnvironmentObject var blockingService: UserBlockingService
