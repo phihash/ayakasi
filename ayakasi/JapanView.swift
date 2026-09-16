@@ -18,6 +18,7 @@ let yokaiDestinations: [YokaiDestination] = [
     YokaiDestination(name: "妖怪美術館", coordinate: CLLocationCoordinate2D(latitude: 34.4849724114415, longitude: 134.18594687139813), description: "妖怪をテーマにした美術館。日本各地の妖怪文化や伝承を学べる。", prefecture: "香川県", websiteURL: nil, imageURL: nil, highlights: nil),
     YokaiDestination(name: "三次もののけミュージアム", coordinate: CLLocationCoordinate2D(latitude: 34.815692632661396, longitude: 132.8451409270821), description: "日本で唯一の「妖怪」をテーマにした公立博物館。『稲生物怪録』に登場する妖怪や、日本各地の妖怪文化を展示している。", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
     YokaiDestination(name: "鬼の交流博物館", coordinate: CLLocationCoordinate2D(latitude: 35.45920848125813, longitude: 135.1446215106701), description: "日本の鬼伝説や文化を紹介する博物館。大江山の酒呑童子伝説をはじめ、全国の鬼に関する資料を展示している。", prefecture: "京都府", websiteURL: nil, imageURL: nil, highlights: nil),
+    YokaiDestination(name: "魏石鬼八面大王の像", coordinate: CLLocationCoordinate2D(latitude: 36.33968350655493, longitude: 137.90855418300703), description: "安曇野に伝わる鬼・魏石鬼八面大王の伝説にちなむ像。坂上田村麻呂に討たれたとされる大王を祀る。", prefecture: "長野県", websiteURL: nil, imageURL: nil, highlights: nil),
 ]
 
 enum SelectedLocationType {

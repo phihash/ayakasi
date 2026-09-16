@@ -73,18 +73,13 @@ struct NeoCardItem: View {
                     requestReview()
                 }
             } label: {
-                Text(favoriteService.isFavoriteYokai(item.documentId) ? "ブックマーク済み" : "ブックマーク")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(favoriteService.isFavoriteYokai(item.documentId) ? .white : .appTextPrimary)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 6)
-                    .background(favoriteService.isFavoriteYokai(item.documentId) ? Color.appSecondary : Color.clear)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(favoriteService.isFavoriteYokai(item.documentId) ? Color.clear : Color.appTextSecondary, lineWidth: 1)
-                    )
+                let isFav = favoriteService.isFavoriteYokai(item.documentId)
+                Image(systemName: isFav ? "bookmark.fill" : "bookmark")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(isFav ? .appSecondary : .appTextSecondary)
+                    .padding(8)
+                    .contentShape(Rectangle())
+                    .accessibilityLabel(isFav ? "ブックマーク済み" : "ブックマーク")
             }
             .buttonStyle(.plain)
             .frame(maxWidth: .infinity, alignment: .trailing)
