@@ -1,13 +1,6 @@
 import SwiftUI
 import MapKit
 
-// Data.swiftからayakasisをインポート
-
-//保留
-//YokaiDestination(name: "小豆島", coordinate: CLLocationCoordinate2D(latitude: 34.4856, longitude: 134.2049), description: "", prefecture: "香川県", websiteURL: nil, imageURL: nil, highlights: nil),
-//YokaiDestination(name: "京都", coordinate: CLLocationCoordinate2D(latitude: 35.0116, longitude: 135.7681), description: "", prefecture: "京都府", websiteURL: nil, imageURL: nil, highlights: nil),
-//YokaiDestination(name: "調布", coordinate: CLLocationCoordinate2D(latitude: 35.6517, longitude: 139.5407), description: "", prefecture: "東京都", websiteURL: nil, imageURL: nil, highlights: nil),
-
 // 妖怪関連の目的地（町・施設など）
 let yokaiDestinations: [YokaiDestination] = [
     YokaiDestination(name: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "柳田國男の『遠野物語』の舞台として知られる岩手県内陸の地域。カッパや座敷わらしといった妖怪の伝承、昔話や神話が多く残されている。", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
