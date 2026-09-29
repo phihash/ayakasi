@@ -70,13 +70,6 @@ enum Analytics {
         ])
     }
 
-    // 満足度アラート回答
-    static func trackSatisfactionResponse(response: String) {
-        amplitude.track(eventType: "satisfaction_response", eventProperties: [
-            "response": response
-        ])
-    }
-
     // シェア
     static func trackAppShared() {
         amplitude.track(eventType: "app_shared")
