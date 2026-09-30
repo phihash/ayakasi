@@ -826,6 +826,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ayakasi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数を読み取って、ウィジェットの妖怪育成に使用します。歩数データが外部に送信されることはありません。";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "本アプリがヘルスケアにデータを書き込むことはありません。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -842,7 +844,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.20.1;
+				MARKETING_VERSION = 3.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -873,6 +875,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ayakasi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "妖怪図鑑";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "歩数を読み取って、ウィジェットの妖怪育成に使用します。歩数データが外部に送信されることはありません。";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "本アプリがヘルスケアにデータを書き込むことはありません。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "写真追加のためにフォトライブラリにアクセスが必要です。";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -889,7 +893,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.20.1;
+				MARKETING_VERSION = 3.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -923,7 +927,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.20.1;
+				MARKETING_VERSION = 3.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -954,7 +958,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.20.1;
+				MARKETING_VERSION = 3.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi.AyakasiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

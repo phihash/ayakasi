@@ -157,6 +157,25 @@ class AuthViewModel : ObservableObject{
         }
     }
     
+    func forgotPassword() async {
+        guard !email.isEmpty else {
+            message = "メールアドレスを入力してください"
+            return
+        }
+        do {
+            try await authService.resetPassword(email: email)
+            message = "パスワード再設定メールを送信しました"
+        } catch {
+            Logger.auth.error("パスワード再設定エラー: \(String(describing: error))")
+            if let authError = error as NSError?, authError.code == 17008 {
+                message = "メールアドレスの形式が正しくありません"
+            } else {
+                // ユーザー不在でもメール有無を秘匿するため成功扱い
+                message = "パスワード再設定メールを送信しました"
+            }
+        }
+    }
+
     func deleteAccount() async {
         do {
             try await authService.deleteUser()
