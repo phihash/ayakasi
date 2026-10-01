@@ -85,10 +85,13 @@ class AuthService: ObservableObject , AuthServiceProtocol {
         try await user.updatePassword(to: newPassword)
     }
     
-    func deleteUser() async throws {
-        guard let user = currentUser else {
+    func deleteUser(password: String) async throws {
+        guard let user = currentUser, let email = user.email else {
             throw AuthError.noUser
         }
+        // 重要操作なので削除直前に再認証（Firebaseの17014回避）
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        try await user.reauthenticate(with: credential)
         try await user.delete()
     }
     

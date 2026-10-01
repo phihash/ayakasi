@@ -22,6 +22,7 @@ class AuthViewModel : ObservableObject{
     @Published var message = ""
     @Published var isShowLoginView: Bool = false
     @Published var isShowRegisterView: Bool = false
+    @Published var deleteErrorMessage: String?
 
     private let authService = AuthService.shared
     private var authStateHandle: AuthStateDidChangeListenerHandle?
@@ -176,14 +177,27 @@ class AuthViewModel : ObservableObject{
         }
     }
 
-    func deleteAccount() async {
+    func deleteAccount(password: String) async {
+        deleteErrorMessage = nil
+        guard !password.isEmpty else {
+            deleteErrorMessage = "パスワードを入力してください"
+            return
+        }
         do {
-            try await authService.deleteUser()
+            try await authService.deleteUser(password: password)
             self.user = nil
             self.authStatus = .none
             clearFields()
         } catch {
             Logger.auth.error("アカウント削除失敗: \(String(describing: error))")
+            switch (error as NSError).code {
+            case 17004, 17009, 17011: // 認証情報不正 / ユーザー不在 / パスワード違い
+                deleteErrorMessage = "パスワードが正しくありません"
+            case 17020: // ERROR_NETWORK_REQUEST_FAILED
+                deleteErrorMessage = "通信に失敗しました。接続を確認してもう一度お試しください。"
+            default:
+                deleteErrorMessage = "アカウントの削除に失敗しました。時間をおいて再度お試しください。"
+            }
         }
     }
 

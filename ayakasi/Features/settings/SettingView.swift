@@ -7,6 +7,8 @@ struct SettingView: View {
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
     @State private var showClearCacheAlert = false
+    @State private var showDeleteError = false
+    @State private var deletePassword = ""
     @State private var currentAppIconName = UIApplication.shared.alternateIconName
     @AppStorage("isDarkMode") private var isDarkMode = false
 
@@ -152,14 +154,24 @@ struct SettingView: View {
             Text("ログアウトすると、再度ログインが必要になります。")
         }
         .alert("アカウントを削除しますか？", isPresented: $showDeleteAccountAlert) {
-            Button("キャンセル", role: .cancel) {}
+            SecureField("パスワード", text: $deletePassword)
+            Button("キャンセル", role: .cancel) { deletePassword = "" }
             Button("削除", role: .destructive) {
                 Task {
-                    await authVM.deleteAccount()
+                    await authVM.deleteAccount(password: deletePassword)
+                    deletePassword = ""
+                    if authVM.deleteErrorMessage != nil {
+                        showDeleteError = true
+                    }
                 }
             }
         } message: {
-            Text("この操作は取り消すことができません。すべてのデータが削除されます。")
+            Text("この操作は取り消せません。確認のためパスワードを入力してください。")
+        }
+        .alert("削除できませんでした", isPresented: $showDeleteError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(authVM.deleteErrorMessage ?? "")
         }
         .alert("キャッシュを削除しますか？", isPresented: $showClearCacheAlert) {
             Button("キャンセル", role: .cancel) {}
