@@ -68,14 +68,20 @@ struct RegisterView: View {
                                 await authVM.signUp()
                             }
                         } label : {
-                            HStack{
-                                Text("登録")
-                                    .frame(width: 160, height: 48)
-                                    .background(Color.appSecondary)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
+                            Group {
+                                if authVM.isProcessing {
+                                    ProgressView().tint(.white)
+                                } else {
+                                    Text("登録").fontWeight(.bold)
+                                }
                             }
+                            .frame(maxWidth: .infinity, minHeight: 52)
+                            .background(Color.appSecondary)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
                         }
+                        .disabled(authVM.isProcessing)
+                        .padding(.horizontal)
                         
                         VStack(spacing: 8) {
                             Text("登録すると利用規約およびプライバシーポリシーに同意したものとみなされます。")
