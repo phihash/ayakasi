@@ -170,6 +170,9 @@ private struct YokaiSearchView: View {
     private func trackSearchIfNeeded() {
         if !trimmedSearchText.isEmpty {
             Analytics.trackSearch(keyword: trimmedSearchText)
+            if searchResults.isEmpty {
+                Analytics.trackSearchNoResult(keyword: trimmedSearchText)
+            }
         }
     }
 }

@@ -43,6 +43,7 @@ struct Container: View {
             }
             .onOpenURL { url in
                 guard url.scheme == "ayakasi" else { return }
+                Analytics.trackAppOpened(source: "widget")
                 switch url.host {
                 case "start":
                     // 未セットアップWidgetのタップ → その場で歩数の許可を求める

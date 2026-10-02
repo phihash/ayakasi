@@ -33,6 +33,27 @@ enum Analytics {
         ])
     }
 
+    // 検索ヒット0件（コンテンツの穴＝追加すべき妖怪の発見用）
+    static func trackSearchNoResult(keyword: String) {
+        amplitude.track(eventType:"search_no_result", eventProperties: [
+            "keyword": keyword
+        ])
+    }
+
+    // 通知タップ（type: hatch / yokai / event / other）
+    static func trackNotificationOpened(type: String) {
+        amplitude.track(eventType:"notification_opened", eventProperties: [
+            "type": type
+        ])
+    }
+
+    // アプリ起動の流入元（source: widget / notification）。通常起動はsession_startで足りるため計測しない
+    static func trackAppOpened(source: String) {
+        amplitude.track(eventType:"app_opened", eventProperties: [
+            "source": source
+        ])
+    }
+
     // 画面表示（page view相当）
     static func trackScreenView(screenName: String) {
         amplitude.track(eventType: "screen_view", eventProperties: [

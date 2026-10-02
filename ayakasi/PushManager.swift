@@ -96,6 +96,20 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
         Logger.push.debug("通知タップ: \(String(describing: userInfo), privacy: .private)")
+
+        let notifType: String
+        if response.notification.request.identifier.hasPrefix("hatch-") {
+            notifType = "hatch"
+        } else if userInfo["documentId"] != nil {
+            notifType = "yokai"
+        } else if userInfo["url"] != nil {
+            notifType = "event"
+        } else {
+            notifType = "other"
+        }
+        Analytics.trackNotificationOpened(type: notifType)
+        Analytics.trackAppOpened(source: "notification")
+
         if let id = userInfo["documentId"] as? String {
             await MainActor.run { DeepLinkRouter.shared.pendingYokaiId = id }
         } else if let urlString = userInfo["url"] as? String,
