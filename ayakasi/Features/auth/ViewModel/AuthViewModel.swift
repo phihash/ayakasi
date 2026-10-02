@@ -23,6 +23,7 @@ class AuthViewModel : ObservableObject{
     @Published var isShowLoginView: Bool = false
     @Published var isShowRegisterView: Bool = false
     @Published var deleteErrorMessage: String?
+    @Published var isProcessing = false
 
     private let authService = AuthService.shared
     private var authStateHandle: AuthStateDidChangeListenerHandle?
@@ -73,19 +74,23 @@ class AuthViewModel : ObservableObject{
             message = "全ての項目を入力してください"
             return
         }
-        
+
         // パスワード一致チェック
         guard password == confirmPassword else {
             message = "パスワードが一致しません"
             return
         }
-        
+
         // パスワードの長さチェック（Firebaseは6文字以上必要）
         guard password.count >= 6 else {
             message = "パスワードは6文字以上で入力してください"
             return
         }
-        
+
+        guard !isProcessing else { return }
+        isProcessing = true
+        defer { isProcessing = false }
+
         do{
             self.user =  try await authService.signUpWithEmailVerification(email: email, password: password)
             self.authStatus = .waitingVerification
@@ -124,7 +129,11 @@ class AuthViewModel : ObservableObject{
             message = "メールアドレスとパスワードを入力してください"
             return
         }
-        
+
+        guard !isProcessing else { return }
+        isProcessing = true
+        defer { isProcessing = false }
+
         do{
             self.user = try await authService.signIn(email: email, password: password)
             
@@ -163,6 +172,11 @@ class AuthViewModel : ObservableObject{
             message = "メールアドレスを入力してください"
             return
         }
+
+        guard !isProcessing else { return }
+        isProcessing = true
+        defer { isProcessing = false }
+
         do {
             try await authService.resetPassword(email: email)
             message = "パスワード再設定メールを送信しました"
@@ -183,6 +197,11 @@ class AuthViewModel : ObservableObject{
             deleteErrorMessage = "パスワードを入力してください"
             return
         }
+
+        guard !isProcessing else { return }
+        isProcessing = true
+        defer { isProcessing = false }
+
         do {
             try await authService.deleteUser(password: password)
             self.user = nil

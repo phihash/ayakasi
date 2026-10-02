@@ -69,6 +69,7 @@ struct LoginView: View {
                 }
                 .font(.subheadline)
                 .foregroundStyle(Color.appSecondary)
+                .disabled(authVM.isProcessing)
             }
             .padding(.horizontal)
 
@@ -84,13 +85,19 @@ struct LoginView: View {
                     }
                 }
             } label : {
-                Text("ログイン")
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, minHeight: 52)
-                    .background(Color.appSecondary)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+                Group {
+                    if authVM.isProcessing {
+                        ProgressView().tint(.white)
+                    } else {
+                        Text("ログイン").fontWeight(.bold)
+                    }
+                }
+                .frame(maxWidth: .infinity, minHeight: 52)
+                .background(Color.appSecondary)
+                .foregroundColor(.white)
+                .cornerRadius(12)
             }
+            .disabled(authVM.isProcessing)
             .padding(.horizontal)
             .padding(.top, 8)
 
