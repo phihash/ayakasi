@@ -40,6 +40,13 @@ enum Analytics {
         ])
     }
 
+    // 通知許可プロンプトの結果（granted: 許可した/しなかった）。通知施策の母数把握用
+    static func trackNotificationPermission(granted: Bool) {
+        amplitude.track(eventType:"notification_permission", eventProperties: [
+            "granted": granted
+        ])
+    }
+
     // 通知タップ（type: hatch / yokai / event / other）
     static func trackNotificationOpened(type: String) {
         amplitude.track(eventType:"notification_opened", eventProperties: [

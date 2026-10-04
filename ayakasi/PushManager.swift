@@ -35,6 +35,7 @@ enum PushAuthorization {
         center.getNotificationSettings { settings in
             guard settings.authorizationStatus == .notDetermined else { return }
             center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
+                Analytics.trackNotificationPermission(granted: granted)
                 guard granted else { return }
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
