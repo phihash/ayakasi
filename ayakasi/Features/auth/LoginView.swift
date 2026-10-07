@@ -11,10 +11,10 @@ struct LoginView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                header
+                AuthHeader(title: "妖怪図鑑", subtitle: "メールアドレスでログイン")
 
                 VStack(spacing: 16) {
-                    field(icon: "envelope", title: "メールアドレス", focused: focus == .email) {
+                    AuthField(icon: "envelope", title: "メールアドレス", focused: focus == .email) {
                         TextField("mail@example.com", text: $authVM.email)
                             .textContentType(.emailAddress)
                             .textInputAutocapitalization(.never)
@@ -25,7 +25,7 @@ struct LoginView: View {
                             .onSubmit { focus = .password }
                     }
 
-                    field(icon: "lock", title: "パスワード", focused: focus == .password) {
+                    AuthField(icon: "lock", title: "パスワード", focused: focus == .password) {
                         SecureField("6文字以上", text: $authVM.password)
                             .textContentType(.password)
                             .focused($focus, equals: .password)
@@ -47,15 +47,9 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .disabled(authVM.isProcessing)
 
-                if !authVM.message.isEmpty {
-                    Label(authVM.message, systemImage: "exclamationmark.circle.fill")
-                        .font(.subheadline)
-                        .foregroundStyle(Color.appError)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .transition(.opacity)
-                }
+                AuthMessage(text: authVM.message)
 
-                loginButton
+                AuthPrimaryButton(title: "ログイン", isLoading: authVM.isProcessing, action: submit)
                     .padding(.top, 4)
             }
             .padding(.horizontal, 24)
@@ -81,7 +75,23 @@ struct LoginView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private var header: some View {
+    private func submit() {
+        Task {
+            await authVM.signIn()
+            if authVM.authStatus == .authenticated {
+                dismiss()
+            }
+        }
+    }
+}
+
+// MARK: - 認証画面の共有パーツ（LoginView / RegisterView で共用）
+
+struct AuthHeader: View {
+    let title: String
+    let subtitle: String
+
+    var body: some View {
         VStack(spacing: 16) {
             Image("settingIcon")
                 .resizable()
@@ -95,10 +105,10 @@ struct LoginView: View {
                 .shadow(color: .black.opacity(0.12), radius: 14, y: 6)
 
             VStack(spacing: 6) {
-                Text("おかえりなさい")
-                    .font(.title.bold())
+                Text(title)
+                    .font(.title2.bold())
                     .foregroundStyle(Color.appTextPrimary)
-                Text("メールアドレスでログイン")
+                Text(subtitle)
                     .font(.subheadline)
                     .foregroundStyle(Color.appTextSecondary)
             }
@@ -106,42 +116,15 @@ struct LoginView: View {
         .frame(maxWidth: .infinity)
         .padding(.top, 28)
     }
+}
 
-    private var loginButton: some View {
-        Button(action: submit) {
-            Group {
-                if authVM.isProcessing {
-                    ProgressView().tint(.white)
-                } else {
-                    Text("ログイン").font(.headline)
-                }
-            }
-            .frame(maxWidth: .infinity, minHeight: 54)
-            .background(Color.appSecondary, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .foregroundStyle(.white)
-            .shadow(color: Color.appSecondary.opacity(0.35), radius: 16, y: 8)
-        }
-        .buttonStyle(PressableScale())
-        .disabled(authVM.isProcessing)
-        .opacity(authVM.isProcessing ? 0.9 : 1)
-    }
+struct AuthField<Content: View>: View {
+    let icon: String
+    let title: String
+    let focused: Bool
+    @ViewBuilder var content: Content
 
-    private func submit() {
-        Task {
-            await authVM.signIn()
-            if authVM.authStatus == .authenticated {
-                dismiss()
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func field<Content: View>(
-        icon: String,
-        title: String,
-        focused: Bool,
-        @ViewBuilder content: () -> Content
-    ) -> some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
                 .font(.footnote.weight(.semibold))
@@ -152,7 +135,7 @@ struct LoginView: View {
                     .font(.system(size: 17))
                     .foregroundStyle(focused ? Color.appSecondary : Color.appTextSecondary)
                     .frame(width: 22)
-                content()
+                content
                     .font(.system(size: 17))
                     .foregroundStyle(Color.appTextPrimary)
                     .tint(Color.appSecondary)
@@ -170,7 +153,46 @@ struct LoginView: View {
     }
 }
 
-private struct PressableScale: ButtonStyle {
+struct AuthMessage: View {
+    let text: String
+
+    var body: some View {
+        if !text.isEmpty {
+            Label(text, systemImage: "exclamationmark.circle.fill")
+                .font(.subheadline)
+                .foregroundStyle(Color.appError)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .transition(.opacity)
+        }
+    }
+}
+
+struct AuthPrimaryButton: View {
+    let title: String
+    let isLoading: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Group {
+                if isLoading {
+                    ProgressView().tint(.white)
+                } else {
+                    Text(title).font(.headline)
+                }
+            }
+            .frame(maxWidth: .infinity, minHeight: 54)
+            .background(Color.appSecondary, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(.white)
+            .shadow(color: Color.appSecondary.opacity(0.35), radius: 16, y: 8)
+        }
+        .buttonStyle(PressableScale())
+        .disabled(isLoading)
+        .opacity(isLoading ? 0.9 : 1)
+    }
+}
+
+struct PressableScale: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.97 : 1)
