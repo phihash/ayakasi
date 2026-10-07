@@ -78,10 +78,13 @@ class AuthService: ObservableObject , AuthServiceProtocol {
         try await user.reload()
     }
     
-    func updatePassword(newPassword: String) async throws {
-        guard let user = currentUser else {
+    func updatePassword(currentPassword: String, newPassword: String) async throws {
+        guard let user = currentUser, let email = user.email else {
             throw AuthError.noUser
         }
+        // 重要操作なので変更直前に現在のパスワードで再認証（Firebaseの17014回避）
+        let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
+        try await user.reauthenticate(with: credential)
         try await user.updatePassword(to: newPassword)
     }
     

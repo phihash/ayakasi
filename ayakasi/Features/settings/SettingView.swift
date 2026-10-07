@@ -91,6 +91,8 @@ struct SettingView: View {
                         }
 
                         if authVM.authStatus == .authenticated {
+                            SettingRowLink(title: "パスワード変更", destination: ChangePasswordView())
+
                             SettingRowButton(title: "ログアウト") {
                                 showLogoutAlert = true
                             }
@@ -181,6 +183,108 @@ struct SettingView: View {
             }
         } message: {
             Text("画像キャッシュが削除されます。")
+        }
+    }
+}
+
+struct ChangePasswordView: View {
+    @EnvironmentObject private var authVM: AuthViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State private var current = ""
+    @State private var newPassword = ""
+    @State private var confirm = ""
+    @State private var errorText = ""
+    @State private var done = false
+    @FocusState private var focus: Field?
+
+    private enum Field { case current, new, confirm }
+
+    var body: some View {
+        ScrollView {
+            if done {
+                success
+            } else {
+                form
+            }
+        }
+        .scrollDismissesKeyboard(.interactively)
+        .background(Color.appBackground.ignoresSafeArea())
+        .animation(.easeOut(duration: 0.2), value: errorText)
+        .animation(.easeOut(duration: 0.25), value: done)
+        .navigationTitle("パスワード変更")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private var form: some View {
+        VStack(spacing: 20) {
+            Text("安全のため、現在のパスワードを確認してから変更します。")
+                .font(.subheadline)
+                .foregroundStyle(Color.appTextSecondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 8)
+
+            VStack(spacing: 16) {
+                AuthField(icon: "lock", title: "現在のパスワード", focused: focus == .current) {
+                    SecureField("現在のパスワード", text: $current)
+                        .textContentType(.password)
+                        .focused($focus, equals: .current)
+                        .submitLabel(.next)
+                        .onSubmit { focus = .new }
+                }
+                AuthField(icon: "lock.rotation", title: "新しいパスワード", focused: focus == .new) {
+                    SecureField("6文字以上", text: $newPassword)
+                        .textContentType(.newPassword)
+                        .focused($focus, equals: .new)
+                        .submitLabel(.next)
+                        .onSubmit { focus = .confirm }
+                }
+                AuthField(icon: "lock.rotation", title: "新しいパスワード（確認）", focused: focus == .confirm) {
+                    SecureField("もう一度入力", text: $confirm)
+                        .textContentType(.newPassword)
+                        .focused($focus, equals: .confirm)
+                        .submitLabel(.go)
+                        .onSubmit { submit() }
+                }
+            }
+
+            AuthMessage(text: errorText)
+
+            AuthPrimaryButton(title: "変更する", isLoading: authVM.isProcessing, action: submit)
+                .padding(.top, 4)
+        }
+        .padding(.horizontal, 24)
+        .padding(.bottom, 40)
+        .frame(maxWidth: 480)
+        .frame(maxWidth: .infinity)
+    }
+
+    private var success: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "checkmark.seal.fill")
+                .font(.system(size: 52))
+                .foregroundStyle(Color.appSuccess)
+            Text("パスワードを変更しました")
+                .font(.title3.bold())
+                .foregroundStyle(Color.appTextPrimary)
+            Button("閉じる") { dismiss() }
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(Color.appSecondary)
+                .padding(.top, 4)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.top, 64)
+    }
+
+    private func submit() {
+        focus = nil
+        Task {
+            let err = await authVM.changePassword(current: current, new: newPassword, confirm: confirm)
+            if let err {
+                errorText = err
+            } else {
+                errorText = ""
+                done = true
+            }
         }
     }
 }

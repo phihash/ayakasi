@@ -191,6 +191,43 @@ class AuthViewModel : ObservableObject{
         }
     }
 
+    /// パスワード変更。成功ならnil、失敗ならユーザー向けエラーメッセージを返す。
+    func changePassword(current: String, new: String, confirm: String) async -> String? {
+        guard !current.isEmpty, !new.isEmpty, !confirm.isEmpty else {
+            return "すべての項目を入力してください"
+        }
+        guard new == confirm else {
+            return "新しいパスワードが一致しません"
+        }
+        guard new.count >= 6 else {
+            return "新しいパスワードは6文字以上で入力してください"
+        }
+        guard new != current else {
+            return "現在のパスワードと異なるものを入力してください"
+        }
+
+        guard !isProcessing else { return nil }
+        isProcessing = true
+        defer { isProcessing = false }
+
+        do {
+            try await authService.updatePassword(currentPassword: current, newPassword: new)
+            return nil
+        } catch {
+            Logger.auth.error("パスワード変更失敗: \(String(describing: error))")
+            switch (error as NSError).code {
+            case 17004, 17009, 17011: // 認証情報不正 / ユーザー不在 / パスワード違い
+                return "現在のパスワードが正しくありません"
+            case 17026: // ERROR_WEAK_PASSWORD
+                return "新しいパスワードが弱すぎます"
+            case 17020: // ERROR_NETWORK_REQUEST_FAILED
+                return "通信に失敗しました。接続を確認してもう一度お試しください。"
+            default:
+                return "パスワードの変更に失敗しました。時間をおいて再度お試しください。"
+            }
+        }
+    }
+
     func deleteAccount(password: String) async {
         deleteErrorMessage = nil
         guard !password.isEmpty else {
