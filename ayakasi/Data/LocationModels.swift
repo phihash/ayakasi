@@ -1,13 +1,17 @@
 import Foundation
 import MapKit
 
-struct Highlight: Identifiable {
+struct Highlight: Identifiable, Decodable {
     let id = UUID()
     let name: String
     let accessInfo: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case name, accessInfo
+    }
 }
 
-struct YokaiDestination: Identifiable {
+struct YokaiDestination: Identifiable, Decodable {
     let id = UUID()
     let name: String  // 町名・施設名
     let coordinate: CLLocationCoordinate2D
@@ -16,6 +20,24 @@ struct YokaiDestination: Identifiable {
     let websiteURL: String?
     let imageURL: String?
     let highlights: [Highlight]?
+
+    private enum CodingKeys: String, CodingKey {
+        case name, latitude, longitude, description, prefecture, websiteURL, imageURL, highlights
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        coordinate = CLLocationCoordinate2D(
+            latitude: try container.decode(Double.self, forKey: .latitude),
+            longitude: try container.decode(Double.self, forKey: .longitude)
+        )
+        description = try container.decode(String.self, forKey: .description)
+        prefecture = try container.decode(String.self, forKey: .prefecture)
+        websiteURL = try container.decodeIfPresent(String.self, forKey: .websiteURL)
+        imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        highlights = try container.decodeIfPresent([Highlight].self, forKey: .highlights)
+    }
 }
 
 enum SpotType: String, Codable {

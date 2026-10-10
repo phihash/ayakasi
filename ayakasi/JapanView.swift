@@ -1,18 +1,7 @@
 import SwiftUI
 import MapKit
 
-// 妖怪関連の目的地（町・施設など）
-let yokaiDestinations: [YokaiDestination] = [
-    YokaiDestination(name: "遠野", coordinate: CLLocationCoordinate2D(latitude: 39.3306, longitude: 141.5336), description: "柳田國男の『遠野物語』の舞台として知られる岩手県内陸の地域。カッパや座敷わらしといった妖怪の伝承、昔話や神話が多く残されている。", prefecture: "岩手県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "三好", coordinate: CLLocationCoordinate2D(latitude: 34.0226, longitude: 133.8068), description: "三好市には、多くの妖怪伝説が残る。山の危険から子どもを守るため、大人たちが妖怪話を語り継いだとされる。", prefecture: "徳島県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "三次", coordinate: CLLocationCoordinate2D(latitude: 34.8051, longitude: 132.8540), description: "広島県北部に位置し、日本で唯一の「妖怪」をテーマにした公立博物館がある。妖怪物語『稲生物怪録（いのうもののけろく）』の舞台として知られる。", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "福崎", coordinate: CLLocationCoordinate2D(latitude: 35.0076, longitude: 134.7576), description: "日本民俗学の父・柳田國男の生誕地として知られる「妖怪の町」。『遠野物語』『妖怪談義』などを著した柳田國男の故郷。", prefecture: "兵庫県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "境港", coordinate: CLLocationCoordinate2D(latitude: 35.5382, longitude: 133.2316), description: "漫画家・水木しげるの出身地として知られる「妖怪の町」。水木しげるロードには多数の妖怪ブロンズ像が並び、妖怪をテーマにした町おこしで有名。", prefecture: "鳥取県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "妖怪美術館", coordinate: CLLocationCoordinate2D(latitude: 34.4849724114415, longitude: 134.18594687139813), description: "妖怪をテーマにした美術館。日本各地の妖怪文化や伝承を学べる。", prefecture: "香川県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "三次もののけミュージアム", coordinate: CLLocationCoordinate2D(latitude: 34.815692632661396, longitude: 132.8451409270821), description: "日本で唯一の「妖怪」をテーマにした公立博物館。『稲生物怪録』に登場する妖怪や、日本各地の妖怪文化を展示している。", prefecture: "広島県", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "鬼の交流博物館", coordinate: CLLocationCoordinate2D(latitude: 35.45920848125813, longitude: 135.1446215106701), description: "日本の鬼伝説や文化を紹介する博物館。大江山の酒呑童子伝説をはじめ、全国の鬼に関する資料を展示している。", prefecture: "京都府", websiteURL: nil, imageURL: nil, highlights: nil),
-    YokaiDestination(name: "魏石鬼八面大王の像", coordinate: CLLocationCoordinate2D(latitude: 36.33968350655493, longitude: 137.90855418300703), description: "安曇野に伝わる鬼・魏石鬼八面大王の伝説にちなむ像。坂上田村麻呂に討たれたとされる大王を祀る。", prefecture: "長野県", websiteURL: nil, imageURL: nil, highlights: nil),
-]
+// 妖怪関連の目的地はdata.jsonのdestinations配列から供給(YokaiStore)
 
 enum SelectedLocationType {
     case destination(YokaiDestination.ID)

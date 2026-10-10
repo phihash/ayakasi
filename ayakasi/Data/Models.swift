@@ -60,10 +60,11 @@ struct Ayakasi : Identifiable, Codable {
 }
 
 // リモート配信用のトップレベル構造（data.json）
-struct YokaiData: Codable {
+struct YokaiData: Decodable {
     let version: Int
     let updatedAt: String
     let yokai: [Ayakasi]
+    let destinations: [YokaiDestination]?  // 地図の妖怪スポット(町・施設)。旧data.jsonには無い
 }
 
 extension Ayakasi: Hashable {

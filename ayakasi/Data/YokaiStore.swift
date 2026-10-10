@@ -8,13 +8,17 @@ final class YokaiStore: ObservableObject {
     static let shared = YokaiStore()
 
     @Published private(set) var yokai: [Ayakasi] = []
+    @Published private(set) var destinations: [YokaiDestination] = []
 
     private static let remoteURL = URL(string: "https://yokai-images.insharp0220.workers.dev/data.json")!
     private static let appGroupID = "group.net.phihash.ayakasi"
     private static let etagKey = "yokaiDataEtag"
 
     private init() {
-        yokai = Self.loadCached() ?? Self.loadBundled() ?? []
+        let payload = Self.loadCached() ?? Self.loadBundled()
+        yokai = payload?.yokai ?? []
+        // 旧バージョンのキャッシュにはdestinationsが無いので、同梱data.jsonから補う
+        destinations = payload?.destinations ?? Self.loadBundled()?.destinations ?? []
     }
 
     private static var cacheURL: URL? {
@@ -23,18 +27,18 @@ final class YokaiStore: ObservableObject {
             .appendingPathComponent("data.json")
     }
 
-    private static func decode(_ data: Data) -> [Ayakasi]? {
+    private static func decode(_ data: Data) -> YokaiData? {
         guard let payload = try? JSONDecoder().decode(YokaiData.self, from: data),
               !payload.yokai.isEmpty else { return nil }
-        return payload.yokai
+        return payload
     }
 
-    private static func loadCached() -> [Ayakasi]? {
+    private static func loadCached() -> YokaiData? {
         guard let url = cacheURL, let data = try? Data(contentsOf: url) else { return nil }
         return decode(data)
     }
 
-    private static func loadBundled() -> [Ayakasi]? {
+    private static func loadBundled() -> YokaiData? {
         guard let url = Bundle.main.url(forResource: "data", withExtension: "json"),
               let data = try? Data(contentsOf: url) else { return nil }
         return decode(data)
@@ -51,7 +55,8 @@ final class YokaiStore: ObservableObject {
               let http = response as? HTTPURLResponse,
               http.statusCode == 200,
               let fresh = Self.decode(data) else { return }
-        yokai = fresh
+        yokai = fresh.yokai
+        destinations = fresh.destinations ?? destinations
         if let url = Self.cacheURL {
             try? data.write(to: url, options: .atomic)
         }
@@ -63,3 +68,4 @@ final class YokaiStore: ObservableObject {
 
 /// 既存コード互換のグローバル。中身はYokaiStoreが供給する。
 var ayakasis: [Ayakasi] { YokaiStore.shared.yokai }
+var yokaiDestinations: [YokaiDestination] { YokaiStore.shared.destinations }
