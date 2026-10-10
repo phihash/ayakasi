@@ -6,8 +6,29 @@ struct Container: View {
     @Environment(\.openURL) private var openURL
     @State private var updateURL: URL?
     @AppStorage("lastUpdatePromptAt") private var lastUpdatePromptAt = 0.0
+    @StateObject private var store = YokaiStore.shared
 
     var body: some View {
+        switch store.phase {
+        case .loading:
+            ProgressView("読み込み中…")
+        case .failed:
+            ContentUnavailableView {
+                Label("読み込みに失敗しました", systemImage: "wifi.exclamationmark")
+            } description: {
+                Text("通信環境を確認して、もう一度お試しください。")
+            } actions: {
+                Button("もう一度読み込む") {
+                    Task { await store.refresh() }
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        case .ready:
+            mainTab
+        }
+    }
+
+    private var mainTab: some View {
         ZStack{
             TabView(selection: $selection) {
 
@@ -35,11 +56,15 @@ struct Container: View {
                     }
                     .tag(2)
 
+                SettingView()
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                        Text("設定")
+                    }
+                    .tag(3)
+
             }
             .tint(.appSecondary)
-            .sheet(isPresented: $router.showSettings) {
-                SettingView()
-            }
             .onChange(of: router.pendingYokaiId) { _, newValue in
                 // 通知タップで妖怪IDが来たら検索タブへ（SearchViewが遷移を消化する）
                 if newValue != nil { selection = 0 }
@@ -55,9 +80,9 @@ struct Container: View {
                         await HealthKitStepReader.refresh()
                     }
                 case "health":
-                    // 「歩数が読めていません」Widgetのタップ → 設定シートを開きつつ再判定。
+                    // 「歩数が読めていません」Widgetのタップ → 設定タブへ移しつつ再判定。
                     // 設定アプリで許可し直していれば、ここで読めるようになりWidgetも復帰する。
-                    router.showSettings = true
+                    selection = 3
                     Task {
                         await HealthKitStepReader.requestAuthorization()
                         await HealthKitStepReader.refresh()
@@ -76,7 +101,7 @@ struct Container: View {
                 if newValue != nil { selection = 2 }
             }
             .onChange(of: selection) { _, newValue in
-                let tabNames = ["検索", "マップ", "イベント"]
+                let tabNames = ["検索", "マップ", "イベント", "設定"]
                 if newValue < tabNames.count {
                     Analytics.trackTabChanged(tabName: tabNames[newValue])
                     Analytics.trackScreenView(screenName: tabNames[newValue])

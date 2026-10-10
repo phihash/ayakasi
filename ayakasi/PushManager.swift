@@ -12,8 +12,6 @@ final class DeepLinkRouter: ObservableObject {
     @Published var pendingYokaiId: String?
     /// タップされたイベントのURL（消化したら nil に戻す）
     @Published var pendingEventURL: URL?
-    /// 設定シートの表示要求（歯車ボタン・ayakasi://health から）
-    @Published var showSettings = false
     private init() {}
 }
 

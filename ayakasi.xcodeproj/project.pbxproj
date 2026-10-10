@@ -79,8 +79,6 @@
 		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
 		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
 		C20000010000000000000002 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
-		C20000010000000000000003 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
-		C20000010000000000000004 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000102 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,7 +164,6 @@
 		B10000010000000000000010 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		B10000010000000000000012 /* HealthKitSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSteps.swift; sourceTree = "<group>"; };
 		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
-		C20000010000000000000102 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -288,7 +285,6 @@
 				A97816762F41DBBC005CAEAE /* LocationModels.swift */,
 				A9B08D882EE72BC300592CB5 /* Models.swift */,
 				C20000010000000000000101 /* YokaiStore.swift */,
-				C20000010000000000000102 /* data.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -576,7 +572,6 @@
 				A9B08DFB2EE72BC300592CB5 /* Assets.xcassets in Resources */,
 				A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */,
 				B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
-				C20000010000000000000003 /* data.json in Resources */,
 				A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */,
 				A9B08DFF2EE72BC300592CB5 /* MaterialIcons-Regular.ttf in Resources */,
 			);
@@ -586,7 +581,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20000010000000000000004 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
