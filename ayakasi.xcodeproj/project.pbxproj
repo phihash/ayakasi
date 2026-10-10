@@ -18,7 +18,6 @@
 		A92B2FCE2F6AF51B00E84A15 /* CommentReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B2FCB2F6AF51B00E84A15 /* CommentReportService.swift */; };
 		A92B30092F71676600E84A15 /* MessageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B30082F71676600E84A15 /* MessageUI.swift */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
-		A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265912F34EE3500F1F72C /* AllYokaiListView.swift */; };
 		A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */; };
 		A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265952F365C8E00F1F72C /* NewsListItem.swift */; };
 		A93265982F36615A00F1F72C /* EventListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265972F36615A00F1F72C /* EventListItem.swift */; };
@@ -114,7 +113,6 @@
 		A92B2FCC2F6AF51B00E84A15 /* UserBlockingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockingService.swift; sourceTree = "<group>"; };
 		A92B30082F71676600E84A15 /* MessageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUI.swift; sourceTree = "<group>"; };
 		A932658F2F34E28900F1F72C /* NeoCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoCardItem.swift; sourceTree = "<group>"; };
-		A93265912F34EE3500F1F72C /* AllYokaiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllYokaiListView.swift; sourceTree = "<group>"; };
 		A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiSearchResultItem.swift; sourceTree = "<group>"; };
 		A93265952F365C8E00F1F72C /* NewsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListItem.swift; sourceTree = "<group>"; };
 		A93265972F36615A00F1F72C /* EventListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListItem.swift; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 		A9B08DAD2EE72BC300592CB5 /* yokai */ = {
 			isa = PBXGroup;
 			children = (
-				A93265912F34EE3500F1F72C /* AllYokaiListView.swift */,
 				A9B08DA92EE72BC300592CB5 /* BottomActionBar.swift */,
 				B10000010000000000000001 /* YokaiShareCard.swift */,
 				A9B08DAA2EE72BC300592CB5 /* FullScreenImage.swift */,
@@ -655,7 +652,6 @@
 				A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */,
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
-				A93265922F34EE3500F1F72C /* AllYokaiListView.swift in Sources */,
 				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
 				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
 				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,

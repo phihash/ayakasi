@@ -14,10 +14,8 @@ struct FavoriteYokaiView: View {
         return ayakasis.filter { favoriteIds.contains($0.documentId) }
     }
 
-    private let popularNames = ["豆腐小僧", "うみぼうず", "崇徳天皇", "胴面", "絹狸", "あかなめ"]
-
     private var recommended: [Ayakasi] {
-        popularNames.compactMap { name in ayakasis.first { $0.name == name } }
+        YokaiCategories.popularNames.compactMap { name in ayakasis.first { $0.name == name } }
     }
 
     var body: some View {
