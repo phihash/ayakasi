@@ -20,8 +20,6 @@ class AuthViewModel : ObservableObject{
     @Published var password = ""
     @Published var confirmPassword = ""
     @Published var message = ""
-    @Published var isShowLoginView: Bool = false
-    @Published var isShowRegisterView: Bool = false
     @Published var deleteErrorMessage: String?
     @Published var isProcessing = false
 
@@ -41,14 +39,6 @@ class AuthViewModel : ObservableObject{
         if let authStateHandle {
             authService.removeAuthStateListener(authStateHandle)
         }
-    }
-    
-    func showLogin() {
-        isShowLoginView = true
-    }
-
-    func showRegister() {
-        isShowRegisterView = true
     }
     
     private func setupAuthStateListener(){

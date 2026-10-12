@@ -7,7 +7,6 @@ import os
 
 struct CommentListView: View {
     let comments: [[String: Any]]
-    @EnvironmentObject var commentService: CommentService
     @EnvironmentObject var authVM: AuthViewModel
     @State private var selectedCommentId: String = ""
     @State private var reportTarget: ReportTarget?
@@ -459,12 +458,6 @@ struct NeoDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
-        }
-        .navigationDestination(isPresented: $authVM.isShowLoginView) {
-            LoginView()
-        }
-        .navigationDestination(isPresented: $authVM.isShowRegisterView) {
-            RegisterView()
         }
         .navigationDestination(item: $selectedRelatedYokai) { yokai in
             NeoDetail(yokai: yokai)

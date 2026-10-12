@@ -64,13 +64,6 @@ class AuthService: ObservableObject , AuthServiceProtocol {
         try await user.sendEmailVerification()
     }
     
-    func updateEmail(newEmail: String) async throws {
-        guard let user = currentUser else {
-            throw AuthError.noUser
-        }
-        try await user.sendEmailVerification(beforeUpdatingEmail: newEmail)
-    }
-    
     func reloadUser() async throws {
         guard let user = currentUser else {
             throw AuthError.noUser

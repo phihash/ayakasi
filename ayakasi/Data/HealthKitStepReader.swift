@@ -67,17 +67,6 @@ enum HealthKitStepReader {
         return newHatches
     }
 
-    /// 現在のHealthKit読み取り許可の状態（診断用。.sharingAuthorized=許可, .sharingDenied=拒否, .notDetermined=未決定）
-    static func authorizationStatusDescription() -> String {
-        guard HKHealthStore.isHealthDataAvailable() else { return "HealthKit利用不可" }
-        switch store.authorizationStatus(for: HKQuantityType(.stepCount)) {
-        case .sharingAuthorized: return "許可済み"
-        case .sharingDenied: return "拒否"
-        case .notDetermined: return "未決定"
-        @unknown default: return "不明"
-        }
-    }
-
     /// 歩数変化でアプリをバックグラウンド起動してもらうための監視を開始する。
     /// AppDelegateから毎起動時に呼ぶ（プロセスごとに1回だけ登録される）。
     static func startObserving() {
