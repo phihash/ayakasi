@@ -8,6 +8,22 @@ enum SelectedLocationType {
     case yokaiSpot(YokaiSpot.ID)
 }
 
+// マップ下部のチップで絞り込む種類
+enum MapFilter: String, CaseIterable {
+    case all = "すべて"
+    case town = "町"
+    case related = "ゆかりの地"
+    case facility = "施設"
+
+    func shows(_ destination: YokaiDestination) -> Bool {
+        self == .all || self == (destination.isFacility ? .facility : .town)
+    }
+
+    func shows(_ spot: YokaiSpot) -> Bool {
+        self == .all || self == (spot.spotType == .yokaiRelated ? .related : .facility)
+    }
+}
+
 @Observable
 @MainActor
 class JapanViewModel  {
@@ -23,6 +39,7 @@ class JapanViewModel  {
 struct JapanView: View {
     @State private var viewModel = JapanViewModel()
     @State private var selectedYokai: Ayakasi?
+    @State private var filter: MapFilter = .all
 
     // ayakasisから全てのスポットを抽出
     private var allYokaiSpots: [YokaiSpot] {
@@ -67,7 +84,7 @@ struct JapanView: View {
         NavigationStack {
         Map(position: $viewModel.cameraPosition) {
             // 妖怪関連スポット（赤いマーカー）
-            ForEach(yokaiDestinations) { location in
+            ForEach(yokaiDestinations.filter(filter.shows)) { location in
                 Annotation(location.name, coordinate: location.coordinate) {
                     Button {
                         viewModel.selectedLocation = .destination(location.id)
@@ -89,7 +106,7 @@ struct JapanView: View {
             }
 
             // 妖怪スポット（タイプ別のAnnotation）
-            ForEach(allYokaiSpots) { spot in
+            ForEach(allYokaiSpots.filter(filter.shows)) { spot in
                 let iconAndColor = spotIconAndColor(for: spot.spotType)
                 Annotation(spot.spotName, coordinate: spot.coordinate) {
                     Button {
@@ -110,6 +127,39 @@ struct JapanView: View {
                     }
                 }
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(MapFilter.allCases, id: \.self) { item in
+                        let isSelected = item == filter
+                        Button {
+                            filter = item
+                        } label: {
+                            Text(item.rawValue)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 10)
+                                .background(Capsule().fill(isSelected ? Color.appCardBackground : Color.appTextPrimary.opacity(0.06)))
+                                .overlay(Capsule().stroke(isSelected ? Color.appSecondary : .clear, lineWidth: 2))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityAddTraits(isSelected ? .isSelected : [])
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
+                .padding(.bottom, 8)
+            }
+            // 白いシートはタブバーの裏(画面下端)まで伸ばす
+            .background(
+                UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
+                    .fill(Color.appCardBackground)
+                    .shadow(color: .black.opacity(0.08), radius: 8, y: -2)
+                    .ignoresSafeArea(edges: .bottom)
+            )
         }
         .sheet(isPresented: $showSheet) {
             ScrollView {
