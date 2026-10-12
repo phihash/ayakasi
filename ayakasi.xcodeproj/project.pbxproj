@@ -330,13 +330,6 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
-		A9B08DA52EE72BC300592CB5 /* vote */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = vote;
-			sourceTree = "<group>";
-		};
 		A9B08DAD2EE72BC300592CB5 /* yokai */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,7 +349,6 @@
 				A9B08E312EEF097600592CB5 /* stories */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
-				A9B08DA52EE72BC300592CB5 /* vote */,
 				A9B08DAD2EE72BC300592CB5 /* yokai */,
 				A9B08E2C2EEEF55900592CB5 /* comment */,
 				A9B08D922EE72BC300592CB5 /* auth */,
