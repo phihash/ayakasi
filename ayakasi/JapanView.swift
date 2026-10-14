@@ -73,9 +73,13 @@ struct JapanView: View {
         }
     }
 
-    // ゆかりの地として登録された町・施設枠のスポットは、妖怪側のゆかりの地と同じ見た目にそろえる
+    // destinationsのゆかりの地・施設は、妖怪側スポットの同じ種類と見た目をそろえる(チップと同じ分類で見分けられるように)
     private func destinationIconAndColor(for destination: YokaiDestination) -> (icon: String, color: Color) {
-        destination.kind == "related" ? spotIconAndColor(for: .yokaiRelated) : ("building.2", Color.appError)
+        switch destination.kind {
+        case "related": return spotIconAndColor(for: .yokaiRelated)
+        case "facility": return spotIconAndColor(for: .museum)
+        default: return ("building.2", Color.appError)
+        }
     }
 
     // Google Mapで開く

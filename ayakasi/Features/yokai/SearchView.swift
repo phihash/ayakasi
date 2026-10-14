@@ -55,7 +55,7 @@ struct SearchView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .frame(width: 56, height: 56)
-                        .background(Color.appPrimary)
+                        .background(Color.appSecondary)
                         .clipShape(Circle())
                         .shadow(color: .black.opacity(0.18), radius: 8, x: 0, y: 4)
                 }

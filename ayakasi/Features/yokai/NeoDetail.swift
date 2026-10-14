@@ -100,7 +100,6 @@ struct CommentListView: View {
 struct NeoDetail: View {
     let yokai : Ayakasi
     let screenWidth = UIScreen.main.bounds.width
-    @State private var selectedTab = 0
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
     @State private var alertMessage : String = ""
@@ -268,147 +267,151 @@ struct NeoDetail: View {
                     }
 
                     
-                    // 2タブ
                     Group {
-                        TabHeaderView(selectedTab: $selectedTab, screenWidth: screenWidth)
-                            .padding(.vertical,8)
-                            .padding(.horizontal,8)
+                        VStack{
+                            
+                            Text(yokai.description)
+                                .fontWeight(.bold)
+                                .padding(.vertical,12)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal,24)
+                            
+                            if let videoId = yokai.videoId {
+                                NavigationLink(destination: WebView(url: URL(string: "https://www.youtube.com/watch?v=\(videoId)"))) {
+                                    HStack {
+                                        Image(systemName: "play.circle.fill")
+                                        Text("YouTubeで見る")
+                                            .fontWeight(.medium)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 12)
+                                    .background(Color.red)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                                }
+                                .padding(.horizontal, 24)
+                            }
 
-                        if selectedTab == 0{
-                            VStack{
-                                
-                                Text(yokai.description)
-                                    .fontWeight(.bold)
-                                    .padding(.vertical,12)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal,24)
-                                
-                                if let videoId = yokai.videoId {
-                                    NavigationLink(destination: WebView(url: URL(string: "https://www.youtube.com/watch?v=\(videoId)"))) {
-                                        HStack {
-                                            Image(systemName: "play.circle.fill")
-                                            Text("YouTubeで見る")
-                                                .fontWeight(.medium)
-                                        }
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 12)
-                                        .background(Color.red)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(8)
+                            // ゆかりの地セクション
+                            if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    HStack {
+                                        Text("ゆかりの地")
+                                            .font(.headline)
+                                            .fontWeight(.bold)
                                     }
                                     .padding(.horizontal, 24)
-                                }
-
-                                // ゆかりの地セクション
-                                if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
-                                    VStack(alignment: .leading, spacing: 12) {
-                                        HStack {
-                                            Text("ゆかりの地")
-                                                .font(.headline)
-                                                .fontWeight(.bold)
-                                        }
-                                        .padding(.horizontal, 24)
-                                        .padding(.vertical, 16)
-                                        
-                                        // 複数スポット対応 - 横スクロール
-                                        ScrollView(.horizontal, showsIndicators: false) {
-                                            HStack(spacing: 16) {
-                                                ForEach(relatedSpots) { spot in
-                                                    VStack(spacing: 12) {
-                                                        // 小さな地図プレビュー
-                                                        Map(initialPosition: .region(
-                                                            MKCoordinateRegion(
-                                                                center: spot.coordinate,
-                                                                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                                                            )
-                                                        )) {
-                                                            Annotation(spot.spotName, coordinate: spot.coordinate) {
-                                                                ZStack {
-                                                                    Circle()
-                                                                        .fill(Color.appSecondary)
-                                                                        .frame(width: 30, height: 30)
-                                                                    Image(systemName: "sparkles")
-                                                                        .foregroundColor(.white)
-                                                                        .font(.system(size: 14))
-                                                                }
+                                    .padding(.vertical, 16)
+                                    
+                                    // 複数スポット対応 - 横スクロール
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack(spacing: 16) {
+                                            ForEach(relatedSpots) { spot in
+                                                VStack(spacing: 12) {
+                                                    // 小さな地図プレビュー
+                                                    Map(initialPosition: .region(
+                                                        MKCoordinateRegion(
+                                                            center: spot.coordinate,
+                                                            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                                                        )
+                                                    )) {
+                                                        Annotation(spot.spotName, coordinate: spot.coordinate) {
+                                                            ZStack {
+                                                                Circle()
+                                                                    .fill(Color.appSecondary)
+                                                                    .frame(width: 30, height: 30)
+                                                                Image(systemName: "sparkles")
+                                                                    .foregroundColor(.white)
+                                                                    .font(.system(size: 14))
                                                             }
-                                                        }
-                                                        .frame(height: 150)
-                                                        .cornerRadius(12)
-                                                        .allowsHitTesting(false)
-                                                        
-                                                        VStack(alignment: .leading, spacing: 8) {
-                                                          
-                                                            Text(spot.prefecture)
-                                                                .font(.headline)
-                                                                .foregroundColor(.appTextSecondary)
-                                                            
-                                                            if let description = spot.description {
-                                                                Text(description)
-                                                                    .font(.caption)
-                                                                    .foregroundColor(.appTextSecondary)
-                                                                    .padding(.top, 4)
-                                                            }
-                                                        }
-                                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                                        
-                                                        Button {
-                                                            // Google Mapで開く
-                                                            let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
-                                                            if let url = URL(string: urlString) {
-                                                                UIApplication.shared.open(url)
-                                                            }
-                                                        } label: {
-                                                            HStack {
-                                                                Image(systemName: "map.fill")
-                                                                Text("Google Mapで\(spot.spotName)を開く")
-                                                                    .fontWeight(.medium)
-                                                            }
-                                                            .frame(maxWidth: .infinity)
-                                                            .padding(.vertical, 12)
-                                                            .background(Color.appSecondary)
-                                                            .foregroundColor(.white)
-                                                            .cornerRadius(8)
                                                         }
                                                     }
-                                                    .frame(width: screenWidth * 0.75)
-                                                    .padding()
-                                                    .background(
-                                                        RoundedRectangle(cornerRadius: 12)
-                                                            .fill(Color.appCardBackground)
-                                                    )
+                                                    .frame(height: 150)
+                                                    .cornerRadius(12)
+                                                    .allowsHitTesting(false)
+                                                    
+                                                    VStack(alignment: .leading, spacing: 8) {
+                                                      
+                                                        Text(spot.prefecture)
+                                                            .font(.headline)
+                                                            .foregroundColor(.appTextSecondary)
+                                                        
+                                                        if let description = spot.description {
+                                                            Text(description)
+                                                                .font(.caption)
+                                                                .foregroundColor(.appTextSecondary)
+                                                                .padding(.top, 4)
+                                                        }
+                                                    }
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    
+                                                    Button {
+                                                        // Google Mapで開く
+                                                        let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
+                                                        if let url = URL(string: urlString) {
+                                                            UIApplication.shared.open(url)
+                                                        }
+                                                    } label: {
+                                                        HStack {
+                                                            Image(systemName: "map.fill")
+                                                            Text("Google Mapで\(spot.spotName)を開く")
+                                                                .fontWeight(.medium)
+                                                        }
+                                                        .frame(maxWidth: .infinity)
+                                                        .padding(.vertical, 12)
+                                                        .background(Color.appSecondary)
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8)
+                                                    }
                                                 }
+                                                .frame(width: screenWidth * 0.75)
+                                                .padding()
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 12)
+                                                        .fill(Color.appCardBackground)
+                                                )
                                             }
-                                            .padding(.horizontal, 24)
                                         }
-                                        .padding(.bottom, 12)
+                                        .padding(.horizontal, 24)
                                     }
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .fill(Color.appTextFieldBackground)
-                                    )
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 12)
+                                    .padding(.bottom, 12)
                                 }
-                                
-                                if yokai.story {
-                                    Button {
-                                        showStoryView = true
-                                    } label: {
-                                        Text("物語を読む")
-                                            .fontWeight(.bold)
-                                            .foregroundStyle(Color.white)
-                                            .padding()
-                                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.appPrimary))
-                                    }
-                                    .padding(.horizontal, 24)
-                                }
-                                
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(Color.appTextFieldBackground)
+                                )
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 12)
                             }
-                        } else{
-                            CommentListView(comments: commentVM.yokaiComments)
+                            
+                            if yokai.story {
+                                Button {
+                                    showStoryView = true
+                                } label: {
+                                    Text("物語を読む")
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color.white)
+                                        .padding()
+                                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.appSecondary))
+                                }
+                                .padding(.horizontal, 24)
+                            }
+                            
                         }
-                        
+                    
+                        // コメント(タブに分けると気づかれにくいので、情報の下に続けて出す)
+                        HStack{
+                            Image(systemName: "bubble.left")
+                            Text("コメント")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        .padding(.horizontal,24)
+                        .padding(.top,28)
+
+                        CommentListView(comments: commentVM.yokaiComments)
+
                         //関連妖怪
                         let relatedYokais = ayakasis.filter { ayakasi in
                             if let yokaiRelatedCategory = yokai.relatedCategory,
@@ -440,10 +443,12 @@ struct NeoDetail: View {
                                     }
                                 }
                                 .padding(.horizontal,20)
-                                .padding(.bottom,72)
                                 .padding(.top,12)
                             }
                         }
+
+                        // 下のコメント入力バーに最後の要素が隠れないための余白
+                        Color.clear.frame(height: 72)
                     }
                 }
             }
@@ -479,36 +484,5 @@ struct NeoDetail: View {
             )
         }
         .toolbar(.hidden, for: .tabBar)
-    }
-}
-
-
-// MARK: - Tab Header View
-struct TabHeaderView: View {
-    @Binding var selectedTab: Int
-    let screenWidth: CGFloat
-
-    var body: some View {
-        HStack {
-            tabButton(title: "情報", index: 0)
-            tabButton(title: "コメント", index: 1)
-        }
-    }
-
-    private func tabButton(title: String, index: Int) -> some View {
-        Text(title)
-            .fontWeight(.bold)
-            .padding(.vertical, 16)
-            .foregroundStyle(selectedTab == index ? Color.appTextPrimary : Color.appTextPrimary.opacity(0.3))
-            .frame(width: screenWidth * 0.45)
-            .overlay(alignment: .bottom) {
-                Rectangle()
-                    .frame(height: 2)
-                    .frame(width: screenWidth * 0.45)
-                    .foregroundStyle(selectedTab == index ? Color.appTextPrimary : Color.appTextPrimary.opacity(0.3))
-            }
-            .onTapGesture {
-                selectedTab = index
-            }
     }
 }
