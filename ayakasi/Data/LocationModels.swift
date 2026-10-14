@@ -20,7 +20,7 @@ struct YokaiDestination: Identifiable, Decodable {
     let websiteURL: String?
     let imageURL: String?
     let highlights: [Highlight]?
-    let isFacility: Bool  // D1のkind:"facility"=博物館・像など。無ければ町
+    let kind: String?  // D1のkind。"facility"=施設 / "related"=ゆかりの地 / 無し=町(kind導入前の行を町として読むため)
 
     private enum CodingKeys: String, CodingKey {
         case name, latitude, longitude, description, prefecture, websiteURL, imageURL, highlights, kind
@@ -38,7 +38,7 @@ struct YokaiDestination: Identifiable, Decodable {
         websiteURL = try container.decodeIfPresent(String.self, forKey: .websiteURL)
         imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
         highlights = try container.decodeIfPresent([Highlight].self, forKey: .highlights)
-        isFacility = try container.decodeIfPresent(String.self, forKey: .kind) == "facility"
+        kind = try container.decodeIfPresent(String.self, forKey: .kind)
     }
 }
 

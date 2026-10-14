@@ -16,7 +16,11 @@ enum MapFilter: String, CaseIterable {
     case facility = "施設"
 
     func shows(_ destination: YokaiDestination) -> Bool {
-        self == .all || self == (destination.isFacility ? .facility : .town)
+        switch destination.kind {
+        case "facility": return self == .all || self == .facility
+        case "related": return self == .all || self == .related
+        default: return self == .all || self == .town
+        }
     }
 
     func shows(_ spot: YokaiSpot) -> Bool {
@@ -69,6 +73,11 @@ struct JapanView: View {
         }
     }
 
+    // ゆかりの地として登録された町・施設枠のスポットは、妖怪側のゆかりの地と同じ見た目にそろえる
+    private func destinationIconAndColor(for destination: YokaiDestination) -> (icon: String, color: Color) {
+        destination.kind == "related" ? spotIconAndColor(for: .yokaiRelated) : ("building.2", Color.appError)
+    }
+
     // Google Mapで開く
     private func openInGoogleMaps(latitude: Double, longitude: Double, name: String) {
         let urlString = "https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
@@ -85,6 +94,7 @@ struct JapanView: View {
         Map(position: $viewModel.cameraPosition) {
             // 妖怪関連スポット（赤いマーカー）
             ForEach(yokaiDestinations.filter(filter.shows)) { location in
+                let iconAndColor = destinationIconAndColor(for: location)
                 Annotation(location.name, coordinate: location.coordinate) {
                     Button {
                         viewModel.selectedLocation = .destination(location.id)
@@ -94,9 +104,9 @@ struct JapanView: View {
                     } label: {
                         ZStack {
                             Circle()
-                                .fill(Color.appError)
+                                .fill(iconAndColor.color)
                                 .frame(width: 30, height: 30)
-                            Image(systemName: "building.2")
+                            Image(systemName: iconAndColor.icon)
                                 .foregroundColor(.white)
                                 .font(.system(size: 14))
                         }
@@ -170,7 +180,7 @@ struct JapanView: View {
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack {
                                     Circle()
-                                        .fill(Color.appError)
+                                        .fill(destinationIconAndColor(for: location).color)
                                         .frame(width: 12, height: 12)
                                     Text(location.name)
                                         .font(.title2)
