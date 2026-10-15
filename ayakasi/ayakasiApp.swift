@@ -1,6 +1,5 @@
 import SwiftUI
 import Firebase
-import WidgetKit
 
 @main
 struct ayakasiApp: App {

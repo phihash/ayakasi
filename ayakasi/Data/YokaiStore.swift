@@ -12,6 +12,9 @@ final class YokaiStore: ObservableObject {
     @Published private(set) var yokai: [Ayakasi] = []
     @Published private(set) var destinations: [YokaiDestination] = []
     @Published private(set) var phase: Phase = .loading
+    // 読み込みのたびに作り直す索引。画面ごとに249体を線形探索・flatMapしないため
+    private(set) var byId: [String: Ayakasi] = [:]
+    private(set) var spots: [YokaiSpot] = []
 
     private static let remoteURL = URL(string: "https://yokai-images.insharp0220.workers.dev/data.json")!
     private static let appGroupID = "group.net.phihash.ayakasi"
@@ -19,11 +22,17 @@ final class YokaiStore: ObservableObject {
 
     private init() {
         if let payload = Self.loadCached() {
-            yokai = payload.yokai
-            destinations = payload.destinations ?? []
+            apply(payload.yokai, destinations: payload.destinations ?? [])
             phase = .ready
         }
         // キャッシュが無ければ .loading のまま。refresh()で確定する。
+    }
+
+    private func apply(_ yokai: [Ayakasi], destinations: [YokaiDestination]) {
+        byId = Dictionary(yokai.map { ($0.documentId, $0) }, uniquingKeysWith: { first, _ in first })
+        spots = yokai.flatMap { $0.relatedSpots ?? [] }
+        self.yokai = yokai
+        self.destinations = destinations
     }
 
     private static var cacheURL: URL? {
@@ -69,8 +78,7 @@ final class YokaiStore: ObservableObject {
             return
         }
 
-        yokai = fresh.yokai
-        destinations = fresh.destinations ?? destinations
+        apply(fresh.yokai, destinations: fresh.destinations ?? destinations)
         phase = .ready
         if let url = Self.cacheURL {
             try? data.write(to: url, options: .atomic)
@@ -84,3 +92,4 @@ final class YokaiStore: ObservableObject {
 /// 既存コード互換のグローバル。中身はYokaiStoreが供給する。
 var ayakasis: [Ayakasi] { YokaiStore.shared.yokai }
 var yokaiDestinations: [YokaiDestination] { YokaiStore.shared.destinations }
+func yokaiById(_ id: String) -> Ayakasi? { YokaiStore.shared.byId[id] }

@@ -13,7 +13,7 @@ enum NotificationScheduler {
                 || settings.authorizationStatus == .provisional else { return }
 
         for record in records {
-            guard let yokai = ayakasis.first(where: { $0.documentId == record.documentId }) else { continue }
+            guard let yokai = yokaiById(record.documentId) else { continue }
             let content = UNMutableNotificationContent()
             content.title = "🎉 妖怪がうまれた！"
             content.body = "「\(yokai.name)」がうまれました。タップして図鑑を見る"

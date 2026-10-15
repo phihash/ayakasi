@@ -1,5 +1,4 @@
 import SwiftUI
-import Kingfisher
 
 struct FavoriteYokaiView: View {
     @EnvironmentObject var favoriteService: FavoriteService
@@ -10,12 +9,12 @@ struct FavoriteYokaiView: View {
     ]
 
     var favoriteYokais: [Ayakasi] {
-        let favoriteIds = favoriteService.favoriteYokaiIds
+        let favoriteIds = Set(favoriteService.favoriteYokaiIds)
         return ayakasis.filter { favoriteIds.contains($0.documentId) }
     }
 
     private var recommended: [Ayakasi] {
-        YokaiCategories.popularNames.compactMap { name in ayakasis.first { $0.name == name } }
+        YokaiCategories.popularYokai
     }
 
     var body: some View {

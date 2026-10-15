@@ -15,6 +15,9 @@ struct YokaiCategories {
     static let popularLabel = "よく見られている"
     // ponytail: 手動キュレーション。実アクセス数で並べたいならAmplitude/D1で集計して差し替え
     static let popularNames = ["豆腐小僧", "うみぼうず", "崇徳天皇", "胴面", "絹狸", "あかなめ"]
+    static var popularYokai: [Ayakasi] {
+        popularNames.compactMap { name in ayakasis.first { $0.name == name } }
+    }
 }
 
 extension Bundle {

@@ -13,9 +13,14 @@ struct Message: Identifiable {
     let yearMonth: String  // 例: "2026.4"
     let note: String?
 
-    static var hasNewMessage: Bool {
+    private static let yearMonthFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.M"
+        return formatter
+    }()
+
+    static var hasNewMessage: Bool {
+        let formatter = yearMonthFormatter
         let oneMonthAgo = Calendar.current.date(byAdding: .month, value: -1, to: Date()) ?? Date()
         return MessageUI.allMessages.contains { message in
             guard let date = formatter.date(from: message.yearMonth) else { return false }

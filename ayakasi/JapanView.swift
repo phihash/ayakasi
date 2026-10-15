@@ -48,19 +48,11 @@ struct JapanView: View {
     @State private var filter: MapFilter = .all
 
     // ayakasisから全てのスポットを抽出
-    private var allYokaiSpots: [YokaiSpot] {
-        let yokaiRelatedSpots = ayakasis.compactMap { yokai in
-            yokai.relatedSpots
-        }.flatMap { $0 }
-
-        return yokaiRelatedSpots
-    }
+    private var allYokaiSpots: [YokaiSpot] { YokaiStore.shared.spots }
 
     // yokaiIdsから妖怪オブジェクトを取得
     private func getYokaiFromIds(_ ids: [String]) -> [Ayakasi] {
-        ids.compactMap { id in
-            ayakasis.first { $0.documentId == id }
-        }
+        ids.compactMap(yokaiById)
     }
 
     // スポットタイプに応じたアイコンとカラーを返す

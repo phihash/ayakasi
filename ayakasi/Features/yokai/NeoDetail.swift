@@ -8,7 +8,6 @@ import os
 struct CommentListView: View {
     let comments: [[String: Any]]
     @EnvironmentObject var authVM: AuthViewModel
-    @State private var selectedCommentId: String = ""
     @State private var reportTarget: ReportTarget?
     
     var body: some View {
@@ -59,7 +58,6 @@ struct CommentListView: View {
                                             return
                                         }
 
-                                        selectedCommentId = docId
                                         reportTarget = ReportTarget(id: docId)
 
                                     }

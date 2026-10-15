@@ -30,7 +30,7 @@ struct Provider: TimelineProvider {
             var hatchedDocumentId: String? = nil
             var imageData: Data? = nil
             if let hatched = snapshot.hatchedToday,
-               let yokai = ayakasis.first(where: { $0.documentId == hatched.documentId }) {
+               let yokai = yokaiById(hatched.documentId) {
                 hatchedName = yokai.name
                 hatchedDocumentId = yokai.documentId
                 // 同梱チビ画像が無い妖怪のときだけ、図鑑画像をネット取得（フォールバック）

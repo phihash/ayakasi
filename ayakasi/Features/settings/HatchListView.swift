@@ -75,7 +75,7 @@ struct HatchListView: View {
                 } else {
                     // 新しい順に表示
                     ForEach(records.reversed()) { record in
-                        if let yokai = ayakasis.first(where: { $0.documentId == record.documentId }) {
+                        if let yokai = yokaiById(record.documentId) {
                             NavigationLink(destination: NeoDetail(yokai: yokai)) {
                                 HStack(spacing: 12) {
                                     // ちびキャラ版を優先し、なければ図鑑画像にフォールバック

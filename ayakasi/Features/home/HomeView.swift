@@ -1,6 +1,4 @@
 import SwiftUI
-import Kingfisher
-import FirebaseFirestore
 import os
 
 extension URL: Identifiable {
@@ -22,19 +20,18 @@ enum HomeTab: String, CaseIterable {
 
 struct HomeView: View {
     @State private var tab: HomeTab = .events
-    @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
     @State private var noticeItem: NoticeItem?
     @EnvironmentObject private var router: DeepLinkRouter
     
-    let columns = Array(repeating: GridItem(.flexible()), count: 2)
-    let screenWidth = UIScreen.main.bounds.width
     
-    // 期間チェック共通関数
+    private static let isoFormatter = ISO8601DateFormatter()
+
+    // お知らせの期間チェック(お知らせJSONは本当のUTC時刻で書かれている)
     private func isWithinDateRange(startDateTime: String?, endDateTime: String?) -> Bool {
         let now = Date()
-        let formatter = ISO8601DateFormatter()
+        let formatter = Self.isoFormatter
         
         // 開始時刻チェック
         if let startDateTimeString = startDateTime,
@@ -53,22 +50,9 @@ struct HomeView: View {
         return true
     }
     
+    // 有効で、まだ終わっていないもの(開催前・開催中)
     var filteredEvents: [EventItem] {
-        eventItems.filter { event in
-            guard event.isActive ?? false else { return false }
-
-            // 終了チェックのみ（終了していなければ表示）
-            let now = Date()
-            let formatter = ISO8601DateFormatter()
-
-            if let endDateTimeString = event.endDateTime,
-               let endDateTime = formatter.date(from: endDateTimeString),
-               now > endDateTime {
-                return false // すでに終了している
-            }
-
-            return true // 開催予定または開催中
-        }
+        eventItems.filter { ($0.isActive ?? false) && !$0.hasEnded }
     }
     
     var activeNotice: NoticeItem? {

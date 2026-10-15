@@ -19,7 +19,7 @@ struct SearchView: View {
 
     private var filteredYokai: [Ayakasi] {
         if selectedCategory == YokaiCategories.popularLabel {
-            return YokaiCategories.popularNames.compactMap { name in ayakasis.first { $0.name == name } }
+            return YokaiCategories.popularYokai
         } else if selectedCategory == "すべて" {
             return ayakasis
         } else {
@@ -100,7 +100,7 @@ struct SearchView: View {
 
     /// 通知タップで来た documentId を消化して該当妖怪へ遷移
     private func consumeDeepLink(_ id: String?) {
-        guard let id, let yokai = ayakasis.first(where: { $0.documentId == id }) else { return }
+        guard let id, let yokai = yokaiById(id) else { return }
         selectedYokai = yokai
         router.pendingYokaiId = nil
     }
