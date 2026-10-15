@@ -30,6 +30,9 @@ struct NeoCardItem: View {
                                         .resizable()
                                         .scaledToFill()
                                 }
+                                // 原画は1000px前後・平均1MBあり、一覧で原寸デコードするとメモリを食うので表示サイズに縮める(原画はディスクに残し詳細画面で使う)
+                                .downsampling(size: CGSize(width: 200, height: 200))
+                                .scaleFactor(UIScreen.main.scale)
                                 .cacheOriginalImage()
                                 .resizable()
                                 .scaledToFill()

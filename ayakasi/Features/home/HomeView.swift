@@ -1,5 +1,4 @@
 import SwiftUI
-import FeedKit
 import Kingfisher
 import FirebaseFirestore
 import os
@@ -16,7 +15,13 @@ extension DateFormatter {
     }()
 }
 
+enum HomeTab: String, CaseIterable {
+    case events = "イベント"
+    case news = "ニュース"
+}
+
 struct HomeView: View {
+    @State private var tab: HomeTab = .events
     @State private var selectedYokai : Ayakasi? = nil
     @State private var eventItems: [EventItem] = []
     @State private var selectedEventUrl: URL?
@@ -110,25 +115,29 @@ struct HomeView: View {
     }
     var body: some View {
         NavigationStack{
-            ScrollView{
-                if let notice = activeNotice {
-                    NoticeSection(notice: notice)
+            VStack(spacing: 0) {
+                tabBar
+
+                // 中身は横スワイプでも切り替えられる(上のタブとselectionを共有)
+                TabView(selection: $tab) {
+                    ScrollView {
+                        noticeView
+                        EventsSection(
+                            filteredEvents: filteredEvents,
+                            selectedEventUrl: $selectedEventUrl
+                        )
+                        .padding(.top, 8)
+                    }
+                    .tag(HomeTab.events)
+
+                    ScrollView {
+                        noticeView
+                        NewsView(selectedNew: "妖怪")
+                            .padding(.top, 8)
+                    }
+                    .tag(HomeTab.news)
                 }
-
-                HStack{
-                    Text("全国の妖怪イベント!")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                .padding(.horizontal,24)
-
-                EventsSection(
-                    filteredEvents: filteredEvents,
-                    selectedEventUrl: $selectedEventUrl
-                )
-
-                NewsSection()
+                .tabViewStyle(.page(indexDisplayMode: .never))
             }
             .background(Color.appBackground)
             
@@ -152,9 +161,46 @@ struct HomeView: View {
         }
     }
 
+    @ViewBuilder
+    private var noticeView: some View {
+        if let notice = activeNotice {
+            NoticeSection(notice: notice)
+        }
+    }
+
+    // 参考アプリの受信トレイと同じ、等幅ラベル+選択中だけ下線のタブ
+    private var tabBar: some View {
+        HStack(spacing: 0) {
+            ForEach(HomeTab.allCases, id: \.self) { item in
+                let isSelected = item == tab
+                Button {
+                    withAnimation(.snappy) { tab = item }
+                } label: {
+                    Text(item.rawValue)
+                        .font(.headline)
+                        .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 8)
+                        .padding(.bottom, 12)
+                        .overlay(alignment: .bottom) {
+                            Capsule()
+                                .fill(isSelected ? Color.appSecondary : .clear)
+                                .frame(width: 32, height: 4)
+                        }
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isSelected ? .isSelected : [])
+            }
+        }
+        .padding(.horizontal, 24)
+        .animation(.snappy(duration: 0.2), value: tab)
+    }
+
     /// 通知タップで来たイベントURLを消化して SafariView で開く
     private func consumeEventDeepLink(_ url: URL?) {
         guard let url else { return }
+        tab = .events
         selectedEventUrl = url
         router.pendingEventURL = nil
     }

@@ -1,41 +1,28 @@
 import Foundation
-import FeedKit
 
 @MainActor
 class NewsService: ObservableObject {
     @Published var items: [NewsItem] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-    
-    private let yokaiFeedURL = "https://www.google.co.jp/alerts/feeds/14350951871509070518/8255054665312320913"
-    
+
+    // Workerが「タイトルに妖怪がある記事」だけに絞って返す。絞り込みの調整は審査なしでWorker側で行う
+    private struct Entry: Decodable { let title: String; let link: String; let published: Date }
+
     func fetchFeed(for _: String) async {
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
-        
+
         do {
-            let atom = try await AtomFeed(urlString: yokaiFeedURL)
-            let entries = atom.entries ?? []
-            
-            var seenTitles = Set<Substring>()
-            
-            self.items = entries.compactMap { e in
-                let title = (e.title ?? "")
-                let titlePrefix = title.prefix(8)
-                if seenTitles.contains(titlePrefix) { return nil }
-                seenTitles.insert(titlePrefix)
-                let href =
-                (e.links?.first { $0.attributes?.rel == "alternate" }?.attributes?.href)
-                ?? e.links?.first?.attributes?.href
-                
-                let url = href.flatMap(URL.init(string:))
-                
-                let published = e.published ?? Date()
-                return NewsItem(title: title.isEmpty ? "(無題)" : title, link: url, published: published)
+            let (data, _) = try await URLSession.shared.data(from: URL(string: AppConstants.newsDataURL)!)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            items = try decoder.decode([Entry].self, from: data).map {
+                NewsItem(title: $0.title, link: URL(string: $0.link), published: $0.published)
             }
         } catch {
-            self.errorMessage = "読み込みに失敗しました: \(error.localizedDescription)"
+            errorMessage = "読み込みに失敗しました: \(error.localizedDescription)"
         }
     }
 }

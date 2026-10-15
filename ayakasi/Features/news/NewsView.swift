@@ -1,5 +1,4 @@
 import SwiftUI
-import FeedKit
 
 let publishedFormatter : DateFormatter = {
     let f = DateFormatter()

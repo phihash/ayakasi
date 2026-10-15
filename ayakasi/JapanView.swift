@@ -256,7 +256,7 @@ struct JapanView: View {
                 let iconAndColor = destinationIconAndColor(for: location)
                 Annotation(location.name, coordinate: location.coordinate) {
                     Button {
-                        viewModel.selectedLocation = .destination(location.id)
+                        withAnimation(.snappy) { viewModel.selectedLocation = .destination(location.id) }
                         Analytics.trackMapSpotTapped(spotName: location.name, prefecture: location.prefecture)
                     } label: {
                         ZStack {
@@ -277,7 +277,7 @@ struct JapanView: View {
                 let iconAndColor = spotIconAndColor(for: spot.spotType)
                 Annotation(spot.spotName, coordinate: spot.coordinate) {
                     Button {
-                        viewModel.selectedLocation = .yokaiSpot(spot.id)
+                        withAnimation(.snappy) { viewModel.selectedLocation = .yokaiSpot(spot.id) }
                         Analytics.trackMapSpotTapped(spotName: spot.spotName, prefecture: spot.prefecture)
                     } label: {
                         ZStack {
@@ -293,75 +293,76 @@ struct JapanView: View {
                 }
             }
         }
-        // safeAreaInsetより前に重ねるので、下のシート(チップ/スポット詳細)のすぐ上に来る
-        .overlay(alignment: .bottomTrailing) {
-            Button {
-                withAnimation(.easeOut(duration: 0.3)) { viewModel.cameraPosition = JapanViewModel.initialCamera }
-            } label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(Color.appSecondary)
-                    .frame(width: 48, height: 48)
-                    .background(Circle().fill(Color.appCardBackground))
-                    .shadow(color: .black.opacity(0.15), radius: 6, y: 2)
-            }
-            .accessibilityLabel("日本全体の表示に戻す")
-            .padding(.trailing, 16)
-            .padding(.bottom, 12)
-        }
-        .safeAreaInset(edge: .bottom) {
-            Group {
-                if let selection = viewModel.selectedLocation {
-                    spotPanel(selection)
-                        .padding(.top, 8)
-                        .overlay(alignment: .topTrailing) {
-                            Button {
-                                viewModel.selectedLocation = nil
-                            } label: {
-                                Image(systemName: "xmark")
-                                    .font(.system(size: 15, weight: .semibold))
-                                    .foregroundStyle(Color.appTextSecondary)
-                                    .frame(width: 36, height: 36)
-                                    .background(Circle().fill(Color.appTextPrimary.opacity(0.08)))
-                            }
-                            .accessibilityLabel("閉じる")
-                            .padding(.top, 20)
-                            .padding(.trailing, 16)
-                        }
-                } else {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
-                            ForEach(MapFilter.allCases, id: \.self) { item in
-                                let isSelected = item == filter
+        // safeAreaInsetにしないのは、シートの高さアニメーション中に地図の表示領域まで伸び縮みしてカメラが跳ねるから
+        .overlay(alignment: .bottom) {
+            VStack(alignment: .trailing, spacing: 12) {
+                Button {
+                    withAnimation(.easeOut(duration: 0.3)) { viewModel.cameraPosition = JapanViewModel.initialCamera }
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(Color.appSecondary)
+                        .frame(width: 48, height: 48)
+                        .background(Circle().fill(Color.appCardBackground))
+                        .shadow(color: .black.opacity(0.15), radius: 6, y: 2)
+                }
+                .accessibilityLabel("日本全体の表示に戻す")
+                .padding(.trailing, 16)
+                Group {
+                    if let selection = viewModel.selectedLocation {
+                        spotPanel(selection)
+                            .padding(.top, 8)
+                            .overlay(alignment: .topTrailing) {
                                 Button {
-                                    filter = item
+                                    withAnimation(.snappy) { viewModel.selectedLocation = nil }
                                 } label: {
-                                    Text(item.rawValue)
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
-                                        .padding(.horizontal, 18)
-                                        .padding(.vertical, 10)
-                                        .background(Capsule().fill(isSelected ? Color.appCardBackground : Color.appTextPrimary.opacity(0.06)))
-                                        .overlay(Capsule().stroke(isSelected ? Color.appSecondary : .clear, lineWidth: 2))
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 15, weight: .semibold))
+                                        .foregroundStyle(Color.appTextSecondary)
+                                        .frame(width: 36, height: 36)
+                                        .background(Circle().fill(Color.appTextPrimary.opacity(0.08)))
                                 }
-                                .buttonStyle(.plain)
-                                .accessibilityAddTraits(isSelected ? .isSelected : [])
+                                .accessibilityLabel("閉じる")
+                                .padding(.top, 20)
+                                .padding(.trailing, 16)
                             }
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                    } else {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) {
+                                ForEach(MapFilter.allCases, id: \.self) { item in
+                                    let isSelected = item == filter
+                                    Button {
+                                        filter = item
+                                    } label: {
+                                        Text(item.rawValue)
+                                            .font(.subheadline)
+                                            .fontWeight(.semibold)
+                                            .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
+                                            .padding(.horizontal, 18)
+                                            .padding(.vertical, 10)
+                                            .background(Capsule().fill(isSelected ? Color.appCardBackground : Color.appTextPrimary.opacity(0.06)))
+                                            .overlay(Capsule().stroke(isSelected ? Color.appSecondary : .clear, lineWidth: 2))
+                                    }
+                                    .buttonStyle(.plain)
+                                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                                }
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.top, 16)
+                            .padding(.bottom, 8)
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.top, 16)
-                        .padding(.bottom, 8)
+                        .transition(.opacity)
                     }
                 }
+                // 白いシートはタブバーの裏(画面下端)まで伸ばす
+                .background(
+                    UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
+                        .fill(Color.appCardBackground)
+                        .shadow(color: .black.opacity(0.08), radius: 8, y: -2)
+                        .ignoresSafeArea(edges: .bottom)
+                )
             }
-            // 白いシートはタブバーの裏(画面下端)まで伸ばす
-            .background(
-                UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
-                    .fill(Color.appCardBackground)
-                    .shadow(color: .black.opacity(0.08), radius: 8, y: -2)
-                    .ignoresSafeArea(edges: .bottom)
-            )
         }
         .navigationDestination(item: $selectedYokai) { yokai in
             NeoDetail(yokai: yokai)
