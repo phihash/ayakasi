@@ -54,7 +54,7 @@ enum Analytics {
         ])
     }
 
-    // アプリ起動の流入元（source: widget / notification）。通常起動はsession_startで足りるため計測しない
+    // アプリ起動の流入元（source: url / notification）。通常起動はsession_startで足りるため計測しない
     static func trackAppOpened(source: String) {
         amplitude.track(eventType:"app_opened", eventProperties: [
             "source": source

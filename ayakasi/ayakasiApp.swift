@@ -39,11 +39,6 @@ struct ayakasiApp: App {
                 .environmentObject(DeepLinkRouter.shared)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 .task { await YokaiStore.shared.refresh() }
-                .task {
-                    // 許可は孵化リストを開いたときに求める。ここでは許可済みなら歩数を反映し、
-                    // バックグラウンドで孵化していればrefresh内で通知する（未許可なら何も起きない）。
-                    await HealthKitStepReader.refresh()
-                }
         }
     }
 }

@@ -71,29 +71,10 @@ struct Container: View {
             }
             .onOpenURL { url in
                 guard url.scheme == "ayakasi" else { return }
-                Analytics.trackAppOpened(source: "widget")
-                switch url.host {
-                case "start":
-                    // 未セットアップWidgetのタップ → その場で歩数の許可を求める
-                    Task {
-                        await HealthKitStepReader.requestAuthorization()
-                        await HealthKitStepReader.refresh()
-                    }
-                case "health":
-                    // 「歩数が読めていません」Widgetのタップ → 設定タブへ移しつつ再判定。
-                    // 設定アプリで許可し直していれば、ここで読めるようになりWidgetも復帰する。
-                    selection = 3
-                    Task {
-                        await HealthKitStepReader.requestAuthorization()
-                        await HealthKitStepReader.refresh()
-                    }
-                case "yokai":
-                    // Widget/通知タップ (ayakasi://yokai/<documentId>) → 妖怪詳細へ
-                    if let id = url.pathComponents.dropFirst().first {
-                        router.pendingYokaiId = id
-                    }
-                default:
-                    break
+                Analytics.trackAppOpened(source: "url")
+                // ayakasi://yokai/<documentId> → 妖怪詳細へ
+                if url.host == "yokai", let id = url.pathComponents.dropFirst().first {
+                    router.pendingYokaiId = id
                 }
             }
             .onChange(of: router.pendingEventURL) { _, newValue in
