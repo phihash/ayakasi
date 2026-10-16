@@ -56,12 +56,20 @@ struct Container: View {
                     }
                     .tag(2)
 
-                SettingView()
+                CommunityView()
                     .tabItem {
-                        Image(systemName: "gearshape")
-                        Text("設定")
+                        Image(systemName: "person.2")
+                        Text("みんな")
                     }
                     .tag(3)
+
+                SettingView()
+                    .tabItem {
+                        Image("settings")
+                            .renderingMode(.template)
+                        Text("設定")
+                    }
+                    .tag(4)
 
             }
             .tint(.appSecondary)
@@ -82,7 +90,7 @@ struct Container: View {
                 if newValue != nil { selection = 2 }
             }
             .onChange(of: selection) { _, newValue in
-                let tabNames = ["検索", "スポット", "イベント", "設定"]
+                let tabNames = ["検索", "スポット", "イベント", "みんな", "設定"]
                 if newValue < tabNames.count {
                     Analytics.trackTabChanged(tabName: tabNames[newValue])
                     Analytics.trackScreenView(screenName: tabNames[newValue])

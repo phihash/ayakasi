@@ -13,9 +13,57 @@ extension DateFormatter {
     }()
 }
 
-enum HomeTab: String, CaseIterable {
+enum HomeTab: String, UnderlineTab {
     case events = "イベント"
     case news = "ニュース"
+    var icon: String? { nil }
+}
+
+// 画面上部の切り替えタブ(イベント・ニュース、みんな画面で共用)
+protocol UnderlineTab: Hashable, CaseIterable where AllCases: RandomAccessCollection {
+    var rawValue: String { get }
+    var icon: String? { get }  // Assets.xcassets の画像名
+}
+
+// 等幅のラベル(+任意のアイコン)を並べ、選択中だけ色と短い下線を付ける
+struct UnderlineTabBar<Tab: UnderlineTab>: View {
+    @Binding var selection: Tab
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(Array(Tab.allCases), id: \.self) { item in
+                let isSelected = item == selection
+                Button {
+                    withAnimation(.snappy) { selection = item }
+                } label: {
+                    HStack(spacing: 6) {
+                        if let icon = item.icon {
+                            Image(icon)
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                        Text(item.rawValue)
+                    }
+                    .font(.headline)
+                    .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 8)
+                    .padding(.bottom, 12)
+                    .overlay(alignment: .bottom) {
+                        Capsule()
+                            .fill(isSelected ? Color.appSecondary : .clear)
+                            .frame(width: 32, height: 4)
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isSelected ? .isSelected : [])
+            }
+        }
+        .padding(.horizontal, 24)
+        .animation(.snappy(duration: 0.2), value: selection)
+    }
 }
 
 struct HomeView: View {
@@ -100,7 +148,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack(spacing: 0) {
-                tabBar
+                UnderlineTabBar(selection: $tab)
 
                 // 中身は横スワイプでも切り替えられる(上のタブとselectionを共有)
                 TabView(selection: $tab) {
@@ -150,35 +198,6 @@ struct HomeView: View {
         if let notice = activeNotice {
             NoticeSection(notice: notice)
         }
-    }
-
-    // 参考アプリの受信トレイと同じ、等幅ラベル+選択中だけ下線のタブ
-    private var tabBar: some View {
-        HStack(spacing: 0) {
-            ForEach(HomeTab.allCases, id: \.self) { item in
-                let isSelected = item == tab
-                Button {
-                    withAnimation(.snappy) { tab = item }
-                } label: {
-                    Text(item.rawValue)
-                        .font(.headline)
-                        .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 8)
-                        .padding(.bottom, 12)
-                        .overlay(alignment: .bottom) {
-                            Capsule()
-                                .fill(isSelected ? Color.appSecondary : .clear)
-                                .frame(width: 32, height: 4)
-                        }
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityAddTraits(isSelected ? .isSelected : [])
-            }
-        }
-        .padding(.horizontal, 24)
-        .animation(.snappy(duration: 0.2), value: tab)
     }
 
     /// 通知タップで来たイベントURLを消化して SafariView で開く
