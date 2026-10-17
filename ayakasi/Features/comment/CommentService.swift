@@ -51,9 +51,16 @@ class CommentService : ObservableObject {
     // コメント投稿機能
 
 
+    static let maxLength = 500
+
+    static func length(of content: String) -> Int { content.unicodeScalars.count }
+
     func postComment(content: String, yokai: Ayakasi) async throws {
         guard !content.isEmpty else {
             throw CommentError(message: "コメントが空です")
+        }
+        guard Self.length(of: content) <= Self.maxLength else {
+            throw CommentError(message: "コメントは\(Self.maxLength)文字以内で入力してください")
         }
         guard let user = authService.currentUser, user.isEmailVerified else {
             throw CommentError(message: "ログインが必要です")

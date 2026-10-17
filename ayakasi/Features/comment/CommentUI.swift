@@ -9,6 +9,13 @@ struct CommentUI: View {
     @State private var commentText = ""
     @Binding var isPresented: Bool
     let yokai : Ayakasi
+
+    private var commentLength: Int { CommentService.length(of: commentText) }
+    private var isTooLong: Bool { commentLength > CommentService.maxLength }
+    private var canPost: Bool {
+        !commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isTooLong
+    }
+
     var body: some View {
         VStack(spacing: 20) {
             Text("コメントを投稿")
@@ -31,6 +38,11 @@ struct CommentUI: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(isTextFieldFocused ? Color.appPrimary : Color.clear, lineWidth: 2)
                     )
+
+                    Text("\(commentLength)/\(CommentService.maxLength)")
+                        .font(.caption)
+                        .foregroundStyle(isTooLong ? Color.red : Color.appTextSecondary)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 .padding(.horizontal, 20)
                 
@@ -62,8 +74,8 @@ struct CommentUI: View {
                     .cornerRadius(25)
                 }
                 .padding(.horizontal, 20)
-                .disabled(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                .opacity(commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
+                .disabled(!canPost)
+                .opacity(canPost ? 1.0 : 0.5)
 
             Spacer()
         }
