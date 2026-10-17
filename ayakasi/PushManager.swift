@@ -51,6 +51,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         // 許可プロンプトはイベントタブ表示時に出す（PushAuthorization.requestIfNeeded）。
         // 起動時は「既に許可済みならAPNs登録だけ」してトークンを新鮮に保つ。
         PushAuthorization.registerIfAuthorized()
+        DispatchQueue.global(qos: .utility).async { AVIFWarmup.run() }
         return true
     }
 
@@ -88,16 +89,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         [.banner, .list, .sound, .badge]
     }
 
-    // 通知タップ時（将来ここで妖怪詳細へ deep link できる）
+    // 通知タップで妖怪詳細かイベントへ遷移
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
         Logger.push.debug("通知タップ: \(String(describing: userInfo), privacy: .private)")
 
         let notifType: String
-        if response.notification.request.identifier.hasPrefix("hatch-") {
-            notifType = "hatch"
-        } else if userInfo["documentId"] != nil {
+        if userInfo["documentId"] != nil {
             notifType = "yokai"
         } else if userInfo["url"] != nil {
             notifType = "event"

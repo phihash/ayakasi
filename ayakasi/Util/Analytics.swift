@@ -47,7 +47,7 @@ enum Analytics {
         ])
     }
 
-    // 通知タップ（type: hatch / yokai / event / other）
+    // 通知タップ（type: yokai / event / other）
     static func trackNotificationOpened(type: String) {
         amplitude.track(eventType:"notification_opened", eventProperties: [
             "type": type
