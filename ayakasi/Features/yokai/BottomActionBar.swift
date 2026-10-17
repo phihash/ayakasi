@@ -9,23 +9,18 @@ struct BottomActionBar: View {
     @State private var isPreparingShare = false
 
     var body: some View {
-        HStack(spacing: 16) {
-            Spacer()
-
+        VStack(spacing: 10) {
             Button {
                 Task { await prepareShareCard() }
             } label: {
                 ZStack {
-                    actionIcon(
-                        systemName: "square.and.arrow.up",
-                        foregroundColor: Color.appTextPrimary
-                    )
+                    ActionCircleIcon(systemName: "square.and.arrow.up")
                     if isPreparingShare {
                         ProgressView()
                             .controlSize(.small)
                             .padding(5)
                             .background(.ultraThinMaterial, in: Circle())
-                            .offset(x: 22, y: -22)
+                            .offset(x: 16, y: -16)
                     }
                 }
             }
@@ -39,16 +34,12 @@ struct BottomActionBar: View {
                     showLoginAlert = true
                 }
             } label: {
-                actionIcon(
-                    systemName: "bubble.left.and.bubble.right",
-                    foregroundColor: Color.appTextPrimary
-                )
+                ActionCircleIcon(systemName: "bubble.left.and.bubble.right")
             }
             .accessibilityLabel("コメント")
         }
-        .frame(maxWidth: .infinity)
-        .padding(.horizontal, 22)
-        .padding(.vertical, 14)
+        .padding(.trailing, 22)
+        .padding(.bottom, 14)
         .alert("ログインが必要です", isPresented: $showLoginAlert) {
             Button("OK", role: .cancel) {}
         } message: {
@@ -68,16 +59,21 @@ struct BottomActionBar: View {
         sharePayload = await YokaiShareService.makePayload(for: yokai)
         Analytics.trackAppShared()
     }
+}
 
-    private func actionIcon(systemName: String, foregroundColor: Color) -> some View {
+/// 画面の右下に浮かせる丸いボタンの見た目(妖怪詳細とみんなのタブで共通)
+struct ActionCircleIcon: View {
+    let systemName: String
+
+    var body: some View {
         Image(systemName: systemName)
-            .font(.system(size: 25, weight: .semibold))
-            .foregroundStyle(foregroundColor)
-            .frame(width: 62, height: 62)
+            .font(.system(size: 18, weight: .semibold))
+            .foregroundStyle(Color.appTextPrimary)
+            .frame(width: 46, height: 46)
             .background(
                 Circle()
                     .fill(Color.appCardBackground.opacity(0.94))
             )
-            .shadow(color: .black.opacity(0.14), radius: 18, x: 0, y: 8)
+            .shadow(color: .black.opacity(0.14), radius: 10, x: 0, y: 4)
     }
 }

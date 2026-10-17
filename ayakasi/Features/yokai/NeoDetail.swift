@@ -1,15 +1,13 @@
 import SwiftUI
 import Photos
 import Kingfisher
-import FirebaseFirestore
 import MapKit
 import os
 
+// ponytail: 通報・ブロックのメニュー(…)はD1に移すまで外している。Appleの審査ガイドライン1.2で必須なので、リリース前に戻す
 struct CommentListView: View {
-    let comments: [[String: Any]]
-    @EnvironmentObject var authVM: AuthViewModel
-    @State private var reportTarget: ReportTarget?
-    
+    let comments: [YokaiComment]
+
     var body: some View {
         if comments.isEmpty {
             VStack(spacing: 16) {
@@ -26,71 +24,30 @@ struct CommentListView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 40)
         } else {
-            ForEach(Array(comments.enumerated()), id: \.offset) { index, comment in
-                VStack{
-                    HStack{
-                        Text("\(index+1).")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(.appTextSecondary)
-                        if let timestamp = comment["createdAt"] as? Timestamp {
-                            Text(DateFormatter.shortDateTime.string(from: timestamp.dateValue()))
-                                .font(.caption)
-                                .foregroundColor(.appTextSecondary)
-                        } else {
-                            Text("時刻を取得できませんでした")
-                                .font(.caption)
-                                .foregroundColor(.appTextSecondary)
-                        }
-                        Spacer()
-                        
-                        HStack{
-                            Spacer()
-                            if authVM.authStatus == .authenticated,
-                               let currentUserId = authVM.user?.uid,
-                               let commentUserId = comment["userId"] as? String,
-                               currentUserId != commentUserId {
-                                Image(systemName: "ellipsis")
-                                    .font(.title3)
-                                    .onTapGesture {
-                                        guard let docId = comment["documentId"] as? String, !docId.isEmpty else {
-                                            Logger.comment.error("documentIdが無いため通報シートを開けない")
-                                            return
-                                        }
-
-                                        reportTarget = ReportTarget(id: docId)
-
-                                    }
+            VStack(alignment: .leading, spacing: 20) {
+                ForEach(comments) { comment in
+                    HStack(alignment: .top, spacing: 10) {
+                        Image(systemName: "person.crop.circle.fill")
+                            .font(.system(size: 36))
+                            .foregroundColor(.appTextSecondary.opacity(0.5))
+                        VStack(alignment: .leading, spacing: 4) {
+                            if comment.isWithdrawn {
+                                Text("退会したユーザー")
+                                    .font(.caption)
+                                    .foregroundColor(.appTextSecondary)
                             }
+                            Text(comment.content)
+                                .font(.body)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 10)
+                                .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
                         }
-                    }
-                    .padding(.bottom,4)
-                    HStack{
-                        Text(comment["content"] as? String ?? "コメントを取得できませんでした")
-                            .font(.body)
-                            .fontWeight(.medium)
-                        Spacer()
+                        Spacer(minLength: 40)
                     }
                 }
-                .padding(.horizontal,24)
-                .padding(.bottom,2)
-                
-                if index < comments.count - 1 {
-                    Divider()
-                        .padding(.horizontal,24)
-                        .padding(.bottom,12)
-                }
             }
-            .padding(.top,12)
-            .sheet(item: $reportTarget) { target in
-                if let comment = comments.first(where: { ($0["documentId"] as? String) == target.id }),
-                   let userId = comment["userId"] as? String {
-                    ReportUI(commentId: target.id, userId: userId)
-                        .presentationDetents([.height(220)])
-                        .presentationBackground(Color.appBackground)
-                        .presentationCornerRadius(36)
-                }
-            }
+            .padding(.horizontal, 20)
+            .padding(.top, 12)
         }
     }
 }
@@ -445,8 +402,8 @@ struct NeoDetail: View {
                             }
                         }
 
-                        // 下のコメント入力バーに最後の要素が隠れないための余白
-                        Color.clear.frame(height: 72)
+                        // 右下のシェア・コメントボタンに最後の要素が隠れないための余白
+                        Color.clear.frame(height: 120)
                     }
                 }
             }
@@ -475,7 +432,8 @@ struct NeoDetail: View {
                 .presentationDetents([.fraction(0.35)])
                 .presentationBackground(.regularMaterial)
         }
-        .safeAreaInset(edge: .bottom){
+        // safeAreaInsetにしないのは、縦に2つ並べたボタンの高さぶん、画面の下が常に空いてしまうため
+        .overlay(alignment: .bottomTrailing) {
             BottomActionBar(
                 yokai: yokai,
                 isCommentUI: $isCommentUI
