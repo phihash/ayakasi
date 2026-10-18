@@ -66,6 +66,15 @@ struct SearchView: View {
             .navigationTitle("さがす")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                // 設定の奥にしかないと見つからないという問い合わせがあったので、最初に開くタブに置く
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        FavoriteYokaiView()
+                    } label: {
+                        Image(systemName: "bookmark")
+                    }
+                    .accessibilityLabel("ブックマーク一覧")
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Picker("カテゴリ", selection: $selectedCategory) {

@@ -46,6 +46,11 @@ struct SettingView: View {
                     
 
                     VStack(spacing: 0) {
+                        SettingRowLink(title: "ブックマーク一覧", destination: FavoriteYokaiView())
+                        Divider()
+                            .padding(.leading, 4)
+                            .padding(.vertical, 12)
+
                         SettingRowLink(title: "匿名で問い合わせ", destination: WebView(url: URL(string: AppConstants.contactFormURL)))
                             .simultaneousGesture(TapGesture().onEnded {
                                 Analytics.trackScreenView(screenName: "匿名で問い合わせ")
@@ -124,7 +129,9 @@ struct SettingView: View {
                         }
                         .foregroundStyle(.primary)
 
-                        SettingRowLink(title: "ブックマーク一覧", destination: FavoriteYokaiView())
+                        #if DEBUG
+                        SettingRowLink(title: "画像の計測(DEBUG)", destination: ImageBenchmarkView())
+                        #endif
 
                         
                         SettingRowButton(title: "キャッシュを削除する") {
