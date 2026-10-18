@@ -1,12 +1,13 @@
 import SwiftUI
+import StoreKit
 import Photos
 import Kingfisher
 import MapKit
 import os
 
-// ponytail: 通報・ブロックのメニュー(…)はD1に移すまで外している。Appleの審査ガイドライン1.2で必須なので、リリース前に戻す
 struct CommentListView: View {
     let comments: [YokaiComment]
+    let onChanged: () async -> Void
 
     var body: some View {
         if comments.isEmpty {
@@ -42,7 +43,12 @@ struct CommentListView: View {
                                 .padding(.vertical, 10)
                                 .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
                         }
-                        Spacer(minLength: 40)
+                        Spacer(minLength: 0)
+                        if comment.isMine {
+                            Spacer().frame(width: 32)
+                        } else {
+                            CommentMenu(comment: comment, onDone: onChanged)
+                        }
                     }
                 }
             }
@@ -64,6 +70,7 @@ struct NeoDetail: View {
     @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
     @EnvironmentObject var favoriteService : FavoriteService
+    @Environment(\.requestReview) private var requestReview
     
     private func requestAndSaveImage(imageName: String){
         let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
@@ -365,7 +372,9 @@ struct NeoDetail: View {
                         .padding(.horizontal,24)
                         .padding(.top,28)
 
-                        CommentListView(comments: commentVM.yokaiComments)
+                        CommentListView(comments: commentVM.yokaiComments[yokai.documentId] ?? []) {
+                            await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
+                        }
 
                         //関連妖怪
                         let relatedYokais = ayakasis.filter { ayakasi in
@@ -424,8 +433,13 @@ struct NeoDetail: View {
         }
         .task {
             Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)
-            ReviewRequestManager.shared.recordYokaiViewed(documentId: yokai.documentId)
+            ReviewRequestManager.shared.recordActiveDay()
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
+            // 開いた瞬間に出さないのは、妖怪を見る前に邪魔をしないため
+            try? await Task.sleep(for: .seconds(3))
+            if !Task.isCancelled, ReviewRequestManager.shared.shouldRequestReviewForActiveDays() {
+                requestReview()
+            }
         }
         .sheet(isPresented: $isCommentUI) {
             CommentUI(isPresented: $isCommentUI, yokai: yokai)

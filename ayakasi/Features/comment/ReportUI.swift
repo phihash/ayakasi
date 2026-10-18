@@ -1,124 +1,57 @@
 import SwiftUI
 
-/// 通報シートの表示対象コメント（NeoDetail の sheet(item:) 用）
-struct ReportTarget: Identifiable { let id: String }
-
-struct ReportUI: View {
-    @EnvironmentObject var reportService: CommentReportService
-    @EnvironmentObject var blockingService: UserBlockingService
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @State private var showAlert = false
+/// コメントの「…」メニュー(通報・ブロック)。Appleの審査ガイドライン1.2で必須。自分のコメントには付けない
+struct CommentMenu: View {
+    let comment: YokaiComment
+    /// 通報・ブロックしたコメントはWorkerが本人に返さなくなるので、終わったら一覧を取り直してもらう
+    let onDone: () async -> Void
+    @EnvironmentObject var commentService: CommentService
     @State private var showReportConfirmation = false
     @State private var showBlockConfirmation = false
-    @State private var alertMessage = ""
-    @State private var alertTitle = ""
-    let commentId: String
-    let userId: String
+    @State private var errorMessage: String?
 
     var body: some View {
-        VStack(spacing: 0) {
-            Capsule()
-                .fill(Color.appTextSecondary.opacity(0.18))
-                .frame(width: 44, height: 5)
-                .padding(.top, 10)
-                .padding(.bottom, 12)
-
-            actionRow(
-                title: "コメントを報告する",
-                systemImage: "exclamationmark.triangle",
-                foregroundColor: Color.appError
-            ) {
+        Menu {
+            Button("コメントを報告する", systemImage: "exclamationmark.triangle", role: .destructive) {
                 showReportConfirmation = true
             }
-
-            if authViewModel.authStatus == .authenticated {
-                actionRow(
-                    title: "ユーザーをブロックする",
-                    systemImage: "person.fill.xmark",
-                    foregroundColor: Color.appTextPrimary
-                ) {
-                    showBlockConfirmation = true
-                }
+            Button("ユーザーをブロックする", systemImage: "person.fill.xmark", role: .destructive) {
+                showBlockConfirmation = true
             }
-
-            Spacer(minLength: 0)
+        } label: {
+            Image(systemName: "ellipsis")
+                .foregroundStyle(Color.appTextSecondary)
+                .frame(width: 32, height: 32)
+                .contentShape(Rectangle())
         }
-        .padding(.horizontal, 20)
+        .accessibilityLabel("コメントのメニュー")
         .confirmationDialog("コメントを報告しますか？", isPresented: $showReportConfirmation, titleVisibility: .visible) {
-            Button("報告する", role: .destructive) {
-                reportComment()
-            }
+            Button("報告する", role: .destructive) { run { try await commentService.report(comment) } }
             Button("キャンセル", role: .cancel) {}
         } message: {
-            Text("不適切なコメントとして報告します。")
+            Text("不適切なコメントとして報告します。報告したコメントは表示されなくなります。")
         }
         .confirmationDialog("ユーザーをブロックしますか？", isPresented: $showBlockConfirmation, titleVisibility: .visible) {
-            Button("ブロックする", role: .destructive) {
-                blockUser()
-            }
+            Button("ブロックする", role: .destructive) { run { try await commentService.blockAuthor(of: comment) } }
             Button("キャンセル", role: .cancel) {}
         } message: {
             Text("このユーザーのコメントは表示されなくなります。")
         }
-        .alert(alertTitle, isPresented: $showAlert) {
+        .alert("エラー", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) {}
         } message: {
-            Text(alertMessage)
+            Text(errorMessage ?? "")
         }
     }
 
-    private func actionRow(
-        title: String,
-        systemImage: String,
-        foregroundColor: Color,
-        action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            HStack(spacing: 18) {
-                Image(systemName: systemImage)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .frame(width: 28)
-
-                Text(title)
-                    .font(.title3)
-                    .fontWeight(.bold)
-
-                Spacer()
-            }
-            .foregroundStyle(foregroundColor)
-            .frame(maxWidth: .infinity, minHeight: 68, alignment: .leading)
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func reportComment() {
+    // 成功の知らせを出さないのは、コメントが一覧から消えることで伝わるため
+    private func run(_ action: @escaping () async throws -> Void) {
         Task {
             do {
-                try await reportService.reportComment(documentId: commentId)
-                alertTitle = "完了"
-                alertMessage = "報告が完了しました"
-                showAlert = true
+                try await action()
+                await onDone()
             } catch {
-                alertTitle = "エラー"
-                alertMessage = error.localizedDescription
-                showAlert = true
-            }
-        }
-    }
-
-    private func blockUser() {
-        Task {
-            do {
-                try await blockingService.blockUser(userId: userId)
-                alertTitle = "完了"
-                alertMessage = "ユーザーをブロックしました"
-                showAlert = true
-            } catch {
-                alertTitle = "エラー"
-                alertMessage = error.localizedDescription
-                showAlert = true
+                errorMessage = error.localizedDescription
             }
         }
     }

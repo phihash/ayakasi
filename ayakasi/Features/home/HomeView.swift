@@ -19,7 +19,7 @@ enum HomeTab: String, UnderlineTab {
     var icon: String? { nil }
 }
 
-// 画面上部の切り替えタブ(イベント・ニュース、みんな画面で共用)
+// 画面上部の切り替えタブ(イベント・ニュース、コメント画面で共用)
 protocol UnderlineTab: Hashable, CaseIterable where AllCases: RandomAccessCollection {
     var rawValue: String { get }
     var icon: String? { get }  // Assets.xcassets の画像名

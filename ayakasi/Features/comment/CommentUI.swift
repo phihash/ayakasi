@@ -7,13 +7,14 @@ struct CommentUI: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var commentText = ""
+    @State private var isPosting = false
     @Binding var isPresented: Bool
     let yokai : Ayakasi
 
     private var commentLength: Int { CommentService.length(of: commentText) }
     private var isTooLong: Bool { commentLength > CommentService.maxLength }
     private var canPost: Bool {
-        !commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isTooLong
+        !isPosting && !commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isTooLong
     }
 
     var body: some View {
@@ -48,7 +49,10 @@ struct CommentUI: View {
                 
                 // 投稿ボタン
                 Button(action: { // 投稿処理
+                    guard canPost else { return }
+                    isPosting = true
                     Task {
+                        defer { isPosting = false }
                         do {
                             try await commentStore.postComment(content: commentText, yokai: yokai)
                             Analytics.trackCommentPosted(documentId: yokai.documentId)
@@ -64,7 +68,7 @@ struct CommentUI: View {
                 }) {
                     HStack {
                         Image(systemName: "paperplane.fill")
-                        Text("投稿する")
+                        Text(isPosting ? "投稿中…" : "投稿する")
                     }
                     .font(.headline)
                     .fontWeight(.semibold)

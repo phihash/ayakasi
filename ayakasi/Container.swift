@@ -58,8 +58,8 @@ struct Container: View {
 
                 CommunityView()
                     .tabItem {
-                        Image(systemName: "person.2")
-                        Text("みんな")
+                        Image(systemName: "bubble.left.and.bubble.right")
+                        Text("コメント")
                     }
                     .tag(3)
 
@@ -90,7 +90,7 @@ struct Container: View {
                 if newValue != nil { selection = 2 }
             }
             .onChange(of: selection) { _, newValue in
-                let tabNames = ["検索", "スポット", "イベント", "みんな", "設定"]
+                let tabNames = ["検索", "スポット", "イベント", "コメント", "設定"]
                 if newValue < tabNames.count {
                     Analytics.trackTabChanged(tabName: tabNames[newValue])
                     Analytics.trackScreenView(screenName: tabNames[newValue])

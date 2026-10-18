@@ -3,44 +3,28 @@ import Foundation
 final class ReviewRequestManager {
     static let shared = ReviewRequestManager()
 
-    private let viewedYokaiIdsKey = "reviewViewedYokaiIds"
-    private let hasAddedFavoriteKey = "hasAddedFavorite"
+    // 旧版(初ブックマーク時に依頼)で出した人にもう一度出さないよう、キー名は旧版のまま
     private let hasRequestedReviewKey = "hasRequestedReview"
+    private let activeDayCountKey = "reviewActiveDayCount"
+    private let lastActiveDayKey = "reviewLastActiveDay"
 
     private init() {}
 
-    private var viewedYokaiIds: Set<String> {
-        get {
-            Set(UserDefaults.standard.stringArray(forKey: viewedYokaiIdsKey) ?? [])
-        }
-        set {
-            UserDefaults.standard.set(Array(newValue), forKey: viewedYokaiIdsKey)
-        }
-    }
-
-    func recordYokaiViewed(documentId: String) {
-        var ids = viewedYokaiIds
-        ids.insert(documentId)
-        viewedYokaiIds = ids
-    }
-
-    func registerExistingFavoriteIfNeeded(hasFavorites: Bool) {
-        if hasFavorites {
-            UserDefaults.standard.set(true, forKey: hasAddedFavoriteKey)
-        }
-    }
-
-    /// 初めてお気に入りを追加した瞬間に一度だけ判定する。
-    /// 異なる妖怪を3体以上閲覧済みなら、Apple標準レビューを要求してよい。
-    func shouldRequestReviewAfterFirstFavorite() -> Bool {
+    // 起動した日でなく妖怪を開いた日を数えるのは、通知やURLから開いてすぐ閉じた日を「使った日」に入れないため
+    func recordActiveDay() {
         let defaults = UserDefaults.standard
+        // timeZone: .currentを付けないと.iso8601はUTCで日付を切り、日本では朝9時に日付が変わってしまう
+        let today = Date().formatted(Date.ISO8601FormatStyle(timeZone: .current).year().month().day())
+        guard defaults.string(forKey: lastActiveDayKey) != today else { return }
+        defaults.set(today, forKey: lastActiveDayKey)
+        defaults.set(defaults.integer(forKey: activeDayCountKey) + 1, forKey: activeDayCountKey)
+    }
 
-        guard !defaults.bool(forKey: hasAddedFavoriteKey) else { return false }
-        defaults.set(true, forKey: hasAddedFavoriteKey)
-
-        guard viewedYokaiIds.count >= 3 else { return false }
-        guard !defaults.bool(forKey: hasRequestedReviewKey) else { return false }
-
+    /// 妖怪を開いた日が通算3日以上になったら、一度だけレビューを要求してよい
+    func shouldRequestReviewForActiveDays() -> Bool {
+        let defaults = UserDefaults.standard
+        guard defaults.integer(forKey: activeDayCountKey) >= 3,
+              !defaults.bool(forKey: hasRequestedReviewKey) else { return false }
         defaults.set(true, forKey: hasRequestedReviewKey)
         return true
     }

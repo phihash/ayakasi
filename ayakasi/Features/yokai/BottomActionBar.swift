@@ -61,7 +61,7 @@ struct BottomActionBar: View {
     }
 }
 
-/// 画面の右下に浮かせる丸いボタンの見た目(妖怪詳細とみんなのタブで共通)
+/// 画面の右下に浮かせる丸いボタンの見た目(妖怪詳細とコメントのタブで共通)
 struct ActionCircleIcon: View {
     let systemName: String
 

@@ -5,8 +5,6 @@ import Firebase
 struct ayakasiApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var AuthVM: AuthViewModel
-    @StateObject private var BlockingVM: UserBlockingService
-    @StateObject private var ReportVM: CommentReportService
     @StateObject private var CommentVM: CommentService
     @StateObject private var FavoriteVM: FavoriteService
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -15,15 +13,11 @@ struct ayakasiApp: App {
         FirebaseApp.configure()
 
         let authService = AuthService.shared
-        let blockingService = UserBlockingService(authService: authService)
 
         _AuthVM = StateObject(wrappedValue: AuthViewModel())
-        _BlockingVM = StateObject(wrappedValue: blockingService)
-        _ReportVM = StateObject(wrappedValue: CommentReportService(authService: authService))
         _CommentVM = StateObject(wrappedValue: CommentService(
             authService: authService,
-            tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment"),
-            blockingService: blockingService
+            tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
         ))
         _FavoriteVM = StateObject(wrappedValue: FavoriteService.shared)
     }
@@ -33,8 +27,6 @@ struct ayakasiApp: App {
                 .environment(\.locale, Locale(identifier: "ja_JP"))
                 .environmentObject(AuthVM)
                 .environmentObject(CommentVM)
-                .environmentObject(BlockingVM)
-                .environmentObject(ReportVM)
                 .environmentObject(FavoriteVM)
                 .environmentObject(DeepLinkRouter.shared)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
