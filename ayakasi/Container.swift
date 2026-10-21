@@ -58,7 +58,8 @@ struct Container: View {
 
                 CommunityView()
                     .tabItem {
-                        Image(systemName: "bubble.left.and.bubble.right")
+                        Image("forum")
+                            .renderingMode(.template)
                         Text("コメント")
                     }
                     .tag(3)

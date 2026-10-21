@@ -19,10 +19,14 @@ struct Ayakasi : Identifiable, Decodable {
 
     var videoId: String? = nil  // YouTube動画ID
 
+    // 構造化しないのは、管理画面で1行ずつ書くだけにしたいため(例: アニメ『ゲゲゲの鬼太郎』)
+    var appearances: [String]? = nil  // 登場する作品
+    var books: [String]? = nil        // もっと知れる本
+
     private enum CodingKeys: String, CodingKey {
         case name, documentId, imageName, imageSource, imageAuthor, imageTitle
         case description, categories, relatedCategory, searchKeywords
-        case story, relatedSpots, videoId
+        case story, relatedSpots, videoId, appearances, books
     }
 }
 

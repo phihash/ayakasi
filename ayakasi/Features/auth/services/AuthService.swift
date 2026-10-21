@@ -7,6 +7,7 @@ import os
 @MainActor
 protocol AuthServiceProtocol {
     var currentUser: User? { get }
+    func authorizedRequest(_ url: URL, forceRefresh: Bool) async throws -> URLRequest
 }
 
 @MainActor
@@ -64,6 +65,17 @@ class AuthService: ObservableObject , AuthServiceProtocol {
         try await user.sendEmailVerification()
     }
     
+    /// Worker(D1)の本人確認つきAPI用。Firebase の ID トークンを Authorization に付けたリクエストを作る。
+    /// forceRefresh: false でも期限が近ければ自動で更新されたトークンが返るので、ここで期限は気にしない
+    func authorizedRequest(_ url: URL, forceRefresh: Bool = false) async throws -> URLRequest {
+        guard let user = currentUser else {
+            throw AuthError.noUser
+        }
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(try await user.getIDToken(forcingRefresh: forceRefresh))", forHTTPHeaderField: "Authorization")
+        return request
+    }
+
     func reloadUser() async throws {
         guard let user = currentUser else {
             throw AuthError.noUser
