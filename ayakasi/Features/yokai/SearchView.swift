@@ -10,11 +10,9 @@ struct SearchView: View {
         GridItem(.flexible(), spacing: 12)
     ]
 
-    // よく見られている(デフォ・軽い) → すべて → 妖怪が1体以上いるカテゴリだけ
+    // よく見られている(デフォ・軽い) → すべて → 妖怪が1体以上いるカテゴリ
     private var availableCategories: [String] {
-        [YokaiCategories.popularLabel, "すべて"] + YokaiCategories.searchCategories.filter { category in
-            ayakasis.contains { $0.categories.contains(category) }
-        }
+        [YokaiCategories.popularLabel, "すべて"] + YokaiCategories.searchCategories
     }
 
     private var filteredYokai: [Ayakasi] {

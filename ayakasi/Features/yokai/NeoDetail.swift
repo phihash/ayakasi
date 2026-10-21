@@ -2,7 +2,6 @@ import SwiftUI
 import StoreKit
 import Photos
 import Kingfisher
-import MapKit
 import os
 
 struct CommentListView: View {
@@ -213,6 +212,27 @@ struct NeoDetail: View {
         .padding(.horizontal, 24)
     }
 
+    // 地図にしないのは、小さな正方形の地図では場所が読み取れないため(場所は「地図で開く」で見る)
+    private func spotThumbnail(_ item: Ayakasi) -> some View {
+        ZStack {
+            Color.gray.opacity(0.12)
+            if item.imageName == "NoImage" {
+                Image(systemName: "questionmark.square")
+                    .font(.system(size: 28))
+                    .foregroundColor(.appTextSecondary)
+            } else {
+                KFImage(URL(string: item.imageName))
+                    .downsampling(size: CGSize(width: 96, height: 96))
+                    .scaleFactor(UIScreen.main.scale)
+                    .cacheOriginalImage()
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
+        .frame(width: 96, height: 96)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
     private func spotCard(_ spot: YokaiSpot) -> some View {
         Button {
             let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
@@ -220,32 +240,22 @@ struct NeoDetail: View {
                 UIApplication.shared.open(url)
             }
         } label: {
-            VStack(alignment: .leading, spacing: 0) {
-                Map(initialPosition: .region(MKCoordinateRegion(
-                    center: spot.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                ))) {
-                    Marker(spot.spotName, coordinate: spot.coordinate)
-                        .tint(Color.appSecondary)
-                }
-                .frame(height: 140)
-                .allowsHitTesting(false)
+            HStack(alignment: .top, spacing: 12) {
+                spotThumbnail(yokaiById(spot.yokaiIds.first ?? "") ?? yokai)
 
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(spot.spotName)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                        Spacer(minLength: 8)
-                        Text(spot.prefecture)
-                            .font(.caption)
-                            .foregroundColor(.appTextSecondary)
-                    }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(spot.spotName)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text(spot.prefecture)
+                        .font(.caption)
+                        .foregroundColor(.appTextSecondary)
                     if let description = spot.description {
                         Text(description)
                             .font(.subheadline)
                             .foregroundColor(.appTextSecondary)
                             .multilineTextAlignment(.leading)
+                            .padding(.top, 2)
                     }
                     Label("地図で開く", systemImage: "arrow.up.right.square")
                         .font(.caption)
@@ -253,8 +263,8 @@ struct NeoDetail: View {
                         .foregroundColor(.appSecondary)
                         .padding(.top, 2)
                 }
-                .padding(12)
             }
+            .padding(12)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(Color.appCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))

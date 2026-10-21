@@ -56,6 +56,37 @@ struct JapanView: View {
     }
 
     // スポットタイプに応じたアイコンとカラーを返す
+    // ゆかりの地は妖怪の顔で見分けられるよう、角丸正方形にその妖怪の画像を出す(画像が無ければ従来のアイコン)
+    private func yokaiPin(_ yokai: Ayakasi, color: Color) -> some View {
+        ZStack {
+            if yokai.imageName == "NoImage" {
+                iconPin("sparkles", color: color)
+            } else {
+                RoundedRectangle(cornerRadius: 8).fill(color)
+                KFImage(URL(string: yokai.imageName))
+                    .downsampling(size: CGSize(width: 40, height: 40))
+                    .scaleFactor(UIScreen.main.scale)
+                    .cacheOriginalImage()
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 36, height: 36)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+        }
+        .frame(width: 36, height: 36)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
+        .shadow(radius: 3)
+    }
+
+    private func iconPin(_ icon: String, color: Color) -> some View {
+        Image(systemName: icon)
+            .foregroundColor(.white)
+            .font(.system(size: 15))
+            .frame(width: 36, height: 36)
+            .background(RoundedRectangle(cornerRadius: 8).fill(color))
+            .shadow(radius: 3)
+    }
+
     private func spotIconAndColor(for spotType: SpotType) -> (icon: String, color: Color) {
         switch spotType {
         case .yokaiRelated:
@@ -114,7 +145,7 @@ struct JapanView: View {
             if let location = yokaiDestinations.first(where: { $0.id == destinationId }) {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
-                        Circle()
+                        RoundedRectangle(cornerRadius: 3)
                             .fill(destinationIconAndColor(for: location).color)
                             .frame(width: 12, height: 12)
                         Text(location.name)
@@ -159,7 +190,7 @@ struct JapanView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         ZStack {
-                            Circle()
+                            RoundedRectangle(cornerRadius: 5)
                                 .fill(iconAndColor.color)
                                 .frame(width: 20, height: 20)
                             Image(systemName: iconAndColor.icon)
@@ -251,15 +282,7 @@ struct JapanView: View {
                         withAnimation(.snappy) { viewModel.selectedLocation = .destination(location.id) }
                         Analytics.trackMapSpotTapped(spotName: location.name, prefecture: location.prefecture)
                     } label: {
-                        ZStack {
-                            Circle()
-                                .fill(iconAndColor.color)
-                                .frame(width: 30, height: 30)
-                            Image(systemName: iconAndColor.icon)
-                                .foregroundColor(.white)
-                                .font(.system(size: 14))
-                        }
-                        .shadow(radius: 3)
+                        iconPin(iconAndColor.icon, color: iconAndColor.color)
                     }
                 }
             }
@@ -272,15 +295,11 @@ struct JapanView: View {
                         withAnimation(.snappy) { viewModel.selectedLocation = .yokaiSpot(spot.id) }
                         Analytics.trackMapSpotTapped(spotName: spot.spotName, prefecture: spot.prefecture)
                     } label: {
-                        ZStack {
-                            Circle()
-                                .fill(iconAndColor.color)
-                                .frame(width: 30, height: 30)
-                            Image(systemName: iconAndColor.icon)
-                                .foregroundColor(.white)
-                                .font(.system(size: 14))
+                        if spot.spotType == .yokaiRelated, let yokai = spot.yokaiIds.first.flatMap(yokaiById) {
+                            yokaiPin(yokai, color: iconAndColor.color)
+                        } else {
+                            iconPin(iconAndColor.icon, color: iconAndColor.color)
                         }
-                        .shadow(radius: 3)
                     }
                 }
             }
