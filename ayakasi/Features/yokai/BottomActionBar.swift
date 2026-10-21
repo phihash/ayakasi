@@ -34,7 +34,7 @@ struct BottomActionBar: View {
                     showLoginAlert = true
                 }
             } label: {
-                ActionCircleIcon(systemName: "bubble.left.and.bubble.right")
+                ActionCircleIcon(assetName: "forum")
             }
             .accessibilityLabel("コメント")
         }
@@ -63,17 +63,29 @@ struct BottomActionBar: View {
 
 /// 画面の右下に浮かせる丸いボタンの見た目(妖怪詳細とコメントのタブで共通)
 struct ActionCircleIcon: View {
-    let systemName: String
+    var systemName: String? = nil
+    /// Assets.xcassets の画像(forumなど、SF Symbolsにない形)
+    var assetName: String? = nil
 
     var body: some View {
-        Image(systemName: systemName)
-            .font(.system(size: 18, weight: .semibold))
-            .foregroundStyle(Color.appTextPrimary)
-            .frame(width: 46, height: 46)
-            .background(
-                Circle()
-                    .fill(Color.appCardBackground.opacity(0.94))
-            )
-            .shadow(color: .black.opacity(0.14), radius: 10, x: 0, y: 4)
+        Group {
+            if let assetName {
+                Image(assetName)
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22)
+            } else if let systemName {
+                Image(systemName: systemName)
+                    .font(.system(size: 18, weight: .semibold))
+            }
+        }
+        .foregroundStyle(Color.appTextPrimary)
+        .frame(width: 46, height: 46)
+        .background(
+            Circle()
+                .fill(Color.appCardBackground.opacity(0.94))
+        )
+        .shadow(color: .black.opacity(0.14), radius: 10, x: 0, y: 4)
     }
 }

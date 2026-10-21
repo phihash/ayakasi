@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct Yuki: View {
-    let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
           ("冬の夜の出来事",
            "ある雪の深い夜、木こりの親子は山中で猛吹雪に遭い、小屋へ避難しました。そこで二人を訪れたのが、真っ白な着物に身を包み、氷のように冷たい息を持つ「雪女」でした。"),
@@ -19,30 +17,6 @@ struct Yuki: View {
       ]
 
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .appSecondary, numberString: "\(id+1)" ,title: item.title)
-                    HStack{
-                        Text(item.body)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,8)
-                }
-            }
-            .padding(12)
-            .navigationTitle("雪女")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-            }
-        }
+        StoryReader(title: "雪女", color: .appSecondary, sections: sections)
     }
 }

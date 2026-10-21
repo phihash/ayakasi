@@ -44,37 +44,38 @@ struct SearchView: View {
                 }
                 .background(Color("Ivory"))
 
-                // キーワード検索(カテゴリに関係なく全妖怪から)
-                NavigationLink {
-                    YokaiSearchView { yokai in
-                        selectedYokai = yokai
+                VStack(spacing: 12) {
+                    // 設定の奥にしかないと見つからないという問い合わせがあったので、最初に開くタブに置く
+                    NavigationLink {
+                        FavoriteYokaiView()
+                    } label: {
+                        ActionCircleIcon(systemName: "bookmark")
                     }
-                } label: {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 56, height: 56)
-                        .background(Color.appSecondary)
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.18), radius: 8, x: 0, y: 4)
+                    .accessibilityLabel("ブックマーク一覧")
+
+                    // キーワード検索(カテゴリに関係なく全妖怪から)
+                    NavigationLink {
+                        YokaiSearchView { yokai in
+                            selectedYokai = yokai
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: 56, height: 56)
+                            .background(Color.appSecondary)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.18), radius: 8, x: 0, y: 4)
+                    }
+                    .accessibilityLabel("妖怪を検索")
                 }
-                .accessibilityLabel("妖怪を検索")
                 .padding(.trailing, 20)
                 .padding(.bottom, 24)
             }
             .navigationTitle("さがす")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                // 設定の奥にしかないと見つからないという問い合わせがあったので、最初に開くタブに置く
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink {
-                        FavoriteYokaiView()
-                    } label: {
-                        Image(systemName: "bookmark")
-                    }
-                    .accessibilityLabel("ブックマーク一覧")
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Picker("カテゴリ", selection: $selectedCategory) {

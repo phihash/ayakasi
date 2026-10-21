@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct Oiteke: View {
-    let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("博打にのめり込む男",
          "昔ある所に一人の男がおりました。その男は博打を覚えてしまいまったく働こうとしませんでした。家業もそっちのけで、毎日賭場に通う日々でした。"),
@@ -29,30 +27,6 @@ struct Oiteke: View {
     ]
     
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .appError, numberString: "\(id+1)" ,title: item.title)
-                    HStack{
-                        Text(item.body)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,8)
-                }
-            }
-            .padding(12)
-            .navigationTitle("おいてけ掘")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-            }
-        }
+        StoryReader(title: "おいてけ掘", color: .appError, sections: sections)
     }
 }

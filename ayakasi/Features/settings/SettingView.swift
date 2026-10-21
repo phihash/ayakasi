@@ -11,6 +11,7 @@ struct SettingView: View {
     @State private var deletePassword = ""
     @State private var currentAppIconName = UIApplication.shared.alternateIconName
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @State private var messages: [Message] = []
 
     private var settingIconImageName: String {
         switch currentAppIconName {
@@ -56,11 +57,11 @@ struct SettingView: View {
                                 Analytics.trackScreenView(screenName: "匿名で問い合わせ")
                             })
 
-                        NavigationLink(destination: MessageUI()) {
+                        NavigationLink(destination: MessageUI(messages: messages)) {
                             HStack {
                                 Text("みなさんの声")
                                     .font(.subheadline)
-                                if Message.hasNewMessage {
+                                if Message.hasNew(in: messages) {
                                     Text("NEW")
                                         .font(.caption2)
                                         .fontWeight(.bold)
@@ -150,6 +151,7 @@ struct SettingView: View {
         .onAppear {
             currentAppIconName = UIApplication.shared.alternateIconName
         }
+        .task { messages = await Message.fetchAll() }
         .onReceive(NotificationCenter.default.publisher(for: .appIconDidChange)) { _ in
             currentAppIconName = UIApplication.shared.alternateIconName
         }

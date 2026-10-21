@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct Zasikiwarasi: View {
-    let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("東北の古い家",
          "むかし、岩手や青森の山あいの村に、古くから立つ大きな家がありました。その家では、夜になると廊下を走る子どもの足音が聞こえることがありました。"),
@@ -17,30 +15,6 @@ struct Zasikiwarasi: View {
     ]
 
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .appSuccess, numberString: "\(id+1)" ,title: item.title)
-                    HStack{
-                        Text(item.body)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,8)
-                }
-            }
-            .padding(12)
-            .navigationTitle("座敷わらし")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-            }
-        }
+        StoryReader(title: "座敷わらし", color: .appSuccess, sections: sections)
     }
 }

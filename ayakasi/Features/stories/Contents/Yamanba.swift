@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct Yamanba: View {
-    let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("坊主のおつかい",
          "あるお寺の坊主が、和尚さまに「山へ薪を取りに行け」と言われます。出かける前に和尚さまは「これを持っていけ」と 三枚のお札 を渡しました。"),
@@ -23,30 +21,6 @@ struct Yamanba: View {
     ]
 
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .appAccent, numberString: "\(id+1)" ,title: item.title)
-                    HStack{
-                        Text(item.body)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,8)
-                }
-            }
-            .padding(12)
-            .navigationTitle("やまんば")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-            }
-        }
+        StoryReader(title: "やまんば", color: .appAccent, sections: sections)
     }
 }

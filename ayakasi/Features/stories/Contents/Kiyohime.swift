@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct Kiyohime: View {
-    let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.dismiss) private var dismiss
     private let sections: [(title: String, body: String)] = [
         ("若き僧の旅",
          "平安時代、紀州熊野を目指す若い僧・安珍が旅をしていました。真面目で美しい容姿の彼は、多くの人々に注目される存在でした。"),
@@ -29,30 +27,6 @@ struct Kiyohime: View {
     ]
     
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                ForEach(Array(sections.enumerated()),id:\.offset){ id ,item in
-                    StorySectionNumber(colorName: .appPrimary, numberString: "\(id+1)" ,title: item.title)
-                    HStack{
-                        Text(item.body)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal,20)
-                    .padding(.bottom,8)
-                }
-            }
-            .padding(12)
-            .navigationTitle("安珍清姫")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("閉じる")
-                    }
-                }
-            }
-        }
+        StoryReader(title: "安珍清姫", color: .appPrimary, sections: sections)
     }
 }
