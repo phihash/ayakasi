@@ -143,7 +143,7 @@ private struct CommentTargetPicker: View {
 
     var body: some View {
         NavigationStack {
-            YokaiSearchView { yokai in target = yokai }
+            YokaiSearchView(purpose: .pickForComment) { yokai in target = yokai }
                 .navigationDestination(item: $target) { yokai in
                     CommentUI(isPresented: $isPresented, yokai: yokai)
                         .navigationTitle(yokai.name)

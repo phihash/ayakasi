@@ -47,4 +47,4 @@ extension Ayakasi: Hashable {
     }
 }
 
-struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date }
+struct NewsItem: Identifiable { let id = UUID(); let title: String; let link: URL?; let published: Date; let image: URL?; let phrases: [String]? }

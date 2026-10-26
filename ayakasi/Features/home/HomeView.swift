@@ -19,50 +19,48 @@ enum HomeTab: String, UnderlineTab {
     var icon: String? { nil }
 }
 
-// 画面上部の切り替えタブ(イベント・ニュース、コメント画面で共用)
+// 画面上部の切り替えタブ(イベント・ニュース)
 protocol UnderlineTab: Hashable, CaseIterable where AllCases: RandomAccessCollection {
     var rawValue: String { get }
     var icon: String? { get }  // Assets.xcassets の画像名
 }
 
-// 等幅のラベル(+任意のアイコン)を並べ、選択中だけ色と短い下線を付ける
-struct UnderlineTabBar<Tab: UnderlineTab>: View {
+// ホームのイベント・ニュース切り替え。カードの一覧の上に置くので、下線よりカプセルの方がなじむ
+struct PillTabBar<Tab: UnderlineTab>: View {
     @Binding var selection: Tab
+    @Namespace private var pill
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: 4) {
             ForEach(Array(Tab.allCases), id: \.self) { item in
                 let isSelected = item == selection
                 Button {
-                    withAnimation(.snappy) { selection = item }
+                    withAnimation(.snappy(duration: 0.25)) { selection = item }
                 } label: {
-                    HStack(spacing: 6) {
-                        if let icon = item.icon {
-                            Image(icon)
-                                .renderingMode(.template)
-                                .resizable()
-                                .frame(width: 20, height: 20)
+                    Text(item.rawValue)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundStyle(isSelected ? Color.white : Color.appTextSecondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 9)
+                        .background {
+                            if isSelected {
+                                Capsule()
+                                    .fill(Color.appSecondary)
+                                    .matchedGeometryEffect(id: "pill", in: pill)
+                            }
                         }
-                        Text(item.rawValue)
-                    }
-                    .font(.headline)
-                    .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 8)
-                    .padding(.bottom, 12)
-                    .overlay(alignment: .bottom) {
-                        Capsule()
-                            .fill(isSelected ? Color.appSecondary : .clear)
-                            .frame(width: 32, height: 4)
-                    }
-                    .contentShape(Rectangle())
+                        .contentShape(Capsule())
                 }
                 .buttonStyle(.plain)
                 .accessibilityAddTraits(isSelected ? .isSelected : [])
             }
         }
-        .padding(.horizontal, 24)
-        .animation(.snappy(duration: 0.2), value: selection)
+        .padding(4)
+        .background(Capsule().fill(Color.appCardBackground))
+        .shadow(color: .black.opacity(0.06), radius: 6, y: 2)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
     }
 }
 
@@ -98,9 +96,12 @@ struct HomeView: View {
         return true
     }
     
-    // 有効で、まだ終わっていないもの(開催前・開催中)
+    // 有効で、まだ終わっていないもの。開催中(画像あり)→開催中(画像なし)→開催前の順
+    // sortでなく段ごとにfilterするのは、Swiftのsortが安定でなく、段の中の開催日順(Workerの並び)が崩れるため
     var filteredEvents: [EventItem] {
-        eventItems.filter { ($0.isActive ?? false) && !$0.hasEnded }
+        let shown = eventItems.filter { ($0.isActive ?? false) && !$0.hasEnded }
+        let rank = { (e: EventItem) in !e.hasStarted ? 2 : (e.image == nil ? 1 : 0) }
+        return (0...2).flatMap { r in shown.filter { rank($0) == r } }
     }
     
     var activeNotice: NoticeItem? {
@@ -148,7 +149,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack(spacing: 0) {
-                UnderlineTabBar(selection: $tab)
+                PillTabBar(selection: $tab)
 
                 // 中身は横スワイプでも切り替えられる(上のタブとselectionを共有)
                 TabView(selection: $tab) {

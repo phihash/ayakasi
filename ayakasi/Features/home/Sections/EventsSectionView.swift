@@ -8,7 +8,7 @@ struct EventsSection: View {
         if filteredEvents.isEmpty {
             emptyState
         } else {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 16) {
                 ForEach(filteredEvents.indices, id: \.self) { index in
                     EventListItem(event: filteredEvents[index]) {
                         if let urlString = filteredEvents[index].link,
@@ -20,12 +20,7 @@ struct EventsSection: View {
                             selectedEventUrl = url
                         }
                     }
-                    .padding(.horizontal, 20)
-
-                    if index < filteredEvents.count - 1 {
-                        Divider()
-                            .padding(.horizontal, 20)
-                    }
+                    .padding(.horizontal, 16)
                 }
             }
         }

@@ -102,4 +102,9 @@ enum Analytics {
     static func trackAppShared() {
         amplitude.track(eventType: "app_shared")
     }
+
+    // 「表示された」でなく「求めた」と名付けるのは、Appleが実際に出したかをアプリに教えないため
+    static func trackReviewRequested() {
+        amplitude.track(eventType: "review_requested")
+    }
 }

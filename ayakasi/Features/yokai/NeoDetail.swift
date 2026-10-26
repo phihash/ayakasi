@@ -493,6 +493,7 @@ struct NeoDetail: View {
             // 開いた瞬間に出さないのは、妖怪を見る前に邪魔をしないため
             try? await Task.sleep(for: .seconds(3))
             if !Task.isCancelled, ReviewRequestManager.shared.shouldRequestReviewForActiveDays() {
+                Analytics.trackReviewRequested()
                 requestReview()
             }
         }

@@ -6,11 +6,20 @@ struct AppConstants {
     static let privacyPolicyURL = "https://sizu.me/maili/posts/b3at3db2i5f1"
     static let events2DataURL = "https://yokai-images.insharp0220.workers.dev/events"
     static let newsDataURL = "https://yokai-images.insharp0220.workers.dev/news"
+    static let messagesDataURL = "https://yokai-images.insharp0220.workers.dev/messages"
+    static let commentsDataURL = "https://yokai-images.insharp0220.workers.dev/comments"
     static let noticeDataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/notice.json"
 }
 
 struct YokaiCategories {
-    static let searchCategories = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","詳細不明","怨霊"]
+    // 並び順だけをここで決める。選択肢そのものはデータから作るので、D1でカテゴリを足したり名前を変えたりしても審査なしで出る(ここに無い名前は末尾に並ぶ)
+    static let categoryOrder = ["鳥山石燕","道の怪", "水の怪","音の怪","都市伝説","家の怪","動物の怪","山の怪","外国の妖怪","人物","幽霊","詳細不明"]
+
+    static var searchCategories: [String] {
+        var seen = Set<String>()
+        let all = ayakasis.flatMap(\.categories).filter { $0 != "すべて" && seen.insert($0).inserted }
+        return all.sorted { (categoryOrder.firstIndex(of: $0) ?? .max) < (categoryOrder.firstIndex(of: $1) ?? .max) }
+    }
 
     static let popularLabel = "よく見られている"
     // ponytail: 手動キュレーション。実アクセス数で並べたいならAmplitude/D1で集計して差し替え

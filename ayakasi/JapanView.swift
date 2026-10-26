@@ -115,6 +115,48 @@ struct JapanView: View {
         }
     }
 
+    // 名前だけだと同名の寺社や別の場所が出るので、都道府県を付けて検索する
+    private func searchOnWeb(name: String, prefecture: String) {
+        var components = URLComponents(string: "https://www.google.com/search")!
+        components.queryItems = [URLQueryItem(name: "q", value: "\(name) \(prefecture)")]
+        if let url = components.url {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    // シート下のボタン。ゆかりの地だけ「検索する」を横に並べる(施設は公式サイトがあり、地図で足りるため)
+    private func spotButtons(name: String, prefecture: String, coordinate: CLLocationCoordinate2D, searchable: Bool) -> some View {
+        HStack(spacing: 10) {
+            Button {
+                openInGoogleMaps(latitude: coordinate.latitude, longitude: coordinate.longitude, name: name)
+            } label: {
+                Label("Google Mapで開く", systemImage: "map")
+                    .foregroundStyle(Color.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(Color.appSecondary)
+                    .cornerRadius(10)
+            }
+
+            if searchable {
+                Button {
+                    searchOnWeb(name: name, prefecture: prefecture)
+                } label: {
+                    Label("検索する", systemImage: "magnifyingglass")
+                        .foregroundStyle(Color.appSecondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.appSecondary, lineWidth: 1.5))
+                }
+            }
+        }
+        .font(.subheadline)
+        .fontWeight(.semibold)
+        .lineLimit(1)
+        .minimumScaleFactor(0.8)
+        .padding(.top, 8)
+    }
+
 
     // 関連妖怪の正方形サムネイル。画像が無い妖怪はカードと同じ「No Image」表示にそろえる
     @ViewBuilder
@@ -164,22 +206,8 @@ struct JapanView: View {
                             .foregroundColor(.primary)
                     }
 
-                    Button {
-                        openInGoogleMaps(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, name: location.name)
-                    } label: {
-                        HStack {
-                            Image(systemName: "map")
-                            Text("Google Mapで開く")
-                        }
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(Color.appSecondary)
-                        .cornerRadius(10)
-                    }
-                    .padding(.top, 8)
+                    spotButtons(name: location.name, prefecture: location.prefecture,
+                                coordinate: location.coordinate, searchable: location.kind == "related")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -248,22 +276,8 @@ struct JapanView: View {
                         }
                     }
 
-                    Button {
-                        openInGoogleMaps(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude, name: spot.spotName)
-                    } label: {
-                        HStack {
-                            Image(systemName: "map")
-                            Text("Google Mapで開く")
-                        }
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(Color.appSecondary)
-                        .cornerRadius(10)
-                    }
-                    .padding(.top, 8)
+                    spotButtons(name: spot.spotName, prefecture: spot.prefecture,
+                                coordinate: spot.coordinate, searchable: spot.spotType == .yokaiRelated)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()

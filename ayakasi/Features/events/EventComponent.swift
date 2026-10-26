@@ -7,6 +7,8 @@ struct EventItem: Codable {
     let endDateTime: String?
     let location: String?
     let isActive: Bool?
+    let image: String?
+    let phrases: [String]?
 }
 
 extension EventItem {

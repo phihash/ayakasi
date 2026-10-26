@@ -114,10 +114,25 @@ struct SearchView: View {
     }
 }
 
-// キーワード検索画面。上の検索FABから開く。
+// キーワード検索画面。上の検索FABと、コメントを書く妖怪選び(CommentTargetPicker)から開く。
+// コメント側は purpose を渡す。見出しが「妖怪を検索」のままだと、ただの検索画面に見えて
+// コメントを書く途中だと伝わらないため。検索の計測もしない(検索の利用数に混ざるため)
 struct YokaiSearchView: View {
+    struct Purpose {
+        var title = "妖怪を検索"
+        var hint = "妖怪名、地域、読み方で検索できます"
+        var tracksSearch = true
+
+        static let pickForComment = Purpose(
+            title: "コメントする妖怪を選ぶ",
+            hint: "コメントしたい妖怪の名前や読み方で検索してください",
+            tracksSearch: false
+        )
+    }
+
     @State private var searchText = ""
     @FocusState private var isSearchFocused: Bool
+    var purpose = Purpose()
     let onSelect: (Ayakasi) -> Void
 
     private var trimmedSearchText: String {
@@ -164,7 +179,7 @@ struct YokaiSearchView: View {
                             .font(.system(size: 40))
                             .foregroundColor(.appTextSecondary)
 
-                        Text("妖怪名、地域、読み方で検索できます")
+                        Text(purpose.hint)
                             .font(.subheadline)
                             .foregroundColor(.appTextSecondary)
                     }
@@ -200,7 +215,7 @@ struct YokaiSearchView: View {
             .background(Color("Ivory"))
         }
         .background(Color("Ivory"))
-        .navigationTitle("妖怪を検索")
+        .navigationTitle(purpose.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
         .onDisappear {
@@ -212,7 +227,7 @@ struct YokaiSearchView: View {
     }
 
     private func trackSearchIfNeeded() {
-        if !trimmedSearchText.isEmpty {
+        if purpose.tracksSearch && !trimmedSearchText.isEmpty {
             Analytics.trackSearch(keyword: trimmedSearchText)
             if searchResults.isEmpty {
                 Analytics.trackSearchNoResult(keyword: trimmedSearchText)

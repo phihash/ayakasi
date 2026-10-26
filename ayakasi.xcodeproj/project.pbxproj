@@ -10,7 +10,6 @@
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
 		A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */; };
-		A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A91F42052ED41BA300DCFC61 /* FirebaseFirestore */; };
 		A92B30092F71676600E84A15 /* MessageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B30082F71676600E84A15 /* MessageUI.swift */; };
 		A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932658F2F34E28900F1F72C /* NeoCardItem.swift */; };
 		A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */; };
@@ -43,6 +42,7 @@
 		A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E262EEEF52B00592CB5 /* WebView.swift */; };
 		A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2A2EEEF55900592CB5 /* CommentService.swift */; };
 		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
+		A9C0DE012F40000000F1F72C /* ListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0DE022F40000000F1F72C /* ListCard.swift */; };
 		A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */ = {isa = PBXBuildFile; productRef = A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */; };
 		A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B212FE2CE84003AC316 /* Analytics.swift */; };
 		A9D23AE7300B0BAB00737A0D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A9D23AE6300B0BAB00737A0D /* FirebaseMessaging */; };
@@ -98,6 +98,7 @@
 		A9B08E262EEEF52B00592CB5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
+		A9C0DE022F40000000F1F72C /* ListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCard.swift; sourceTree = "<group>"; };
 		A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A9C60B212FE2CE84003AC316 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A9D23AE8300B10A300737A0D /* PushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 				A99B6CAC2EC382D700D5D274 /* Kingfisher in Frameworks */,
 				A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */,
 				A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */,
-				A91F42062ED41BA300DCFC61 /* FirebaseFirestore in Frameworks */,
 				A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */,
 				A937148D2F3CADA20056D6A3 /* FirebaseCrashlytics in Frameworks */,
 				A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */,
@@ -293,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				A93265932F362A0100F1F72C /* YokaiSearchResultItem.swift */,
+				A9C0DE022F40000000F1F72C /* ListCard.swift */,
 				A93265952F365C8E00F1F72C /* NewsListItem.swift */,
 				A93265972F36615A00F1F72C /* EventListItem.swift */,
 			);
@@ -377,7 +378,6 @@
 				A9DBF6E42E87B73000F5CDBF /* GoogleSignIn */,
 				A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */,
 				A99B6CAB2EC382D700D5D274 /* Kingfisher */,
-				A91F42052ED41BA300DCFC61 /* FirebaseFirestore */,
 				A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */,
 				A937148C2F3CADA20056D6A3 /* FirebaseCrashlytics */,
 				A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */,
@@ -505,6 +505,7 @@
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
 				A93265942F362A0100F1F72C /* YokaiSearchResultItem.swift in Sources */,
+				A9C0DE012F40000000F1F72C /* ListCard.swift in Sources */,
 				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
 				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
@@ -664,7 +665,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.26.0;
+				MARKETING_VERSION = 3.27.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -711,7 +712,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.26.0;
+				MARKETING_VERSION = 3.27.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -784,11 +785,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A91F42052ED41BA300DCFC61 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
 		A937148A2F3CADA20056D6A3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBF6DB2E876D9600F5CDBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

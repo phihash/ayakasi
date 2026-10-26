@@ -28,11 +28,6 @@ class AuthViewModel : ObservableObject{
 
     init(){
         setupAuthStateListener()
-
-        // 既存ユーザーがいればusersドキュメントを確保
-        Task {
-            await authService.ensureUserExists()
-        }
     }
 
     deinit {
@@ -86,11 +81,6 @@ class AuthViewModel : ObservableObject{
             self.authStatus = .waitingVerification
             clearFields()
             message = "認証メールを送信しました"
-
-            // 新規登録時にusersコレクションを作成
-            Task {
-                await authService.ensureUserExists()
-            }
         } catch{
             Logger.auth.error("登録エラー: \(String(describing: error))")
             if let authError = error as NSError? {
@@ -131,11 +121,6 @@ class AuthViewModel : ObservableObject{
                 self.authStatus = .authenticated
                 message = ""
                 clearFields()
-
-                // ログイン時にusersコレクションを確保
-                Task {
-                    await authService.ensureUserExists()
-                }
             } else {
                 self.authStatus = .waitingVerification
                 message = "メールアドレスの認証が完了していません"

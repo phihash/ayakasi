@@ -22,25 +22,21 @@ struct NewsView : View{
             } else if let msg = newsService.errorMessage {
                 Text(msg)
             }else{
-                VStack(alignment: .leading) {
-                    
+                VStack(alignment: .leading, spacing: 16) {
+
                     ForEach(Array(newsService.items.indices), id: \.self) { index in
                         let item = newsService.items[index]
                         let title = item.title.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
                         if let url = item.link {
                             NewsListItem(
                                 title: title,
-                                published: item.published
+                                published: item.published,
+                                image: item.image,
+                                phrases: item.phrases
                             ) {
                                 selectedNewsUrl = url
                             }
-                            .padding(.horizontal, 20)
-
-                            if index < newsService.items.count - 1 {
-                                Divider()
-                                    .padding(.leading, 20)
-                                    .padding(.trailing, 20)
-                            }
+                            .padding(.horizontal, 16)
                         } else {
                             Text("\(index + 1). \(title)")
                         }
