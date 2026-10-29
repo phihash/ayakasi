@@ -6,10 +6,25 @@ let amplitude = Amplitude(
 )
 
 enum Analytics {
-    static func trackYokaiViewed(name: String, documentId: String) {
+    /// source: 詳細をどこから開いたか(category / popular / search / map / related / bookmark / comment / notification)
+    static func trackYokaiViewed(name: String, documentId: String, source: String) {
         amplitude.track(eventType:"yokai_viewed", eventProperties: [
             "yokai_name": name,
-            "document_id": documentId
+            "document_id": documentId,
+            "source": source
+        ])
+    }
+
+    static func trackStoryOpened(yokaiName: String) {
+        amplitude.track(eventType: "story_opened", eventProperties: ["yokai_name": yokaiName])
+    }
+
+    /// 詳細画面のゆかりの地から地図を開いた(マップ画面のピンは map_spot_tapped)
+    static func trackSpotCardTapped(spotName: String, prefecture: String, yokaiName: String) {
+        amplitude.track(eventType: "spot_card_tapped", eventProperties: [
+            "spot_name": spotName,
+            "prefecture": prefecture,
+            "yokai_name": yokaiName
         ])
     }
 

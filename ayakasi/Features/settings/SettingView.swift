@@ -48,6 +48,9 @@ struct SettingView: View {
 
                     VStack(spacing: 0) {
                         SettingRowLink(title: "ブックマーク一覧", destination: FavoriteYokaiView())
+                            .simultaneousGesture(TapGesture().onEnded {
+                                Analytics.trackScreenView(screenName: "ブックマーク一覧(設定)")
+                            })
                         Divider()
                             .padding(.leading, 4)
                             .padding(.vertical, 12)

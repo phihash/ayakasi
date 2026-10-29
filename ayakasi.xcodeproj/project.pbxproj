@@ -43,6 +43,7 @@
 		A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2A2EEEF55900592CB5 /* CommentService.swift */; };
 		A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */; };
 		A9C0DE012F40000000F1F72C /* ListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0DE022F40000000F1F72C /* ListCard.swift */; };
+		A9C0DE032F40000000F1F72C /* YokaiThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0DE042F40000000F1F72C /* YokaiThumbnail.swift */; };
 		A9C60B1E2FE2CB0F003AC316 /* AmplitudeUnified in Frameworks */ = {isa = PBXBuildFile; productRef = A9C60B1D2FE2CB0F003AC316 /* AmplitudeUnified */; };
 		A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C60B212FE2CE84003AC316 /* Analytics.swift */; };
 		A9D23AE7300B0BAB00737A0D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A9D23AE6300B0BAB00737A0D /* FirebaseMessaging */; };
@@ -99,6 +100,7 @@
 		A9B08E2A2EEEF55900592CB5 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
 		A9C0DE022F40000000F1F72C /* ListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCard.swift; sourceTree = "<group>"; };
+		A9C0DE042F40000000F1F72C /* YokaiThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiThumbnail.swift; sourceTree = "<group>"; };
 		A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A9C60B212FE2CE84003AC316 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A9D23AE8300B10A300737A0D /* PushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
@@ -137,6 +139,11 @@
 		A9B08E312EEF097600592CB5 /* stories */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = stories;
+			sourceTree = "<group>";
+		};
+		A9C0DE052F40000000F1F72C /* spots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = spots;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -261,6 +268,7 @@
 			children = (
 				A90D42BC2F1FC773007A05D1 /* favorites */,
 				A9B08E312EEF097600592CB5 /* stories */,
+				A9C0DE052F40000000F1F72C /* spots */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08DAD2EE72BC300592CB5 /* yokai */,
@@ -285,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				A932658F2F34E28900F1F72C /* NeoCardItem.swift */,
+				A9C0DE042F40000000F1F72C /* YokaiThumbnail.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -370,6 +379,7 @@
 				A9B08E2F2EEEF84200592CB5 /* news */,
 				A9B08E302EEF096500592CB5 /* events */,
 				A9B08E312EEF097600592CB5 /* stories */,
+				A9C0DE052F40000000F1F72C /* spots */,
 			);
 			name = ayakasi;
 			packageProductDependencies = (
@@ -509,6 +519,7 @@
 				A93265962F365C8E00F1F72C /* NewsListItem.swift in Sources */,
 				A93265982F36615A00F1F72C /* EventListItem.swift in Sources */,
 				A93265902F34E28900F1F72C /* NeoCardItem.swift in Sources */,
+				A9C0DE032F40000000F1F72C /* YokaiThumbnail.swift in Sources */,
 				A93714902F3F8BBC0056D6A3 /* SettingRowComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,7 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.27.0;
+				MARKETING_VERSION = 3.28.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -712,7 +723,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.27.0;
+				MARKETING_VERSION = 3.28.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

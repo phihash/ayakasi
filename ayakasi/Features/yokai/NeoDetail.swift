@@ -62,6 +62,7 @@ struct CommentListView: View {
 
 struct NeoDetail: View {
     let yokai : Ayakasi
+    var source: String = "unknown"
     let screenWidth = UIScreen.main.bounds.width
     @State private var showFullScreenImage = false
     @State private var showAlert : Bool = false
@@ -212,64 +213,63 @@ struct NeoDetail: View {
         .padding(.horizontal, 24)
     }
 
-    // 地図にしないのは、小さな正方形の地図では場所が読み取れないため(場所は「地図で開く」で見る)
-    private func spotThumbnail(_ item: Ayakasi) -> some View {
-        ZStack {
-            Color.gray.opacity(0.12)
-            if item.imageName == "NoImage" {
-                Image(systemName: "questionmark.square")
-                    .font(.system(size: 28))
-                    .foregroundColor(.appTextSecondary)
-            } else {
-                KFImage(URL(string: item.imageName))
-                    .downsampling(size: CGSize(width: 96, height: 96))
-                    .scaleFactor(UIScreen.main.scale)
-                    .cacheOriginalImage()
-                    .resizable()
-                    .scaledToFill()
-            }
-        }
-        .frame(width: 96, height: 96)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-
+    // スポット画面(ログ)は仮UIなので、リリース版では今までどおりGoogleマップを開く
+    @ViewBuilder
     private func spotCard(_ spot: YokaiSpot) -> some View {
+        #if DEBUG
+        NavigationLink {
+            SpotDetailView(spot: spot)
+        } label: {
+            spotCardLabel(spot, action: "くわしく見る", systemImage: "chevron.right")
+        }
+        .buttonStyle(.plain)
+        .simultaneousGesture(TapGesture().onEnded {
+            Analytics.trackSpotCardTapped(spotName: spot.spotName, prefecture: spot.prefecture, yokaiName: yokai.name)
+        })
+        #else
         Button {
+            Analytics.trackSpotCardTapped(spotName: spot.spotName, prefecture: spot.prefecture, yokaiName: yokai.name)
             let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
             if let url = URL(string: urlString) {
                 UIApplication.shared.open(url)
             }
         } label: {
-            HStack(alignment: .top, spacing: 12) {
-                spotThumbnail(yokaiById(spot.yokaiIds.first ?? "") ?? yokai)
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(spot.spotName)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Text(spot.prefecture)
-                        .font(.caption)
-                        .foregroundColor(.appTextSecondary)
-                    if let description = spot.description {
-                        Text(description)
-                            .font(.subheadline)
-                            .foregroundColor(.appTextSecondary)
-                            .multilineTextAlignment(.leading)
-                            .padding(.top, 2)
-                    }
-                    Label("地図で開く", systemImage: "arrow.up.right.square")
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundColor(.appSecondary)
-                        .padding(.top, 2)
-                }
-            }
-            .padding(12)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.appCardBackground)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            spotCardLabel(spot, action: "地図で開く", systemImage: "arrow.up.right.square")
         }
         .buttonStyle(.plain)
+        #endif
+    }
+
+    private func spotCardLabel(_ spot: YokaiSpot, action: String, systemImage: String) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            // 地図にしないのは、小さな正方形の地図では場所が読み取れないため(場所は「地図で開く」で見る)
+            YokaiThumbnail(yokai: yokaiById(spot.yokaiIds.first ?? "") ?? yokai, size: 96)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(spot.spotName)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text(spot.prefecture)
+                    .font(.caption)
+                    .foregroundColor(.appTextSecondary)
+                if let description = spot.description {
+                    Text(description)
+                        .font(.subheadline)
+                        .foregroundColor(.appTextSecondary)
+                        .multilineTextAlignment(.leading)
+                        .padding(.top, 2)
+                }
+                Label(action, systemImage: systemImage)
+                    .font(.caption)
+                    .fontWeight(.medium)
+                    .foregroundColor(.appSecondary)
+                    .padding(.top, 2)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.appCardBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     var body: some View {
@@ -390,6 +390,7 @@ struct NeoDetail: View {
                                 sectionHeader("物語", systemImage: "text.book.closed")
                                 // ゆかりの地のカードと同じ見た目にそろえる
                                 Button {
+                                    Analytics.trackStoryOpened(yokaiName: yokai.name)
                                     showStoryView = true
                                 } label: {
                                     HStack(spacing: 12) {
@@ -484,10 +485,10 @@ struct NeoDetail: View {
             StoryView(yokaiName: yokai.name)
         }
         .navigationDestination(item: $selectedRelatedYokai) { yokai in
-            NeoDetail(yokai: yokai)
+            NeoDetail(yokai: yokai, source: "related")
         }
         .task {
-            Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId)
+            Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId, source: source)
             ReviewRequestManager.shared.recordActiveDay()
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
             // 開いた瞬間に出さないのは、妖怪を見る前に邪魔をしないため

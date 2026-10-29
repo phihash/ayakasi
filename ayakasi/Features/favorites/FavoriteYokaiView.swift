@@ -37,7 +37,7 @@ struct FavoriteYokaiView: View {
         .navigationTitle("ブックマーク")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $selectedYokai) { yokai in
-            NeoDetail(yokai: yokai)
+            NeoDetail(yokai: yokai, source: "bookmark")
         }
     }
 

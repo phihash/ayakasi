@@ -276,6 +276,21 @@ struct JapanView: View {
                         }
                     }
 
+                    #if DEBUG  // スポット画面(ログ)は仮UIなのでリリース版には出さない
+                    if spot.spotType == .yokaiRelated {
+                        NavigationLink {
+                            SpotDetailView(spot: spot)
+                        } label: {
+                            Label("スポットを見る", systemImage: "mappin.and.ellipse")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color.appSecondary))
+                        }
+                    }
+                    #endif
+
                     spotButtons(name: spot.spotName, prefecture: spot.prefecture,
                                 coordinate: spot.coordinate, searchable: spot.spotType == .yokaiRelated)
                 }
@@ -390,7 +405,7 @@ struct JapanView: View {
             }
         }
         .navigationDestination(item: $selectedYokai) { yokai in
-            NeoDetail(yokai: yokai)
+            NeoDetail(yokai: yokai, source: "map")
         }
         .navigationBarHidden(true)
         }

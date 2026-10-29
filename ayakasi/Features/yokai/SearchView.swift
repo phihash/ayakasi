@@ -3,6 +3,7 @@ import SwiftUI
 struct SearchView: View {
     @State private var selectedCategory = YokaiCategories.popularLabel
     @State private var selectedYokai: Ayakasi? = nil
+    @State private var selectedSource = "category"
     @EnvironmentObject private var router: DeepLinkRouter
 
     private let columns = [
@@ -32,6 +33,7 @@ struct SearchView: View {
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(filteredYokai, id: \.id) { yokai in
                             NeoCardItem(item: yokai) {
+                                selectedSource = selectedCategory == YokaiCategories.popularLabel ? "popular" : "category"
                                 selectedYokai = yokai
                             }
                         }
@@ -49,11 +51,15 @@ struct SearchView: View {
                     } label: {
                         ActionCircleIcon(systemName: "bookmark")
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        Analytics.trackScreenView(screenName: "ブックマーク一覧(さがす)")
+                    })
                     .accessibilityLabel("ブックマーク一覧")
 
                     // キーワード検索(カテゴリに関係なく全妖怪から)
                     NavigationLink {
                         YokaiSearchView { yokai in
+                            selectedSource = "search"
                             selectedYokai = yokai
                         }
                     } label: {
@@ -91,7 +97,7 @@ struct SearchView: View {
                 }
             }
             .navigationDestination(item: $selectedYokai) { yokai in
-                NeoDetail(yokai: yokai)
+                NeoDetail(yokai: yokai, source: selectedSource)
             }
         }
         .onChange(of: selectedCategory) { _, newValue in
@@ -109,30 +115,16 @@ struct SearchView: View {
     /// 通知タップで来た documentId を消化して該当妖怪へ遷移
     private func consumeDeepLink(_ id: String?) {
         guard let id, let yokai = yokaiById(id) else { return }
+        selectedSource = "notification"
         selectedYokai = yokai
         router.pendingYokaiId = nil
     }
 }
 
-// キーワード検索画面。上の検索FABと、コメントを書く妖怪選び(CommentTargetPicker)から開く。
-// コメント側は purpose を渡す。見出しが「妖怪を検索」のままだと、ただの検索画面に見えて
-// コメントを書く途中だと伝わらないため。検索の計測もしない(検索の利用数に混ざるため)
+// キーワード検索画面。上の検索FABから開く。
 struct YokaiSearchView: View {
-    struct Purpose {
-        var title = "妖怪を検索"
-        var hint = "妖怪名、地域、読み方で検索できます"
-        var tracksSearch = true
-
-        static let pickForComment = Purpose(
-            title: "コメントする妖怪を選ぶ",
-            hint: "コメントしたい妖怪の名前や読み方で検索してください",
-            tracksSearch: false
-        )
-    }
-
     @State private var searchText = ""
     @FocusState private var isSearchFocused: Bool
-    var purpose = Purpose()
     let onSelect: (Ayakasi) -> Void
 
     private var trimmedSearchText: String {
@@ -179,7 +171,7 @@ struct YokaiSearchView: View {
                             .font(.system(size: 40))
                             .foregroundColor(.appTextSecondary)
 
-                        Text(purpose.hint)
+                        Text("妖怪名、地域、読み方で検索できます")
                             .font(.subheadline)
                             .foregroundColor(.appTextSecondary)
                     }
@@ -215,7 +207,7 @@ struct YokaiSearchView: View {
             .background(Color("Ivory"))
         }
         .background(Color("Ivory"))
-        .navigationTitle(purpose.title)
+        .navigationTitle("妖怪を検索")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
         .onDisappear {
@@ -227,7 +219,7 @@ struct YokaiSearchView: View {
     }
 
     private func trackSearchIfNeeded() {
-        if purpose.tracksSearch && !trimmedSearchText.isEmpty {
+        if !trimmedSearchText.isEmpty {
             Analytics.trackSearch(keyword: trimmedSearchText)
             if searchResults.isEmpty {
                 Analytics.trackSearchNoResult(keyword: trimmedSearchText)
