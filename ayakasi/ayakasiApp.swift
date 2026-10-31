@@ -12,13 +12,8 @@ struct ayakasiApp: App {
     init(){
         FirebaseApp.configure()
 
-        let authService = AuthService.shared
-
         _AuthVM = StateObject(wrappedValue: AuthViewModel())
-        _CommentVM = StateObject(wrappedValue: CommentService(
-            authService: authService,
-            tokenBucket: TokenBucket(maxToken: 5, refillInterval: 480, storageKeyPrefix: "comment")
-        ))
+        _CommentVM = StateObject(wrappedValue: CommentService(authService: AuthService.shared))
         _FavoriteVM = StateObject(wrappedValue: FavoriteService.shared)
     }
     var body: some Scene {

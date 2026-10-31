@@ -30,11 +30,9 @@ struct YokaiComment: Decodable, Identifiable {
 @MainActor
 class CommentService : ObservableObject {
     private let authService: AuthServiceProtocol
-    private let commentTokenBucket: TokenBucketProtocol
 
-    init(authService: AuthServiceProtocol, tokenBucket: TokenBucketProtocol) {
+    init(authService: AuthServiceProtocol) {
         self.authService = authService
-        self.commentTokenBucket = tokenBucket
     }
 
     // 妖怪ごとに持つのは、詳細A→関連妖怪Bの詳細→戻る、でAの画面にBのコメントが残るため(戻ってもAの.taskは走り直さない)
@@ -76,10 +74,6 @@ class CommentService : ObservableObject {
         guard let user = authService.currentUser, user.isEmailVerified else {
             throw CommentError(message: "ログインが必要です")
         }
-        guard commentTokenBucket.canConsume() else {
-            throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
-        }
-
         // トークンを取り直すのは、メール認証した直後だと手元のトークンがまだ「未認証」のままで、Workerに403で弾かれるため
         var request = try await authService.authorizedRequest(URL(string: AppConstants.commentsDataURL)!, forceRefresh: true)
         request.httpMethod = "POST"
@@ -89,9 +83,10 @@ class CommentService : ObservableObject {
         let (_, response) = try await URLSession.shared.data(for: request)
         switch (response as? HTTPURLResponse)?.statusCode {
         case 201:
-            commentTokenBucket.consume()
+            return
         case 403:
             throw CommentError(message: "メールアドレスの確認が済んでいません")
+        // 連投の上限はWorker(直近10分で5件)だけで数える。アプリ側でも数えると基準がずれて二重管理になるため
         case 429:
             throw CommentError(message: "コメント回数の上限に達しました。しばらく待って再度お試しください。")
         default:

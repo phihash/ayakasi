@@ -52,7 +52,6 @@
 		A9DBF6E22E87795A00F5CDBF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E12E87795A00F5CDBF /* FirebaseAuth */; };
 		A9DBF6E52E87B73000F5CDBF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E42E87B73000F5CDBF /* GoogleSignIn */; };
 		A9DBF6E72E87B73000F5CDBF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBF6E62E87B73000F5CDBF /* GoogleSignInSwift */; };
-		A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E840A82F59D0B3007E4435 /* TokenBucket.swift */; };
 		A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */; };
 		B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000002 /* PrivacyInfo.xcprivacy */; };
 		B10000010000000000000008 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000007 /* Log.swift */; };
@@ -104,7 +103,6 @@
 		A9C60B1F2FE2CE33003AC316 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A9C60B212FE2CE84003AC316 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A9D23AE8300B10A300737A0D /* PushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
-		A9E840A82F59D0B3007E4435 /* TokenBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBucket.swift; sourceTree = "<group>"; };
 		A9FBAB4E2F52A98F0080C559 /* AppLaunchCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCounter.swift; sourceTree = "<group>"; };
 		B10000010000000000000001 /* YokaiShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiShareCard.swift; sourceTree = "<group>"; };
 		B10000010000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 				B10000010000000000000002 /* PrivacyInfo.xcprivacy */,
 				A9B08DC52EE72BC300592CB5 /* LaunchScreen.storyboard */,
 				A9B08DC62EE72BC300592CB5 /* MaterialIcons-Regular.ttf */,
-				A9E840A82F59D0B3007E4435 /* TokenBucket.swift */,
 				A92B30082F71676600E84A15 /* MessageUI.swift */,
 			);
 			path = ayakasi;
@@ -503,7 +500,6 @@
 				A9FBAB4F2F52A98F0080C559 /* AppLaunchCounter.swift in Sources */,
 				A9B08E292EEEF52B00592CB5 /* WebView.swift in Sources */,
 				A905C42F2F0C09FE00587825 /* Constants.swift in Sources */,
-				A9E840A92F59D0B3007E4435 /* TokenBucket.swift in Sources */,
 				A9ADCBE32F013A2A00E4A489 /* ReportUI.swift in Sources */,
 				A9B08DE42EE72BC300592CB5 /* BottomActionBar.swift in Sources */,
 				B10000020000000000000001 /* YokaiShareCard.swift in Sources */,
