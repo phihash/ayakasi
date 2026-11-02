@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CommentUI: View {
     @EnvironmentObject var commentStore: CommentService
-    @EnvironmentObject var authVM: AuthViewModel
     @FocusState private var isTextFieldFocused: Bool
     @State private var showAlert = false
     @State private var alertMessage = ""

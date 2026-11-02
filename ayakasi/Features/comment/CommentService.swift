@@ -29,11 +29,7 @@ struct YokaiComment: Decodable, Identifiable {
 
 @MainActor
 class CommentService : ObservableObject {
-    private let authService: AuthServiceProtocol
-
-    init(authService: AuthServiceProtocol) {
-        self.authService = authService
-    }
+    private let authService = AuthService.shared
 
     // 妖怪ごとに持つのは、詳細A→関連妖怪Bの詳細→戻る、でAの画面にBのコメントが残るため(戻ってもAの.taskは走り直さない)
     @Published var yokaiComments: [String: [YokaiComment]] = [:]

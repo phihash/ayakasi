@@ -1,16 +1,8 @@
 import Foundation
 import FirebaseAuth
-import SwiftUI
-import os
 
 @MainActor
-protocol AuthServiceProtocol {
-    var currentUser: User? { get }
-    func authorizedRequest(_ url: URL, forceRefresh: Bool) async throws -> URLRequest
-}
-
-@MainActor
-class AuthService: ObservableObject , AuthServiceProtocol {
+class AuthService {
     static let shared = AuthService()
     private init() {}
         

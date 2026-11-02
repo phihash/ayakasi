@@ -2,7 +2,6 @@ import SwiftUI
 import StoreKit
 import Photos
 import Kingfisher
-import os
 
 struct CommentListView: View {
     let comments: [YokaiComment]
@@ -70,9 +69,7 @@ struct NeoDetail: View {
     @State private var showStoryView = false
     @State private var isCommentUI = false
     @State private var selectedRelatedYokai: Ayakasi? = nil
-    @EnvironmentObject var authVM : AuthViewModel
     @EnvironmentObject var commentVM : CommentService
-    @EnvironmentObject var favoriteService : FavoriteService
     @Environment(\.requestReview) private var requestReview
     
     private func requestAndSaveImage(imageName: String){
