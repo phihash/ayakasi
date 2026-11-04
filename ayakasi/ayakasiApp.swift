@@ -13,7 +13,7 @@ struct ayakasiApp: App {
         FirebaseApp.configure()
 
         _AuthVM = StateObject(wrappedValue: AuthViewModel())
-        _CommentVM = StateObject(wrappedValue: CommentService(authService: AuthService.shared))
+        _CommentVM = StateObject(wrappedValue: CommentService())
         _FavoriteVM = StateObject(wrappedValue: FavoriteService.shared)
     }
     var body: some Scene {
