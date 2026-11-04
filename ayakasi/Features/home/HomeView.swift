@@ -165,7 +165,7 @@ struct HomeView: View {
 
                     ScrollView {
                         noticeView
-                        NewsView(selectedNew: "妖怪")
+                        NewsView()
                             .padding(.top, 8)
                     }
                     .tag(HomeTab.news)

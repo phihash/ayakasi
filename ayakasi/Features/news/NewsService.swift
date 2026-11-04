@@ -10,7 +10,7 @@ class NewsService: ObservableObject {
     // imageは記事のog:image(無い記事はnull)。phrasesは画像の代わりにタイトルを描くときの改行位置
     private struct Entry: Decodable { let title: String; let link: String; let published: Date; let image: String?; let phrases: [String]? }
 
-    func fetchFeed(for _: String) async {
+    func fetchFeed() async {
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }

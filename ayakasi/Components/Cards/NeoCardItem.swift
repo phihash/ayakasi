@@ -29,7 +29,8 @@ struct NeoCardItem: View {
                                         .scaledToFill()
                                 }
                                 // 原画は1000px前後・平均1MBあり、一覧で原寸デコードするとメモリを食うので表示サイズに縮める(原画はディスクに残し詳細画面で使う)
-                                .downsampling(size: CGSize(width: 200, height: 200))
+                                // 200固定にしないのは、iPadの3列ではカードが200ptより大きく、ぼやけるため(0幅で縮めないよう下限を付ける)
+                                .downsampling(size: CGSize(width: max(proxy.size.width, 100), height: max(proxy.size.width, 100)))
                                 .scaleFactor(UIScreen.main.scale)
                                 .cacheOriginalImage()
                                 .resizable()
@@ -86,5 +87,12 @@ struct NeoCardItem: View {
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.08), radius: 4, x: 0, y: 2)
         .padding(.horizontal, 2)
+    }
+}
+
+extension NeoCardItem {
+    // adaptiveにしないのは、iPad横向きで4〜5列になりカードが小さくなりすぎるため。Split Viewで狭いとcompactになり2列に戻る
+    static func gridColumns(_ sizeClass: UserInterfaceSizeClass?) -> [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 12), count: sizeClass == .regular ? 3 : 2)
     }
 }

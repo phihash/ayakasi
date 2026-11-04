@@ -11,7 +11,6 @@ let publishedFormatter : DateFormatter = {
 struct NewsView : View{
     @StateObject private var newsService = NewsService()
     @State private var selectedNewsUrl: URL?
-    var selectedNew : String
     
     var body : some View{
         ZStack{
@@ -44,11 +43,11 @@ struct NewsView : View{
                 }
             }
         }
-        .task(id: selectedNew) {
-            await newsService.fetchFeed(for: selectedNew)
+        .task {
+            await newsService.fetchFeed()
         }
         .refreshable{
-            await newsService.fetchFeed(for: selectedNew)
+            await newsService.fetchFeed()
         }
         .sheet(item: $selectedNewsUrl) { url in
             SafariView(url: url)
