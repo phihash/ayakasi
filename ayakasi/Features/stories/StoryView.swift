@@ -21,7 +21,7 @@ struct StoryView: View {
                 NavigationStack {
                     VStack {
                         Text("物語が見つかりません")
-                            .font(.title)
+                            .appFont(.title)
                             .padding()
                     }
                     .navigationTitle(yokaiName)

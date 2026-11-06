@@ -9,7 +9,7 @@ struct NoticeSection: View {
                 Image(systemName: "megaphone")
                     .foregroundColor(.appPrimary)
                 Text(notice.message)
-                    .font(.body)
+                    .appFont(.body)
                     .fontWeight(.medium)
                 Spacer()
             }

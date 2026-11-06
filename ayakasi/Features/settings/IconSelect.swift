@@ -58,7 +58,7 @@ struct IconSelect: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
                             Text(icon.title)
-                                .font(.subheadline)
+                                .appFont(.subheadline)
                                 .foregroundStyle(.primary)
 
                             Spacer()

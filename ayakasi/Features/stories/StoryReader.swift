@@ -12,7 +12,7 @@ struct StoryReader: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(title)
-                        .font(.largeTitle)
+                        .appFont(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom, 8)
                     Rectangle()
@@ -22,11 +22,11 @@ struct StoryReader: View {
 
                     ForEach(Array(sections.enumerated()), id: \.offset) { index, section in
                         Text("第\(index + 1)章")
-                            .font(.caption)
+                            .appFont(.caption)
                             .fontWeight(.semibold)
                             .foregroundStyle(color)
                         Text(section.title)
-                            .font(.title3)
+                            .appFont(.title3)
                             .fontWeight(.bold)
                             .padding(.top, 4)
                         // 太字にしないのは、長い本文が太字だと読み疲れるため

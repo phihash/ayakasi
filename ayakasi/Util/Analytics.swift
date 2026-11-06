@@ -122,4 +122,11 @@ enum Analytics {
     static func trackReviewRequested() {
         amplitude.track(eventType: "review_requested")
     }
+
+    // 書体の変更(Noto Sans など同梱フォントを足すかの判断材料)
+    static func trackFontChanged(font: String) {
+        amplitude.track(eventType: "font_changed", eventProperties: [
+            "font": font
+        ])
+    }
 }

@@ -21,7 +21,7 @@ struct ListCard<Content: View>: View {
                             .placeholder {
                                 // 外部からの読み込みを断るサイトもあるので、失敗してもアイコンで枠を埋める
                                 Image(systemName: systemImage)
-                                    .font(.title2)
+                                    .appFont(.title2)
                                     .foregroundStyle(Color.appTextSecondary)
                             }
                             .downsampling(size: CGSize(width: 400, height: 210))
@@ -38,7 +38,7 @@ struct ListCard<Content: View>: View {
                 // 画像の無いカードはタイトルを上に描いたので、ここで繰り返さない
                 if image != nil {
                     Text(title)
-                        .font(.headline)
+                        .appFont(.headline)
                         .foregroundStyle(Color.appTextPrimary)
                         .lineLimit(3)
                         .multilineTextAlignment(.leading)

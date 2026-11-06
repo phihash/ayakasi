@@ -19,7 +19,7 @@ struct CommentUI: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("コメントを投稿")
-                .font(.headline)
+                .appFont(.headline)
                 .fontWeight(.bold)
                 .padding(.top, 20)
 
@@ -29,7 +29,7 @@ struct CommentUI: View {
                         TextField("コメントを入力してください...", text: $commentText, axis: .vertical)
                             .focused($isTextFieldFocused)
                             .lineLimit(3...6)
-                            .font(.body)
+                            .appFont(.body)
                     }
                     .padding(16)
                     .background(Color.appTextSecondary.opacity(0.1))
@@ -40,7 +40,7 @@ struct CommentUI: View {
                     )
 
                     Text("\(commentLength)/\(CommentService.maxLength)")
-                        .font(.caption)
+                        .appFont(.caption)
                         .foregroundStyle(isTooLong ? Color.red : Color.appTextSecondary)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -69,7 +69,7 @@ struct CommentUI: View {
                         Image(systemName: "paperplane.fill")
                         Text(isPosting ? "投稿中…" : "投稿する")
                     }
-                    .font(.headline)
+                    .appFont(.headline)
                     .fontWeight(.semibold)
                     .foregroundStyle(Color.white)
                     .frame(maxWidth: .infinity, minHeight: 50)

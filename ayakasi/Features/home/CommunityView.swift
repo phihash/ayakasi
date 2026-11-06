@@ -77,13 +77,13 @@ struct CommentFeedView: View {
                 YokaiThumbnail(yokai: yokai)
                 VStack(alignment: .leading, spacing: 6) {
                     Text(comment.content)
-                        .font(.headline)
+                        .appFont(.headline)
                         .foregroundStyle(Color.appTextPrimary)
                         .lineLimit(3)
                         .multilineTextAlignment(.leading)
                     Text(([yokai?.name ?? comment.yokaiId, DateFormatter.shortDateTime.string(from: comment.createdAt)]
                           + (comment.isWithdrawn ? ["退会したユーザー"] : [])).joined(separator: " ・ "))
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .foregroundStyle(Color.appTextSecondary)
                         .lineLimit(1)
                 }

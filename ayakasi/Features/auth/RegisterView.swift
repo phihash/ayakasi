@@ -80,19 +80,19 @@ struct RegisterView: View {
     private var terms: some View {
         VStack(spacing: 10) {
             Text("登録すると利用規約およびプライバシーポリシーに同意したものとみなされます。")
-                .font(.footnote)
+                .appFont(.footnote)
                 .foregroundStyle(Color.appTextSecondary)
                 .multilineTextAlignment(.center)
 
             HStack(spacing: 20) {
                 NavigationLink(destination: WebView(url: URL(string: AppConstants.termsOfServiceURL))) {
                     Text("利用規約")
-                        .font(.footnote.weight(.medium))
+                        .appFont(.footnote, weight: .medium)
                         .foregroundStyle(Color.appSecondary)
                 }
                 NavigationLink(destination: WebView(url: URL(string: AppConstants.privacyPolicyURL))) {
                     Text("プライバシーポリシー")
-                        .font(.footnote.weight(.medium))
+                        .appFont(.footnote, weight: .medium)
                         .foregroundStyle(Color.appSecondary)
                 }
             }
@@ -109,11 +109,11 @@ struct RegisterView: View {
                     .padding(.bottom, 4)
 
                 Text("認証メールを送信しました")
-                    .font(.title3.bold())
+                    .appFont(.title3, weight: .bold)
                     .foregroundStyle(Color.appTextPrimary)
 
                 Text("届いたメールのリンクを開いて認証を完了してください。見当たらないときは迷惑メールフォルダもご確認ください。")
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                     .foregroundStyle(Color.appTextSecondary)
                     .multilineTextAlignment(.center)
             }
@@ -131,7 +131,7 @@ struct RegisterView: View {
             Button("認証メールを再送信") {
                 Task { await authVM.resendVerificationEmail() }
             }
-            .font(.subheadline.weight(.medium))
+            .appFont(.subheadline, weight: .medium)
             .foregroundStyle(Color.appSecondary)
             .disabled(authVM.isProcessing)
         }

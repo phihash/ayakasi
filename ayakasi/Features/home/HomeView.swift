@@ -38,7 +38,7 @@ struct PillTabBar<Tab: UnderlineTab>: View {
                     withAnimation(.snappy(duration: 0.25)) { selection = item }
                 } label: {
                     Text(item.rawValue)
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .fontWeight(.bold)
                         .foregroundStyle(isSelected ? Color.white : Color.appTextSecondary)
                         .frame(maxWidth: .infinity)

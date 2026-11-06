@@ -45,7 +45,7 @@ struct EventListItem: View {
                     Text(eventStatus)
                         .foregroundStyle(event.hasStarted ? Color.appSecondary : Color.appTextSecondary)
                 }
-                .font(.caption)
+                .appFont(.caption)
                 .fontWeight(.semibold)
             }
         }

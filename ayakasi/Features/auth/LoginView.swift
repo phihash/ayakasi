@@ -42,7 +42,7 @@ struct LoginView: View {
                         showResetConfirm = true
                     }
                 }
-                .font(.subheadline.weight(.medium))
+                .appFont(.subheadline, weight: .medium)
                 .foregroundStyle(Color.appSecondary)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .disabled(authVM.isProcessing)
@@ -106,10 +106,10 @@ struct AuthHeader: View {
 
             VStack(spacing: 6) {
                 Text(title)
-                    .font(.title2.bold())
+                    .appFont(.title2, weight: .bold)
                     .foregroundStyle(Color.appTextPrimary)
                 Text(subtitle)
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                     .foregroundStyle(Color.appTextSecondary)
             }
         }
@@ -127,7 +127,7 @@ struct AuthField<Content: View>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
-                .font(.footnote.weight(.semibold))
+                .appFont(.footnote, weight: .semibold)
                 .foregroundStyle(Color.appTextPrimary)
 
             HStack(spacing: 12) {
@@ -159,7 +159,7 @@ struct AuthMessage: View {
     var body: some View {
         if !text.isEmpty {
             Label(text, systemImage: "exclamationmark.circle.fill")
-                .font(.subheadline)
+                .appFont(.subheadline)
                 .foregroundStyle(Color.appError)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .transition(.opacity)
@@ -178,7 +178,7 @@ struct AuthPrimaryButton: View {
                 if isLoading {
                     ProgressView().tint(.white)
                 } else {
-                    Text(title).font(.headline)
+                    Text(title).appFont(.headline)
                 }
             }
             .frame(maxWidth: .infinity, minHeight: 54)

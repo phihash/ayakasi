@@ -150,7 +150,7 @@ struct JapanView: View {
                 }
             }
         }
-        .font(.subheadline)
+        .appFont(.subheadline)
         .fontWeight(.semibold)
         .lineLimit(1)
         .minimumScaleFactor(0.8)
@@ -191,18 +191,18 @@ struct JapanView: View {
                             .fill(destinationIconAndColor(for: location).color)
                             .frame(width: 12, height: 12)
                         Text(location.name)
-                            .font(.title2)
+                            .appFont(.title2)
                             .fontWeight(.bold)
                     }
                     .padding(.trailing, 44)
 
                     Text(location.prefecture)
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .foregroundColor(.secondary)
 
                     if !location.description.isEmpty {
                         Text(location.description)
-                            .font(.body)
+                            .appFont(.body)
                             .foregroundColor(.primary)
                     }
 
@@ -226,18 +226,18 @@ struct JapanView: View {
                                 .font(.system(size: 10))
                         }
                         Text(spot.spotName)
-                            .font(.title2)
+                            .appFont(.title2)
                             .fontWeight(.bold)
                     }
                     .padding(.trailing, 44)
 
                     Text(spot.prefecture)
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .foregroundColor(.secondary)
 
                     if let description = spot.description {
                         Text(description)
-                            .font(.body)
+                            .appFont(.body)
                             .foregroundColor(.primary)
                     }
 
@@ -246,7 +246,7 @@ struct JapanView: View {
                         if !relatedYokais.isEmpty {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("関連する妖怪:")
-                                    .font(.caption)
+                                    .appFont(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.top, 4)
 
@@ -261,7 +261,7 @@ struct JapanView: View {
                                                         .frame(width: 120, height: 120)
                                                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                                                     Text(yokai.name)
-                                                        .font(.subheadline)
+                                                        .appFont(.subheadline)
                                                         .fontWeight(.semibold)
                                                         .foregroundStyle(Color.appTextPrimary)
                                                         .lineLimit(1)
@@ -282,7 +282,7 @@ struct JapanView: View {
                             SpotDetailView(spot: spot)
                         } label: {
                             Label("スポットを見る", systemImage: "mappin.and.ellipse")
-                                .font(.subheadline.weight(.semibold))
+                                .appFont(.subheadline, weight: .semibold)
                                 .foregroundStyle(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 12)
@@ -376,7 +376,7 @@ struct JapanView: View {
                                         filter = item
                                     } label: {
                                         Text(item.rawValue)
-                                            .font(.subheadline)
+                                            .appFont(.subheadline)
                                             .fontWeight(.semibold)
                                             .foregroundStyle(isSelected ? Color.appSecondary : Color.appTextSecondary)
                                             .padding(.horizontal, 18)

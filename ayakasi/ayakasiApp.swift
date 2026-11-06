@@ -19,6 +19,7 @@ struct ayakasiApp: App {
     var body: some Scene {
         WindowGroup {
             Container()
+                .appFont(.body)  // .font を付けていない文字にも選んだ書体を効かせる
                 .environment(\.locale, Locale(identifier: "ja_JP"))
                 .environmentObject(AuthVM)
                 .environmentObject(CommentVM)

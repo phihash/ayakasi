@@ -11,7 +11,7 @@ struct NewsListItem: View {
         Button(action: action) {
             ListCard(image: image, systemImage: "newspaper", title: title, phrases: phrases) {
                 Text(publishedFormatter.string(from: published))
-                    .font(.caption)
+                    .appFont(.caption)
                     .fontWeight(.semibold)
                     .foregroundStyle(Color.appTextSecondary)
             }

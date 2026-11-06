@@ -3,10 +3,8 @@ import SwiftUI
 struct FavoriteYokaiView: View {
     @EnvironmentObject var favoriteService: FavoriteService
     @State private var selectedYokai: Ayakasi? = nil
-    private let columns = [
-        GridItem(.flexible(), spacing: 12),
-        GridItem(.flexible(), spacing: 12)
-    ]
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var columns: [GridItem] { NeoCardItem.gridColumns(sizeClass) }
 
     var favoriteYokais: [Ayakasi] {
         let favoriteIds = Set(favoriteService.favoriteYokaiIds)
@@ -50,11 +48,11 @@ struct FavoriteYokaiView: View {
                     .padding(.bottom, 2)
 
                 Text("ブックマークはまだありません")
-                    .font(.headline)
+                    .appFont(.headline)
                     .foregroundStyle(Color.appTextPrimary)
 
                 Text("気になる妖怪を保存して、いつでも見返せます。\nまずは人気の妖怪からどうぞ。")
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                     .foregroundStyle(Color.appTextSecondary)
                     .multilineTextAlignment(.center)
             }
@@ -65,7 +63,7 @@ struct FavoriteYokaiView: View {
             if !recommended.isEmpty {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("人気の妖怪")
-                        .font(.footnote.weight(.semibold))
+                        .appFont(.footnote, weight: .semibold)
                         .foregroundStyle(Color.appTextSecondary)
                         .padding(.horizontal, 16)
 

@@ -17,7 +17,7 @@ struct FullScreenImage: View {
                         Image(systemName: "questionmark.square")
                             .font(.system(size: 64))
                         Text("No Image")
-                            .font(.title3)
+                            .appFont(.title3)
                     }
                     .foregroundColor(.gray)
                 } else if let url = URL(string: imageName), url.scheme?.hasPrefix("http") == true {
@@ -62,7 +62,7 @@ struct FullScreenImage: View {
                     HStack {
                         Text("写真を保存")
                     }
-                    .font(.headline)
+                    .appFont(.headline)
                     .foregroundStyle(Color.white)
                     .frame(width: screenWidth * 0.55, height: 48)
                     .background(Capsule().fill(Color.appSecondary))

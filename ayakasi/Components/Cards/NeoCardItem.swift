@@ -18,7 +18,7 @@ struct NeoCardItem: View {
                                 Image(systemName: "questionmark.square")
                                     .font(.system(size: 32))
                                 Text("No Image")
-                                    .font(.caption2)
+                                    .appFont(.caption2)
                             }
                             .foregroundColor(.appTextSecondary)
                         } else {
@@ -50,7 +50,7 @@ struct NeoCardItem: View {
             HStack(spacing: 0) {
                 Button(action: onTap) {
                     Text(item.name)
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .fontWeight(.bold)
                         .lineLimit(1)
                         .truncationMode(.tail)

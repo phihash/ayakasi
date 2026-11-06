@@ -18,7 +18,7 @@ struct CommentListView: View {
                     .foregroundColor(.appTextSecondary)
                 
                 Text("まだコメントがありません")
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                     .fontWeight(.medium)
                     .foregroundColor(.appTextSecondary)
                 
@@ -35,11 +35,11 @@ struct CommentListView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             if comment.isWithdrawn {
                                 Text("退会したユーザー")
-                                    .font(.caption)
+                                    .appFont(.caption)
                                     .foregroundColor(.appTextSecondary)
                             }
                             Text(comment.content)
-                                .font(.body)
+                                .appFont(.body)
                                 .padding(.horizontal, 14)
                                 .padding(.vertical, 10)
                                 .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
@@ -141,7 +141,7 @@ struct NeoDetail: View {
                     Image(systemName: "questionmark.square")
                         .font(.system(size: 48))
                     Text("No Image")
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                 }
                 .foregroundColor(.appTextSecondary)
                 .frame(width: screenWidth, height: screenWidth * 0.75)
@@ -176,7 +176,7 @@ struct NeoDetail: View {
         Text(yokai.name)
             .foregroundColor(.white)
             .shadow(color: .black.opacity(0.8), radius: 2, x: 1, y: 1)
-            .font(.title)
+            .appFont(.title)
             .fontWeight(.bold)
             .padding(.bottom, 20)
             .padding(.leading, 32)
@@ -191,7 +191,7 @@ struct NeoDetail: View {
         HStack {
             icon()
             Text(title)
-                .font(.title3)
+                .appFont(.title3)
                 .fontWeight(.bold)
             Spacer()
         }
@@ -244,20 +244,20 @@ struct NeoDetail: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(spot.spotName)
-                    .font(.headline)
+                    .appFont(.headline)
                     .foregroundColor(.primary)
                 Text(spot.prefecture)
-                    .font(.caption)
+                    .appFont(.caption)
                     .foregroundColor(.appTextSecondary)
                 if let description = spot.description {
                     Text(description)
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .foregroundColor(.appTextSecondary)
                         .multilineTextAlignment(.leading)
                         .padding(.top, 2)
                 }
                 Label(action, systemImage: systemImage)
-                    .font(.caption)
+                    .appFont(.caption)
                     .fontWeight(.medium)
                     .foregroundColor(.appSecondary)
                     .padding(.top, 2)
@@ -283,23 +283,23 @@ struct NeoDetail: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 if let imageSource = yokai.imageSource {
                                     Text(imageSource)
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .fontWeight(.medium)
                                         .foregroundColor(.appTextSecondary)
                                 }
                                 if let imageAuthor = yokai.imageAuthor, let imageTitle = yokai.imageTitle {
                                     Text("\(imageAuthor)　\(imageTitle)")
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .fontWeight(.medium)
                                         .foregroundColor(.appTextSecondary)
                                 } else if let imageAuthor = yokai.imageAuthor {
                                     Text(imageAuthor)
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .fontWeight(.medium)
                                         .foregroundColor(.appTextSecondary)
                                 } else if let imageTitle = yokai.imageTitle {
                                     Text(imageTitle)
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .fontWeight(.medium)
                                         .foregroundColor(.appTextSecondary)
                                 }
@@ -320,7 +320,7 @@ struct NeoDetail: View {
                             let tags = yokai.categories.filter { $0 != "すべて" }
                             if !tags.isEmpty {
                                 Text(tags.map { "#\($0)" }.joined(separator: "  "))
-                                    .font(.caption)
+                                    .appFont(.caption)
                                     .foregroundColor(.appTextSecondary)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 24)
@@ -392,17 +392,17 @@ struct NeoDetail: View {
                                 } label: {
                                     HStack(spacing: 12) {
                                         Image(systemName: "book.pages")
-                                            .font(.title2)
+                                            .appFont(.title2)
                                             .foregroundColor(.appSecondary)
                                             .frame(width: 44, height: 44)
                                             .background(Color.appSecondary.opacity(0.12))
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                         Text("\(yokai.name)の物語を読む")
-                                            .font(.headline)
+                                            .appFont(.headline)
                                             .foregroundColor(.primary)
                                         Spacer()
                                         Image(systemName: "chevron.right")
-                                            .font(.caption)
+                                            .appFont(.caption)
                                             .foregroundColor(.appTextSecondary)
                                     }
                                     .padding(12)
@@ -443,7 +443,7 @@ struct NeoDetail: View {
                                 Image("info")
                                     .renderingMode(.template)
                                 Text("関連のある妖怪")
-                                    .font(.title3)
+                                    .appFont(.title3)
                                     .fontWeight(.bold)
                                 Spacer()
                             }
@@ -486,11 +486,11 @@ struct NeoDetail: View {
         }
         .task {
             Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId, source: source)
-            ReviewRequestManager.shared.recordActiveDay()
+            ReviewRequestManager.shared.recordYokaiViewed()
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
             // 開いた瞬間に出さないのは、妖怪を見る前に邪魔をしないため
             try? await Task.sleep(for: .seconds(3))
-            if !Task.isCancelled, ReviewRequestManager.shared.shouldRequestReviewForActiveDays() {
+            if !Task.isCancelled, ReviewRequestManager.shared.shouldRequestReview() {
                 Analytics.trackReviewRequested()
                 requestReview()
             }

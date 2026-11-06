@@ -53,14 +53,14 @@ struct MessageUI: View {
         NavigationStack {
             ScrollView {
                 Text("公開OKのご意見のみ掲載しています")
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                     .foregroundColor(.secondary)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
 
                 if messages.isEmpty {
                     Text("読み込めませんでした。通信状況を確認してください")
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .foregroundColor(.secondary)
                         .padding(.top, 40)
                 }
@@ -69,29 +69,29 @@ struct MessageUI: View {
                     ForEach(messages) { message in
                         VStack(alignment: .leading, spacing: 8) {
                             Text(message.content)
-                                .font(.body)
+                                .appFont(.body)
                                 .foregroundColor(.primary)
 
                             if let note = message.note {
                                 Text(note)
-                                    .font(.subheadline)
+                                    .appFont(.subheadline)
                                     .foregroundColor(.secondary)
                                     .padding(.top, 2)
                             }
 
                             HStack {
                                 Text(message.yearMonth)
-                                    .font(.caption)
+                                    .appFont(.caption)
                                     .foregroundColor(.secondary)
                                 Spacer()
                                 switch message.status {
                                 case .handled:
                                     Label("対応済み", systemImage: "checkmark.circle.fill")
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .foregroundColor(.green)
                                 case .inProgress:
                                     Label("対応中", systemImage: "clock.fill")
-                                        .font(.caption)
+                                        .appFont(.caption)
                                         .foregroundColor(.orange)
                                 case .pending:
                                     EmptyView()

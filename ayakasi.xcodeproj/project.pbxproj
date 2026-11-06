@@ -54,6 +54,7 @@
 		B10000010000000000000008 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000007 /* Log.swift */; };
 		B10000020000000000000001 /* YokaiShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* YokaiShareCard.swift */; };
 		C1A0A0010000000000000001 /* AVIFWarmup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0A0010000000000000002 /* AVIFWarmup.swift */; };
+		C1A0A0010000000000000003 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0A0010000000000000004 /* AppFont.swift */; };
 		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
 		C3000001000000000000000B /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000A /* CommunityView.swift */; };
 		C3000001000000000000000D /* ImageBenchmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000C /* ImageBenchmarkView.swift */; };
@@ -104,6 +105,7 @@
 		B10000010000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B10000010000000000000007 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C1A0A0010000000000000002 /* AVIFWarmup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVIFWarmup.swift; sourceTree = "<group>"; };
+		C1A0A0010000000000000004 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
 		C3000001000000000000000A /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		C3000001000000000000000C /* ImageBenchmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBenchmarkView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				A9C60B212FE2CE84003AC316 /* Analytics.swift */,
 				C1A0A0010000000000000002 /* AVIFWarmup.swift */,
+				C1A0A0010000000000000004 /* AppFont.swift */,
 				B10000010000000000000007 /* Log.swift */,
 				A9B08E252EEEF52B00592CB5 /* SafariView.swift */,
 				A9B08E262EEEF52B00592CB5 /* WebView.swift */,
@@ -496,6 +499,7 @@
 				A9B08DE62EE72BC300592CB5 /* NeoDetail.swift in Sources */,
 				A9C60B222FE2CE84003AC316 /* Analytics.swift in Sources */,
 				C1A0A0010000000000000001 /* AVIFWarmup.swift in Sources */,
+				C1A0A0010000000000000003 /* AppFont.swift in Sources */,
 				A9B08DE72EE72BC300592CB5 /* SearchView.swift in Sources */,
 				A9B08DE82EE72BC300592CB5 /* ayakasiApp.swift in Sources */,
 				A9B08DE92EE72BC300592CB5 /* Container.swift in Sources */,
@@ -661,7 +665,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.28.0;
+				MARKETING_VERSION = 3.29.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -708,7 +712,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.28.0;
+				MARKETING_VERSION = 3.29.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

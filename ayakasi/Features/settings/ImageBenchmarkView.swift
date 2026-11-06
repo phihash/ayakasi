@@ -48,9 +48,9 @@ struct ImageBenchmarkView: View {
 
     private func row(_ label: String, _ s: [Sample]) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(label).font(.headline)
+            Text(label).appFont(.headline)
             Text("1枚 \(kb(median(s.map { Double($0.bytes) })))KB ・ DL \(ms(median(s.map(\.downloadMs))))ms ・ デコード \(ms(median(s.map(\.decodeMs))))ms ・ 合計 \(ms(median(s.map { $0.downloadMs + $0.decodeMs })))ms")
-                .font(.subheadline)
+                .appFont(.subheadline)
         }
     }
 

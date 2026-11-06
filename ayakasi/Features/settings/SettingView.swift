@@ -11,6 +11,7 @@ struct SettingView: View {
     @State private var deletePassword = ""
     @State private var currentAppIconName = UIApplication.shared.alternateIconName
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage(AppFontChoice.storageKey) private var fontChoice: AppFontChoice = .standard
     @State private var messages: [Message] = []
 
     private var settingIconImageName: String {
@@ -36,11 +37,11 @@ struct SettingView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
                         Text("妖怪図鑑")
-                            .font(.title3)
+                            .appFont(.title3)
                             .fontWeight(.semibold)
 
                         Text("Version \(Bundle.main.appVersion)")
-                            .font(.caption)
+                            .appFont(.caption)
                             .foregroundColor(.secondary)
                     }
                     .padding(.top, 20)
@@ -63,10 +64,10 @@ struct SettingView: View {
                         NavigationLink(destination: MessageUI(messages: messages)) {
                             HStack {
                                 Text("みなさんの声")
-                                    .font(.subheadline)
+                                    .appFont(.subheadline)
                                 if Message.hasNew(in: messages) {
                                     Text("NEW")
-                                        .font(.caption2)
+                                        .appFont(.caption2)
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
                                         .padding(.horizontal, 6)
@@ -76,7 +77,7 @@ struct SettingView: View {
                                 }
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .font(.caption)
+                                    .appFont(.caption)
                                     .foregroundColor(.secondary)
                             }
                             .padding(.vertical, 12)
@@ -119,13 +120,27 @@ struct SettingView: View {
 
                         SettingRowToggle(title: "ダークモード", isOn: $isDarkMode)
 
+                        HStack {
+                            Text("書体")
+                                .appFont(.subheadline)
+                            Spacer()
+                            Picker("書体", selection: $fontChoice) {
+                                ForEach(AppFontChoice.allCases) { Text($0.label).tag($0) }
+                            }
+                            .labelsHidden()
+                            .onChange(of: fontChoice) { _, choice in
+                                Analytics.trackFontChanged(font: choice.rawValue)
+                            }
+                        }
+                        .padding(.vertical, 12)
+
                         SettingRowLink(title: "アプリアイコン", destination: IconSelect())
 
                         Button(action: {}) {
                             ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
                                 HStack {
                                     Text("アプリを共有する")
-                                        .font(.subheadline)
+                                        .appFont(.subheadline)
                                     Spacer()
                                 }
                                 .padding(.vertical, 12)
@@ -229,7 +244,7 @@ struct ChangePasswordView: View {
     private var form: some View {
         VStack(spacing: 20) {
             Text("安全のため、現在のパスワードを確認してから変更します。")
-                .font(.subheadline)
+                .appFont(.subheadline)
                 .foregroundStyle(Color.appTextSecondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 8)
@@ -275,10 +290,10 @@ struct ChangePasswordView: View {
                 .font(.system(size: 52))
                 .foregroundStyle(Color.appSuccess)
             Text("パスワードを変更しました")
-                .font(.title3.bold())
+                .appFont(.title3, weight: .bold)
                 .foregroundStyle(Color.appTextPrimary)
             Button("閉じる") { dismiss() }
-                .font(.subheadline.weight(.medium))
+                .appFont(.subheadline, weight: .medium)
                 .foregroundStyle(Color.appSecondary)
                 .padding(.top, 4)
         }

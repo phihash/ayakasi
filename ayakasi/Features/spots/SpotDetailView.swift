@@ -100,13 +100,13 @@ struct SpotDetailView: View {
                     URL(string: url).map { UIApplication.shared.open($0) }
                 } label: {
                     Label("地図で開く", systemImage: "mappin.and.ellipse")
-                        .font(.subheadline)
+                        .appFont(.subheadline)
                         .underline()
                         .foregroundStyle(Color.appSecondary)
                 }
             }
             Text(spot.spotName)
-                .font(.title2.bold())
+                .appFont(.title2, weight: .bold)
                 .foregroundStyle(Color.appTextPrimary)
         }
     }
@@ -119,10 +119,10 @@ struct SpotDetailView: View {
                         HStack(spacing: 8) {
                             YokaiThumbnail(yokai: yokai, size: 36)
                             Text(yokai.name)
-                                .font(.subheadline.weight(.semibold))
+                                .appFont(.subheadline, weight: .semibold)
                                 .foregroundStyle(Color.appTextPrimary)
                             Image(systemName: "chevron.right")
-                                .font(.caption2)
+                                .appFont(.caption2)
                                 .foregroundStyle(Color.appTextSecondary)
                         }
                         .padding(6)
@@ -145,11 +145,11 @@ struct SpotDetailView: View {
         } label: {
             HStack {
                 Text("ログを追加")
-                    .font(.headline)
+                    .appFont(.headline)
                     .foregroundStyle(Color.appTextPrimary)
                 Spacer()
                 Image(systemName: "plus")
-                    .font(.title3.weight(.semibold))
+                    .appFont(.title3, weight: .semibold)
                     .foregroundStyle(.white)
                     .frame(width: 48, height: 48)
                     .background(Circle().fill(Color.appSecondary))
@@ -182,7 +182,7 @@ struct SegmentTag: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
         }
-        .font(.caption.weight(.semibold))
+        .appFont(.caption, weight: .semibold)
         .clipShape(RoundedRectangle(cornerRadius: 6))
         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.appSecondary, lineWidth: 1))
     }
@@ -198,16 +198,16 @@ private struct SpotLogCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay(alignment: .bottomLeading) {
                     Text(DateFormatter.logDate.string(from: log.visitedAt))
-                        .font(.subheadline.weight(.medium))
+                        .appFont(.subheadline, weight: .medium)
                         .foregroundStyle(.white)
                         .shadow(radius: 4)
                         .padding(12)
                 }
             Text(log.title)
-                .font(.title3.bold())
+                .appFont(.title3, weight: .bold)
                 .foregroundStyle(Color.appTextPrimary)
             Text(log.body)
-                .font(.subheadline)
+                .appFont(.subheadline)
                 .foregroundStyle(Color.appTextPrimary)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
@@ -239,7 +239,7 @@ struct SpotLogDetailView: View {
                             SegmentTag(left: "ゆかりの地", right: spot.prefecture)
                                 .background(RoundedRectangle(cornerRadius: 6).fill(.white))
                             Text(spot.spotName)
-                                .font(.title2.bold())
+                                .appFont(.title2, weight: .bold)
                         }
                         .foregroundStyle(.white)
                         .padding(20)
@@ -248,7 +248,7 @@ struct SpotLogDetailView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(alignment: .top) {
                         Text(log.title)
-                            .font(.title2.bold())
+                            .appFont(.title2, weight: .bold)
                         Spacer()
                         if authVM.authStatus == .authenticated {
                             SpotLogMenu()

@@ -12,11 +12,11 @@ struct YokaiSearchResultItem: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(yokai.name)
-                        .font(.headline)
+                        .appFont(.headline)
                         .foregroundColor(.appTextPrimary)
 
                     Text(yokai.categories.joined(separator: "・"))
-                        .font(.caption)
+                        .appFont(.caption)
                         .foregroundColor(.appTextSecondary)
                         .lineLimit(1)
                 }
@@ -24,7 +24,7 @@ struct YokaiSearchResultItem: View {
                 Spacer()
 
                 Image(systemName: "chevron.right")
-                    .font(.caption)
+                    .appFont(.caption)
                     .foregroundColor(.appTextSecondary)
             }
             .padding(12)

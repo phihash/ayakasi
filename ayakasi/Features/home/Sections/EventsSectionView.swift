@@ -33,7 +33,7 @@ struct EventsSection: View {
                 .foregroundColor(.appTextSecondary)
 
             Text("イベントを取得中です")
-                .font(.title3)
+                .appFont(.title3)
                 .fontWeight(.medium)
                 .foregroundColor(.appTextSecondary)
         }

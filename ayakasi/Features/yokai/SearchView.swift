@@ -6,10 +6,8 @@ struct SearchView: View {
     @State private var selectedSource = "category"
     @EnvironmentObject private var router: DeepLinkRouter
 
-    private let columns = [
-        GridItem(.flexible(), spacing: 12),
-        GridItem(.flexible(), spacing: 12)
-    ]
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var columns: [GridItem] { NeoCardItem.gridColumns(sizeClass) }
 
     // よく見られている(デフォ・軽い) → すべて → 妖怪が1体以上いるカテゴリ
     private var availableCategories: [String] {
@@ -64,7 +62,7 @@ struct SearchView: View {
                         }
                     } label: {
                         Image(systemName: "magnifyingglass")
-                            .font(.title3)
+                            .appFont(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .frame(width: 56, height: 56)
@@ -91,7 +89,7 @@ struct SearchView: View {
                         HStack(spacing: 4) {
                             Text(selectedCategory)
                             Image(systemName: "chevron.down")
-                                .font(.caption2)
+                                .appFont(.caption2)
                         }
                     }
                 }
@@ -172,7 +170,7 @@ struct YokaiSearchView: View {
                             .foregroundColor(.appTextSecondary)
 
                         Text("妖怪名、地域、読み方で検索できます")
-                            .font(.subheadline)
+                            .appFont(.subheadline)
                             .foregroundColor(.appTextSecondary)
                     }
                     .frame(maxWidth: .infinity)
@@ -184,7 +182,7 @@ struct YokaiSearchView: View {
                             .foregroundColor(.appTextSecondary)
 
                         Text("「\(searchText)」はヒットしませんでした")
-                            .font(.subheadline)
+                            .appFont(.subheadline)
                             .foregroundColor(.appTextSecondary)
                             .multilineTextAlignment(.center)
                     }
