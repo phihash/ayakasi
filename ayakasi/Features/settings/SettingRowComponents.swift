@@ -9,7 +9,7 @@ struct SettingRowButton: View {
         Button(action: action) {
             HStack {
                 Text(title)
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                 Spacer()
             }
             .padding(.vertical, 12)
@@ -27,10 +27,10 @@ struct SettingRowLink<Destination: View>: View {
         NavigationLink(destination: destination) {
             HStack {
                 Text(title)
-                    .font(.subheadline)
+                    .appFont(.subheadline)
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .font(.caption)
+                    .appFont(.caption)
                     .foregroundColor(.secondary)
             }
             .padding(.vertical, 12)
@@ -46,7 +46,7 @@ struct SettingRowToggle: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.subheadline)
+                .appFont(.subheadline)
             Spacer()
             Toggle("", isOn: $isOn)
                 .labelsHidden()

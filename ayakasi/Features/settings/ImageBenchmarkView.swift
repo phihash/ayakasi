@@ -19,11 +19,13 @@ struct ImageBenchmarkView: View {
     @State private var progress = ""
     @State private var isRunning = false
     @State private var networkNote = "LTE"
+    @AppStorage(AVIFWarmup.disableKey) private var disableWarmup = false
 
     var body: some View {
         List {
             Section {
                 TextField("回線のメモ(例: LTE, Wi-Fi)", text: $networkNote)
+                Toggle("次の起動からウォームアップを止める(対策前の再現)", isOn: $disableWarmup)
                 Button(isRunning ? "計測中… \(progress)" : "計測する(20枚 × PNG/AVIF)") {
                     Task { await run() }
                 }
@@ -64,6 +66,7 @@ struct ImageBenchmarkView: View {
         }
         return """
         端末: \(Self.deviceModel) / iOS \(UIDevice.current.systemVersion) / 回線: \(networkNote) / \(png.count)枚
+        低電力モード: \(ProcessInfo.processInfo.isLowPowerModeEnabled ? "オン" : "オフ") / 温度: \(Self.thermalState) / 充電: \(Self.batteryState) / ウォームアップ: \(AVIFWarmup.didRun ? "あり" : "なし")(この起動)
         \(line("PNG ", png))
         \(line("AVIF", avif))
         """
@@ -73,13 +76,21 @@ struct ImageBenchmarkView: View {
         isRunning = true
         defer { isRunning = false; progress = "" }
         png = []; avif = []
-        // キャッシュを使わない専用セッション。毎回ネットワークから取る
+        // キャッシュを使わない専用セッション(ブラウザのシークレットウィンドウ相当)。毎回ネットワークから取る。
+        // .reloadIgnoringLocalAndRemoteCacheData を使わないのは、Appleの資料で未実装とされているため
         let config = URLSessionConfiguration.ephemeral
-        config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil
         let session = URLSession(configuration: config)
         // 最初の1回は接続の確立(DNS・TLS)を含んで遅いので、計測から外す
         _ = try? await session.data(from: URL(string: Self.base + "events")!)
+        // 全画像を1回ずつ取って Cloudflare のキャッシュを温める(時間は測らない)。
+        // 片方の形式だけキャッシュから追い出されていて不利になるのを防ぐ。デコードはしないので初回デコードの遅さはそのまま測れる
+        progress = "準備中"
+        for name in Self.names {
+            _ = try? await session.data(from: URL(string: Self.base + name + ".png")!)
+            _ = try? await session.data(from: URL(string: Self.base + name + ".avif")!)
+        }
 
         var p: [Sample] = [], a: [Sample] = []
         for (i, name) in Self.names.enumerated() {
@@ -116,6 +127,26 @@ struct ImageBenchmarkView: View {
     }
     private func ms(_ v: Double) -> String { String(Int(v.rounded())) }
     private func kb(_ v: Double) -> String { String(Int((v / 1024).rounded())) }
+
+    private static var thermalState: String {
+        switch ProcessInfo.processInfo.thermalState {
+        case .nominal: return "通常"
+        case .fair: return "やや高"
+        case .serious: return "高"
+        case .critical: return "危険"
+        @unknown default: return "不明"
+        }
+    }
+
+    private static var batteryState: String {
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        switch UIDevice.current.batteryState {
+        case .charging: return "充電中"
+        case .full: return "満充電"
+        case .unplugged: return "なし"
+        default: return "不明"
+        }
+    }
 
     // "iPhone15,2" のような機種ID(記事に機種名を書くときの対応表はAppleのサイトで引く)
     private static var deviceModel: String {
