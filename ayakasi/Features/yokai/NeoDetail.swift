@@ -69,6 +69,8 @@ struct NeoDetail: View {
     @State private var showStoryView = false
     @State private var isCommentUI = false
     @State private var selectedRelatedYokai: Ayakasi? = nil
+    // .task は関連妖怪などから戻るたびに走るので、閲覧の計測は1回だけにする
+    @State private var didRecordView = false
     @EnvironmentObject var commentVM : CommentService
     @Environment(\.requestReview) private var requestReview
     
@@ -485,8 +487,11 @@ struct NeoDetail: View {
             NeoDetail(yokai: yokai, source: "related")
         }
         .task {
-            Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId, source: source)
-            ReviewRequestManager.shared.recordYokaiViewed()
+            if !didRecordView {
+                didRecordView = true
+                Analytics.trackYokaiViewed(name: yokai.name, documentId: yokai.documentId, source: source)
+                ReviewRequestManager.shared.recordYokaiViewed()
+            }
             await commentVM.fetchYokaiComments(yokaiId: yokai.documentId)
             // 開いた瞬間に出さないのは、妖怪を見る前に邪魔をしないため
             try? await Task.sleep(for: .seconds(3))

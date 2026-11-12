@@ -122,6 +122,8 @@ struct SearchView: View {
 // キーワード検索画面。上の検索FABから開く。
 struct YokaiSearchView: View {
     @State private var searchText = ""
+    // 送信・結果タップ・画面を離れる、のどれでも計測を呼ぶので、同じ語を二重に送らないよう覚えておく
+    @State private var lastTrackedKeyword = ""
     @FocusState private var isSearchFocused: Bool
     let onSelect: (Ayakasi) -> Void
 
@@ -212,12 +214,16 @@ struct YokaiSearchView: View {
             trackSearchIfNeeded()
         }
         .onAppear {
-            isSearchFocused = true
+            // 詳細から戻ったときにキーボードで結果を隠さないよう、まだ何も打っていないときだけ
+            if searchText.isEmpty {
+                isSearchFocused = true
+            }
         }
     }
 
     private func trackSearchIfNeeded() {
-        if !trimmedSearchText.isEmpty {
+        if !trimmedSearchText.isEmpty, trimmedSearchText != lastTrackedKeyword {
+            lastTrackedKeyword = trimmedSearchText
             Analytics.trackSearch(keyword: trimmedSearchText)
             if searchResults.isEmpty {
                 Analytics.trackSearchNoResult(keyword: trimmedSearchText)
