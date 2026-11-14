@@ -1,0 +1,20 @@
+#!/bin/bash
+# push前のゲート。最初に落ちた段で止まり、最後の1行(GATE …)で結果を一つだけ名乗る。
+# テストターゲットが無いので、ビルドが通ることが今証明できる上限。
+export PATH="/opt/homebrew/bin:$PATH"
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+step() {
+  local name=$1; shift
+  echo "▶ $name"
+  if ! "$@"; then
+    echo "GATE failed: $name"
+    exit 1
+  fi
+}
+
+step audit:claude-md scripts/audit-claude-md.sh
+# -quiet でも警告とエラーは出る。成功時に何千行も流さないため
+step build xcodebuild -quiet -project ayakasi.xcodeproj -scheme ayakasi -destination 'generic/platform=iOS Simulator' build
+
+echo "GATE passed"
