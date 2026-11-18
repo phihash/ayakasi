@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC011C0A0000000000000001 /* kozou-blink.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC011C0A0000000000000002 /* kozou-blink.gif */; };
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
 		A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC011C0A0000000000000002 /* kozou-blink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "kozou-blink.gif"; sourceTree = "<group>"; };
 		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelect.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				A937148F2F3F8BBC0056D6A3 /* SettingRowComponents.swift */,
+				EC011C0A0000000000000002 /* kozou-blink.gif */,
 				A9B08D9A2EE72BC300592CB5 /* SettingView.swift */,
 				A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */,
 				C3000001000000000000000C /* ImageBenchmarkView.swift */,
@@ -434,6 +437,7 @@
 				A9B08DFB2EE72BC300592CB5 /* Assets.xcassets in Resources */,
 				A9B08DFC2EE72BC300592CB5 /* GoogleService-Info.plist in Resources */,
 				B10000010000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
+				EC011C0A0000000000000001 /* kozou-blink.gif in Resources */,
 				A9B08DFE2EE72BC300592CB5 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

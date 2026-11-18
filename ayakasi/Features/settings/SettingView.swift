@@ -4,6 +4,7 @@ import UIKit
 
 struct SettingView: View {
     @EnvironmentObject var authVM : AuthViewModel
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var showLogoutAlert = false
     @State private var showDeleteAccountAlert = false
     @State private var showClearCacheAlert = false
@@ -25,14 +26,31 @@ struct SettingView: View {
         }
     }
 
+    private var staticIcon: some View {
+        Image(settingIconImageName)
+            .resizable()
+            .scaledToFill()
+    }
+
+    @ViewBuilder
+    private var headerIcon: some View {
+        if !reduceMotion, settingIconImageName == "settingIcon",
+           let url = Bundle.main.url(forResource: "kozou-blink", withExtension: "gif") {
+            KFAnimatedImage.dataProvider(LocalFileImageDataProvider(fileURL: url))
+                .cacheMemoryOnly()
+                .configure { $0.contentMode = .scaleAspectFill }
+                .placeholder { staticIcon }
+        } else {
+            staticIcon
+        }
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     VStack(spacing: 12) {
-                        Image(settingIconImageName)
-                            .resizable()
-                            .scaledToFill()
+                        headerIcon
                             .frame(width: 80, height: 80)
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
