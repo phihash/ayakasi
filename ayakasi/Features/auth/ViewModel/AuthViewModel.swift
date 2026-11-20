@@ -14,8 +14,7 @@ enum AuthStatus {
 @MainActor
 class AuthViewModel : ObservableObject{
     
-    @Published var user : User?
-    @Published var authStatus: AuthStatus = .none
+    @Published private(set) var authStatus: AuthStatus = .none
     @Published var email = ""
     @Published var password = ""
     @Published var confirmPassword = ""
@@ -37,21 +36,17 @@ class AuthViewModel : ObservableObject{
     }
     
     private func setupAuthStateListener(){
-        authStateHandle = authService.observeAuthState { [weak self] user in
-            self?.applyAuthState(user)
+        authStateHandle = authService.observeAuthState { [weak self] in
+            self?.applyAuthState()
         }
     }
 
-    private func applyAuthState(_ user: User?) {
-        self.user = user
-
-        if user == nil {
-            self.authStatus = .none
-        } else if user?.isEmailVerified == true {
-            self.authStatus = .authenticated
-        } else {
-            self.authStatus = .waitingVerification
+    private func applyAuthState() {
+        guard let user = authService.currentUser else {
+            authStatus = .none
+            return
         }
+        authStatus = user.isEmailVerified ? .authenticated : .waitingVerification
     }
     
     func signUp() async {
@@ -77,8 +72,8 @@ class AuthViewModel : ObservableObject{
         defer { isProcessing = false }
 
         do{
-            self.user =  try await authService.signUpWithEmailVerification(email: email, password: password)
-            self.authStatus = .waitingVerification
+            try await authService.signUpWithEmailVerification(email: email, password: password)
+            applyAuthState()
             clearFields()
             message = "認証メールを送信しました"
         } catch{
@@ -115,14 +110,13 @@ class AuthViewModel : ObservableObject{
         defer { isProcessing = false }
 
         do{
-            self.user = try await authService.signIn(email: email, password: password)
+            try await authService.signIn(email: email, password: password)
+            applyAuthState()
             
-            if authService.isEmailVerified {
-                self.authStatus = .authenticated
+            if authStatus == .authenticated {
                 message = ""
                 clearFields()
             } else {
-                self.authStatus = .waitingVerification
                 message = "メールアドレスの認証が完了していません"
             }
         } catch{
@@ -216,8 +210,7 @@ class AuthViewModel : ObservableObject{
 
         do {
             try await authService.deleteUser(password: password)
-            self.user = nil
-            self.authStatus = .none
+            applyAuthState()
             clearFields()
         } catch {
             Logger.auth.error("アカウント削除失敗: \(String(describing: error))")
@@ -236,8 +229,7 @@ class AuthViewModel : ObservableObject{
     func signOut() {
         do{
             try authService.signOut()
-            self.user = nil
-            self.authStatus = .none
+            applyAuthState()
             clearFields()
         } catch{
             Logger.auth.error("ログアウトエラー: \(String(describing: error))")
@@ -248,7 +240,7 @@ class AuthViewModel : ObservableObject{
     func checkEmailVerification() async {
         do {
             try await authService.reloadUser()
-            applyAuthState(authService.currentUser)
+            applyAuthState()
         } catch {
             Logger.auth.error("ユーザー情報の更新エラー: \(String(describing: error))")
         }

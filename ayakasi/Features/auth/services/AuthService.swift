@@ -10,29 +10,23 @@ class AuthService {
         return Auth.auth().currentUser
     }
     
-    var isEmailVerified: Bool {
-        return currentUser?.isEmailVerified ?? false
-    }
-    
-    func signUpWithEmailVerification(email:String,password:String) async throws -> User{
+    func signUpWithEmailVerification(email: String, password: String) async throws {
         let result = try await Auth.auth().createUser(withEmail: email, password: password)
         try await result.user.sendEmailVerification()
-        return result.user
     }
     
-    func signIn(email:String,password:String) async throws -> User{
-        let result = try await Auth.auth().signIn(withEmail: email, password: password)
-        return result.user
+    func signIn(email: String, password: String) async throws {
+        _ = try await Auth.auth().signIn(withEmail: email, password: password)
     }
     
     func signOut() throws{
         try Auth.auth().signOut()
     }
     
-    func observeAuthState(completion: @escaping (User?) -> Void) -> AuthStateDidChangeListenerHandle {
-        return Auth.auth().addStateDidChangeListener { _, user in
+    func observeAuthState(completion: @escaping () -> Void) -> AuthStateDidChangeListenerHandle {
+        return Auth.auth().addStateDidChangeListener { _, _ in
             Task { @MainActor in
-                completion(user)
+                completion()
             }
         }
     }
