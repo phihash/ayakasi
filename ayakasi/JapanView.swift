@@ -107,14 +107,6 @@ struct JapanView: View {
         }
     }
 
-    // Google Mapで開く
-    private func openInGoogleMaps(latitude: Double, longitude: Double, name: String) {
-        let urlString = "https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
-        if let url = URL(string: urlString) {
-            UIApplication.shared.open(url)
-        }
-    }
-
     // 名前だけだと同名の寺社や別の場所が出るので、都道府県を付けて検索する
     private func searchOnWeb(name: String, prefecture: String) {
         var components = URLComponents(string: "https://www.google.com/search")!
@@ -128,7 +120,7 @@ struct JapanView: View {
     private func spotButtons(name: String, prefecture: String, coordinate: CLLocationCoordinate2D, searchable: Bool) -> some View {
         HStack(spacing: 10) {
             Button {
-                openInGoogleMaps(latitude: coordinate.latitude, longitude: coordinate.longitude, name: name)
+                UIApplication.shared.open(coordinate.googleMapsURL)
             } label: {
                 Label("Google Mapで開く", systemImage: "map")
                     .foregroundStyle(Color.white)

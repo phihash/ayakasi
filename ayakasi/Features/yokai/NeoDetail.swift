@@ -214,10 +214,7 @@ struct NeoDetail: View {
         #else
         Button {
             Analytics.trackSpotCardTapped(spotName: spot.spotName, prefecture: spot.prefecture, yokaiName: yokai.name)
-            let urlString = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
-            if let url = URL(string: urlString) {
-                UIApplication.shared.open(url)
-            }
+            UIApplication.shared.open(spot.coordinate.googleMapsURL)
         } label: {
             spotCardLabel(spot, action: "地図で開く", systemImage: "arrow.up.right.square")
         }

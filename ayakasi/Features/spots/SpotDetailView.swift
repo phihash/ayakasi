@@ -96,8 +96,7 @@ struct SpotDetailView: View {
                 SegmentTag(left: "ゆかりの地", right: spot.prefecture)
                 Spacer()
                 Button {
-                    let url = "https://www.google.com/maps/search/?api=1&query=\(spot.coordinate.latitude),\(spot.coordinate.longitude)"
-                    URL(string: url).map { UIApplication.shared.open($0) }
+                    UIApplication.shared.open(spot.coordinate.googleMapsURL)
                 } label: {
                     Label("地図で開く", systemImage: "mappin.and.ellipse")
                         .appFont(.subheadline)
