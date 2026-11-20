@@ -74,7 +74,6 @@ struct JapanView: View {
             }
         }
         .frame(width: 36, height: 36)
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(color, lineWidth: 2))
         .shadow(radius: 3)
     }
 
