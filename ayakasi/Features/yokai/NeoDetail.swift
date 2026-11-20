@@ -463,6 +463,14 @@ struct NeoDetail: View {
         .background(Color.appBackground)
         .navigationTitle(yokai.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(yokai.name)
+                    .appFont(.callout, weight: .semibold)
+                    .lineLimit(1)
+                    .accessibilityAddTraits(.isHeader)
+            }
+        }
         .fullScreenCover(isPresented: $showStoryView) {
             StoryView(yokaiName: yokai.name)
         }

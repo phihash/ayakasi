@@ -50,11 +50,6 @@ struct JapanView: View {
     // ayakasisから全てのスポットを抽出
     private var allYokaiSpots: [YokaiSpot] { YokaiStore.shared.spots }
 
-    // yokaiIdsから妖怪オブジェクトを取得
-    private func getYokaiFromIds(_ ids: [String]) -> [Ayakasi] {
-        ids.compactMap(yokaiById)
-    }
-
     // スポットタイプに応じたアイコンとカラーを返す
     // ゆかりの地は妖怪の顔で見分けられるよう、角丸正方形にその妖怪の画像を出す(画像が無ければ従来のアイコン)
     private func yokaiPin(_ yokai: Ayakasi, color: Color) -> some View {
@@ -106,49 +101,6 @@ struct JapanView: View {
         }
     }
 
-    // 名前だけだと同名の寺社や別の場所が出るので、都道府県を付けて検索する
-    private func searchOnWeb(name: String, prefecture: String) {
-        var components = URLComponents(string: "https://www.google.com/search")!
-        components.queryItems = [URLQueryItem(name: "q", value: "\(name) \(prefecture)")]
-        if let url = components.url {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    // シート下のボタン。ゆかりの地だけ「検索する」を横に並べる(施設は公式サイトがあり、地図で足りるため)
-    private func spotButtons(name: String, prefecture: String, coordinate: CLLocationCoordinate2D, searchable: Bool) -> some View {
-        HStack(spacing: 10) {
-            Button {
-                UIApplication.shared.open(coordinate.googleMapsURL)
-            } label: {
-                Label("Google Mapで開く", systemImage: "map")
-                    .foregroundStyle(Color.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(Color.appSecondary)
-                    .cornerRadius(10)
-            }
-
-            if searchable {
-                Button {
-                    searchOnWeb(name: name, prefecture: prefecture)
-                } label: {
-                    Label("検索する", systemImage: "magnifyingglass")
-                        .foregroundStyle(Color.appSecondary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.appSecondary, lineWidth: 1.5))
-                }
-            }
-        }
-        .appFont(.subheadline)
-        .fontWeight(.semibold)
-        .lineLimit(1)
-        .minimumScaleFactor(0.8)
-        .padding(.top, 8)
-    }
-
-
     // 関連妖怪の正方形サムネイル。画像が無い妖怪はカードと同じ「No Image」表示にそろえる
     @ViewBuilder
     private func yokaiThumbnail(_ yokai: Ayakasi) -> some View {
@@ -196,75 +148,31 @@ struct JapanView: View {
                             .appFont(.body)
                             .foregroundColor(.primary)
                     }
-
-                    spotButtons(name: location.name, prefecture: location.prefecture,
-                                coordinate: location.coordinate, searchable: location.kind == "related")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
+                .padding(.top, 8)
             }
         case .yokaiSpot(let spotId):
             if let spot = allYokaiSpots.first(where: { $0.id == spotId }) {
-                let iconAndColor = spotIconAndColor(for: spot.spotType)
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 5)
-                                .fill(iconAndColor.color)
-                                .frame(width: 20, height: 20)
-                            Image(systemName: iconAndColor.icon)
-                                .foregroundColor(.white)
-                                .font(.system(size: 10))
-                        }
-                        Text(spot.spotName)
-                            .appFont(.title2)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.trailing, 44)
-
-                    Text(spot.prefecture)
-                        .appFont(.subheadline)
-                        .foregroundColor(.secondary)
-
-                    if let description = spot.description {
-                        Text(description)
-                            .appFont(.body)
-                            .foregroundColor(.primary)
-                    }
-
-                    if !spot.yokaiIds.isEmpty {
-                        let relatedYokais = getYokaiFromIds(spot.yokaiIds)
-                        if !relatedYokais.isEmpty {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("関連する妖怪:")
-                                    .appFont(.caption)
-                                    .foregroundColor(.secondary)
-                                    .padding(.top, 4)
-
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack(spacing: 12) {
-                                        ForEach(relatedYokais) { yokai in
-                                            Button {
-                                                selectedYokai = yokai
-                                            } label: {
-                                                VStack(alignment: .leading, spacing: 6) {
-                                                    yokaiThumbnail(yokai)
-                                                        .frame(width: 120, height: 120)
-                                                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                                                    Text(yokai.name)
-                                                        .appFont(.subheadline)
-                                                        .fontWeight(.semibold)
-                                                        .foregroundStyle(Color.appTextPrimary)
-                                                        .lineLimit(1)
-                                                        .frame(width: 120, alignment: .leading)
-                                                }
-                                            }
-                                            .buttonStyle(.plain)
-                                        }
-                                    }
+                let relatedYokai = spot.yokaiIds.compactMap(yokaiById)
+                VStack(alignment: .leading, spacing: 0) {
+                    let summary = spotSummary(spot, relatedYokai: relatedYokai)
+                    if let first = relatedYokai.first {
+                        if relatedYokai.count == 1 {
+                            Button { selectedYokai = first } label: { summary }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("\(first.name)の詳細を開く")
+                        } else {
+                            Menu {
+                                ForEach(relatedYokai) { yokai in
+                                    Button(yokai.name) { selectedYokai = yokai }
                                 }
-                            }
+                            } label: { summary }
+                            .buttonStyle(.plain)
                         }
+                    } else {
+                        summary
                     }
 
                     #if DEBUG  // スポット画面(ログ)は仮UIなのでリリース版には出さない
@@ -279,16 +187,56 @@ struct JapanView: View {
                                 .padding(.vertical, 12)
                                 .background(RoundedRectangle(cornerRadius: 12).fill(Color.appSecondary))
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
                     #endif
-
-                    spotButtons(name: spot.spotName, prefecture: spot.prefecture,
-                                coordinate: spot.coordinate, searchable: spot.spotType == .yokaiRelated)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
             }
         }
+    }
+
+    private func spotSummary(_ spot: YokaiSpot, relatedYokai: [Ayakasi]) -> some View {
+        let marker = spotIconAndColor(for: spot.spotType)
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: marker.icon)
+                    .foregroundStyle(.white)
+                    .font(.system(size: 10))
+                    .frame(width: 20, height: 20)
+                    .background(marker.color, in: RoundedRectangle(cornerRadius: 5))
+                Text(spot.spotName)
+                    .appFont(.title2, weight: .bold)
+            }
+            .padding(.trailing, 44)
+
+            Text(spot.prefecture)
+                .appFont(.subheadline)
+                .foregroundStyle(.secondary)
+            if let description = spot.description {
+                Text(description)
+                    .appFont(.body)
+            }
+
+            if let first = relatedYokai.first {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("関連する妖怪:")
+                        .appFont(.caption)
+                        .foregroundStyle(.secondary)
+                    yokaiThumbnail(first)
+                        .frame(width: 120, height: 120)
+                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    Text(relatedYokai.map(\.name).joined(separator: "・"))
+                        .appFont(.subheadline, weight: .semibold)
+                        .foregroundStyle(Color.appTextPrimary)
+                }
+            }
+        }
+        .multilineTextAlignment(.leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .padding(.top, 8)
+        .contentShape(Rectangle())
     }
 
     var body: some View {
@@ -342,7 +290,6 @@ struct JapanView: View {
                 Group {
                     if let selection = viewModel.selectedLocation {
                         spotPanel(selection)
-                            .padding(.top, 8)
                             .overlay(alignment: .topTrailing) {
                                 Button {
                                     withAnimation(.snappy) { viewModel.selectedLocation = nil }
