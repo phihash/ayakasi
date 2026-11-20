@@ -9,22 +9,8 @@ struct CommentListView: View {
 
     var body: some View {
         if comments.isEmpty {
-            VStack(spacing: 16) {
-                Image("forum")
-                    .renderingMode(.template)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 44, height: 44)
-                    .foregroundColor(.appTextSecondary)
-                
-                Text("まだコメントがありません")
-                    .appFont(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(.appTextSecondary)
-                
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 40)
+            CommentEmptyState()
+                .padding(.vertical, 24)
         } else {
             VStack(alignment: .leading, spacing: 20) {
                 ForEach(comments) { comment in

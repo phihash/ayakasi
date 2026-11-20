@@ -42,10 +42,8 @@ struct FavoriteYokaiView: View {
     private var emptyState: some View {
         VStack(spacing: 28) {
             VStack(spacing: 12) {
-                Image(systemName: "bookmark")
-                    .font(.system(size: 44))
-                    .foregroundStyle(Color.appTextSecondary)
-                    .padding(.bottom, 2)
+                WaitingKozou()
+                    .accessibilityHidden(true)
 
                 Text("ブックマークはまだありません")
                     .appFont(.headline)
@@ -57,7 +55,7 @@ struct FavoriteYokaiView: View {
                     .multilineTextAlignment(.center)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, 72)
+            .padding(.top, 36)
             .padding(.horizontal, 24)
 
             if !recommended.isEmpty {
@@ -79,5 +77,48 @@ struct FavoriteYokaiView: View {
             }
         }
         .padding(.bottom, 24)
+    }
+}
+
+private struct WaitingKozou: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    private let side: CGFloat = 136
+    // Eye center in the square illustration, measured from its top-left corner.
+    private let eye = UnitPoint(x: 0.506, y: 0.414)
+
+    private var illustration: some View {
+        Image("bookmark-kozou")
+            .resizable()
+            .frame(width: side, height: side)
+    }
+
+    var body: some View {
+        if reduceMotion {
+            illustration
+        } else {
+            illustration.keyframeAnimator(initialValue: 0.0, repeating: true) { image, glance in
+                image
+                    .overlay {
+                        image
+                            .rotationEffect(.degrees(-54 * glance), anchor: eye)
+                            .mask {
+                                RadialGradient(
+                                    colors: [.white, .clear],
+                                    center: eye,
+                                    startRadius: side * 0.166,
+                                    endRadius: side * 0.19
+                                )
+                            }
+                    }
+                    .scaleEffect(x: 1, y: 1 + 0.014 * glance, anchor: .bottom)
+            } keyframes: { _ in
+                LinearKeyframe(0, duration: 1.6)
+                CubicKeyframe(1, duration: 0.45)
+                LinearKeyframe(1, duration: 0.85)
+                CubicKeyframe(0, duration: 0.65)
+                LinearKeyframe(0, duration: 1.0)
+            }
+        }
     }
 }

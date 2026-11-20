@@ -13,26 +13,19 @@ extension DateFormatter {
     }()
 }
 
-enum HomeTab: String, UnderlineTab {
+private enum HomeTab: String, CaseIterable {
     case events = "イベント"
     case news = "ニュース"
-    var icon: String? { nil }
-}
-
-// 画面上部の切り替えタブ(イベント・ニュース)
-protocol UnderlineTab: Hashable, CaseIterable where AllCases: RandomAccessCollection {
-    var rawValue: String { get }
-    var icon: String? { get }  // Assets.xcassets の画像名
 }
 
 // ホームのイベント・ニュース切り替え。カードの一覧の上に置くので、下線よりカプセルの方がなじむ
-struct PillTabBar<Tab: UnderlineTab>: View {
-    @Binding var selection: Tab
+private struct PillTabBar: View {
+    @Binding var selection: HomeTab
     @Namespace private var pill
 
     var body: some View {
         HStack(spacing: 4) {
-            ForEach(Array(Tab.allCases), id: \.self) { item in
+            ForEach(HomeTab.allCases, id: \.self) { item in
                 let isSelected = item == selection
                 Button {
                     withAnimation(.snappy(duration: 0.25)) { selection = item }

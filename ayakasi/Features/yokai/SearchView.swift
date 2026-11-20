@@ -40,7 +40,6 @@ struct SearchView: View {
                     .padding(.top, 12)
                     .padding(.bottom, 60)
                 }
-                .background(Color("Ivory"))
 
                 VStack(spacing: 12) {
                     // 設定の奥にしかないと見つからないという問い合わせがあったので、最初に開くタブに置く
@@ -75,6 +74,7 @@ struct SearchView: View {
                 .padding(.trailing, 20)
                 .padding(.bottom, 24)
             }
+            .background(Color.appBackground)
             .navigationTitle("さがす")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -179,9 +179,8 @@ struct YokaiSearchView: View {
                     .padding(.top, 80)
                 } else if searchResults.isEmpty {
                     VStack(spacing: 12) {
-                        Image(systemName: "questionmark.circle")
-                            .font(.system(size: 40))
-                            .foregroundColor(.appTextSecondary)
+                        FlusteredKozou()
+                            .accessibilityHidden(true)
 
                         Text("「\(searchText)」はヒットしませんでした")
                             .appFont(.subheadline)
@@ -189,7 +188,7 @@ struct YokaiSearchView: View {
                             .multilineTextAlignment(.center)
                     }
                     .frame(maxWidth: .infinity)
-                    .padding(.top, 80)
+                    .padding(.top, 32)
                 } else {
                     LazyVStack(spacing: 10) {
                         ForEach(searchResults, id: \.id) { yokai in
@@ -204,9 +203,8 @@ struct YokaiSearchView: View {
                     .padding(.bottom, 16)
                 }
             }
-            .background(Color("Ivory"))
         }
-        .background(Color("Ivory"))
+        .background(Color.appBackground)
         .navigationTitle("妖怪を検索")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
@@ -229,5 +227,54 @@ struct YokaiSearchView: View {
                 Analytics.trackSearchNoResult(keyword: trimmedSearchText)
             }
         }
+    }
+}
+
+private struct FlusteredKozou: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        Image("search-kozou")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 128, height: 128)
+            .overlay(alignment: .topLeading) {
+                if reduceMotion {
+                    drop(size: 12, tilt: -110)
+                        .offset(x: 114, y: 22)
+                } else {
+                    Color.clear
+                        .keyframeAnimator(initialValue: 0.0, repeating: true) { layer, time in
+                            layer.overlay(alignment: .topLeading) {
+                                movingDrop(size: 13, tilt: -112, rise: -9, progress: time)
+                                    .offset(x: 101, y: 28)
+                                movingDrop(size: 9, tilt: -84, rise: 2, progress: time - 0.18)
+                                    .offset(x: 105, y: 36)
+                            }
+                        } keyframes: { _ in
+                            MoveKeyframe(0)
+                            LinearKeyframe(1.18, duration: 0.46)
+                            LinearKeyframe(1.18, duration: 1.7)
+                        }
+                }
+            }
+    }
+
+    private func drop(size: CGFloat, tilt: Double) -> some View {
+        Image(systemName: "drop.fill")
+            .resizable()
+            .scaledToFit()
+            .foregroundStyle(Color(red: 0.34, green: 0.64, blue: 0.72))
+            .frame(width: size * 0.7, height: size)
+            .rotationEffect(.degrees(tilt))
+    }
+
+    private func movingDrop(size: CGFloat, tilt: Double, rise: CGFloat, progress: Double) -> some View {
+        let t = min(max(progress, 0), 1)
+        let travel = 1 - (1 - t) * (1 - t)
+        return drop(size: size, tilt: tilt)
+            .scaleEffect(x: 0.7 + 0.55 * travel, y: 0.85)
+            .offset(x: 24 * travel, y: rise * travel)
+            .opacity(min(t / 0.12, 1, (1 - t) / 0.38))
     }
 }

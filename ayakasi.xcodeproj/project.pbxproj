@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC011C0A0000000000000001 /* kozou-blink.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC011C0A0000000000000002 /* kozou-blink.gif */; };
 		A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42C2F0AD17F00587825 /* JapanView.swift */; };
 		A905C42F2F0C09FE00587825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905C42E2F0C09FE00587825 /* Constants.swift */; };
 		A909FB302FB907F800F5F5D6 /* IconSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */; };
@@ -59,10 +58,10 @@
 		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
 		C3000001000000000000000B /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000A /* CommunityView.swift */; };
 		C3000001000000000000000D /* ImageBenchmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000C /* ImageBenchmarkView.swift */; };
+		EC011C0A0000000000000001 /* kozou-blink.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC011C0A0000000000000002 /* kozou-blink.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC011C0A0000000000000002 /* kozou-blink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "kozou-blink.gif"; sourceTree = "<group>"; };
 		A905C42C2F0AD17F00587825 /* JapanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanView.swift; sourceTree = "<group>"; };
 		A905C42E2F0C09FE00587825 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A909FB2F2FB907F800F5F5D6 /* IconSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelect.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
 		C3000001000000000000000A /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		C3000001000000000000000C /* ImageBenchmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBenchmarkView.swift; sourceTree = "<group>"; };
+		EC011C0A0000000000000002 /* kozou-blink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "kozou-blink.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -669,7 +669,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.29.0;
+				MARKETING_VERSION = 3.29.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -716,7 +716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 3.29.0;
+				MARKETING_VERSION = 3.29.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.phihash.ayakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

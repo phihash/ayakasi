@@ -35,7 +35,7 @@ struct CommentFeedView: View {
                     .foregroundStyle(Color.appTextSecondary)
                     .padding(.top, 80)
             } else if comments.isEmpty {
-                ContentUnavailableView("まだコメントがありません", systemImage: "bubble.left")
+                CommentEmptyState()
                     .padding(.top, 40)
             } else {
                 LazyVStack(spacing: 12) {
