@@ -11,32 +11,20 @@ struct FullScreenImage: View {
         ZStack{
             Color.black.ignoresSafeArea()
             
-            Group{
-                if imageName == "NoImage" {
-                    VStack(spacing: 12) {
-                        Image(systemName: "questionmark.square")
-                            .font(.system(size: 64))
-                        Text("No Image")
-                            .appFont(.title3)
+            if let url = URL(string: imageName), url.scheme?.hasPrefix("http") == true {
+                KFImage(url)
+                    .placeholder {
+                        Image("loading")
+                            .resizable()
+                            .scaledToFit()
                     }
-                    .foregroundColor(.gray)
-                } else if let url = URL(string: imageName), url.scheme?.hasPrefix("http") == true {
-                    Spacer()
-                    KFImage(url)
-                        .placeholder {
-                            Image("loading")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                        .cacheOriginalImage()
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
-                } else {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                }
+                    .cacheOriginalImage()
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
             }
             
             VStack{
@@ -57,11 +45,7 @@ struct FullScreenImage: View {
                 }
                 Spacer()
 
-                // 写真を保存ボタン
-                if imageName != "NoImage" {
-                    HStack {
-                        Text("写真を保存")
-                    }
+                Text("写真を保存")
                     .appFont(.headline)
                     .foregroundStyle(Color.white)
                     .frame(width: screenWidth * 0.55, height: 48)
@@ -70,7 +54,6 @@ struct FullScreenImage: View {
                         requestAndSaveImage(imageName)
                     }
                     .padding(.bottom, 40)
-                }
             }
         }
     }

@@ -132,14 +132,15 @@ struct YokaiSearchView: View {
     }
 
     private var searchResults: [Ayakasi] {
-        guard !trimmedSearchText.isEmpty else {
+        let keyword = trimmedSearchText
+        guard !keyword.isEmpty else {
             return []
         }
 
         return ayakasis.filter { ayakasi in
-            ayakasi.name.localizedCaseInsensitiveContains(trimmedSearchText) ||
-            ayakasi.categories.contains(where: { $0.localizedCaseInsensitiveContains(trimmedSearchText) }) ||
-            (ayakasi.searchKeywords?.contains(where: { $0.localizedCaseInsensitiveContains(trimmedSearchText) }) ?? false)
+            ayakasi.name.localizedCaseInsensitiveContains(keyword) ||
+            ayakasi.categories.contains(where: { $0.localizedCaseInsensitiveContains(keyword) }) ||
+            (ayakasi.searchKeywords?.contains(where: { $0.localizedCaseInsensitiveContains(keyword) }) ?? false)
         }
     }
 
@@ -165,6 +166,7 @@ struct YokaiSearchView: View {
             .padding(.bottom, 8)
 
             ScrollView {
+                let results = searchResults
                 if trimmedSearchText.isEmpty {
                     VStack(spacing: 12) {
                         Image(systemName: "magnifyingglass")
@@ -177,7 +179,7 @@ struct YokaiSearchView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 80)
-                } else if searchResults.isEmpty {
+                } else if results.isEmpty {
                     VStack(spacing: 12) {
                         FlusteredKozou()
                             .accessibilityHidden(true)
@@ -191,7 +193,7 @@ struct YokaiSearchView: View {
                     .padding(.top, 32)
                 } else {
                     LazyVStack(spacing: 10) {
-                        ForEach(searchResults, id: \.id) { yokai in
+                        ForEach(results, id: \.id) { yokai in
                             YokaiSearchResultItem(yokai: yokai) {
                                 trackSearchIfNeeded()
                                 onSelect(yokai)

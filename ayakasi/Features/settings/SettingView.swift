@@ -154,15 +154,13 @@ struct SettingView: View {
 
                         SettingRowLink(title: "アプリアイコン", destination: IconSelect())
 
-                        Button(action: {}) {
-                            ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
-                                HStack {
-                                    Text("アプリを共有する")
-                                        .appFont(.subheadline)
-                                    Spacer()
-                                }
-                                .padding(.vertical, 12)
+                        ShareLink(item: URL(string: "https://apps.apple.com/jp/app/%E5%A6%96%E6%80%AA%E5%9B%B3%E9%91%91/id6749905503")!) {
+                            HStack {
+                                Text("アプリを共有する")
+                                    .appFont(.subheadline)
+                                Spacer()
                             }
+                            .padding(.vertical, 12)
                         }
                         .foregroundStyle(.primary)
 
