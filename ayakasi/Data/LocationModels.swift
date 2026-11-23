@@ -1,15 +1,6 @@
 import Foundation
 import MapKit
 
-extension CLLocationCoordinate2D {
-    var googleMapsURL: URL {
-        URL(string: "https://www.google.com/maps/search/")!.appending(queryItems: [
-            URLQueryItem(name: "api", value: "1"),
-            URLQueryItem(name: "query", value: "\(latitude),\(longitude)")
-        ])
-    }
-}
-
 struct YokaiDestination: Identifiable, Decodable {
     let id = UUID()
     let name: String  // 町名・施設名

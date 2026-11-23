@@ -5,14 +5,6 @@ extension URL: @retroactive Identifiable {
     public var id: String { absoluteString }
 }
 
-extension DateFormatter {
-    static let shortDateTime: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "M/d HH:mm"
-        return formatter
-    }()
-}
-
 private enum HomeTab: String, CaseIterable {
     case events = "イベント"
     case news = "ニュース"

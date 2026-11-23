@@ -19,15 +19,6 @@ enum Analytics {
         amplitude.track(eventType: "story_opened", eventProperties: ["yokai_name": yokaiName])
     }
 
-    /// 詳細画面のゆかりの地から地図を開いた(マップ画面のピンは map_spot_tapped)
-    static func trackSpotCardTapped(spotName: String, prefecture: String, yokaiName: String) {
-        amplitude.track(eventType: "spot_card_tapped", eventProperties: [
-            "spot_name": spotName,
-            "prefecture": prefecture,
-            "yokai_name": yokaiName
-        ])
-    }
-
     static func trackMapSpotTapped(spotName: String, prefecture: String) {
         amplitude.track(eventType:"map_spot_tapped", eventProperties: [
             "spot_name": spotName,

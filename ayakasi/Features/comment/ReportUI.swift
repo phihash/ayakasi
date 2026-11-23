@@ -21,7 +21,7 @@ struct CommentMenu: View {
         } label: {
             Image(systemName: "ellipsis")
                 .foregroundStyle(Color.appTextSecondary)
-                .frame(width: 32, height: 32)
+                .frame(width: 44, height: 44)
                 .contentShape(Rectangle())
         }
         .accessibilityLabel("コメントのメニュー")
