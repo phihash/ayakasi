@@ -7,6 +7,7 @@ struct AppConstants {
     static let events2DataURL = "https://yokai-images.insharp0220.workers.dev/events"
     static let newsDataURL = "https://yokai-images.insharp0220.workers.dev/news"
     static let messagesDataURL = "https://yokai-images.insharp0220.workers.dev/messages"
+    static let spotLogsDataURL = "https://yokai-images.insharp0220.workers.dev/spot-logs"
     static let commentsDataURL = "https://yokai-images.insharp0220.workers.dev/comments"
     static let noticeDataURL = "https://raw.githubusercontent.com/phihash/JSON/refs/heads/main/notice.json"
 }
