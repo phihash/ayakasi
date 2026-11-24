@@ -1,7 +1,7 @@
 import SwiftUI
 import Kingfisher
 
-/// 妖怪の画像を角丸正方形で出す(ゆかりの地のカード・コメント一覧で共用)。画像が無ければ「？」
+/// ゆかりの地のカードに表示する妖怪のサムネイル。画像が無ければ「？」
 struct YokaiThumbnail: View {
     let yokai: Ayakasi?
     var size: CGFloat = 88

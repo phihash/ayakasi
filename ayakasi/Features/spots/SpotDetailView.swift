@@ -1,45 +1,19 @@
+#if DEBUG
 import SwiftUI
-import Kingfisher
-
-/// ゆかりの地に行った人が残すログ(写真＋文章)
-struct SpotLog: Identifiable {
-    let id = UUID()
-    let photoURL: URL?
-    let visitedAt: Date
-    let title: String
-    let body: String
-
-    // ponytail: UIを先に作るための仮データ。D1の spot_logs とアップロードAPIができたら差し替える
-    static func samples(for spot: YokaiSpot) -> [SpotLog] {
-        let photo = spot.yokaiIds.first.flatMap(yokaiById).flatMap { URL(string: $0.imageName) }
-        return [
-            SpotLog(photoURL: photo, visitedAt: .now.addingTimeInterval(-86400 * 3),
-                    title: "思っていたより静かな場所",
-                    body: "駅から歩いて20分ほど。案内板があるので迷いませんでした。\n夕方に行ったら人がいなくて、少しひんやりした空気でした。"),
-            SpotLog(photoURL: photo, visitedAt: .now.addingTimeInterval(-86400 * 40),
-                    title: "御朱印もいただけました",
-                    body: "近くに資料館もあるので、あわせて回るのがおすすめです。"),
-        ]
-    }
-}
-
-extension DateFormatter {
-    static let logDate: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        return formatter
-    }()
-}
 
 struct SpotDetailView: View {
     let spot: YokaiSpot
-    @State private var logs: [SpotLog] = []
+    @State private var composer: VisitComposerContext?
+    @State private var logYokaiId: String?
     @State private var selectedYokai: Ayakasi?
-    @State private var selectedLog: SpotLog?
-    @State private var showLoginAlert = false
-    @EnvironmentObject var authVM: AuthViewModel
 
     private var relatedYokais: [Ayakasi] { spot.yokaiIds.compactMap(yokaiById) }
+    private var owners: [Ayakasi] {
+        ayakasis.filter { yokai in
+            yokai.relatedSpots?.contains { $0.spotName == spot.spotName && $0.prefecture == spot.prefecture } == true
+        }
+    }
+    private var owner: Ayakasi? { owners.first { $0.documentId == logYokaiId } ?? owners.first }
 
     var body: some View {
         ScrollView {
@@ -51,59 +25,41 @@ struct SpotDetailView: View {
                         .foregroundStyle(Color.appTextPrimary)
                 }
                 if !relatedYokais.isEmpty { yokaiRow }
-                LazyVStack(spacing: 16) {
-                    ForEach(logs) { log in
-                        // メニューをButtonのlabelの外に重ねるのは、labelの中のMenuはタップがカードの遷移に取られるため
-                        Button { selectedLog = log } label: { SpotLogCard(log: log) }
-                            .buttonStyle(.plain)
-                            .overlay(alignment: .topTrailing) {
-                                if authVM.authStatus == .authenticated {
-                                    SpotLogMenu()
-                                        .background(Circle().fill(.ultraThinMaterial))
-                                        .padding(24)
-                                }
-                            }
+                if let owner {
+                    if owners.count > 1 {
+                        Picker("訪問記の妖怪", selection: Binding(get: { owner.documentId }, set: { logYokaiId = $0 })) {
+                            ForEach(owners) { Text($0.name).tag($0.documentId) }
+                        }
                     }
+                    SpotVisitSection(yokaiId: owner.documentId, spots: [spot], filterByPlace: true, composer: $composer)
+                        .id(owner.documentId)
                 }
-                .padding(.horizontal, -8)
             }
             .padding(.horizontal, 24)
             .padding(.top, 8)
             .padding(.bottom, 120)
         }
         .background(Color.appBackground)
-        .overlay(alignment: .bottom) { addLogBar }
+        .overlay(alignment: .bottomTrailing) {
+            if let owner {
+                VisitComposeButton(yokaiId: owner.documentId, spots: [spot], composer: $composer)
+                    .padding(.trailing, 22)
+                    .padding(.bottom, 14)
+            }
+        }
+        .visitComposer($composer)
+        .onChange(of: logYokaiId) { composer = nil }
         .navigationTitle("ゆかりの地")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
         .navigationDestination(item: $selectedYokai) { yokai in
             NeoDetail(yokai: yokai, source: "spot")
         }
-        .navigationDestination(item: $selectedLog) { log in
-            SpotLogDetailView(log: log, spot: spot)
-        }
-        .task { logs = SpotLog.samples(for: spot) }
-        .alert("ログインが必要です", isPresented: $showLoginAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text("ログを追加するには、設定画面からログインまたは新規登録してください。")
-        }
     }
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                SegmentTag(left: "ゆかりの地", right: spot.prefecture)
-                Spacer()
-                Button {
-                    UIApplication.shared.open(spot.coordinate.googleMapsURL)
-                } label: {
-                    Label("地図で開く", systemImage: "mappin.and.ellipse")
-                        .appFont(.subheadline)
-                        .underline()
-                        .foregroundStyle(Color.appSecondary)
-                }
-            }
+            SegmentTag(left: "ゆかりの地", right: spot.prefecture)
             Text(spot.spotName)
                 .appFont(.title2, weight: .bold)
                 .foregroundStyle(Color.appTextPrimary)
@@ -133,35 +89,6 @@ struct SpotDetailView: View {
             }
         }
     }
-
-    private var addLogBar: some View {
-        Button {
-            guard authVM.authStatus == .authenticated else {
-                showLoginAlert = true
-                return
-            }
-            // ponytail: 投稿画面は写真アップロードAPIと一緒に作る
-        } label: {
-            HStack {
-                Text("ログを追加")
-                    .appFont(.headline)
-                    .foregroundStyle(Color.appTextPrimary)
-                Spacer()
-                Image(systemName: "plus")
-                    .appFont(.title3, weight: .semibold)
-                    .foregroundStyle(.white)
-                    .frame(width: 48, height: 48)
-                    .background(Circle().fill(Color.appSecondary))
-            }
-            .padding(.leading, 24)
-            .padding(6)
-            .background(Capsule().fill(Color.appCardBackground))
-            .shadow(color: .black.opacity(0.1), radius: 10, y: 4)
-        }
-        .buttonStyle(.plain)
-        .padding(.horizontal, 24)
-        .padding(.bottom, 8)
-    }
 }
 
 /// 「食べる｜スイーツ」のような左が塗り・右が枠の2つ組タグ
@@ -187,119 +114,40 @@ struct SegmentTag: View {
     }
 }
 
-private struct SpotLogCard: View {
-    let log: SpotLog
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            LogPhoto(url: log.photoURL)
-                .frame(height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(alignment: .bottomLeading) {
-                    Text(DateFormatter.logDate.string(from: log.visitedAt))
-                        .appFont(.subheadline, weight: .medium)
-                        .foregroundStyle(.white)
-                        .shadow(radius: 4)
-                        .padding(12)
-                }
-            Text(log.title)
-                .appFont(.title3, weight: .bold)
-                .foregroundStyle(Color.appTextPrimary)
-            Text(log.body)
-                .appFont(.subheadline)
-                .foregroundStyle(Color.appTextPrimary)
-                .lineLimit(2)
-                .multilineTextAlignment(.leading)
-        }
-        .padding(16)
-        .background(Color.appCardBackground)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.06), radius: 6, y: 2)
-    }
-}
-
 struct SpotLogDetailView: View {
     let log: SpotLog
-    let spot: YokaiSpot
-    @EnvironmentObject var authVM: AuthViewModel
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                LogPhoto(url: log.photoURL)
-                    .frame(height: 420)
-                    .clipped()
-                    .overlay {
-                        LinearGradient(colors: [.clear, .black.opacity(0.6)], startPoint: .center, endPoint: .bottom)
-                    }
-                    .overlay(alignment: .bottomLeading) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(DateFormatter.logDate.string(from: log.visitedAt))
-                            SegmentTag(left: "ゆかりの地", right: spot.prefecture)
-                                .background(RoundedRectangle(cornerRadius: 6).fill(.white))
-                            Text(spot.spotName)
-                                .appFont(.title2, weight: .bold)
-                        }
-                        .foregroundStyle(.white)
-                        .padding(20)
-                    }
-
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack(alignment: .top) {
-                        Text(log.title)
-                            .appFont(.title2, weight: .bold)
-                        Spacer()
-                        if authVM.authStatus == .authenticated {
-                            SpotLogMenu()
-                        }
-                    }
-                    Text(log.body)
-                        .lineSpacing(6)
+            VStack(alignment: .leading, spacing: 14) {
+                Label("\(log.spotName)（\(log.prefecture)）", systemImage: "mappin.and.ellipse")
+                    .appFont(.headline)
+                Text("\(log.byline)　\(log.createdAt.formatted(.relative(presentation: .numeric)))")
+                    .appFont(.footnote)
+                    .foregroundStyle(Color.appTextSecondary)
+                if !log.body.isEmpty {
+                    Text(log.body).appFont(.body).lineSpacing(4)
                 }
-                .foregroundStyle(Color.appTextPrimary)
-                .padding(20)
+                ForEach(log.photoURLs, id: \.self) { url in
+                    AsyncImage(url: url) { image in
+                        image.resizable().scaledToFit()
+                    } placeholder: {
+                        Image(systemName: "photo").foregroundStyle(Color.appTextSecondary)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("訪問時の写真")
+                    .accessibilityAddTraits(.isImage)
+                }
             }
+            .foregroundStyle(Color.appTextPrimary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(20)
         }
-        .ignoresSafeArea(edges: .top)
+        .navigationTitle("訪問記")
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.appBackground)
         .toolbar(.hidden, for: .tabBar)
     }
 }
-
-private struct LogPhoto: View {
-    let url: URL?
-
-    var body: some View {
-        Color.gray.opacity(0.12)
-            .overlay {
-                KFImage(url)
-                    .downsampling(size: CGSize(width: 800, height: 800))
-                    .scaleFactor(UIScreen.main.scale)
-                    .resizable()
-                    .scaledToFill()
-            }
-            .clipped()
-    }
-}
-
-/// コメントの CommentMenu と同じ「…」(通報・ブロック)
-private struct SpotLogMenu: View {
-    var body: some View {
-        Menu {
-            // ponytail: 見た目だけ。spot_logs の通報・ブロックAPIができたら CommentMenu と同じ確認ダイアログをつなぐ
-            Button("ログを報告する", systemImage: "exclamationmark.triangle", role: .destructive) {}
-            Button("ユーザーをブロックする", systemImage: "person.fill.xmark", role: .destructive) {}
-        } label: {
-            Image(systemName: "ellipsis")
-                .foregroundStyle(Color.appTextSecondary)
-                .frame(width: 32, height: 32)
-                .contentShape(Rectangle())
-        }
-        .accessibilityLabel("ログのメニュー")
-    }
-}
-
-extension SpotLog: Hashable {
-    static func == (lhs: SpotLog, rhs: SpotLog) -> Bool { lhs.id == rhs.id }
-    func hash(into hasher: inout Hasher) { hasher.combine(id) }
-}
+#endif

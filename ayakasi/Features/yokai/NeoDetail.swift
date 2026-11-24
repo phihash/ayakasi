@@ -12,31 +12,9 @@ struct CommentListView: View {
             CommentEmptyState()
                 .padding(.vertical, 24)
         } else {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 12) {
                 ForEach(comments) { comment in
-                    HStack(alignment: .top, spacing: 10) {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 36))
-                            .foregroundColor(.appTextSecondary.opacity(0.5))
-                        VStack(alignment: .leading, spacing: 4) {
-                            if comment.isWithdrawn {
-                                Text("退会したユーザー")
-                                    .appFont(.caption)
-                                    .foregroundColor(.appTextSecondary)
-                            }
-                            Text(comment.content)
-                                .appFont(.body)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 10)
-                                .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
-                        }
-                        Spacer(minLength: 0)
-                        if comment.isMine {
-                            Spacer().frame(width: 32)
-                        } else {
-                            CommentMenu(comment: comment, onDone: onChanged)
-                        }
-                    }
+                    CommentCard(comment: comment, onChanged: onChanged)
                 }
             }
             .padding(.horizontal, 20)
@@ -54,6 +32,9 @@ struct NeoDetail: View {
     @State private var alertMessage : String = ""
     @State private var showStoryView = false
     @State private var isCommentUI = false
+    #if DEBUG
+    @State private var visitComposer: VisitComposerContext?
+    #endif
     @State private var selectedRelatedYokai: Ayakasi? = nil
     // .task は関連妖怪などから戻るたびに走るので、閲覧の計測は1回だけにする
     @State private var didRecordView = false
@@ -171,6 +152,45 @@ struct NeoDetail: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
     }
     
+    @ViewBuilder
+    private var imageMetadata: some View {
+        let source = yokai.imageSource ?? ""
+        let tags = yokai.categories.filter { !$0.isEmpty && $0 != "すべて" }.map { "#\($0)" }
+        let credit = [yokai.imageAuthor, yokai.imageTitle].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: "　")
+
+        if !source.isEmpty || !tags.isEmpty || !credit.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                if !source.isEmpty || !tags.isEmpty {
+                    let labels = Group {
+                        if !source.isEmpty {
+                            Text(source)
+                                .fontWeight(.medium)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(Color.appTextSecondary.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
+                        }
+                        if !tags.isEmpty {
+                            Text(tags.joined(separator: "  "))
+                        }
+                    }
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .firstTextBaseline, spacing: 8) { labels }
+                        VStack(alignment: .leading, spacing: 4) { labels }
+                    }
+                }
+                if !credit.isEmpty {
+                    Text(credit)
+                        .fontWeight(.medium)
+                }
+            }
+            .appFont(.caption)
+            .foregroundStyle(Color.appTextSecondary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 24)
+            .padding(.top, 16)
+        }
+    }
+
     private func sectionHeader(_ title: String, systemImage: String) -> some View {
         sectionHeader(title) { Image(systemName: systemImage) }
     }
@@ -198,39 +218,14 @@ struct NeoDetail: View {
         .padding(.horizontal, 24)
     }
 
-    // スポット画面(ログ)は仮UIなので、リリース版では今までどおりGoogleマップを開く
-    @ViewBuilder
     private func spotCard(_ spot: YokaiSpot) -> some View {
-        #if DEBUG
-        NavigationLink {
-            SpotDetailView(spot: spot)
-        } label: {
-            spotCardLabel(spot, action: "くわしく見る", systemImage: "chevron.right")
-        }
-        .buttonStyle(.plain)
-        .simultaneousGesture(TapGesture().onEnded {
-            Analytics.trackSpotCardTapped(spotName: spot.spotName, prefecture: spot.prefecture, yokaiName: yokai.name)
-        })
-        #else
-        Button {
-            Analytics.trackSpotCardTapped(spotName: spot.spotName, prefecture: spot.prefecture, yokaiName: yokai.name)
-            UIApplication.shared.open(spot.coordinate.googleMapsURL)
-        } label: {
-            spotCardLabel(spot, action: "地図で開く", systemImage: "arrow.up.right.square")
-        }
-        .buttonStyle(.plain)
-        #endif
-    }
-
-    private func spotCardLabel(_ spot: YokaiSpot, action: String, systemImage: String) -> some View {
         HStack(alignment: .top, spacing: 12) {
-            // 地図にしないのは、小さな正方形の地図では場所が読み取れないため(場所は「地図で開く」で見る)
             YokaiThumbnail(yokai: yokaiById(spot.yokaiIds.first ?? "") ?? yokai, size: 96)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(spot.spotName)
                     .appFont(.headline)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.appTextPrimary)
                 Text(spot.prefecture)
                     .appFont(.caption)
                     .foregroundColor(.appTextSecondary)
@@ -241,11 +236,6 @@ struct NeoDetail: View {
                         .multilineTextAlignment(.leading)
                         .padding(.top, 2)
                 }
-                Label(action, systemImage: systemImage)
-                    .appFont(.caption)
-                    .fontWeight(.medium)
-                    .foregroundColor(.appSecondary)
-                    .padding(.top, 2)
             }
         }
         .padding(12)
@@ -263,56 +253,10 @@ struct NeoDetail: View {
                         titleView
                     }
                     
-                    if yokai.imageSource != nil || yokai.imageAuthor != nil || yokai.imageTitle != nil {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                if let imageSource = yokai.imageSource {
-                                    Text(imageSource)
-                                        .appFont(.caption)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.appTextSecondary)
-                                }
-                                if let imageAuthor = yokai.imageAuthor, let imageTitle = yokai.imageTitle {
-                                    Text("\(imageAuthor)　\(imageTitle)")
-                                        .appFont(.caption)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.appTextSecondary)
-                                } else if let imageAuthor = yokai.imageAuthor {
-                                    Text(imageAuthor)
-                                        .appFont(.caption)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.appTextSecondary)
-                                } else if let imageTitle = yokai.imageTitle {
-                                    Text(imageTitle)
-                                        .appFont(.caption)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.appTextSecondary)
-                                }
-                            }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(Color.appTextSecondary.opacity(0.1))
-                            .cornerRadius(12)
-                            Spacer()
-                        }
-                        .padding(.horizontal, 24)
-                        .padding(.top, 16)
-                    }
+                    imageMetadata
 
-                    
                     Group {
                         VStack{
-                            let tags = yokai.categories.filter { $0 != "すべて" }
-                            if !tags.isEmpty {
-                                Text(tags.map { "#\($0)" }.joined(separator: "  "))
-                                    .appFont(.caption)
-                                    .foregroundColor(.appTextSecondary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal, 24)
-                                    .padding(.top, 12)
-                            }
-
-                            sectionHeader("どんな妖怪？", systemImage: "book.closed")
                             // 太字にしないのは、説明を長くしたときに読みにくいため
                             Text(yokai.description)
                                 .lineSpacing(6)
@@ -366,6 +310,13 @@ struct NeoDetail: View {
                                     }
                                     .padding(.top, 8)
                                 }
+
+                                #if DEBUG
+                                SpotVisitSection(yokaiId: yokai.documentId, spots: relatedSpots, composer: $visitComposer)
+                                    .id(yokai.documentId)
+                                    .padding(.horizontal, 24)
+                                    .padding(.top, 8)
+                                #endif
                             }
 
                             if yokai.story {
@@ -498,11 +449,27 @@ struct NeoDetail: View {
         }
         // safeAreaInsetにしないのは、縦に2つ並べたボタンの高さぶん、画面の下が常に空いてしまうため
         .overlay(alignment: .bottomTrailing) {
-            BottomActionBar(
-                yokai: yokai,
-                isCommentUI: $isCommentUI
-            )
+            VStack(alignment: .trailing, spacing: 10) {
+                #if DEBUG
+                if let relatedSpots = yokai.relatedSpots, !relatedSpots.isEmpty {
+                    VisitComposeButton(yokaiId: yokai.documentId, spots: relatedSpots, composer: $visitComposer)
+                        .padding(.trailing, 22)
+                }
+                #endif
+                BottomActionBar(
+                    yokai: yokai,
+                    isCommentUI: $isCommentUI
+                )
+            }
+            #if DEBUG
+            .opacity(visitComposer == nil ? 1 : 0)
+            .allowsHitTesting(visitComposer == nil)
+            .accessibilityHidden(visitComposer != nil)
+            #endif
         }
+        #if DEBUG
+        .visitComposer($visitComposer)
+        #endif
         .toolbar(.hidden, for: .tabBar)
     }
 }

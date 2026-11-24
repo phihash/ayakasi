@@ -58,6 +58,7 @@
 		C20000010000000000000001 /* YokaiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20000010000000000000101 /* YokaiStore.swift */; };
 		C3000001000000000000000B /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000A /* CommunityView.swift */; };
 		C3000001000000000000000D /* ImageBenchmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3000001000000000000000C /* ImageBenchmarkView.swift */; };
+		C30CDA010000000000000001 /* CommentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30CDA010000000000000002 /* CommentCard.swift */; };
 		EC011C0A0000000000000001 /* kozou-blink.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC011C0A0000000000000002 /* kozou-blink.gif */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		C20000010000000000000101 /* YokaiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YokaiStore.swift; sourceTree = "<group>"; };
 		C3000001000000000000000A /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		C3000001000000000000000C /* ImageBenchmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBenchmarkView.swift; sourceTree = "<group>"; };
+		C30CDA010000000000000002 /* CommentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCard.swift; sourceTree = "<group>"; };
 		EC011C0A0000000000000002 /* kozou-blink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "kozou-blink.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +350,7 @@
 			children = (
 				A9B08E2A2EEEF55900592CB5 /* CommentService.swift */,
 				A9B08E2B2EEEF55900592CB5 /* CommentUI.swift */,
+				C30CDA010000000000000002 /* CommentCard.swift */,
 				A9ADCBE22F013A2A00E4A489 /* ReportUI.swift */,
 			);
 			path = comment;
@@ -485,6 +488,7 @@
 				A9B08DD12EE72BC300592CB5 /* AuthService.swift in Sources */,
 				A9B08E2D2EEEF55900592CB5 /* CommentService.swift in Sources */,
 				A9B08E2E2EEEF55900592CB5 /* CommentUI.swift in Sources */,
+				C30CDA010000000000000001 /* CommentCard.swift in Sources */,
 				A9B08DD22EE72BC300592CB5 /* AuthViewModel.swift in Sources */,
 				A905C42D2F0AD17F00587825 /* JapanView.swift in Sources */,
 				A9B08DD32EE72BC300592CB5 /* LoginView.swift in Sources */,
