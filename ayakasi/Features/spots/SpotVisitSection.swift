@@ -104,9 +104,11 @@ struct SpotVisitSection: View {
             }
             isLoading = false
         }
-        // ponytail: 入力欄を閉じるたびに取り直す(キャンセルでも1回通信する)。気になるなら投稿成功だけ通知する
-        .onChange(of: composer?.id) {
-            if composer == nil { reload += 1 }
+        // 通知で受けるのは、投稿ボタン(FAB)が画面側にあり、この一覧を直接さわれないため
+        .onReceive(NotificationCenter.default.publisher(for: .spotLogPublished)) { note in
+            guard let saved = note.object as? SpotLog else { return }
+            logs.removeAll { $0.id == saved.id }
+            logs.insert(saved, at: 0)
         }
         .onChange(of: authVM.authStatus) {
             logs = []

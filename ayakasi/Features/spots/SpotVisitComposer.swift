@@ -8,6 +8,10 @@ struct VisitComposerContext: Identifiable {
     let spots: [YokaiSpot]
 }
 
+extension Notification.Name {
+    static let spotLogPublished = Notification.Name("spotLogPublished")
+}
+
 /// 画面の右下に浮かせる「訪問記を書く」ボタン
 struct VisitComposeButton: View {
     let yokaiId: String
@@ -212,7 +216,8 @@ private struct SpotVisitComposer: View {
                 let spot = context.spots[selectedIndex]
                 let submission = SpotLogSubmission(requestId: requestId, yokaiId: context.yokaiId,
                     spotName: spot.spotName, prefecture: spot.prefecture, body: text, photos: photos)
-                _ = try await SpotLogAPI.publish(submission)
+                let saved = try await SpotLogAPI.publish(submission)
+                NotificationCenter.default.post(name: .spotLogPublished, object: saved)
                 close()
             } catch {
                 self.error = error.localizedDescription
