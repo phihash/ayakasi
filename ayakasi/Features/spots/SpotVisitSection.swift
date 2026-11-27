@@ -95,7 +95,7 @@ struct SpotVisitSection: View {
             isLoading = true
             loadError = nil
             do {
-                let fetched = try await SpotLogAPI.list(yokaiId: yokaiId)
+                let fetched = try await SpotLogAPI.list(yokaiId: yokaiId, spot: filterByPlace ? spots.first : nil)
                 try Task.checkCancellation()
                 logs = fetched
             } catch {

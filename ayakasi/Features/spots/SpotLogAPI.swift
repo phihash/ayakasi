@@ -47,8 +47,13 @@ enum SpotLogAPI {
     static let maxPhotos = 4
 
     @MainActor
-    static func list(yokaiId: String) async throws -> [SpotLog] {
-        let url = endpoint.appending(queryItems: [URLQueryItem(name: "yokaiId", value: yokaiId)])
+    static func list(yokaiId: String, spot: YokaiSpot? = nil) async throws -> [SpotLog] {
+        var query = [URLQueryItem(name: "yokaiId", value: yokaiId)]
+        if let spot {
+            query += [URLQueryItem(name: "spotName", value: spot.spotName),
+                      URLQueryItem(name: "prefecture", value: spot.prefecture)]
+        }
+        let url = endpoint.appending(queryItems: query)
         let auth = AuthService.shared
         let request = auth.currentUser == nil ? URLRequest(url: url) : try await auth.authorizedRequest(url, forceRefresh: false)
         return try await send(request)

@@ -381,14 +381,13 @@ private struct SpotPhotoStrip: View {
         .task(id: spot.id) {
             urls = []
             var found: [URL] = []
-            // 訪問記のAPIは妖怪ごとなので、関連妖怪の分を取ってこの場所だけ残す
+            // 訪問記のAPIは妖怪ごとなので、関連妖怪の数だけ取りに行く
             for yokaiId in spot.yokaiIds {
-                let logs = (try? await SpotLogAPI.list(yokaiId: yokaiId)) ?? []
-                found += logs.filter { $0.spotName == spot.spotName && $0.prefecture == spot.prefecture }
-                    .flatMap(\.photoURLs)
+                let logs = (try? await SpotLogAPI.list(yokaiId: yokaiId, spot: spot)) ?? []
+                found += logs.flatMap(\.photoURLs)
             }
             guard !Task.isCancelled else { return }
-            urls = found
+            urls = Array(found.prefix(10))
         }
     }
 }
