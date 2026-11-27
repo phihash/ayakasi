@@ -223,9 +223,16 @@ struct JapanView: View {
                     Text("関連する妖怪:")
                         .appFont(.caption)
                         .foregroundStyle(.secondary)
-                    yokaiThumbnail(first)
-                        .frame(width: 120, height: 120)
-                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            yokaiThumbnail(first)
+                                .frame(width: 120, height: 120)
+                                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            #if DEBUG
+                            SpotPhotoStrip(spot: spot)
+                            #endif
+                        }
+                    }
                     Text(relatedYokai.map(\.name).joined(separator: "・"))
                         .appFont(.subheadline, weight: .semibold)
                         .foregroundStyle(Color.appTextPrimary)
@@ -350,3 +357,39 @@ struct JapanView: View {
     }
 }
 
+
+#if DEBUG
+/// そのスポットの訪問記に付いた写真を、妖怪の画像の横に並べる
+private struct SpotPhotoStrip: View {
+    let spot: YokaiSpot
+    @State private var urls: [URL] = []
+
+    var body: some View {
+        HStack(spacing: 8) {
+            ForEach(urls, id: \.self) { url in
+                KFImage(url)
+                    .placeholder { Color.gray.opacity(0.12) }
+                    .downsampling(size: CGSize(width: 120, height: 120))
+                    .scaleFactor(UIScreen.main.scale)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 120, height: 120)
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .accessibilityLabel("訪問時の写真")
+            }
+        }
+        .task(id: spot.id) {
+            urls = []
+            var found: [URL] = []
+            // 訪問記のAPIは妖怪ごとなので、関連妖怪の分を取ってこの場所だけ残す
+            for yokaiId in spot.yokaiIds {
+                let logs = (try? await SpotLogAPI.list(yokaiId: yokaiId)) ?? []
+                found += logs.filter { $0.spotName == spot.spotName && $0.prefecture == spot.prefecture }
+                    .flatMap(\.photoURLs)
+            }
+            guard !Task.isCancelled else { return }
+            urls = found
+        }
+    }
+}
+#endif
